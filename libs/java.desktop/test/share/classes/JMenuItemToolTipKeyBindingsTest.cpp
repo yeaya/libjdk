@@ -4,12 +4,10 @@
 #include <JMenuItemToolTipKeyBindingsTest$2.h>
 #include <java/awt/Button.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dialog.h>
 #include <java/awt/Frame.h>
 #include <java/awt/Panel.h>
 #include <java/awt/TextArea.h>
-#include <java/awt/TextComponent.h>
 #include <java/awt/event/ActionListener.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
@@ -33,12 +31,10 @@ using $JMenuItemToolTipKeyBindingsTest$1 = ::JMenuItemToolTipKeyBindingsTest$1;
 using $JMenuItemToolTipKeyBindingsTest$2 = ::JMenuItemToolTipKeyBindingsTest$2;
 using $Button = ::java::awt::Button;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dialog = ::java::awt::Dialog;
 using $Frame = ::java::awt::Frame;
 using $Panel = ::java::awt::Panel;
 using $TextArea = ::java::awt::TextArea;
-using $TextComponent = ::java::awt::TextComponent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;

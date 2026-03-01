@@ -1,30 +1,20 @@
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane$1.h>
 
-#include <com/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane$FrameButton.h>
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane$SystemButton.h>
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/event/ActionEvent.h>
-#include <javax/swing/AbstractButton.h>
-#include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JPopupMenu.h>
 #include <jcpp.h>
 
 using $MotifInternalFrameTitlePane = ::com::sun::java::swing::plaf::motif::MotifInternalFrameTitlePane;
-using $MotifInternalFrameTitlePane$FrameButton = ::com::sun::java::swing::plaf::motif::MotifInternalFrameTitlePane$FrameButton;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
-using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JPopupMenu = ::javax::swing::JPopupMenu;
 
 namespace com {

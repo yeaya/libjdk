@@ -2,11 +2,9 @@
 
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/PropertyManager.h>
-#include <com/sun/org/apache/xerces/internal/impl/XML11DocumentScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XML11NSDocumentScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDTDScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDocumentFragmentScannerImpl$Driver.h>
-#include <com/sun/org/apache/xerces/internal/impl/XMLDocumentFragmentScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDocumentScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLEntityManager.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLEntityScanner.h>
@@ -39,13 +37,11 @@
 #include <com/sun/xml/internal/stream/events/NotationDeclarationImpl.h>
 #include <java/io/BufferedInputStream.h>
 #include <java/io/BufferedReader.h>
-#include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/Reader.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -94,10 +90,8 @@
 
 using $Constants = ::com::sun::org::apache::xerces::internal::impl::Constants;
 using $PropertyManager = ::com::sun::org::apache::xerces::internal::impl::PropertyManager;
-using $XML11DocumentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XML11DocumentScannerImpl;
 using $XML11NSDocumentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XML11NSDocumentScannerImpl;
 using $XMLDTDScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLDTDScannerImpl;
-using $XMLDocumentFragmentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentFragmentScannerImpl;
 using $XMLDocumentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentScannerImpl;
 using $XMLEntityManager = ::com::sun::org::apache::xerces::internal::impl::XMLEntityManager;
 using $XMLEntityScanner = ::com::sun::org::apache::xerces::internal::impl::XMLEntityScanner;
@@ -128,14 +122,12 @@ using $EntityDeclarationImpl = ::com::sun::xml::internal::stream::events::Entity
 using $NotationDeclarationImpl = ::com::sun::xml::internal::stream::events::NotationDeclarationImpl;
 using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $BufferedReader = ::java::io::BufferedReader;
-using $FilterInputStream = ::java::io::FilterInputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $Reader = ::java::io::Reader;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $IllegalStateException = ::java::lang::IllegalStateException;
@@ -143,7 +135,6 @@ using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;

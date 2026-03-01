@@ -45,7 +45,6 @@
 #include <java/util/Stack.h>
 #include <org/w3c/dom/Attr.h>
 #include <org/w3c/dom/CDATASection.h>
-#include <org/w3c/dom/CharacterData.h>
 #include <org/w3c/dom/Comment.h>
 #include <org/w3c/dom/DOMError.h>
 #include <org/w3c/dom/DOMErrorHandler.h>
@@ -164,7 +163,6 @@ using $Locale = ::java::util::Locale;
 using $Stack = ::java::util::Stack;
 using $Attr = ::org::w3c::dom::Attr;
 using $CDATASection = ::org::w3c::dom::CDATASection;
-using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Comment = ::org::w3c::dom::Comment;
 using $DOMError = ::org::w3c::dom::DOMError;
 using $DOMErrorHandler = ::org::w3c::dom::DOMErrorHandler;

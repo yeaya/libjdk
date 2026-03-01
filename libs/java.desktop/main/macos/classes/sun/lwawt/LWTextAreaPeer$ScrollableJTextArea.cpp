@@ -1,27 +1,21 @@
 #include <sun/lwawt/LWTextAreaPeer$ScrollableJTextArea.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/JTextArea.h>
 #include <javax/swing/JViewport.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <sun/lwawt/LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate.h>
 #include <sun/lwawt/LWTextAreaPeer.h>
 #include <jcpp.h>
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JTextArea = ::javax::swing::JTextArea;
 using $JViewport = ::javax::swing::JViewport;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $LWTextAreaPeer = ::sun::lwawt::LWTextAreaPeer;
 using $LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate = ::sun::lwawt::LWTextAreaPeer$ScrollableJTextArea$JTextAreaDelegate;
 

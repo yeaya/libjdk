@@ -2,14 +2,12 @@
 
 #include <java/awt/Button.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dialog.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Frame.h>
 #include <java/awt/Label.h>
 #include <java/awt/Panel.h>
 #include <java/awt/Rectangle.h>
-#include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
 #include <sun/awt/windows/WPrinterJob.h>
@@ -17,14 +15,12 @@
 
 using $Button = ::java::awt::Button;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dialog = ::java::awt::Dialog;
 using $Dimension = ::java::awt::Dimension;
 using $Frame = ::java::awt::Frame;
 using $Label = ::java::awt::Label;
 using $Panel = ::java::awt::Panel;
 using $Rectangle = ::java::awt::Rectangle;
-using $Window = ::java::awt::Window;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $ClassInfo = ::java::lang::ClassInfo;

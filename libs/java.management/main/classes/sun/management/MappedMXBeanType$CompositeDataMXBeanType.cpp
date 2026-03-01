@@ -2,7 +2,6 @@
 
 #include <java/lang/AssertionError.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/management/LockInfo.h>
 #include <java/lang/management/MemoryNotificationInfo.h>
 #include <java/lang/management/MemoryUsage.h>
@@ -15,7 +14,6 @@
 #include <java/security/PrivilegedAction.h>
 #include <java/security/PrivilegedActionException.h>
 #include <java/security/PrivilegedExceptionAction.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <java/util/Set.h>
@@ -42,12 +40,10 @@ using $OpenTypeArray = $Array<::javax::management::openmbean::OpenType>;
 using $AssertionError = ::java::lang::AssertionError;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $Void = ::java::lang::Void;
 using $LockInfo = ::java::lang::management::LockInfo;
 using $MemoryNotificationInfo = ::java::lang::management::MemoryNotificationInfo;
@@ -61,7 +57,6 @@ using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $Set = ::java::util::Set;

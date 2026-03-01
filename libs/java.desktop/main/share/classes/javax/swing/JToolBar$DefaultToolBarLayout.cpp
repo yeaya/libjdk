@@ -6,7 +6,6 @@
 #include <java/awt/LayoutManager2.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <javax/swing/BoxLayout.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JToolBar.h>
 #include <jcpp.h>
 
@@ -25,7 +24,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BoxLayout = ::javax::swing::BoxLayout;
-using $JComponent = ::javax::swing::JComponent;
 using $JToolBar = ::javax::swing::JToolBar;
 
 namespace javax {

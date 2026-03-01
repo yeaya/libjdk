@@ -10,7 +10,6 @@
 #include <java/awt/event/NativeLibLoader.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/util/Arrays.h>
 #include <sun/awt/AWTAccessor$InputEventAccessor.h>
@@ -51,16 +50,13 @@ using $InputEvent$1 = ::java::awt::event::InputEvent$1;
 using $NativeLibLoader = ::java::awt::event::NativeLibLoader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $Arrays = ::java::util::Arrays;
 using $AWTAccessor = ::sun::awt::AWTAccessor;

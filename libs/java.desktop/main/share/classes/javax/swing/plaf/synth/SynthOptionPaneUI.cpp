@@ -10,7 +10,6 @@
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/Box.h>
@@ -21,7 +20,6 @@
 #include <javax/swing/JSeparator.h>
 #include <javax/swing/SwingConstants.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/OptionPaneUI.h>
 #include <javax/swing/plaf/basic/BasicOptionPaneUI.h>
 #include <javax/swing/plaf/synth/SynthConstants.h>
 #include <javax/swing/plaf/synth/SynthContext.h>
@@ -47,7 +45,6 @@ using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $Insets = ::java::awt::Insets;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -60,7 +57,6 @@ using $JPanel = ::javax::swing::JPanel;
 using $JSeparator = ::javax::swing::JSeparator;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $OptionPaneUI = ::javax::swing::plaf::OptionPaneUI;
 using $BasicOptionPaneUI = ::javax::swing::plaf::basic::BasicOptionPaneUI;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;

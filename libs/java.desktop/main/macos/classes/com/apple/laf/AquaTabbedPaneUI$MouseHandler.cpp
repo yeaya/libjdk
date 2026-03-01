@@ -7,7 +7,6 @@
 #include <com/apple/laf/AquaTabbedPaneUI.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
@@ -16,7 +15,6 @@
 #include <java/awt/event/MouseEvent.h>
 #include <java/util/EventObject.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JMenuItem.h>
 #include <javax/swing/JPopupMenu.h>
 #include <javax/swing/JTabbedPane.h>
@@ -33,7 +31,6 @@ using $AquaTabbedPaneUI$MouseHandler$2 = ::com::apple::laf::AquaTabbedPaneUI$Mou
 using $AquaTabbedPaneUI$MouseHandler$3 = ::com::apple::laf::AquaTabbedPaneUI$MouseHandler$3;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
@@ -44,7 +41,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JMenuItem = ::javax::swing::JMenuItem;
 using $JPopupMenu = ::javax::swing::JPopupMenu;
 using $JTabbedPane = ::javax::swing::JTabbedPane;

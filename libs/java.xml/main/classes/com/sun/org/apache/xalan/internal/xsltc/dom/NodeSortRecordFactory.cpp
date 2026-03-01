@@ -11,7 +11,6 @@
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/InstantiationException.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/text/Collator.h>
@@ -42,7 +41,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InstantiationException = ::java::lang::InstantiationException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $Constructor = ::java::lang::reflect::Constructor;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $Collator = ::java::text::Collator;

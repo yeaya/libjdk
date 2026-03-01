@@ -8,7 +8,6 @@
 #include <javax/swing/text/Element.h>
 #include <javax/swing/text/GlyphView$GlyphPainter.h>
 #include <javax/swing/text/GlyphView.h>
-#include <javax/swing/text/LabelView.h>
 #include <javax/swing/text/Segment.h>
 #include <javax/swing/text/StyledDocument.h>
 #include <javax/swing/text/View.h>
@@ -29,7 +28,6 @@ using $Document = ::javax::swing::text::Document;
 using $Element = ::javax::swing::text::Element;
 using $GlyphView = ::javax::swing::text::GlyphView;
 using $GlyphView$GlyphPainter = ::javax::swing::text::GlyphView$GlyphPainter;
-using $LabelView = ::javax::swing::text::LabelView;
 using $Segment = ::javax::swing::text::Segment;
 using $StyledDocument = ::javax::swing::text::StyledDocument;
 using $View = ::javax::swing::text::View;

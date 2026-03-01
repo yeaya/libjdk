@@ -5,18 +5,15 @@
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBase.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators$InternalAxisIteratorBase.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators.h>
-#include <com/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2DTM2.h>
 #include <jcpp.h>
 
 #undef ROOTNODE
 
 using $DTMAxisIterator = ::com::sun::org::apache::xml::internal::dtm::DTMAxisIterator;
-using $DTMAxisIteratorBase = ::com::sun::org::apache::xml::internal::dtm::ref::DTMAxisIteratorBase;
 using $DTMDefaultBase = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBase;
 using $DTMDefaultBaseIterators = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators;
 using $DTMDefaultBaseIterators$InternalAxisIteratorBase = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators$InternalAxisIteratorBase;
-using $SAX2DTM = ::com::sun::org::apache::xml::internal::dtm::ref::sax2dtm::SAX2DTM;
 using $SAX2DTM2 = ::com::sun::org::apache::xml::internal::dtm::ref::sax2dtm::SAX2DTM2;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

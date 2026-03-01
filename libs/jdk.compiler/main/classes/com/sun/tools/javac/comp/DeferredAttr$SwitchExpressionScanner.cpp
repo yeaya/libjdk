@@ -4,7 +4,6 @@
 #include <com/sun/tools/javac/comp/DeferredAttr.h>
 #include <com/sun/tools/javac/tree/JCTree$Tag.h>
 #include <java/lang/Enum.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/EnumSet.h>
 #include <java/util/Set.h>
 #include <jcpp.h>
@@ -30,7 +29,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractSet = ::java::util::AbstractSet;
 using $EnumSet = ::java::util::EnumSet;
 using $Set = ::java::util::Set;
 

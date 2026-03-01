@@ -18,7 +18,6 @@
 #include <java/awt/image/DataBuffer.h>
 #include <java/awt/image/DirectColorModel.h>
 #include <java/awt/image/ImageObserver.h>
-#include <java/awt/image/PackedColorModel.h>
 #include <java/awt/image/VolatileImage.h>
 #include <java/lang/Math.h>
 #include <java/lang/Runnable.h>
@@ -81,7 +80,6 @@ using $ColorModel = ::java::awt::image::ColorModel;
 using $DataBuffer = ::java::awt::image::DataBuffer;
 using $DirectColorModel = ::java::awt::image::DirectColorModel;
 using $ImageObserver = ::java::awt::image::ImageObserver;
-using $PackedColorModel = ::java::awt::image::PackedColorModel;
 using $VolatileImage = ::java::awt::image::VolatileImage;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;

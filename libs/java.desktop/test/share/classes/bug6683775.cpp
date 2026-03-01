@@ -2,8 +2,6 @@
 
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
-#include <java/awt/Frame.h>
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/GraphicsDevice$WindowTranslucency.h>
 #include <java/awt/GraphicsDevice.h>
@@ -19,7 +17,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/SwingUtilities.h>
@@ -35,8 +32,6 @@ using $GraphicsConfigurationArray = $Array<::java::awt::GraphicsConfiguration>;
 using $GraphicsDeviceArray = $Array<::java::awt::GraphicsDevice>;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
-using $Frame = ::java::awt::Frame;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $GraphicsDevice = ::java::awt::GraphicsDevice;
 using $GraphicsDevice$WindowTranslucency = ::java::awt::GraphicsDevice$WindowTranslucency;
@@ -52,7 +47,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JPanel = ::javax::swing::JPanel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;

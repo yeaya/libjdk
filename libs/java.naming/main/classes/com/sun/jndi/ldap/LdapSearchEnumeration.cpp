@@ -27,7 +27,6 @@
 #include <java/security/PrivilegedExceptionAction.h>
 #include <java/util/Hashtable.h>
 #include <java/util/Vector.h>
-#include <javax/naming/Binding.h>
 #include <javax/naming/CompositeName.h>
 #include <javax/naming/Context.h>
 #include <javax/naming/Name.h>
@@ -72,7 +71,6 @@ using $AccessController = ::java::security::AccessController;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Vector = ::java::util::Vector;
-using $Binding = ::javax::naming::Binding;
 using $CompositeName = ::javax::naming::CompositeName;
 using $Context = ::javax::naming::Context;
 using $Name = ::javax::naming::Name;

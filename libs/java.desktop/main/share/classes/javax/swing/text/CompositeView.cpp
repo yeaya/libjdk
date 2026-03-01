@@ -2,10 +2,7 @@
 
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/lang/Math.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
 #include <java/util/HashSet.h>
@@ -33,14 +30,11 @@ using $Position$BiasArray = $Array<::javax::swing::text::Position$Bias>;
 using $ViewArray = $Array<::javax::swing::text::View>;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
 using $HashSet = ::java::util::HashSet;

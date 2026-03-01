@@ -7,7 +7,6 @@
 #include <java/awt/Frame.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/Window.h>
-#include <java/awt/event/WindowAdapter.h>
 #include <java/awt/event/WindowStateListener.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JFrame.h>
@@ -20,7 +19,6 @@ using $Color = ::java::awt::Color;
 using $Container = ::java::awt::Container;
 using $Frame = ::java::awt::Frame;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $WindowAdapter = ::java::awt::event::WindowAdapter;
 using $WindowStateListener = ::java::awt::event::WindowStateListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

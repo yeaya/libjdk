@@ -25,7 +25,6 @@
 #include <java/security/spec/KeySpec.h>
 #include <java/util/Arrays.h>
 #include <javax/xml/crypto/MarshalException.h>
-#include <org/w3c/dom/CharacterData.h>
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/Element.h>
 #include <org/w3c/dom/Node.h>
@@ -66,7 +65,6 @@ using $InvalidKeySpecException = ::java::security::spec::InvalidKeySpecException
 using $KeySpec = ::java::security::spec::KeySpec;
 using $Arrays = ::java::util::Arrays;
 using $MarshalException = ::javax::xml::crypto::MarshalException;
-using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;

@@ -8,7 +8,6 @@
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/DirectColorModel.h>
-#include <java/awt/image/PackedColorModel.h>
 #include <sun/print/PrinterGraphicsDevice.h>
 #include <jcpp.h>
 
@@ -25,7 +24,6 @@ using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $DirectColorModel = ::java::awt::image::DirectColorModel;
-using $PackedColorModel = ::java::awt::image::PackedColorModel;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

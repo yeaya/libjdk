@@ -8,7 +8,6 @@
 #include <com/sun/media/sound/SoftMixingMixerProvider.h>
 #include <com/sun/media/sound/SoftMixingSourceDataLine.h>
 #include <java/io/IOException.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <javax/sound/sampled/AudioFormat$Encoding.h>
@@ -63,7 +62,6 @@ using $Float = ::java::lang::Float;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $AudioFormat = ::javax::sound::sampled::AudioFormat;

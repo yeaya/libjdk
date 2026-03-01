@@ -41,8 +41,6 @@
 #include <java/lang/Runnable.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/ArrayList.h>
 #include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
@@ -170,7 +168,6 @@ using $BufferCapabilities = ::java::awt::BufferCapabilities;
 using $BufferCapabilities$FlipContents = ::java::awt::BufferCapabilities$FlipContents;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dialog = ::java::awt::Dialog;
 using $Dimension = ::java::awt::Dimension;
 using $EventQueue = ::java::awt::EventQueue;
@@ -215,8 +212,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractSet = ::java::util::AbstractSet;
 using $ArrayList = ::java::util::ArrayList;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
@@ -249,9 +244,7 @@ using $XAtomList = ::sun::awt::X11::XAtomList;
 using $XAwtState = ::sun::awt::X11::XAwtState;
 using $XBaseWindow = ::sun::awt::X11::XBaseWindow;
 using $XButtonEvent = ::sun::awt::X11::XButtonEvent;
-using $XCanvasPeer = ::sun::awt::X11::XCanvasPeer;
 using $XClientMessageEvent = ::sun::awt::X11::XClientMessageEvent;
-using $XComponentPeer = ::sun::awt::X11::XComponentPeer;
 using $XConfigureEvent = ::sun::awt::X11::XConfigureEvent;
 using $XConstants = ::sun::awt::X11::XConstants;
 using $XCreateWindowParams = ::sun::awt::X11::XCreateWindowParams;

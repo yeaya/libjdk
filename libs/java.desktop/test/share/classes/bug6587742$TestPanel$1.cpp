@@ -2,21 +2,14 @@
 
 #include <bug6587742$TestPanel.h>
 #include <bug6587742.h>
-#include <java/applet/Applet.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
-#include <java/awt/Panel.h>
 #include <java/awt/event/ItemEvent.h>
-#include <javax/swing/JApplet.h>
 #include <javax/swing/JComboBox.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JOptionPane.h>
-#include <javax/swing/JPanel.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/UnsupportedLookAndFeelException.h>
-#include <javax/swing/plaf/basic/BasicLookAndFeel.h>
 #include <javax/swing/plaf/metal/MetalLookAndFeel.h>
 #include <javax/swing/plaf/metal/MetalTheme.h>
 #include <jcpp.h>
@@ -25,26 +18,19 @@
 
 using $bug6587742 = ::bug6587742;
 using $bug6587742$TestPanel = ::bug6587742$TestPanel;
-using $Applet = ::java::applet::Applet;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
-using $Panel = ::java::awt::Panel;
 using $ItemEvent = ::java::awt::event::ItemEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JApplet = ::javax::swing::JApplet;
 using $JComboBox = ::javax::swing::JComboBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JOptionPane = ::javax::swing::JOptionPane;
-using $JPanel = ::javax::swing::JPanel;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $UnsupportedLookAndFeelException = ::javax::swing::UnsupportedLookAndFeelException;
-using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
 using $MetalTheme = ::javax::swing::plaf::metal::MetalTheme;
 

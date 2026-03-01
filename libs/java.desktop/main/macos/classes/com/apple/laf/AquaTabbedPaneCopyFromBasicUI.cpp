@@ -31,21 +31,16 @@
 #include <java/awt/event/FocusListener.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/awt/event/MouseMotionListener.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/lang/Math.h>
 #include <java/util/Hashtable.h>
 #include <java/util/Vector.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
-#include <javax/swing/ComponentInputMap.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/InputMap.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComponent.h>
-#include <javax/swing/JPanel.h>
 #include <javax/swing/JTabbedPane.h>
 #include <javax/swing/JViewport.h>
 #include <javax/swing/KeyStroke.h>
@@ -58,13 +53,11 @@
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/TabbedPaneUI.h>
 #include <javax/swing/plaf/UIResource.h>
-#include <javax/swing/plaf/basic/BasicArrowButton.h>
 #include <javax/swing/plaf/basic/BasicGraphicsUtils.h>
 #include <javax/swing/plaf/basic/BasicHTML.h>
 #include <javax/swing/text/View.h>
 #include <sun/swing/DefaultLookup.h>
 #include <sun/swing/SwingUtilities2.h>
-#include <sun/swing/UIAction.h>
 #include <jcpp.h>
 
 #undef ALT_MASK
@@ -119,7 +112,6 @@ using $AquaUtils = ::com::apple::laf::AquaUtils;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Component$BaselineResizeBehavior = ::java::awt::Component$BaselineResizeBehavior;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Event = ::java::awt::Event;
 using $Font = ::java::awt::Font;
@@ -135,8 +127,6 @@ using $ContainerListener = ::java::awt::event::ContainerListener;
 using $FocusListener = ::java::awt::event::FocusListener;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -149,17 +139,13 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Hashtable = ::java::util::Hashtable;
 using $Vector = ::java::util::Vector;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
-using $ComponentInputMap = ::javax::swing::ComponentInputMap;
 using $Icon = ::javax::swing::Icon;
 using $InputMap = ::javax::swing::InputMap;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
-using $JPanel = ::javax::swing::JPanel;
 using $JTabbedPane = ::javax::swing::JTabbedPane;
-using $JViewport = ::javax::swing::JViewport;
 using $KeyStroke = ::javax::swing::KeyStroke;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingConstants = ::javax::swing::SwingConstants;
@@ -170,13 +156,11 @@ using $ComponentInputMapUIResource = ::javax::swing::plaf::ComponentInputMapUIRe
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $TabbedPaneUI = ::javax::swing::plaf::TabbedPaneUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
-using $BasicArrowButton = ::javax::swing::plaf::basic::BasicArrowButton;
 using $BasicGraphicsUtils = ::javax::swing::plaf::basic::BasicGraphicsUtils;
 using $BasicHTML = ::javax::swing::plaf::basic::BasicHTML;
 using $View = ::javax::swing::text::View;
 using $DefaultLookup = ::sun::swing::DefaultLookup;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
-using $UIAction = ::sun::swing::UIAction;
 
 namespace com {
 	namespace apple {

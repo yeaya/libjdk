@@ -10,7 +10,6 @@
 #include <java/awt/MenuBar.h>
 #include <java/awt/MenuComponent.h>
 #include <java/awt/MenuContainer.h>
-#include <java/awt/MenuItem.h>
 #include <java/awt/event/ComponentEvent.h>
 #include <java/awt/event/ComponentListener.h>
 #include <java/awt/event/ContainerEvent.h>
@@ -22,9 +21,7 @@
 #include <java/util/Hashtable.h>
 #include <java/util/Vector.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JMenu.h>
 #include <javax/swing/JMenuBar.h>
 #include <javax/swing/JMenuItem.h>
@@ -39,13 +36,11 @@ using $ScreenMenu = ::com::apple::laf::ScreenMenu;
 using $ScreenMenuPropertyHandler = ::com::apple::laf::ScreenMenuPropertyHandler;
 using $ScreenMenuPropertyListener = ::com::apple::laf::ScreenMenuPropertyListener;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Font = ::java::awt::Font;
 using $Menu = ::java::awt::Menu;
 using $MenuBar = ::java::awt::MenuBar;
 using $MenuComponent = ::java::awt::MenuComponent;
 using $MenuContainer = ::java::awt::MenuContainer;
-using $MenuItem = ::java::awt::MenuItem;
 using $ComponentEvent = ::java::awt::event::ComponentEvent;
 using $ComponentListener = ::java::awt::event::ComponentListener;
 using $ContainerEvent = ::java::awt::event::ContainerEvent;
@@ -58,9 +53,7 @@ using $Enumeration = ::java::util::Enumeration;
 using $Hashtable = ::java::util::Hashtable;
 using $Vector = ::java::util::Vector;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $Icon = ::javax::swing::Icon;
-using $JComponent = ::javax::swing::JComponent;
 using $JMenu = ::javax::swing::JMenu;
 using $JMenuBar = ::javax::swing::JMenuBar;
 using $JMenuItem = ::javax::swing::JMenuItem;

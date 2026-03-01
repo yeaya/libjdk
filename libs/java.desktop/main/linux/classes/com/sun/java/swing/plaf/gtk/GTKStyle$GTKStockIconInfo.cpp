@@ -3,7 +3,6 @@
 #include <com/sun/java/swing/plaf/gtk/GTKStyle.h>
 #include <java/awt/Dimension.h>
 #include <java/lang/StringBuffer.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <sun/awt/AppContext.h>
@@ -20,7 +19,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $AppContext = ::sun::awt::AppContext;

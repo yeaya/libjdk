@@ -10,7 +10,6 @@
 #include <javax/sql/RowSetWriter.h>
 #include <javax/sql/rowset/spi/SyncProvider.h>
 #include <javax/sql/rowset/spi/SyncProviderException.h>
-#include <javax/sql/rowset/spi/TransactionalWriter.h>
 #include <jcpp.h>
 
 #undef DATASOURCE_NO_LOCK
@@ -23,7 +22,6 @@ using $CachedRowSetWriter = ::com::sun::rowset::internal::CachedRowSetWriter;
 using $IOException = ::java::io::IOException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
@@ -32,7 +30,6 @@ using $RowSetReader = ::javax::sql::RowSetReader;
 using $RowSetWriter = ::javax::sql::RowSetWriter;
 using $SyncProvider = ::javax::sql::rowset::spi::SyncProvider;
 using $SyncProviderException = ::javax::sql::rowset::spi::SyncProviderException;
-using $TransactionalWriter = ::javax::sql::rowset::spi::TransactionalWriter;
 
 namespace com {
 	namespace sun {

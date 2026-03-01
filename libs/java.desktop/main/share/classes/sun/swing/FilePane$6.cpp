@@ -2,8 +2,6 @@
 
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
-#include <java/awt/event/ComponentEvent.h>
-#include <java/awt/event/InputEvent.h>
 #include <java/awt/event/KeyEvent.h>
 #include <javax/swing/JFileChooser.h>
 #include <javax/swing/JTable.h>
@@ -18,8 +16,6 @@
 #undef VK_ESCAPE
 
 using $AWTEvent = ::java::awt::AWTEvent;
-using $ComponentEvent = ::java::awt::event::ComponentEvent;
-using $InputEvent = ::java::awt::event::InputEvent;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

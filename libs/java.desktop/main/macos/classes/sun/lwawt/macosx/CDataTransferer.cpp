@@ -12,7 +12,6 @@
 #include <java/nio/charset/StandardCharsets.h>
 #include <java/text/Normalizer$Form.h>
 #include <java/text/Normalizer.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
@@ -60,7 +59,6 @@ using $Charset = ::java::nio::charset::Charset;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $Normalizer = ::java::text::Normalizer;
 using $Normalizer$Form = ::java::text::Normalizer$Form;
-using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;

@@ -4,7 +4,6 @@
 #include <java/awt/Toolkit.h>
 #include <java/awt/im/spi/InputMethod.h>
 #include <java/util/Locale.h>
-#include <sun/awt/im/InputMethodAdapter.h>
 #include <sun/awt/windows/WInputMethod.h>
 #include <jcpp.h>
 
@@ -15,7 +14,6 @@ using $InputMethod = ::java::awt::im::spi::InputMethod;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Locale = ::java::util::Locale;
-using $InputMethodAdapter = ::sun::awt::im::InputMethodAdapter;
 using $WInputMethod = ::sun::awt::windows::WInputMethod;
 
 namespace sun {

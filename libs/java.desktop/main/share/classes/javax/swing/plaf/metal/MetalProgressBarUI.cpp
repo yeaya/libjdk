@@ -3,7 +3,6 @@
 #include <java/awt/BasicStroke.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/Insets.h>
@@ -13,7 +12,6 @@
 #include <javax/swing/JProgressBar.h>
 #include <javax/swing/plaf/ColorUIResource.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/ProgressBarUI.h>
 #include <javax/swing/plaf/basic/BasicProgressBarUI.h>
 #include <javax/swing/plaf/metal/MetalLookAndFeel.h>
 #include <javax/swing/plaf/metal/MetalUtils.h>
@@ -24,7 +22,6 @@
 using $BasicStroke = ::java::awt::BasicStroke;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Insets = ::java::awt::Insets;
@@ -37,7 +34,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $JProgressBar = ::javax::swing::JProgressBar;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $ProgressBarUI = ::javax::swing::plaf::ProgressBarUI;
 using $BasicProgressBarUI = ::javax::swing::plaf::basic::BasicProgressBarUI;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
 using $MetalUtils = ::javax::swing::plaf::metal::MetalUtils;

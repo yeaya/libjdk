@@ -11,9 +11,7 @@
 #include <java/lang/Math.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
-#include <java/security/GeneralSecurityException.h>
 #include <java/security/NoSuchAlgorithmException.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
@@ -25,7 +23,6 @@
 #include <javax/security/auth/callback/CallbackHandler.h>
 #include <javax/security/auth/callback/NameCallback.h>
 #include <javax/security/auth/callback/PasswordCallback.h>
-#include <javax/security/auth/callback/TextInputCallback.h>
 #include <javax/security/auth/callback/UnsupportedCallbackException.h>
 #include <javax/security/sasl/AuthorizeCallback.h>
 #include <javax/security/sasl/RealmCallback.h>
@@ -75,16 +72,13 @@ using $AbstractSaslImpl = ::com::sun::security::sasl::util::AbstractSaslImpl;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $List = ::java::util::List;
@@ -96,7 +90,6 @@ using $Callback = ::javax::security::auth::callback::Callback;
 using $CallbackHandler = ::javax::security::auth::callback::CallbackHandler;
 using $NameCallback = ::javax::security::auth::callback::NameCallback;
 using $PasswordCallback = ::javax::security::auth::callback::PasswordCallback;
-using $TextInputCallback = ::javax::security::auth::callback::TextInputCallback;
 using $UnsupportedCallbackException = ::javax::security::auth::callback::UnsupportedCallbackException;
 using $AuthorizeCallback = ::javax::security::sasl::AuthorizeCallback;
 using $RealmCallback = ::javax::security::sasl::RealmCallback;

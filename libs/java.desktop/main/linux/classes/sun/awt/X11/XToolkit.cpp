@@ -1,6 +1,5 @@
 #include <sun/awt/X11/XToolkit.h>
 
-#include <com/sun/java/swing/plaf/motif/MotifLookAndFeel.h>
 #include <java/awt/AWTError.h>
 #include <java/awt/AWTEvent.h>
 #include <java/awt/AWTException.h>
@@ -12,7 +11,6 @@
 #include <java/awt/Choice.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Cursor.h>
 #include <java/awt/Desktop.h>
 #include <java/awt/Dialog$ModalExclusionType.h>
@@ -112,7 +110,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/security/AccessController.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/util/AbstractCollection.h>
@@ -126,7 +123,6 @@
 #include <java/util/List.h>
 #include <java/util/Map$Entry.h>
 #include <java/util/Map.h>
-#include <java/util/NavigableMap.h>
 #include <java/util/NoSuchElementException.h>
 #include <java/util/Properties.h>
 #include <java/util/Set.h>
@@ -137,19 +133,15 @@
 #include <java/util/function/BiConsumer.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/UIDefaults.h>
-#include <javax/swing/plaf/basic/BasicLookAndFeel.h>
 #include <jdk/internal/misc/Unsafe.h>
 #include <sun/awt/AWTAccessor$ComponentAccessor.h>
 #include <sun/awt/AWTAccessor$EventQueueAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <sun/awt/AWTPermissions.h>
 #include <sun/awt/AppContext.h>
-#include <sun/awt/CustomCursor.h>
 #include <sun/awt/DisplayChangedListener.h>
 #include <sun/awt/EmbeddedFrame.h>
-#include <sun/awt/KeyboardFocusManagerPeerImpl.h>
 #include <sun/awt/LightweightFrame.h>
-#include <sun/awt/PlatformFont.h>
 #include <sun/awt/SunToolkit.h>
 #include <sun/awt/UNIXToolkit.h>
 #include <sun/awt/X11/GtkFileDialogPeer.h>
@@ -227,16 +219,12 @@
 #include <sun/awt/X11/XkbEvent.h>
 #include <sun/awt/X11/XlibUtil.h>
 #include <sun/awt/X11/XlibWrapper.h>
-#include <sun/awt/X11CustomCursor.h>
 #include <sun/awt/X11GraphicsConfig.h>
 #include <sun/awt/X11GraphicsDevice.h>
 #include <sun/awt/X11GraphicsEnvironment.h>
 #include <sun/awt/X11InputMethodBase.h>
-#include <sun/awt/X11InputMethodDescriptor.h>
 #include <sun/awt/XSettings.h>
 #include <sun/awt/datatransfer/DataTransferer.h>
-#include <sun/awt/datatransfer/SunClipboard.h>
-#include <sun/awt/dnd/SunDragSourceContextPeer.h>
 #include <sun/awt/util/PerformanceLogger.h>
 #include <sun/awt/util/ThreadGroupUtils.h>
 #include <sun/font/FontConfigManager.h>
@@ -301,7 +289,6 @@
 #undef _XA_JAVA_TIME_PROPERTY_ATOM
 
 using $StackTraceElementArray = $Array<::java::lang::StackTraceElement>;
-using $MotifLookAndFeel = ::com::sun::java::swing::plaf::motif::MotifLookAndFeel;
 using $AWTError = ::java::awt::AWTError;
 using $AWTException = ::java::awt::AWTException;
 using $Button = ::java::awt::Button;
@@ -311,7 +298,6 @@ using $CheckboxMenuItem = ::java::awt::CheckboxMenuItem;
 using $Choice = ::java::awt::Choice;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Cursor = ::java::awt::Cursor;
 using $Desktop = ::java::awt::Desktop;
 using $Dialog = ::java::awt::Dialog;
@@ -417,7 +403,6 @@ using $ThreadDeath = ::java::lang::ThreadDeath;
 using $Void = ::java::lang::Void;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AbstractCollection = ::java::util::AbstractCollection;
@@ -431,7 +416,6 @@ using $LinkedList = ::java::util::LinkedList;
 using $1List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
-using $NavigableMap = ::java::util::NavigableMap;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $Properties = ::java::util::Properties;
 using $Set = ::java::util::Set;
@@ -442,19 +426,15 @@ using $TimeUnit = ::java::util::concurrent::TimeUnit;
 using $BiConsumer = ::java::util::function::BiConsumer;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIDefaults = ::javax::swing::UIDefaults;
-using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
 using $Unsafe = ::jdk::internal::misc::Unsafe;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
 using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $AWTAccessor$EventQueueAccessor = ::sun::awt::AWTAccessor$EventQueueAccessor;
 using $AWTPermissions = ::sun::awt::AWTPermissions;
 using $AppContext = ::sun::awt::AppContext;
-using $CustomCursor = ::sun::awt::CustomCursor;
 using $DisplayChangedListener = ::sun::awt::DisplayChangedListener;
 using $EmbeddedFrame = ::sun::awt::EmbeddedFrame;
-using $KeyboardFocusManagerPeerImpl = ::sun::awt::KeyboardFocusManagerPeerImpl;
 using $LightweightFrame = ::sun::awt::LightweightFrame;
-using $PlatformFont = ::sun::awt::PlatformFont;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $UNIXToolkit = ::sun::awt::UNIXToolkit;
 using $GtkFileDialogPeer = ::sun::awt::X11::GtkFileDialogPeer;
@@ -532,15 +512,11 @@ using $XkbAnyEvent = ::sun::awt::X11::XkbAnyEvent;
 using $XkbEvent = ::sun::awt::X11::XkbEvent;
 using $XlibUtil = ::sun::awt::X11::XlibUtil;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
-using $X11CustomCursor = ::sun::awt::X11CustomCursor;
 using $X11GraphicsConfig = ::sun::awt::X11GraphicsConfig;
 using $X11GraphicsDevice = ::sun::awt::X11GraphicsDevice;
 using $X11GraphicsEnvironment = ::sun::awt::X11GraphicsEnvironment;
-using $X11InputMethodDescriptor = ::sun::awt::X11InputMethodDescriptor;
 using $XSettings = ::sun::awt::XSettings;
 using $DataTransferer = ::sun::awt::datatransfer::DataTransferer;
-using $SunClipboard = ::sun::awt::datatransfer::SunClipboard;
-using $SunDragSourceContextPeer = ::sun::awt::dnd::SunDragSourceContextPeer;
 using $PerformanceLogger = ::sun::awt::util::PerformanceLogger;
 using $ThreadGroupUtils = ::sun::awt::util::ThreadGroupUtils;
 using $FontConfigManager = ::sun::font::FontConfigManager;

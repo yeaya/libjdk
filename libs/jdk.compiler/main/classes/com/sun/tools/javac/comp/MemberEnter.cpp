@@ -16,7 +16,6 @@
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Symtab.h>
 #include <com/sun/tools/javac/code/Type$ArrayType.h>
-#include <com/sun/tools/javac/code/Type$DelegatedType.h>
 #include <com/sun/tools/javac/code/Type$ForAll.h>
 #include <com/sun/tools/javac/code/Type$JCNoType.h>
 #include <com/sun/tools/javac/code/Type$JCVoidType.h>
@@ -34,14 +33,12 @@
 #include <com/sun/tools/javac/comp/Env.h>
 #include <com/sun/tools/javac/comp/MemberEnter$InitTreeVisitor.h>
 #include <com/sun/tools/javac/resources/CompilerProperties$Errors.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCClassDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCErroneous.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCIdent.h>
 #include <com/sun/tools/javac/tree/JCTree$JCMethodDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCModifiers.h>
-#include <com/sun/tools/javac/tree/JCTree$JCStatement.h>
 #include <com/sun/tools/javac/tree/JCTree$JCTypeParameter.h>
 #include <com/sun/tools/javac/tree/JCTree$JCVariableDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$Visitor.h>
@@ -86,7 +83,6 @@ using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
-using $Type$DelegatedType = ::com::sun::tools::javac::code::Type$DelegatedType;
 using $Type$ForAll = ::com::sun::tools::javac::code::Type$ForAll;
 using $Type$MethodType = ::com::sun::tools::javac::code::Type$MethodType;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
@@ -102,12 +98,10 @@ using $Env = ::com::sun::tools::javac::comp::Env;
 using $MemberEnter$InitTreeVisitor = ::com::sun::tools::javac::comp::MemberEnter$InitTreeVisitor;
 using $CompilerProperties$Errors = ::com::sun::tools::javac::resources::CompilerProperties$Errors;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCErroneous = ::com::sun::tools::javac::tree::JCTree$JCErroneous;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCIdent = ::com::sun::tools::javac::tree::JCTree$JCIdent;
 using $JCTree$JCMethodDecl = ::com::sun::tools::javac::tree::JCTree$JCMethodDecl;
-using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
 using $JCTree$JCTypeParameter = ::com::sun::tools::javac::tree::JCTree$JCTypeParameter;
 using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariableDecl;
 using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;

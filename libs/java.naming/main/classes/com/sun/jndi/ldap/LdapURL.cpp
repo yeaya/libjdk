@@ -2,7 +2,6 @@
 
 #include <com/sun/jndi/toolkit/url/Uri.h>
 #include <com/sun/jndi/toolkit/url/UrlUtil.h>
-#include <java/io/IOException.h>
 #include <java/io/UnsupportedEncodingException.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/net/MalformedURLException.h>
@@ -14,10 +13,8 @@
 
 using $Uri = ::com::sun::jndi::toolkit::url::Uri;
 using $UrlUtil = ::com::sun::jndi::toolkit::url::UrlUtil;
-using $IOException = ::java::io::IOException;
 using $UnsupportedEncodingException = ::java::io::UnsupportedEncodingException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;

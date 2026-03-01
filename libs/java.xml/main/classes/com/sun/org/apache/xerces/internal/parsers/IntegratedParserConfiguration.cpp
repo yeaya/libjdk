@@ -1,12 +1,9 @@
 #include <com/sun/org/apache/xerces/internal/parsers/IntegratedParserConfiguration.h>
 
-#include <com/sun/org/apache/xerces/internal/impl/RevalidationHandler.h>
-#include <com/sun/org/apache/xerces/internal/impl/XMLDocumentFragmentScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDocumentScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLErrorReporter.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLNSDocumentScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLNamespaceBinder.h>
-#include <com/sun/org/apache/xerces/internal/impl/XMLScanner.h>
 #include <com/sun/org/apache/xerces/internal/impl/dtd/XMLDTDValidator.h>
 #include <com/sun/org/apache/xerces/internal/impl/dtd/XMLDTDValidatorFilter.h>
 #include <com/sun/org/apache/xerces/internal/impl/dtd/XMLNSDTDValidator.h>
@@ -39,12 +36,9 @@
 #undef TRUE
 #undef XMLSCHEMA_VALIDATION
 
-using $RevalidationHandler = ::com::sun::org::apache::xerces::internal::impl::RevalidationHandler;
-using $XMLDocumentFragmentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentFragmentScannerImpl;
 using $XMLDocumentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentScannerImpl;
 using $XMLErrorReporter = ::com::sun::org::apache::xerces::internal::impl::XMLErrorReporter;
 using $XMLNSDocumentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLNSDocumentScannerImpl;
-using $XMLScanner = ::com::sun::org::apache::xerces::internal::impl::XMLScanner;
 using $XMLDTDValidator = ::com::sun::org::apache::xerces::internal::impl::dtd::XMLDTDValidator;
 using $XMLDTDValidatorFilter = ::com::sun::org::apache::xerces::internal::impl::dtd::XMLDTDValidatorFilter;
 using $XMLNSDTDValidator = ::com::sun::org::apache::xerces::internal::impl::dtd::XMLNSDTDValidator;

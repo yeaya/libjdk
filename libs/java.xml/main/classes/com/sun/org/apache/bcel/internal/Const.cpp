@@ -2,7 +2,6 @@
 
 #include <java/lang/Iterable.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -391,7 +390,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 
 namespace com {

@@ -2,7 +2,6 @@
 
 #include <com/sun/org/apache/xerces/internal/impl/xs/traversers/Container.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/traversers/OneAttr.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <jcpp.h>
@@ -13,7 +12,6 @@ using $OneAttr = ::com::sun::org::apache::xerces::internal::impl::xs::traversers
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 

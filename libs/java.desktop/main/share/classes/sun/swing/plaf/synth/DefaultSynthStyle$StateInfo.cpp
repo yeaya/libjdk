@@ -2,7 +2,6 @@
 
 #include <java/awt/Color.h>
 #include <java/awt/Font.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Arrays.h>
 #include <java/util/HashMap.h>
 #include <java/util/List.h>
@@ -19,7 +18,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Arrays = ::java::util::Arrays;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;

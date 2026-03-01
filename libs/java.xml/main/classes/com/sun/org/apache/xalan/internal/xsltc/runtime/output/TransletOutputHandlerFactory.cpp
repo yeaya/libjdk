@@ -1,21 +1,16 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/output/TransletOutputHandlerFactory.h>
 
 #include <com/sun/org/apache/xalan/internal/xsltc/trax/SAX2DOM.h>
-#include <com/sun/org/apache/xalan/internal/xsltc/trax/SAX2StAXBaseWriter.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/trax/SAX2StAXEventWriter.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/trax/SAX2StAXStreamWriter.h>
 #include <com/sun/org/apache/xml/internal/serializer/SerializationHandler.h>
-#include <com/sun/org/apache/xml/internal/serializer/SerializerBase.h>
 #include <com/sun/org/apache/xml/internal/serializer/ToHTMLSAXHandler.h>
 #include <com/sun/org/apache/xml/internal/serializer/ToHTMLStream.h>
-#include <com/sun/org/apache/xml/internal/serializer/ToSAXHandler.h>
-#include <com/sun/org/apache/xml/internal/serializer/ToStream.h>
 #include <com/sun/org/apache/xml/internal/serializer/ToTextSAXHandler.h>
 #include <com/sun/org/apache/xml/internal/serializer/ToTextStream.h>
 #include <com/sun/org/apache/xml/internal/serializer/ToUnknownStream.h>
 #include <com/sun/org/apache/xml/internal/serializer/ToXMLSAXHandler.h>
 #include <com/sun/org/apache/xml/internal/serializer/ToXMLStream.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/Writer.h>
 #include <javax/xml/stream/XMLEventWriter.h>
@@ -24,7 +19,6 @@
 #include <org/w3c/dom/Node.h>
 #include <org/xml/sax/ContentHandler.h>
 #include <org/xml/sax/ext/LexicalHandler.h>
-#include <org/xml/sax/helpers/DefaultHandler.h>
 #include <jcpp.h>
 
 #undef DOM
@@ -33,21 +27,16 @@
 #undef STREAM
 
 using $SAX2DOM = ::com::sun::org::apache::xalan::internal::xsltc::trax::SAX2DOM;
-using $SAX2StAXBaseWriter = ::com::sun::org::apache::xalan::internal::xsltc::trax::SAX2StAXBaseWriter;
 using $SAX2StAXEventWriter = ::com::sun::org::apache::xalan::internal::xsltc::trax::SAX2StAXEventWriter;
 using $SAX2StAXStreamWriter = ::com::sun::org::apache::xalan::internal::xsltc::trax::SAX2StAXStreamWriter;
 using $SerializationHandler = ::com::sun::org::apache::xml::internal::serializer::SerializationHandler;
-using $SerializerBase = ::com::sun::org::apache::xml::internal::serializer::SerializerBase;
 using $ToHTMLSAXHandler = ::com::sun::org::apache::xml::internal::serializer::ToHTMLSAXHandler;
 using $ToHTMLStream = ::com::sun::org::apache::xml::internal::serializer::ToHTMLStream;
-using $ToSAXHandler = ::com::sun::org::apache::xml::internal::serializer::ToSAXHandler;
-using $ToStream = ::com::sun::org::apache::xml::internal::serializer::ToStream;
 using $ToTextSAXHandler = ::com::sun::org::apache::xml::internal::serializer::ToTextSAXHandler;
 using $ToTextStream = ::com::sun::org::apache::xml::internal::serializer::ToTextStream;
 using $ToUnknownStream = ::com::sun::org::apache::xml::internal::serializer::ToUnknownStream;
 using $ToXMLSAXHandler = ::com::sun::org::apache::xml::internal::serializer::ToXMLSAXHandler;
 using $ToXMLStream = ::com::sun::org::apache::xml::internal::serializer::ToXMLStream;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -59,7 +48,6 @@ using $ErrorListener = ::javax::xml::transform::ErrorListener;
 using $Node = ::org::w3c::dom::Node;
 using $ContentHandler = ::org::xml::sax::ContentHandler;
 using $LexicalHandler = ::org::xml::sax::ext::LexicalHandler;
-using $DefaultHandler = ::org::xml::sax::helpers::DefaultHandler;
 
 namespace com {
 	namespace sun {

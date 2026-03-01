@@ -22,7 +22,6 @@
 #include <java/security/PermissionCollection.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/security/ProtectionDomain.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <java/util/Map.h>
@@ -39,7 +38,6 @@
 #include <javax/management/AttributeNotFoundException.h>
 #include <javax/management/InstanceNotFoundException.h>
 #include <javax/management/IntrospectionException.h>
-#include <javax/management/JMException.h>
 #include <javax/management/MBeanAttributeInfo.h>
 #include <javax/management/MBeanException.h>
 #include <javax/management/MBeanInfo.h>
@@ -48,7 +46,6 @@
 #include <javax/management/Notification.h>
 #include <javax/management/NotificationBroadcasterSupport.h>
 #include <javax/management/ObjectName.h>
-#include <javax/management/OperationsException.h>
 #include <javax/management/ReflectionException.h>
 #include <javax/management/monitor/Monitor$1.h>
 #include <javax/management/monitor/Monitor$DaemonThreadFactory.h>
@@ -85,7 +82,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Comparable = ::java::lang::Comparable;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $Double = ::java::lang::Double;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -107,7 +103,6 @@ using $CodeSource = ::java::security::CodeSource;
 using $PermissionCollection = ::java::security::PermissionCollection;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ProtectionDomain = ::java::security::ProtectionDomain;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
@@ -124,7 +119,6 @@ using $Supplier = ::java::util::function::Supplier;
 using $AttributeNotFoundException = ::javax::management::AttributeNotFoundException;
 using $InstanceNotFoundException = ::javax::management::InstanceNotFoundException;
 using $IntrospectionException = ::javax::management::IntrospectionException;
-using $JMException = ::javax::management::JMException;
 using $MBeanAttributeInfo = ::javax::management::MBeanAttributeInfo;
 using $MBeanException = ::javax::management::MBeanException;
 using $MBeanInfo = ::javax::management::MBeanInfo;
@@ -133,7 +127,6 @@ using $MBeanServerConnection = ::javax::management::MBeanServerConnection;
 using $Notification = ::javax::management::Notification;
 using $NotificationBroadcasterSupport = ::javax::management::NotificationBroadcasterSupport;
 using $ObjectName = ::javax::management::ObjectName;
-using $OperationsException = ::javax::management::OperationsException;
 using $ReflectionException = ::javax::management::ReflectionException;
 using $Monitor$1 = ::javax::management::monitor::Monitor$1;
 using $Monitor$DaemonThreadFactory = ::javax::management::monitor::Monitor$DaemonThreadFactory;

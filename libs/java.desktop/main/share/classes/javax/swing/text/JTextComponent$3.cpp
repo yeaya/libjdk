@@ -9,7 +9,6 @@
 #include <java/util/concurrent/ExecutionException.h>
 #include <java/util/concurrent/Future.h>
 #include <java/util/concurrent/FutureTask.h>
-#include <java/util/concurrent/RunnableFuture.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/JTextComponent$3$1.h>
 #include <javax/swing/text/JTextComponent$3$2.h>
@@ -22,7 +21,6 @@ using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $Error = ::java::lang::Error;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
@@ -33,7 +31,6 @@ using $Callable = ::java::util::concurrent::Callable;
 using $ExecutionException = ::java::util::concurrent::ExecutionException;
 using $Future = ::java::util::concurrent::Future;
 using $FutureTask = ::java::util::concurrent::FutureTask;
-using $RunnableFuture = ::java::util::concurrent::RunnableFuture;
 using $Document = ::javax::swing::text::Document;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $JTextComponent$3$1 = ::javax::swing::text::JTextComponent$3$1;

@@ -24,9 +24,7 @@
 #include <java/awt/image/ColorModel.h>
 #include <java/util/Locale.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JTable.h>
-#include <javax/swing/table/AbstractTableModel.h>
 #include <javax/swing/table/JTableHeader.h>
 #include <javax/swing/table/TableColumn.h>
 #include <javax/swing/table/TableColumnModel.h>
@@ -68,9 +66,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
-using $JComponent = ::javax::swing::JComponent;
 using $JTable = ::javax::swing::JTable;
-using $AbstractTableModel = ::javax::swing::table::AbstractTableModel;
 using $JTableHeader = ::javax::swing::table::JTableHeader;
 using $TableColumn = ::javax::swing::table::TableColumn;
 using $TableColumnModel = ::javax::swing::table::TableColumnModel;

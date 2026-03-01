@@ -2,7 +2,6 @@
 
 #include <bug8041982.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Image.h>
 #include <java/beans/PropertyChangeEvent.h>
@@ -16,7 +15,6 @@
 
 using $bug8041982 = ::bug8041982;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $Image = ::java::awt::Image;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;

@@ -16,7 +16,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <javax/swing/JComboBox.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/WindowConstants.h>
 #include <jcpp.h>
@@ -27,7 +26,6 @@
 
 using $bug8057893$1 = ::bug8057893$1;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $EventQueue = ::java::awt::EventQueue;
 using $Robot = ::java::awt::Robot;
 using $ActionListener = ::java::awt::event::ActionListener;
@@ -41,7 +39,6 @@ using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $JComboBox = ::javax::swing::JComboBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $WindowConstants = ::javax::swing::WindowConstants;
 

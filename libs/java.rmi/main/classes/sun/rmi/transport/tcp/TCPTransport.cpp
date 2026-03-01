@@ -22,7 +22,6 @@
 #include <java/net/BindException.h>
 #include <java/net/ServerSocket.h>
 #include <java/net/Socket.h>
-#include <java/net/SocketException.h>
 #include <java/rmi/server/ExportException.h>
 #include <java/rmi/server/LogStream.h>
 #include <java/rmi/server/RMISocketFactory.h>
@@ -36,8 +35,6 @@
 #include <java/security/Permissions.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/security/ProtectionDomain.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/Iterator.h>
@@ -45,7 +42,6 @@
 #include <java/util/List.h>
 #include <java/util/Map.h>
 #include <java/util/WeakHashMap.h>
-#include <java/util/concurrent/AbstractExecutorService.h>
 #include <java/util/concurrent/BlockingQueue.h>
 #include <java/util/concurrent/ExecutorService.h>
 #include <java/util/concurrent/SynchronousQueue.h>
@@ -101,7 +97,6 @@ using $WeakReference = ::java::lang::ref::WeakReference;
 using $BindException = ::java::net::BindException;
 using $ServerSocket = ::java::net::ServerSocket;
 using $Socket = ::java::net::Socket;
-using $SocketException = ::java::net::SocketException;
 using $ExportException = ::java::rmi::server::ExportException;
 using $LogStream = ::java::rmi::server::LogStream;
 using $RMISocketFactory = ::java::rmi::server::RMISocketFactory;
@@ -115,8 +110,6 @@ using $PermissionCollection = ::java::security::PermissionCollection;
 using $Permissions = ::java::security::Permissions;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ProtectionDomain = ::java::security::ProtectionDomain;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
@@ -124,7 +117,6 @@ using $LinkedList = ::java::util::LinkedList;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $WeakHashMap = ::java::util::WeakHashMap;
-using $AbstractExecutorService = ::java::util::concurrent::AbstractExecutorService;
 using $BlockingQueue = ::java::util::concurrent::BlockingQueue;
 using $ExecutorService = ::java::util::concurrent::ExecutorService;
 using $SynchronousQueue = ::java::util::concurrent::SynchronousQueue;

@@ -46,7 +46,6 @@ using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JMenuBar = ::javax::swing::JMenuBar;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $MenuBarUI = ::javax::swing::plaf::MenuBarUI;
 using $BasicMenuBarUI = ::javax::swing::plaf::basic::BasicMenuBarUI;
 using $LWCToolkit = ::sun::lwawt::macosx::LWCToolkit;
 using $GetBooleanAction = ::sun::security::action::GetBooleanAction;

@@ -3,7 +3,6 @@
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/event/ContainerListener.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
@@ -26,7 +25,6 @@
 #include <javax/swing/plaf/basic/DefaultMenuLayout.h>
 #include <javax/swing/plaf/basic/LazyActionMap.h>
 #include <sun/swing/DefaultLookup.h>
-#include <sun/swing/UIAction.h>
 #include <jcpp.h>
 
 #undef LINE_AXIS
@@ -37,7 +35,6 @@
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $ContainerListener = ::java::awt::event::ContainerListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -63,7 +60,6 @@ using $BasicMenuBarUI$Handler = ::javax::swing::plaf::basic::BasicMenuBarUI$Hand
 using $DefaultMenuLayout = ::javax::swing::plaf::basic::DefaultMenuLayout;
 using $LazyActionMap = ::javax::swing::plaf::basic::LazyActionMap;
 using $DefaultLookup = ::sun::swing::DefaultLookup;
-using $UIAction = ::sun::swing::UIAction;
 
 namespace javax {
 	namespace swing {

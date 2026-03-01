@@ -7,11 +7,9 @@
 #include <java/awt/Dimension.h>
 #include <java/awt/FlowLayout.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
-#include <java/awt/event/WindowAdapter.h>
 #include <java/awt/event/WindowListener.h>
 #include <java/io/Serializable.h>
 #include <java/lang/InterruptedException.h>
@@ -23,10 +21,8 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/util/concurrent/CountDownLatch.h>
 #include <java/util/concurrent/TimeUnit.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/BorderFactory.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JDialog.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JLabel.h>
@@ -36,10 +32,8 @@
 #include <javax/swing/Timer.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/WindowConstants.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/TitledBorder.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef CENTER
@@ -56,14 +50,11 @@ using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $FlowLayout = ::java::awt::FlowLayout;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $WindowAdapter = ::java::awt::event::WindowAdapter;
 using $WindowListener = ::java::awt::event::WindowListener;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
@@ -74,10 +65,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $BorderFactory = ::javax::swing::BorderFactory;
 using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JDialog = ::javax::swing::JDialog;
 using $JFrame = ::javax::swing::JFrame;
 using $JLabel = ::javax::swing::JLabel;
@@ -87,9 +76,7 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $Timer = ::javax::swing::Timer;
 using $UIManager = ::javax::swing::UIManager;
 using $WindowConstants = ::javax::swing::WindowConstants;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 class TitledBorderLabel$$Lambda$lambda$main$0 : public $Runnable {
 	$class(TitledBorderLabel$$Lambda$lambda$main$0, $NO_CLASS_INIT, $Runnable)

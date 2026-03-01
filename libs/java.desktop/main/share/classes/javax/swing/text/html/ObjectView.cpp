@@ -2,14 +2,12 @@
 
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/beans/BeanInfo.h>
 #include <java/beans/IntrospectionException.h>
 #include <java/beans/Introspector.h>
 #include <java/beans/PropertyDescriptor.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/reflect/Method.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/ComponentView.h>
@@ -25,7 +23,6 @@
 using $PropertyDescriptorArray = $Array<::java::beans::PropertyDescriptor>;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $BeanInfo = ::java::beans::BeanInfo;
 using $IntrospectionException = ::java::beans::IntrospectionException;
 using $Introspector = ::java::beans::Introspector;
@@ -35,7 +32,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Method = ::java::lang::reflect::Method;
-using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $ComponentView = ::javax::swing::text::ComponentView;

@@ -4,13 +4,11 @@
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/comp/AttrRecover$1$1.h>
 #include <com/sun/tools/javac/comp/AttrRecover.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCClassDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCErroneous.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCLambda.h>
 #include <com/sun/tools/javac/tree/JCTree$JCReturn.h>
-#include <com/sun/tools/javac/tree/JCTree$JCStatement.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <com/sun/tools/javac/tree/TreeMaker.h>
 #include <com/sun/tools/javac/tree/TreeTranslator.h>
@@ -28,13 +26,10 @@
 using $AttrRecover = ::com::sun::tools::javac::comp::AttrRecover;
 using $AttrRecover$1$1 = ::com::sun::tools::javac::comp::AttrRecover$1$1;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$JCErroneous = ::com::sun::tools::javac::tree::JCTree$JCErroneous;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCLambda = ::com::sun::tools::javac::tree::JCTree$JCLambda;
 using $JCTree$JCReturn = ::com::sun::tools::javac::tree::JCTree$JCReturn;
-using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
 using $TreeMaker = ::com::sun::tools::javac::tree::TreeMaker;
 using $TreeTranslator = ::com::sun::tools::javac::tree::TreeTranslator;
 using $List = ::com::sun::tools::javac::util::List;

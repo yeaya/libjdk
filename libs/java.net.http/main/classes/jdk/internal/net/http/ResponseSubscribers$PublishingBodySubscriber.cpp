@@ -2,10 +2,8 @@
 
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Error.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/InternalError.h>
-#include <java/lang/VirtualMachineError.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -13,7 +11,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/util/List.h>
 #include <java/util/Objects.h>
-#include <java/util/concurrent/CompletableFuture.h>
 #include <java/util/concurrent/CompletionStage.h>
 #include <java/util/concurrent/Flow$Publisher.h>
 #include <java/util/concurrent/Flow$Subscriber.h>
@@ -34,21 +31,16 @@
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Error = ::java::lang::Error;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $RuntimeException = ::java::lang::RuntimeException;
-using $VirtualMachineError = ::java::lang::VirtualMachineError;
 using $Void = ::java::lang::Void;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;
-using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $CompletionStage = ::java::util::concurrent::CompletionStage;
 using $Flow$Publisher = ::java::util::concurrent::Flow$Publisher;
 using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;

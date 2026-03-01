@@ -2,7 +2,6 @@
 
 #include <com/sun/org/apache/xml/internal/serializer/AttributesImplSerializer.h>
 #include <com/sun/org/apache/xml/internal/serializer/DOMSerializer.h>
-#include <com/sun/org/apache/xml/internal/serializer/ExtendedContentHandler.h>
 #include <com/sun/org/apache/xml/internal/serializer/Method.h>
 #include <com/sun/org/apache/xml/internal/serializer/NamespaceMappings.h>
 #include <com/sun/org/apache/xml/internal/serializer/OutputPropertiesFactory.h>
@@ -11,12 +10,10 @@
 #include <com/sun/org/apache/xml/internal/serializer/SerializerBase.h>
 #include <com/sun/org/apache/xml/internal/serializer/SerializerFactory.h>
 #include <com/sun/org/apache/xml/internal/serializer/SerializerTrace.h>
-#include <com/sun/org/apache/xml/internal/serializer/ToStream.h>
 #include <com/sun/org/apache/xml/internal/serializer/ToXMLStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/Writer.h>
 #include <java/lang/StringBuffer.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <java/util/Properties.h>
@@ -29,7 +26,6 @@
 #include <org/xml/sax/Locator.h>
 #include <org/xml/sax/SAXException.h>
 #include <org/xml/sax/ext/LexicalHandler.h>
-#include <org/xml/sax/helpers/AttributesImpl.h>
 #include <jcpp.h>
 
 #undef EMPTYSTRING
@@ -37,7 +33,6 @@
 #undef HTML
 
 using $DOMSerializer = ::com::sun::org::apache::xml::internal::serializer::DOMSerializer;
-using $ExtendedContentHandler = ::com::sun::org::apache::xml::internal::serializer::ExtendedContentHandler;
 using $Method = ::com::sun::org::apache::xml::internal::serializer::Method;
 using $NamespaceMappings = ::com::sun::org::apache::xml::internal::serializer::NamespaceMappings;
 using $OutputPropertiesFactory = ::com::sun::org::apache::xml::internal::serializer::OutputPropertiesFactory;
@@ -46,7 +41,6 @@ using $Serializer = ::com::sun::org::apache::xml::internal::serializer::Serializ
 using $SerializerBase = ::com::sun::org::apache::xml::internal::serializer::SerializerBase;
 using $SerializerFactory = ::com::sun::org::apache::xml::internal::serializer::SerializerFactory;
 using $SerializerTrace = ::com::sun::org::apache::xml::internal::serializer::SerializerTrace;
-using $ToStream = ::com::sun::org::apache::xml::internal::serializer::ToStream;
 using $ToXMLStream = ::com::sun::org::apache::xml::internal::serializer::ToXMLStream;
 using $OutputStream = ::java::io::OutputStream;
 using $Writer = ::java::io::Writer;
@@ -55,7 +49,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $StringBuffer = ::java::lang::StringBuffer;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $Properties = ::java::util::Properties;
@@ -67,7 +60,6 @@ using $Attributes = ::org::xml::sax::Attributes;
 using $ContentHandler = ::org::xml::sax::ContentHandler;
 using $Locator = ::org::xml::sax::Locator;
 using $SAXException = ::org::xml::sax::SAXException;
-using $AttributesImpl = ::org::xml::sax::helpers::AttributesImpl;
 
 namespace com {
 	namespace sun {

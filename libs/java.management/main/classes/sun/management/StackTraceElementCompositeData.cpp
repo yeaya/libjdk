@@ -3,7 +3,6 @@
 #include <java/lang/AssertionError.h>
 #include <java/lang/StackTraceElement.h>
 #include <java/lang/reflect/Type.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <javax/management/openmbean/CompositeData.h>
@@ -39,7 +38,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $StackTraceElement = ::java::lang::StackTraceElement;
 using $Type = ::java::lang::reflect::Type;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $CompositeData = ::javax::management::openmbean::CompositeData;

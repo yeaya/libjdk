@@ -7,7 +7,6 @@
 #include <java/awt/Container.h>
 #include <java/awt/FocusTraversalPolicy.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/KeyEvent.h>
@@ -20,18 +19,13 @@
 #include <java/lang/invoke/MethodType.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/ButtonGroup.h>
-#include <javax/swing/InternalFrameFocusTraversalPolicy.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/JRadioButton.h>
 #include <javax/swing/JTextField.h>
-#include <javax/swing/JToggleButton.h>
 #include <javax/swing/LayoutFocusTraversalPolicy.h>
-#include <javax/swing/SortingFocusTraversalPolicy.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef CENTER
@@ -42,10 +36,8 @@ using $bug8075609$1 = ::bug8075609$1;
 using $bug8075609$2 = ::bug8075609$2;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $FocusTraversalPolicy = ::java::awt::FocusTraversalPolicy;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Robot = ::java::awt::Robot;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $Serializable = ::java::io::Serializable;
@@ -57,18 +49,13 @@ using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AbstractButton = ::javax::swing::AbstractButton;
 using $ButtonGroup = ::javax::swing::ButtonGroup;
-using $InternalFrameFocusTraversalPolicy = ::javax::swing::InternalFrameFocusTraversalPolicy;
 using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JPanel = ::javax::swing::JPanel;
 using $JRadioButton = ::javax::swing::JRadioButton;
 using $JTextField = ::javax::swing::JTextField;
-using $JToggleButton = ::javax::swing::JToggleButton;
 using $LayoutFocusTraversalPolicy = ::javax::swing::LayoutFocusTraversalPolicy;
-using $SortingFocusTraversalPolicy = ::javax::swing::SortingFocusTraversalPolicy;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 class bug8075609$$Lambda$lambda$main$0 : public $Runnable {
 	$class(bug8075609$$Lambda$lambda$main$0, $NO_CLASS_INIT, $Runnable)

@@ -6,7 +6,6 @@
 #include <javax/swing/text/DefaultStyledDocument.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/Element.h>
-#include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/SimpleAttributeSet.h>
 #include <jcpp.h>
 
@@ -19,7 +18,6 @@ using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $DefaultStyledDocument = ::javax::swing::text::DefaultStyledDocument;
 using $Document = ::javax::swing::text::Document;
 using $Element = ::javax::swing::text::Element;
-using $MutableAttributeSet = ::javax::swing::text::MutableAttributeSet;
 using $SimpleAttributeSet = ::javax::swing::text::SimpleAttributeSet;
 
 $FieldInfo _StubLeafElement_FieldInfo_[] = {

@@ -23,10 +23,8 @@
 #include <java/util/HashMap.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/EmptyBorder.h>
-#include <javax/swing/border/LineBorder.h>
 #include <javax/swing/plaf/ColorUIResource.h>
 #include <sun/awt/windows/ThemeReader.h>
 #include <sun/security/action/GetPropertyAction.h>
@@ -71,10 +69,8 @@ using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $HashMap = ::java::util::HashMap;
 using $UIManager = ::javax::swing::UIManager;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;
-using $LineBorder = ::javax::swing::border::LineBorder;
 using $ColorUIResource = ::javax::swing::plaf::ColorUIResource;
 using $ThemeReader = ::sun::awt::windows::ThemeReader;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;

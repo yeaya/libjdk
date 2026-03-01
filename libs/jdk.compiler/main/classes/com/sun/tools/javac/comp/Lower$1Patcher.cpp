@@ -2,7 +2,6 @@
 
 #include <com/sun/tools/javac/comp/Lower.h>
 #include <com/sun/tools/javac/tree/JCTree$JCBreak.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCClassDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCContinue.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
@@ -14,7 +13,6 @@
 using $Lower = ::com::sun::tools::javac::comp::Lower;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCBreak = ::com::sun::tools::javac::tree::JCTree$JCBreak;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$JCContinue = ::com::sun::tools::javac::tree::JCTree$JCContinue;
 using $JCTree$JCYield = ::com::sun::tools::javac::tree::JCTree$JCYield;

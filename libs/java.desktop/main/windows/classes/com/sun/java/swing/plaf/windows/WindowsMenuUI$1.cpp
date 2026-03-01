@@ -6,7 +6,6 @@
 #include <com/sun/java/swing/plaf/windows/WindowsMenuItemUI.h>
 #include <com/sun/java/swing/plaf/windows/WindowsMenuUI.h>
 #include <java/awt/Container.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/ButtonModel.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JMenu.h>
@@ -35,7 +34,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $ButtonModel = ::javax::swing::ButtonModel;
 using $JComponent = ::javax::swing::JComponent;
 using $JMenu = ::javax::swing::JMenu;

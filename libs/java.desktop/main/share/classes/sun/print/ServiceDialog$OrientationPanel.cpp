@@ -6,7 +6,6 @@
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
 #include <java/util/EventObject.h>
@@ -22,7 +21,6 @@
 #include <javax/swing/ButtonGroup.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JPanel.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/TitledBorder.h>
 #include <sun/print/ServiceDialog$IconRadioButton.h>
@@ -43,7 +41,6 @@ using $Container = ::java::awt::Container;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -60,9 +57,7 @@ using $HashPrintRequestAttributeSet = ::javax::print::attribute::HashPrintReques
 using $OrientationRequested = ::javax::print::attribute::standard::OrientationRequested;
 using $BorderFactory = ::javax::swing::BorderFactory;
 using $ButtonGroup = ::javax::swing::ButtonGroup;
-using $JComponent = ::javax::swing::JComponent;
 using $JPanel = ::javax::swing::JPanel;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $ServiceDialog = ::sun::print::ServiceDialog;
 using $ServiceDialog$IconRadioButton = ::sun::print::ServiceDialog$IconRadioButton;

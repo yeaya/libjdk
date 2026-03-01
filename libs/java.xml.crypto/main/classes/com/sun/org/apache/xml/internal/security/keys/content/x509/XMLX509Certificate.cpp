@@ -8,7 +8,6 @@
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/security/GeneralSecurityException.h>
 #include <java/security/PublicKey.h>
 #include <java/security/cert/Certificate.h>
 #include <java/security/cert/CertificateEncodingException.h>
@@ -36,7 +35,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $PublicKey = ::java::security::PublicKey;
 using $CertificateEncodingException = ::java::security::cert::CertificateEncodingException;
 using $CertificateException = ::java::security::cert::CertificateException;

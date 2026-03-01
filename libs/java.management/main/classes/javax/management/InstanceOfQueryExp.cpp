@@ -12,11 +12,9 @@
 
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $BadStringOperationException = ::javax::management::BadStringOperationException;
 using $InstanceNotFoundException = ::javax::management::InstanceNotFoundException;
 using $MBeanServer = ::javax::management::MBeanServer;

@@ -6,9 +6,7 @@
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Symtab.h>
 #include <com/sun/tools/javac/code/Type$ArrayType.h>
-#include <com/sun/tools/javac/code/Type$ClassType.h>
 #include <com/sun/tools/javac/code/Type$ErrorType.h>
-#include <com/sun/tools/javac/code/Type$StructuralTypeMapping.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/TypeTag.h>
 #include <com/sun/tools/javac/code/Types$TypeMapping.h>
@@ -23,7 +21,6 @@
 #include <com/sun/tools/javac/comp/Check$CheckContext.h>
 #include <com/sun/tools/javac/comp/DeferredAttr$AttrMode.h>
 #include <com/sun/tools/javac/comp/DeferredAttr$AttributionMode.h>
-#include <com/sun/tools/javac/comp/DeferredAttr$DeferredTypeMap.h>
 #include <com/sun/tools/javac/comp/DeferredAttr$RecoveryDeferredTypeMap.h>
 #include <com/sun/tools/javac/comp/DeferredAttr.h>
 #include <com/sun/tools/javac/comp/Env.h>
@@ -74,9 +71,7 @@ using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
-using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
 using $Type$ErrorType = ::com::sun::tools::javac::code::Type$ErrorType;
-using $Type$StructuralTypeMapping = ::com::sun::tools::javac::code::Type$StructuralTypeMapping;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $Types$TypeMapping = ::com::sun::tools::javac::code::Types$TypeMapping;
@@ -89,7 +84,6 @@ using $AttrRecover$RecoveryErrorType = ::com::sun::tools::javac::comp::AttrRecov
 using $DeferredAttr = ::com::sun::tools::javac::comp::DeferredAttr;
 using $DeferredAttr$AttrMode = ::com::sun::tools::javac::comp::DeferredAttr$AttrMode;
 using $DeferredAttr$AttributionMode = ::com::sun::tools::javac::comp::DeferredAttr$AttributionMode;
-using $DeferredAttr$DeferredTypeMap = ::com::sun::tools::javac::comp::DeferredAttr$DeferredTypeMap;
 using $DeferredAttr$RecoveryDeferredTypeMap = ::com::sun::tools::javac::comp::DeferredAttr$RecoveryDeferredTypeMap;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;

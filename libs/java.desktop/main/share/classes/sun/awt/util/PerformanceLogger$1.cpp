@@ -2,14 +2,12 @@
 
 #include <java/io/File.h>
 #include <java/io/FileWriter.h>
-#include <java/io/OutputStreamWriter.h>
 #include <java/io/Writer.h>
 #include <sun/awt/util/PerformanceLogger.h>
 #include <jcpp.h>
 
 using $File = ::java::io::File;
 using $FileWriter = ::java::io::FileWriter;
-using $OutputStreamWriter = ::java::io::OutputStreamWriter;
 using $PrintStream = ::java::io::PrintStream;
 using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;

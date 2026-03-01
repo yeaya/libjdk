@@ -11,14 +11,12 @@
 #include <javax/swing/Icon.h>
 #include <javax/swing/ImageIcon.h>
 #include <javax/swing/JApplet.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/JTextArea.h>
 #include <javax/swing/SwingConstants.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef HTML_SAMPLES
@@ -41,14 +39,12 @@ using $URL = ::java::net::URL;
 using $Icon = ::javax::swing::Icon;
 using $ImageIcon = ::javax::swing::ImageIcon;
 using $JApplet = ::javax::swing::JApplet;
-using $JComponent = ::javax::swing::JComponent;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $JLabel = ::javax::swing::JLabel;
 using $JPanel = ::javax::swing::JPanel;
 using $JTextArea = ::javax::swing::JTextArea;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 $FieldInfo _bug7030332_FieldInfo_[] = {
 	{"HTML_SAMPLES", "[Ljava/lang/String;", nullptr, $PUBLIC | $STATIC | $FINAL, $staticField(bug7030332, HTML_SAMPLES)},

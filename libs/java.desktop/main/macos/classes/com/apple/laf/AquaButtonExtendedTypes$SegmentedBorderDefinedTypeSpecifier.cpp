@@ -6,8 +6,6 @@
 #include <apple/laf/JRSUIConstants$Widget.h>
 #include <apple/laf/JRSUIState.h>
 #include <com/apple/laf/AquaBorder.h>
-#include <com/apple/laf/AquaButtonBorder$Named.h>
-#include <com/apple/laf/AquaButtonBorder.h>
 #include <com/apple/laf/AquaButtonExtendedTypes$BorderDefinedTypeSpecifier.h>
 #include <com/apple/laf/AquaButtonExtendedTypes$SegmentedNamedBorder.h>
 #include <com/apple/laf/AquaButtonExtendedTypes.h>
@@ -24,8 +22,6 @@ using $JRSUIConstants$SegmentTrailingSeparator = ::apple::laf::JRSUIConstants$Se
 using $JRSUIConstants$Widget = ::apple::laf::JRSUIConstants$Widget;
 using $JRSUIState = ::apple::laf::JRSUIState;
 using $AquaBorder = ::com::apple::laf::AquaBorder;
-using $AquaButtonBorder = ::com::apple::laf::AquaButtonBorder;
-using $AquaButtonBorder$Named = ::com::apple::laf::AquaButtonBorder$Named;
 using $AquaButtonExtendedTypes$BorderDefinedTypeSpecifier = ::com::apple::laf::AquaButtonExtendedTypes$BorderDefinedTypeSpecifier;
 using $AquaButtonExtendedTypes$SegmentedNamedBorder = ::com::apple::laf::AquaButtonExtendedTypes$SegmentedNamedBorder;
 using $AquaUtilControlSize$SizeDescriptor = ::com::apple::laf::AquaUtilControlSize$SizeDescriptor;

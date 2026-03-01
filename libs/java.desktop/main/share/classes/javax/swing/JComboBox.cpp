@@ -1,9 +1,7 @@
 #include <javax/swing/JComboBox.h>
 
 #include <java/awt/AWTEvent.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/awt/EventQueue.h>
 #include <java/awt/ItemSelectable.h>
@@ -20,7 +18,6 @@
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
-#include <javax/swing/ActionPropertyChangeListener.h>
 #include <javax/swing/ComboBoxEditor.h>
 #include <javax/swing/ComboBoxModel.h>
 #include <javax/swing/DefaultComboBoxModel.h>
@@ -29,7 +26,6 @@
 #include <javax/swing/JComboBox$ComboBoxActionPropertyChangeListener.h>
 #include <javax/swing/JComboBox$DefaultKeySelectionManager.h>
 #include <javax/swing/JComboBox$KeySelectionManager.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JPopupMenu.h>
 #include <javax/swing/KeyStroke.h>
@@ -62,8 +58,6 @@ using $ItemListenerArray = $Array<::java::awt::event::ItemListener>;
 using $PopupMenuListenerArray = $Array<::javax::swing::event::PopupMenuListener>;
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $EventQueue = ::java::awt::EventQueue;
 using $ItemSelectable = ::java::awt::ItemSelectable;
 using $ActionEvent = ::java::awt::event::ActionEvent;
@@ -88,7 +82,6 @@ using $Vector = ::java::util::Vector;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AbstractAction = ::javax::swing::AbstractAction;
 using $Action = ::javax::swing::Action;
-using $ActionPropertyChangeListener = ::javax::swing::ActionPropertyChangeListener;
 using $ComboBoxEditor = ::javax::swing::ComboBoxEditor;
 using $ComboBoxModel = ::javax::swing::ComboBoxModel;
 using $DefaultComboBoxModel = ::javax::swing::DefaultComboBoxModel;
@@ -98,7 +91,6 @@ using $JComboBox$ComboBoxActionPropertyChangeListener = ::javax::swing::JComboBo
 using $JComboBox$DefaultKeySelectionManager = ::javax::swing::JComboBox$DefaultKeySelectionManager;
 using $JComboBox$KeySelectionManager = ::javax::swing::JComboBox$KeySelectionManager;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JPopupMenu = ::javax::swing::JPopupMenu;
 using $KeyStroke = ::javax::swing::KeyStroke;
 using $ListCellRenderer = ::javax::swing::ListCellRenderer;

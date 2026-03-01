@@ -10,7 +10,6 @@
 #include <com/sun/tools/javac/tree/JCTree$JCLabeledStatement.h>
 #include <com/sun/tools/javac/tree/JCTree$JCWhileLoop.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/HashSet.h>
 #include <java/util/Set.h>
 #include <jcpp.h>
@@ -30,7 +29,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractSet = ::java::util::AbstractSet;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
 

@@ -1,17 +1,12 @@
 #include <javax/swing/JSpinner.h>
 
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/util/EventListener.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/AbstractSpinnerModel.h>
 #include <javax/swing/Action.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
-#include <javax/swing/JPanel.h>
 #include <javax/swing/JSpinner$AccessibleJSpinner.h>
 #include <javax/swing/JSpinner$DateEditor.h>
 #include <javax/swing/JSpinner$DefaultEditor.h>
@@ -34,8 +29,6 @@
 #undef DISABLED_ACTION
 
 using $ChangeListenerArray = $Array<::javax::swing::event::ChangeListener>;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -48,11 +41,8 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $EventListener = ::java::util::EventListener;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $AbstractSpinnerModel = ::javax::swing::AbstractSpinnerModel;
 using $Action = ::javax::swing::Action;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
-using $JPanel = ::javax::swing::JPanel;
 using $JSpinner$AccessibleJSpinner = ::javax::swing::JSpinner$AccessibleJSpinner;
 using $JSpinner$DateEditor = ::javax::swing::JSpinner$DateEditor;
 using $JSpinner$DefaultEditor = ::javax::swing::JSpinner$DefaultEditor;

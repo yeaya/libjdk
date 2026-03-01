@@ -4,11 +4,8 @@
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantPool.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Field.h>
 #include <com/sun/org/apache/bcel/internal/generic/ACONST_NULL.h>
-#include <com/sun/org/apache/bcel/internal/generic/CPInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/DCONST.h>
-#include <com/sun/org/apache/bcel/internal/generic/FieldInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/FieldOrMethod.h>
 #include <com/sun/org/apache/bcel/internal/generic/ICONST.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionHandle.h>
@@ -23,7 +20,6 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode.h>
-#include <com/sun/org/apache/xalan/internal/xsltc/compiler/TopLevelElement.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/VariableBase.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/BooleanType.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator.h>
@@ -42,11 +38,8 @@
 using $AttributeArray = $Array<::com::sun::org::apache::bcel::internal::classfile::Attribute>;
 using $Field = ::com::sun::org::apache::bcel::internal::classfile::Field;
 using $ACONST_NULL = ::com::sun::org::apache::bcel::internal::generic::ACONST_NULL;
-using $CPInstruction = ::com::sun::org::apache::bcel::internal::generic::CPInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $DCONST = ::com::sun::org::apache::bcel::internal::generic::DCONST;
-using $FieldInstruction = ::com::sun::org::apache::bcel::internal::generic::FieldInstruction;
-using $FieldOrMethod = ::com::sun::org::apache::bcel::internal::generic::FieldOrMethod;
 using $ICONST = ::com::sun::org::apache::bcel::internal::generic::ICONST;
 using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
@@ -60,7 +53,6 @@ using $QName = ::com::sun::org::apache::xalan::internal::xsltc::compiler::QName;
 using $Stylesheet = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Stylesheet;
 using $SymbolTable = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SymbolTable;
 using $SyntaxTreeNode = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SyntaxTreeNode;
-using $TopLevelElement = ::com::sun::org::apache::xalan::internal::xsltc::compiler::TopLevelElement;
 using $VariableBase = ::com::sun::org::apache::xalan::internal::xsltc::compiler::VariableBase;
 using $BooleanType = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::BooleanType;
 using $ClassGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ClassGenerator;

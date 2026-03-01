@@ -1,7 +1,6 @@
 #include <Test8043627.h>
 
 #include <java/lang/SecurityManager.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/synth/SynthButtonUI.h>
@@ -11,7 +10,6 @@
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
 using $SynthButtonUI = ::javax::swing::plaf::synth::SynthButtonUI;

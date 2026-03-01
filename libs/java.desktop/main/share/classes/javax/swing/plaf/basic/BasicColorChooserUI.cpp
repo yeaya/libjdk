@@ -4,9 +4,7 @@
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
-#include <java/awt/Container.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/util/Locale.h>
@@ -18,7 +16,6 @@
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/TransferHandler.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/TitledBorder.h>
 #include <javax/swing/colorchooser/AbstractColorChooserPanel.h>
@@ -40,9 +37,7 @@
 using $AbstractColorChooserPanelArray = $Array<::javax::swing::colorchooser::AbstractColorChooserPanel>;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
@@ -58,7 +53,6 @@ using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $TransferHandler = ::javax::swing::TransferHandler;
 using $UIManager = ::javax::swing::UIManager;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $TitledBorder = ::javax::swing::border::TitledBorder;
 using $AbstractColorChooserPanel = ::javax::swing::colorchooser::AbstractColorChooserPanel;

@@ -24,7 +24,6 @@
 #include <javax/swing/UIManager.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/CompoundBorder.h>
-#include <javax/swing/plaf/ButtonUI.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/basic/BasicButtonUI.h>
 #include <javax/swing/plaf/basic/BasicGraphicsUtils.h>
@@ -61,7 +60,6 @@ using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
@@ -82,7 +80,6 @@ using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
 using $Border = ::javax::swing::border::Border;
 using $CompoundBorder = ::javax::swing::border::CompoundBorder;
-using $ButtonUI = ::javax::swing::plaf::ButtonUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $BasicButtonUI = ::javax::swing::plaf::basic::BasicButtonUI;
 using $BasicGraphicsUtils = ::javax::swing::plaf::basic::BasicGraphicsUtils;

@@ -26,7 +26,6 @@
 #include <javax/swing/text/rtf/RTFAttributes.h>
 #include <javax/swing/text/rtf/RTFParser.h>
 #include <javax/swing/text/rtf/RTFReader$1.h>
-#include <javax/swing/text/rtf/RTFReader$AttributeTrackingDestination.h>
 #include <javax/swing/text/rtf/RTFReader$ColortblDestination.h>
 #include <javax/swing/text/rtf/RTFReader$Destination.h>
 #include <javax/swing/text/rtf/RTFReader$DiscardingDestination.h>
@@ -34,7 +33,6 @@
 #include <javax/swing/text/rtf/RTFReader$FonttblDestination.h>
 #include <javax/swing/text/rtf/RTFReader$InfoDestination.h>
 #include <javax/swing/text/rtf/RTFReader$StylesheetDestination.h>
-#include <javax/swing/text/rtf/RTFReader$TextHandlingDestination.h>
 #include <jcpp.h>
 
 #undef TT_NUMBER
@@ -71,7 +69,6 @@ using $MockAttributeSet = ::javax::swing::text::rtf::MockAttributeSet;
 using $RTFAttributes = ::javax::swing::text::rtf::RTFAttributes;
 using $RTFParser = ::javax::swing::text::rtf::RTFParser;
 using $RTFReader$1 = ::javax::swing::text::rtf::RTFReader$1;
-using $RTFReader$AttributeTrackingDestination = ::javax::swing::text::rtf::RTFReader$AttributeTrackingDestination;
 using $RTFReader$ColortblDestination = ::javax::swing::text::rtf::RTFReader$ColortblDestination;
 using $RTFReader$Destination = ::javax::swing::text::rtf::RTFReader$Destination;
 using $RTFReader$DiscardingDestination = ::javax::swing::text::rtf::RTFReader$DiscardingDestination;
@@ -79,7 +76,6 @@ using $RTFReader$DocumentDestination = ::javax::swing::text::rtf::RTFReader$Docu
 using $RTFReader$FonttblDestination = ::javax::swing::text::rtf::RTFReader$FonttblDestination;
 using $RTFReader$InfoDestination = ::javax::swing::text::rtf::RTFReader$InfoDestination;
 using $RTFReader$StylesheetDestination = ::javax::swing::text::rtf::RTFReader$StylesheetDestination;
-using $RTFReader$TextHandlingDestination = ::javax::swing::text::rtf::RTFReader$TextHandlingDestination;
 
 namespace javax {
 	namespace swing {

@@ -37,7 +37,6 @@
 #include <com/sun/tools/javac/main/Option.h>
 #include <com/sun/tools/javac/resources/CompilerProperties$Errors.h>
 #include <com/sun/tools/javac/resources/CompilerProperties$Warnings.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCCompilationUnit.h>
 #include <com/sun/tools/javac/tree/JCTree$JCDirective.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
@@ -72,8 +71,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
@@ -169,7 +166,6 @@ using $Option = ::com::sun::tools::javac::main::Option;
 using $CompilerProperties$Errors = ::com::sun::tools::javac::resources::CompilerProperties$Errors;
 using $CompilerProperties$Warnings = ::com::sun::tools::javac::resources::CompilerProperties$Warnings;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCCompilationUnit = ::com::sun::tools::javac::tree::JCTree$JCCompilationUnit;
 using $JCTree$JCDirective = ::com::sun::tools::javac::tree::JCTree$JCDirective;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
@@ -194,7 +190,6 @@ using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
 using $Error = ::java::lang::Error;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -202,8 +197,6 @@ using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;

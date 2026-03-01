@@ -84,12 +84,8 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/AbstractQueue.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
-#include <java/util/HashMap.h>
-#include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
 #include <java/util/LinkedHashMap.h>
 #include <java/util/LinkedHashSet.h>
@@ -159,7 +155,6 @@ using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol
 using $Symbol$ModuleFlags = ::com::sun::tools::javac::code::Symbol$ModuleFlags;
 using $Symbol$ModuleSymbol = ::com::sun::tools::javac::code::Symbol$ModuleSymbol;
 using $Symbol$PackageSymbol = ::com::sun::tools::javac::code::Symbol$PackageSymbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $TargetType = ::com::sun::tools::javac::code::TargetType;
 using $Type = ::com::sun::tools::javac::code::Type;
@@ -217,12 +212,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityException = ::java::lang::SecurityException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractMap = ::java::util::AbstractMap;
 using $AbstractQueue = ::java::util::AbstractQueue;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
-using $HashMap = ::java::util::HashMap;
-using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashMap = ::java::util::LinkedHashMap;
 using $LinkedHashSet = ::java::util::LinkedHashSet;

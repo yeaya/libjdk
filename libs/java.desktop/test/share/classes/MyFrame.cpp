@@ -8,12 +8,10 @@
 #include <java/awt/Graphics.h>
 #include <java/awt/Window.h>
 #include <java/awt/image/BufferedImage.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/WindowConstants.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef DISPOSE_ON_CLOSE
@@ -21,20 +19,15 @@
 
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
-using $Frame = ::java::awt::Frame;
-using $Window = ::java::awt::Window;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $JFrame = ::javax::swing::JFrame;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $WindowConstants = ::javax::swing::WindowConstants;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 $FieldInfo _MyFrame_FieldInfo_[] = {
 	{"bi", "Ljava/awt/image/BufferedImage;", nullptr, $PRIVATE, $field(MyFrame, bi)},

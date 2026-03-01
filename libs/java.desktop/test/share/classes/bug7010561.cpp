@@ -6,7 +6,6 @@
 #include <javax/swing/SwingConstants.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/plaf/basic/BasicLookAndFeel.h>
 #include <javax/swing/plaf/synth/SynthLookAndFeel.h>
 #include <jcpp.h>
 
@@ -26,7 +25,6 @@ using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
 
 $FieldInfo _bug7010561_FieldInfo_[] = {

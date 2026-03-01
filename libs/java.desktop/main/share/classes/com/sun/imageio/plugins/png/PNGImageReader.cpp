@@ -18,7 +18,6 @@
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/DataInputStream.h>
 #include <java/io/EOFException.h>
-#include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/SequenceInputStream.h>
@@ -85,13 +84,11 @@ using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $DataInputStream = ::java::io::DataInputStream;
 using $EOFException = ::java::io::EOFException;
-using $FilterInputStream = ::java::io::FilterInputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $SequenceInputStream = ::java::io::SequenceInputStream;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;

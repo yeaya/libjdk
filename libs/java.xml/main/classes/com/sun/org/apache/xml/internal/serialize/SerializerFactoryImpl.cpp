@@ -1,7 +1,6 @@
 #include <com/sun/org/apache/xml/internal/serialize/SerializerFactoryImpl.h>
 
 #include <com/sun/org/apache/xerces/internal/dom/DOMMessageFormatter.h>
-#include <com/sun/org/apache/xml/internal/serialize/BaseMarkupSerializer.h>
 #include <com/sun/org/apache/xml/internal/serialize/HTMLSerializer.h>
 #include <com/sun/org/apache/xml/internal/serialize/Method.h>
 #include <com/sun/org/apache/xml/internal/serialize/OutputFormat.h>
@@ -22,7 +21,6 @@
 #undef XML
 
 using $DOMMessageFormatter = ::com::sun::org::apache::xerces::internal::dom::DOMMessageFormatter;
-using $BaseMarkupSerializer = ::com::sun::org::apache::xml::internal::serialize::BaseMarkupSerializer;
 using $HTMLSerializer = ::com::sun::org::apache::xml::internal::serialize::HTMLSerializer;
 using $Method = ::com::sun::org::apache::xml::internal::serialize::Method;
 using $OutputFormat = ::com::sun::org::apache::xml::internal::serialize::OutputFormat;

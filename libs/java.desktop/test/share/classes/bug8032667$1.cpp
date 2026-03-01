@@ -7,10 +7,8 @@
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Image.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JCheckBox.h>
 #include <javax/swing/JComponent.h>
-#include <javax/swing/JToggleButton.h>
 #include <jcpp.h>
 
 #undef CENTER
@@ -27,9 +25,7 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JComponent = ::javax::swing::JComponent;
-using $JToggleButton = ::javax::swing::JToggleButton;
 
 $FieldInfo _bug8032667$1_FieldInfo_[] = {
 	{"this$0", "Lbug8032667;", nullptr, $FINAL | $SYNTHETIC, $field(bug8032667$1, this$0)},

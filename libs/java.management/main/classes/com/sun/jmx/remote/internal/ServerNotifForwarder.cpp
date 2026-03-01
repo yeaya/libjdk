@@ -19,9 +19,6 @@
 #include <java/security/Permission.h>
 #include <java/security/PrivilegedActionException.h>
 #include <java/security/PrivilegedExceptionAction.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
@@ -33,7 +30,6 @@
 #include <java/util/Map.h>
 #include <java/util/Set.h>
 #include <javax/management/InstanceNotFoundException.h>
-#include <javax/management/JMException.h>
 #include <javax/management/ListenerNotFoundException.h>
 #include <javax/management/MBeanPermission.h>
 #include <javax/management/MBeanServer.h>
@@ -45,7 +41,6 @@
 #include <javax/management/NotificationFilter.h>
 #include <javax/management/ObjectInstance.h>
 #include <javax/management/ObjectName.h>
-#include <javax/management/OperationsException.h>
 #include <javax/management/remote/NotificationResult.h>
 #include <javax/management/remote/TargetedNotification.h>
 #include <javax/security/auth/Subject.h>
@@ -83,9 +78,6 @@ using $AccessController = ::java::security::AccessController;
 using $Permission = ::java::security::Permission;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSet = ::java::util::AbstractSet;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
@@ -96,7 +88,6 @@ using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $InstanceNotFoundException = ::javax::management::InstanceNotFoundException;
-using $JMException = ::javax::management::JMException;
 using $ListenerNotFoundException = ::javax::management::ListenerNotFoundException;
 using $MBeanPermission = ::javax::management::MBeanPermission;
 using $MBeanServer = ::javax::management::MBeanServer;
@@ -108,7 +99,6 @@ using $NotificationBroadcaster = ::javax::management::NotificationBroadcaster;
 using $NotificationFilter = ::javax::management::NotificationFilter;
 using $ObjectInstance = ::javax::management::ObjectInstance;
 using $ObjectName = ::javax::management::ObjectName;
-using $OperationsException = ::javax::management::OperationsException;
 using $NotificationResult = ::javax::management::remote::NotificationResult;
 using $TargetedNotification = ::javax::management::remote::TargetedNotification;
 using $Subject = ::javax::security::auth::Subject;

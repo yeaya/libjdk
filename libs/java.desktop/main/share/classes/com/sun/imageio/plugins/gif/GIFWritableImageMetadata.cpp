@@ -4,12 +4,10 @@
 #include <com/sun/imageio/plugins/gif/GIFMetadata.h>
 #include <java/io/UnsupportedEncodingException.h>
 #include <java/nio/charset/Charset.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <javax/imageio/metadata/IIOMetadataFormatImpl.h>
 #include <javax/imageio/metadata/IIOMetadataNode.h>
-#include <org/w3c/dom/Element.h>
 #include <org/w3c/dom/Node.h>
 #include <jcpp.h>
 
@@ -23,12 +21,10 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $IIOMetadataFormatImpl = ::javax::imageio::metadata::IIOMetadataFormatImpl;
 using $IIOMetadataNode = ::javax::imageio::metadata::IIOMetadataNode;
-using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;
 
 namespace com {

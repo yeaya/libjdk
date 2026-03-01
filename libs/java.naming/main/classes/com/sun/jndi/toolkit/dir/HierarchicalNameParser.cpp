@@ -2,7 +2,6 @@
 
 #include <com/sun/jndi/toolkit/dir/HierarchicalName.h>
 #include <java/util/Properties.h>
-#include <javax/naming/CompoundName.h>
 #include <javax/naming/Name.h>
 #include <jcpp.h>
 
@@ -11,7 +10,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Properties = ::java::util::Properties;
-using $CompoundName = ::javax::naming::CompoundName;
 using $Name = ::javax::naming::Name;
 
 namespace com {

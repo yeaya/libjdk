@@ -4,7 +4,6 @@
 #include <java/awt/Container.h>
 #include <java/awt/Font.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Window.h>
 #include <java/awt/geom/Rectangle2D.h>
 #include <java/io/Serializable.h>
@@ -19,14 +18,12 @@
 #include <javax/swing/GroupLayout$ParallelGroup.h>
 #include <javax/swing/GroupLayout$SequentialGroup.h>
 #include <javax/swing/GroupLayout.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/JTextArea.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/text/BadLocationException.h>
 #include <javax/swing/text/Caret.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef DEFAULT_SIZE
@@ -37,7 +34,6 @@ using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Font = ::java::awt::Font;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
@@ -53,14 +49,12 @@ using $GroupLayout$Alignment = ::javax::swing::GroupLayout$Alignment;
 using $GroupLayout$Group = ::javax::swing::GroupLayout$Group;
 using $GroupLayout$ParallelGroup = ::javax::swing::GroupLayout$ParallelGroup;
 using $GroupLayout$SequentialGroup = ::javax::swing::GroupLayout$SequentialGroup;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JTextArea = ::javax::swing::JTextArea;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $Caret = ::javax::swing::text::Caret;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 class TestTabSizeWithLineWrap$$Lambda$lambda$main$0 : public $Runnable {
 	$class(TestTabSizeWithLineWrap$$Lambda$lambda$main$0, $NO_CLASS_INIT, $Runnable)

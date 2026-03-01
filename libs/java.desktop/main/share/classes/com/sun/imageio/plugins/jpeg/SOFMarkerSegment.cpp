@@ -7,7 +7,6 @@
 #include <javax/imageio/metadata/IIOInvalidTreeException.h>
 #include <javax/imageio/metadata/IIOMetadataNode.h>
 #include <javax/imageio/stream/ImageOutputStream.h>
-#include <org/w3c/dom/Element.h>
 #include <org/w3c/dom/NamedNodeMap.h>
 #include <org/w3c/dom/Node.h>
 #include <org/w3c/dom/NodeList.h>
@@ -33,7 +32,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $IIOInvalidTreeException = ::javax::imageio::metadata::IIOInvalidTreeException;
 using $IIOMetadataNode = ::javax::imageio::metadata::IIOMetadataNode;
 using $ImageOutputStream = ::javax::imageio::stream::ImageOutputStream;
-using $Element = ::org::w3c::dom::Element;
 using $NamedNodeMap = ::org::w3c::dom::NamedNodeMap;
 using $Node = ::org::w3c::dom::Node;
 using $NodeList = ::org::w3c::dom::NodeList;

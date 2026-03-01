@@ -15,7 +15,6 @@
 #include <com/sun/org/apache/xerces/internal/impl/XMLScanner.h>
 #include <com/sun/org/apache/xerces/internal/impl/msg/XMLMessageFormatter.h>
 #include <com/sun/org/apache/xerces/internal/util/AugmentationsImpl.h>
-#include <com/sun/org/apache/xerces/internal/util/XMLAttributesImpl.h>
 #include <com/sun/org/apache/xerces/internal/util/XMLAttributesIteratorImpl.h>
 #include <com/sun/org/apache/xerces/internal/util/XMLChar.h>
 #include <com/sun/org/apache/xerces/internal/util/XMLStringBuffer.h>
@@ -161,7 +160,6 @@ using $XMLScanner = ::com::sun::org::apache::xerces::internal::impl::XMLScanner;
 using $XMLScanner$NameType = ::com::sun::org::apache::xerces::internal::impl::XMLScanner$NameType;
 using $XMLMessageFormatter = ::com::sun::org::apache::xerces::internal::impl::msg::XMLMessageFormatter;
 using $AugmentationsImpl = ::com::sun::org::apache::xerces::internal::util::AugmentationsImpl;
-using $XMLAttributesImpl = ::com::sun::org::apache::xerces::internal::util::XMLAttributesImpl;
 using $XMLAttributesIteratorImpl = ::com::sun::org::apache::xerces::internal::util::XMLAttributesIteratorImpl;
 using $XMLChar = ::com::sun::org::apache::xerces::internal::util::XMLChar;
 using $XMLStringBuffer = ::com::sun::org::apache::xerces::internal::util::XMLStringBuffer;

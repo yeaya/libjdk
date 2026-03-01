@@ -1,12 +1,10 @@
 #include <javax/swing/plaf/metal/MetalToolBarUI$MetalDockingListener.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/MouseEvent.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JToolBar.h>
 #include <javax/swing/plaf/basic/BasicToolBarUI$DockingListener.h>
 #include <javax/swing/plaf/basic/BasicToolBarUI.h>
@@ -17,7 +15,6 @@
 #undef HORIZONTAL
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $MouseEvent = ::java::awt::event::MouseEvent;
@@ -25,7 +22,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JToolBar = ::javax::swing::JToolBar;
 using $BasicToolBarUI = ::javax::swing::plaf::basic::BasicToolBarUI;
 using $BasicToolBarUI$DockingListener = ::javax::swing::plaf::basic::BasicToolBarUI$DockingListener;

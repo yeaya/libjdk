@@ -18,7 +18,6 @@
 #include <com/sun/tools/javac/comp/Env.h>
 #include <com/sun/tools/javac/tree/JCTree$JCAnnotation.h>
 #include <com/sun/tools/javac/tree/JCTree$JCBlock.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCClassDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCCompilationUnit.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
@@ -56,10 +55,8 @@ using $Env = ::com::sun::tools::javac::comp::Env;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCAnnotation = ::com::sun::tools::javac::tree::JCTree$JCAnnotation;
 using $JCTree$JCBlock = ::com::sun::tools::javac::tree::JCTree$JCBlock;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$JCCompilationUnit = ::com::sun::tools::javac::tree::JCTree$JCCompilationUnit;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCFieldAccess = ::com::sun::tools::javac::tree::JCTree$JCFieldAccess;
 using $JCTree$JCIdent = ::com::sun::tools::javac::tree::JCTree$JCIdent;
 using $JCTree$JCMethodDecl = ::com::sun::tools::javac::tree::JCTree$JCMethodDecl;

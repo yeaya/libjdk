@@ -1,7 +1,6 @@
 #include <com/apple/laf/AquaButtonRadioUI.h>
 
 #include <com/apple/laf/AquaButtonBorder.h>
-#include <com/apple/laf/AquaButtonLabeledUI$LabeledButtonBorder.h>
 #include <com/apple/laf/AquaButtonLabeledUI.h>
 #include <com/apple/laf/AquaButtonRadioUI$1.h>
 #include <com/apple/laf/AquaButtonRadioUI$RadioButtonBorder.h>
@@ -14,7 +13,6 @@
 
 using $AquaButtonBorder = ::com::apple::laf::AquaButtonBorder;
 using $AquaButtonLabeledUI = ::com::apple::laf::AquaButtonLabeledUI;
-using $AquaButtonLabeledUI$LabeledButtonBorder = ::com::apple::laf::AquaButtonLabeledUI$LabeledButtonBorder;
 using $AquaButtonRadioUI$1 = ::com::apple::laf::AquaButtonRadioUI$1;
 using $AquaButtonRadioUI$RadioButtonBorder = ::com::apple::laf::AquaButtonRadioUI$RadioButtonBorder;
 using $AquaUtils$RecyclableSingleton = ::com::apple::laf::AquaUtils$RecyclableSingleton;

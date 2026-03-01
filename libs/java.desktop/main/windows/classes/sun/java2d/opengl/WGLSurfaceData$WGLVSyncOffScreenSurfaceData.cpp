@@ -4,7 +4,6 @@
 #include <java/awt/image/ColorModel.h>
 #include <sun/awt/windows/WComponentPeer.h>
 #include <sun/java2d/SurfaceData.h>
-#include <sun/java2d/opengl/OGLSurfaceData.h>
 #include <sun/java2d/opengl/WGLGraphicsConfig.h>
 #include <sun/java2d/opengl/WGLSurfaceData$WGLOffScreenSurfaceData.h>
 #include <sun/java2d/opengl/WGLSurfaceData.h>
@@ -21,7 +20,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $WComponentPeer = ::sun::awt::windows::WComponentPeer;
 using $SurfaceData = ::sun::java2d::SurfaceData;
-using $OGLSurfaceData = ::sun::java2d::opengl::OGLSurfaceData;
 using $WGLGraphicsConfig = ::sun::java2d::opengl::WGLGraphicsConfig;
 using $WGLSurfaceData = ::sun::java2d::opengl::WGLSurfaceData;
 using $WGLSurfaceData$WGLOffScreenSurfaceData = ::sun::java2d::opengl::WGLSurfaceData$WGLOffScreenSurfaceData;

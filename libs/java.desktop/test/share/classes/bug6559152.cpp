@@ -1,7 +1,6 @@
 #include <bug6559152.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Point.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
@@ -22,7 +21,6 @@
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/table/AbstractTableModel.h>
 #include <javax/swing/table/DefaultTableModel.h>
 #include <javax/swing/table/TableCellEditor.h>
 #include <javax/swing/table/TableColumn.h>
@@ -36,7 +34,6 @@
 #undef VK_ENTER
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Point = ::java::awt::Point;
 using $Robot = ::java::awt::Robot;
 using $InputEvent = ::java::awt::event::InputEvent;
@@ -57,7 +54,6 @@ using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JTable = ::javax::swing::JTable;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $AbstractTableModel = ::javax::swing::table::AbstractTableModel;
 using $DefaultTableModel = ::javax::swing::table::DefaultTableModel;
 using $TableCellEditor = ::javax::swing::table::TableCellEditor;
 using $TableColumn = ::javax::swing::table::TableColumn;

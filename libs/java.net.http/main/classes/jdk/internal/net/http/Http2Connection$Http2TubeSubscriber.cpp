@@ -1,7 +1,6 @@
 #include <jdk/internal/net/http/Http2Connection$Http2TubeSubscriber.h>
 
 #include <java/io/EOFException.h>
-#include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/Runnable.h>
@@ -29,11 +28,9 @@
 #undef MAX_VALUE
 
 using $EOFException = ::java::io::EOFException;
-using $IOException = ::java::io::IOException;
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;

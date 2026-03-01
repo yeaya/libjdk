@@ -2,7 +2,6 @@
 
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/InternalError.h>
-#include <java/util/NavigableSet.h>
 #include <java/util/SortedSet.h>
 #include <java/util/TreeSet.h>
 #include <sun/rmi/transport/GC.h>
@@ -15,7 +14,6 @@ using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NavigableSet = ::java::util::NavigableSet;
 using $SortedSet = ::java::util::SortedSet;
 using $TreeSet = ::java::util::TreeSet;
 using $GC = ::sun::rmi::transport::GC;

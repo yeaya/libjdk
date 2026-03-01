@@ -6,11 +6,9 @@
 #include <com/sun/tools/javac/comp/Attr$ResultInfo.h>
 #include <com/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext.h>
 #include <com/sun/tools/javac/comp/Env.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCParens.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <jcpp.h>
@@ -22,14 +20,12 @@ using $Attr$ResultInfo = ::com::sun::tools::javac::comp::Attr$ResultInfo;
 using $DeferredAttr$DeferredAttrContext = ::com::sun::tools::javac::comp::DeferredAttr$DeferredAttrContext;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCParens = ::com::sun::tools::javac::tree::JCTree$JCParens;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 

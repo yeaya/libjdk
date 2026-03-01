@@ -7,14 +7,11 @@
 #include <com/sun/java/swing/plaf/windows/XPStyle.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/lang/Math.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/ButtonModel.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JScrollBar.h>
 #include <javax/swing/SwingConstants.h>
 #include <javax/swing/plaf/basic/BasicArrowButton.h>
@@ -55,7 +52,6 @@ using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -63,10 +59,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $ButtonModel = ::javax::swing::ButtonModel;
 using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JScrollBar = ::javax::swing::JScrollBar;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $BasicArrowButton = ::javax::swing::plaf::basic::BasicArrowButton;

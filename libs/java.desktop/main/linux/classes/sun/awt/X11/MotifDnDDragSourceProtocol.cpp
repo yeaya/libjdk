@@ -18,7 +18,6 @@
 #include <sun/awt/X11/XDragSourceProtocol.h>
 #include <sun/awt/X11/XDragSourceProtocolListener.h>
 #include <sun/awt/X11/XErrorHandler$IgnoreBadWindowHandler.h>
-#include <sun/awt/X11/XErrorHandler$XBaseErrorHandler.h>
 #include <sun/awt/X11/XErrorHandler.h>
 #include <sun/awt/X11/XEvent.h>
 #include <sun/awt/X11/XEventDispatcher.h>
@@ -79,7 +78,6 @@ using $XDragSourceProtocol$TargetWindowInfo = ::sun::awt::X11::XDragSourceProtoc
 using $XDragSourceProtocolListener = ::sun::awt::X11::XDragSourceProtocolListener;
 using $XErrorHandler = ::sun::awt::X11::XErrorHandler;
 using $XErrorHandler$IgnoreBadWindowHandler = ::sun::awt::X11::XErrorHandler$IgnoreBadWindowHandler;
-using $XErrorHandler$XBaseErrorHandler = ::sun::awt::X11::XErrorHandler$XBaseErrorHandler;
 using $XEvent = ::sun::awt::X11::XEvent;
 using $XEventDispatcher = ::sun::awt::X11::XEventDispatcher;
 using $XException = ::sun::awt::X11::XException;

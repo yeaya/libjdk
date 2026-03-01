@@ -9,7 +9,6 @@
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager$LookAndFeelInfo.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/table/AbstractTableModel.h>
 #include <javax/swing/table/TableModel.h>
 #include <jcpp.h>
 
@@ -29,7 +28,6 @@ using $JTable = ::javax::swing::JTable;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $UIManager$LookAndFeelInfo = ::javax::swing::UIManager$LookAndFeelInfo;
-using $AbstractTableModel = ::javax::swing::table::AbstractTableModel;
 using $TableModel = ::javax::swing::table::TableModel;
 
 $FieldInfo _Test6888156_FieldInfo_[] = {

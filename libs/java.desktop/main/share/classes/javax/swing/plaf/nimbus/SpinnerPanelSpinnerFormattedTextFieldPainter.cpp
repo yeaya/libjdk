@@ -3,7 +3,6 @@
 #include <java/awt/Color.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/LinearGradientPaint.h>
-#include <java/awt/MultipleGradientPaint.h>
 #include <java/awt/Paint.h>
 #include <java/awt/Shape.h>
 #include <java/awt/geom/Ellipse2D$Float.h>
@@ -12,7 +11,6 @@
 #include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/awt/geom/RoundRectangle2D$Float.h>
 #include <java/awt/geom/RoundRectangle2D.h>
 #include <javax/swing/JComponent.h>
@@ -28,7 +26,6 @@
 
 using $ColorArray = $Array<::java::awt::Color>;
 using $Graphics2D = ::java::awt::Graphics2D;
-using $MultipleGradientPaint = ::java::awt::MultipleGradientPaint;
 using $Paint = ::java::awt::Paint;
 using $Shape = ::java::awt::Shape;
 using $Ellipse2D = ::java::awt::geom::Ellipse2D;
@@ -37,7 +34,6 @@ using $Path2D = ::java::awt::geom::Path2D;
 using $Path2D$Float = ::java::awt::geom::Path2D$Float;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $RoundRectangle2D = ::java::awt::geom::RoundRectangle2D;
 using $RoundRectangle2D$Float = ::java::awt::geom::RoundRectangle2D$Float;
 using $ClassInfo = ::java::lang::ClassInfo;

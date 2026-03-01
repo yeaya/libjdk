@@ -5,7 +5,6 @@
 #include <java/awt/image/ImageConsumer.h>
 #include <java/awt/image/IndexColorModel.h>
 #include <java/io/BufferedInputStream.h>
-#include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/util/Date.h>
@@ -38,7 +37,6 @@ using $ColorModel = ::java::awt::image::ColorModel;
 using $ImageConsumer = ::java::awt::image::ImageConsumer;
 using $IndexColorModel = ::java::awt::image::IndexColorModel;
 using $BufferedInputStream = ::java::io::BufferedInputStream;
-using $FilterInputStream = ::java::io::FilterInputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $PrintStream = ::java::io::PrintStream;

@@ -6,7 +6,6 @@
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <jcpp.h>
 
 #undef BOTTOM_ALIGNMENT
@@ -21,7 +20,6 @@ using $GlyphJustificationInfo = ::java::awt::font::GlyphJustificationInfo;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;

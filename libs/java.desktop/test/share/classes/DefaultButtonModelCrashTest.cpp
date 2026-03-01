@@ -4,7 +4,6 @@
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Point.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
@@ -20,13 +19,10 @@
 #include <javax/swing/ButtonModel.h>
 #include <javax/swing/DefaultButtonModel.h>
 #include <javax/swing/JCheckBox.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/JTextField.h>
-#include <javax/swing/JToggleButton.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef EXIT_ON_CLOSE
@@ -37,7 +33,6 @@ using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Robot = ::java::awt::Robot;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $Serializable = ::java::io::Serializable;
@@ -46,17 +41,13 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $ButtonModel = ::javax::swing::ButtonModel;
 using $DefaultButtonModel = ::javax::swing::DefaultButtonModel;
 using $JCheckBox = ::javax::swing::JCheckBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JPanel = ::javax::swing::JPanel;
 using $JTextField = ::javax::swing::JTextField;
-using $JToggleButton = ::javax::swing::JToggleButton;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 class DefaultButtonModelCrashTest$$Lambda$lambda$new$0 : public $Runnable {
 	$class(DefaultButtonModelCrashTest$$Lambda$lambda$new$0, $NO_CLASS_INIT, $Runnable)

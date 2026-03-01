@@ -4,7 +4,6 @@
 #include <com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/DeferredDocumentImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/DeferredNode.h>
-#include <com/sun/org/apache/xerces/internal/dom/DocumentImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/ElementImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/ElementNSImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/NodeImpl.h>
@@ -23,8 +22,6 @@
 using $AttrImpl = ::com::sun::org::apache::xerces::internal::dom::AttrImpl;
 using $CoreDocumentImpl = ::com::sun::org::apache::xerces::internal::dom::CoreDocumentImpl;
 using $DeferredDocumentImpl = ::com::sun::org::apache::xerces::internal::dom::DeferredDocumentImpl;
-using $DocumentImpl = ::com::sun::org::apache::xerces::internal::dom::DocumentImpl;
-using $ElementImpl = ::com::sun::org::apache::xerces::internal::dom::ElementImpl;
 using $ElementNSImpl = ::com::sun::org::apache::xerces::internal::dom::ElementNSImpl;
 using $NodeImpl = ::com::sun::org::apache::xerces::internal::dom::NodeImpl;
 using $ParentNode = ::com::sun::org::apache::xerces::internal::dom::ParentNode;

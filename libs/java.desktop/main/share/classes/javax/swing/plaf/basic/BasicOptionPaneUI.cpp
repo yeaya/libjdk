@@ -11,7 +11,6 @@
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/event/ActionListener.h>
 #include <java/awt/event/HierarchyListener.h>
 #include <java/awt/event/MouseListener.h>
@@ -19,7 +18,6 @@
 #include <java/lang/Math.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/util/Locale.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/Box.h>
@@ -44,7 +42,6 @@
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/border/Border.h>
-#include <javax/swing/plaf/ActionMapUIResource.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/OptionPaneUI.h>
 #include <javax/swing/plaf/basic/BasicLookAndFeel.h>
@@ -57,9 +54,7 @@
 #include <javax/swing/plaf/basic/BasicOptionPaneUI$Handler.h>
 #include <javax/swing/plaf/basic/BasicOptionPaneUI$MultiplexingTextField.h>
 #include <javax/swing/plaf/basic/LazyActionMap.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <sun/swing/DefaultLookup.h>
-#include <sun/swing/UIAction.h>
 #include <jcpp.h>
 
 #undef BEFORE_LINE_BEGINS
@@ -93,7 +88,6 @@ using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $Insets = ::java::awt::Insets;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $HierarchyListener = ::java::awt::event::HierarchyListener;
 using $MouseListener = ::java::awt::event::MouseListener;
@@ -107,7 +101,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
 using $Locale = ::java::util::Locale;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $Box = ::javax::swing::Box;
@@ -131,7 +124,6 @@ using $SwingConstants = ::javax::swing::SwingConstants;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $Border = ::javax::swing::border::Border;
-using $ActionMapUIResource = ::javax::swing::plaf::ActionMapUIResource;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $OptionPaneUI = ::javax::swing::plaf::OptionPaneUI;
 using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
@@ -144,9 +136,7 @@ using $BasicOptionPaneUI$ButtonFactory = ::javax::swing::plaf::basic::BasicOptio
 using $BasicOptionPaneUI$Handler = ::javax::swing::plaf::basic::BasicOptionPaneUI$Handler;
 using $BasicOptionPaneUI$MultiplexingTextField = ::javax::swing::plaf::basic::BasicOptionPaneUI$MultiplexingTextField;
 using $LazyActionMap = ::javax::swing::plaf::basic::LazyActionMap;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $DefaultLookup = ::sun::swing::DefaultLookup;
-using $UIAction = ::sun::swing::UIAction;
 
 namespace javax {
 	namespace swing {

@@ -23,7 +23,6 @@
 
 using $Choice = ::java::awt::Choice;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Event = ::java::awt::Event;
 using $Font = ::java::awt::Font;

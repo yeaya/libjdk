@@ -3,7 +3,6 @@
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component$BaselineResizeBehavior.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Image.h>
@@ -39,7 +38,6 @@ using $PropertyChangeListenerArray = $Array<::java::beans::PropertyChangeListene
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
 using $Component$BaselineResizeBehavior = ::java::awt::Component$BaselineResizeBehavior;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Image = ::java::awt::Image;

@@ -2,7 +2,6 @@
 
 #include <com/sun/org/apache/xml/internal/security/c14n/Canonicalizer.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/InvalidCanonicalizerException.h>
-#include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <javax/xml/crypto/Data.h>
 #include <javax/xml/crypto/XMLCryptoContext.h>
@@ -17,9 +16,7 @@
 
 using $Canonicalizer = ::com::sun::org::apache::xml::internal::security::c14n::Canonicalizer;
 using $InvalidCanonicalizerException = ::com::sun::org::apache::xml::internal::security::c14n::InvalidCanonicalizerException;
-using $XMLSecurityException = ::com::sun::org::apache::xml::internal::security::exceptions::XMLSecurityException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InvalidAlgorithmParameterException = ::java::security::InvalidAlgorithmParameterException;
 using $Data = ::javax::xml::crypto::Data;

@@ -16,7 +16,6 @@
 #include <javax/swing/text/GapVector.h>
 #include <javax/swing/text/Position.h>
 #include <javax/swing/text/Segment.h>
-#include <javax/swing/undo/AbstractUndoableEdit.h>
 #include <javax/swing/undo/UndoableEdit.h>
 #include <jcpp.h>
 
@@ -41,7 +40,6 @@ using $GapContent$UndoPosRef = ::javax::swing::text::GapContent$UndoPosRef;
 using $GapVector = ::javax::swing::text::GapVector;
 using $Position = ::javax::swing::text::Position;
 using $Segment = ::javax::swing::text::Segment;
-using $AbstractUndoableEdit = ::javax::swing::undo::AbstractUndoableEdit;
 using $UndoableEdit = ::javax::swing::undo::UndoableEdit;
 
 namespace javax {

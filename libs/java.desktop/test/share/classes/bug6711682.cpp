@@ -7,7 +7,6 @@
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Point.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
@@ -21,7 +20,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <javax/swing/JCheckBox.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/SwingUtilities.h>
@@ -44,7 +42,6 @@ using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Point = ::java::awt::Point;
 using $Robot = ::java::awt::Robot;
 using $InputEvent = ::java::awt::event::InputEvent;
@@ -59,7 +56,6 @@ using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $JCheckBox = ::javax::swing::JCheckBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JTable = ::javax::swing::JTable;
 using $SwingUtilities = ::javax::swing::SwingUtilities;

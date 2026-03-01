@@ -1,7 +1,6 @@
 #include <bug4726194.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Font.h>
 #include <java/io/Serializable.h>
 #include <java/lang/ClassNotFoundException.h>
@@ -15,7 +14,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
@@ -31,7 +29,6 @@
 #include <javax/swing/UIManager.h>
 #include <javax/swing/UnsupportedLookAndFeelException.h>
 #include <javax/swing/border/Border.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef BASELINE
@@ -49,13 +46,11 @@
 
 using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Font = ::java::awt::Font;
 using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InstantiationException = ::java::lang::InstantiationException;
@@ -66,13 +61,11 @@ using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
 using $List = ::java::util::List;
 using $BorderFactory = ::javax::swing::BorderFactory;
-using $JComponent = ::javax::swing::JComponent;
 using $JTextField = ::javax::swing::JTextField;
 using $Spring = ::javax::swing::Spring;
 using $SpringLayout = ::javax::swing::SpringLayout;
@@ -81,7 +74,6 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $UIManager$LookAndFeelInfo = ::javax::swing::UIManager$LookAndFeelInfo;
 using $UnsupportedLookAndFeelException = ::javax::swing::UnsupportedLookAndFeelException;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 class bug4726194$$Lambda$lambda$main$0 : public $Runnable {
 	$class(bug4726194$$Lambda$lambda$main$0, $NO_CLASS_INIT, $Runnable)

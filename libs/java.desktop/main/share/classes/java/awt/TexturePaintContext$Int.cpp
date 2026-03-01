@@ -5,9 +5,7 @@
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/Raster.h>
 #include <java/awt/image/WritableRaster.h>
-#include <sun/awt/image/IntegerComponentRaster.h>
 #include <sun/awt/image/IntegerInterleavedRaster.h>
-#include <sun/awt/image/SunWritableRaster.h>
 #include <jcpp.h>
 
 #undef MAX_VALUE
@@ -22,9 +20,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $IntegerComponentRaster = ::sun::awt::image::IntegerComponentRaster;
 using $IntegerInterleavedRaster = ::sun::awt::image::IntegerInterleavedRaster;
-using $SunWritableRaster = ::sun::awt::image::SunWritableRaster;
 
 namespace java {
 	namespace awt {

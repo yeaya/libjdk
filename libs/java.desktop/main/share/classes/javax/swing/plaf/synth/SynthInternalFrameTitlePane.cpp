@@ -2,7 +2,6 @@
 
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
@@ -10,13 +9,11 @@
 #include <java/awt/Image.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/lang/Math.h>
 #include <java/lang/NumberFormatException.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/ImageIcon.h>
@@ -56,14 +53,12 @@
 #undef TRAILING
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
 using $Image = ::java::awt::Image;
 using $Insets = ::java::awt::Insets;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
@@ -74,7 +69,6 @@ using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $Icon = ::javax::swing::Icon;
 using $ImageIcon = ::javax::swing::ImageIcon;
 using $JButton = ::javax::swing::JButton;

@@ -17,7 +17,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/util/concurrent/CountDownLatch.h>
 #include <java/util/concurrent/TimeUnit.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JPanel.h>
@@ -54,7 +53,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JLabel = ::javax::swing::JLabel;
 using $JPanel = ::javax::swing::JPanel;

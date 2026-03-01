@@ -1,17 +1,13 @@
 #include <javax/swing/JSplitPane.h>
 
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/LayoutManager.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/lang/Number.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JSplitPane$AccessibleJSplitPane.h>
 #include <javax/swing/UIManager.h>
@@ -36,9 +32,6 @@
 #undef VERTICAL_SPLIT
 
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
-using $Container = ::java::awt::Container;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Graphics = ::java::awt::Graphics;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
@@ -54,10 +47,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $Number = ::java::lang::Number;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JSplitPane$AccessibleJSplitPane = ::javax::swing::JSplitPane$AccessibleJSplitPane;
 using $UIManager = ::javax::swing::UIManager;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;

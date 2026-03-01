@@ -4,7 +4,6 @@
 #include <java/awt/AWTEventMulticaster.h>
 #include <java/awt/Checkbox$AccessibleAWTCheckbox.h>
 #include <java/awt/CheckboxGroup.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Toolkit.h>
@@ -29,7 +28,6 @@ using $AWTEventMulticaster = ::java::awt::AWTEventMulticaster;
 using $Checkbox$AccessibleAWTCheckbox = ::java::awt::Checkbox$AccessibleAWTCheckbox;
 using $CheckboxGroup = ::java::awt::CheckboxGroup;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $Toolkit = ::java::awt::Toolkit;
 using $ItemEvent = ::java::awt::event::ItemEvent;

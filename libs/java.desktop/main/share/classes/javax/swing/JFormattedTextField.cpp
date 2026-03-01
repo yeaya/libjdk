@@ -2,7 +2,6 @@
 
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/EventQueue.h>
 #include <java/awt/event/FocusEvent.h>
 #include <java/awt/event/InputMethodEvent.h>
@@ -16,7 +15,6 @@
 #include <java/text/Format.h>
 #include <java/text/NumberFormat.h>
 #include <java/util/Date.h>
-#include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/JComponent.h>
@@ -26,7 +24,6 @@
 #include <javax/swing/JFormattedTextField$CommitAction.h>
 #include <javax/swing/JFormattedTextField$DocumentHandler.h>
 #include <javax/swing/JFormattedTextField$FocusLostHandler.h>
-#include <javax/swing/JTextField$NotifyAction.h>
 #include <javax/swing/JTextField.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/UIManager.h>
@@ -54,7 +51,6 @@
 using $ActionArray = $Array<::javax::swing::Action>;
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $EventQueue = ::java::awt::EventQueue;
 using $FocusEvent = ::java::awt::event::FocusEvent;
 using $InputMethodEvent = ::java::awt::event::InputMethodEvent;
@@ -77,7 +73,6 @@ using $DecimalFormat = ::java::text::DecimalFormat;
 using $Format = ::java::text::Format;
 using $NumberFormat = ::java::text::NumberFormat;
 using $Date = ::java::util::Date;
-using $AbstractAction = ::javax::swing::AbstractAction;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $JComponent = ::javax::swing::JComponent;
@@ -88,7 +83,6 @@ using $JFormattedTextField$CommitAction = ::javax::swing::JFormattedTextField$Co
 using $JFormattedTextField$DocumentHandler = ::javax::swing::JFormattedTextField$DocumentHandler;
 using $JFormattedTextField$FocusLostHandler = ::javax::swing::JFormattedTextField$FocusLostHandler;
 using $JTextField = ::javax::swing::JTextField;
-using $JTextField$NotifyAction = ::javax::swing::JTextField$NotifyAction;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
 using $DocumentListener = ::javax::swing::event::DocumentListener;
@@ -99,7 +93,6 @@ using $DefaultFormatter = ::javax::swing::text::DefaultFormatter;
 using $DefaultFormatterFactory = ::javax::swing::text::DefaultFormatterFactory;
 using $Document = ::javax::swing::text::Document;
 using $InternationalFormatter = ::javax::swing::text::InternationalFormatter;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $NumberFormatter = ::javax::swing::text::NumberFormatter;
 using $TextAction = ::javax::swing::text::TextAction;
 

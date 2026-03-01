@@ -8,13 +8,10 @@
 #include <java/awt/Window.h>
 #include <java/lang/Error.h>
 #include <java/lang/Runnable.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JCheckBox.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JTabbedPane.h>
-#include <javax/swing/JToggleButton.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager$LookAndFeelInfo.h>
@@ -38,13 +35,10 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JButton = ::javax::swing::JButton;
 using $JCheckBox = ::javax::swing::JCheckBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JTabbedPane = ::javax::swing::JTabbedPane;
-using $JToggleButton = ::javax::swing::JToggleButton;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;

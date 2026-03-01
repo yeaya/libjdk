@@ -6,20 +6,17 @@
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionListener.h>
 #include <java/awt/event/ItemListener.h>
 #include <java/lang/Runnable.h>
 #include <javax/swing/DefaultButtonModel.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/event/ChangeListener.h>
 #include <javax/swing/text/EditorKit.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/StyleConstants.h>
 #include <javax/swing/text/StyleContext$NamedStyle.h>
@@ -34,9 +31,7 @@ using $bug7189299$1 = ::bug7189299$1;
 using $bug7189299$2 = ::bug7189299$2;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Robot = ::java::awt::Robot;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -45,11 +40,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $DefaultButtonModel = ::javax::swing::DefaultButtonModel;
-using $JComponent = ::javax::swing::JComponent;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $JFrame = ::javax::swing::JFrame;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
 using $StyleContext$NamedStyle = ::javax::swing::text::StyleContext$NamedStyle;
 using $HTMLEditorKit = ::javax::swing::text::html::HTMLEditorKit;

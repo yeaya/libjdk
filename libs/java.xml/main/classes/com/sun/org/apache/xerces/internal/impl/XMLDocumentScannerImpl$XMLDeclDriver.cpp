@@ -12,7 +12,6 @@
 #include <com/sun/xml/internal/stream/Entity$ScannedEntity.h>
 #include <java/io/CharConversionException.h>
 #include <java/io/EOFException.h>
-#include <java/io/IOException.h>
 #include <javax/xml/stream/events/XMLEvent.h>
 #include <jcpp.h>
 
@@ -30,7 +29,6 @@ using $XMLMessageFormatter = ::com::sun::org::apache::xerces::internal::impl::ms
 using $XMLChar = ::com::sun::org::apache::xerces::internal::util::XMLChar;
 using $CharConversionException = ::java::io::CharConversionException;
 using $EOFException = ::java::io::EOFException;
-using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;

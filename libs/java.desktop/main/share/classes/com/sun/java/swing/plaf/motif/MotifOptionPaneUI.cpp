@@ -8,10 +8,8 @@
 #include <javax/swing/Icon.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
-#include <javax/swing/JPanel.h>
 #include <javax/swing/SwingConstants.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/OptionPaneUI.h>
 #include <javax/swing/plaf/basic/BasicOptionPaneUI$ButtonAreaLayout.h>
 #include <javax/swing/plaf/basic/BasicOptionPaneUI.h>
 #include <jcpp.h>
@@ -28,10 +26,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Icon = ::javax::swing::Icon;
 using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
-using $JPanel = ::javax::swing::JPanel;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $OptionPaneUI = ::javax::swing::plaf::OptionPaneUI;
 using $BasicOptionPaneUI = ::javax::swing::plaf::basic::BasicOptionPaneUI;
 using $BasicOptionPaneUI$ButtonAreaLayout = ::javax::swing::plaf::basic::BasicOptionPaneUI$ButtonAreaLayout;
 

@@ -5,7 +5,6 @@
 #include <java/awt/Font.h>
 #include <java/awt/Insets.h>
 #include <java/io/BufferedInputStream.h>
-#include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/lang/AssertionError.h>
@@ -19,10 +18,7 @@
 #include <java/net/MalformedURLException.h>
 #include <java/net/URL.h>
 #include <java/net/URLClassLoader.h>
-#include <java/security/SecureClassLoader.h>
 #include <java/text/ParseException.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
@@ -137,7 +133,6 @@ using $Color = ::java::awt::Color;
 using $Font = ::java::awt::Font;
 using $Insets = ::java::awt::Insets;
 using $BufferedInputStream = ::java::io::BufferedInputStream;
-using $FilterInputStream = ::java::io::FilterInputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $AssertionError = ::java::lang::AssertionError;
@@ -158,10 +153,7 @@ using $Field = ::java::lang::reflect::Field;
 using $MalformedURLException = ::java::net::MalformedURLException;
 using $URL = ::java::net::URL;
 using $URLClassLoader = ::java::net::URLClassLoader;
-using $SecureClassLoader = ::java::security::SecureClassLoader;
 using $ParseException = ::java::text::ParseException;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;

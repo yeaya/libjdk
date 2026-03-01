@@ -7,7 +7,6 @@
 #include <javax/xml/crypto/dsig/keyinfo/X509IssuerSerial.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMStructure.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMUtils.h>
-#include <org/w3c/dom/CharacterData.h>
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/Element.h>
 #include <org/w3c/dom/Node.h>
@@ -27,7 +26,6 @@ using $XMLSignature = ::javax::xml::crypto::dsig::XMLSignature;
 using $X509IssuerSerial = ::javax::xml::crypto::dsig::keyinfo::X509IssuerSerial;
 using $DOMStructure = ::org::jcp::xml::dsig::internal::dom::DOMStructure;
 using $DOMUtils = ::org::jcp::xml::dsig::internal::dom::DOMUtils;
-using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;

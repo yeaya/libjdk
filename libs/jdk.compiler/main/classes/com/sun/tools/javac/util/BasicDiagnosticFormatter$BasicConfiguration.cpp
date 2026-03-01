@@ -8,8 +8,6 @@
 #include <com/sun/tools/javac/util/Options.h>
 #include <java/lang/Enum.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/EnumMap.h>
 #include <java/util/EnumSet.h>
 #include <java/util/HashMap.h>
@@ -40,8 +38,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
-using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSet = ::java::util::AbstractSet;
 using $EnumMap = ::java::util::EnumMap;
 using $EnumSet = ::java::util::EnumSet;
 using $HashMap = ::java::util::HashMap;

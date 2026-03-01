@@ -6,7 +6,6 @@
 #include <java/awt/Container.h>
 #include <java/awt/Window.h>
 #include <java/lang/ref/WeakReference.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/UIDefaults.h>
@@ -24,7 +23,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $WeakReference = ::java::lang::ref::WeakReference;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JLabel = ::javax::swing::JLabel;
 using $UIDefaults = ::javax::swing::UIDefaults;

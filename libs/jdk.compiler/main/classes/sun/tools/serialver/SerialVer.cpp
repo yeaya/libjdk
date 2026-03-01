@@ -11,7 +11,6 @@
 #include <java/net/URLClassLoader.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/Paths.h>
-#include <java/security/SecureClassLoader.h>
 #include <sun/tools/serialver/Res.h>
 #include <jcpp.h>
 
@@ -30,7 +29,6 @@ using $URI = ::java::net::URI;
 using $URLClassLoader = ::java::net::URLClassLoader;
 using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
-using $SecureClassLoader = ::java::security::SecureClassLoader;
 using $Res = ::sun::tools::serialver::Res;
 
 namespace sun {

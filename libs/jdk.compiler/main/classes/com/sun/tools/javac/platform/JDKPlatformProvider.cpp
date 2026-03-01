@@ -23,7 +23,6 @@
 #include <java/nio/file/Paths.h>
 #include <java/nio/file/ProviderNotFoundException.h>
 #include <java/util/AbstractSet.h>
-#include <java/util/Collection.h>
 #include <java/util/Comparator.h>
 #include <java/util/Iterator.h>
 #include <java/util/Set.h>
@@ -46,7 +45,6 @@ using $CharSequence = ::java::lang::CharSequence;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
@@ -62,7 +60,6 @@ using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 using $ProviderNotFoundException = ::java::nio::file::ProviderNotFoundException;
 using $AbstractSet = ::java::util::AbstractSet;
-using $Collection = ::java::util::Collection;
 using $Comparator = ::java::util::Comparator;
 using $Iterator = ::java::util::Iterator;
 using $Set = ::java::util::Set;

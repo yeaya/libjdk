@@ -1,7 +1,6 @@
 #include <com/sun/tools/javac/parser/TextBlockSupport.h>
 
 #include <com/sun/tools/javac/parser/TextBlockSupport$WhitespaceChecks.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/HashSet.h>
 #include <java/util/Set.h>
 #include <jcpp.h>
@@ -15,7 +14,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractSet = ::java::util::AbstractSet;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
 

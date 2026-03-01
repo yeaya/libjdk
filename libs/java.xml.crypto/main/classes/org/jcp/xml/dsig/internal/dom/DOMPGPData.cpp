@@ -2,7 +2,6 @@
 
 #include <com/sun/org/apache/xml/internal/security/utils/XMLUtils.h>
 #include <java/lang/ClassCastException.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
@@ -14,7 +13,6 @@
 #include <javax/xml/crypto/dsig/XMLSignature.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMStructure.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMUtils.h>
-#include <org/w3c/dom/CharacterData.h>
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/Element.h>
 #include <org/w3c/dom/Node.h>
@@ -31,7 +29,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
@@ -43,7 +40,6 @@ using $1DOMStructure = ::javax::xml::crypto::dom::DOMStructure;
 using $XMLSignature = ::javax::xml::crypto::dsig::XMLSignature;
 using $DOMStructure = ::org::jcp::xml::dsig::internal::dom::DOMStructure;
 using $DOMUtils = ::org::jcp::xml::dsig::internal::dom::DOMUtils;
-using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;

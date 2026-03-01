@@ -17,10 +17,8 @@
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/ScrollPane.h>
-#include <java/awt/event/ComponentEvent.h>
 #include <java/awt/event/FocusEvent$Cause.h>
 #include <java/awt/event/InputEvent.h>
-#include <java/awt/event/MouseEvent.h>
 #include <java/awt/event/MouseWheelEvent.h>
 #include <java/awt/event/PaintEvent.h>
 #include <java/awt/image/ColorModel.h>
@@ -74,10 +72,7 @@ using $Insets = ::java::awt::Insets;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $ScrollPane = ::java::awt::ScrollPane;
-using $ComponentEvent = ::java::awt::event::ComponentEvent;
 using $FocusEvent$Cause = ::java::awt::event::FocusEvent$Cause;
-using $InputEvent = ::java::awt::event::InputEvent;
-using $MouseEvent = ::java::awt::event::MouseEvent;
 using $MouseWheelEvent = ::java::awt::event::MouseWheelEvent;
 using $PaintEvent = ::java::awt::event::PaintEvent;
 using $ColorModel = ::java::awt::image::ColorModel;

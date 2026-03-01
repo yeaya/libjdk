@@ -2,8 +2,6 @@
 
 #include <bug4337267$TestBufferedImage.h>
 #include <bug4337267.h>
-#include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Image.h>
@@ -16,8 +14,6 @@
 #undef TYPE_INT_ARGB
 
 using $bug4337267$TestBufferedImage = ::bug4337267$TestBufferedImage;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Image = ::java::awt::Image;
@@ -27,7 +23,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JPanel = ::javax::swing::JPanel;
 
 $FieldInfo _bug4337267$TestJPanel_FieldInfo_[] = {

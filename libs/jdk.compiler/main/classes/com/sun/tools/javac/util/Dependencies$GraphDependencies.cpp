@@ -28,10 +28,8 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Collection.h>
 #include <java/util/EnumSet.h>
-#include <java/util/HashMap.h>
 #include <java/util/LinkedHashMap.h>
 #include <java/util/Map.h>
 #include <java/util/Stack.h>
@@ -68,10 +66,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Collection = ::java::util::Collection;
 using $EnumSet = ::java::util::EnumSet;
-using $HashMap = ::java::util::HashMap;
 using $LinkedHashMap = ::java::util::LinkedHashMap;
 using $Map = ::java::util::Map;
 using $Stack = ::java::util::Stack;

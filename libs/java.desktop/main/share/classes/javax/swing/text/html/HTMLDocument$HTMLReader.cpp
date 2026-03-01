@@ -19,7 +19,6 @@
 #include <javax/swing/text/BadLocationException.h>
 #include <javax/swing/text/DefaultEditorKit.h>
 #include <javax/swing/text/DefaultStyledDocument$ElementSpec.h>
-#include <javax/swing/text/DefaultStyledDocument.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/Element.h>
 #include <javax/swing/text/MutableAttributeSet.h>
@@ -57,8 +56,6 @@
 #include <javax/swing/text/html/Option.h>
 #include <javax/swing/text/html/StyleSheet.h>
 #include <javax/swing/text/html/TextAreaDocument.h>
-#include <javax/swing/undo/AbstractUndoableEdit.h>
-#include <javax/swing/undo/CompoundEdit.h>
 #include <javax/swing/undo/UndoableEdit.h>
 #include <sun/swing/SwingUtilities2.h>
 #include <jcpp.h>
@@ -169,7 +166,6 @@ using $AbstractDocument$ElementEdit = ::javax::swing::text::AbstractDocument$Ele
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $DefaultEditorKit = ::javax::swing::text::DefaultEditorKit;
-using $DefaultStyledDocument = ::javax::swing::text::DefaultStyledDocument;
 using $DefaultStyledDocument$ElementSpec = ::javax::swing::text::DefaultStyledDocument$ElementSpec;
 using $Document = ::javax::swing::text::Document;
 using $Element = ::javax::swing::text::Element;
@@ -207,8 +203,6 @@ using $HTMLEditorKit$ParserCallback = ::javax::swing::text::html::HTMLEditorKit$
 using $Option = ::javax::swing::text::html::Option;
 using $StyleSheet = ::javax::swing::text::html::StyleSheet;
 using $TextAreaDocument = ::javax::swing::text::html::TextAreaDocument;
-using $AbstractUndoableEdit = ::javax::swing::undo::AbstractUndoableEdit;
-using $CompoundEdit = ::javax::swing::undo::CompoundEdit;
 using $UndoableEdit = ::javax::swing::undo::UndoableEdit;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 

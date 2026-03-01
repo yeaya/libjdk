@@ -10,7 +10,6 @@
 #include <java/util/Iterator.h>
 #include <java/util/Vector.h>
 #include <javax/swing/text/AttributeSet.h>
-#include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/SimpleAttributeSet.h>
 #include <javax/swing/text/html/HTML$Attribute.h>
 #include <javax/swing/text/html/HTML.h>
@@ -52,7 +51,6 @@ using $ThreadDeath = ::java::lang::ThreadDeath;
 using $Iterator = ::java::util::Iterator;
 using $Vector = ::java::util::Vector;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
-using $MutableAttributeSet = ::javax::swing::text::MutableAttributeSet;
 using $SimpleAttributeSet = ::javax::swing::text::SimpleAttributeSet;
 using $HTML = ::javax::swing::text::html::HTML;
 using $HTML$Attribute = ::javax::swing::text::html::HTML$Attribute;

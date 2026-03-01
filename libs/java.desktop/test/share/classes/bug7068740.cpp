@@ -13,7 +13,6 @@
 #include <java/lang/Runnable.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/util/concurrent/atomic/AtomicInteger.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JLayer.h>
 #include <javax/swing/JScrollPane.h>
@@ -24,9 +23,7 @@
 #include <javax/swing/UnsupportedLookAndFeelException.h>
 #include <javax/swing/WindowConstants.h>
 #include <javax/swing/plaf/LayerUI.h>
-#include <javax/swing/plaf/basic/BasicLookAndFeel.h>
 #include <javax/swing/plaf/metal/MetalLookAndFeel.h>
-#include <javax/swing/table/AbstractTableModel.h>
 #include <javax/swing/table/DefaultTableModel.h>
 #include <javax/swing/table/TableModel.h>
 #include <jcpp.h>
@@ -40,7 +37,6 @@ using $bug7068740$2 = ::bug7068740$2;
 using $bug7068740$3 = ::bug7068740$3;
 using $AWTException = ::java::awt::AWTException;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Robot = ::java::awt::Robot;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -52,7 +48,6 @@ using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JLayer = ::javax::swing::JLayer;
 using $JScrollPane = ::javax::swing::JScrollPane;
@@ -63,9 +58,7 @@ using $UIManager = ::javax::swing::UIManager;
 using $UnsupportedLookAndFeelException = ::javax::swing::UnsupportedLookAndFeelException;
 using $WindowConstants = ::javax::swing::WindowConstants;
 using $LayerUI = ::javax::swing::plaf::LayerUI;
-using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
-using $AbstractTableModel = ::javax::swing::table::AbstractTableModel;
 using $DefaultTableModel = ::javax::swing::table::DefaultTableModel;
 using $TableModel = ::javax::swing::table::TableModel;
 

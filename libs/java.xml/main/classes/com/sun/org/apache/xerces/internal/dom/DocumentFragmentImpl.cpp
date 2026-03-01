@@ -2,7 +2,6 @@
 
 #include <com/sun/org/apache/xerces/internal/dom/ChildNode.h>
 #include <com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl.h>
-#include <com/sun/org/apache/xerces/internal/dom/NodeImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/ParentNode.h>
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/NamedNodeMap.h>
@@ -17,7 +16,6 @@
 
 using $ChildNode = ::com::sun::org::apache::xerces::internal::dom::ChildNode;
 using $CoreDocumentImpl = ::com::sun::org::apache::xerces::internal::dom::CoreDocumentImpl;
-using $NodeImpl = ::com::sun::org::apache::xerces::internal::dom::NodeImpl;
 using $ParentNode = ::com::sun::org::apache::xerces::internal::dom::ParentNode;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -6,16 +6,13 @@
 #include <JViewPortBackingStoreImageTest$Paragraph.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/GridBagConstraints.h>
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
-#include <java/awt/event/WindowAdapter.h>
 #include <java/awt/event/WindowListener.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
@@ -27,10 +24,8 @@
 #include <java/util/HashMap.h>
 #include <java/util/concurrent/CountDownLatch.h>
 #include <java/util/concurrent/TimeUnit.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComponent.h>
-#include <javax/swing/JEditorPane.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/JScrollPane.h>
@@ -42,7 +37,6 @@
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/BadLocationException.h>
 #include <javax/swing/text/DefaultStyledDocument.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/Style.h>
 #include <javax/swing/text/StyleConstants.h>
@@ -65,15 +59,12 @@ using $JViewPortBackingStoreImageTest$AttributedContentArray = $Array<JViewPortB
 using $JViewPortBackingStoreImageTest$ParagraphArray = $Array<JViewPortBackingStoreImageTest$Paragraph>;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $Insets = ::java::awt::Insets;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $WindowAdapter = ::java::awt::event::WindowAdapter;
 using $WindowListener = ::java::awt::event::WindowListener;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -87,10 +78,8 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $HashMap = ::java::util::HashMap;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
-using $JEditorPane = ::javax::swing::JEditorPane;
 using $JFrame = ::javax::swing::JFrame;
 using $JPanel = ::javax::swing::JPanel;
 using $JScrollPane = ::javax::swing::JScrollPane;
@@ -102,7 +91,6 @@ using $UIManager = ::javax::swing::UIManager;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $DefaultStyledDocument = ::javax::swing::text::DefaultStyledDocument;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $MutableAttributeSet = ::javax::swing::text::MutableAttributeSet;
 using $Style = ::javax::swing::text::Style;
 using $StyleConstants = ::javax::swing::text::StyleConstants;

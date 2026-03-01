@@ -4,13 +4,11 @@
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/io/File.h>
 #include <java/io/FileNotFoundException.h>
 #include <java/util/Locale.h>
-#include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/Icon.h>
@@ -49,7 +47,6 @@
 #include <sun/swing/DefaultLookup.h>
 #include <sun/swing/FilePane.h>
 #include <sun/swing/SwingUtilities2.h>
-#include <sun/swing/UIAction.h>
 #include <jcpp.h>
 
 #undef ACTION_APPROVE_SELECTION
@@ -64,7 +61,6 @@
 
 using $BorderLayout = ::java::awt::BorderLayout;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $File = ::java::io::File;
@@ -75,7 +71,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Locale = ::java::util::Locale;
-using $AbstractAction = ::javax::swing::AbstractAction;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $InputMap = ::javax::swing::InputMap;
@@ -112,7 +107,6 @@ using $ShellFolder = ::sun::awt::shell::ShellFolder;
 using $DefaultLookup = ::sun::swing::DefaultLookup;
 using $FilePane = ::sun::swing::FilePane;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
-using $UIAction = ::sun::swing::UIAction;
 
 namespace javax {
 	namespace swing {

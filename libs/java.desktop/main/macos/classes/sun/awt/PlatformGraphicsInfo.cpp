@@ -11,9 +11,6 @@
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <sun/awt/CGraphicsEnvironment.h>
-#include <sun/awt/SunToolkit.h>
-#include <sun/java2d/SunGraphicsEnvironment.h>
-#include <sun/lwawt/LWToolkit.h>
 #include <sun/lwawt/macosx/LWCToolkit.h>
 #include <jcpp.h>
 
@@ -27,9 +24,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $CGraphicsEnvironment = ::sun::awt::CGraphicsEnvironment;
-using $SunToolkit = ::sun::awt::SunToolkit;
-using $SunGraphicsEnvironment = ::sun::java2d::SunGraphicsEnvironment;
-using $LWToolkit = ::sun::lwawt::LWToolkit;
 using $LWCToolkit = ::sun::lwawt::macosx::LWCToolkit;
 
 namespace sun {

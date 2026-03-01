@@ -18,10 +18,8 @@
 #include <javax/sound/sampled/AudioFormat$Encoding.h>
 #include <javax/sound/sampled/AudioFormat.h>
 #include <javax/sound/sampled/AudioSystem.h>
-#include <javax/sound/sampled/BooleanControl.h>
 #include <javax/sound/sampled/Control.h>
 #include <javax/sound/sampled/DataLine$Info.h>
-#include <javax/sound/sampled/FloatControl.h>
 #include <javax/sound/sampled/Line$Info.h>
 #include <javax/sound/sampled/LineUnavailableException.h>
 #include <jcpp.h>
@@ -57,10 +55,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AudioFormat = ::javax::sound::sampled::AudioFormat;
 using $AudioFormat$Encoding = ::javax::sound::sampled::AudioFormat$Encoding;
 using $AudioSystem = ::javax::sound::sampled::AudioSystem;
-using $BooleanControl = ::javax::sound::sampled::BooleanControl;
 using $Control = ::javax::sound::sampled::Control;
 using $DataLine$Info = ::javax::sound::sampled::DataLine$Info;
-using $FloatControl = ::javax::sound::sampled::FloatControl;
 using $LineUnavailableException = ::javax::sound::sampled::LineUnavailableException;
 
 namespace com {

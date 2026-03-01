@@ -8,7 +8,6 @@
 #include <java/awt/Window.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/RenderedImage.h>
-#include <java/awt/image/WritableRenderedImage.h>
 #include <java/io/File.h>
 #include <java/io/Serializable.h>
 #include <java/lang/ClassNotFoundException.h>
@@ -22,14 +21,12 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <javax/imageio/ImageIO.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JTextArea.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager$LookAndFeelInfo.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/UnsupportedLookAndFeelException.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef LEFT_TO_RIGHT
@@ -43,13 +40,11 @@ using $Graphics = ::java::awt::Graphics;
 using $Rectangle = ::java::awt::Rectangle;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $RenderedImage = ::java::awt::image::RenderedImage;
-using $WritableRenderedImage = ::java::awt::image::WritableRenderedImage;
 using $File = ::java::io::File;
 using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InstantiationException = ::java::lang::InstantiationException;
@@ -59,14 +54,12 @@ using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $ImageIO = ::javax::imageio::ImageIO;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JTextArea = ::javax::swing::JTextArea;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $UIManager$LookAndFeelInfo = ::javax::swing::UIManager$LookAndFeelInfo;
 using $UnsupportedLookAndFeelException = ::javax::swing::UnsupportedLookAndFeelException;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 class JTextAreaOrientationTest$$Lambda$lambda$main$0 : public $Runnable {
 	$class(JTextAreaOrientationTest$$Lambda$lambda$main$0, $NO_CLASS_INIT, $Runnable)

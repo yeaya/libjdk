@@ -1,10 +1,8 @@
 #include <com/sun/jndi/ldap/DefaultResponseControlFactory.h>
 
-#include <com/sun/jndi/ldap/BasicControl.h>
 #include <com/sun/jndi/ldap/EntryChangeResponseControl.h>
 #include <java/io/IOException.h>
 #include <javax/naming/NamingException.h>
-#include <javax/naming/ldap/BasicControl.h>
 #include <javax/naming/ldap/Control.h>
 #include <javax/naming/ldap/ControlFactory.h>
 #include <javax/naming/ldap/PagedResultsResponseControl.h>
@@ -13,14 +11,11 @@
 
 #undef OID
 
-using $1BasicControl = ::com::sun::jndi::ldap::BasicControl;
 using $EntryChangeResponseControl = ::com::sun::jndi::ldap::EntryChangeResponseControl;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamingException = ::javax::naming::NamingException;
-using $BasicControl = ::javax::naming::ldap::BasicControl;
 using $Control = ::javax::naming::ldap::Control;
 using $ControlFactory = ::javax::naming::ldap::ControlFactory;
 using $PagedResultsResponseControl = ::javax::naming::ldap::PagedResultsResponseControl;

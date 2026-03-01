@@ -1,7 +1,6 @@
 #include <javax/swing/plaf/basic/BasicDirectoryModel$FilesLoader$1.h>
 
 #include <java/io/File.h>
-#include <java/util/AbstractList.h>
 #include <java/util/Collection.h>
 #include <java/util/List.h>
 #include <java/util/Vector.h>
@@ -16,7 +15,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $Collection = ::java::util::Collection;
 using $List = ::java::util::List;
 using $Vector = ::java::util::Vector;

@@ -3,9 +3,7 @@
 #include <java/lang/Iterable.h>
 #include <java/lang/Math.h>
 #include <java/nio/ByteBuffer.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/List.h>
 #include <java/util/concurrent/Flow$Subscriber.h>
 #include <jdk/internal/net/http/PullPublisher.h>
@@ -22,9 +20,7 @@ using $Iterable = ::java::lang::Iterable;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $List = ::java::util::List;
 using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 using $PullPublisher = ::jdk::internal::net::http::PullPublisher;

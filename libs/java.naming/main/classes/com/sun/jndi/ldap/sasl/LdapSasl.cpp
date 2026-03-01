@@ -8,8 +8,6 @@
 #include <com/sun/jndi/ldap/sasl/SaslOutputStream.h>
 #include <com/sun/jndi/ldap/sasl/TlsChannelBinding$TlsChannelBindingType.h>
 #include <com/sun/jndi/ldap/sasl/TlsChannelBinding.h>
-#include <java/io/FilterOutputStream.h>
-#include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/security/cert/X509Certificate.h>
@@ -20,7 +18,6 @@
 #include <javax/naming/AuthenticationException.h>
 #include <javax/naming/AuthenticationNotSupportedException.h>
 #include <javax/naming/NamingException.h>
-#include <javax/naming/NamingSecurityException.h>
 #include <javax/naming/ldap/Control.h>
 #include <javax/security/auth/callback/CallbackHandler.h>
 #include <javax/security/sasl/Sasl.h>
@@ -48,12 +45,9 @@ using $SaslInputStream = ::com::sun::jndi::ldap::sasl::SaslInputStream;
 using $SaslOutputStream = ::com::sun::jndi::ldap::sasl::SaslOutputStream;
 using $TlsChannelBinding = ::com::sun::jndi::ldap::sasl::TlsChannelBinding;
 using $TlsChannelBinding$TlsChannelBindingType = ::com::sun::jndi::ldap::sasl::TlsChannelBinding$TlsChannelBindingType;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
-using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $X509Certificate = ::java::security::cert::X509Certificate;
@@ -64,7 +58,6 @@ using $Vector = ::java::util::Vector;
 using $AuthenticationException = ::javax::naming::AuthenticationException;
 using $AuthenticationNotSupportedException = ::javax::naming::AuthenticationNotSupportedException;
 using $NamingException = ::javax::naming::NamingException;
-using $NamingSecurityException = ::javax::naming::NamingSecurityException;
 using $CallbackHandler = ::javax::security::auth::callback::CallbackHandler;
 using $Sasl = ::javax::security::sasl::Sasl;
 using $SaslClient = ::javax::security::sasl::SaslClient;

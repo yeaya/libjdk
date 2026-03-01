@@ -3,7 +3,6 @@
 #include <com/sun/org/apache/xalan/internal/lib/ExsltBase.h>
 #include <com/sun/org/apache/xml/internal/utils/DOM2Helper.h>
 #include <com/sun/org/apache/xpath/internal/NodeSet.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <org/w3c/dom/Node.h>
@@ -15,7 +14,6 @@ using $DOM2Helper = ::com::sun::org::apache::xml::internal::utils::DOM2Helper;
 using $NodeSet = ::com::sun::org::apache::xpath::internal::NodeSet;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $Node = ::org::w3c::dom::Node;

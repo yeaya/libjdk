@@ -1,13 +1,11 @@
 #include <com/sun/org/apache/xerces/internal/util/DefaultErrorHandler.h>
 
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLParseException.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/PrintWriter.h>
 #include <jcpp.h>
 
 using $XMLParseException = ::com::sun::org::apache::xerces::internal::xni::parser::XMLParseException;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $PrintWriter = ::java::io::PrintWriter;
 using $ClassInfo = ::java::lang::ClassInfo;

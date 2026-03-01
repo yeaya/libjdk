@@ -2,9 +2,7 @@
 
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Panel.h>
 #include <javax/swing/Popup.h>
 #include <javax/swing/PopupFactory$ContainerPopup.h>
@@ -13,9 +11,7 @@
 
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Panel = ::java::awt::Panel;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

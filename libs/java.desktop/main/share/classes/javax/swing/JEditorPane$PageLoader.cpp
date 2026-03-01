@@ -1,14 +1,12 @@
 #include <javax/swing/JEditorPane$PageLoader.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/net/URL.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane$PageLoader$1.h>
 #include <javax/swing/JEditorPane$PageLoader$2.h>
 #include <javax/swing/JEditorPane$PageLoader$3.h>
@@ -19,11 +17,9 @@
 #include <javax/swing/UIManager.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/EditorKit.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -34,7 +30,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $URL = ::java::net::URL;
-using $JComponent = ::javax::swing::JComponent;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $JEditorPane$PageLoader$1 = ::javax::swing::JEditorPane$PageLoader$1;
 using $JEditorPane$PageLoader$2 = ::javax::swing::JEditorPane$PageLoader$2;
@@ -44,7 +39,6 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $SwingWorker = ::javax::swing::SwingWorker;
 using $UIManager = ::javax::swing::UIManager;
 using $Document = ::javax::swing::text::Document;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 namespace javax {
 	namespace swing {

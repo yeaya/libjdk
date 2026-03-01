@@ -2,7 +2,6 @@
 
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/InputStream.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
 #include <java/util/Set.h>
@@ -18,7 +17,6 @@ using $InputStream = ::java::io::InputStream;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractSet = ::java::util::AbstractSet;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $Set = ::java::util::Set;

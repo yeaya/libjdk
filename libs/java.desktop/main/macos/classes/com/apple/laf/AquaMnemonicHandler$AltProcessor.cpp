@@ -3,11 +3,9 @@
 #include <com/apple/laf/AquaMnemonicHandler.h>
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ComponentEvent.h>
 #include <java/awt/event/KeyEvent.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JRootPane.h>
 #include <javax/swing/SwingUtilities.h>
 #include <jcpp.h>
@@ -18,13 +16,11 @@
 
 using $AquaMnemonicHandler = ::com::apple::laf::AquaMnemonicHandler;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Window = ::java::awt::Window;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JRootPane = ::javax::swing::JRootPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 

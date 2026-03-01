@@ -12,23 +12,19 @@
 #include <com/sun/tools/javac/tree/JCTree$JCBlock.h>
 #include <com/sun/tools/javac/tree/JCTree$JCBreak.h>
 #include <com/sun/tools/javac/tree/JCTree$JCCase.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCCatch.h>
 #include <com/sun/tools/javac/tree/JCTree$JCClassDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCCompilationUnit.h>
 #include <com/sun/tools/javac/tree/JCTree$JCConditional.h>
 #include <com/sun/tools/javac/tree/JCTree$JCContinue.h>
 #include <com/sun/tools/javac/tree/JCTree$JCDefaultCaseLabel.h>
-#include <com/sun/tools/javac/tree/JCTree$JCDirective.h>
 #include <com/sun/tools/javac/tree/JCTree$JCDoWhileLoop.h>
 #include <com/sun/tools/javac/tree/JCTree$JCEnhancedForLoop.h>
 #include <com/sun/tools/javac/tree/JCTree$JCErroneous.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExports.h>
-#include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpressionStatement.h>
 #include <com/sun/tools/javac/tree/JCTree$JCFieldAccess.h>
 #include <com/sun/tools/javac/tree/JCTree$JCForLoop.h>
-#include <com/sun/tools/javac/tree/JCTree$JCFunctionalExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCGuardPattern.h>
 #include <com/sun/tools/javac/tree/JCTree$JCIdent.h>
 #include <com/sun/tools/javac/tree/JCTree$JCIf.h>
@@ -45,18 +41,14 @@
 #include <com/sun/tools/javac/tree/JCTree$JCNewArray.h>
 #include <com/sun/tools/javac/tree/JCTree$JCNewClass.h>
 #include <com/sun/tools/javac/tree/JCTree$JCOpens.h>
-#include <com/sun/tools/javac/tree/JCTree$JCOperatorExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCPackageDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCParens.h>
 #include <com/sun/tools/javac/tree/JCTree$JCParenthesizedPattern.h>
-#include <com/sun/tools/javac/tree/JCTree$JCPattern.h>
-#include <com/sun/tools/javac/tree/JCTree$JCPolyExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCPrimitiveTypeTree.h>
 #include <com/sun/tools/javac/tree/JCTree$JCProvides.h>
 #include <com/sun/tools/javac/tree/JCTree$JCRequires.h>
 #include <com/sun/tools/javac/tree/JCTree$JCReturn.h>
 #include <com/sun/tools/javac/tree/JCTree$JCSkip.h>
-#include <com/sun/tools/javac/tree/JCTree$JCStatement.h>
 #include <com/sun/tools/javac/tree/JCTree$JCSwitch.h>
 #include <com/sun/tools/javac/tree/JCTree$JCSwitchExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCSynchronized.h>
@@ -92,23 +84,19 @@ using $JCTree$JCBindingPattern = ::com::sun::tools::javac::tree::JCTree$JCBindin
 using $JCTree$JCBlock = ::com::sun::tools::javac::tree::JCTree$JCBlock;
 using $JCTree$JCBreak = ::com::sun::tools::javac::tree::JCTree$JCBreak;
 using $JCTree$JCCase = ::com::sun::tools::javac::tree::JCTree$JCCase;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCCatch = ::com::sun::tools::javac::tree::JCTree$JCCatch;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$JCCompilationUnit = ::com::sun::tools::javac::tree::JCTree$JCCompilationUnit;
 using $JCTree$JCConditional = ::com::sun::tools::javac::tree::JCTree$JCConditional;
 using $JCTree$JCContinue = ::com::sun::tools::javac::tree::JCTree$JCContinue;
 using $JCTree$JCDefaultCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCDefaultCaseLabel;
-using $JCTree$JCDirective = ::com::sun::tools::javac::tree::JCTree$JCDirective;
 using $JCTree$JCDoWhileLoop = ::com::sun::tools::javac::tree::JCTree$JCDoWhileLoop;
 using $JCTree$JCEnhancedForLoop = ::com::sun::tools::javac::tree::JCTree$JCEnhancedForLoop;
 using $JCTree$JCErroneous = ::com::sun::tools::javac::tree::JCTree$JCErroneous;
 using $JCTree$JCExports = ::com::sun::tools::javac::tree::JCTree$JCExports;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCExpressionStatement = ::com::sun::tools::javac::tree::JCTree$JCExpressionStatement;
 using $JCTree$JCFieldAccess = ::com::sun::tools::javac::tree::JCTree$JCFieldAccess;
 using $JCTree$JCForLoop = ::com::sun::tools::javac::tree::JCTree$JCForLoop;
-using $JCTree$JCFunctionalExpression = ::com::sun::tools::javac::tree::JCTree$JCFunctionalExpression;
 using $JCTree$JCGuardPattern = ::com::sun::tools::javac::tree::JCTree$JCGuardPattern;
 using $JCTree$JCIdent = ::com::sun::tools::javac::tree::JCTree$JCIdent;
 using $JCTree$JCIf = ::com::sun::tools::javac::tree::JCTree$JCIf;
@@ -125,18 +113,14 @@ using $JCTree$JCModuleDecl = ::com::sun::tools::javac::tree::JCTree$JCModuleDecl
 using $JCTree$JCNewArray = ::com::sun::tools::javac::tree::JCTree$JCNewArray;
 using $JCTree$JCNewClass = ::com::sun::tools::javac::tree::JCTree$JCNewClass;
 using $JCTree$JCOpens = ::com::sun::tools::javac::tree::JCTree$JCOpens;
-using $JCTree$JCOperatorExpression = ::com::sun::tools::javac::tree::JCTree$JCOperatorExpression;
 using $JCTree$JCPackageDecl = ::com::sun::tools::javac::tree::JCTree$JCPackageDecl;
 using $JCTree$JCParens = ::com::sun::tools::javac::tree::JCTree$JCParens;
 using $JCTree$JCParenthesizedPattern = ::com::sun::tools::javac::tree::JCTree$JCParenthesizedPattern;
-using $JCTree$JCPattern = ::com::sun::tools::javac::tree::JCTree$JCPattern;
-using $JCTree$JCPolyExpression = ::com::sun::tools::javac::tree::JCTree$JCPolyExpression;
 using $JCTree$JCPrimitiveTypeTree = ::com::sun::tools::javac::tree::JCTree$JCPrimitiveTypeTree;
 using $JCTree$JCProvides = ::com::sun::tools::javac::tree::JCTree$JCProvides;
 using $JCTree$JCRequires = ::com::sun::tools::javac::tree::JCTree$JCRequires;
 using $JCTree$JCReturn = ::com::sun::tools::javac::tree::JCTree$JCReturn;
 using $JCTree$JCSkip = ::com::sun::tools::javac::tree::JCTree$JCSkip;
-using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
 using $JCTree$JCSwitch = ::com::sun::tools::javac::tree::JCTree$JCSwitch;
 using $JCTree$JCSwitchExpression = ::com::sun::tools::javac::tree::JCTree$JCSwitchExpression;
 using $JCTree$JCSynchronized = ::com::sun::tools::javac::tree::JCTree$JCSynchronized;

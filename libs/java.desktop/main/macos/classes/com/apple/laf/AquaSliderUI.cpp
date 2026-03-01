@@ -22,7 +22,6 @@
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
@@ -34,7 +33,6 @@
 #include <javax/swing/UIManager.h>
 #include <javax/swing/event/ChangeListener.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/SliderUI.h>
 #include <javax/swing/plaf/basic/BasicSliderUI$TrackListener.h>
 #include <javax/swing/plaf/basic/BasicSliderUI.h>
 #include <jcpp.h>
@@ -77,7 +75,6 @@ using $AquaUtilControlSize$SizeVariant = ::com::apple::laf::AquaUtilControlSize$
 using $AquaUtils$RecyclableSingleton = ::com::apple::laf::AquaUtils$RecyclableSingleton;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Rectangle = ::java::awt::Rectangle;
@@ -94,7 +91,6 @@ using $Timer = ::javax::swing::Timer;
 using $UIManager = ::javax::swing::UIManager;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $SliderUI = ::javax::swing::plaf::SliderUI;
 using $BasicSliderUI = ::javax::swing::plaf::basic::BasicSliderUI;
 using $BasicSliderUI$TrackListener = ::javax::swing::plaf::basic::BasicSliderUI$TrackListener;
 

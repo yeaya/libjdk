@@ -3,7 +3,6 @@
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
 #include <java/awt/Frame.h>
@@ -15,7 +14,6 @@
 #include <java/awt/MenuItem.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
-#include <java/awt/Window.h>
 #include <java/awt/event/InputEvent.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/event/MouseEvent.h>
@@ -81,7 +79,6 @@ using $XMenuItemPeer$TextMetricsArray = $Array<::sun::awt::X11::XMenuItemPeer$Te
 using $XMenuItemPeerArray = $Array<::sun::awt::X11::XMenuItemPeer>;
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $Frame = ::java::awt::Frame;
@@ -93,7 +90,6 @@ using $MenuComponent = ::java::awt::MenuComponent;
 using $MenuItem = ::java::awt::MenuItem;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
-using $Window = ::java::awt::Window;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;

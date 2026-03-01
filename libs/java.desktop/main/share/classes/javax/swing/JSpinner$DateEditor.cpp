@@ -19,9 +19,7 @@
 #include <javax/swing/SpinnerDateModel.h>
 #include <javax/swing/SpinnerModel.h>
 #include <javax/swing/text/DateFormatter.h>
-#include <javax/swing/text/DefaultFormatter.h>
 #include <javax/swing/text/DefaultFormatterFactory.h>
-#include <javax/swing/text/InternationalFormatter.h>
 #include <javax/swing/text/JTextComponent.h>
 #include <sun/util/locale/provider/LocaleProviderAdapter.h>
 #include <sun/util/locale/provider/LocaleResources.h>
@@ -48,9 +46,7 @@ using $JSpinner$DateEditorFormatter = ::javax::swing::JSpinner$DateEditorFormatt
 using $JSpinner$DefaultEditor = ::javax::swing::JSpinner$DefaultEditor;
 using $SpinnerDateModel = ::javax::swing::SpinnerDateModel;
 using $DateFormatter = ::javax::swing::text::DateFormatter;
-using $DefaultFormatter = ::javax::swing::text::DefaultFormatter;
 using $DefaultFormatterFactory = ::javax::swing::text::DefaultFormatterFactory;
-using $InternationalFormatter = ::javax::swing::text::InternationalFormatter;
 using $LocaleProviderAdapter = ::sun::util::locale::provider::LocaleProviderAdapter;
 using $LocaleResources = ::sun::util::locale::provider::LocaleResources;
 

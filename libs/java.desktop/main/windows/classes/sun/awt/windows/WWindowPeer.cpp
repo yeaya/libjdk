@@ -26,7 +26,6 @@
 #include <java/awt/Toolkit.h>
 #include <java/awt/Window$Type.h>
 #include <java/awt/Window.h>
-#include <java/awt/event/ComponentEvent.h>
 #include <java/awt/event/FocusEvent$Cause.h>
 #include <java/awt/event/PaintEvent.h>
 #include <java/awt/event/WindowEvent.h>
@@ -47,8 +46,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractSequentialList.h>
 #include <java/util/LinkedList.h>
 #include <java/util/List.h>
 #include <sun/awt/AWTAccessor$ComponentAccessor.h>
@@ -114,7 +111,6 @@ using $Shape = ::java::awt::Shape;
 using $SystemColor = ::java::awt::SystemColor;
 using $Window = ::java::awt::Window;
 using $Window$Type = ::java::awt::Window$Type;
-using $ComponentEvent = ::java::awt::event::ComponentEvent;
 using $FocusEvent$Cause = ::java::awt::event::FocusEvent$Cause;
 using $PaintEvent = ::java::awt::event::PaintEvent;
 using $WindowEvent = ::java::awt::event::WindowEvent;
@@ -138,8 +134,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractSequentialList = ::java::util::AbstractSequentialList;
 using $LinkedList = ::java::util::LinkedList;
 using $List = ::java::util::List;
 using $AWTAccessor = ::sun::awt::AWTAccessor;

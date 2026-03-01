@@ -4,11 +4,9 @@
 #include <com/sun/java/swing/plaf/windows/WindowsFileChooserUI$IndentIcon.h>
 #include <com/sun/java/swing/plaf/windows/WindowsFileChooserUI.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/io/File.h>
 #include <javax/swing/DefaultListCellRenderer.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFileChooser.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JList.h>
@@ -18,7 +16,6 @@ using $WindowsFileChooserUI = ::com::sun::java::swing::plaf::windows::WindowsFil
 using $WindowsFileChooserUI$DirectoryComboBoxModel = ::com::sun::java::swing::plaf::windows::WindowsFileChooserUI$DirectoryComboBoxModel;
 using $WindowsFileChooserUI$IndentIcon = ::com::sun::java::swing::plaf::windows::WindowsFileChooserUI$IndentIcon;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $File = ::java::io::File;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -26,9 +23,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DefaultListCellRenderer = ::javax::swing::DefaultListCellRenderer;
 using $Icon = ::javax::swing::Icon;
-using $JComponent = ::javax::swing::JComponent;
 using $JFileChooser = ::javax::swing::JFileChooser;
-using $JLabel = ::javax::swing::JLabel;
 using $JList = ::javax::swing::JList;
 
 namespace com {

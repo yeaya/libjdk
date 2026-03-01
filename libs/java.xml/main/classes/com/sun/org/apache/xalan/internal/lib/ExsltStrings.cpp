@@ -5,7 +5,6 @@
 #include <java/lang/StringBuffer.h>
 #include <java/util/StringTokenizer.h>
 #include <jdk/xml/internal/JdkXmlUtils.h>
-#include <org/w3c/dom/CharacterData.h>
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/Element.h>
 #include <org/w3c/dom/Node.h>
@@ -20,7 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $StringTokenizer = ::java::util::StringTokenizer;
 using $JdkXmlUtils = ::jdk::xml::internal::JdkXmlUtils;
-using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;

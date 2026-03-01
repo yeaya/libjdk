@@ -5,14 +5,12 @@
 #include <LastNodeLowerHalfDrop$3.h>
 #include <TreeTransferHandler.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Point.h>
 #include <java/awt/Robot.h>
 #include <java/awt/event/InputEvent.h>
 #include <java/lang/Runnable.h>
 #include <java/util/Enumeration.h>
 #include <javax/swing/DropMode.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/JTree.h>
@@ -36,7 +34,6 @@ using $LastNodeLowerHalfDrop$2 = ::LastNodeLowerHalfDrop$2;
 using $LastNodeLowerHalfDrop$3 = ::LastNodeLowerHalfDrop$3;
 using $TreeTransferHandler = ::TreeTransferHandler;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Point = ::java::awt::Point;
 using $Robot = ::java::awt::Robot;
 using $InputEvent = ::java::awt::event::InputEvent;
@@ -49,7 +46,6 @@ using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Enumeration = ::java::util::Enumeration;
 using $DropMode = ::javax::swing::DropMode;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JTree = ::javax::swing::JTree;

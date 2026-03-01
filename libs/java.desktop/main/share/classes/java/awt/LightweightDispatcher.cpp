@@ -10,7 +10,6 @@
 #include <java/awt/LightweightDispatcher$3.h>
 #include <java/awt/Point.h>
 #include <java/awt/Window.h>
-#include <java/awt/event/ComponentEvent.h>
 #include <java/awt/event/InputEvent.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/awt/event/MouseWheelEvent.h>
@@ -56,7 +55,6 @@ using $LightweightDispatcher$2 = ::java::awt::LightweightDispatcher$2;
 using $LightweightDispatcher$3 = ::java::awt::LightweightDispatcher$3;
 using $Point = ::java::awt::Point;
 using $Window = ::java::awt::Window;
-using $ComponentEvent = ::java::awt::event::ComponentEvent;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $MouseWheelEvent = ::java::awt::event::MouseWheelEvent;

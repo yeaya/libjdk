@@ -6,7 +6,6 @@
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/KeyEvent.h>
@@ -17,9 +16,7 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JPanel.h>
@@ -28,7 +25,6 @@
 #include <javax/swing/UIDefaults.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/WindowConstants.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <javax/swing/text/Keymap.h>
 #include <jcpp.h>
 
@@ -42,7 +38,6 @@ using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Robot = ::java::awt::Robot;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $Serializable = ::java::io::Serializable;
@@ -54,9 +49,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractAction = ::javax::swing::AbstractAction;
 using $Action = ::javax::swing::Action;
-using $JComponent = ::javax::swing::JComponent;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $JFrame = ::javax::swing::JFrame;
 using $JPanel = ::javax::swing::JPanel;
@@ -65,7 +58,6 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIManager = ::javax::swing::UIManager;
 using $WindowConstants = ::javax::swing::WindowConstants;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $Keymap = ::javax::swing::text::Keymap;
 
 class TestNimbusOverride$$Lambda$lambda$main$0 : public $Runnable {

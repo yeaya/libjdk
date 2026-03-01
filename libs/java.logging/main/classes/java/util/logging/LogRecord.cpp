@@ -17,7 +17,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/time/Instant.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <java/util/Locale.h>
@@ -57,7 +56,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $StackWalker$StackFrame = ::java::lang::StackWalker$StackFrame;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Instant = ::java::time::Instant;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;

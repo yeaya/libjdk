@@ -1,6 +1,5 @@
 #include <ShortRequestBody.h>
 
-#include <ShortRequestBody$AbstractDelegateRequestBody.h>
 #include <ShortRequestBody$ByteArrayRequestBody.h>
 #include <ShortRequestBody$FileRequestBody.h>
 #include <ShortRequestBody$Server.h>
@@ -27,7 +26,6 @@
 #include <java/nio/file/Files.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/Paths.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -46,7 +44,6 @@
 #undef SECONDS
 #undef STRING_BODY
 
-using $ShortRequestBody$AbstractDelegateRequestBody = ::ShortRequestBody$AbstractDelegateRequestBody;
 using $ShortRequestBody$ByteArrayRequestBody = ::ShortRequestBody$ByteArrayRequestBody;
 using $ShortRequestBody$FileRequestBody = ::ShortRequestBody$FileRequestBody;
 using $ShortRequestBody$Server = ::ShortRequestBody$Server;
@@ -58,7 +55,6 @@ using $Serializable = ::java::io::Serializable;
 using $UncheckedIOException = ::java::io::UncheckedIOException;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
@@ -76,7 +72,6 @@ using $HttpTimeoutException = ::java::net::http::HttpTimeoutException;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;

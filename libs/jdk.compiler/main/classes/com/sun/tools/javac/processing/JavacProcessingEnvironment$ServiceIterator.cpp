@@ -7,8 +7,6 @@
 #include <com/sun/tools/javac/util/Log.h>
 #include <java/lang/ClassFormatError.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/Error.h>
-#include <java/lang/LinkageError.h>
 #include <java/lang/UnsupportedClassVersionError.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/util/Iterator.h>
@@ -24,11 +22,9 @@ using $Log = ::com::sun::tools::javac::util::Log;
 using $ClassFormatError = ::java::lang::ClassFormatError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
-using $Error = ::java::lang::Error;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
-using $LinkageError = ::java::lang::LinkageError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedClassVersionError = ::java::lang::UnsupportedClassVersionError;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;

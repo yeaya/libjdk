@@ -12,7 +12,6 @@
 #include <java/awt/Shape.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/awt/print/PageFormat.h>
 #include <java/awt/print/Printable.h>
 #include <java/awt/print/PrinterException.h>
@@ -47,7 +46,6 @@ using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $PageFormat = ::java::awt::print::PageFormat;
 using $Printable = ::java::awt::print::Printable;
 using $PrinterException = ::java::awt::print::PrinterException;

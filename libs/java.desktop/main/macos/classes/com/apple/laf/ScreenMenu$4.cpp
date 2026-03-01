@@ -4,8 +4,6 @@
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/Rectangle.h>
-#include <java/awt/event/ComponentEvent.h>
-#include <java/awt/event/InputEvent.h>
 #include <java/awt/event/MouseEvent.h>
 #include <javax/swing/JMenu.h>
 #include <sun/lwawt/LWToolkit.h>
@@ -18,8 +16,6 @@ using $ScreenMenu = ::com::apple::laf::ScreenMenu;
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
 using $Rectangle = ::java::awt::Rectangle;
-using $ComponentEvent = ::java::awt::event::ComponentEvent;
-using $InputEvent = ::java::awt::event::InputEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

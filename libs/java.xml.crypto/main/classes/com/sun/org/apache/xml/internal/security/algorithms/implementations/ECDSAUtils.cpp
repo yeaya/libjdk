@@ -11,7 +11,6 @@
 #include <java/security/spec/ECParameterSpec.h>
 #include <java/security/spec/ECPoint.h>
 #include <java/security/spec/EllipticCurve.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -33,7 +32,6 @@ using $ECFieldFp = ::java::security::spec::ECFieldFp;
 using $ECParameterSpec = ::java::security::spec::ECParameterSpec;
 using $ECPoint = ::java::security::spec::ECPoint;
 using $EllipticCurve = ::java::security::spec::EllipticCurve;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;

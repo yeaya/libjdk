@@ -5,7 +5,6 @@
 #include <java/net/CookieStore.h>
 #include <java/net/HttpCookie.h>
 #include <java/net/URI.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
@@ -23,7 +22,6 @@ using $CookiePolicy = ::java::net::CookiePolicy;
 using $CookieStore = ::java::net::CookieStore;
 using $HttpCookie = ::java::net::HttpCookie;
 using $URI = ::java::net::URI;
-using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;

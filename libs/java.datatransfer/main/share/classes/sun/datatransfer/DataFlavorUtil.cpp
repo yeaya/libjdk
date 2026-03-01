@@ -4,7 +4,6 @@
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/IllegalCharsetNameException.h>
 #include <java/nio/charset/UnsupportedCharsetException.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Collections.h>
 #include <java/util/Comparator.h>
 #include <java/util/HashMap.h>
@@ -34,7 +33,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
 using $IllegalCharsetNameException = ::java::nio::charset::IllegalCharsetNameException;
 using $UnsupportedCharsetException = ::java::nio::charset::UnsupportedCharsetException;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Collections = ::java::util::Collections;
 using $Comparator = ::java::util::Comparator;
 using $HashMap = ::java::util::HashMap;

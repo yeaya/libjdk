@@ -6,20 +6,17 @@
 #include <java/awt/Insets.h>
 #include <java/awt/Point.h>
 #include <java/lang/Math.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JList.h>
 #include <javax/swing/JViewport.h>
 #include <jcpp.h>
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Insets = ::java::awt::Insets;
 using $Point = ::java::awt::Point;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JList = ::javax::swing::JList;
 using $JViewport = ::javax::swing::JViewport;
 

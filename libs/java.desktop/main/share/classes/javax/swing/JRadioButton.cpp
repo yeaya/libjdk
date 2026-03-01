@@ -1,18 +1,13 @@
 #include <javax/swing/JRadioButton.h>
 
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/io/ObjectOutputStream.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/AbstractButton$AccessibleAbstractButton.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JRadioButton$AccessibleJRadioButton.h>
-#include <javax/swing/JToggleButton$AccessibleJToggleButton.h>
 #include <javax/swing/JToggleButton.h>
 #include <javax/swing/SwingConstants.h>
 #include <javax/swing/UIManager.h>
@@ -22,8 +17,6 @@
 
 #undef LEADING
 
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
@@ -32,15 +25,11 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $AbstractButton = ::javax::swing::AbstractButton;
-using $AbstractButton$AccessibleAbstractButton = ::javax::swing::AbstractButton$AccessibleAbstractButton;
 using $Action = ::javax::swing::Action;
 using $Icon = ::javax::swing::Icon;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JRadioButton$AccessibleJRadioButton = ::javax::swing::JRadioButton$AccessibleJRadioButton;
 using $JToggleButton = ::javax::swing::JToggleButton;
-using $JToggleButton$AccessibleJToggleButton = ::javax::swing::JToggleButton$AccessibleJToggleButton;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $UIManager = ::javax::swing::UIManager;
 using $ButtonUI = ::javax::swing::plaf::ButtonUI;

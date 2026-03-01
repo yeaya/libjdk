@@ -3,20 +3,17 @@
 #include <bug7013453$1.h>
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/InterruptedException.h>
-#include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/reflect/Field.h>
 #include <jcpp.h>
 
 using $bug7013453$1 = ::bug7013453$1;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Field = ::java::lang::reflect::Field;
 

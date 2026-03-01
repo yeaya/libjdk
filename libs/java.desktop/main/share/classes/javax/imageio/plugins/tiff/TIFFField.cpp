@@ -4,11 +4,9 @@
 #include <java/lang/ClassCastException.h>
 #include <java/lang/Cloneable.h>
 #include <java/util/StringTokenizer.h>
-#include <javax/imageio/metadata/IIOMetadataNode.h>
 #include <javax/imageio/plugins/tiff/TIFFDirectory.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <javax/imageio/plugins/tiff/TIFFTagSet.h>
-#include <org/w3c/dom/Element.h>
 #include <org/w3c/dom/NamedNodeMap.h>
 #include <org/w3c/dom/Node.h>
 #include <jcpp.h>
@@ -40,7 +38,6 @@ using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Cloneable = ::java::lang::Cloneable;
 using $Double = ::java::lang::Double;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -48,13 +45,10 @@ using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $StringTokenizer = ::java::util::StringTokenizer;
-using $IIOMetadataNode = ::javax::imageio::metadata::IIOMetadataNode;
 using $TIFFDirectory = ::javax::imageio::plugins::tiff::TIFFDirectory;
 using $TIFFTag = ::javax::imageio::plugins::tiff::TIFFTag;
 using $TIFFTagSet = ::javax::imageio::plugins::tiff::TIFFTagSet;
-using $Element = ::org::w3c::dom::Element;
 using $NamedNodeMap = ::org::w3c::dom::NamedNodeMap;
 using $Node = ::org::w3c::dom::Node;
 

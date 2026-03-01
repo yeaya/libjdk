@@ -4,20 +4,15 @@
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/BoxView.h>
 #include <javax/swing/text/ComponentView.h>
-#include <javax/swing/text/CompositeView.h>
 #include <javax/swing/text/Element.h>
-#include <javax/swing/text/FlowView.h>
-#include <javax/swing/text/GlyphView.h>
 #include <javax/swing/text/IconView.h>
 #include <javax/swing/text/LabelView.h>
-#include <javax/swing/text/ParagraphView.h>
 #include <javax/swing/text/StyleConstants.h>
 #include <javax/swing/text/View.h>
 #include <javax/swing/text/html/BRView.h>
 #include <javax/swing/text/html/BlockView.h>
 #include <javax/swing/text/html/CSS$Attribute.h>
 #include <javax/swing/text/html/CommentView.h>
-#include <javax/swing/text/html/EditableView.h>
 #include <javax/swing/text/html/FormView.h>
 #include <javax/swing/text/html/FrameSetView.h>
 #include <javax/swing/text/html/FrameView.h>
@@ -95,20 +90,15 @@ using $AbstractDocument = ::javax::swing::text::AbstractDocument;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $BoxView = ::javax::swing::text::BoxView;
 using $ComponentView = ::javax::swing::text::ComponentView;
-using $CompositeView = ::javax::swing::text::CompositeView;
 using $Element = ::javax::swing::text::Element;
-using $FlowView = ::javax::swing::text::FlowView;
-using $GlyphView = ::javax::swing::text::GlyphView;
 using $IconView = ::javax::swing::text::IconView;
 using $LabelView = ::javax::swing::text::LabelView;
-using $ParagraphView = ::javax::swing::text::ParagraphView;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
 using $View = ::javax::swing::text::View;
 using $BRView = ::javax::swing::text::html::BRView;
 using $BlockView = ::javax::swing::text::html::BlockView;
 using $CSS$Attribute = ::javax::swing::text::html::CSS$Attribute;
 using $CommentView = ::javax::swing::text::html::CommentView;
-using $EditableView = ::javax::swing::text::html::EditableView;
 using $FormView = ::javax::swing::text::html::FormView;
 using $FrameSetView = ::javax::swing::text::html::FrameSetView;
 using $FrameView = ::javax::swing::text::html::FrameView;
@@ -126,7 +116,7 @@ using $LineView = ::javax::swing::text::html::LineView;
 using $ListView = ::javax::swing::text::html::ListView;
 using $NoFramesView = ::javax::swing::text::html::NoFramesView;
 using $ObjectView = ::javax::swing::text::html::ObjectView;
-using $1ParagraphView = ::javax::swing::text::html::ParagraphView;
+using $ParagraphView = ::javax::swing::text::html::ParagraphView;
 using $TableView = ::javax::swing::text::html::TableView;
 
 namespace javax {
@@ -189,10 +179,10 @@ $View* HTMLEditorKit$HTMLFactory::create($Element* elem) {
 				if ((ws != nullptr) && ws->equals("pre"_s)) {
 					return $new($LineView, elem);
 				}
-				return $new($1ParagraphView, elem);
+				return $new($ParagraphView, elem);
 			} else {
 				if ((kind == $HTML$Tag::P) || (kind == $HTML$Tag::H1) || (kind == $HTML$Tag::H2) || (kind == $HTML$Tag::H3) || (kind == $HTML$Tag::H4) || (kind == $HTML$Tag::H5) || (kind == $HTML$Tag::H6) || (kind == $HTML$Tag::DT)) {
-					return $new($1ParagraphView, elem);
+					return $new($ParagraphView, elem);
 				} else {
 					if ((kind == $HTML$Tag::MENU) || (kind == $HTML$Tag::DIR) || (kind == $HTML$Tag::UL) || (kind == $HTML$Tag::OL)) {
 						return $new($ListView, elem);
@@ -281,7 +271,7 @@ $View* HTMLEditorKit$HTMLFactory::create($Element* elem) {
 			return $new($LabelView, elem);
 		} else {
 			if (nm->equals($AbstractDocument::ParagraphElementName)) {
-				return $new($1ParagraphView, elem);
+				return $new($ParagraphView, elem);
 			} else {
 				if (nm->equals($AbstractDocument::SectionElementName)) {
 					return $new($BoxView, elem, $View::Y_AXIS);

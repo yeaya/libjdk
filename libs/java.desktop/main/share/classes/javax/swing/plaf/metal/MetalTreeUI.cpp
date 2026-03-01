@@ -11,7 +11,6 @@
 #include <javax/swing/JTree.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/TreeUI.h>
 #include <javax/swing/plaf/basic/BasicTreeUI.h>
 #include <javax/swing/plaf/metal/MetalTreeUI$LineListener.h>
 #include <javax/swing/tree/TreePath.h>
@@ -39,7 +38,6 @@ using $JComponent = ::javax::swing::JComponent;
 using $JTree = ::javax::swing::JTree;
 using $UIManager = ::javax::swing::UIManager;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $TreeUI = ::javax::swing::plaf::TreeUI;
 using $BasicTreeUI = ::javax::swing::plaf::basic::BasicTreeUI;
 using $MetalTreeUI$LineListener = ::javax::swing::plaf::metal::MetalTreeUI$LineListener;
 using $TreePath = ::javax::swing::tree::TreePath;

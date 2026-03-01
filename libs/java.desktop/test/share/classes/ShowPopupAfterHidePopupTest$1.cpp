@@ -5,7 +5,6 @@
 #include <java/awt/Container.h>
 #include <java/awt/Window.h>
 #include <javax/swing/JComboBox.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <jcpp.h>
 
@@ -17,7 +16,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComboBox = ::javax::swing::JComboBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 
 $MethodInfo _ShowPopupAfterHidePopupTest$1_MethodInfo_[] = {

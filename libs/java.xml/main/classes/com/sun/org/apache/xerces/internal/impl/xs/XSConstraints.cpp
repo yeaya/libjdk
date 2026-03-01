@@ -26,15 +26,11 @@
 #include <com/sun/org/apache/xerces/internal/util/SymbolHash.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLLocator.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSConstants.h>
-#include <com/sun/org/apache/xerces/internal/xs/XSElementDeclaration.h>
-#include <com/sun/org/apache/xerces/internal/xs/XSModelGroup.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSObject.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSObjectList.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSParticle.h>
-#include <com/sun/org/apache/xerces/internal/xs/XSSimpleTypeDefinition.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSTerm.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSTypeDefinition.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collections.h>
 #include <java/util/Comparator.h>
@@ -101,10 +97,7 @@ using $XSObjectListImpl = ::com::sun::org::apache::xerces::internal::impl::xs::u
 using $SymbolHash = ::com::sun::org::apache::xerces::internal::util::SymbolHash;
 using $XMLLocator = ::com::sun::org::apache::xerces::internal::xni::XMLLocator;
 using $XSConstants = ::com::sun::org::apache::xerces::internal::xs::XSConstants;
-using $XSElementDeclaration = ::com::sun::org::apache::xerces::internal::xs::XSElementDeclaration;
-using $XSModelGroup = ::com::sun::org::apache::xerces::internal::xs::XSModelGroup;
 using $XSObjectList = ::com::sun::org::apache::xerces::internal::xs::XSObjectList;
-using $XSSimpleTypeDefinition = ::com::sun::org::apache::xerces::internal::xs::XSSimpleTypeDefinition;
 using $XSTerm = ::com::sun::org::apache::xerces::internal::xs::XSTerm;
 using $XSTypeDefinition = ::com::sun::org::apache::xerces::internal::xs::XSTypeDefinition;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -112,7 +105,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collections = ::java::util::Collections;
 using $Comparator = ::java::util::Comparator;

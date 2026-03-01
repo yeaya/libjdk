@@ -10,7 +10,6 @@
 #include <java/awt/Robot.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/Window.h>
-#include <java/awt/event/WindowAdapter.h>
 #include <java/awt/event/WindowListener.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
@@ -20,7 +19,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/net/URL.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JScrollPane.h>
@@ -29,7 +27,6 @@
 #include <javax/swing/event/HyperlinkEvent.h>
 #include <javax/swing/event/HyperlinkListener.h>
 #include <javax/swing/text/Document.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <javax/swing/text/html/HTMLDocument.h>
 #include <javax/swing/text/html/HTMLFrameHyperlinkEvent.h>
 #include <jcpp.h>
@@ -46,7 +43,6 @@ using $Insets = ::java::awt::Insets;
 using $Point = ::java::awt::Point;
 using $Robot = ::java::awt::Robot;
 using $Toolkit = ::java::awt::Toolkit;
-using $WindowAdapter = ::java::awt::event::WindowAdapter;
 using $WindowListener = ::java::awt::event::WindowListener;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -57,7 +53,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $JComponent = ::javax::swing::JComponent;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $JFrame = ::javax::swing::JFrame;
 using $JScrollPane = ::javax::swing::JScrollPane;
@@ -65,7 +60,6 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $HyperlinkEvent = ::javax::swing::event::HyperlinkEvent;
 using $HyperlinkEvent$EventType = ::javax::swing::event::HyperlinkEvent$EventType;
 using $HyperlinkListener = ::javax::swing::event::HyperlinkListener;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $HTMLDocument = ::javax::swing::text::html::HTMLDocument;
 using $HTMLFrameHyperlinkEvent = ::javax::swing::text::html::HTMLFrameHyperlinkEvent;
 

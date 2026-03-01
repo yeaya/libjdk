@@ -3,7 +3,6 @@
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/Image.h>
@@ -39,7 +38,6 @@
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Image = ::java::awt::Image;

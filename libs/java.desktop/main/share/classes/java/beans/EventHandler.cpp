@@ -7,7 +7,6 @@
 #include <java/lang/ClassLoader.h>
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/Math.h>
-#include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
 #include <java/lang/reflect/InvocationTargetException.h>
@@ -40,7 +39,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityException = ::java::lang::SecurityException;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;

@@ -9,7 +9,6 @@
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/EventQueue.h>
-#include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
@@ -18,7 +17,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/ComponentInputMap.h>
@@ -50,7 +48,6 @@ using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $EventQueue = ::java::awt::EventQueue;
-using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -60,7 +57,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractAction = ::javax::swing::AbstractAction;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $InputMap = ::javax::swing::InputMap;

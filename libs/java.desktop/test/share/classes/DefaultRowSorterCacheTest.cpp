@@ -4,7 +4,6 @@
 #include <DefaultRowSorterCacheTest$1.h>
 #include <java/lang/Runnable.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/table/AbstractTableModel.h>
 #include <javax/swing/table/DefaultTableModel.h>
 #include <javax/swing/table/TableModel.h>
 #include <javax/swing/table/TableRowSorter.h>
@@ -20,7 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $AbstractTableModel = ::javax::swing::table::AbstractTableModel;
 using $DefaultTableModel = ::javax::swing::table::DefaultTableModel;
 using $TableModel = ::javax::swing::table::TableModel;
 using $TableRowSorter = ::javax::swing::table::TableRowSorter;

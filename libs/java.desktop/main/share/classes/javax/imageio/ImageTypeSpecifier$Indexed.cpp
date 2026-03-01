@@ -1,7 +1,6 @@
 #include <javax/imageio/ImageTypeSpecifier$Indexed.h>
 
 #include <java/awt/image/ColorModel.h>
-#include <java/awt/image/ComponentSampleModel.h>
 #include <java/awt/image/DataBuffer.h>
 #include <java/awt/image/IndexColorModel.h>
 #include <java/awt/image/MultiPixelPackedSampleModel.h>
@@ -16,7 +15,6 @@
 #undef TYPE_USHORT
 
 using $ColorModel = ::java::awt::image::ColorModel;
-using $ComponentSampleModel = ::java::awt::image::ComponentSampleModel;
 using $DataBuffer = ::java::awt::image::DataBuffer;
 using $IndexColorModel = ::java::awt::image::IndexColorModel;
 using $MultiPixelPackedSampleModel = ::java::awt::image::MultiPixelPackedSampleModel;

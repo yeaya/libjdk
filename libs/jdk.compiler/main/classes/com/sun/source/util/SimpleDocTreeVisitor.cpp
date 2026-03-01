@@ -17,7 +17,6 @@
 #include <com/sun/source/doctree/IdentifierTree.h>
 #include <com/sun/source/doctree/IndexTree.h>
 #include <com/sun/source/doctree/InheritDocTree.h>
-#include <com/sun/source/doctree/InlineTagTree.h>
 #include <com/sun/source/doctree/LinkTree.h>
 #include <com/sun/source/doctree/LiteralTree.h>
 #include <com/sun/source/doctree/ParamTree.h>
@@ -62,7 +61,6 @@ using $HiddenTree = ::com::sun::source::doctree::HiddenTree;
 using $IdentifierTree = ::com::sun::source::doctree::IdentifierTree;
 using $IndexTree = ::com::sun::source::doctree::IndexTree;
 using $InheritDocTree = ::com::sun::source::doctree::InheritDocTree;
-using $InlineTagTree = ::com::sun::source::doctree::InlineTagTree;
 using $LinkTree = ::com::sun::source::doctree::LinkTree;
 using $LiteralTree = ::com::sun::source::doctree::LiteralTree;
 using $ParamTree = ::com::sun::source::doctree::ParamTree;

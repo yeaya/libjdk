@@ -1,12 +1,9 @@
 #include <javax/swing/JToolTip.h>
 
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/util/Objects.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JToolTip$AccessibleJToolTip.h>
 #include <javax/swing/UIManager.h>
@@ -14,8 +11,6 @@
 #include <javax/swing/plaf/ToolTipUI.h>
 #include <jcpp.h>
 
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
@@ -26,7 +21,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 using $Objects = ::java::util::Objects;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JToolTip$AccessibleJToolTip = ::javax::swing::JToolTip$AccessibleJToolTip;
 using $UIManager = ::javax::swing::UIManager;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;

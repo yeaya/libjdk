@@ -2,7 +2,6 @@
 
 #include <java/awt/AWTEvent.h>
 #include <java/awt/AWTEventMulticaster.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Scrollbar$AccessibleAWTScrollBar.h>
@@ -34,7 +33,6 @@ using $EventListenerArray = $Array<::java::util::EventListener>;
 using $AWTEvent = ::java::awt::AWTEvent;
 using $AWTEventMulticaster = ::java::awt::AWTEventMulticaster;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $Scrollbar$AccessibleAWTScrollBar = ::java::awt::Scrollbar$AccessibleAWTScrollBar;
 using $Toolkit = ::java::awt::Toolkit;

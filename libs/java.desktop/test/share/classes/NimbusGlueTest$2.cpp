@@ -5,10 +5,8 @@
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Window.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/Box.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JToolBar.h>
 #include <jcpp.h>
@@ -19,14 +17,11 @@
 using $NimbusGlueTest = ::NimbusGlueTest;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $Box = ::javax::swing::Box;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JToolBar = ::javax::swing::JToolBar;
 

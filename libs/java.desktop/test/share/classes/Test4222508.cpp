@@ -9,8 +9,6 @@
 #include <javax/swing/JApplet.h>
 #include <javax/swing/JCheckBox.h>
 #include <javax/swing/JColorChooser.h>
-#include <javax/swing/JComponent.h>
-#include <javax/swing/JToggleButton.h>
 #include <jcpp.h>
 
 #undef CENTER
@@ -18,18 +16,14 @@
 
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ItemEvent = ::java::awt::event::ItemEvent;
 using $ItemListener = ::java::awt::event::ItemListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JApplet = ::javax::swing::JApplet;
 using $JCheckBox = ::javax::swing::JCheckBox;
 using $JColorChooser = ::javax::swing::JColorChooser;
-using $JComponent = ::javax::swing::JComponent;
-using $JToggleButton = ::javax::swing::JToggleButton;
 
 $FieldInfo _Test4222508_FieldInfo_[] = {
 	{"checkbox", "Ljavax/swing/JCheckBox;", nullptr, $PRIVATE, $field(Test4222508, checkbox)},

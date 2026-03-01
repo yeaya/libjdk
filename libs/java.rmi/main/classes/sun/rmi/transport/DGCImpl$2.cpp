@@ -1,6 +1,5 @@
 #include <sun/rmi/transport/DGCImpl$2.h>
 
-#include <java/io/IOException.h>
 #include <java/io/ObjectInputFilter$FilterInfo.h>
 #include <java/io/ObjectInputFilter$Status.h>
 #include <java/io/ObjectInputFilter.h>
@@ -15,7 +14,6 @@
 #include <java/net/SocketPermission.h>
 #include <java/rmi/Remote.h>
 #include <java/rmi/RemoteException.h>
-#include <java/rmi/dgc/DGC.h>
 #include <java/rmi/server/ObjID.h>
 #include <java/rmi/server/RemoteRef.h>
 #include <java/security/AccessControlContext.h>
@@ -39,7 +37,6 @@
 #undef DGC_ID
 
 using $ProtectionDomainArray = $Array<::java::security::ProtectionDomain>;
-using $IOException = ::java::io::IOException;
 using $ObjectInputFilter = ::java::io::ObjectInputFilter;
 using $ObjectInputFilter$FilterInfo = ::java::io::ObjectInputFilter$FilterInfo;
 using $ObjectInputFilter$Status = ::java::io::ObjectInputFilter$Status;
@@ -48,14 +45,12 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $Error = ::java::lang::Error;
-using $Exception = ::java::lang::Exception;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $SocketPermission = ::java::net::SocketPermission;
 using $Remote = ::java::rmi::Remote;
 using $RemoteException = ::java::rmi::RemoteException;
-using $DGC = ::java::rmi::dgc::DGC;
 using $ObjID = ::java::rmi::server::ObjID;
 using $RemoteRef = ::java::rmi::server::RemoteRef;
 using $AccessControlContext = ::java::security::AccessControlContext;

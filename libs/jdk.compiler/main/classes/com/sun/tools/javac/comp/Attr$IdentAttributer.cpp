@@ -1,6 +1,5 @@
 #include <com/sun/tools/javac/comp/Attr$IdentAttributer.h>
 
-#include <com/sun/source/tree/CaseLabelTree.h>
 #include <com/sun/source/tree/ExpressionTree.h>
 #include <com/sun/source/tree/IdentifierTree.h>
 #include <com/sun/source/tree/MemberSelectTree.h>
@@ -30,7 +29,6 @@
 #undef PCK
 #undef TYP_PCK
 
-using $CaseLabelTree = ::com::sun::source::tree::CaseLabelTree;
 using $IdentifierTree = ::com::sun::source::tree::IdentifierTree;
 using $MemberSelectTree = ::com::sun::source::tree::MemberSelectTree;
 using $Tree = ::com::sun::source::tree::Tree;

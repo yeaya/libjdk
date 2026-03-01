@@ -3,7 +3,6 @@
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/parsers/AbstractSAXParser.h>
 #include <com/sun/org/apache/xerces/internal/parsers/XIncludeAwareParserConfiguration.h>
-#include <com/sun/org/apache/xerces/internal/parsers/XML11Configuration.h>
 #include <com/sun/org/apache/xerces/internal/parsers/XMLParser.h>
 #include <com/sun/org/apache/xerces/internal/util/SymbolTable.h>
 #include <com/sun/org/apache/xerces/internal/utils/XMLSecurityManager.h>
@@ -11,7 +10,6 @@
 #include <com/sun/org/apache/xerces/internal/utils/XMLSecurityPropertyManager.h>
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration.h>
-#include <com/sun/org/apache/xerces/internal/xni/parser/XMLPullParserConfiguration.h>
 #include <jdk/xml/internal/JdkConstants.h>
 #include <jdk/xml/internal/JdkProperty$State.h>
 #include <jcpp.h>
@@ -36,14 +34,12 @@
 using $Constants = ::com::sun::org::apache::xerces::internal::impl::Constants;
 using $AbstractSAXParser = ::com::sun::org::apache::xerces::internal::parsers::AbstractSAXParser;
 using $XIncludeAwareParserConfiguration = ::com::sun::org::apache::xerces::internal::parsers::XIncludeAwareParserConfiguration;
-using $XML11Configuration = ::com::sun::org::apache::xerces::internal::parsers::XML11Configuration;
 using $SymbolTable = ::com::sun::org::apache::xerces::internal::util::SymbolTable;
 using $XMLSecurityManager = ::com::sun::org::apache::xerces::internal::utils::XMLSecurityManager;
 using $XMLSecurityPropertyManager = ::com::sun::org::apache::xerces::internal::utils::XMLSecurityPropertyManager;
 using $XMLSecurityPropertyManager$State = ::com::sun::org::apache::xerces::internal::utils::XMLSecurityPropertyManager$State;
 using $XMLGrammarPool = ::com::sun::org::apache::xerces::internal::xni::grammars::XMLGrammarPool;
 using $XMLParserConfiguration = ::com::sun::org::apache::xerces::internal::xni::parser::XMLParserConfiguration;
-using $XMLPullParserConfiguration = ::com::sun::org::apache::xerces::internal::xni::parser::XMLPullParserConfiguration;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

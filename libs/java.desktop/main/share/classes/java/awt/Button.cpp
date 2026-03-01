@@ -3,7 +3,6 @@
 #include <java/awt/AWTEvent.h>
 #include <java/awt/AWTEventMulticaster.h>
 #include <java/awt/Button$AccessibleAWTButton.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Toolkit.h>
@@ -27,7 +26,6 @@ using $AWTEvent = ::java::awt::AWTEvent;
 using $AWTEventMulticaster = ::java::awt::AWTEventMulticaster;
 using $Button$AccessibleAWTButton = ::java::awt::Button$AccessibleAWTButton;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $Toolkit = ::java::awt::Toolkit;
 using $ActionEvent = ::java::awt::event::ActionEvent;

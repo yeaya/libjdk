@@ -3,10 +3,8 @@
 #include <java/lang/Error.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/plaf/basic/BasicLookAndFeel.h>
 #include <javax/swing/plaf/metal/MetalLookAndFeel.h>
 #include <javax/swing/plaf/nimbus/NimbusLookAndFeel.h>
-#include <javax/swing/plaf/synth/SynthLookAndFeel.h>
 #include <jcpp.h>
 
 using $PrintStream = ::java::io::PrintStream;
@@ -17,10 +15,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
-using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
 using $NimbusLookAndFeel = ::javax::swing::plaf::nimbus::NimbusLookAndFeel;
-using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
 
 $FieldInfo _TestProperties_FieldInfo_[] = {
 	{"windowsProperties", "[Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(TestProperties, windowsProperties)},

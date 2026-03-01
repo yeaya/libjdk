@@ -1,19 +1,13 @@
 #include <javax/swing/JApplet.h>
 
-#include <java/applet/Applet$AccessibleApplet.h>
 #include <java/applet/Applet.h>
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Color.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
-#include <java/awt/Panel$AccessibleAWTPanel.h>
-#include <java/awt/Panel.h>
 #include <java/util/Locale.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/swing/JApplet$AccessibleJApplet.h>
@@ -33,19 +27,13 @@
 #undef KEY_EVENT_MASK
 
 using $Applet = ::java::applet::Applet;
-using $Applet$AccessibleApplet = ::java::applet::Applet$AccessibleApplet;
 using $AWTEvent = ::java::awt::AWTEvent;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $Container = ::java::awt::Container;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Graphics = ::java::awt::Graphics;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
-using $Panel = ::java::awt::Panel;
-using $Panel$AccessibleAWTPanel = ::java::awt::Panel$AccessibleAWTPanel;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;

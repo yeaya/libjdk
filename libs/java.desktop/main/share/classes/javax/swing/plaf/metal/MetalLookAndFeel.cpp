@@ -15,7 +15,6 @@
 #include <java/lang/ref/ReferenceQueue.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/util/Hashtable.h>
 #include <java/util/Map.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/ImageIcon.h>
@@ -64,7 +63,6 @@
 #include <sun/awt/OSInfo$OSType.h>
 #include <sun/awt/OSInfo.h>
 #include <sun/security/action/GetPropertyAction.h>
-#include <sun/swing/DefaultLayoutStyle.h>
 #include <sun/swing/SwingAccessor$UIDefaultsAccessor.h>
 #include <sun/swing/SwingAccessor.h>
 #include <sun/swing/SwingUtilities2.h>
@@ -101,7 +99,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $Hashtable = ::java::util::Hashtable;
 using $Map = ::java::util::Map;
 using $Icon = ::javax::swing::Icon;
 using $ImageIcon = ::javax::swing::ImageIcon;
@@ -149,7 +146,6 @@ using $AppContext = ::sun::awt::AppContext;
 using $OSInfo = ::sun::awt::OSInfo;
 using $OSInfo$OSType = ::sun::awt::OSInfo$OSType;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
-using $DefaultLayoutStyle = ::sun::swing::DefaultLayoutStyle;
 using $SwingAccessor = ::sun::swing::SwingAccessor;
 using $SwingAccessor$UIDefaultsAccessor = ::sun::swing::SwingAccessor$UIDefaultsAccessor;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;

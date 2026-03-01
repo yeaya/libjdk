@@ -13,13 +13,11 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/nio/charset/Charset.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
 #include <java/util/EnumSet.h>
 #include <java/util/Iterator.h>
 #include <java/util/Set.h>
 #include <javax/tools/FileObject.h>
-#include <javax/tools/ForwardingJavaFileObject.h>
 #include <javax/tools/JavaFileManager$Location.h>
 #include <javax/tools/JavaFileObject$Kind.h>
 #include <javax/tools/JavaFileObject.h>
@@ -42,12 +40,10 @@ using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Charset = ::java::nio::charset::Charset;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
 using $EnumSet = ::java::util::EnumSet;
 using $Iterator = ::java::util::Iterator;
 using $Set = ::java::util::Set;
-using $ForwardingJavaFileObject = ::javax::tools::ForwardingJavaFileObject;
 using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;

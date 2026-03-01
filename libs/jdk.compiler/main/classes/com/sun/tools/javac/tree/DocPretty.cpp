@@ -19,7 +19,6 @@
 #include <com/sun/source/doctree/IdentifierTree.h>
 #include <com/sun/source/doctree/IndexTree.h>
 #include <com/sun/source/doctree/InheritDocTree.h>
-#include <com/sun/source/doctree/InlineTagTree.h>
 #include <com/sun/source/doctree/LinkTree.h>
 #include <com/sun/source/doctree/LiteralTree.h>
 #include <com/sun/source/doctree/ParamTree.h>
@@ -47,7 +46,6 @@
 #include <java/io/IOException.h>
 #include <java/io/Writer.h>
 #include <java/lang/AssertionError.h>
-#include <java/lang/Error.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <javax/lang/model/element/Name.h>
@@ -73,7 +71,6 @@ using $HiddenTree = ::com::sun::source::doctree::HiddenTree;
 using $IdentifierTree = ::com::sun::source::doctree::IdentifierTree;
 using $IndexTree = ::com::sun::source::doctree::IndexTree;
 using $InheritDocTree = ::com::sun::source::doctree::InheritDocTree;
-using $InlineTagTree = ::com::sun::source::doctree::InlineTagTree;
 using $LinkTree = ::com::sun::source::doctree::LinkTree;
 using $LiteralTree = ::com::sun::source::doctree::LiteralTree;
 using $ParamTree = ::com::sun::source::doctree::ParamTree;
@@ -103,7 +100,6 @@ using $Writer = ::java::io::Writer;
 using $AssertionError = ::java::lang::AssertionError;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Error = ::java::lang::Error;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

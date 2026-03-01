@@ -9,7 +9,6 @@
 #include <java/awt/CheckboxMenuItem.h>
 #include <java/awt/Choice.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Cursor.h>
 #include <java/awt/Desktop.h>
 #include <java/awt/Dialog$ModalExclusionType.h>
@@ -106,7 +105,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/ref/WeakReference.h>
 #include <java/security/AccessController.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/util/Hashtable.h>
@@ -127,18 +125,13 @@
 #include <sun/awt/AWTPermissions.h>
 #include <sun/awt/AppContext.h>
 #include <sun/awt/ComponentFactory.h>
-#include <sun/awt/CustomCursor.h>
 #include <sun/awt/DisplayChangedListener.h>
 #include <sun/awt/EmbeddedFrame.h>
-#include <sun/awt/KeyboardFocusManagerPeerImpl.h>
 #include <sun/awt/LightweightFrame.h>
-#include <sun/awt/PlatformFont.h>
 #include <sun/awt/SunToolkit.h>
 #include <sun/awt/Win32GraphicsDevice.h>
 #include <sun/awt/Win32GraphicsEnvironment.h>
 #include <sun/awt/datatransfer/DataTransferer.h>
-#include <sun/awt/datatransfer/SunClipboard.h>
-#include <sun/awt/dnd/SunDragSourceContextPeer.h>
 #include <sun/awt/util/PerformanceLogger.h>
 #include <sun/awt/util/ThreadGroupUtils.h>
 #include <sun/awt/windows/ThemeReader.h>
@@ -234,7 +227,6 @@ using $Checkbox = ::java::awt::Checkbox;
 using $CheckboxMenuItem = ::java::awt::CheckboxMenuItem;
 using $Choice = ::java::awt::Choice;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Cursor = ::java::awt::Cursor;
 using $Desktop = ::java::awt::Desktop;
 using $Dialog = ::java::awt::Dialog;
@@ -319,7 +311,6 @@ using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -338,7 +329,6 @@ using $Void = ::java::lang::Void;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $AccessController = ::java::security::AccessController;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Hashtable = ::java::util::Hashtable;
@@ -357,18 +347,13 @@ using $AWTAccessor$MouseEventAccessor = ::sun::awt::AWTAccessor$MouseEventAccess
 using $AWTAutoShutdown = ::sun::awt::AWTAutoShutdown;
 using $AWTPermissions = ::sun::awt::AWTPermissions;
 using $AppContext = ::sun::awt::AppContext;
-using $CustomCursor = ::sun::awt::CustomCursor;
 using $DisplayChangedListener = ::sun::awt::DisplayChangedListener;
 using $EmbeddedFrame = ::sun::awt::EmbeddedFrame;
-using $KeyboardFocusManagerPeerImpl = ::sun::awt::KeyboardFocusManagerPeerImpl;
 using $LightweightFrame = ::sun::awt::LightweightFrame;
-using $PlatformFont = ::sun::awt::PlatformFont;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $Win32GraphicsDevice = ::sun::awt::Win32GraphicsDevice;
 using $Win32GraphicsEnvironment = ::sun::awt::Win32GraphicsEnvironment;
 using $DataTransferer = ::sun::awt::datatransfer::DataTransferer;
-using $SunClipboard = ::sun::awt::datatransfer::SunClipboard;
-using $SunDragSourceContextPeer = ::sun::awt::dnd::SunDragSourceContextPeer;
 using $PerformanceLogger = ::sun::awt::util::PerformanceLogger;
 using $ThreadGroupUtils = ::sun::awt::util::ThreadGroupUtils;
 using $ThemeReader = ::sun::awt::windows::ThemeReader;

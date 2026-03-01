@@ -17,7 +17,6 @@
 #include <javax/swing/border/Border.h>
 #include <javax/swing/event/ChangeListener.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/PopupMenuUI.h>
 #include <javax/swing/plaf/basic/BasicPopupMenuUI.h>
 #include <sun/swing/SwingUtilities2.h>
 #include <jcpp.h>
@@ -44,7 +43,6 @@ using $UIManager = ::javax::swing::UIManager;
 using $Border = ::javax::swing::border::Border;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $PopupMenuUI = ::javax::swing::plaf::PopupMenuUI;
 using $BasicPopupMenuUI = ::javax::swing::plaf::basic::BasicPopupMenuUI;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 

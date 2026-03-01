@@ -1,14 +1,12 @@
 #include <Test8013442.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Window.h>
 #include <java/io/File.h>
 #include <java/lang/Error.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/Thread$UncaughtExceptionHandler.h>
 #include <java/util/concurrent/CountDownLatch.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFileChooser.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/SwingUtilities.h>
@@ -20,7 +18,6 @@
 #undef LATCH
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Window = ::java::awt::Window;
 using $File = ::java::io::File;
 using $PrintStream = ::java::io::PrintStream;
@@ -33,7 +30,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $Thread$UncaughtExceptionHandler = ::java::lang::Thread$UncaughtExceptionHandler;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
-using $JComponent = ::javax::swing::JComponent;
 using $JFileChooser = ::javax::swing::JFileChooser;
 using $JFrame = ::javax::swing::JFrame;
 using $SwingUtilities = ::javax::swing::SwingUtilities;

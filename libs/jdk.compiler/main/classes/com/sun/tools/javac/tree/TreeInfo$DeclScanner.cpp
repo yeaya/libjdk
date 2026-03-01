@@ -13,7 +13,6 @@
 #include <com/sun/tools/javac/tree/JCTree$JCMethodDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCModuleDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCPackageDecl.h>
-#include <com/sun/tools/javac/tree/JCTree$JCStatement.h>
 #include <com/sun/tools/javac/tree/JCTree$JCTypeParameter.h>
 #include <com/sun/tools/javac/tree/JCTree$JCVariableDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$Visitor.h>
@@ -29,7 +28,6 @@ using $JCTree$JCCompilationUnit = ::com::sun::tools::javac::tree::JCTree$JCCompi
 using $JCTree$JCMethodDecl = ::com::sun::tools::javac::tree::JCTree$JCMethodDecl;
 using $JCTree$JCModuleDecl = ::com::sun::tools::javac::tree::JCTree$JCModuleDecl;
 using $JCTree$JCPackageDecl = ::com::sun::tools::javac::tree::JCTree$JCPackageDecl;
-using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
 using $JCTree$JCTypeParameter = ::com::sun::tools::javac::tree::JCTree$JCTypeParameter;
 using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariableDecl;
 using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;

@@ -23,7 +23,6 @@
 #include <com/sun/tools/javac/tree/JCTree$JCBlock.h>
 #include <com/sun/tools/javac/tree/JCTree$JCBreak.h>
 #include <com/sun/tools/javac/tree/JCTree$JCCase.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCCatch.h>
 #include <com/sun/tools/javac/tree/JCTree$JCClassDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCContinue.h>
@@ -38,7 +37,6 @@
 #include <com/sun/tools/javac/tree/JCTree$JCMethodInvocation.h>
 #include <com/sun/tools/javac/tree/JCTree$JCModuleDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCNewClass.h>
-#include <com/sun/tools/javac/tree/JCTree$JCPolyExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCReturn.h>
 #include <com/sun/tools/javac/tree/JCTree$JCStatement.h>
 #include <com/sun/tools/javac/tree/JCTree$JCSwitch.h>
@@ -81,7 +79,6 @@ using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Lint = ::com::sun::tools::javac::code::Lint;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Types = ::com::sun::tools::javac::code::Types;
@@ -98,7 +95,6 @@ using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCBlock = ::com::sun::tools::javac::tree::JCTree$JCBlock;
 using $JCTree$JCBreak = ::com::sun::tools::javac::tree::JCTree$JCBreak;
 using $JCTree$JCCase = ::com::sun::tools::javac::tree::JCTree$JCCase;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCCatch = ::com::sun::tools::javac::tree::JCTree$JCCatch;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$JCContinue = ::com::sun::tools::javac::tree::JCTree$JCContinue;
@@ -113,9 +109,7 @@ using $JCTree$JCMethodDecl = ::com::sun::tools::javac::tree::JCTree$JCMethodDecl
 using $JCTree$JCMethodInvocation = ::com::sun::tools::javac::tree::JCTree$JCMethodInvocation;
 using $JCTree$JCModuleDecl = ::com::sun::tools::javac::tree::JCTree$JCModuleDecl;
 using $JCTree$JCNewClass = ::com::sun::tools::javac::tree::JCTree$JCNewClass;
-using $JCTree$JCPolyExpression = ::com::sun::tools::javac::tree::JCTree$JCPolyExpression;
 using $JCTree$JCReturn = ::com::sun::tools::javac::tree::JCTree$JCReturn;
-using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
 using $JCTree$JCSwitch = ::com::sun::tools::javac::tree::JCTree$JCSwitch;
 using $JCTree$JCSwitchExpression = ::com::sun::tools::javac::tree::JCTree$JCSwitchExpression;
 using $JCTree$JCThrow = ::com::sun::tools::javac::tree::JCTree$JCThrow;

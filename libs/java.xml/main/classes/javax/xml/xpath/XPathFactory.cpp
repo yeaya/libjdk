@@ -3,7 +3,6 @@
 #include <com/sun/org/apache/xpath/internal/jaxp/XPathFactoryImpl.h>
 #include <java/lang/ClassLoader.h>
 #include <javax/xml/xpath/XPath.h>
-#include <javax/xml/xpath/XPathException.h>
 #include <javax/xml/xpath/XPathFactoryConfigurationException.h>
 #include <javax/xml/xpath/XPathFactoryFinder.h>
 #include <javax/xml/xpath/XPathFunctionResolver.h>
@@ -17,14 +16,12 @@
 using $XPathFactoryImpl = ::com::sun::org::apache::xpath::internal::jaxp::XPathFactoryImpl;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $XPath = ::javax::xml::xpath::XPath;
-using $XPathException = ::javax::xml::xpath::XPathException;
 using $XPathFactoryConfigurationException = ::javax::xml::xpath::XPathFactoryConfigurationException;
 using $XPathFactoryFinder = ::javax::xml::xpath::XPathFactoryFinder;
 using $XPathFunctionResolver = ::javax::xml::xpath::XPathFunctionResolver;

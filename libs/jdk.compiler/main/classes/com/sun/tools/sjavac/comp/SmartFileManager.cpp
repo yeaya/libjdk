@@ -9,9 +9,7 @@
 #include <java/lang/Iterable.h>
 #include <java/net/URI.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/AbstractQueue.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
@@ -19,9 +17,7 @@
 #include <java/util/Map.h>
 #include <java/util/Set.h>
 #include <javax/tools/FileObject.h>
-#include <javax/tools/ForwardingFileObject.h>
 #include <javax/tools/ForwardingJavaFileManager.h>
-#include <javax/tools/ForwardingJavaFileObject.h>
 #include <javax/tools/JavaFileManager$Location.h>
 #include <javax/tools/JavaFileManager.h>
 #include <javax/tools/JavaFileObject$Kind.h>
@@ -47,9 +43,7 @@ using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URI = ::java::net::URI;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractMap = ::java::util::AbstractMap;
 using $AbstractQueue = ::java::util::AbstractQueue;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
@@ -57,9 +51,7 @@ using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $FileObject = ::javax::tools::FileObject;
-using $ForwardingFileObject = ::javax::tools::ForwardingFileObject;
 using $ForwardingJavaFileManager = ::javax::tools::ForwardingJavaFileManager;
-using $ForwardingJavaFileObject = ::javax::tools::ForwardingJavaFileObject;
 using $JavaFileManager = ::javax::tools::JavaFileManager;
 using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;
 using $JavaFileObject = ::javax::tools::JavaFileObject;

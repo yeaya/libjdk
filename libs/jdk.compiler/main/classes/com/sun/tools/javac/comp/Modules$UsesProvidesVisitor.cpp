@@ -29,7 +29,6 @@
 #include <com/sun/tools/javac/comp/Modules.h>
 #include <com/sun/tools/javac/resources/CompilerProperties$Errors.h>
 #include <com/sun/tools/javac/resources/CompilerProperties$Warnings.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCDirective.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExports.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
@@ -57,8 +56,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
@@ -94,7 +91,6 @@ using $Symbol$Completer = ::com::sun::tools::javac::code::Symbol$Completer;
 using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
 using $Symbol$ModuleSymbol = ::com::sun::tools::javac::code::Symbol$ModuleSymbol;
 using $Symbol$PackageSymbol = ::com::sun::tools::javac::code::Symbol$PackageSymbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types = ::com::sun::tools::javac::code::Types;
@@ -107,7 +103,6 @@ using $Modules$PackageNameFinder = ::com::sun::tools::javac::comp::Modules$Packa
 using $CompilerProperties$Errors = ::com::sun::tools::javac::resources::CompilerProperties$Errors;
 using $CompilerProperties$Warnings = ::com::sun::tools::javac::resources::CompilerProperties$Warnings;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCDirective = ::com::sun::tools::javac::tree::JCTree$JCDirective;
 using $JCTree$JCExports = ::com::sun::tools::javac::tree::JCTree$JCExports;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
@@ -129,8 +124,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;

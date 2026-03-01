@@ -5,7 +5,6 @@
 #include <javax/swing/text/AbstractDocument.h>
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/Element.h>
-#include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/SimpleAttributeSet.h>
 #include <javax/swing/text/StyleConstants.h>
 #include <jcpp.h>
@@ -19,7 +18,6 @@ using $AbstractDocument = ::javax::swing::text::AbstractDocument;
 using $AbstractDocument$LeafElement = ::javax::swing::text::AbstractDocument$LeafElement;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $Element = ::javax::swing::text::Element;
-using $MutableAttributeSet = ::javax::swing::text::MutableAttributeSet;
 using $SimpleAttributeSet = ::javax::swing::text::SimpleAttributeSet;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
 

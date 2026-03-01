@@ -2,20 +2,14 @@
 
 #include <java/awt/im/spi/InputMethod.h>
 #include <sun/awt/X11/XInputMethod.h>
-#include <sun/awt/X11InputMethod.h>
-#include <sun/awt/X11InputMethodBase.h>
 #include <sun/awt/X11InputMethodDescriptor.h>
-#include <sun/awt/im/InputMethodAdapter.h>
 #include <jcpp.h>
 
 using $InputMethod = ::java::awt::im::spi::InputMethod;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $XInputMethod = ::sun::awt::X11::XInputMethod;
-using $X11InputMethod = ::sun::awt::X11InputMethod;
-using $X11InputMethodBase = ::sun::awt::X11InputMethodBase;
 using $X11InputMethodDescriptor = ::sun::awt::X11InputMethodDescriptor;
-using $InputMethodAdapter = ::sun::awt::im::InputMethodAdapter;
 
 namespace sun {
 	namespace awt {

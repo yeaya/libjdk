@@ -29,8 +29,6 @@
 #include <java/awt/Shape.h>
 #include <java/awt/event/HierarchyListener.h>
 #include <java/awt/event/MouseMotionListener.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/ButtonModel.h>
 #include <javax/swing/Icon.h>
@@ -79,7 +77,6 @@ using $AquaUtils$RecyclableSingleton = ::com::apple::laf::AquaUtils$RecyclableSi
 using $AquaUtils$RecyclableSingletonFromDefaultConstructor = ::com::apple::laf::AquaUtils$RecyclableSingletonFromDefaultConstructor;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
@@ -90,8 +87,6 @@ using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
 using $HierarchyListener = ::java::awt::event::HierarchyListener;
 using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

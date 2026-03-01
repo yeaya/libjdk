@@ -6,12 +6,10 @@
 #include <java/awt/Stroke.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/lang/Math.h>
 #include <sun/awt/SunHints.h>
 #include <sun/java2d/ReentrantContext.h>
 #include <sun/java2d/ReentrantContextProvider.h>
-#include <sun/java2d/ReentrantContextProviderTL.h>
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/pipe/AAShapePipe$1.h>
 #include <sun/java2d/pipe/AAShapePipe$TileState.h>
@@ -31,7 +29,6 @@
 using $BasicStroke = ::java::awt::BasicStroke;
 using $Shape = ::java::awt::Shape;
 using $Stroke = ::java::awt::Stroke;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -40,7 +37,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SunHints = ::sun::awt::SunHints;
 using $ReentrantContext = ::sun::java2d::ReentrantContext;
 using $ReentrantContextProvider = ::sun::java2d::ReentrantContextProvider;
-using $ReentrantContextProviderTL = ::sun::java2d::ReentrantContextProviderTL;
 using $SunGraphics2D = ::sun::java2d::SunGraphics2D;
 using $AAShapePipe$1 = ::sun::java2d::pipe::AAShapePipe$1;
 using $AAShapePipe$TileState = ::sun::java2d::pipe::AAShapePipe$TileState;

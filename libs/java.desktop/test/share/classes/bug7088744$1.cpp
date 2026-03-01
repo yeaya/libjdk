@@ -2,11 +2,9 @@
 
 #include <bug7088744.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Event.h>
 #include <java/awt/event/InputEvent.h>
 #include <java/awt/event/MouseEvent.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/SwingUtilities.h>
 #include <jcpp.h>
@@ -27,7 +25,6 @@
 #undef NOBUTTON
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Event = ::java::awt::Event;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
@@ -36,7 +33,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 

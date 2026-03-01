@@ -4,7 +4,6 @@
 #include <com/sun/org/apache/xml/internal/res/XMLMessages.h>
 #include <com/sun/org/apache/xml/internal/utils/SAXSourceLocator.h>
 #include <com/sun/org/apache/xml/internal/utils/WrappedRuntimeException.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/PrintWriter.h>
 #include <javax/xml/transform/SourceLocator.h>
@@ -21,12 +20,10 @@ using $XMLErrorResources = ::com::sun::org::apache::xml::internal::res::XMLError
 using $XMLMessages = ::com::sun::org::apache::xml::internal::res::XMLMessages;
 using $SAXSourceLocator = ::com::sun::org::apache::xml::internal::utils::SAXSourceLocator;
 using $WrappedRuntimeException = ::com::sun::org::apache::xml::internal::utils::WrappedRuntimeException;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $PrintWriter = ::java::io::PrintWriter;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SourceLocator = ::javax::xml::transform::SourceLocator;

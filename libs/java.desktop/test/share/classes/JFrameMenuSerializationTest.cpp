@@ -8,7 +8,6 @@
 #include <java/io/IOException.h>
 #include <java/io/NotSerializableException.h>
 #include <java/io/ObjectOutputStream.h>
-#include <java/io/ObjectStreamException.h>
 #include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
@@ -31,11 +30,9 @@ using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $NotSerializableException = ::java::io::NotSerializableException;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
-using $ObjectStreamException = ::java::io::ObjectStreamException;
 using $OutputStream = ::java::io::OutputStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;

@@ -1,6 +1,5 @@
 #include <jdk/internal/net/http/common/SSLFlowDelegate.h>
 
-#include <java/io/IOException.h>
 #include <java/io/Serializable.h>
 #include <java/lang/InternalError.h>
 #include <java/lang/Iterable.h>
@@ -11,7 +10,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/nio/ByteBuffer.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -28,7 +26,6 @@
 #include <javax/net/ssl/SSLEngine.h>
 #include <javax/net/ssl/SSLEngineResult$HandshakeStatus.h>
 #include <javax/net/ssl/SSLEngineResult.h>
-#include <javax/net/ssl/SSLException.h>
 #include <javax/net/ssl/SSLHandshakeException.h>
 #include <javax/net/ssl/SSLSession.h>
 #include <jdk/internal/net/http/common/FlowTube$TubeSubscriber.h>
@@ -66,11 +63,9 @@
 #undef WRITER
 
 using $CompletableFutureArray = $Array<::java::util::concurrent::CompletableFuture>;
-using $IOException = ::java::io::IOException;
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
@@ -80,7 +75,6 @@ using $Runnable = ::java::lang::Runnable;
 using $Void = ::java::lang::Void;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
@@ -95,7 +89,6 @@ using $IntBinaryOperator = ::java::util::function::IntBinaryOperator;
 using $Supplier = ::java::util::function::Supplier;
 using $SSLEngine = ::javax::net::ssl::SSLEngine;
 using $SSLEngineResult$HandshakeStatus = ::javax::net::ssl::SSLEngineResult$HandshakeStatus;
-using $SSLException = ::javax::net::ssl::SSLException;
 using $SSLHandshakeException = ::javax::net::ssl::SSLHandshakeException;
 using $SSLSession = ::javax::net::ssl::SSLSession;
 using $FlowTube$TubeSubscriber = ::jdk::internal::net::http::common::FlowTube$TubeSubscriber;

@@ -1,18 +1,15 @@
 #include <com/sun/org/apache/xml/internal/dtm/ref/IncrementalSAXSource_Xerces.h>
 
 #include <com/sun/org/apache/xalan/internal/utils/ObjectFactory.h>
-#include <com/sun/org/apache/xerces/internal/parsers/AbstractSAXParser.h>
 #include <com/sun/org/apache/xerces/internal/parsers/SAXParser.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/CoroutineManager.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/IncrementalSAXSource.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/IncrementalSAXSource_Filter.h>
 #include <com/sun/org/apache/xml/internal/res/XMLErrorResources.h>
 #include <com/sun/org/apache/xml/internal/res/XMLMessages.h>
-#include <com/sun/org/apache/xml/internal/serialize/BaseMarkupSerializer.h>
 #include <com/sun/org/apache/xml/internal/serialize/OutputFormat.h>
 #include <com/sun/org/apache/xml/internal/serialize/XMLSerializer.h>
 #include <com/sun/org/apache/xml/internal/utils/WrappedRuntimeException.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
@@ -38,18 +35,15 @@
 #undef TYPE
 
 using $ObjectFactory = ::com::sun::org::apache::xalan::internal::utils::ObjectFactory;
-using $AbstractSAXParser = ::com::sun::org::apache::xerces::internal::parsers::AbstractSAXParser;
 using $SAXParser = ::com::sun::org::apache::xerces::internal::parsers::SAXParser;
 using $CoroutineManager = ::com::sun::org::apache::xml::internal::dtm::ref::CoroutineManager;
 using $IncrementalSAXSource = ::com::sun::org::apache::xml::internal::dtm::ref::IncrementalSAXSource;
 using $IncrementalSAXSource_Filter = ::com::sun::org::apache::xml::internal::dtm::ref::IncrementalSAXSource_Filter;
 using $XMLErrorResources = ::com::sun::org::apache::xml::internal::res::XMLErrorResources;
 using $XMLMessages = ::com::sun::org::apache::xml::internal::res::XMLMessages;
-using $BaseMarkupSerializer = ::com::sun::org::apache::xml::internal::serialize::BaseMarkupSerializer;
 using $OutputFormat = ::com::sun::org::apache::xml::internal::serialize::OutputFormat;
 using $XMLSerializer = ::com::sun::org::apache::xml::internal::serialize::XMLSerializer;
 using $WrappedRuntimeException = ::com::sun::org::apache::xml::internal::utils::WrappedRuntimeException;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;

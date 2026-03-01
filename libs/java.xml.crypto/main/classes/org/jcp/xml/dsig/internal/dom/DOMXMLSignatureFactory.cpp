@@ -10,7 +10,6 @@
 #include <javax/xml/crypto/URIDereferencer.h>
 #include <javax/xml/crypto/XMLCryptoContext.h>
 #include <javax/xml/crypto/XMLStructure.h>
-#include <javax/xml/crypto/dom/DOMCryptoContext.h>
 #include <javax/xml/crypto/dom/DOMStructure.h>
 #include <javax/xml/crypto/dsig/CanonicalizationMethod.h>
 #include <javax/xml/crypto/dsig/DigestMethod.h>
@@ -32,7 +31,6 @@
 #include <javax/xml/crypto/dsig/spec/DigestMethodParameterSpec.h>
 #include <javax/xml/crypto/dsig/spec/SignatureMethodParameterSpec.h>
 #include <javax/xml/crypto/dsig/spec/TransformParameterSpec.h>
-#include <org/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMCanonicalizationMethod.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMDigestMethod$RIPEMD160.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMDigestMethod$SHA1.h>
@@ -57,11 +55,6 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMRSAPSSSignatureMethod$RSAPSS.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMRSAPSSSignatureMethod.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMReference.h>
-#include <org/jcp/xml/dsig/internal/dom/DOMSignatureMethod$AbstractDSASignatureMethod.h>
-#include <org/jcp/xml/dsig/internal/dom/DOMSignatureMethod$AbstractECDSASignatureMethod.h>
-#include <org/jcp/xml/dsig/internal/dom/DOMSignatureMethod$AbstractP1363FormatSignatureMethod.h>
-#include <org/jcp/xml/dsig/internal/dom/DOMSignatureMethod$AbstractRSAPSSSignatureMethod.h>
-#include <org/jcp/xml/dsig/internal/dom/DOMSignatureMethod$AbstractRSASignatureMethod.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMSignatureMethod$RIPEMD160withECDSA.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMSignatureMethod$RIPEMD160withRSA.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMSignatureMethod$RIPEMD160withRSAandMGF1.h>
@@ -140,7 +133,6 @@ using $MarshalException = ::javax::xml::crypto::MarshalException;
 using $URIDereferencer = ::javax::xml::crypto::URIDereferencer;
 using $XMLCryptoContext = ::javax::xml::crypto::XMLCryptoContext;
 using $XMLStructure = ::javax::xml::crypto::XMLStructure;
-using $DOMCryptoContext = ::javax::xml::crypto::dom::DOMCryptoContext;
 using $DOMStructure = ::javax::xml::crypto::dom::DOMStructure;
 using $CanonicalizationMethod = ::javax::xml::crypto::dsig::CanonicalizationMethod;
 using $DigestMethod = ::javax::xml::crypto::dsig::DigestMethod;
@@ -162,7 +154,6 @@ using $C14NMethodParameterSpec = ::javax::xml::crypto::dsig::spec::C14NMethodPar
 using $DigestMethodParameterSpec = ::javax::xml::crypto::dsig::spec::DigestMethodParameterSpec;
 using $SignatureMethodParameterSpec = ::javax::xml::crypto::dsig::spec::SignatureMethodParameterSpec;
 using $TransformParameterSpec = ::javax::xml::crypto::dsig::spec::TransformParameterSpec;
-using $AbstractDOMSignatureMethod = ::org::jcp::xml::dsig::internal::dom::AbstractDOMSignatureMethod;
 using $DOMCanonicalizationMethod = ::org::jcp::xml::dsig::internal::dom::DOMCanonicalizationMethod;
 using $DOMDigestMethod = ::org::jcp::xml::dsig::internal::dom::DOMDigestMethod;
 using $DOMDigestMethod$RIPEMD160 = ::org::jcp::xml::dsig::internal::dom::DOMDigestMethod$RIPEMD160;
@@ -188,11 +179,6 @@ using $DOMRSAPSSSignatureMethod = ::org::jcp::xml::dsig::internal::dom::DOMRSAPS
 using $DOMRSAPSSSignatureMethod$RSAPSS = ::org::jcp::xml::dsig::internal::dom::DOMRSAPSSSignatureMethod$RSAPSS;
 using $DOMReference = ::org::jcp::xml::dsig::internal::dom::DOMReference;
 using $DOMSignatureMethod = ::org::jcp::xml::dsig::internal::dom::DOMSignatureMethod;
-using $DOMSignatureMethod$AbstractDSASignatureMethod = ::org::jcp::xml::dsig::internal::dom::DOMSignatureMethod$AbstractDSASignatureMethod;
-using $DOMSignatureMethod$AbstractECDSASignatureMethod = ::org::jcp::xml::dsig::internal::dom::DOMSignatureMethod$AbstractECDSASignatureMethod;
-using $DOMSignatureMethod$AbstractP1363FormatSignatureMethod = ::org::jcp::xml::dsig::internal::dom::DOMSignatureMethod$AbstractP1363FormatSignatureMethod;
-using $DOMSignatureMethod$AbstractRSAPSSSignatureMethod = ::org::jcp::xml::dsig::internal::dom::DOMSignatureMethod$AbstractRSAPSSSignatureMethod;
-using $DOMSignatureMethod$AbstractRSASignatureMethod = ::org::jcp::xml::dsig::internal::dom::DOMSignatureMethod$AbstractRSASignatureMethod;
 using $DOMSignatureMethod$RIPEMD160withECDSA = ::org::jcp::xml::dsig::internal::dom::DOMSignatureMethod$RIPEMD160withECDSA;
 using $DOMSignatureMethod$RIPEMD160withRSA = ::org::jcp::xml::dsig::internal::dom::DOMSignatureMethod$RIPEMD160withRSA;
 using $DOMSignatureMethod$RIPEMD160withRSAandMGF1 = ::org::jcp::xml::dsig::internal::dom::DOMSignatureMethod$RIPEMD160withRSAandMGF1;

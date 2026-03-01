@@ -3,11 +3,9 @@
 #include <java/io/EOFException.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/lang/Error.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/Math.h>
 #include <java/lang/OutOfMemoryError.h>
-#include <java/lang/VirtualMachineError.h>
 #include <jcpp.h>
 
 #undef MAX_VALUE
@@ -16,14 +14,12 @@ using $EOFException = ::java::io::EOFException;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Error = ::java::lang::Error;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
 using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $OutOfMemoryError = ::java::lang::OutOfMemoryError;
-using $VirtualMachineError = ::java::lang::VirtualMachineError;
 
 namespace com {
 	namespace sun {

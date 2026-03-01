@@ -97,7 +97,6 @@
 #include <com/sun/tools/javac/util/Position.h>
 #include <com/sun/tools/javac/util/StringUtils.h>
 #include <java/text/BreakIterator.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
@@ -213,13 +212,11 @@ using $Position = ::com::sun::tools::javac::util::Position;
 using $StringUtils = ::com::sun::tools::javac::util::StringUtils;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BreakIterator = ::java::text::BreakIterator;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;

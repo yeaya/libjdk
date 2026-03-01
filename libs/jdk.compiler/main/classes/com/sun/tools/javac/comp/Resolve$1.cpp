@@ -12,8 +12,6 @@
 #include <com/sun/tools/javac/code/Types$SimpleVisitor.h>
 #include <com/sun/tools/javac/comp/Env.h>
 #include <com/sun/tools/javac/comp/Resolve$AccessError.h>
-#include <com/sun/tools/javac/comp/Resolve$InvalidSymbolError.h>
-#include <com/sun/tools/javac/comp/Resolve$ResolveError.h>
 #include <com/sun/tools/javac/comp/Resolve.h>
 #include <com/sun/tools/javac/tree/JCTree$JCClassDecl.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
@@ -24,7 +22,6 @@
 #include <jcpp.h>
 
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
@@ -34,8 +31,6 @@ using $Types$SimpleVisitor = ::com::sun::tools::javac::code::Types$SimpleVisitor
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $Resolve$AccessError = ::com::sun::tools::javac::comp::Resolve$AccessError;
-using $Resolve$InvalidSymbolError = ::com::sun::tools::javac::comp::Resolve$InvalidSymbolError;
-using $Resolve$ResolveError = ::com::sun::tools::javac::comp::Resolve$ResolveError;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;

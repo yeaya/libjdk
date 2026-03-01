@@ -7,7 +7,6 @@
 #include <java/lang/AbstractMethodError.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/net/Socket.h>
-#include <java/security/GeneralSecurityException.h>
 #include <java/security/Principal.h>
 #include <java/security/cert/Certificate.h>
 #include <java/security/cert/CertificateException.h>
@@ -31,11 +30,9 @@ using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $AbstractMethodError = ::java::lang::AbstractMethodError;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $Principal = ::java::security::Principal;
 using $CertificateException = ::java::security::cert::CertificateException;
 using $X509Certificate = ::java::security::cert::X509Certificate;

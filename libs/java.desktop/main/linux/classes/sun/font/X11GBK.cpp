@@ -4,7 +4,6 @@
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
 #include <sun/font/X11GBK$Encoder.h>
-#include <sun/nio/cs/DoubleByte$Encoder.h>
 #include <sun/nio/cs/GBK.h>
 #include <jcpp.h>
 
@@ -17,7 +16,6 @@ using $Charset = ::java::nio::charset::Charset;
 using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $X11GBK$Encoder = ::sun::font::X11GBK$Encoder;
-using $DoubleByte$Encoder = ::sun::nio::cs::DoubleByte$Encoder;
 using $GBK = ::sun::nio::cs::GBK;
 
 namespace sun {

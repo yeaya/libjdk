@@ -2,15 +2,11 @@
 
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/JCheckBox.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JTable.h>
-#include <javax/swing/JToggleButton.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/EmptyBorder.h>
 #include <jcpp.h>
@@ -18,20 +14,15 @@
 #undef CENTER
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JCheckBox = ::javax::swing::JCheckBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
 using $JTable = ::javax::swing::JTable;
-using $JToggleButton = ::javax::swing::JToggleButton;
 using $UIManager = ::javax::swing::UIManager;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 

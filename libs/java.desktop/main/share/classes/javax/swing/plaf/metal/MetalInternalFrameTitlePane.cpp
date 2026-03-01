@@ -2,7 +2,6 @@
 
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
 #include <java/awt/Graphics.h>
@@ -10,7 +9,6 @@
 #include <java/awt/LayoutManager.h>
 #include <java/awt/Rectangle.h>
 #include <java/beans/PropertyChangeListener.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComponent.h>
@@ -18,12 +16,9 @@
 #include <javax/swing/JMenu.h>
 #include <javax/swing/JOptionPane.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/EmptyBorder.h>
 #include <javax/swing/plaf/ColorUIResource.h>
-#include <javax/swing/plaf/basic/BasicInternalFrameTitlePane$PropertyChangeHandler.h>
-#include <javax/swing/plaf/basic/BasicInternalFrameTitlePane$TitlePaneLayout.h>
 #include <javax/swing/plaf/basic/BasicInternalFrameTitlePane.h>
 #include <javax/swing/plaf/metal/MetalBumps.h>
 #include <javax/swing/plaf/metal/MetalInternalFrameTitlePane$MetalPropertyChangeHandler.h>
@@ -43,7 +38,6 @@
 
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
@@ -56,7 +50,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $Icon = ::javax::swing::Icon;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
@@ -64,12 +57,9 @@ using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $JMenu = ::javax::swing::JMenu;
 using $JOptionPane = ::javax::swing::JOptionPane;
 using $UIManager = ::javax::swing::UIManager;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 using $BasicInternalFrameTitlePane = ::javax::swing::plaf::basic::BasicInternalFrameTitlePane;
-using $BasicInternalFrameTitlePane$PropertyChangeHandler = ::javax::swing::plaf::basic::BasicInternalFrameTitlePane$PropertyChangeHandler;
-using $BasicInternalFrameTitlePane$TitlePaneLayout = ::javax::swing::plaf::basic::BasicInternalFrameTitlePane$TitlePaneLayout;
 using $MetalBumps = ::javax::swing::plaf::metal::MetalBumps;
 using $MetalInternalFrameTitlePane$MetalPropertyChangeHandler = ::javax::swing::plaf::metal::MetalInternalFrameTitlePane$MetalPropertyChangeHandler;
 using $MetalInternalFrameTitlePane$MetalTitlePaneLayout = ::javax::swing::plaf::metal::MetalInternalFrameTitlePane$MetalTitlePaneLayout;

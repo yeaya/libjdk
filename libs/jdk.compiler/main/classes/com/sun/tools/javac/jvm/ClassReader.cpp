@@ -35,7 +35,6 @@
 #include <com/sun/tools/javac/code/TargetType.h>
 #include <com/sun/tools/javac/code/Type$ArrayType.h>
 #include <com/sun/tools/javac/code/Type$ClassType.h>
-#include <com/sun/tools/javac/code/Type$DelegatedType.h>
 #include <com/sun/tools/javac/code/Type$ForAll.h>
 #include <com/sun/tools/javac/code/Type$JCNoType.h>
 #include <com/sun/tools/javac/code/Type$JCPrimitiveType.h>
@@ -133,8 +132,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/nio/file/ClosedFileSystemException.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Arrays.h>
 #include <java/util/EnumSet.h>
 #include <java/util/HashMap.h>
@@ -222,7 +219,6 @@ using $TargetType = ::com::sun::tools::javac::code::TargetType;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
-using $Type$DelegatedType = ::com::sun::tools::javac::code::Type$DelegatedType;
 using $Type$ForAll = ::com::sun::tools::javac::code::Type$ForAll;
 using $Type$MethodType = ::com::sun::tools::javac::code::Type$MethodType;
 using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
@@ -313,8 +309,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $ClosedFileSystemException = ::java::nio::file::ClosedFileSystemException;
-using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Arrays = ::java::util::Arrays;
 using $EnumSet = ::java::util::EnumSet;
 using $HashMap = ::java::util::HashMap;

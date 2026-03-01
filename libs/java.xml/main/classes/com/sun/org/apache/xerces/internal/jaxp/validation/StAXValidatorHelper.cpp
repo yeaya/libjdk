@@ -17,7 +17,6 @@
 #include <javax/xml/transform/sax/SAXTransformerFactory.h>
 #include <javax/xml/transform/sax/TransformerHandler.h>
 #include <javax/xml/transform/stax/StAXResult.h>
-#include <javax/xml/validation/ValidatorHandler.h>
 #include <jdk/xml/internal/JdkConstants.h>
 #include <jdk/xml/internal/JdkXmlUtils.h>
 #include <org/xml/sax/ContentHandler.h>
@@ -51,7 +50,6 @@ using $SAXResult = ::javax::xml::transform::sax::SAXResult;
 using $SAXTransformerFactory = ::javax::xml::transform::sax::SAXTransformerFactory;
 using $TransformerHandler = ::javax::xml::transform::sax::TransformerHandler;
 using $StAXResult = ::javax::xml::transform::stax::StAXResult;
-using $ValidatorHandler = ::javax::xml::validation::ValidatorHandler;
 using $JdkConstants = ::jdk::xml::internal::JdkConstants;
 using $JdkXmlUtils = ::jdk::xml::internal::JdkXmlUtils;
 using $ContentHandler = ::org::xml::sax::ContentHandler;

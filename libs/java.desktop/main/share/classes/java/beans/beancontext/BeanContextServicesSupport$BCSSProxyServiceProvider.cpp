@@ -1,6 +1,5 @@
 #include <java/beans/beancontext/BeanContextServicesSupport$BCSSProxyServiceProvider.h>
 
-#include <java/beans/beancontext/BeanContext.h>
 #include <java/beans/beancontext/BeanContextChild.h>
 #include <java/beans/beancontext/BeanContextServiceProvider.h>
 #include <java/beans/beancontext/BeanContextServiceRevokedEvent.h>
@@ -12,7 +11,6 @@
 #include <java/util/TooManyListenersException.h>
 #include <jcpp.h>
 
-using $BeanContext = ::java::beans::beancontext::BeanContext;
 using $BeanContextChild = ::java::beans::beancontext::BeanContextChild;
 using $BeanContextServiceProvider = ::java::beans::beancontext::BeanContextServiceProvider;
 using $BeanContextServiceRevokedEvent = ::java::beans::beancontext::BeanContextServiceRevokedEvent;

@@ -7,7 +7,6 @@
 #include <java/awt/Image.h>
 #include <java/awt/Transparency.h>
 #include <java/awt/image/ColorModel.h>
-#include <java/awt/image/VolatileImage.h>
 #include <java/awt/peer/ComponentPeer.h>
 #include <java/lang/OutOfMemoryError.h>
 #include <sun/awt/AWTAccessor$ComponentAccessor.h>
@@ -38,7 +37,6 @@ using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $Image = ::java::awt::Image;
 using $Transparency = ::java::awt::Transparency;
 using $ColorModel = ::java::awt::image::ColorModel;
-using $VolatileImage = ::java::awt::image::VolatileImage;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

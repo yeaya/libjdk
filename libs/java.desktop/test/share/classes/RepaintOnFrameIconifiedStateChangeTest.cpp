@@ -19,7 +19,6 @@
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/reflect/InvocationTargetException.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
@@ -28,7 +27,6 @@
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/UnsupportedLookAndFeelException.h>
-#include <javax/swing/plaf/basic/BasicLookAndFeel.h>
 #include <javax/swing/plaf/metal/MetalLookAndFeel.h>
 #include <jcpp.h>
 
@@ -64,7 +62,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
@@ -73,7 +70,6 @@ using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $UnsupportedLookAndFeelException = ::javax::swing::UnsupportedLookAndFeelException;
-using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
 
 $FieldInfo _RepaintOnFrameIconifiedStateChangeTest_FieldInfo_[] = {

@@ -12,7 +12,6 @@
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators$DescendantIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators$FollowingIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators$FollowingSiblingIterator.h>
-#include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators$InternalAxisIteratorBase.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators$NamespaceIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators$ParentIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators$PrecedingIterator.h>
@@ -59,14 +58,12 @@ using $DTMAxisIterator = ::com::sun::org::apache::xml::internal::dtm::DTMAxisIte
 using $DTMException = ::com::sun::org::apache::xml::internal::dtm::DTMException;
 using $DTMManager = ::com::sun::org::apache::xml::internal::dtm::DTMManager;
 using $DTMWSFilter = ::com::sun::org::apache::xml::internal::dtm::DTMWSFilter;
-using $DTMAxisIteratorBase = ::com::sun::org::apache::xml::internal::dtm::ref::DTMAxisIteratorBase;
 using $DTMDefaultBaseIterators$AncestorIterator = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators$AncestorIterator;
 using $DTMDefaultBaseIterators$AttributeIterator = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators$AttributeIterator;
 using $DTMDefaultBaseIterators$ChildrenIterator = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators$ChildrenIterator;
 using $DTMDefaultBaseIterators$DescendantIterator = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators$DescendantIterator;
 using $DTMDefaultBaseIterators$FollowingIterator = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators$FollowingIterator;
 using $DTMDefaultBaseIterators$FollowingSiblingIterator = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators$FollowingSiblingIterator;
-using $DTMDefaultBaseIterators$InternalAxisIteratorBase = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators$InternalAxisIteratorBase;
 using $DTMDefaultBaseIterators$NamespaceIterator = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators$NamespaceIterator;
 using $DTMDefaultBaseIterators$ParentIterator = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators$ParentIterator;
 using $DTMDefaultBaseIterators$PrecedingIterator = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators$PrecedingIterator;

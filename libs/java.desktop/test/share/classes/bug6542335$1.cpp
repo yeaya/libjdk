@@ -9,11 +9,9 @@
 #include <java/awt/Window.h>
 #include <javax/swing/BoundedRangeModel.h>
 #include <javax/swing/DefaultBoundedRangeModel.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JScrollBar.h>
 #include <javax/swing/plaf/ScrollBarUI.h>
-#include <javax/swing/plaf/basic/BasicScrollBarUI.h>
 #include <jcpp.h>
 
 #undef EXIT_ON_CLOSE
@@ -23,7 +21,6 @@ using $bug6542335 = ::bug6542335;
 using $bug6542335$MyScrollBarUI = ::bug6542335$MyScrollBarUI;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -31,11 +28,9 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BoundedRangeModel = ::javax::swing::BoundedRangeModel;
 using $DefaultBoundedRangeModel = ::javax::swing::DefaultBoundedRangeModel;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JScrollBar = ::javax::swing::JScrollBar;
 using $ScrollBarUI = ::javax::swing::plaf::ScrollBarUI;
-using $BasicScrollBarUI = ::javax::swing::plaf::basic::BasicScrollBarUI;
 
 $MethodInfo _bug6542335$1_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(bug6542335$1, init$, void)},

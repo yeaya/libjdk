@@ -4,9 +4,7 @@
 #include <com/sun/net/httpserver/Headers.h>
 #include <com/sun/net/httpserver/HttpExchange.h>
 #include <com/sun/net/httpserver/HttpHandler.h>
-#include <com/sun/net/httpserver/HttpsExchange.h>
 #include <java/io/BufferedInputStream.h>
-#include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
@@ -53,21 +51,17 @@ using $Filter$Chain = ::com::sun::net::httpserver::Filter$Chain;
 using $Headers = ::com::sun::net::httpserver::Headers;
 using $HttpExchange = ::com::sun::net::httpserver::HttpExchange;
 using $HttpHandler = ::com::sun::net::httpserver::HttpHandler;
-using $HttpsExchange = ::com::sun::net::httpserver::HttpsExchange;
 using $BufferedInputStream = ::java::io::BufferedInputStream;
-using $FilterInputStream = ::java::io::FilterInputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
-using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $URI = ::java::net::URI;

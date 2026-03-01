@@ -9,10 +9,8 @@
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/lang/Runnable.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JCheckBox.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JRadioButton.h>
@@ -28,7 +26,6 @@ using $ComponentTest$1 = ::ComponentTest$1;
 using $ComponentTest$2 = ::ComponentTest$2;
 using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $FlowLayout = ::java::awt::FlowLayout;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $Robot = ::java::awt::Robot;
@@ -37,10 +34,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JButton = ::javax::swing::JButton;
 using $JCheckBox = ::javax::swing::JCheckBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JLabel = ::javax::swing::JLabel;
 using $JRadioButton = ::javax::swing::JRadioButton;

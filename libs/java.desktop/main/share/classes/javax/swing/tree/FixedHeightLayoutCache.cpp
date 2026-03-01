@@ -7,11 +7,9 @@
 #include <java/util/Stack.h>
 #include <javax/swing/event/TreeModelEvent.h>
 #include <javax/swing/tree/AbstractLayoutCache.h>
-#include <javax/swing/tree/DefaultMutableTreeNode.h>
 #include <javax/swing/tree/FixedHeightLayoutCache$FHTreeStateNode.h>
 #include <javax/swing/tree/FixedHeightLayoutCache$SearchInfo.h>
 #include <javax/swing/tree/FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration.h>
-#include <javax/swing/tree/MutableTreeNode.h>
 #include <javax/swing/tree/TreeModel.h>
 #include <javax/swing/tree/TreeNode.h>
 #include <javax/swing/tree/TreePath.h>
@@ -31,11 +29,9 @@ using $Hashtable = ::java::util::Hashtable;
 using $Stack = ::java::util::Stack;
 using $TreeModelEvent = ::javax::swing::event::TreeModelEvent;
 using $AbstractLayoutCache = ::javax::swing::tree::AbstractLayoutCache;
-using $DefaultMutableTreeNode = ::javax::swing::tree::DefaultMutableTreeNode;
 using $FixedHeightLayoutCache$FHTreeStateNode = ::javax::swing::tree::FixedHeightLayoutCache$FHTreeStateNode;
 using $FixedHeightLayoutCache$SearchInfo = ::javax::swing::tree::FixedHeightLayoutCache$SearchInfo;
 using $FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration = ::javax::swing::tree::FixedHeightLayoutCache$VisibleFHTreeStateNodeEnumeration;
-using $MutableTreeNode = ::javax::swing::tree::MutableTreeNode;
 using $TreeModel = ::javax::swing::tree::TreeModel;
 using $TreeNode = ::javax::swing::tree::TreeNode;
 using $TreePath = ::javax::swing::tree::TreePath;

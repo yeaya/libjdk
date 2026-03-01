@@ -2,7 +2,6 @@
 
 #include <bug7071166.h>
 #include <java/awt/Container.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/LayoutStyle$ComponentPlacement.h>
@@ -21,7 +20,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
 using $LayoutStyle = ::javax::swing::LayoutStyle;

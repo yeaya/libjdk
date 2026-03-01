@@ -44,7 +44,6 @@
 #include <java/lang/SecurityException.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/InvocationTargetException.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <javax/xml/transform/TransformerException.h>
@@ -175,7 +174,6 @@ using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $SecurityException = ::java::lang::SecurityException;
 using $Constructor = ::java::lang::reflect::Constructor;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $TransformerException = ::javax::xml::transform::TransformerException;

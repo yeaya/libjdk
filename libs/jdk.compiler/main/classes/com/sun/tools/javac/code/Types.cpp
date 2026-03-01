@@ -34,7 +34,6 @@
 #include <com/sun/tools/javac/code/Type$IntersectionClassType.h>
 #include <com/sun/tools/javac/code/Type$JCNoType.h>
 #include <com/sun/tools/javac/code/Type$JCPrimitiveType.h>
-#include <com/sun/tools/javac/code/Type$StructuralTypeMapping.h>
 #include <com/sun/tools/javac/code/Type$TypeVar.h>
 #include <com/sun/tools/javac/code/Type$UndetVar$InferenceBound.h>
 #include <com/sun/tools/javac/code/Type$UndetVar.h>
@@ -74,7 +73,6 @@
 #include <com/sun/tools/javac/code/Types$CandidatesCache.h>
 #include <com/sun/tools/javac/code/Types$CaptureScanner.h>
 #include <com/sun/tools/javac/code/Types$ClosureHolder.h>
-#include <com/sun/tools/javac/code/Types$DefaultTypeVisitor.h>
 #include <com/sun/tools/javac/code/Types$DescriptorCache$FunctionDescriptor.h>
 #include <com/sun/tools/javac/code/Types$DescriptorCache.h>
 #include <com/sun/tools/javac/code/Types$FunctionDescriptorLookupError.h>
@@ -122,9 +120,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSet.h>
-#include <java/util/Collection.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
@@ -217,7 +212,6 @@ using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
 using $Type$ErrorType = ::com::sun::tools::javac::code::Type$ErrorType;
 using $Type$ForAll = ::com::sun::tools::javac::code::Type$ForAll;
 using $Type$IntersectionClassType = ::com::sun::tools::javac::code::Type$IntersectionClassType;
-using $Type$StructuralTypeMapping = ::com::sun::tools::javac::code::Type$StructuralTypeMapping;
 using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $Type$UndetVar = ::com::sun::tools::javac::code::Type$UndetVar;
 using $Type$UndetVar$InferenceBound = ::com::sun::tools::javac::code::Type$UndetVar$InferenceBound;
@@ -255,7 +249,6 @@ using $Types$CandidatesCache = ::com::sun::tools::javac::code::Types$CandidatesC
 using $Types$CandidatesCache$Entry = ::com::sun::tools::javac::code::Types$CandidatesCache$Entry;
 using $Types$CaptureScanner = ::com::sun::tools::javac::code::Types$CaptureScanner;
 using $Types$ClosureHolder = ::com::sun::tools::javac::code::Types$ClosureHolder;
-using $Types$DefaultTypeVisitor = ::com::sun::tools::javac::code::Types$DefaultTypeVisitor;
 using $Types$DescriptorCache = ::com::sun::tools::javac::code::Types$DescriptorCache;
 using $Types$DescriptorCache$FunctionDescriptor = ::com::sun::tools::javac::code::Types$DescriptorCache$FunctionDescriptor;
 using $Types$FunctionDescriptorLookupError = ::com::sun::tools::javac::code::Types$FunctionDescriptorLookupError;
@@ -305,9 +298,6 @@ using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Number = ::java::lang::Number;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSet = ::java::util::AbstractSet;
-using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;

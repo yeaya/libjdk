@@ -5,8 +5,6 @@
 #include <java/awt/Font.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/io/Reader.h>
 #include <java/io/StringReader.h>
 #include <java/net/URL.h>
@@ -25,7 +23,6 @@
 #include <javax/swing/text/ViewFactory.h>
 #include <javax/swing/text/html/HTML$Tag.h>
 #include <javax/swing/text/html/HTMLDocument.h>
-#include <javax/swing/text/html/HTMLEditorKit$HTMLFactory.h>
 #include <jcpp.h>
 
 #undef ACCESSIBLE_NAME_PROPERTY
@@ -36,8 +33,6 @@
 using $Font = ::java::awt::Font;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $Reader = ::java::io::Reader;
 using $StringReader = ::java::io::StringReader;
 using $Boolean = ::java::lang::Boolean;
@@ -62,7 +57,6 @@ using $View = ::javax::swing::text::View;
 using $ViewFactory = ::javax::swing::text::ViewFactory;
 using $HTML$Tag = ::javax::swing::text::html::HTML$Tag;
 using $HTMLDocument = ::javax::swing::text::html::HTMLDocument;
-using $HTMLEditorKit$HTMLFactory = ::javax::swing::text::html::HTMLEditorKit$HTMLFactory;
 
 namespace javax {
 	namespace swing {

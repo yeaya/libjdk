@@ -13,8 +13,6 @@
 #include <com/sun/xml/internal/stream/dtd/nonvalidating/XMLElementDecl.h>
 #include <com/sun/xml/internal/stream/dtd/nonvalidating/XMLNotationDecl.h>
 #include <com/sun/xml/internal/stream/dtd/nonvalidating/XMLSimpleType.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
 #include <java/util/HashMap.h>
 #include <java/util/List.h>
@@ -66,8 +64,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $List = ::java::util::List;

@@ -2,7 +2,6 @@
 
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/event/ActionListener.h>
 #include <java/util/EventObject.h>
 #include <javax/swing/AbstractButton.h>
@@ -16,18 +15,15 @@
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/JTextField.h>
-#include <javax/swing/JToggleButton.h>
 #include <javax/swing/JTree.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/event/CellEditorListener.h>
 #include <javax/swing/table/TableCellRenderer.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef TRUE
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $Attribute = ::java::lang::Attribute;
 using $Boolean = ::java::lang::Boolean;
@@ -38,7 +34,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $EventObject = ::java::util::EventObject;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $AbstractCellEditor = ::javax::swing::AbstractCellEditor;
 using $DefaultCellEditor$1 = ::javax::swing::DefaultCellEditor$1;
 using $DefaultCellEditor$2 = ::javax::swing::DefaultCellEditor$2;
@@ -49,11 +44,9 @@ using $JComboBox = ::javax::swing::JComboBox;
 using $JComponent = ::javax::swing::JComponent;
 using $JTable = ::javax::swing::JTable;
 using $JTextField = ::javax::swing::JTextField;
-using $JToggleButton = ::javax::swing::JToggleButton;
 using $JTree = ::javax::swing::JTree;
 using $CellEditorListener = ::javax::swing::event::CellEditorListener;
 using $TableCellRenderer = ::javax::swing::table::TableCellRenderer;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 namespace javax {
 	namespace swing {

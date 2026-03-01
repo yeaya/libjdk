@@ -1,6 +1,5 @@
 #include <javax/swing/MultiUIDefaults.h>
 
-#include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
 #include <java/util/Enumeration.h>
 #include <java/util/HashSet.h>
@@ -20,7 +19,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
 using $Enumeration = ::java::util::Enumeration;
 using $HashSet = ::java::util::HashSet;

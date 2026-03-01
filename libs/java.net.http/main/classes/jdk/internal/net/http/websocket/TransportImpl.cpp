@@ -20,7 +20,6 @@
 #include <jdk/internal/net/http/common/Demand.h>
 #include <jdk/internal/net/http/common/Logger.h>
 #include <jdk/internal/net/http/common/MinimalFuture.h>
-#include <jdk/internal/net/http/common/SequentialScheduler$CompleteRestartableTask.h>
 #include <jdk/internal/net/http/common/SequentialScheduler$RestartableTask.h>
 #include <jdk/internal/net/http/common/SequentialScheduler.h>
 #include <jdk/internal/net/http/common/Utils.h>
@@ -49,7 +48,6 @@ using $AssertionError = ::java::lang::AssertionError;
 using $Boolean = ::java::lang::Boolean;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
@@ -68,7 +66,6 @@ using $Demand = ::jdk::internal::net::http::common::Demand;
 using $Logger = ::jdk::internal::net::http::common::Logger;
 using $MinimalFuture = ::jdk::internal::net::http::common::MinimalFuture;
 using $SequentialScheduler = ::jdk::internal::net::http::common::SequentialScheduler;
-using $SequentialScheduler$CompleteRestartableTask = ::jdk::internal::net::http::common::SequentialScheduler$CompleteRestartableTask;
 using $SequentialScheduler$RestartableTask = ::jdk::internal::net::http::common::SequentialScheduler$RestartableTask;
 using $Utils = ::jdk::internal::net::http::common::Utils;
 using $Frame$Reader = ::jdk::internal::net::http::websocket::Frame$Reader;

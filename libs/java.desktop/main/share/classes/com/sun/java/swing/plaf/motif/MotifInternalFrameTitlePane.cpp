@@ -2,7 +2,6 @@
 
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane$1.h>
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane$2.h>
-#include <com/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane$FrameButton.h>
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane$MaximizeButton.h>
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane$MinimizeButton.h>
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane$SystemButton.h>
@@ -16,15 +15,11 @@
 #include <java/awt/LayoutManager.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
-#include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/lang/NumberFormatException.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
-#include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JInternalFrame.h>
 #include <javax/swing/JMenuItem.h>
 #include <javax/swing/JPopupMenu.h>
@@ -40,7 +35,6 @@
 
 using $MotifInternalFrameTitlePane$1 = ::com::sun::java::swing::plaf::motif::MotifInternalFrameTitlePane$1;
 using $MotifInternalFrameTitlePane$2 = ::com::sun::java::swing::plaf::motif::MotifInternalFrameTitlePane$2;
-using $MotifInternalFrameTitlePane$FrameButton = ::com::sun::java::swing::plaf::motif::MotifInternalFrameTitlePane$FrameButton;
 using $MotifInternalFrameTitlePane$MaximizeButton = ::com::sun::java::swing::plaf::motif::MotifInternalFrameTitlePane$MaximizeButton;
 using $MotifInternalFrameTitlePane$MinimizeButton = ::com::sun::java::swing::plaf::motif::MotifInternalFrameTitlePane$MinimizeButton;
 using $MotifInternalFrameTitlePane$SystemButton = ::com::sun::java::swing::plaf::motif::MotifInternalFrameTitlePane$SystemButton;
@@ -53,7 +47,6 @@ using $Graphics = ::java::awt::Graphics;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
@@ -64,10 +57,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $Action = ::javax::swing::Action;
-using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $JMenuItem = ::javax::swing::JMenuItem;
 using $JPopupMenu = ::javax::swing::JPopupMenu;

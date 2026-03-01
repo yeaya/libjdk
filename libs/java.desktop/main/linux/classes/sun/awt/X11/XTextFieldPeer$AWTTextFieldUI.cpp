@@ -15,7 +15,6 @@
 #include <javax/swing/plaf/UIResource.h>
 #include <javax/swing/plaf/basic/BasicTextUI.h>
 #include <javax/swing/text/Caret.h>
-#include <javax/swing/text/DefaultCaret.h>
 #include <javax/swing/text/JTextComponent.h>
 #include <sun/awt/X11/XTextAreaPeer$XAWTCaret.h>
 #include <sun/awt/X11/XTextFieldPeer.h>
@@ -41,7 +40,6 @@ using $UIDefaults = ::javax::swing::UIDefaults;
 using $Border = ::javax::swing::border::Border;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $Caret = ::javax::swing::text::Caret;
-using $DefaultCaret = ::javax::swing::text::DefaultCaret;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $XTextAreaPeer$XAWTCaret = ::sun::awt::X11::XTextAreaPeer$XAWTCaret;
 using $XTextFieldPeer = ::sun::awt::X11::XTextFieldPeer;

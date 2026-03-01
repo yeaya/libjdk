@@ -22,7 +22,6 @@
 #include <javax/swing/TransferHandler.h>
 #include <javax/swing/plaf/ColorUIResource.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/TableUI.h>
 #include <javax/swing/plaf/UIResource.h>
 #include <javax/swing/plaf/basic/BasicTableUI.h>
 #include <javax/swing/plaf/synth/ColorType.h>
@@ -35,7 +34,6 @@
 #include <javax/swing/plaf/synth/SynthTableUI$SynthBooleanTableCellRenderer.h>
 #include <javax/swing/plaf/synth/SynthTableUI$SynthTableCellRenderer.h>
 #include <javax/swing/plaf/synth/SynthUI.h>
-#include <javax/swing/table/DefaultTableCellRenderer.h>
 #include <javax/swing/table/JTableHeader.h>
 #include <javax/swing/table/TableCellRenderer.h>
 #include <javax/swing/table/TableColumn.h>
@@ -79,7 +77,6 @@ using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $TransferHandler = ::javax::swing::TransferHandler;
 using $ColorUIResource = ::javax::swing::plaf::ColorUIResource;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $TableUI = ::javax::swing::plaf::TableUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $BasicTableUI = ::javax::swing::plaf::basic::BasicTableUI;
 using $ColorType = ::javax::swing::plaf::synth::ColorType;
@@ -92,7 +89,6 @@ using $SynthStyle = ::javax::swing::plaf::synth::SynthStyle;
 using $SynthTableUI$SynthBooleanTableCellRenderer = ::javax::swing::plaf::synth::SynthTableUI$SynthBooleanTableCellRenderer;
 using $SynthTableUI$SynthTableCellRenderer = ::javax::swing::plaf::synth::SynthTableUI$SynthTableCellRenderer;
 using $SynthUI = ::javax::swing::plaf::synth::SynthUI;
-using $DefaultTableCellRenderer = ::javax::swing::table::DefaultTableCellRenderer;
 using $JTableHeader = ::javax::swing::table::JTableHeader;
 using $TableCellRenderer = ::javax::swing::table::TableCellRenderer;
 using $TableColumn = ::javax::swing::table::TableColumn;

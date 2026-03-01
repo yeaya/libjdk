@@ -6,7 +6,6 @@
 #include <com/sun/tools/javac/jvm/JNIWriter.h>
 #include <com/sun/tools/javac/model/JavacElements.h>
 #include <com/sun/tools/javac/util/List.h>
-#include <java/lang/AbstractStringBuilder.h>
 #include <java/lang/CharSequence.h>
 #include <java/util/Iterator.h>
 #include <jcpp.h>
@@ -27,7 +26,6 @@ using $Type = ::com::sun::tools::javac::code::Type;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $JNIWriter$TypeSignature$JvmTypeVisitor = ::com::sun::tools::javac::jvm::JNIWriter$TypeSignature$JvmTypeVisitor;
 using $List = ::com::sun::tools::javac::util::List;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

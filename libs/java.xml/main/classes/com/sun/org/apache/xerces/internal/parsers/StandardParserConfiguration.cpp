@@ -1,7 +1,6 @@
 #include <com/sun/org/apache/xerces/internal/parsers/StandardParserConfiguration.h>
 
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
-#include <com/sun/org/apache/xerces/internal/impl/RevalidationHandler.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLErrorReporter.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLNamespaceBinder.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator.h>
@@ -17,7 +16,6 @@
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLComponent.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager.h>
-#include <com/sun/org/apache/xerces/internal/xni/parser/XMLDocumentFilter.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDocumentSource.h>
 #include <java/util/Map.h>
 #include <jcpp.h>
@@ -66,7 +64,6 @@
 #undef XMLSCHEMA_VALIDATION
 
 using $Constants = ::com::sun::org::apache::xerces::internal::impl::Constants;
-using $RevalidationHandler = ::com::sun::org::apache::xerces::internal::impl::RevalidationHandler;
 using $XMLErrorReporter = ::com::sun::org::apache::xerces::internal::impl::XMLErrorReporter;
 using $XMLNamespaceBinder = ::com::sun::org::apache::xerces::internal::impl::XMLNamespaceBinder;
 using $XMLSchemaValidator = ::com::sun::org::apache::xerces::internal::impl::xs::XMLSchemaValidator;
@@ -80,7 +77,6 @@ using $XMLDocumentHandler = ::com::sun::org::apache::xerces::internal::xni::XMLD
 using $XMLGrammarPool = ::com::sun::org::apache::xerces::internal::xni::grammars::XMLGrammarPool;
 using $XMLComponent = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponent;
 using $XMLComponentManager = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager;
-using $XMLDocumentFilter = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDocumentFilter;
 using $XMLDocumentSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDocumentSource;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

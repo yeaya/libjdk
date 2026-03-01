@@ -1,9 +1,7 @@
 #include <javax/swing/JPopupMenu.h>
 
 #include <java/awt/AWTEvent.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Frame.h>
@@ -30,18 +28,15 @@
 #include <java/util/Iterator.h>
 #include <java/util/Vector.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/DefaultSingleSelectionModel.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JMenu.h>
 #include <javax/swing/JMenuItem.h>
 #include <javax/swing/JPopupMenu$1.h>
 #include <javax/swing/JPopupMenu$AccessibleJPopupMenu.h>
 #include <javax/swing/JPopupMenu$Separator.h>
-#include <javax/swing/JSeparator.h>
 #include <javax/swing/MenuElement.h>
 #include <javax/swing/MenuSelectionManager.h>
 #include <javax/swing/Popup.h>
@@ -85,9 +80,6 @@ using $MenuKeyListenerArray = $Array<::javax::swing::event::MenuKeyListener>;
 using $PopupMenuListenerArray = $Array<::javax::swing::event::PopupMenuListener>;
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
-using $Container = ::java::awt::Container;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Dimension = ::java::awt::Dimension;
 using $Frame = ::java::awt::Frame;
 using $Graphics = ::java::awt::Graphics;
@@ -122,18 +114,15 @@ using $EventListener = ::java::util::EventListener;
 using $Iterator = ::java::util::Iterator;
 using $Vector = ::java::util::Vector;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $Action = ::javax::swing::Action;
 using $DefaultSingleSelectionModel = ::javax::swing::DefaultSingleSelectionModel;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JMenu = ::javax::swing::JMenu;
 using $JMenuItem = ::javax::swing::JMenuItem;
 using $JPopupMenu$1 = ::javax::swing::JPopupMenu$1;
 using $JPopupMenu$AccessibleJPopupMenu = ::javax::swing::JPopupMenu$AccessibleJPopupMenu;
 using $JPopupMenu$Separator = ::javax::swing::JPopupMenu$Separator;
-using $JSeparator = ::javax::swing::JSeparator;
 using $MenuElement = ::javax::swing::MenuElement;
 using $MenuSelectionManager = ::javax::swing::MenuSelectionManager;
 using $Popup = ::javax::swing::Popup;

@@ -2,8 +2,6 @@
 
 #include <TestButtonGroupFocusTraversal$1.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
-#include <java/awt/Frame.h>
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/awt/Point.h>
 #include <java/awt/Robot.h>
@@ -18,7 +16,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JCheckBox.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
@@ -28,7 +25,6 @@
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager$LookAndFeelInfo.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef VK_DOWN
@@ -41,8 +37,6 @@
 using $TestButtonGroupFocusTraversal$1 = ::TestButtonGroupFocusTraversal$1;
 using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
-using $Frame = ::java::awt::Frame;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $Point = ::java::awt::Point;
 using $Robot = ::java::awt::Robot;
@@ -59,7 +53,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JCheckBox = ::javax::swing::JCheckBox;
 using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
@@ -69,7 +62,6 @@ using $JToggleButton = ::javax::swing::JToggleButton;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $UIManager$LookAndFeelInfo = ::javax::swing::UIManager$LookAndFeelInfo;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 class TestButtonGroupFocusTraversal$$Lambda$requestFocus : public $Runnable {
 	$class(TestButtonGroupFocusTraversal$$Lambda$requestFocus, $NO_CLASS_INIT, $Runnable)

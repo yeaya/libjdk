@@ -5,7 +5,6 @@
 #include <com/sun/imageio/plugins/jpeg/JFIFMarkerSegment$JFIFThumbJPEG.h>
 #include <com/sun/imageio/plugins/jpeg/JFIFMarkerSegment$JFIFThumbPalette.h>
 #include <com/sun/imageio/plugins/jpeg/JFIFMarkerSegment$JFIFThumbRGB.h>
-#include <com/sun/imageio/plugins/jpeg/JFIFMarkerSegment$JFIFThumbUncompressed.h>
 #include <com/sun/imageio/plugins/jpeg/JFIFMarkerSegment.h>
 #include <com/sun/imageio/plugins/jpeg/JPEG.h>
 #include <com/sun/imageio/plugins/jpeg/JPEGBuffer.h>
@@ -20,7 +19,6 @@
 #include <javax/imageio/metadata/IIOInvalidTreeException.h>
 #include <javax/imageio/metadata/IIOMetadataNode.h>
 #include <javax/imageio/stream/ImageOutputStream.h>
-#include <org/w3c/dom/Element.h>
 #include <org/w3c/dom/NamedNodeMap.h>
 #include <org/w3c/dom/Node.h>
 #include <org/w3c/dom/NodeList.h>
@@ -39,7 +37,6 @@ using $JFIFMarkerSegment$JFIFThumb = ::com::sun::imageio::plugins::jpeg::JFIFMar
 using $JFIFMarkerSegment$JFIFThumbJPEG = ::com::sun::imageio::plugins::jpeg::JFIFMarkerSegment$JFIFThumbJPEG;
 using $JFIFMarkerSegment$JFIFThumbPalette = ::com::sun::imageio::plugins::jpeg::JFIFMarkerSegment$JFIFThumbPalette;
 using $JFIFMarkerSegment$JFIFThumbRGB = ::com::sun::imageio::plugins::jpeg::JFIFMarkerSegment$JFIFThumbRGB;
-using $JFIFMarkerSegment$JFIFThumbUncompressed = ::com::sun::imageio::plugins::jpeg::JFIFMarkerSegment$JFIFThumbUncompressed;
 using $JPEG = ::com::sun::imageio::plugins::jpeg::JPEG;
 using $JPEGBuffer = ::com::sun::imageio::plugins::jpeg::JPEGBuffer;
 using $JPEGImageReader = ::com::sun::imageio::plugins::jpeg::JPEGImageReader;
@@ -50,7 +47,6 @@ using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $IndexColorModel = ::java::awt::image::IndexColorModel;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
@@ -59,7 +55,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $IIOInvalidTreeException = ::javax::imageio::metadata::IIOInvalidTreeException;
 using $IIOMetadataNode = ::javax::imageio::metadata::IIOMetadataNode;
 using $ImageOutputStream = ::javax::imageio::stream::ImageOutputStream;
-using $Element = ::org::w3c::dom::Element;
 using $NamedNodeMap = ::org::w3c::dom::NamedNodeMap;
 using $Node = ::org::w3c::dom::Node;
 using $NodeList = ::org::w3c::dom::NodeList;

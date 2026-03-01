@@ -7,7 +7,6 @@
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/JTextField.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/LineBorder.h>
 #include <sun/reflect/misc/ReflectUtil.h>
@@ -26,7 +25,6 @@ using $DefaultCellEditor = ::javax::swing::DefaultCellEditor;
 using $JComponent = ::javax::swing::JComponent;
 using $JTable = ::javax::swing::JTable;
 using $JTextField = ::javax::swing::JTextField;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $LineBorder = ::javax::swing::border::LineBorder;
 using $ReflectUtil = ::sun::reflect::misc::ReflectUtil;

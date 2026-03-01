@@ -5,7 +5,6 @@
 #include <com/sun/java/swing/plaf/gtk/GTKLookAndFeel$WeakPCL.h>
 #include <com/sun/java/swing/plaf/gtk/GTKLookAndFeel.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Window.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <javax/swing/plaf/synth/SynthLookAndFeel.h>
@@ -19,7 +18,6 @@ using $GTKIconFactory = ::com::sun::java::swing::plaf::gtk::GTKIconFactory;
 using $GTKLookAndFeel = ::com::sun::java::swing::plaf::gtk::GTKLookAndFeel;
 using $GTKLookAndFeel$WeakPCL = ::com::sun::java::swing::plaf::gtk::GTKLookAndFeel$WeakPCL;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Window = ::java::awt::Window;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $ClassInfo = ::java::lang::ClassInfo;

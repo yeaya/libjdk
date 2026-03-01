@@ -10,7 +10,6 @@
 #include <java/awt/Insets.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
-#include <java/awt/event/ComponentEvent.h>
 #include <java/awt/event/InputEvent.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/beans/PropertyVetoException.h>
@@ -21,7 +20,6 @@
 #include <javax/swing/JDialog.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JInternalFrame.h>
-#include <javax/swing/JLayeredPane.h>
 #include <javax/swing/JWindow.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/event/MouseInputAdapter.h>
@@ -42,7 +40,6 @@ using $Dimension = ::java::awt::Dimension;
 using $Insets = ::java::awt::Insets;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
-using $ComponentEvent = ::java::awt::event::ComponentEvent;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $PropertyVetoException = ::java::beans::PropertyVetoException;
@@ -57,7 +54,6 @@ using $JDesktopPane = ::javax::swing::JDesktopPane;
 using $JDialog = ::javax::swing::JDialog;
 using $JFrame = ::javax::swing::JFrame;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
-using $JLayeredPane = ::javax::swing::JLayeredPane;
 using $JWindow = ::javax::swing::JWindow;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $MouseInputAdapter = ::javax::swing::event::MouseInputAdapter;

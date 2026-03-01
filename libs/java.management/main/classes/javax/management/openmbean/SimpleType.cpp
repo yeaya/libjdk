@@ -3,7 +3,6 @@
 #include <java/io/InvalidObjectException.h>
 #include <java/math/BigDecimal.h>
 #include <java/math/BigInteger.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Date.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
@@ -42,7 +41,6 @@ using $Short = ::java::lang::Short;
 using $Void = ::java::lang::Void;
 using $BigDecimal = ::java::math::BigDecimal;
 using $BigInteger = ::java::math::BigInteger;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Date = ::java::util::Date;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;

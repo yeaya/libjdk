@@ -2,7 +2,6 @@
 
 #include <com/sun/jmx/remote/util/ClassLogger.h>
 #include <com/sun/jmx/remote/util/EnvHelp.h>
-#include <java/io/IOException.h>
 #include <java/io/InvalidObjectException.h>
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
@@ -26,7 +25,6 @@
 
 using $ClassLogger = ::com::sun::jmx::remote::util::ClassLogger;
 using $EnvHelp = ::com::sun::jmx::remote::util::EnvHelp;
-using $IOException = ::java::io::IOException;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectInputStream$GetField = ::java::io::ObjectInputStream$GetField;

@@ -5,13 +5,10 @@
 #include <com/apple/laf/AquaTableHeaderBorder.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Font.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/table/DefaultTableCellRenderer.h>
 #include <javax/swing/table/JTableHeader.h>
@@ -24,16 +21,12 @@
 using $AquaFileChooserUI$JSortingTableHeader = ::com::apple::laf::AquaFileChooserUI$JSortingTableHeader;
 using $AquaTableHeaderBorder = ::com::apple::laf::AquaTableHeaderBorder;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
-using $JLabel = ::javax::swing::JLabel;
 using $JTable = ::javax::swing::JTable;
 using $UIManager = ::javax::swing::UIManager;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $DefaultTableCellRenderer = ::javax::swing::table::DefaultTableCellRenderer;
 using $JTableHeader = ::javax::swing::table::JTableHeader;

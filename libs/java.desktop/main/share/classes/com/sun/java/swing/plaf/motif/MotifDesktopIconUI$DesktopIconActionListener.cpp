@@ -3,26 +3,18 @@
 #include <com/sun/java/swing/plaf/motif/MotifDesktopIconUI$IconButton.h>
 #include <com/sun/java/swing/plaf/motif/MotifDesktopIconUI.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/event/ActionEvent.h>
-#include <javax/swing/AbstractButton.h>
-#include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JInternalFrame$JDesktopIcon.h>
 #include <javax/swing/JPopupMenu.h>
 #include <jcpp.h>
 
 using $MotifDesktopIconUI = ::com::sun::java::swing::plaf::motif::MotifDesktopIconUI;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
-using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JInternalFrame$JDesktopIcon = ::javax::swing::JInternalFrame$JDesktopIcon;
 using $JPopupMenu = ::javax::swing::JPopupMenu;
 

@@ -2,9 +2,7 @@
 
 #include <java/lang/Iterable.h>
 #include <java/net/URI.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -21,9 +19,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URI = ::java::net::URI;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;

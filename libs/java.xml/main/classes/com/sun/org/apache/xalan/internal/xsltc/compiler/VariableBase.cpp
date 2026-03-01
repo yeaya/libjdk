@@ -1,17 +1,14 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/VariableBase.h>
 
 #include <com/sun/org/apache/bcel/internal/generic/CHECKCAST.h>
-#include <com/sun/org/apache/bcel/internal/generic/CPInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/CompoundInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
-#include <com/sun/org/apache/bcel/internal/generic/FieldOrMethod.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEINTERFACE.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKESPECIAL.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEVIRTUAL.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionList.h>
-#include <com/sun/org/apache/bcel/internal/generic/InvokeInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/LocalVariableGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/NEW.h>
 #include <com/sun/org/apache/bcel/internal/generic/PUSH.h>
@@ -33,7 +30,6 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/Type.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/Util.h>
 #include <com/sun/org/apache/xml/internal/utils/XML11Char.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -53,16 +49,13 @@
 #undef VARIABLE_REDEF_ERR
 
 using $CHECKCAST = ::com::sun::org::apache::bcel::internal::generic::CHECKCAST;
-using $CPInstruction = ::com::sun::org::apache::bcel::internal::generic::CPInstruction;
 using $CompoundInstruction = ::com::sun::org::apache::bcel::internal::generic::CompoundInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
-using $FieldOrMethod = ::com::sun::org::apache::bcel::internal::generic::FieldOrMethod;
 using $INVOKEINTERFACE = ::com::sun::org::apache::bcel::internal::generic::INVOKEINTERFACE;
 using $INVOKESPECIAL = ::com::sun::org::apache::bcel::internal::generic::INVOKESPECIAL;
 using $INVOKEVIRTUAL = ::com::sun::org::apache::bcel::internal::generic::INVOKEVIRTUAL;
 using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
-using $InvokeInstruction = ::com::sun::org::apache::bcel::internal::generic::InvokeInstruction;
 using $LocalVariableGen = ::com::sun::org::apache::bcel::internal::generic::LocalVariableGen;
 using $NEW = ::com::sun::org::apache::bcel::internal::generic::NEW;
 using $PUSH = ::com::sun::org::apache::bcel::internal::generic::PUSH;
@@ -87,7 +80,6 @@ using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 

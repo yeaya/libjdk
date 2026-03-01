@@ -10,7 +10,6 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/util/XSObjectListImpl.h>
 #include <com/sun/org/apache/xerces/internal/util/DOMUtil.h>
-#include <com/sun/org/apache/xerces/internal/xs/XSAnnotation.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSObject.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSObjectList.h>
 #include <org/w3c/dom/Element.h>
@@ -35,7 +34,6 @@ using $XSDHandler = ::com::sun::org::apache::xerces::internal::impl::xs::travers
 using $XSDocumentInfo = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDocumentInfo;
 using $XSObjectListImpl = ::com::sun::org::apache::xerces::internal::impl::xs::util::XSObjectListImpl;
 using $DOMUtil = ::com::sun::org::apache::xerces::internal::util::DOMUtil;
-using $XSAnnotation = ::com::sun::org::apache::xerces::internal::xs::XSAnnotation;
 using $XSObject = ::com::sun::org::apache::xerces::internal::xs::XSObject;
 using $XSObjectList = ::com::sun::org::apache::xerces::internal::xs::XSObjectList;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -1,7 +1,6 @@
 #include <javax/swing/plaf/synth/SynthTableUI$SynthTableCellRenderer.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/lang/Number.h>
 #include <java/text/DateFormat.h>
@@ -10,13 +9,11 @@
 #include <java/util/Date.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/ImageIcon.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/LabelUI.h>
-#include <javax/swing/plaf/basic/BasicLabelUI.h>
 #include <javax/swing/plaf/synth/SynthBorder.h>
 #include <javax/swing/plaf/synth/SynthLabelUI.h>
 #include <javax/swing/plaf/synth/SynthLookAndFeel.h>
@@ -29,7 +26,6 @@
 #undef TRAILING
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
@@ -44,13 +40,10 @@ using $NumberFormat = ::java::text::NumberFormat;
 using $Date = ::java::util::Date;
 using $Icon = ::javax::swing::Icon;
 using $ImageIcon = ::javax::swing::ImageIcon;
-using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
 using $JTable = ::javax::swing::JTable;
 using $Border = ::javax::swing::border::Border;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $LabelUI = ::javax::swing::plaf::LabelUI;
-using $BasicLabelUI = ::javax::swing::plaf::basic::BasicLabelUI;
 using $SynthBorder = ::javax::swing::plaf::synth::SynthBorder;
 using $SynthLabelUI = ::javax::swing::plaf::synth::SynthLabelUI;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;

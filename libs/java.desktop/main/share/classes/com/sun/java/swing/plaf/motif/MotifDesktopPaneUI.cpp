@@ -2,12 +2,10 @@
 
 #include <com/sun/java/swing/plaf/motif/MotifDesktopPaneUI$MotifDesktopManager.h>
 #include <java/awt/Insets.h>
-#include <javax/swing/DefaultDesktopManager.h>
 #include <javax/swing/DesktopManager.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JDesktopPane.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/DesktopPaneUI.h>
 #include <javax/swing/plaf/basic/BasicDesktopPaneUI.h>
 #include <jcpp.h>
 
@@ -16,12 +14,10 @@ using $Insets = ::java::awt::Insets;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DefaultDesktopManager = ::javax::swing::DefaultDesktopManager;
 using $DesktopManager = ::javax::swing::DesktopManager;
 using $JComponent = ::javax::swing::JComponent;
 using $JDesktopPane = ::javax::swing::JDesktopPane;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $DesktopPaneUI = ::javax::swing::plaf::DesktopPaneUI;
 using $BasicDesktopPaneUI = ::javax::swing::plaf::basic::BasicDesktopPaneUI;
 
 namespace com {

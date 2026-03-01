@@ -4,7 +4,6 @@
 #include <javax/lang/model/element/ExecutableElement.h>
 #include <javax/lang/model/element/ModuleElement.h>
 #include <javax/lang/model/element/PackageElement.h>
-#include <javax/lang/model/element/QualifiedNameable.h>
 #include <javax/lang/model/element/RecordComponentElement.h>
 #include <javax/lang/model/element/TypeElement.h>
 #include <javax/lang/model/element/TypeParameterElement.h>
@@ -17,7 +16,6 @@ using $Element = ::javax::lang::model::element::Element;
 using $ExecutableElement = ::javax::lang::model::element::ExecutableElement;
 using $ModuleElement = ::javax::lang::model::element::ModuleElement;
 using $PackageElement = ::javax::lang::model::element::PackageElement;
-using $QualifiedNameable = ::javax::lang::model::element::QualifiedNameable;
 using $RecordComponentElement = ::javax::lang::model::element::RecordComponentElement;
 using $TypeElement = ::javax::lang::model::element::TypeElement;
 using $TypeParameterElement = ::javax::lang::model::element::TypeParameterElement;

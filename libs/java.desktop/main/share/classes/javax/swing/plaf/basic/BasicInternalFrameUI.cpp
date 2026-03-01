@@ -32,7 +32,6 @@
 #include <javax/swing/event/InternalFrameListener.h>
 #include <javax/swing/event/MouseInputAdapter.h>
 #include <javax/swing/event/MouseInputListener.h>
-#include <javax/swing/plaf/ActionMapUIResource.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/InternalFrameUI.h>
 #include <javax/swing/plaf/UIResource.h>
@@ -43,7 +42,6 @@
 #include <javax/swing/plaf/basic/BasicLookAndFeel.h>
 #include <javax/swing/plaf/basic/LazyActionMap.h>
 #include <sun/swing/DefaultLookup.h>
-#include <sun/swing/UIAction.h>
 #include <jcpp.h>
 
 #undef DEFAULT_CURSOR
@@ -87,7 +85,6 @@ using $UIManager = ::javax::swing::UIManager;
 using $InternalFrameListener = ::javax::swing::event::InternalFrameListener;
 using $MouseInputAdapter = ::javax::swing::event::MouseInputAdapter;
 using $MouseInputListener = ::javax::swing::event::MouseInputListener;
-using $ActionMapUIResource = ::javax::swing::plaf::ActionMapUIResource;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $InternalFrameUI = ::javax::swing::plaf::InternalFrameUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
@@ -98,7 +95,6 @@ using $BasicInternalFrameUI$Handler = ::javax::swing::plaf::basic::BasicInternal
 using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
 using $LazyActionMap = ::javax::swing::plaf::basic::LazyActionMap;
 using $DefaultLookup = ::sun::swing::DefaultLookup;
-using $UIAction = ::sun::swing::UIAction;
 
 namespace javax {
 	namespace swing {

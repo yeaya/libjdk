@@ -1,13 +1,11 @@
 #include <java/sql/DriverManager.h>
 
-#include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/PrintWriter.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
 #include <java/security/AccessController.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/sql/Connection.h>
@@ -18,7 +16,6 @@
 #include <java/sql/DriverManager$2.h>
 #include <java/sql/SQLException.h>
 #include <java/sql/SQLPermission.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
@@ -35,7 +32,6 @@
 #undef JDBC_DRIVERS_PROPERTY
 #undef SET_LOG_PERMISSION
 
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $PrintWriter = ::java::io::PrintWriter;
@@ -51,7 +47,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $AccessController = ::java::security::AccessController;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Connection = ::java::sql::Connection;
@@ -62,7 +57,6 @@ using $DriverManager$1 = ::java::sql::DriverManager$1;
 using $DriverManager$2 = ::java::sql::DriverManager$2;
 using $SQLException = ::java::sql::SQLException;
 using $SQLPermission = ::java::sql::SQLPermission;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;

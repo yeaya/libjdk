@@ -12,13 +12,11 @@
 #include <com/sun/java/swing/plaf/windows/XPStyle$Skin.h>
 #include <com/sun/java/swing/plaf/windows/XPStyle.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/lang/AssertionError.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/JCheckBoxMenuItem.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JMenu.h>
 #include <javax/swing/JMenuItem.h>
 #include <javax/swing/JRadioButtonMenuItem.h>
@@ -53,7 +51,6 @@ using $WindowsRadioButtonMenuItemUI = ::com::sun::java::swing::plaf::windows::Wi
 using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -63,7 +60,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractButton = ::javax::swing::AbstractButton;
 using $Icon = ::javax::swing::Icon;
 using $JCheckBoxMenuItem = ::javax::swing::JCheckBoxMenuItem;
-using $JComponent = ::javax::swing::JComponent;
 using $JMenu = ::javax::swing::JMenu;
 using $JMenuItem = ::javax::swing::JMenuItem;
 using $JRadioButtonMenuItem = ::javax::swing::JRadioButtonMenuItem;

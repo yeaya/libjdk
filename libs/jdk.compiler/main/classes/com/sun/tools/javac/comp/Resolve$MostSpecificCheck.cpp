@@ -9,7 +9,6 @@
 #include <com/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext.h>
 #include <com/sun/tools/javac/comp/Env.h>
 #include <com/sun/tools/javac/comp/Resolve$MethodCheck.h>
-#include <com/sun/tools/javac/comp/Resolve$MethodCheckContext.h>
 #include <com/sun/tools/javac/comp/Resolve$MethodResolutionPhase.h>
 #include <com/sun/tools/javac/comp/Resolve$MostSpecificCheck$MostSpecificCheckContext.h>
 #include <com/sun/tools/javac/comp/Resolve.h>
@@ -31,7 +30,6 @@ using $DeferredAttr$DeferredAttrContext = ::com::sun::tools::javac::comp::Deferr
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $Resolve$MethodCheck = ::com::sun::tools::javac::comp::Resolve$MethodCheck;
-using $Resolve$MethodCheckContext = ::com::sun::tools::javac::comp::Resolve$MethodCheckContext;
 using $Resolve$MethodResolutionPhase = ::com::sun::tools::javac::comp::Resolve$MethodResolutionPhase;
 using $Resolve$MostSpecificCheck$MostSpecificCheckContext = ::com::sun::tools::javac::comp::Resolve$MostSpecificCheck$MostSpecificCheckContext;
 using $Assert = ::com::sun::tools::javac::util::Assert;

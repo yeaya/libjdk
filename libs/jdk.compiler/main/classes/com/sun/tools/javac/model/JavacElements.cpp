@@ -44,13 +44,11 @@
 #include <com/sun/tools/javac/resources/CompilerProperties$Notes.h>
 #include <com/sun/tools/javac/tree/DocCommentTable.h>
 #include <com/sun/tools/javac/tree/JCTree$JCAnnotation.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCCompilationUnit.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$Visitor.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <com/sun/tools/javac/tree/TreeInfo.h>
-#include <com/sun/tools/javac/tree/TreeScanner.h>
 #include <com/sun/tools/javac/util/Constants.h>
 #include <com/sun/tools/javac/util/Context.h>
 #include <com/sun/tools/javac/util/JCDiagnostic$Note.h>
@@ -69,9 +67,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
@@ -173,12 +168,10 @@ using $CompilerProperties$Notes = ::com::sun::tools::javac::resources::CompilerP
 using $DocCommentTable = ::com::sun::tools::javac::tree::DocCommentTable;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCAnnotation = ::com::sun::tools::javac::tree::JCTree$JCAnnotation;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCCompilationUnit = ::com::sun::tools::javac::tree::JCTree$JCCompilationUnit;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
-using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;
 using $Constants = ::com::sun::tools::javac::util::Constants;
 using $Context = ::com::sun::tools::javac::util::Context;
 using $List = ::com::sun::tools::javac::util::List;
@@ -197,9 +190,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;

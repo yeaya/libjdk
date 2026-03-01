@@ -1,24 +1,17 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/ParentPattern.h>
 
-#include <com/sun/org/apache/bcel/internal/generic/CPInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
-#include <com/sun/org/apache/bcel/internal/generic/FieldOrMethod.h>
 #include <com/sun/org/apache/bcel/internal/generic/ILOAD.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEINTERFACE.h>
 #include <com/sun/org/apache/bcel/internal/generic/ISTORE.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionList.h>
-#include <com/sun/org/apache/bcel/internal/generic/InvokeInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/LoadInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/LocalVariableGen.h>
-#include <com/sun/org/apache/bcel/internal/generic/LocalVariableInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/StackInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/StoreInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Type.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/AncestorPattern.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Constants.h>
-#include <com/sun/org/apache/xalan/internal/xsltc/compiler/Expression.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/FlowList.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Instruction.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/LocationPathPattern.h>
@@ -42,26 +35,18 @@
 #undef NODE_SIG
 #undef SWAP
 
-using $CPInstruction = ::com::sun::org::apache::bcel::internal::generic::CPInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
-using $FieldOrMethod = ::com::sun::org::apache::bcel::internal::generic::FieldOrMethod;
 using $ILOAD = ::com::sun::org::apache::bcel::internal::generic::ILOAD;
 using $INVOKEINTERFACE = ::com::sun::org::apache::bcel::internal::generic::INVOKEINTERFACE;
 using $ISTORE = ::com::sun::org::apache::bcel::internal::generic::ISTORE;
 using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
-using $InvokeInstruction = ::com::sun::org::apache::bcel::internal::generic::InvokeInstruction;
-using $LoadInstruction = ::com::sun::org::apache::bcel::internal::generic::LoadInstruction;
 using $LocalVariableGen = ::com::sun::org::apache::bcel::internal::generic::LocalVariableGen;
-using $LocalVariableInstruction = ::com::sun::org::apache::bcel::internal::generic::LocalVariableInstruction;
-using $StoreInstruction = ::com::sun::org::apache::bcel::internal::generic::StoreInstruction;
 using $AncestorPattern = ::com::sun::org::apache::xalan::internal::xsltc::compiler::AncestorPattern;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
-using $Expression = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression;
 using $FlowList = ::com::sun::org::apache::xalan::internal::xsltc::compiler::FlowList;
 using $1Instruction = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Instruction;
-using $LocationPathPattern = ::com::sun::org::apache::xalan::internal::xsltc::compiler::LocationPathPattern;
 using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;
 using $Pattern = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Pattern;
 using $RelativePathPattern = ::com::sun::org::apache::xalan::internal::xsltc::compiler::RelativePathPattern;

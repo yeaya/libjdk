@@ -5,11 +5,9 @@
 #include <java/awt/Container.h>
 #include <java/awt/Window.h>
 #include <java/beans/PropertyVetoException.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JDesktopPane.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JInternalFrame.h>
-#include <javax/swing/JLayeredPane.h>
 #include <jcpp.h>
 
 #undef EXIT_ON_CLOSE
@@ -23,11 +21,9 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JDesktopPane = ::javax::swing::JDesktopPane;
 using $JFrame = ::javax::swing::JFrame;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
-using $JLayeredPane = ::javax::swing::JLayeredPane;
 
 $FieldInfo _TestJInternalFrameIconify$1_FieldInfo_[] = {
 	{"val$lookAndFeelString", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(TestJInternalFrameIconify$1, val$lookAndFeelString)},

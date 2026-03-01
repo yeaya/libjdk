@@ -5,7 +5,6 @@
 #include <java/nio/charset/CharsetEncoder.h>
 #include <sun/nio/cs/EUC_TW.h>
 #include <sun/nio/cs/ext/ExtendedCharsets.h>
-#include <sun/nio/cs/ext/ISO2022$Encoder.h>
 #include <sun/nio/cs/ext/ISO2022.h>
 #include <sun/nio/cs/ext/ISO2022_CN$Decoder.h>
 #include <sun/nio/cs/ext/ISO2022_CN_CNS$Encoder.h>
@@ -20,7 +19,6 @@ using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $EUC_TW = ::sun::nio::cs::EUC_TW;
 using $ExtendedCharsets = ::sun::nio::cs::ext::ExtendedCharsets;
 using $ISO2022 = ::sun::nio::cs::ext::ISO2022;
-using $ISO2022$Encoder = ::sun::nio::cs::ext::ISO2022$Encoder;
 using $ISO2022_CN$Decoder = ::sun::nio::cs::ext::ISO2022_CN$Decoder;
 using $ISO2022_CN_CNS$Encoder = ::sun::nio::cs::ext::ISO2022_CN_CNS$Encoder;
 

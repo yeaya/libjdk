@@ -7,7 +7,6 @@
 #include <java/awt/Graphics.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/ButtonModel.h>
-#include <javax/swing/JButton.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/SwingConstants.h>
 #include <javax/swing/UIManager.h>
@@ -32,10 +31,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $ButtonModel = ::javax::swing::ButtonModel;
-using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $UIManager = ::javax::swing::UIManager;
 using $BasicArrowButton = ::javax::swing::plaf::basic::BasicArrowButton;

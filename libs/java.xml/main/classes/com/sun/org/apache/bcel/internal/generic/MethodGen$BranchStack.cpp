@@ -3,7 +3,6 @@
 #include <com/sun/org/apache/bcel/internal/generic/InstructionHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/MethodGen$BranchTarget.h>
 #include <com/sun/org/apache/bcel/internal/generic/MethodGen.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <java/util/Stack.h>
@@ -15,7 +14,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $Stack = ::java::util::Stack;

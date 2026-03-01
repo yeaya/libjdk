@@ -4,7 +4,6 @@
 #include <com/sun/org/apache/xerces/internal/impl/XMLErrorReporter.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/SchemaSymbols.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSMessageFormatter.h>
-#include <com/sun/org/apache/xerces/internal/impl/xs/opti/DefaultDocument.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/DefaultXMLDocumentHandler.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/ElementImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/SchemaDOM.h>
@@ -47,7 +46,6 @@ using $Constants = ::com::sun::org::apache::xerces::internal::impl::Constants;
 using $XMLErrorReporter = ::com::sun::org::apache::xerces::internal::impl::XMLErrorReporter;
 using $SchemaSymbols = ::com::sun::org::apache::xerces::internal::impl::xs::SchemaSymbols;
 using $XSMessageFormatter = ::com::sun::org::apache::xerces::internal::impl::xs::XSMessageFormatter;
-using $DefaultDocument = ::com::sun::org::apache::xerces::internal::impl::xs::opti::DefaultDocument;
 using $DefaultXMLDocumentHandler = ::com::sun::org::apache::xerces::internal::impl::xs::opti::DefaultXMLDocumentHandler;
 using $ElementImpl = ::com::sun::org::apache::xerces::internal::impl::xs::opti::ElementImpl;
 using $SchemaDOM = ::com::sun::org::apache::xerces::internal::impl::xs::opti::SchemaDOM;

@@ -30,18 +30,15 @@
 #include <com/sun/tools/javac/comp/Resolve.h>
 #include <com/sun/tools/javac/resources/CompilerProperties$Errors.h>
 #include <com/sun/tools/javac/resources/CompilerProperties$Fragments.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCConditional.h>
 #include <com/sun/tools/javac/tree/JCTree$JCErroneous.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
-#include <com/sun/tools/javac/tree/JCTree$JCFunctionalExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCLambda.h>
 #include <com/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind.h>
 #include <com/sun/tools/javac/tree/JCTree$JCMemberReference.h>
 #include <com/sun/tools/javac/tree/JCTree$JCMethodInvocation.h>
 #include <com/sun/tools/javac/tree/JCTree$JCModifiers.h>
 #include <com/sun/tools/javac/tree/JCTree$JCNewClass.h>
-#include <com/sun/tools/javac/tree/JCTree$JCPolyExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCSwitchExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCVariableDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$Visitor.h>
@@ -105,15 +102,12 @@ using $Resolve$ResolveError = ::com::sun::tools::javac::comp::Resolve$ResolveErr
 using $CompilerProperties$Errors = ::com::sun::tools::javac::resources::CompilerProperties$Errors;
 using $CompilerProperties$Fragments = ::com::sun::tools::javac::resources::CompilerProperties$Fragments;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCConditional = ::com::sun::tools::javac::tree::JCTree$JCConditional;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
-using $JCTree$JCFunctionalExpression = ::com::sun::tools::javac::tree::JCTree$JCFunctionalExpression;
 using $JCTree$JCLambda = ::com::sun::tools::javac::tree::JCTree$JCLambda;
 using $JCTree$JCMemberReference = ::com::sun::tools::javac::tree::JCTree$JCMemberReference;
 using $JCTree$JCMethodInvocation = ::com::sun::tools::javac::tree::JCTree$JCMethodInvocation;
 using $JCTree$JCNewClass = ::com::sun::tools::javac::tree::JCTree$JCNewClass;
-using $JCTree$JCPolyExpression = ::com::sun::tools::javac::tree::JCTree$JCPolyExpression;
 using $JCTree$JCSwitchExpression = ::com::sun::tools::javac::tree::JCTree$JCSwitchExpression;
 using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariableDecl;
 using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;

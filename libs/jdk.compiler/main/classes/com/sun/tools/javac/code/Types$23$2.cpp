@@ -1,6 +1,5 @@
 #include <com/sun/tools/javac/code/Types$23$2.h>
 
-#include <com/sun/tools/javac/code/Type$DelegatedType.h>
 #include <com/sun/tools/javac/code/Type$ForAll.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/Types$23.h>
@@ -8,7 +7,6 @@
 #include <jcpp.h>
 
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Type$DelegatedType = ::com::sun::tools::javac::code::Type$DelegatedType;
 using $Type$ForAll = ::com::sun::tools::javac::code::Type$ForAll;
 using $Types$23 = ::com::sun::tools::javac::code::Types$23;
 using $List = ::com::sun::tools::javac::util::List;

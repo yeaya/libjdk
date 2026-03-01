@@ -17,15 +17,12 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <javax/swing/JComboBox.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JList.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/plaf/ComboBoxUI.h>
-#include <javax/swing/plaf/basic/BasicComboBoxUI.h>
 #include <javax/swing/plaf/basic/ComboPopup.h>
-#include <javax/swing/plaf/metal/MetalComboBoxUI.h>
 #include <jcpp.h>
 
 #undef EXIT_ON_CLOSE
@@ -49,15 +46,12 @@ using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $JComboBox = ::javax::swing::JComboBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JList = ::javax::swing::JList;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $ComboBoxUI = ::javax::swing::plaf::ComboBoxUI;
-using $BasicComboBoxUI = ::javax::swing::plaf::basic::BasicComboBoxUI;
 using $ComboPopup = ::javax::swing::plaf::basic::ComboPopup;
-using $MetalComboBoxUI = ::javax::swing::plaf::metal::MetalComboBoxUI;
 
 class bug6236162$$Lambda$lambda$main$0 : public $Runnable {
 	$class(bug6236162$$Lambda$lambda$main$0, $NO_CLASS_INIT, $Runnable)

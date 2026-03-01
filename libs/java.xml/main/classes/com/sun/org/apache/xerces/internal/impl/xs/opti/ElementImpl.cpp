@@ -1,8 +1,6 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/ElementImpl.h>
 
-#include <com/sun/org/apache/xerces/internal/impl/xs/opti/DefaultDocument.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/DefaultElement.h>
-#include <com/sun/org/apache/xerces/internal/impl/xs/opti/DefaultNode.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/NamedNodeMapImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/NodeImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/SchemaDOM.h>
@@ -14,9 +12,7 @@
 
 #undef ELEMENT_NODE
 
-using $DefaultDocument = ::com::sun::org::apache::xerces::internal::impl::xs::opti::DefaultDocument;
 using $DefaultElement = ::com::sun::org::apache::xerces::internal::impl::xs::opti::DefaultElement;
-using $DefaultNode = ::com::sun::org::apache::xerces::internal::impl::xs::opti::DefaultNode;
 using $NamedNodeMapImpl = ::com::sun::org::apache::xerces::internal::impl::xs::opti::NamedNodeMapImpl;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -17,7 +17,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <javax/swing/DefaultCellEditor.h>
 #include <javax/swing/JComboBox.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/SwingUtilities.h>
@@ -50,7 +49,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $DefaultCellEditor = ::javax::swing::DefaultCellEditor;
 using $JComboBox = ::javax::swing::JComboBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JTable = ::javax::swing::JTable;
 using $SwingUtilities = ::javax::swing::SwingUtilities;

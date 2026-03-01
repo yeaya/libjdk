@@ -3,13 +3,10 @@
 #include <bug6711682.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/util/EventObject.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/JCheckBox.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JTable.h>
-#include <javax/swing/JToggleButton.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/event/CellEditorListener.h>
 #include <javax/swing/table/TableModel.h>
@@ -19,7 +16,6 @@
 
 using $bug6711682 = ::bug6711682;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -27,11 +23,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $EventObject = ::java::util::EventObject;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JCheckBox = ::javax::swing::JCheckBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JTable = ::javax::swing::JTable;
-using $JToggleButton = ::javax::swing::JToggleButton;
 using $UIManager = ::javax::swing::UIManager;
 using $CellEditorListener = ::javax::swing::event::CellEditorListener;
 using $TableModel = ::javax::swing::table::TableModel;

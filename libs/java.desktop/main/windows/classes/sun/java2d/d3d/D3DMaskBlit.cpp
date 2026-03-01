@@ -11,7 +11,6 @@
 #include <sun/java2d/loops/CompositeType.h>
 #include <sun/java2d/loops/GraphicsPrimitive.h>
 #include <sun/java2d/loops/GraphicsPrimitiveMgr.h>
-#include <sun/java2d/loops/MaskBlit.h>
 #include <sun/java2d/loops/SurfaceType.h>
 #include <sun/java2d/pipe/BufferedMaskBlit.h>
 #include <sun/java2d/pipe/Region.h>
@@ -35,7 +34,6 @@ using $D3DSurfaceData = ::sun::java2d::d3d::D3DSurfaceData;
 using $CompositeType = ::sun::java2d::loops::CompositeType;
 using $GraphicsPrimitive = ::sun::java2d::loops::GraphicsPrimitive;
 using $GraphicsPrimitiveMgr = ::sun::java2d::loops::GraphicsPrimitiveMgr;
-using $MaskBlit = ::sun::java2d::loops::MaskBlit;
 using $SurfaceType = ::sun::java2d::loops::SurfaceType;
 using $BufferedMaskBlit = ::sun::java2d::pipe::BufferedMaskBlit;
 using $Region = ::sun::java2d::pipe::Region;

@@ -7,7 +7,6 @@
 #include <com/sun/tools/javac/comp/Env.h>
 #include <com/sun/tools/javac/comp/Resolve$InvalidSymbolError.h>
 #include <com/sun/tools/javac/comp/Resolve.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCFieldAccess.h>
 #include <com/sun/tools/javac/tree/JCTree$Tag.h>
@@ -34,7 +33,6 @@ using $Env = ::com::sun::tools::javac::comp::Env;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $Resolve$InvalidSymbolError = ::com::sun::tools::javac::comp::Resolve$InvalidSymbolError;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCFieldAccess = ::com::sun::tools::javac::tree::JCTree$JCFieldAccess;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $DiagnosticSource = ::com::sun::tools::javac::util::DiagnosticSource;

@@ -6,7 +6,6 @@
 #include <javax/xml/crypto/dom/DOMCryptoContext.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMStructure.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMUtils.h>
-#include <org/w3c/dom/CharacterData.h>
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/Node.h>
 #include <org/w3c/dom/Text.h>
@@ -23,7 +22,6 @@ using $MarshalException = ::javax::xml::crypto::MarshalException;
 using $DOMCryptoContext = ::javax::xml::crypto::dom::DOMCryptoContext;
 using $DOMStructure = ::org::jcp::xml::dsig::internal::dom::DOMStructure;
 using $DOMUtils = ::org::jcp::xml::dsig::internal::dom::DOMUtils;
-using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Document = ::org::w3c::dom::Document;
 using $Node = ::org::w3c::dom::Node;
 using $Text = ::org::w3c::dom::Text;

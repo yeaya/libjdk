@@ -20,7 +20,6 @@
 #include <java/util/HashSet.h>
 #include <java/util/Locale.h>
 #include <javax/sound/sampled/Clip.h>
-#include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/Icon.h>
@@ -106,7 +105,6 @@ using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $HashSet = ::java::util::HashSet;
 using $Locale = ::java::util::Locale;
-using $AbstractAction = ::javax::swing::AbstractAction;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $JComponent = ::javax::swing::JComponent;

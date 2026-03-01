@@ -11,7 +11,6 @@
 #include <java/io/DataInput.h>
 #include <java/io/DataInputStream.h>
 #include <java/io/FileInputStream.h>
-#include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/util/zip/ZipEntry.h>
@@ -40,7 +39,6 @@ using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $DataInput = ::java::io::DataInput;
 using $DataInputStream = ::java::io::DataInputStream;
 using $FileInputStream = ::java::io::FileInputStream;
-using $FilterInputStream = ::java::io::FilterInputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;

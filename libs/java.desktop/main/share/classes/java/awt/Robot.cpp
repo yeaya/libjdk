@@ -18,7 +18,6 @@
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/RectangularShape.h>
-#include <java/awt/image/AbstractMultiResolutionImage.h>
 #include <java/awt/image/BaseMultiResolutionImage.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/ColorModel.h>
@@ -27,14 +26,12 @@
 #include <java/awt/image/DirectColorModel.h>
 #include <java/awt/image/ImageObserver.h>
 #include <java/awt/image/MultiResolutionImage.h>
-#include <java/awt/image/PackedColorModel.h>
 #include <java/awt/image/Raster.h>
 #include <java/awt/image/WritableRaster.h>
 #include <java/awt/peer/RobotPeer.h>
 #include <java/lang/IllegalThreadStateException.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/util/Hashtable.h>
 #include <sun/awt/AWTPermissions.h>
@@ -80,7 +77,6 @@ using $Toolkit = ::java::awt::Toolkit;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
-using $AbstractMultiResolutionImage = ::java::awt::image::AbstractMultiResolutionImage;
 using $BaseMultiResolutionImage = ::java::awt::image::BaseMultiResolutionImage;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ColorModel = ::java::awt::image::ColorModel;
@@ -89,7 +85,6 @@ using $DataBufferInt = ::java::awt::image::DataBufferInt;
 using $DirectColorModel = ::java::awt::image::DirectColorModel;
 using $ImageObserver = ::java::awt::image::ImageObserver;
 using $MultiResolutionImage = ::java::awt::image::MultiResolutionImage;
-using $PackedColorModel = ::java::awt::image::PackedColorModel;
 using $Raster = ::java::awt::image::Raster;
 using $WritableRaster = ::java::awt::image::WritableRaster;
 using $RobotPeer = ::java::awt::peer::RobotPeer;
@@ -100,7 +95,6 @@ using $IllegalThreadStateException = ::java::lang::IllegalThreadStateException;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $Hashtable = ::java::util::Hashtable;
 using $AWTPermissions = ::sun::awt::AWTPermissions;

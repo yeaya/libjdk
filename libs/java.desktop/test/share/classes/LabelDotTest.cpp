@@ -6,7 +6,6 @@
 #include <java/awt/GridBagConstraints.h>
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/io/Serializable.h>
@@ -18,7 +17,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/util/function/IntConsumer.h>
 #include <java/util/stream/IntStream.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JMenu.h>
@@ -34,12 +32,10 @@
 #undef REMAINDER
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Robot = ::java::awt::Robot;
 using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
@@ -52,7 +48,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $IntConsumer = ::java::util::function::IntConsumer;
 using $IntStream = ::java::util::stream::IntStream;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JLabel = ::javax::swing::JLabel;
 using $JMenu = ::javax::swing::JMenu;

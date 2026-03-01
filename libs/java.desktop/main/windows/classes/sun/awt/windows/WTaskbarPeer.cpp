@@ -3,7 +3,6 @@
 #include <java/awt/AlphaComposite.h>
 #include <java/awt/Component.h>
 #include <java/awt/Composite.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/Image.h>
 #include <java/awt/Taskbar$Feature.h>
@@ -38,7 +37,6 @@
 using $AlphaComposite = ::java::awt::AlphaComposite;
 using $Component = ::java::awt::Component;
 using $Composite = ::java::awt::Composite;
-using $Container = ::java::awt::Container;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Image = ::java::awt::Image;
 using $Taskbar$Feature = ::java::awt::Taskbar$Feature;

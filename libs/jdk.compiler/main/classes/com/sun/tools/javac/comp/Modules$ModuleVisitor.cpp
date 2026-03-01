@@ -15,14 +15,12 @@
 #include <com/sun/tools/javac/code/Symbol$ModuleFlags.h>
 #include <com/sun/tools/javac/code/Symbol$ModuleSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$PackageSymbol.h>
-#include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Symtab.h>
 #include <com/sun/tools/javac/comp/Attr.h>
 #include <com/sun/tools/javac/comp/Check.h>
 #include <com/sun/tools/javac/comp/Modules.h>
 #include <com/sun/tools/javac/resources/CompilerProperties$Errors.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCDirective.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExports.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
@@ -51,9 +49,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSet.h>
-#include <java/util/Collection.h>
 #include <java/util/EnumSet.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
@@ -90,14 +85,12 @@ using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ModuleFlags = ::com::sun::tools::javac::code::Symbol$ModuleFlags;
 using $Symbol$ModuleSymbol = ::com::sun::tools::javac::code::Symbol$ModuleSymbol;
 using $Symbol$PackageSymbol = ::com::sun::tools::javac::code::Symbol$PackageSymbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Attr = ::com::sun::tools::javac::comp::Attr;
 using $Check = ::com::sun::tools::javac::comp::Check;
 using $Modules = ::com::sun::tools::javac::comp::Modules;
 using $CompilerProperties$Errors = ::com::sun::tools::javac::resources::CompilerProperties$Errors;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCDirective = ::com::sun::tools::javac::tree::JCTree$JCDirective;
 using $JCTree$JCExports = ::com::sun::tools::javac::tree::JCTree$JCExports;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
@@ -121,9 +114,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSet = ::java::util::AbstractSet;
-using $Collection = ::java::util::Collection;
 using $EnumSet = ::java::util::EnumSet;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;

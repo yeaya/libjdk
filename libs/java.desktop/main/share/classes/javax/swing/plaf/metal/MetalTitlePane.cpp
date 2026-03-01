@@ -16,8 +16,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/Window.h>
-#include <java/awt/event/ComponentEvent.h>
-#include <java/awt/event/WindowAdapter.h>
 #include <java/awt/event/WindowEvent.h>
 #include <java/awt/event/WindowListener.h>
 #include <java/awt/image/BufferedImage.h>
@@ -26,8 +24,6 @@
 #include <java/util/List.h>
 #include <java/util/Locale.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/AbstractAction.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/JButton.h>
@@ -39,7 +35,6 @@
 #include <javax/swing/JSeparator.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/EmptyBorder.h>
 #include <javax/swing/plaf/ColorUIResource.h>
@@ -81,7 +76,6 @@ using $AWTEvent = ::java::awt::AWTEvent;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Container = ::java::awt::Container;
 using $Dialog = ::java::awt::Dialog;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Frame = ::java::awt::Frame;
@@ -91,8 +85,6 @@ using $LayoutManager = ::java::awt::LayoutManager;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
 using $Window = ::java::awt::Window;
-using $ComponentEvent = ::java::awt::event::ComponentEvent;
-using $WindowAdapter = ::java::awt::event::WindowAdapter;
 using $WindowEvent = ::java::awt::event::WindowEvent;
 using $WindowListener = ::java::awt::event::WindowListener;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
@@ -105,8 +97,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $AbstractAction = ::javax::swing::AbstractAction;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $Action = ::javax::swing::Action;
 using $Icon = ::javax::swing::Icon;
 using $JButton = ::javax::swing::JButton;
@@ -118,7 +108,6 @@ using $JRootPane = ::javax::swing::JRootPane;
 using $JSeparator = ::javax::swing::JSeparator;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 using $UIResource = ::javax::swing::plaf::UIResource;

@@ -67,7 +67,6 @@ using $AlphaComposite = ::java::awt::AlphaComposite;
 using $Color = ::java::awt::Color;
 using $Composite = ::java::awt::Composite;
 using $Graphics = ::java::awt::Graphics;
-using $Graphics2D = ::java::awt::Graphics2D;
 using $Image = ::java::awt::Image;
 using $Rectangle = ::java::awt::Rectangle;
 using $Transparency = ::java::awt::Transparency;

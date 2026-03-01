@@ -11,12 +11,10 @@
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Symtab.h>
 #include <com/sun/tools/javac/code/Type$ArrayType.h>
-#include <com/sun/tools/javac/code/Type$ClassType.h>
 #include <com/sun/tools/javac/code/Type$IntersectionClassType.h>
 #include <com/sun/tools/javac/code/Type$JCNoType.h>
 #include <com/sun/tools/javac/code/Type$JCVoidType.h>
 #include <com/sun/tools/javac/code/Type$MethodType.h>
-#include <com/sun/tools/javac/code/Type$StructuralTypeMapping.h>
 #include <com/sun/tools/javac/code/Type$TypeVar.h>
 #include <com/sun/tools/javac/code/Type$UndetVar$InferenceBound.h>
 #include <com/sun/tools/javac/code/Type$UndetVar.h>
@@ -32,7 +30,6 @@
 #include <com/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext.h>
 #include <com/sun/tools/javac/comp/DeferredAttr$DeferredAttrNode.h>
 #include <com/sun/tools/javac/comp/DeferredAttr$DeferredStuckPolicy.h>
-#include <com/sun/tools/javac/comp/DeferredAttr$DeferredTypeMap.h>
 #include <com/sun/tools/javac/comp/Env.h>
 #include <com/sun/tools/javac/comp/Infer$1.h>
 #include <com/sun/tools/javac/comp/Infer$2.h>
@@ -92,7 +89,6 @@
 #include <java/nio/file/OpenOption.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/Paths.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/ArrayDeque.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
@@ -141,11 +137,9 @@ using $Symbol$TypeVariableSymbol = ::com::sun::tools::javac::code::Symbol$TypeVa
 using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
-using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
 using $Type$IntersectionClassType = ::com::sun::tools::javac::code::Type$IntersectionClassType;
 using $Type$JCNoType = ::com::sun::tools::javac::code::Type$JCNoType;
 using $Type$MethodType = ::com::sun::tools::javac::code::Type$MethodType;
-using $Type$StructuralTypeMapping = ::com::sun::tools::javac::code::Type$StructuralTypeMapping;
 using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $Type$UndetVar = ::com::sun::tools::javac::code::Type$UndetVar;
 using $Type$UndetVar$InferenceBound = ::com::sun::tools::javac::code::Type$UndetVar$InferenceBound;
@@ -160,7 +154,6 @@ using $DeferredAttr$AttrMode = ::com::sun::tools::javac::comp::DeferredAttr$Attr
 using $DeferredAttr$DeferredAttrContext = ::com::sun::tools::javac::comp::DeferredAttr$DeferredAttrContext;
 using $DeferredAttr$DeferredAttrNode = ::com::sun::tools::javac::comp::DeferredAttr$DeferredAttrNode;
 using $DeferredAttr$DeferredStuckPolicy = ::com::sun::tools::javac::comp::DeferredAttr$DeferredStuckPolicy;
-using $DeferredAttr$DeferredTypeMap = ::com::sun::tools::javac::comp::DeferredAttr$DeferredTypeMap;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $Infer$1 = ::com::sun::tools::javac::comp::Infer$1;
 using $Infer$2 = ::com::sun::tools::javac::comp::Infer$2;
@@ -215,7 +208,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
-using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayDeque = ::java::util::ArrayDeque;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;

@@ -45,7 +45,6 @@
 #include <java/rmi/server/UID.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/CodeSource.h>
 #include <java/security/Permission.h>
 #include <java/security/PermissionCollection.h>
@@ -53,11 +52,9 @@
 #include <java/security/PrivilegedActionException.h>
 #include <java/security/PrivilegedExceptionAction.h>
 #include <java/security/ProtectionDomain.h>
-#include <java/security/SecureClassLoader.h>
 #include <java/security/Security.h>
 #include <java/security/cert/Certificate.h>
 #include <java/text/MessageFormat.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Enumeration.h>
 #include <java/util/Hashtable.h>
@@ -145,7 +142,6 @@ using $ServerNotActiveException = ::java::rmi::server::ServerNotActiveException;
 using $UID = ::java::rmi::server::UID;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
-using $BasicPermission = ::java::security::BasicPermission;
 using $CodeSource = ::java::security::CodeSource;
 using $Permission = ::java::security::Permission;
 using $PermissionCollection = ::java::security::PermissionCollection;
@@ -153,10 +149,8 @@ using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $ProtectionDomain = ::java::security::ProtectionDomain;
-using $SecureClassLoader = ::java::security::SecureClassLoader;
 using $Security = ::java::security::Security;
 using $MessageFormat = ::java::text::MessageFormat;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Enumeration = ::java::util::Enumeration;
 using $Hashtable = ::java::util::Hashtable;

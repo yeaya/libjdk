@@ -2,8 +2,6 @@
 
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
@@ -22,7 +20,6 @@
 #include <org/jcp/xml/dsig/internal/dom/ApacheTransform.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMUtils.h>
 #include <org/w3c/dom/Attr.h>
-#include <org/w3c/dom/CharacterData.h>
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/Element.h>
 #include <org/w3c/dom/NamedNodeMap.h>
@@ -36,11 +33,8 @@
 #undef XPATH2
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InvalidAlgorithmParameterException = ::java::security::InvalidAlgorithmParameterException;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
@@ -59,7 +53,6 @@ using $XPathType$Filter = ::javax::xml::crypto::dsig::spec::XPathType$Filter;
 using $ApacheTransform = ::org::jcp::xml::dsig::internal::dom::ApacheTransform;
 using $DOMUtils = ::org::jcp::xml::dsig::internal::dom::DOMUtils;
 using $Attr = ::org::w3c::dom::Attr;
-using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $NamedNodeMap = ::org::w3c::dom::NamedNodeMap;

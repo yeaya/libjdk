@@ -12,7 +12,6 @@
 #include <java/lang/Comparable.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
@@ -57,7 +56,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Arrays = ::java::util::Arrays;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;

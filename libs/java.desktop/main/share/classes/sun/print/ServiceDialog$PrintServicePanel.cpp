@@ -2,12 +2,10 @@
 
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
-#include <java/awt/Dialog.h>
 #include <java/awt/GridBagConstraints.h>
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
@@ -36,17 +34,13 @@
 #include <javax/print/attribute/standard/PrinterInfo.h>
 #include <javax/print/attribute/standard/PrinterIsAcceptingJobs.h>
 #include <javax/print/attribute/standard/PrinterMakeAndModel.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/BorderFactory.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JCheckBox.h>
 #include <javax/swing/JComboBox.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JDialog.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JPanel.h>
-#include <javax/swing/JToggleButton.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/TitledBorder.h>
 #include <javax/swing/event/PopupMenuEvent.h>
@@ -68,11 +62,9 @@
 
 using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
-using $Dialog = ::java::awt::Dialog;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Window = ::java::awt::Window;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
@@ -104,17 +96,13 @@ using $Destination = ::javax::print::attribute::standard::Destination;
 using $PrinterInfo = ::javax::print::attribute::standard::PrinterInfo;
 using $PrinterIsAcceptingJobs = ::javax::print::attribute::standard::PrinterIsAcceptingJobs;
 using $PrinterMakeAndModel = ::javax::print::attribute::standard::PrinterMakeAndModel;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $BorderFactory = ::javax::swing::BorderFactory;
 using $JButton = ::javax::swing::JButton;
 using $JCheckBox = ::javax::swing::JCheckBox;
 using $JComboBox = ::javax::swing::JComboBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JDialog = ::javax::swing::JDialog;
 using $JLabel = ::javax::swing::JLabel;
 using $JPanel = ::javax::swing::JPanel;
-using $JToggleButton = ::javax::swing::JToggleButton;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $PopupMenuEvent = ::javax::swing::event::PopupMenuEvent;
 using $PopupMenuListener = ::javax::swing::event::PopupMenuListener;

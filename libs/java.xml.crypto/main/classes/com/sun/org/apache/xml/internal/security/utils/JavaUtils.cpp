@@ -8,14 +8,12 @@
 #include <java/io/OutputStream.h>
 #include <java/lang/InstantiationException.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/SecurityManager.h>
 #include <java/lang/reflect/Constructor.h>
 #include <java/nio/file/Files.h>
 #include <java/nio/file/OpenOption.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/Paths.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/security/SecurityPermission.h>
 #include <jcpp.h>
@@ -31,17 +29,14 @@ using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InstantiationException = ::java::lang::InstantiationException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $Constructor = ::java::lang::reflect::Constructor;
 using $Files = ::java::nio::file::Files;
 using $Paths = ::java::nio::file::Paths;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $SecurityPermission = ::java::security::SecurityPermission;
 

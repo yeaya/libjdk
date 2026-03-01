@@ -8,7 +8,6 @@
 #include <java/awt/BasicStroke.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/RenderingHints$Key.h>
@@ -17,7 +16,6 @@
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/ButtonModel.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/UIManager.h>
 #include <sun/swing/SwingUtilities2.h>
 #include <jcpp.h>
@@ -42,7 +40,6 @@ using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
 using $BasicStroke = ::java::awt::BasicStroke;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $RenderingHints = ::java::awt::RenderingHints;
@@ -54,7 +51,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractButton = ::javax::swing::AbstractButton;
 using $ButtonModel = ::javax::swing::ButtonModel;
 using $Icon = ::javax::swing::Icon;
-using $JComponent = ::javax::swing::JComponent;
 using $UIManager = ::javax::swing::UIManager;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 

@@ -34,7 +34,6 @@
 #include <javax/naming/NamingException.h>
 #include <javax/naming/directory/Attribute.h>
 #include <javax/naming/directory/Attributes.h>
-#include <javax/naming/directory/BasicAttribute.h>
 #include <javax/naming/directory/BasicAttributes.h>
 #include <javax/naming/directory/InvalidAttributeValueException.h>
 #include <javax/naming/ldap/Control.h>
@@ -172,7 +171,6 @@ using $OutputStream = ::java::io::OutputStream;
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $Integer = ::java::lang::Integer;
@@ -190,7 +188,6 @@ using $NamingEnumeration = ::javax::naming::NamingEnumeration;
 using $NamingException = ::javax::naming::NamingException;
 using $Attribute = ::javax::naming::directory::Attribute;
 using $Attributes = ::javax::naming::directory::Attributes;
-using $BasicAttribute = ::javax::naming::directory::BasicAttribute;
 using $BasicAttributes = ::javax::naming::directory::BasicAttributes;
 using $InvalidAttributeValueException = ::javax::naming::directory::InvalidAttributeValueException;
 using $Control = ::javax::naming::ldap::Control;

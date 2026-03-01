@@ -17,7 +17,6 @@
 #include <com/sun/org/apache/xerces/internal/xni/grammars/Grammar.h>
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription.h>
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool.h>
-#include <com/sun/org/apache/xerces/internal/xni/grammars/XSGrammar.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLEntityResolver.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLInputSource.h>
@@ -54,7 +53,6 @@ using $XMLGrammarPoolImpl = ::com::sun::org::apache::xerces::internal::util::XML
 using $Grammar = ::com::sun::org::apache::xerces::internal::xni::grammars::Grammar;
 using $XMLGrammarDescription = ::com::sun::org::apache::xerces::internal::xni::grammars::XMLGrammarDescription;
 using $XMLGrammarPool = ::com::sun::org::apache::xerces::internal::xni::grammars::XMLGrammarPool;
-using $XSGrammar = ::com::sun::org::apache::xerces::internal::xni::grammars::XSGrammar;
 using $XMLComponentManager = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager;
 using $XMLEntityResolver = ::com::sun::org::apache::xerces::internal::xni::parser::XMLEntityResolver;
 using $XMLInputSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLInputSource;

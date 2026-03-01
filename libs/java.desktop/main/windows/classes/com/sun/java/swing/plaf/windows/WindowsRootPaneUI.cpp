@@ -3,7 +3,6 @@
 #include <com/sun/java/swing/plaf/windows/WindowsRootPaneUI$AltProcessor.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/RootPaneUI.h>
 #include <javax/swing/plaf/basic/BasicRootPaneUI.h>
 #include <jcpp.h>
 
@@ -14,7 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $RootPaneUI = ::javax::swing::plaf::RootPaneUI;
 using $BasicRootPaneUI = ::javax::swing::plaf::basic::BasicRootPaneUI;
 
 namespace com {

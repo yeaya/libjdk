@@ -1,7 +1,6 @@
 #include <sun/security/jgss/krb5/InitialToken$OverloadedChecksum.h>
 
 #include <java/lang/SecurityManager.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/util/Arrays.h>
 #include <javax/security/auth/kerberos/DelegationPermission.h>
@@ -27,12 +26,10 @@
 #undef NULL_KEY
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $Arrays = ::java::util::Arrays;
 using $DelegationPermission = ::javax::security::auth::kerberos::DelegationPermission;

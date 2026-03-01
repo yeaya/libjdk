@@ -1,14 +1,11 @@
 #include <javax/swing/JPanel.h>
 
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/awt/FlowLayout.h>
 #include <java/awt/LayoutManager.h>
 #include <java/io/ObjectOutputStream.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JPanel$AccessibleJPanel.h>
 #include <javax/swing/UIManager.h>
@@ -18,8 +15,6 @@
 
 #undef TRUE
 
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $FlowLayout = ::java::awt::FlowLayout;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
@@ -32,7 +27,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JPanel$AccessibleJPanel = ::javax::swing::JPanel$AccessibleJPanel;
 using $UIManager = ::javax::swing::UIManager;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;

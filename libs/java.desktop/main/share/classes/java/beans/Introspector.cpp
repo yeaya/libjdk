@@ -20,14 +20,12 @@
 #include <java/beans/MethodDescriptor.h>
 #include <java/beans/NameGenerator.h>
 #include <java/beans/PropertyDescriptor.h>
-#include <java/beans/SimpleBeanInfo.h>
 #include <java/beans/ThreadGroupContext.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/SecurityManager.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Type.h>
-#include <java/util/AbstractList.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
@@ -80,7 +78,6 @@ using $JavaBean = ::java::beans::JavaBean;
 using $MethodDescriptor = ::java::beans::MethodDescriptor;
 using $NameGenerator = ::java::beans::NameGenerator;
 using $PropertyDescriptor = ::java::beans::PropertyDescriptor;
-using $SimpleBeanInfo = ::java::beans::SimpleBeanInfo;
 using $ThreadGroupContext = ::java::beans::ThreadGroupContext;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -92,7 +89,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $Method = ::java::lang::reflect::Method;
-using $AbstractList = ::java::util::AbstractList;
 using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;

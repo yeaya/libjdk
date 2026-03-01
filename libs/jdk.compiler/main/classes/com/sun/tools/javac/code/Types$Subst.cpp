@@ -1,7 +1,6 @@
 #include <com/sun/tools/javac/code/Types$Subst.h>
 
 #include <com/sun/tools/javac/code/Type$ClassType.h>
-#include <com/sun/tools/javac/code/Type$DelegatedType.h>
 #include <com/sun/tools/javac/code/Type$ForAll.h>
 #include <com/sun/tools/javac/code/Type$IntersectionClassType.h>
 #include <com/sun/tools/javac/code/Type$StructuralTypeMapping.h>
@@ -18,7 +17,6 @@
 
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
-using $Type$DelegatedType = ::com::sun::tools::javac::code::Type$DelegatedType;
 using $Type$ForAll = ::com::sun::tools::javac::code::Type$ForAll;
 using $Type$StructuralTypeMapping = ::com::sun::tools::javac::code::Type$StructuralTypeMapping;
 using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;

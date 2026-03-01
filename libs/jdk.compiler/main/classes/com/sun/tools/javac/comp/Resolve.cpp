@@ -13,7 +13,6 @@
 #include <com/sun/tools/javac/code/ModuleFinder.h>
 #include <com/sun/tools/javac/code/Preview.h>
 #include <com/sun/tools/javac/code/Scope$CompoundScope.h>
-#include <com/sun/tools/javac/code/Scope$ImportScope.h>
 #include <com/sun/tools/javac/code/Scope$NamedImportScope.h>
 #include <com/sun/tools/javac/code/Scope$StarImportScope.h>
 #include <com/sun/tools/javac/code/Scope$WriteableScope.h>
@@ -29,17 +28,14 @@
 #include <com/sun/tools/javac/code/Symbol$VarSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Symtab.h>
-#include <com/sun/tools/javac/code/Type$DelegatedType.h>
 #include <com/sun/tools/javac/code/Type$ForAll.h>
 #include <com/sun/tools/javac/code/Type$JCNoType.h>
 #include <com/sun/tools/javac/code/Type$MethodType.h>
-#include <com/sun/tools/javac/code/Type$StructuralTypeMapping.h>
 #include <com/sun/tools/javac/code/Type$TypeVar.h>
 #include <com/sun/tools/javac/code/Type$UnionClassType.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/TypeTag.h>
 #include <com/sun/tools/javac/code/Types$SimpleVisitor.h>
-#include <com/sun/tools/javac/code/Types$TypeMapping.h>
 #include <com/sun/tools/javac/code/Types.h>
 #include <com/sun/tools/javac/comp/Attr$ResultInfo.h>
 #include <com/sun/tools/javac/comp/Attr.h>
@@ -51,7 +47,6 @@
 #include <com/sun/tools/javac/comp/DeferredAttr$AttributionMode.h>
 #include <com/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext.h>
 #include <com/sun/tools/javac/comp/DeferredAttr$DeferredType.h>
-#include <com/sun/tools/javac/comp/DeferredAttr$DeferredTypeMap.h>
 #include <com/sun/tools/javac/comp/DeferredAttr$RecoveryDeferredTypeMap.h>
 #include <com/sun/tools/javac/comp/DeferredAttr.h>
 #include <com/sun/tools/javac/comp/Env.h>
@@ -75,20 +70,17 @@
 #include <com/sun/tools/javac/comp/Resolve$7.h>
 #include <com/sun/tools/javac/comp/Resolve$8.h>
 #include <com/sun/tools/javac/comp/Resolve$9.h>
-#include <com/sun/tools/javac/comp/Resolve$AbstractMethodCheck.h>
 #include <com/sun/tools/javac/comp/Resolve$AccessError.h>
 #include <com/sun/tools/javac/comp/Resolve$AmbiguityError.h>
 #include <com/sun/tools/javac/comp/Resolve$ArrayConstructorReferenceLookupHelper.h>
 #include <com/sun/tools/javac/comp/Resolve$BadClassFileError.h>
 #include <com/sun/tools/javac/comp/Resolve$BadRestrictedTypeError.h>
 #include <com/sun/tools/javac/comp/Resolve$BadVarargsMethod.h>
-#include <com/sun/tools/javac/comp/Resolve$BasicLookupHelper.h>
 #include <com/sun/tools/javac/comp/Resolve$ConstructorReferenceLookupHelper.h>
 #include <com/sun/tools/javac/comp/Resolve$InapplicableMethodException.h>
 #include <com/sun/tools/javac/comp/Resolve$InapplicableSymbolError.h>
 #include <com/sun/tools/javac/comp/Resolve$InapplicableSymbolsError.h>
 #include <com/sun/tools/javac/comp/Resolve$InterfaceLookupPhase.h>
-#include <com/sun/tools/javac/comp/Resolve$InvalidSymbolError.h>
 #include <com/sun/tools/javac/comp/Resolve$InvisibleSymbolError.h>
 #include <com/sun/tools/javac/comp/Resolve$LogResolveHelper.h>
 #include <com/sun/tools/javac/comp/Resolve$LookupFilter.h>
@@ -112,17 +104,14 @@
 #include <com/sun/tools/javac/resources/CompilerProperties$Errors.h>
 #include <com/sun/tools/javac/resources/CompilerProperties$Fragments.h>
 #include <com/sun/tools/javac/resources/CompilerProperties$Warnings.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCClassDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCCompilationUnit.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCFieldAccess.h>
-#include <com/sun/tools/javac/tree/JCTree$JCFunctionalExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCImport.h>
 #include <com/sun/tools/javac/tree/JCTree$JCMemberReference.h>
 #include <com/sun/tools/javac/tree/JCTree$JCMethodDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCModifiers.h>
-#include <com/sun/tools/javac/tree/JCTree$JCPolyExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$Tag.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <com/sun/tools/javac/tree/TreeInfo.h>
@@ -158,7 +147,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
 #include <java/util/EnumSet.h>
 #include <java/util/HashSet.h>
@@ -241,8 +229,6 @@ using $Lint$LintCategory = ::com::sun::tools::javac::code::Lint$LintCategory;
 using $ModuleFinder = ::com::sun::tools::javac::code::ModuleFinder;
 using $Preview = ::com::sun::tools::javac::code::Preview;
 using $Scope = ::com::sun::tools::javac::code::Scope;
-using $Scope$CompoundScope = ::com::sun::tools::javac::code::Scope$CompoundScope;
-using $Scope$ImportScope = ::com::sun::tools::javac::code::Scope$ImportScope;
 using $Scope$NamedImportScope = ::com::sun::tools::javac::code::Scope$NamedImportScope;
 using $Scope$StarImportScope = ::com::sun::tools::javac::code::Scope$StarImportScope;
 using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
@@ -258,16 +244,13 @@ using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Type$DelegatedType = ::com::sun::tools::javac::code::Type$DelegatedType;
 using $Type$ForAll = ::com::sun::tools::javac::code::Type$ForAll;
 using $Type$MethodType = ::com::sun::tools::javac::code::Type$MethodType;
-using $Type$StructuralTypeMapping = ::com::sun::tools::javac::code::Type$StructuralTypeMapping;
 using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $Type$UnionClassType = ::com::sun::tools::javac::code::Type$UnionClassType;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $Types$SimpleVisitor = ::com::sun::tools::javac::code::Types$SimpleVisitor;
-using $Types$TypeMapping = ::com::sun::tools::javac::code::Types$TypeMapping;
 using $Attr = ::com::sun::tools::javac::comp::Attr;
 using $Attr$ResultInfo = ::com::sun::tools::javac::comp::Attr$ResultInfo;
 using $AttrContext = ::com::sun::tools::javac::comp::AttrContext;
@@ -278,7 +261,6 @@ using $DeferredAttr = ::com::sun::tools::javac::comp::DeferredAttr;
 using $DeferredAttr$AttrMode = ::com::sun::tools::javac::comp::DeferredAttr$AttrMode;
 using $DeferredAttr$DeferredAttrContext = ::com::sun::tools::javac::comp::DeferredAttr$DeferredAttrContext;
 using $DeferredAttr$DeferredType = ::com::sun::tools::javac::comp::DeferredAttr$DeferredType;
-using $DeferredAttr$DeferredTypeMap = ::com::sun::tools::javac::comp::DeferredAttr$DeferredTypeMap;
 using $DeferredAttr$RecoveryDeferredTypeMap = ::com::sun::tools::javac::comp::DeferredAttr$RecoveryDeferredTypeMap;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $Infer = ::com::sun::tools::javac::comp::Infer;
@@ -301,20 +283,17 @@ using $Resolve$6 = ::com::sun::tools::javac::comp::Resolve$6;
 using $Resolve$7 = ::com::sun::tools::javac::comp::Resolve$7;
 using $Resolve$8 = ::com::sun::tools::javac::comp::Resolve$8;
 using $Resolve$9 = ::com::sun::tools::javac::comp::Resolve$9;
-using $Resolve$AbstractMethodCheck = ::com::sun::tools::javac::comp::Resolve$AbstractMethodCheck;
 using $Resolve$AccessError = ::com::sun::tools::javac::comp::Resolve$AccessError;
 using $Resolve$AmbiguityError = ::com::sun::tools::javac::comp::Resolve$AmbiguityError;
 using $Resolve$ArrayConstructorReferenceLookupHelper = ::com::sun::tools::javac::comp::Resolve$ArrayConstructorReferenceLookupHelper;
 using $Resolve$BadClassFileError = ::com::sun::tools::javac::comp::Resolve$BadClassFileError;
 using $Resolve$BadRestrictedTypeError = ::com::sun::tools::javac::comp::Resolve$BadRestrictedTypeError;
 using $Resolve$BadVarargsMethod = ::com::sun::tools::javac::comp::Resolve$BadVarargsMethod;
-using $Resolve$BasicLookupHelper = ::com::sun::tools::javac::comp::Resolve$BasicLookupHelper;
 using $Resolve$ConstructorReferenceLookupHelper = ::com::sun::tools::javac::comp::Resolve$ConstructorReferenceLookupHelper;
 using $Resolve$InapplicableMethodException = ::com::sun::tools::javac::comp::Resolve$InapplicableMethodException;
 using $Resolve$InapplicableSymbolError = ::com::sun::tools::javac::comp::Resolve$InapplicableSymbolError;
 using $Resolve$InapplicableSymbolsError = ::com::sun::tools::javac::comp::Resolve$InapplicableSymbolsError;
 using $Resolve$InterfaceLookupPhase = ::com::sun::tools::javac::comp::Resolve$InterfaceLookupPhase;
-using $Resolve$InvalidSymbolError = ::com::sun::tools::javac::comp::Resolve$InvalidSymbolError;
 using $Resolve$InvisibleSymbolError = ::com::sun::tools::javac::comp::Resolve$InvisibleSymbolError;
 using $Resolve$LogResolveHelper = ::com::sun::tools::javac::comp::Resolve$LogResolveHelper;
 using $Resolve$LookupFilter = ::com::sun::tools::javac::comp::Resolve$LookupFilter;
@@ -339,14 +318,10 @@ using $CompilerProperties$Errors = ::com::sun::tools::javac::resources::Compiler
 using $CompilerProperties$Fragments = ::com::sun::tools::javac::resources::CompilerProperties$Fragments;
 using $CompilerProperties$Warnings = ::com::sun::tools::javac::resources::CompilerProperties$Warnings;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCFieldAccess = ::com::sun::tools::javac::tree::JCTree$JCFieldAccess;
-using $JCTree$JCFunctionalExpression = ::com::sun::tools::javac::tree::JCTree$JCFunctionalExpression;
 using $JCTree$JCImport = ::com::sun::tools::javac::tree::JCTree$JCImport;
 using $JCTree$JCMemberReference = ::com::sun::tools::javac::tree::JCTree$JCMemberReference;
-using $JCTree$JCPolyExpression = ::com::sun::tools::javac::tree::JCTree$JCPolyExpression;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
 using $Assert = ::com::sun::tools::javac::util::Assert;
@@ -379,7 +354,6 @@ using $Iterable = ::java::lang::Iterable;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractSet = ::java::util::AbstractSet;
 using $EnumSet = ::java::util::EnumSet;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;

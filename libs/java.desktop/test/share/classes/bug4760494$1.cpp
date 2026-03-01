@@ -2,9 +2,6 @@
 
 #include <bug4760494.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
-#include <java/awt/Frame.h>
-#include <java/awt/Window.h>
 #include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseEvent.h>
 #include <javax/swing/JFrame.h>
@@ -13,9 +10,6 @@
 
 using $bug4760494 = ::bug4760494;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
-using $Frame = ::java::awt::Frame;
-using $Window = ::java::awt::Window;
 using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -2,17 +2,14 @@
 
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/XML11DTDScannerImpl.h>
-#include <com/sun/org/apache/xerces/internal/impl/XML11DocumentScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XML11NSDocumentScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDTDScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDocumentFragmentScannerImpl.h>
-#include <com/sun/org/apache/xerces/internal/impl/XMLDocumentScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLEntityHandler.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLEntityManager.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLEntityScanner.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLErrorReporter.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLNSDocumentScannerImpl.h>
-#include <com/sun/org/apache/xerces/internal/impl/XMLScanner.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLVersionDetector.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/DTDDVFactory.h>
 #include <com/sun/org/apache/xerces/internal/impl/msg/XMLMessageFormatter.h>
@@ -123,16 +120,12 @@
 
 using $Constants = ::com::sun::org::apache::xerces::internal::impl::Constants;
 using $XML11DTDScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XML11DTDScannerImpl;
-using $XML11DocumentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XML11DocumentScannerImpl;
 using $XML11NSDocumentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XML11NSDocumentScannerImpl;
 using $XMLDTDScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLDTDScannerImpl;
-using $XMLDocumentFragmentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentFragmentScannerImpl;
-using $XMLDocumentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentScannerImpl;
 using $XMLEntityHandler = ::com::sun::org::apache::xerces::internal::impl::XMLEntityHandler;
 using $XMLEntityManager = ::com::sun::org::apache::xerces::internal::impl::XMLEntityManager;
 using $XMLErrorReporter = ::com::sun::org::apache::xerces::internal::impl::XMLErrorReporter;
 using $XMLNSDocumentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLNSDocumentScannerImpl;
-using $XMLScanner = ::com::sun::org::apache::xerces::internal::impl::XMLScanner;
 using $XMLVersionDetector = ::com::sun::org::apache::xerces::internal::impl::XMLVersionDetector;
 using $DTDDVFactory = ::com::sun::org::apache::xerces::internal::impl::dv::DTDDVFactory;
 using $XMLMessageFormatter = ::com::sun::org::apache::xerces::internal::impl::msg::XMLMessageFormatter;

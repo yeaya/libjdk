@@ -1,14 +1,12 @@
 #include <sun/awt/X11/XScrollPanePeer$XScrollPaneContentWindow.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/ScrollPane.h>
 #include <sun/awt/X11/XScrollPanePeer.h>
 #include <sun/awt/X11/XWindow.h>
 #include <jcpp.h>
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ScrollPane = ::java::awt::ScrollPane;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

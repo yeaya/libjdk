@@ -31,31 +31,24 @@
 #include <java/awt/Insets.h>
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/event/ActionListener.h>
 #include <java/awt/event/KeyEvent.h>
-#include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/io/File.h>
 #include <java/io/IOException.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
 #include <java/util/HashSet.h>
 #include <java/util/Locale.h>
 #include <java/util/Set.h>
 #include <java/util/Vector.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/AbstractAction.h>
-#include <javax/swing/AbstractButton.h>
-#include <javax/swing/AbstractListModel.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/Box.h>
 #include <javax/swing/BoxLayout.h>
 #include <javax/swing/ComboBoxModel.h>
-#include <javax/swing/DefaultListCellRenderer.h>
 #include <javax/swing/DefaultListSelectionModel.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/InputMap.h>
@@ -77,21 +70,16 @@
 #include <javax/swing/ListSelectionModel.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/EmptyBorder.h>
 #include <javax/swing/event/ListSelectionListener.h>
 #include <javax/swing/filechooser/FileView.h>
 #include <javax/swing/plaf/ActionMapUIResource.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/FileChooserUI.h>
 #include <javax/swing/plaf/basic/BasicDirectoryModel.h>
-#include <javax/swing/plaf/basic/BasicFileChooserUI$ApproveSelectionAction.h>
-#include <javax/swing/plaf/basic/BasicFileChooserUI$BasicFileView.h>
 #include <javax/swing/plaf/basic/BasicFileChooserUI.h>
 #include <javax/swing/table/JTableHeader.h>
 #include <javax/swing/table/TableCellRenderer.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <sun/awt/shell/ShellFolder.h>
 #include <sun/swing/SwingUtilities2.h>
 #include <sun/swing/plaf/synth/SynthFileChooserUI.h>
@@ -159,10 +147,8 @@ using $GridLayout = ::java::awt::GridLayout;
 using $Insets = ::java::awt::Insets;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $KeyEvent = ::java::awt::event::KeyEvent;
-using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
@@ -175,22 +161,17 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Short = ::java::lang::Short;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
 using $HashSet = ::java::util::HashSet;
 using $Locale = ::java::util::Locale;
 using $Set = ::java::util::Set;
 using $Vector = ::java::util::Vector;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $AbstractAction = ::javax::swing::AbstractAction;
-using $AbstractButton = ::javax::swing::AbstractButton;
-using $AbstractListModel = ::javax::swing::AbstractListModel;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $Box = ::javax::swing::Box;
 using $BoxLayout = ::javax::swing::BoxLayout;
 using $ComboBoxModel = ::javax::swing::ComboBoxModel;
-using $DefaultListCellRenderer = ::javax::swing::DefaultListCellRenderer;
 using $DefaultListSelectionModel = ::javax::swing::DefaultListSelectionModel;
 using $Icon = ::javax::swing::Icon;
 using $InputMap = ::javax::swing::InputMap;
@@ -212,21 +193,15 @@ using $ListModel = ::javax::swing::ListModel;
 using $ListSelectionModel = ::javax::swing::ListSelectionModel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 using $ListSelectionListener = ::javax::swing::event::ListSelectionListener;
 using $FileView = ::javax::swing::filechooser::FileView;
 using $ActionMapUIResource = ::javax::swing::plaf::ActionMapUIResource;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $FileChooserUI = ::javax::swing::plaf::FileChooserUI;
 using $BasicDirectoryModel = ::javax::swing::plaf::basic::BasicDirectoryModel;
-using $BasicFileChooserUI = ::javax::swing::plaf::basic::BasicFileChooserUI;
-using $BasicFileChooserUI$ApproveSelectionAction = ::javax::swing::plaf::basic::BasicFileChooserUI$ApproveSelectionAction;
-using $BasicFileChooserUI$BasicFileView = ::javax::swing::plaf::basic::BasicFileChooserUI$BasicFileView;
 using $JTableHeader = ::javax::swing::table::JTableHeader;
 using $TableCellRenderer = ::javax::swing::table::TableCellRenderer;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $ShellFolder = ::sun::awt::shell::ShellFolder;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 using $SynthFileChooserUI = ::sun::swing::plaf::synth::SynthFileChooserUI;

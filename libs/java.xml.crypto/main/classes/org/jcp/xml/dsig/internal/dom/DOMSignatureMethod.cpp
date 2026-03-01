@@ -4,7 +4,6 @@
 #include <com/sun/org/slf4j/internal/LoggerFactory.h>
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
-#include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/InvalidKeyException.h>
 #include <java/security/Key.h>
@@ -35,11 +34,6 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMHMACSignatureMethod.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMRSAPSSSignatureMethod$RSAPSS.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMRSAPSSSignatureMethod.h>
-#include <org/jcp/xml/dsig/internal/dom/DOMSignatureMethod$AbstractDSASignatureMethod.h>
-#include <org/jcp/xml/dsig/internal/dom/DOMSignatureMethod$AbstractECDSASignatureMethod.h>
-#include <org/jcp/xml/dsig/internal/dom/DOMSignatureMethod$AbstractP1363FormatSignatureMethod.h>
-#include <org/jcp/xml/dsig/internal/dom/DOMSignatureMethod$AbstractRSAPSSSignatureMethod.h>
-#include <org/jcp/xml/dsig/internal/dom/DOMSignatureMethod$AbstractRSASignatureMethod.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMSignatureMethod$RIPEMD160withECDSA.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMSignatureMethod$RIPEMD160withRSA.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMSignatureMethod$RIPEMD160withRSAandMGF1.h>
@@ -105,7 +99,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $InvalidAlgorithmParameterException = ::java::security::InvalidAlgorithmParameterException;
 using $InvalidKeyException = ::java::security::InvalidKeyException;
 using $Key = ::java::security::Key;
@@ -136,11 +129,6 @@ using $DOMHMACSignatureMethod$SHA384 = ::org::jcp::xml::dsig::internal::dom::DOM
 using $DOMHMACSignatureMethod$SHA512 = ::org::jcp::xml::dsig::internal::dom::DOMHMACSignatureMethod$SHA512;
 using $DOMRSAPSSSignatureMethod = ::org::jcp::xml::dsig::internal::dom::DOMRSAPSSSignatureMethod;
 using $DOMRSAPSSSignatureMethod$RSAPSS = ::org::jcp::xml::dsig::internal::dom::DOMRSAPSSSignatureMethod$RSAPSS;
-using $DOMSignatureMethod$AbstractDSASignatureMethod = ::org::jcp::xml::dsig::internal::dom::DOMSignatureMethod$AbstractDSASignatureMethod;
-using $DOMSignatureMethod$AbstractECDSASignatureMethod = ::org::jcp::xml::dsig::internal::dom::DOMSignatureMethod$AbstractECDSASignatureMethod;
-using $DOMSignatureMethod$AbstractP1363FormatSignatureMethod = ::org::jcp::xml::dsig::internal::dom::DOMSignatureMethod$AbstractP1363FormatSignatureMethod;
-using $DOMSignatureMethod$AbstractRSAPSSSignatureMethod = ::org::jcp::xml::dsig::internal::dom::DOMSignatureMethod$AbstractRSAPSSSignatureMethod;
-using $DOMSignatureMethod$AbstractRSASignatureMethod = ::org::jcp::xml::dsig::internal::dom::DOMSignatureMethod$AbstractRSASignatureMethod;
 using $DOMSignatureMethod$RIPEMD160withECDSA = ::org::jcp::xml::dsig::internal::dom::DOMSignatureMethod$RIPEMD160withECDSA;
 using $DOMSignatureMethod$RIPEMD160withRSA = ::org::jcp::xml::dsig::internal::dom::DOMSignatureMethod$RIPEMD160withRSA;
 using $DOMSignatureMethod$RIPEMD160withRSAandMGF1 = ::org::jcp::xml::dsig::internal::dom::DOMSignatureMethod$RIPEMD160withRSAandMGF1;

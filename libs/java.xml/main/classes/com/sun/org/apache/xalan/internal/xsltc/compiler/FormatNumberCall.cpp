@@ -1,15 +1,12 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/FormatNumberCall.h>
 
-#include <com/sun/org/apache/bcel/internal/generic/CPInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/CompoundInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
-#include <com/sun/org/apache/bcel/internal/generic/FieldOrMethod.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKESTATIC.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEVIRTUAL.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionList.h>
-#include <com/sun/org/apache/bcel/internal/generic/InvokeInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/PUSH.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/CastExpr.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Constants.h>
@@ -32,15 +29,12 @@
 #undef EMPTYSTRING
 #undef TRANSLET_CLASS
 
-using $CPInstruction = ::com::sun::org::apache::bcel::internal::generic::CPInstruction;
 using $CompoundInstruction = ::com::sun::org::apache::bcel::internal::generic::CompoundInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
-using $FieldOrMethod = ::com::sun::org::apache::bcel::internal::generic::FieldOrMethod;
 using $INVOKESTATIC = ::com::sun::org::apache::bcel::internal::generic::INVOKESTATIC;
 using $INVOKEVIRTUAL = ::com::sun::org::apache::bcel::internal::generic::INVOKEVIRTUAL;
 using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
-using $InvokeInstruction = ::com::sun::org::apache::bcel::internal::generic::InvokeInstruction;
 using $PUSH = ::com::sun::org::apache::bcel::internal::generic::PUSH;
 using $CastExpr = ::com::sun::org::apache::xalan::internal::xsltc::compiler::CastExpr;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;

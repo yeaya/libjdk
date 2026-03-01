@@ -4,11 +4,9 @@
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Point.h>
 #include <java/awt/Window.h>
 #include <java/lang/StringBuffer.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <javax/swing/JApplet.h>
@@ -30,7 +28,6 @@ using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Point = ::java::awt::Point;
 using $Window = ::java::awt::Window;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -38,7 +35,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $JApplet = ::javax::swing::JApplet;

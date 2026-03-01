@@ -8,7 +8,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/image/ColorModel.h>
 #include <sun/awt/SunToolkit.h>
-#include <sun/awt/Win32GraphicsConfig.h>
 #include <sun/awt/Win32GraphicsDevice.h>
 #include <sun/awt/windows/WComponentPeer.h>
 #include <sun/java2d/opengl/OGLGraphicsConfig.h>
@@ -35,7 +34,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SunToolkit = ::sun::awt::SunToolkit;
-using $Win32GraphicsConfig = ::sun::awt::Win32GraphicsConfig;
 using $Win32GraphicsDevice = ::sun::awt::Win32GraphicsDevice;
 using $WComponentPeer = ::sun::awt::windows::WComponentPeer;
 using $OGLGraphicsConfig = ::sun::java2d::opengl::OGLGraphicsConfig;

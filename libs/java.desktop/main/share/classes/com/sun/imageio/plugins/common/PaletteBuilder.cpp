@@ -9,7 +9,6 @@
 #include <java/awt/image/Raster.h>
 #include <java/awt/image/RenderedImage.h>
 #include <java/awt/image/WritableRaster.h>
-#include <java/awt/image/WritableRenderedImage.h>
 #include <javax/imageio/ImageTypeSpecifier.h>
 #include <jcpp.h>
 
@@ -27,7 +26,6 @@ using $IndexColorModel = ::java::awt::image::IndexColorModel;
 using $Raster = ::java::awt::image::Raster;
 using $RenderedImage = ::java::awt::image::RenderedImage;
 using $WritableRaster = ::java::awt::image::WritableRaster;
-using $WritableRenderedImage = ::java::awt::image::WritableRenderedImage;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;

@@ -17,13 +17,10 @@
 #include <java/io/BufferedOutputStream.h>
 #include <java/io/File.h>
 #include <java/io/FileOutputStream.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/lang/Runtime.h>
 #include <java/text/DecimalFormat.h>
 #include <java/text/DecimalFormatSymbols.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
@@ -72,7 +69,6 @@ using $SerializationHandler = ::com::sun::org::apache::xml::internal::serializer
 using $BufferedOutputStream = ::java::io::BufferedOutputStream;
 using $File = ::java::io::File;
 using $FileOutputStream = ::java::io::FileOutputStream;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -83,8 +79,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runtime = ::java::lang::Runtime;
 using $DecimalFormat = ::java::text::DecimalFormat;
 using $DecimalFormatSymbols = ::java::text::DecimalFormatSymbols;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;

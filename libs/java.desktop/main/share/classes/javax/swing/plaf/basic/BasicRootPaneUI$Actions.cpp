@@ -1,14 +1,12 @@
 #include <javax/swing/plaf/basic/BasicRootPaneUI$Actions.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/util/EventObject.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/ButtonModel.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComponent.h>
@@ -27,7 +25,6 @@
 
 using $MenuElementArray = $Array<::javax::swing::MenuElement>;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
@@ -37,7 +34,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $ButtonModel = ::javax::swing::ButtonModel;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;

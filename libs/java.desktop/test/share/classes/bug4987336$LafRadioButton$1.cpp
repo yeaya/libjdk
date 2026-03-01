@@ -2,12 +2,8 @@
 
 #include <bug4987336$LafRadioButton.h>
 #include <bug4987336.h>
-#include <java/applet/Applet.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
-#include <java/awt/Panel.h>
 #include <java/awt/event/ActionEvent.h>
-#include <javax/swing/JApplet.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager$LookAndFeelInfo.h>
 #include <javax/swing/UIManager.h>
@@ -15,10 +11,7 @@
 
 using $bug4987336 = ::bug4987336;
 using $bug4987336$LafRadioButton = ::bug4987336$LafRadioButton;
-using $Applet = ::java::applet::Applet;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
-using $Panel = ::java::awt::Panel;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -27,7 +20,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JApplet = ::javax::swing::JApplet;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $UIManager$LookAndFeelInfo = ::javax::swing::UIManager$LookAndFeelInfo;

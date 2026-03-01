@@ -1,6 +1,5 @@
 #include <sun/management/counter/perf/PerfDataEntry.h>
 
-#include <java/io/IOException.h>
 #include <java/io/UnsupportedEncodingException.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/InternalError.h>
@@ -23,11 +22,9 @@
 #undef NAME_OFFSET
 #undef VECTOR_LENGTH
 
-using $IOException = ::java::io::IOException;
 using $UnsupportedEncodingException = ::java::io::UnsupportedEncodingException;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;

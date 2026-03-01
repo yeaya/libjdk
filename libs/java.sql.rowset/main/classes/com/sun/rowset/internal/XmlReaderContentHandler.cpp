@@ -13,7 +13,6 @@
 #include <java/sql/Timestamp.h>
 #include <java/sql/Types.h>
 #include <java/text/MessageFormat.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
 #include <java/util/Map.h>
@@ -64,7 +63,6 @@ using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $Double = ::java::lang::Double;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $Integer = ::java::lang::Integer;
@@ -80,7 +78,6 @@ using $Time = ::java::sql::Time;
 using $Timestamp = ::java::sql::Timestamp;
 using $Types = ::java::sql::Types;
 using $MessageFormat = ::java::text::MessageFormat;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;

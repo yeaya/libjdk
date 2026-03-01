@@ -9,7 +9,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/management/ThreadInfo.h>
 #include <java/lang/reflect/Type.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Arrays.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
@@ -42,7 +41,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $ThreadInfo = ::java::lang::management::ThreadInfo;
 using $Type = ::java::lang::reflect::Type;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Arrays = ::java::util::Arrays;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;

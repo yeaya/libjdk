@@ -5,7 +5,6 @@
 #include <javax/swing/GroupLayout$Alignment.h>
 #include <javax/swing/GroupLayout$ParallelGroup.h>
 #include <javax/swing/GroupLayout.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JPanel.h>
 #include <jcpp.h>
 
@@ -18,7 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $GroupLayout = ::javax::swing::GroupLayout;
 using $GroupLayout$Alignment = ::javax::swing::GroupLayout$Alignment;
-using $JComponent = ::javax::swing::JComponent;
 using $JPanel = ::javax::swing::JPanel;
 
 $MethodInfo _bug6613904$1_MethodInfo_[] = {

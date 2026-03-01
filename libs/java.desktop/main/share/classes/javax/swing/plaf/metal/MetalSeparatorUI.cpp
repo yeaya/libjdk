@@ -8,7 +8,6 @@
 #include <javax/swing/JSeparator.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/SeparatorUI.h>
 #include <javax/swing/plaf/basic/BasicSeparatorUI.h>
 #include <jcpp.h>
 
@@ -22,7 +21,6 @@ using $JComponent = ::javax::swing::JComponent;
 using $JSeparator = ::javax::swing::JSeparator;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $SeparatorUI = ::javax::swing::plaf::SeparatorUI;
 using $BasicSeparatorUI = ::javax::swing::plaf::basic::BasicSeparatorUI;
 
 namespace javax {

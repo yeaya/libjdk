@@ -13,8 +13,6 @@
 #include <java/awt/event/AdjustmentEvent.h>
 #include <java/awt/event/InputEvent.h>
 #include <java/awt/event/MouseEvent.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/ImageObserver.h>
 #include <java/lang/Math.h>
@@ -61,8 +59,6 @@ using $Shape = ::java::awt::Shape;
 using $AdjustmentEvent = ::java::awt::event::AdjustmentEvent;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ImageObserver = ::java::awt::image::ImageObserver;
 using $ClassInfo = ::java::lang::ClassInfo;

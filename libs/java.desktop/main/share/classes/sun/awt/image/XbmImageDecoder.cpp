@@ -4,7 +4,6 @@
 #include <java/awt/image/ImageConsumer.h>
 #include <java/awt/image/IndexColorModel.h>
 #include <java/io/BufferedInputStream.h>
-#include <java/io/FilterInputStream.h>
 #include <java/io/InputStream.h>
 #include <sun/awt/image/ImageDecoder.h>
 #include <sun/awt/image/ImageFormatException.h>
@@ -23,7 +22,6 @@ using $ColorModel = ::java::awt::image::ColorModel;
 using $ImageConsumer = ::java::awt::image::ImageConsumer;
 using $IndexColorModel = ::java::awt::image::IndexColorModel;
 using $BufferedInputStream = ::java::io::BufferedInputStream;
-using $FilterInputStream = ::java::io::FilterInputStream;
 using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

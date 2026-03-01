@@ -9,13 +9,11 @@
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/lang/Runnable.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/JTextArea.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/text/Caret.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 using $bug6866751$1 = ::bug6866751$1;
@@ -31,13 +29,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JTextArea = ::javax::swing::JTextArea;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $Caret = ::javax::swing::text::Caret;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 $FieldInfo _bug6866751_FieldInfo_[] = {
 	{"frame", "Ljavax/swing/JFrame;", nullptr, $PRIVATE | $STATIC, $staticField(bug6866751, frame)},

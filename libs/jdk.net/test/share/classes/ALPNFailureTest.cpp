@@ -1,7 +1,6 @@
 #include <ALPNFailureTest.h>
 
 #include <ALPNFailureTest$ReadOnlyServer.h>
-#include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/Runnable.h>
 #include <java/net/InetAddress.h>
@@ -29,7 +28,6 @@
 #undef HTTP_1_1
 
 using $ALPNFailureTest$ReadOnlyServer = ::ALPNFailureTest$ReadOnlyServer;
-using $IOException = ::java::io::IOException;
 using $PrintStream = ::java::io::PrintStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;

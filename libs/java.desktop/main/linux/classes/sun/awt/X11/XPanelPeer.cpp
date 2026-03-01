@@ -67,7 +67,6 @@ using $SunGraphicsCallback = ::sun::awt::SunGraphicsCallback;
 using $SunGraphicsCallback$PaintHeavyweightComponentsCallback = ::sun::awt::SunGraphicsCallback$PaintHeavyweightComponentsCallback;
 using $SunGraphicsCallback$PrintHeavyweightComponentsCallback = ::sun::awt::SunGraphicsCallback$PrintHeavyweightComponentsCallback;
 using $XCanvasPeer = ::sun::awt::X11::XCanvasPeer;
-using $XComponentPeer = ::sun::awt::X11::XComponentPeer;
 using $XCreateWindowParams = ::sun::awt::X11::XCreateWindowParams;
 using $XEmbeddingContainer = ::sun::awt::X11::XEmbeddingContainer;
 using $XWindow = ::sun::awt::X11::XWindow;

@@ -3,7 +3,6 @@
 #include <java/awt/Image.h>
 #include <java/awt/image/ImageObserver.h>
 #include <java/lang/ref/WeakReference.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Map.h>
 #include <java/util/WeakHashMap.h>
 #include <sun/awt/image/ImageRepresentation.h>
@@ -22,7 +21,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $WeakReference = ::java::lang::ref::WeakReference;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Map = ::java::util::Map;
 using $WeakHashMap = ::java::util::WeakHashMap;
 using $ImageRepresentation = ::sun::awt::image::ImageRepresentation;

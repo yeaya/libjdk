@@ -2,7 +2,6 @@
 
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/SplitPaneUI.h>
 #include <javax/swing/plaf/basic/BasicSplitPaneDivider.h>
 #include <javax/swing/plaf/basic/BasicSplitPaneUI.h>
 #include <javax/swing/plaf/metal/MetalSplitPaneDivider.h>
@@ -12,7 +11,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $SplitPaneUI = ::javax::swing::plaf::SplitPaneUI;
 using $BasicSplitPaneDivider = ::javax::swing::plaf::basic::BasicSplitPaneDivider;
 using $BasicSplitPaneUI = ::javax::swing::plaf::basic::BasicSplitPaneUI;
 using $MetalSplitPaneDivider = ::javax::swing::plaf::metal::MetalSplitPaneDivider;

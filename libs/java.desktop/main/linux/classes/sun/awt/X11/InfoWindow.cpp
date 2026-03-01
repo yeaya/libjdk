@@ -8,7 +8,6 @@
 #include <java/awt/Frame.h>
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Window$Type.h>
@@ -31,7 +30,6 @@ using $Dimension = ::java::awt::Dimension;
 using $Frame = ::java::awt::Frame;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Window = ::java::awt::Window;

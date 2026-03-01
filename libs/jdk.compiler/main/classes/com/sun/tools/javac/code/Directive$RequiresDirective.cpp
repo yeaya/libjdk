@@ -3,7 +3,6 @@
 #include <com/sun/tools/javac/code/Directive$RequiresFlag.h>
 #include <com/sun/tools/javac/code/Directive.h>
 #include <com/sun/tools/javac/code/Symbol$ModuleSymbol.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/EnumSet.h>
 #include <java/util/Set.h>
 #include <javax/lang/model/element/ModuleElement$DirectiveKind.h>
@@ -23,7 +22,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractSet = ::java::util::AbstractSet;
 using $EnumSet = ::java::util::EnumSet;
 using $Set = ::java::util::Set;
 using $ModuleElement = ::javax::lang::model::element::ModuleElement;

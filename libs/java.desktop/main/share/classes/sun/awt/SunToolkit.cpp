@@ -17,7 +17,6 @@
 #include <java/awt/FocusTraversalPolicy.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
-#include <java/awt/Frame.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/GraphicsDevice.h>
@@ -40,7 +39,6 @@
 #include <java/awt/TrayIcon.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/InputEvent.h>
-#include <java/awt/event/InvocationEvent.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/event/WindowEvent.h>
 #include <java/awt/image/BufferedImage.h>
@@ -76,10 +74,8 @@
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/net/URL.h>
 #include <java/security/AccessController.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
@@ -122,7 +118,6 @@
 #include <sun/awt/image/ByteArrayImageSource.h>
 #include <sun/awt/image/FileImageSource.h>
 #include <sun/awt/image/ImageRepresentation.h>
-#include <sun/awt/image/InputStreamImageSource.h>
 #include <sun/awt/image/MultiResolutionToolkitImage.h>
 #include <sun/awt/image/ToolkitImage.h>
 #include <sun/awt/image/URLImageSource.h>
@@ -197,7 +192,6 @@ using $EventQueue = ::java::awt::EventQueue;
 using $FocusTraversalPolicy = ::java::awt::FocusTraversalPolicy;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
-using $Frame = ::java::awt::Frame;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $GraphicsDevice = ::java::awt::GraphicsDevice;
@@ -219,7 +213,6 @@ using $Toolkit = ::java::awt::Toolkit;
 using $TrayIcon = ::java::awt::TrayIcon;
 using $Window = ::java::awt::Window;
 using $InputEvent = ::java::awt::event::InputEvent;
-using $InvocationEvent = ::java::awt::event::InvocationEvent;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $WindowEvent = ::java::awt::event::WindowEvent;
 using $BufferedImage = ::java::awt::image::BufferedImage;
@@ -261,10 +254,8 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $URL = ::java::net::URL;
 using $AccessController = ::java::security::AccessController;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
@@ -307,7 +298,6 @@ using $SimpleInputMethodWindow = ::sun::awt::im::SimpleInputMethodWindow;
 using $ByteArrayImageSource = ::sun::awt::image::ByteArrayImageSource;
 using $FileImageSource = ::sun::awt::image::FileImageSource;
 using $ImageRepresentation = ::sun::awt::image::ImageRepresentation;
-using $InputStreamImageSource = ::sun::awt::image::InputStreamImageSource;
 using $MultiResolutionToolkitImage = ::sun::awt::image::MultiResolutionToolkitImage;
 using $ToolkitImage = ::sun::awt::image::ToolkitImage;
 using $URLImageSource = ::sun::awt::image::URLImageSource;

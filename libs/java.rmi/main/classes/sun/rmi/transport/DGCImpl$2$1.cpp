@@ -1,7 +1,6 @@
 #include <sun/rmi/transport/DGCImpl$2$1.h>
 
 #include <java/rmi/Remote.h>
-#include <java/rmi/dgc/DGC.h>
 #include <java/rmi/server/ObjID.h>
 #include <sun/rmi/server/Dispatcher.h>
 #include <sun/rmi/server/UnicastServerRef.h>
@@ -16,7 +15,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Remote = ::java::rmi::Remote;
-using $DGC = ::java::rmi::dgc::DGC;
 using $ObjID = ::java::rmi::server::ObjID;
 using $Dispatcher = ::sun::rmi::server::Dispatcher;
 using $UnicastServerRef = ::sun::rmi::server::UnicastServerRef;

@@ -5,7 +5,6 @@
 #include <com/sun/imageio/plugins/png/PNGImageReader.h>
 #include <java/io/IOException.h>
 #include <javax/imageio/stream/ImageInputStream.h>
-#include <javax/imageio/stream/ImageInputStreamImpl.h>
 #include <jcpp.h>
 
 #undef IDAT_TYPE
@@ -18,7 +17,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ImageInputStream = ::javax::imageio::stream::ImageInputStream;
-using $ImageInputStreamImpl = ::javax::imageio::stream::ImageInputStreamImpl;
 
 namespace com {
 	namespace sun {

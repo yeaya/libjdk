@@ -15,7 +15,6 @@ using $_AppEventHandler$_QueuingAppEventDispatcher = ::com::apple::eawt::_AppEve
 using $OpenURIEvent = ::java::awt::desktop::OpenURIEvent;
 using $OpenURIHandler = ::java::awt::desktop::OpenURIHandler;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

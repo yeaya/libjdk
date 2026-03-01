@@ -5,25 +5,21 @@
 #include <jdk/internal/net/http/PullPublisher$Subscription$PullTask.h>
 #include <jdk/internal/net/http/PullPublisher.h>
 #include <jdk/internal/net/http/common/Demand.h>
-#include <jdk/internal/net/http/common/SequentialScheduler$CompleteRestartableTask.h>
 #include <jdk/internal/net/http/common/SequentialScheduler$RestartableTask.h>
 #include <jdk/internal/net/http/common/SequentialScheduler.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $Iterator = ::java::util::Iterator;
 using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 using $PullPublisher = ::jdk::internal::net::http::PullPublisher;
 using $PullPublisher$Subscription$PullTask = ::jdk::internal::net::http::PullPublisher$Subscription$PullTask;
 using $Demand = ::jdk::internal::net::http::common::Demand;
 using $SequentialScheduler = ::jdk::internal::net::http::common::SequentialScheduler;
-using $SequentialScheduler$CompleteRestartableTask = ::jdk::internal::net::http::common::SequentialScheduler$CompleteRestartableTask;
 using $SequentialScheduler$RestartableTask = ::jdk::internal::net::http::common::SequentialScheduler$RestartableTask;
 
 namespace jdk {

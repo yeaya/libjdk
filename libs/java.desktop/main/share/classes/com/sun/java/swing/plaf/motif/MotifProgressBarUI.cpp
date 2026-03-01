@@ -2,7 +2,6 @@
 
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/ProgressBarUI.h>
 #include <javax/swing/plaf/basic/BasicProgressBarUI.h>
 #include <jcpp.h>
 
@@ -10,7 +9,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $ProgressBarUI = ::javax::swing::plaf::ProgressBarUI;
 using $BasicProgressBarUI = ::javax::swing::plaf::basic::BasicProgressBarUI;
 
 namespace com {

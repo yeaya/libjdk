@@ -2,18 +2,14 @@
 
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/TextUI.h>
 #include <javax/swing/plaf/basic/BasicTextFieldUI.h>
-#include <javax/swing/plaf/basic/BasicTextUI.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $TextUI = ::javax::swing::plaf::TextUI;
 using $BasicTextFieldUI = ::javax::swing::plaf::basic::BasicTextFieldUI;
-using $BasicTextUI = ::javax::swing::plaf::basic::BasicTextUI;
 
 namespace javax {
 	namespace swing {

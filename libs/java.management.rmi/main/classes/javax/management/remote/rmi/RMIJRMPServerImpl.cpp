@@ -30,7 +30,6 @@
 #include <javax/management/remote/rmi/RMIConnection.h>
 #include <javax/management/remote/rmi/RMIConnectionImpl.h>
 #include <javax/management/remote/rmi/RMIConnectorServer.h>
-#include <javax/management/remote/rmi/RMIServer.h>
 #include <javax/management/remote/rmi/RMIServerImpl.h>
 #include <javax/security/auth/Subject.h>
 #include <sun/reflect/misc/ReflectUtil.h>
@@ -76,7 +75,6 @@ using $Stream = ::java::util::stream::Stream;
 using $RMIConnection = ::javax::management::remote::rmi::RMIConnection;
 using $RMIConnectionImpl = ::javax::management::remote::rmi::RMIConnectionImpl;
 using $RMIConnectorServer = ::javax::management::remote::rmi::RMIConnectorServer;
-using $RMIServer = ::javax::management::remote::rmi::RMIServer;
 using $RMIServerImpl = ::javax::management::remote::rmi::RMIServerImpl;
 using $Subject = ::javax::security::auth::Subject;
 using $ReflectUtil = ::sun::reflect::misc::ReflectUtil;

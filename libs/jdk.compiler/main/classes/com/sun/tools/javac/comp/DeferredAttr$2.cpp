@@ -5,13 +5,10 @@
 #include <com/sun/source/tree/NewClassTree.h>
 #include <com/sun/tools/javac/comp/DeferredAttr$2$1.h>
 #include <com/sun/tools/javac/comp/DeferredAttr.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCClassDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
-#include <com/sun/tools/javac/tree/JCTree$JCFunctionalExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCMemberReference.h>
 #include <com/sun/tools/javac/tree/JCTree$JCNewClass.h>
-#include <com/sun/tools/javac/tree/JCTree$JCPolyExpression.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <com/sun/tools/javac/tree/TreeCopier.h>
 #include <com/sun/tools/javac/tree/TreeInfo.h>
@@ -27,13 +24,10 @@ using $NewClassTree = ::com::sun::source::tree::NewClassTree;
 using $DeferredAttr = ::com::sun::tools::javac::comp::DeferredAttr;
 using $DeferredAttr$2$1 = ::com::sun::tools::javac::comp::DeferredAttr$2$1;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
-using $JCTree$JCFunctionalExpression = ::com::sun::tools::javac::tree::JCTree$JCFunctionalExpression;
 using $JCTree$JCMemberReference = ::com::sun::tools::javac::tree::JCTree$JCMemberReference;
 using $JCTree$JCNewClass = ::com::sun::tools::javac::tree::JCTree$JCNewClass;
-using $JCTree$JCPolyExpression = ::com::sun::tools::javac::tree::JCTree$JCPolyExpression;
 using $TreeCopier = ::com::sun::tools::javac::tree::TreeCopier;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
 using $TreeMaker = ::com::sun::tools::javac::tree::TreeMaker;

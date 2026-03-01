@@ -13,11 +13,9 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/util/XInt.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/util/XSObjectListImpl.h>
 #include <com/sun/org/apache/xerces/internal/util/DOMUtil.h>
-#include <com/sun/org/apache/xerces/internal/xs/XSAnnotation.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSObject.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSObjectList.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSTerm.h>
-#include <com/sun/org/apache/xerces/internal/xs/XSWildcard.h>
 #include <org/w3c/dom/Element.h>
 #include <org/w3c/dom/Node.h>
 #include <jcpp.h>
@@ -44,11 +42,9 @@ using $XSDocumentInfo = ::com::sun::org::apache::xerces::internal::impl::xs::tra
 using $XInt = ::com::sun::org::apache::xerces::internal::impl::xs::util::XInt;
 using $XSObjectListImpl = ::com::sun::org::apache::xerces::internal::impl::xs::util::XSObjectListImpl;
 using $DOMUtil = ::com::sun::org::apache::xerces::internal::util::DOMUtil;
-using $XSAnnotation = ::com::sun::org::apache::xerces::internal::xs::XSAnnotation;
 using $XSObject = ::com::sun::org::apache::xerces::internal::xs::XSObject;
 using $XSObjectList = ::com::sun::org::apache::xerces::internal::xs::XSObjectList;
 using $XSTerm = ::com::sun::org::apache::xerces::internal::xs::XSTerm;
-using $XSWildcard = ::com::sun::org::apache::xerces::internal::xs::XSWildcard;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Element = ::org::w3c::dom::Element;

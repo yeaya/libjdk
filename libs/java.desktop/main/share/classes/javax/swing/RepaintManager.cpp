@@ -14,7 +14,6 @@
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/HeadlessException.h>
 #include <java/awt/Image.h>
-#include <java/awt/Panel.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/Transparency.h>
@@ -27,10 +26,6 @@
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSequentialList.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/ArrayList.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
@@ -94,7 +89,6 @@ using $GraphicsDevice = ::java::awt::GraphicsDevice;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $HeadlessException = ::java::awt::HeadlessException;
 using $Image = ::java::awt::Image;
-using $Panel = ::java::awt::Panel;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
 using $Transparency = ::java::awt::Transparency;
@@ -114,10 +108,6 @@ using $Runnable = ::java::lang::Runnable;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSequentialList = ::java::util::AbstractSequentialList;
-using $AbstractSet = ::java::util::AbstractSet;
 using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;

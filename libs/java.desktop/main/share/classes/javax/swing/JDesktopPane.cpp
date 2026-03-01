@@ -1,14 +1,11 @@
 #include <javax/swing/JDesktopPane.h>
 
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/awt/FocusTraversalPolicy.h>
 #include <java/beans/PropertyVetoException.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
 #include <java/util/AbstractSet.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
@@ -20,8 +17,6 @@
 #include <java/util/TreeSet.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/swing/DesktopManager.h>
-#include <javax/swing/InternalFrameFocusTraversalPolicy.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JDesktopPane$1.h>
 #include <javax/swing/JDesktopPane$AccessibleJDesktopPane.h>
@@ -29,8 +24,6 @@
 #include <javax/swing/JInternalFrame$JDesktopIcon.h>
 #include <javax/swing/JInternalFrame.h>
 #include <javax/swing/JLayeredPane.h>
-#include <javax/swing/LayoutFocusTraversalPolicy.h>
-#include <javax/swing/SortingFocusTraversalPolicy.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/DesktopPaneUI.h>
@@ -43,9 +36,7 @@
 
 using $JInternalFrameArray = $Array<::javax::swing::JInternalFrame>;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $Container = ::java::awt::Container;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $FocusTraversalPolicy = ::java::awt::FocusTraversalPolicy;
 using $PropertyVetoException = ::java::beans::PropertyVetoException;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
@@ -59,7 +50,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
 using $AbstractSet = ::java::util::AbstractSet;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
@@ -71,17 +61,13 @@ using $Set = ::java::util::Set;
 using $TreeSet = ::java::util::TreeSet;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $DesktopManager = ::javax::swing::DesktopManager;
-using $InternalFrameFocusTraversalPolicy = ::javax::swing::InternalFrameFocusTraversalPolicy;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JDesktopPane$1 = ::javax::swing::JDesktopPane$1;
 using $JDesktopPane$AccessibleJDesktopPane = ::javax::swing::JDesktopPane$AccessibleJDesktopPane;
 using $JDesktopPane$ComponentPosition = ::javax::swing::JDesktopPane$ComponentPosition;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $JInternalFrame$JDesktopIcon = ::javax::swing::JInternalFrame$JDesktopIcon;
 using $JLayeredPane = ::javax::swing::JLayeredPane;
-using $LayoutFocusTraversalPolicy = ::javax::swing::LayoutFocusTraversalPolicy;
-using $SortingFocusTraversalPolicy = ::javax::swing::SortingFocusTraversalPolicy;
 using $UIManager = ::javax::swing::UIManager;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $DesktopPaneUI = ::javax::swing::plaf::DesktopPaneUI;

@@ -5,7 +5,6 @@
 #include <com/sun/org/apache/xml/internal/dtm/DTMWSFilter.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBase.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators.h>
-#include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseTraversers.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMManagerDefault.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/ExpandedNameTable.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/IncrementalSAXSource.h>
@@ -22,7 +21,6 @@
 #include <com/sun/org/apache/xml/internal/utils/XMLString.h>
 #include <com/sun/org/apache/xml/internal/utils/XMLStringFactory.h>
 #include <java/lang/ClassCastException.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <javax/xml/transform/Source.h>
@@ -70,7 +68,6 @@ using $DTMManager = ::com::sun::org::apache::xml::internal::dtm::DTMManager;
 using $DTMWSFilter = ::com::sun::org::apache::xml::internal::dtm::DTMWSFilter;
 using $DTMDefaultBase = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBase;
 using $DTMDefaultBaseIterators = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators;
-using $DTMDefaultBaseTraversers = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseTraversers;
 using $DTMManagerDefault = ::com::sun::org::apache::xml::internal::dtm::ref::DTMManagerDefault;
 using $ExpandedNameTable = ::com::sun::org::apache::xml::internal::dtm::ref::ExpandedNameTable;
 using $IncrementalSAXSource = ::com::sun::org::apache::xml::internal::dtm::ref::IncrementalSAXSource;
@@ -91,7 +88,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $Source = ::javax::xml::transform::Source;

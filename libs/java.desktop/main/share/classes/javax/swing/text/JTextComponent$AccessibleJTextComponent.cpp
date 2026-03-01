@@ -2,7 +2,6 @@
 
 #include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/EventQueue.h>
 #include <java/awt/IllegalComponentStateException.h>
 #include <java/awt/Insets.h>
@@ -10,10 +9,7 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <java/awt/event/ActionEvent.h>
-#include <java/awt/event/ComponentAdapter.h>
 #include <java/awt/event/ComponentListener.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/Math.h>
 #include <java/lang/Runnable.h>
@@ -77,7 +73,6 @@
 
 using $ActionArray = $Array<::javax::swing::Action>;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $EventQueue = ::java::awt::EventQueue;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
@@ -85,10 +80,7 @@ using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ComponentAdapter = ::java::awt::event::ComponentAdapter;
 using $ComponentListener = ::java::awt::event::ComponentListener;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -3,7 +3,6 @@
 #include <java/awt/Shape.h>
 #include <java/awt/geom/NoninvertibleTransformException.h>
 #include <java/awt/geom/Path2D$Double.h>
-#include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/Point2D$Double.h>
 #include <java/awt/geom/Point2D$Float.h>
 #include <java/awt/geom/Point2D.h>
@@ -40,7 +39,6 @@
 using $Point2DArray = $Array<::java::awt::geom::Point2D>;
 using $Shape = ::java::awt::Shape;
 using $NoninvertibleTransformException = ::java::awt::geom::NoninvertibleTransformException;
-using $Path2D = ::java::awt::geom::Path2D;
 using $Path2D$Double = ::java::awt::geom::Path2D$Double;
 using $Point2D = ::java::awt::geom::Point2D;
 using $Point2D$Double = ::java::awt::geom::Point2D$Double;
@@ -53,7 +51,6 @@ using $CloneNotSupportedException = ::java::lang::CloneNotSupportedException;
 using $Cloneable = ::java::lang::Cloneable;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $Double = ::java::lang::Double;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InternalError = ::java::lang::InternalError;
 using $Math = ::java::lang::Math;

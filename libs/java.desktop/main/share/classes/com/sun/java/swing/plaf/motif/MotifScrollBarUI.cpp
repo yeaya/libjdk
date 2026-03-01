@@ -11,8 +11,6 @@
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JScrollBar.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/ScrollBarUI.h>
-#include <javax/swing/plaf/basic/BasicArrowButton.h>
 #include <javax/swing/plaf/basic/BasicScrollBarUI.h>
 #include <sun/swing/SwingUtilities2.h>
 #include <jcpp.h>
@@ -30,8 +28,6 @@ using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
 using $JScrollBar = ::javax::swing::JScrollBar;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $ScrollBarUI = ::javax::swing::plaf::ScrollBarUI;
-using $BasicArrowButton = ::javax::swing::plaf::basic::BasicArrowButton;
 using $BasicScrollBarUI = ::javax::swing::plaf::basic::BasicScrollBarUI;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 

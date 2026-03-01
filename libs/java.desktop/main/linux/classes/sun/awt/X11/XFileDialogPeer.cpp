@@ -5,7 +5,6 @@
 #include <java/awt/BufferCapabilities$FlipContents.h>
 #include <java/awt/BufferCapabilities.h>
 #include <java/awt/Button.h>
-#include <java/awt/Canvas.h>
 #include <java/awt/Choice.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -25,13 +24,10 @@
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/awt/Label.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/List.h>
 #include <java/awt/Panel.h>
 #include <java/awt/Point.h>
-#include <java/awt/TextComponent.h>
 #include <java/awt/TextField.h>
-#include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
 #include <java/awt/event/FocusEvent$Cause.h>
@@ -39,7 +35,6 @@
 #include <java/awt/event/ItemListener.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/event/PaintEvent.h>
-#include <java/awt/event/WindowAdapter.h>
 #include <java/awt/event/WindowListener.h>
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/VolatileImage.h>
@@ -99,7 +94,6 @@ using $BorderLayout = ::java::awt::BorderLayout;
 using $BufferCapabilities = ::java::awt::BufferCapabilities;
 using $BufferCapabilities$FlipContents = ::java::awt::BufferCapabilities$FlipContents;
 using $Button = ::java::awt::Button;
-using $Canvas = ::java::awt::Canvas;
 using $Choice = ::java::awt::Choice;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
@@ -119,13 +113,10 @@ using $KeyEventDispatcher = ::java::awt::KeyEventDispatcher;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $Label = ::java::awt::Label;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $1List = ::java::awt::List;
 using $Panel = ::java::awt::Panel;
 using $Point = ::java::awt::Point;
-using $TextComponent = ::java::awt::TextComponent;
 using $TextField = ::java::awt::TextField;
-using $Window = ::java::awt::Window;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $FocusEvent$Cause = ::java::awt::event::FocusEvent$Cause;
@@ -133,7 +124,6 @@ using $ItemEvent = ::java::awt::event::ItemEvent;
 using $ItemListener = ::java::awt::event::ItemListener;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $PaintEvent = ::java::awt::event::PaintEvent;
-using $WindowAdapter = ::java::awt::event::WindowAdapter;
 using $WindowListener = ::java::awt::event::WindowListener;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $VolatileImage = ::java::awt::image::VolatileImage;

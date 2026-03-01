@@ -20,7 +20,6 @@
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 using $bug4936917$1 = ::bug4936917$1;
@@ -40,7 +39,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 class bug4936917$$Lambda$lambda$blockTillDisplayed$0 : public $Runnable {
 	$class(bug4936917$$Lambda$lambda$blockTillDisplayed$0, $NO_CLASS_INIT, $Runnable)

@@ -23,7 +23,6 @@
 #include <java/awt/image/ColorModel.h>
 #include <java/util/Locale.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComponent.h>
 #include <jcpp.h>
@@ -60,9 +59,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 
 $MethodInfo _HeadlessJButton_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJButton, init$, void)},

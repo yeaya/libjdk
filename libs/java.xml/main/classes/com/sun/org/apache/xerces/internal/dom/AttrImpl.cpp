@@ -6,7 +6,6 @@
 #include <com/sun/org/apache/xerces/internal/dom/DOMMessageFormatter.h>
 #include <com/sun/org/apache/xerces/internal/dom/EntityReferenceImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/NodeImpl.h>
-#include <com/sun/org/apache/xerces/internal/dom/ParentNode.h>
 #include <com/sun/org/apache/xerces/internal/dom/TextImpl.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
@@ -39,7 +38,6 @@ using $CoreDocumentImpl = ::com::sun::org::apache::xerces::internal::dom::CoreDo
 using $DOMMessageFormatter = ::com::sun::org::apache::xerces::internal::dom::DOMMessageFormatter;
 using $EntityReferenceImpl = ::com::sun::org::apache::xerces::internal::dom::EntityReferenceImpl;
 using $NodeImpl = ::com::sun::org::apache::xerces::internal::dom::NodeImpl;
-using $ParentNode = ::com::sun::org::apache::xerces::internal::dom::ParentNode;
 using $TextImpl = ::com::sun::org::apache::xerces::internal::dom::TextImpl;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;

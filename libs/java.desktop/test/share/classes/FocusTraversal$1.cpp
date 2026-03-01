@@ -6,22 +6,17 @@
 #include <java/awt/Container.h>
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Window.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/HashSet.h>
 #include <java/util/Set.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/ButtonGroup.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/JRadioButton.h>
 #include <javax/swing/JTextField.h>
-#include <javax/swing/JToggleButton.h>
 #include <javax/swing/KeyStroke.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef CENTER
@@ -32,29 +27,23 @@
 using $FocusTraversal = ::FocusTraversal;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractSet = ::java::util::AbstractSet;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
 using $AbstractButton = ::javax::swing::AbstractButton;
 using $ButtonGroup = ::javax::swing::ButtonGroup;
 using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JPanel = ::javax::swing::JPanel;
 using $JRadioButton = ::javax::swing::JRadioButton;
 using $JTextField = ::javax::swing::JTextField;
-using $JToggleButton = ::javax::swing::JToggleButton;
 using $KeyStroke = ::javax::swing::KeyStroke;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 $FieldInfo _FocusTraversal$1_FieldInfo_[] = {
 	{"val$lookAndFeelString", "Ljava/lang/String;", nullptr, $FINAL | $SYNTHETIC, $field(FocusTraversal$1, val$lookAndFeelString)},

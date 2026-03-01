@@ -4,13 +4,10 @@
 #include <com/sun/org/apache/bcel/internal/generic/BranchHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/CHECKCAST.h>
-#include <com/sun/org/apache/bcel/internal/generic/CPInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/CompoundInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConversionInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/FieldOrMethod.h>
 #include <com/sun/org/apache/bcel/internal/generic/GOTO.h>
-#include <com/sun/org/apache/bcel/internal/generic/GotoInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/IFEQ.h>
 #include <com/sun/org/apache/bcel/internal/generic/IFGE.h>
 #include <com/sun/org/apache/bcel/internal/generic/IFGT.h>
@@ -24,17 +21,12 @@
 #include <com/sun/org/apache/bcel/internal/generic/INVOKESPECIAL.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEVIRTUAL.h>
 #include <com/sun/org/apache/bcel/internal/generic/ISTORE.h>
-#include <com/sun/org/apache/bcel/internal/generic/IfInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionList.h>
-#include <com/sun/org/apache/bcel/internal/generic/InvokeInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/LoadInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/LocalVariableInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/NEW.h>
 #include <com/sun/org/apache/bcel/internal/generic/PUSH.h>
 #include <com/sun/org/apache/bcel/internal/generic/StackInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/StoreInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Type.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Constants.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Parser.h>
@@ -68,12 +60,9 @@
 using $BranchHandle = ::com::sun::org::apache::bcel::internal::generic::BranchHandle;
 using $BranchInstruction = ::com::sun::org::apache::bcel::internal::generic::BranchInstruction;
 using $CHECKCAST = ::com::sun::org::apache::bcel::internal::generic::CHECKCAST;
-using $CPInstruction = ::com::sun::org::apache::bcel::internal::generic::CPInstruction;
 using $CompoundInstruction = ::com::sun::org::apache::bcel::internal::generic::CompoundInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
-using $FieldOrMethod = ::com::sun::org::apache::bcel::internal::generic::FieldOrMethod;
 using $GOTO = ::com::sun::org::apache::bcel::internal::generic::GOTO;
-using $GotoInstruction = ::com::sun::org::apache::bcel::internal::generic::GotoInstruction;
 using $IFEQ = ::com::sun::org::apache::bcel::internal::generic::IFEQ;
 using $IFGE = ::com::sun::org::apache::bcel::internal::generic::IFGE;
 using $IFGT = ::com::sun::org::apache::bcel::internal::generic::IFGT;
@@ -87,16 +76,11 @@ using $ILOAD = ::com::sun::org::apache::bcel::internal::generic::ILOAD;
 using $INVOKESPECIAL = ::com::sun::org::apache::bcel::internal::generic::INVOKESPECIAL;
 using $INVOKEVIRTUAL = ::com::sun::org::apache::bcel::internal::generic::INVOKEVIRTUAL;
 using $ISTORE = ::com::sun::org::apache::bcel::internal::generic::ISTORE;
-using $IfInstruction = ::com::sun::org::apache::bcel::internal::generic::IfInstruction;
 using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
-using $InvokeInstruction = ::com::sun::org::apache::bcel::internal::generic::InvokeInstruction;
-using $LoadInstruction = ::com::sun::org::apache::bcel::internal::generic::LoadInstruction;
-using $LocalVariableInstruction = ::com::sun::org::apache::bcel::internal::generic::LocalVariableInstruction;
 using $NEW = ::com::sun::org::apache::bcel::internal::generic::NEW;
 using $PUSH = ::com::sun::org::apache::bcel::internal::generic::PUSH;
-using $StoreInstruction = ::com::sun::org::apache::bcel::internal::generic::StoreInstruction;
 using $1Type = ::com::sun::org::apache::bcel::internal::generic::Type;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
 using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;

@@ -1,7 +1,6 @@
 #include <sun/rmi/transport/DGCImpl$LeaseInfo.h>
 
 #include <java/rmi/dgc/VMID.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/HashSet.h>
 #include <java/util/Set.h>
 #include <java/util/logging/Level.h>
@@ -16,7 +15,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $VMID = ::java::rmi::dgc::VMID;
-using $AbstractSet = ::java::util::AbstractSet;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
 using $Log = ::sun::rmi::runtime::Log;

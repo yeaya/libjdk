@@ -8,8 +8,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/nio/ByteBuffer.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractSequentialList.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
@@ -27,7 +25,6 @@
 #include <jdk/internal/net/http/common/SSLFlowDelegate$EngineResult.h>
 #include <jdk/internal/net/http/common/SSLFlowDelegate$Writer$WriterDownstreamPusher.h>
 #include <jdk/internal/net/http/common/SSLFlowDelegate.h>
-#include <jdk/internal/net/http/common/SequentialScheduler$CompleteRestartableTask.h>
 #include <jdk/internal/net/http/common/SequentialScheduler$RestartableTask.h>
 #include <jdk/internal/net/http/common/SequentialScheduler.h>
 #include <jdk/internal/net/http/common/SubscriberWrapper.h>
@@ -54,8 +51,6 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractSequentialList = ::java::util::AbstractSequentialList;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
@@ -74,7 +69,6 @@ using $SSLFlowDelegate$1 = ::jdk::internal::net::http::common::SSLFlowDelegate$1
 using $SSLFlowDelegate$EngineResult = ::jdk::internal::net::http::common::SSLFlowDelegate$EngineResult;
 using $SSLFlowDelegate$Writer$WriterDownstreamPusher = ::jdk::internal::net::http::common::SSLFlowDelegate$Writer$WriterDownstreamPusher;
 using $SequentialScheduler = ::jdk::internal::net::http::common::SequentialScheduler;
-using $SequentialScheduler$CompleteRestartableTask = ::jdk::internal::net::http::common::SequentialScheduler$CompleteRestartableTask;
 using $SequentialScheduler$RestartableTask = ::jdk::internal::net::http::common::SequentialScheduler$RestartableTask;
 using $SubscriberWrapper = ::jdk::internal::net::http::common::SubscriberWrapper;
 using $Utils = ::jdk::internal::net::http::common::Utils;

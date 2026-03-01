@@ -10,7 +10,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/SocketChannel.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/List.h>
@@ -34,7 +33,6 @@
 #include <jdk/internal/net/http/common/Demand.h>
 #include <jdk/internal/net/http/common/FlowTube$TubePublisher.h>
 #include <jdk/internal/net/http/common/FlowTube$TubeSubscriber.h>
-#include <jdk/internal/net/http/common/FlowTube.h>
 #include <jdk/internal/net/http/common/Log.h>
 #include <jdk/internal/net/http/common/Logger.h>
 #include <jdk/internal/net/http/common/SequentialScheduler.h>
@@ -54,14 +52,12 @@ using $IOException = ::java::io::IOException;
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $List = ::java::util::List;
@@ -83,7 +79,6 @@ using $SocketTube$InternalWriteSubscriber$WriteEvent = ::jdk::internal::net::htt
 using $SocketTube$SliceBufferSource = ::jdk::internal::net::http::SocketTube$SliceBufferSource;
 using $SocketTube$SocketFlowEvent = ::jdk::internal::net::http::SocketTube$SocketFlowEvent;
 using $Demand = ::jdk::internal::net::http::common::Demand;
-using $FlowTube = ::jdk::internal::net::http::common::FlowTube;
 using $FlowTube$TubePublisher = ::jdk::internal::net::http::common::FlowTube$TubePublisher;
 using $FlowTube$TubeSubscriber = ::jdk::internal::net::http::common::FlowTube$TubeSubscriber;
 using $Log = ::jdk::internal::net::http::common::Log;

@@ -14,8 +14,6 @@
 #include <com/sun/tools/javac/util/Names.h>
 #include <com/sun/tools/javac/util/Pair.h>
 #include <java/lang/CharSequence.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
 #include <java/util/LinkedHashMap.h>
 #include <java/util/Map.h>
@@ -43,14 +41,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
-using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashMap = ::java::util::LinkedHashMap;
 using $Map = ::java::util::Map;
 using $AnnotationMirror = ::javax::lang::model::element::AnnotationMirror;
 using $AnnotationValueVisitor = ::javax::lang::model::element::AnnotationValueVisitor;
-using $1Name = ::javax::lang::model::element::Name;
 using $DeclaredType = ::javax::lang::model::type::DeclaredType;
 
 namespace com {

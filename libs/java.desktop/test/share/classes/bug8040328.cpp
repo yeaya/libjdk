@@ -11,13 +11,11 @@
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/InputStream.h>
 #include <java/lang/Runnable.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JSlider.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/plaf/basic/BasicLookAndFeel.h>
 #include <javax/swing/plaf/synth/SynthLookAndFeel.h>
 #include <jcpp.h>
 
@@ -42,13 +40,11 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JSlider = ::javax::swing::JSlider;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
 
 $FieldInfo _bug8040328_FieldInfo_[] = {

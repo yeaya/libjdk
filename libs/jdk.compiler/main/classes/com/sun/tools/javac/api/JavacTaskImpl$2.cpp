@@ -5,7 +5,6 @@
 #include <com/sun/tools/javac/comp/Env.h>
 #include <com/sun/tools/javac/main/JavaCompiler.h>
 #include <com/sun/tools/javac/util/ListBuffer.h>
-#include <java/util/AbstractQueue.h>
 #include <java/util/Queue.h>
 #include <jcpp.h>
 
@@ -19,7 +18,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractQueue = ::java::util::AbstractQueue;
 using $Queue = ::java::util::Queue;
 
 namespace com {

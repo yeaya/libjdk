@@ -18,7 +18,6 @@
 #include <java/net/InetAddress.h>
 #include <java/net/ServerSocket.h>
 #include <java/net/Socket.h>
-#include <java/net/SocketException.h>
 #include <java/net/UnknownHostException.h>
 #include <java/rmi/ConnectException.h>
 #include <java/rmi/ConnectIOException.h>
@@ -28,8 +27,6 @@
 #include <java/rmi/server/RMISocketFactory.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
@@ -73,7 +70,6 @@ using $ConnectException = ::java::net::ConnectException;
 using $InetAddress = ::java::net::InetAddress;
 using $ServerSocket = ::java::net::ServerSocket;
 using $Socket = ::java::net::Socket;
-using $SocketException = ::java::net::SocketException;
 using $UnknownHostException = ::java::net::UnknownHostException;
 using $1ConnectException = ::java::rmi::ConnectException;
 using $ConnectIOException = ::java::rmi::ConnectIOException;
@@ -83,8 +79,6 @@ using $RMIServerSocketFactory = ::java::rmi::server::RMIServerSocketFactory;
 using $RMISocketFactory = ::java::rmi::server::RMISocketFactory;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;

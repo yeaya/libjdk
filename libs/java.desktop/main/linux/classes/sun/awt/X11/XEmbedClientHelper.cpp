@@ -19,7 +19,6 @@
 #include <sun/awt/X11/XEmbeddedFramePeer.h>
 #include <sun/awt/X11/XEvent.h>
 #include <sun/awt/X11/XEventDispatcher.h>
-#include <sun/awt/X11/XFramePeer.h>
 #include <sun/awt/X11/XKeyboardFocusManagerPeer.h>
 #include <sun/awt/X11/XReparentEvent.h>
 #include <sun/awt/X11/XToolkit.h>
@@ -63,14 +62,12 @@ using $Native = ::sun::awt::X11::Native;
 using $XAtom = ::sun::awt::X11::XAtom;
 using $XClientMessageEvent = ::sun::awt::X11::XClientMessageEvent;
 using $XConstants = ::sun::awt::X11::XConstants;
-using $XDecoratedPeer = ::sun::awt::X11::XDecoratedPeer;
 using $XEmbedClientHelper$1 = ::sun::awt::X11::XEmbedClientHelper$1;
 using $XEmbedClientHelper$2 = ::sun::awt::X11::XEmbedClientHelper$2;
 using $XEmbedHelper = ::sun::awt::X11::XEmbedHelper;
 using $XEmbeddedFramePeer = ::sun::awt::X11::XEmbeddedFramePeer;
 using $XEvent = ::sun::awt::X11::XEvent;
 using $XEventDispatcher = ::sun::awt::X11::XEventDispatcher;
-using $XFramePeer = ::sun::awt::X11::XFramePeer;
 using $XKeyboardFocusManagerPeer = ::sun::awt::X11::XKeyboardFocusManagerPeer;
 using $XReparentEvent = ::sun::awt::X11::XReparentEvent;
 using $XToolkit = ::sun::awt::X11::XToolkit;

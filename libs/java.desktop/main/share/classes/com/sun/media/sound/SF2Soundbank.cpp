@@ -20,7 +20,6 @@
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/net/URL.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/Comparator.h>
@@ -70,7 +69,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Short = ::java::lang::Short;
 using $URL = ::java::net::URL;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $Comparator = ::java::util::Comparator;

@@ -3,7 +3,6 @@
 #include <com/sun/org/apache/bcel/internal/generic/BranchHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/GOTO_W.h>
-#include <com/sun/org/apache/bcel/internal/generic/GotoInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionList.h>
@@ -16,7 +15,6 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator.h>
 #include <java/lang/StringBuffer.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -25,7 +23,6 @@
 
 using $BranchInstruction = ::com::sun::org::apache::bcel::internal::generic::BranchInstruction;
 using $GOTO_W = ::com::sun::org::apache::bcel::internal::generic::GOTO_W;
-using $GotoInstruction = ::com::sun::org::apache::bcel::internal::generic::GotoInstruction;
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $FlowList = ::com::sun::org::apache::xalan::internal::xsltc::compiler::FlowList;
@@ -39,7 +36,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;

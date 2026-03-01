@@ -9,7 +9,6 @@
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/ComponentColorModel.h>
-#include <java/awt/image/ComponentSampleModel.h>
 #include <java/awt/image/DataBuffer.h>
 #include <java/awt/image/DataBufferByte.h>
 #include <java/awt/image/PixelInterleavedSampleModel.h>
@@ -17,11 +16,7 @@
 #include <java/awt/image/RenderedImage.h>
 #include <java/awt/image/SampleModel.h>
 #include <java/awt/image/WritableRaster.h>
-#include <java/awt/image/WritableRenderedImage.h>
-#include <java/io/ByteArrayOutputStream.h>
-#include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
@@ -41,7 +36,6 @@
 #include <javax/imageio/plugins/jpeg/JPEGImageWriteParam.h>
 #include <javax/imageio/spi/ImageWriterSpi.h>
 #include <javax/imageio/stream/ImageOutputStream.h>
-#include <javax/imageio/stream/ImageOutputStreamImpl.h>
 #include <javax/imageio/stream/MemoryCacheImageOutputStream.h>
 #include <org/w3c/dom/Node.h>
 #include <jcpp.h>
@@ -62,7 +56,6 @@ using $ColorSpace = ::java::awt::color::ColorSpace;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $ComponentColorModel = ::java::awt::image::ComponentColorModel;
-using $ComponentSampleModel = ::java::awt::image::ComponentSampleModel;
 using $DataBuffer = ::java::awt::image::DataBuffer;
 using $DataBufferByte = ::java::awt::image::DataBufferByte;
 using $PixelInterleavedSampleModel = ::java::awt::image::PixelInterleavedSampleModel;
@@ -70,19 +63,13 @@ using $Raster = ::java::awt::image::Raster;
 using $RenderedImage = ::java::awt::image::RenderedImage;
 using $SampleModel = ::java::awt::image::SampleModel;
 using $WritableRaster = ::java::awt::image::WritableRaster;
-using $WritableRenderedImage = ::java::awt::image::WritableRenderedImage;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
-using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $RuntimeException = ::java::lang::RuntimeException;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
@@ -101,7 +88,6 @@ using $IIOMetadataNode = ::javax::imageio::metadata::IIOMetadataNode;
 using $JPEGImageWriteParam = ::javax::imageio::plugins::jpeg::JPEGImageWriteParam;
 using $ImageWriterSpi = ::javax::imageio::spi::ImageWriterSpi;
 using $ImageOutputStream = ::javax::imageio::stream::ImageOutputStream;
-using $ImageOutputStreamImpl = ::javax::imageio::stream::ImageOutputStreamImpl;
 using $MemoryCacheImageOutputStream = ::javax::imageio::stream::MemoryCacheImageOutputStream;
 using $Node = ::org::w3c::dom::Node;
 

@@ -10,7 +10,6 @@
 #include <javax/swing/JFormattedTextField.h>
 #include <javax/swing/text/Caret.h>
 #include <javax/swing/text/DefaultEditorKit.h>
-#include <javax/swing/text/DefaultFormatter.h>
 #include <javax/swing/text/InternationalFormatter.h>
 #include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
@@ -33,7 +32,6 @@ using $JFormattedTextField = ::javax::swing::JFormattedTextField;
 using $JFormattedTextField$AbstractFormatter = ::javax::swing::JFormattedTextField$AbstractFormatter;
 using $Caret = ::javax::swing::text::Caret;
 using $DefaultEditorKit = ::javax::swing::text::DefaultEditorKit;
-using $DefaultFormatter = ::javax::swing::text::DefaultFormatter;
 using $InternationalFormatter = ::javax::swing::text::InternationalFormatter;
 
 $FieldInfo _Test6462562$TestFormattedTextField_FieldInfo_[] = {

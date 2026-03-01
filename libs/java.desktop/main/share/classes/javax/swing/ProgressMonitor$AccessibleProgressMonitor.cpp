@@ -2,7 +2,6 @@
 
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
-#include <java/awt/Dialog.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Window.h>
@@ -16,7 +15,6 @@
 #include <javax/accessibility/AccessibleStateSet.h>
 #include <javax/accessibility/AccessibleText.h>
 #include <javax/accessibility/AccessibleValue.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JDialog.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JOptionPane.h>
@@ -34,11 +32,8 @@
 #undef PROGRESS_MONITOR
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
-using $Dialog = ::java::awt::Dialog;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
-using $Window = ::java::awt::Window;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -54,7 +49,6 @@ using $AccessibleRole = ::javax::accessibility::AccessibleRole;
 using $AccessibleStateSet = ::javax::accessibility::AccessibleStateSet;
 using $AccessibleText = ::javax::accessibility::AccessibleText;
 using $AccessibleValue = ::javax::accessibility::AccessibleValue;
-using $JComponent = ::javax::swing::JComponent;
 using $JDialog = ::javax::swing::JDialog;
 using $JLabel = ::javax::swing::JLabel;
 using $JProgressBar = ::javax::swing::JProgressBar;

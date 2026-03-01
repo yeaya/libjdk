@@ -1,7 +1,6 @@
 #include <sun/lwawt/LWLightweightFramePeer.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Frame.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Insets.h>
 #include <java/awt/Point.h>
@@ -23,7 +22,6 @@
 
 #undef LW_FRAME
 
-using $Frame = ::java::awt::Frame;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $Point = ::java::awt::Point;

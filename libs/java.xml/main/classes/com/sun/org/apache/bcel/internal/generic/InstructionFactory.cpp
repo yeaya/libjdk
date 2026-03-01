@@ -10,7 +10,6 @@
 #include <com/sun/org/apache/bcel/internal/generic/BasicType.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/CHECKCAST.h>
-#include <com/sun/org/apache/bcel/internal/generic/CPInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ClassGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/ClassGenException.h>
 #include <com/sun/org/apache/bcel/internal/generic/CompoundInstruction.h>
@@ -20,12 +19,10 @@
 #include <com/sun/org/apache/bcel/internal/generic/FLOAD.h>
 #include <com/sun/org/apache/bcel/internal/generic/FSTORE.h>
 #include <com/sun/org/apache/bcel/internal/generic/FieldInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/FieldOrMethod.h>
 #include <com/sun/org/apache/bcel/internal/generic/GETFIELD.h>
 #include <com/sun/org/apache/bcel/internal/generic/GETSTATIC.h>
 #include <com/sun/org/apache/bcel/internal/generic/GOTO.h>
 #include <com/sun/org/apache/bcel/internal/generic/GOTO_W.h>
-#include <com/sun/org/apache/bcel/internal/generic/GotoInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/IFEQ.h>
 #include <com/sun/org/apache/bcel/internal/generic/IFGE.h>
 #include <com/sun/org/apache/bcel/internal/generic/IFGT.h>
@@ -50,7 +47,6 @@
 #include <com/sun/org/apache/bcel/internal/generic/INVOKESTATIC.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEVIRTUAL.h>
 #include <com/sun/org/apache/bcel/internal/generic/ISTORE.h>
-#include <com/sun/org/apache/bcel/internal/generic/IfInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionConst.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionFactory$MethodObject.h>
@@ -59,10 +55,8 @@
 #include <com/sun/org/apache/bcel/internal/generic/InvokeInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/JSR.h>
 #include <com/sun/org/apache/bcel/internal/generic/JSR_W.h>
-#include <com/sun/org/apache/bcel/internal/generic/JsrInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/LLOAD.h>
 #include <com/sun/org/apache/bcel/internal/generic/LSTORE.h>
-#include <com/sun/org/apache/bcel/internal/generic/LoadInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/LocalVariableInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/MULTIANEWARRAY.h>
 #include <com/sun/org/apache/bcel/internal/generic/NEW.h>
@@ -74,7 +68,6 @@
 #include <com/sun/org/apache/bcel/internal/generic/ReferenceType.h>
 #include <com/sun/org/apache/bcel/internal/generic/ReturnInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/StackInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/StoreInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Type.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/Number.h>
@@ -211,7 +204,6 @@ using $ArrayType = ::com::sun::org::apache::bcel::internal::generic::ArrayType;
 using $BasicType = ::com::sun::org::apache::bcel::internal::generic::BasicType;
 using $BranchInstruction = ::com::sun::org::apache::bcel::internal::generic::BranchInstruction;
 using $CHECKCAST = ::com::sun::org::apache::bcel::internal::generic::CHECKCAST;
-using $CPInstruction = ::com::sun::org::apache::bcel::internal::generic::CPInstruction;
 using $ClassGen = ::com::sun::org::apache::bcel::internal::generic::ClassGen;
 using $ClassGenException = ::com::sun::org::apache::bcel::internal::generic::ClassGenException;
 using $CompoundInstruction = ::com::sun::org::apache::bcel::internal::generic::CompoundInstruction;
@@ -221,12 +213,10 @@ using $DSTORE = ::com::sun::org::apache::bcel::internal::generic::DSTORE;
 using $FLOAD = ::com::sun::org::apache::bcel::internal::generic::FLOAD;
 using $FSTORE = ::com::sun::org::apache::bcel::internal::generic::FSTORE;
 using $FieldInstruction = ::com::sun::org::apache::bcel::internal::generic::FieldInstruction;
-using $FieldOrMethod = ::com::sun::org::apache::bcel::internal::generic::FieldOrMethod;
 using $GETFIELD = ::com::sun::org::apache::bcel::internal::generic::GETFIELD;
 using $GETSTATIC = ::com::sun::org::apache::bcel::internal::generic::GETSTATIC;
 using $GOTO = ::com::sun::org::apache::bcel::internal::generic::GOTO;
 using $GOTO_W = ::com::sun::org::apache::bcel::internal::generic::GOTO_W;
-using $GotoInstruction = ::com::sun::org::apache::bcel::internal::generic::GotoInstruction;
 using $IFEQ = ::com::sun::org::apache::bcel::internal::generic::IFEQ;
 using $IFGE = ::com::sun::org::apache::bcel::internal::generic::IFGE;
 using $IFGT = ::com::sun::org::apache::bcel::internal::generic::IFGT;
@@ -251,7 +241,6 @@ using $INVOKESPECIAL = ::com::sun::org::apache::bcel::internal::generic::INVOKES
 using $INVOKESTATIC = ::com::sun::org::apache::bcel::internal::generic::INVOKESTATIC;
 using $INVOKEVIRTUAL = ::com::sun::org::apache::bcel::internal::generic::INVOKEVIRTUAL;
 using $ISTORE = ::com::sun::org::apache::bcel::internal::generic::ISTORE;
-using $IfInstruction = ::com::sun::org::apache::bcel::internal::generic::IfInstruction;
 using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionConst = ::com::sun::org::apache::bcel::internal::generic::InstructionConst;
 using $InstructionFactory$MethodObject = ::com::sun::org::apache::bcel::internal::generic::InstructionFactory$MethodObject;
@@ -260,10 +249,8 @@ using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::Instr
 using $InvokeInstruction = ::com::sun::org::apache::bcel::internal::generic::InvokeInstruction;
 using $JSR = ::com::sun::org::apache::bcel::internal::generic::JSR;
 using $JSR_W = ::com::sun::org::apache::bcel::internal::generic::JSR_W;
-using $JsrInstruction = ::com::sun::org::apache::bcel::internal::generic::JsrInstruction;
 using $LLOAD = ::com::sun::org::apache::bcel::internal::generic::LLOAD;
 using $LSTORE = ::com::sun::org::apache::bcel::internal::generic::LSTORE;
-using $LoadInstruction = ::com::sun::org::apache::bcel::internal::generic::LoadInstruction;
 using $LocalVariableInstruction = ::com::sun::org::apache::bcel::internal::generic::LocalVariableInstruction;
 using $MULTIANEWARRAY = ::com::sun::org::apache::bcel::internal::generic::MULTIANEWARRAY;
 using $NEW = ::com::sun::org::apache::bcel::internal::generic::NEW;
@@ -275,7 +262,6 @@ using $PUTSTATIC = ::com::sun::org::apache::bcel::internal::generic::PUTSTATIC;
 using $ReferenceType = ::com::sun::org::apache::bcel::internal::generic::ReferenceType;
 using $ReturnInstruction = ::com::sun::org::apache::bcel::internal::generic::ReturnInstruction;
 using $StackInstruction = ::com::sun::org::apache::bcel::internal::generic::StackInstruction;
-using $StoreInstruction = ::com::sun::org::apache::bcel::internal::generic::StoreInstruction;
 using $Type = ::com::sun::org::apache::bcel::internal::generic::Type;
 using $Boolean = ::java::lang::Boolean;
 using $Character = ::java::lang::Character;

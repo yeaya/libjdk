@@ -32,8 +32,6 @@
 #include <sun/awt/im/InputMethodManager.h>
 #include <sun/awt/windows/WComponentPeer.h>
 #include <sun/awt/windows/WMenuBarPeer.h>
-#include <sun/awt/windows/WMenuItemPeer.h>
-#include <sun/awt/windows/WMenuPeer.h>
 #include <sun/awt/windows/WObjectPeer.h>
 #include <sun/awt/windows/WPanelPeer.h>
 #include <sun/awt/windows/WToolkit.h>
@@ -80,8 +78,6 @@ using $AWTAccessor$FrameAccessor = ::sun::awt::AWTAccessor$FrameAccessor;
 using $InputMethodManager = ::sun::awt::im::InputMethodManager;
 using $WComponentPeer = ::sun::awt::windows::WComponentPeer;
 using $WMenuBarPeer = ::sun::awt::windows::WMenuBarPeer;
-using $WMenuItemPeer = ::sun::awt::windows::WMenuItemPeer;
-using $WMenuPeer = ::sun::awt::windows::WMenuPeer;
 using $WObjectPeer = ::sun::awt::windows::WObjectPeer;
 using $WToolkit = ::sun::awt::windows::WToolkit;
 using $WWindowPeer = ::sun::awt::windows::WWindowPeer;

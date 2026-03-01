@@ -32,7 +32,6 @@
 #include <java/lang/AssertionError.h>
 #include <java/lang/Iterable.h>
 #include <java/nio/file/Path.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/EnumMap.h>
 #include <java/util/Iterator.h>
 #include <java/util/LinkedHashMap.h>
@@ -82,7 +81,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Path = ::java::nio::file::Path;
-using $AbstractMap = ::java::util::AbstractMap;
 using $EnumMap = ::java::util::EnumMap;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashMap = ::java::util::LinkedHashMap;

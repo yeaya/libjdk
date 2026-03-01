@@ -38,7 +38,6 @@
 #include <com/sun/source/doctree/ValueTree.h>
 #include <com/sun/source/doctree/VersionTree.h>
 #include <java/lang/Iterable.h>
-#include <java/util/Collection.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -83,7 +82,6 @@ using $VersionTree = ::com::sun::source::doctree::VersionTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 
 namespace com {

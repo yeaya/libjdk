@@ -6,8 +6,6 @@
 #include <java/awt/Stroke.h>
 #include <java/awt/geom/GeneralPath.h>
 #include <java/awt/geom/Line2D$Float.h>
-#include <java/awt/geom/Line2D.h>
-#include <java/awt/geom/Path2D$Float.h>
 #include <java/awt/geom/Path2D.h>
 #include <sun/font/Underline.h>
 #include <jcpp.h>
@@ -20,10 +18,7 @@ using $Graphics2D = ::java::awt::Graphics2D;
 using $Shape = ::java::awt::Shape;
 using $Stroke = ::java::awt::Stroke;
 using $GeneralPath = ::java::awt::geom::GeneralPath;
-using $Line2D = ::java::awt::geom::Line2D;
 using $Line2D$Float = ::java::awt::geom::Line2D$Float;
-using $Path2D = ::java::awt::geom::Path2D;
-using $Path2D$Float = ::java::awt::geom::Path2D$Float;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;

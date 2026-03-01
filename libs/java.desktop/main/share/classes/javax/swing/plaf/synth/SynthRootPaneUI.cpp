@@ -1,13 +1,11 @@
 #include <javax/swing/plaf/synth/SynthRootPaneUI.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JRootPane.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/RootPaneUI.h>
 #include <javax/swing/plaf/basic/BasicRootPaneUI.h>
 #include <javax/swing/plaf/synth/SynthConstants.h>
 #include <javax/swing/plaf/synth/SynthContext.h>
@@ -20,7 +18,6 @@
 #undef ENABLED
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -29,7 +26,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $JRootPane = ::javax::swing::JRootPane;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $RootPaneUI = ::javax::swing::plaf::RootPaneUI;
 using $BasicRootPaneUI = ::javax::swing::plaf::basic::BasicRootPaneUI;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;

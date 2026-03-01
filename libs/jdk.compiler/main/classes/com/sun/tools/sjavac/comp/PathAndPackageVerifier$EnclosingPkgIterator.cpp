@@ -1,6 +1,5 @@
 #include <com/sun/tools/sjavac/comp/PathAndPackageVerifier$EnclosingPkgIterator.h>
 
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCFieldAccess.h>
 #include <com/sun/tools/javac/tree/JCTree$JCIdent.h>
@@ -10,7 +9,6 @@
 #include <jcpp.h>
 
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCFieldAccess = ::com::sun::tools::javac::tree::JCTree$JCFieldAccess;
 using $JCTree$JCIdent = ::com::sun::tools::javac::tree::JCTree$JCIdent;
 using $Name = ::com::sun::tools::javac::util::Name;

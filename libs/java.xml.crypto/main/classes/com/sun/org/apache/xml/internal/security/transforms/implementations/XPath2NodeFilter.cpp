@@ -1,7 +1,6 @@
 #include <com/sun/org/apache/xml/internal/security/transforms/implementations/XPath2NodeFilter.h>
 
 #include <com/sun/org/apache/xml/internal/security/utils/XMLUtils.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -14,7 +13,6 @@ using $XMLUtils = ::com::sun::org::apache::xml::internal::security::utils::XMLUt
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractSet = ::java::util::AbstractSet;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;

@@ -15,7 +15,6 @@
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
 #include <java/util/Locale.h>
-#include <javax/print/CancelablePrintJob.h>
 #include <javax/print/DocFlavor$BYTE_ARRAY.h>
 #include <javax/print/DocFlavor$INPUT_STREAM.h>
 #include <javax/print/DocFlavor$SERVICE_FORMATTED.h>
@@ -217,7 +216,6 @@ using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $Locale = ::java::util::Locale;
-using $CancelablePrintJob = ::javax::print::CancelablePrintJob;
 using $DocFlavor = ::javax::print::DocFlavor;
 using $DocFlavor$BYTE_ARRAY = ::javax::print::DocFlavor$BYTE_ARRAY;
 using $DocFlavor$INPUT_STREAM = ::javax::print::DocFlavor$INPUT_STREAM;

@@ -2,7 +2,6 @@
 
 #include <com/sun/tools/javac/launcher/Main$MemoryFileManager$1$1.h>
 #include <com/sun/tools/javac/launcher/Main$MemoryFileManager.h>
-#include <java/io/ByteArrayOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/net/URI.h>
 #include <javax/tools/JavaFileObject$Kind.h>
@@ -11,7 +10,6 @@
 
 using $Main$MemoryFileManager = ::com::sun::tools::javac::launcher::Main$MemoryFileManager;
 using $Main$MemoryFileManager$1$1 = ::com::sun::tools::javac::launcher::Main$MemoryFileManager$1$1;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

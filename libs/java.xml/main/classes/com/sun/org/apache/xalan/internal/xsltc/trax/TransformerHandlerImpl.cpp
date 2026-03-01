@@ -1,12 +1,10 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/trax/TransformerHandlerImpl.h>
 
 #include <com/sun/org/apache/xalan/internal/xsltc/DOM.h>
-#include <com/sun/org/apache/xalan/internal/xsltc/DOMEnhancedForDTM.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/StripFilter.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/DOMBuilder.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/DOMWSFilter.h>
-#include <com/sun/org/apache/xalan/internal/xsltc/dom/ExtendedSAX.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/SAXImpl.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/XSLTCDTMManager.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/AbstractTranslet.h>
@@ -15,8 +13,6 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/trax/TransformerImpl.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMWSFilter.h>
-#include <com/sun/org/apache/xml/internal/serializer/ExtendedContentHandler.h>
-#include <com/sun/org/apache/xml/internal/serializer/ExtendedLexicalHandler.h>
 #include <com/sun/org/apache/xml/internal/serializer/SerializationHandler.h>
 #include <javax/xml/transform/Result.h>
 #include <javax/xml/transform/Source.h>
@@ -39,11 +35,9 @@
 #undef JAXP_SET_RESULT_ERR
 
 using $DOM = ::com::sun::org::apache::xalan::internal::xsltc::DOM;
-using $DOMEnhancedForDTM = ::com::sun::org::apache::xalan::internal::xsltc::DOMEnhancedForDTM;
 using $StripFilter = ::com::sun::org::apache::xalan::internal::xsltc::StripFilter;
 using $ErrorMsg = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ErrorMsg;
 using $DOMWSFilter = ::com::sun::org::apache::xalan::internal::xsltc::dom::DOMWSFilter;
-using $ExtendedSAX = ::com::sun::org::apache::xalan::internal::xsltc::dom::ExtendedSAX;
 using $SAXImpl = ::com::sun::org::apache::xalan::internal::xsltc::dom::SAXImpl;
 using $XSLTCDTMManager = ::com::sun::org::apache::xalan::internal::xsltc::dom::XSLTCDTMManager;
 using $AbstractTranslet = ::com::sun::org::apache::xalan::internal::xsltc::runtime::AbstractTranslet;
@@ -51,8 +45,6 @@ using $TransletOutputHandlerFactory = ::com::sun::org::apache::xalan::internal::
 using $TransformerFactoryImpl = ::com::sun::org::apache::xalan::internal::xsltc::trax::TransformerFactoryImpl;
 using $TransformerImpl = ::com::sun::org::apache::xalan::internal::xsltc::trax::TransformerImpl;
 using $DTMWSFilter = ::com::sun::org::apache::xml::internal::dtm::DTMWSFilter;
-using $ExtendedContentHandler = ::com::sun::org::apache::xml::internal::serializer::ExtendedContentHandler;
-using $ExtendedLexicalHandler = ::com::sun::org::apache::xml::internal::serializer::ExtendedLexicalHandler;
 using $SerializationHandler = ::com::sun::org::apache::xml::internal::serializer::SerializationHandler;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;

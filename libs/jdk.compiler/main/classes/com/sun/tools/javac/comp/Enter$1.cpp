@@ -1,11 +1,9 @@
 #include <com/sun/tools/javac/comp/Enter$1.h>
 
 #include <com/sun/tools/javac/code/Symbol$PackageSymbol.h>
-#include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/comp/Enter.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCFieldAccess.h>
 #include <com/sun/tools/javac/tree/JCTree$JCIdent.h>
@@ -15,10 +13,8 @@
 #include <jcpp.h>
 
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Enter = ::com::sun::tools::javac::comp::Enter;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCFieldAccess = ::com::sun::tools::javac::tree::JCTree$JCFieldAccess;
 using $JCTree$JCIdent = ::com::sun::tools::javac::tree::JCTree$JCIdent;
 using $JCTree$JCPackageDecl = ::com::sun::tools::javac::tree::JCTree$JCPackageDecl;

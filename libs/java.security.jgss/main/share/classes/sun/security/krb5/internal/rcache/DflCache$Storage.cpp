@@ -16,7 +16,6 @@
 #include <java/nio/file/StandardOpenOption.h>
 #include <java/nio/file/attribute/FileAttribute.h>
 #include <java/nio/file/attribute/PosixFilePermission.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/HashSet.h>
 #include <java/util/Set.h>
 #include <sun/security/krb5/internal/KerberosTime.h>
@@ -65,7 +64,6 @@ using $Path = ::java::nio::file::Path;
 using $StandardCopyOption = ::java::nio::file::StandardCopyOption;
 using $StandardOpenOption = ::java::nio::file::StandardOpenOption;
 using $PosixFilePermission = ::java::nio::file::attribute::PosixFilePermission;
-using $AbstractSet = ::java::util::AbstractSet;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
 using $KerberosTime = ::sun::security::krb5::internal::KerberosTime;

@@ -1,6 +1,5 @@
 #include <com/apple/laf/AquaIcon$SystemIconUIResourceSingleton.h>
 
-#include <com/apple/laf/AquaIcon$CachingScalingIcon.h>
 #include <com/apple/laf/AquaIcon$SystemIcon.h>
 #include <com/apple/laf/AquaIcon.h>
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
@@ -8,7 +7,6 @@
 #include <javax/swing/plaf/IconUIResource.h>
 #include <jcpp.h>
 
-using $AquaIcon$CachingScalingIcon = ::com::apple::laf::AquaIcon$CachingScalingIcon;
 using $AquaIcon$SystemIcon = ::com::apple::laf::AquaIcon$SystemIcon;
 using $AquaUtils$RecyclableSingleton = ::com::apple::laf::AquaUtils$RecyclableSingleton;
 using $ClassInfo = ::java::lang::ClassInfo;

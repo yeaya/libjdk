@@ -3,7 +3,6 @@
 #include <TestJTextPaneBackgroundColor$1.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Robot.h>
@@ -18,15 +17,12 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <javax/swing/JComponent.h>
-#include <javax/swing/JEditorPane.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JTextPane.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager$LookAndFeelInfo.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/UnsupportedLookAndFeelException.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef GTK_LAF_CLASS
@@ -35,7 +31,6 @@ using $TestJTextPaneBackgroundColor$1 = ::TestJTextPaneBackgroundColor$1;
 using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Robot = ::java::awt::Robot;
@@ -52,15 +47,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $JComponent = ::javax::swing::JComponent;
-using $JEditorPane = ::javax::swing::JEditorPane;
 using $JFrame = ::javax::swing::JFrame;
 using $JTextPane = ::javax::swing::JTextPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $UIManager$LookAndFeelInfo = ::javax::swing::UIManager$LookAndFeelInfo;
 using $UnsupportedLookAndFeelException = ::javax::swing::UnsupportedLookAndFeelException;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 class TestJTextPaneBackgroundColor$$Lambda$lambda$main$0 : public $Runnable {
 	$class(TestJTextPaneBackgroundColor$$Lambda$lambda$main$0, $NO_CLASS_INIT, $Runnable)

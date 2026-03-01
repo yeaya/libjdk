@@ -2,22 +2,17 @@
 
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
-#include <java/awt/event/ComponentEvent.h>
-#include <java/awt/event/InputEvent.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/awt/event/MouseMotionListener.h>
 #include <javax/swing/JTextField.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/event/MouseInputListener.h>
 #include <javax/swing/plaf/basic/BasicTreeUI.h>
 #include <sun/swing/SwingUtilities2.h>
 #include <jcpp.h>
 
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
-using $ComponentEvent = ::java::awt::event::ComponentEvent;
-using $InputEvent = ::java::awt::event::InputEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
@@ -27,7 +22,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JTextField = ::javax::swing::JTextField;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $MouseInputListener = ::javax::swing::event::MouseInputListener;
 using $BasicTreeUI = ::javax::swing::plaf::basic::BasicTreeUI;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 

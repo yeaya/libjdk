@@ -13,7 +13,6 @@
 #include <java/awt/WaitDispatchSupport$3.h>
 #include <java/awt/WaitDispatchSupport$4.h>
 #include <java/awt/WaitDispatchSupport$5.h>
-#include <java/awt/event/InvocationEvent.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Runnable.h>
 #include <java/security/AccessController.h>
@@ -44,7 +43,6 @@ using $WaitDispatchSupport$2 = ::java::awt::WaitDispatchSupport$2;
 using $WaitDispatchSupport$3 = ::java::awt::WaitDispatchSupport$3;
 using $WaitDispatchSupport$4 = ::java::awt::WaitDispatchSupport$4;
 using $WaitDispatchSupport$5 = ::java::awt::WaitDispatchSupport$5;
-using $InvocationEvent = ::java::awt::event::InvocationEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;

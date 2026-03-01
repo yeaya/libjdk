@@ -18,7 +18,6 @@
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/plaf/basic/BasicLookAndFeel.h>
 #include <jcpp.h>
 
 #undef BGCOLOR
@@ -40,7 +39,6 @@ using $JSplitPane = ::javax::swing::JSplitPane;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
 
 class bug4885629$$Lambda$lambda$main$0 : public $Runnable {
 	$class(bug4885629$$Lambda$lambda$main$0, $NO_CLASS_INIT, $Runnable)

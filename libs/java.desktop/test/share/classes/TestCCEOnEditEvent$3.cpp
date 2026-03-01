@@ -3,9 +3,7 @@
 #include <TestCCEOnEditEvent$3$1.h>
 #include <TestCCEOnEditEvent.h>
 #include <javax/swing/JTextArea.h>
-#include <javax/swing/text/AbstractDocument.h>
 #include <javax/swing/text/Document.h>
-#include <javax/swing/text/PlainDocument.h>
 #include <jcpp.h>
 
 using $TestCCEOnEditEvent = ::TestCCEOnEditEvent;
@@ -16,9 +14,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JTextArea = ::javax::swing::JTextArea;
-using $AbstractDocument = ::javax::swing::text::AbstractDocument;
 using $Document = ::javax::swing::text::Document;
-using $PlainDocument = ::javax::swing::text::PlainDocument;
 
 $FieldInfo _TestCCEOnEditEvent$3_FieldInfo_[] = {
 	{"this$0", "LTestCCEOnEditEvent;", nullptr, $FINAL | $SYNTHETIC, $field(TestCCEOnEditEvent$3, this$0)},

@@ -9,7 +9,6 @@
 #include <com/sun/tools/javac/code/Scope$WriteableScope.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$MethodSymbol.h>
-#include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$VarSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Symtab.h>
@@ -56,7 +55,6 @@
 #include <com/sun/tools/javac/tree/JCTree$JCNewArray.h>
 #include <com/sun/tools/javac/tree/JCTree$JCNewClass.h>
 #include <com/sun/tools/javac/tree/JCTree$JCPackageDecl.h>
-#include <com/sun/tools/javac/tree/JCTree$JCPolyExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCReturn.h>
 #include <com/sun/tools/javac/tree/JCTree$JCStatement.h>
 #include <com/sun/tools/javac/tree/JCTree$JCSwitch.h>
@@ -122,7 +120,6 @@ using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableSco
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
@@ -166,9 +163,7 @@ using $JCTree$JCModuleDecl = ::com::sun::tools::javac::tree::JCTree$JCModuleDecl
 using $JCTree$JCNewArray = ::com::sun::tools::javac::tree::JCTree$JCNewArray;
 using $JCTree$JCNewClass = ::com::sun::tools::javac::tree::JCTree$JCNewClass;
 using $JCTree$JCPackageDecl = ::com::sun::tools::javac::tree::JCTree$JCPackageDecl;
-using $JCTree$JCPolyExpression = ::com::sun::tools::javac::tree::JCTree$JCPolyExpression;
 using $JCTree$JCReturn = ::com::sun::tools::javac::tree::JCTree$JCReturn;
-using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
 using $JCTree$JCSwitch = ::com::sun::tools::javac::tree::JCTree$JCSwitch;
 using $JCTree$JCSwitchExpression = ::com::sun::tools::javac::tree::JCTree$JCSwitchExpression;
 using $JCTree$JCThrow = ::com::sun::tools::javac::tree::JCTree$JCThrow;
@@ -181,7 +176,6 @@ using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
 using $TreeMaker = ::com::sun::tools::javac::tree::TreeMaker;
-using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;
 using $ArrayUtils = ::com::sun::tools::javac::util::ArrayUtils;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $Bits = ::com::sun::tools::javac::util::Bits;

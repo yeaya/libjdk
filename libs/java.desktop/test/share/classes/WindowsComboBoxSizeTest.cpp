@@ -15,12 +15,10 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <javax/swing/JComboBox.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JTextField.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 using $Component = ::java::awt::Component;
@@ -37,12 +35,10 @@ using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $JComboBox = ::javax::swing::JComboBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JTextField = ::javax::swing::JTextField;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 class WindowsComboBoxSizeTest$$Lambda$lambda$main$0 : public $Runnable {
 	$class(WindowsComboBoxSizeTest$$Lambda$lambda$main$0, $NO_CLASS_INIT, $Runnable)

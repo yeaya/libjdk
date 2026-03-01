@@ -1,8 +1,6 @@
 #include <javax/swing/JProgressBar.h>
 
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Graphics.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/text/Format.h>
@@ -12,7 +10,6 @@
 #include <javax/accessibility/AccessibleState.h>
 #include <javax/swing/BoundedRangeModel.h>
 #include <javax/swing/DefaultBoundedRangeModel.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JProgressBar$AccessibleJProgressBar.h>
 #include <javax/swing/JProgressBar$ModelListener.h>
@@ -31,8 +28,6 @@
 #undef VERTICAL
 
 using $ChangeListenerArray = $Array<::javax::swing::event::ChangeListener>;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Graphics = ::java::awt::Graphics;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -52,7 +47,6 @@ using $AccessibleState = ::javax::accessibility::AccessibleState;
 using $BoundedRangeModel = ::javax::swing::BoundedRangeModel;
 using $DefaultBoundedRangeModel = ::javax::swing::DefaultBoundedRangeModel;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JProgressBar$AccessibleJProgressBar = ::javax::swing::JProgressBar$AccessibleJProgressBar;
 using $JProgressBar$ModelListener = ::javax::swing::JProgressBar$ModelListener;
 using $SwingConstants = ::javax::swing::SwingConstants;

@@ -5,7 +5,6 @@
 #include <java/awt/Container.h>
 #include <java/awt/Window.h>
 #include <java/lang/AssertionError.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Collections.h>
 #include <java/util/Map.h>
 #include <java/util/WeakHashMap.h>
@@ -27,7 +26,6 @@ using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Collections = ::java::util::Collections;
 using $Map = ::java::util::Map;
 using $WeakHashMap = ::java::util::WeakHashMap;

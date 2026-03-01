@@ -2,7 +2,6 @@
 
 #include <java/awt/Image.h>
 #include <java/awt/Toolkit.h>
-#include <java/awt/image/AbstractMultiResolutionImage.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/io/File.h>
 #include <java/io/FileNotFoundException.h>
@@ -20,7 +19,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
@@ -59,7 +57,6 @@ using $ImageArray = $Array<::java::awt::Image>;
 using $FileArray = $Array<::java::io::File>;
 using $Image = ::java::awt::Image;
 using $Toolkit = ::java::awt::Toolkit;
-using $AbstractMultiResolutionImage = ::java::awt::image::AbstractMultiResolutionImage;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $File = ::java::io::File;
 using $FileNotFoundException = ::java::io::FileNotFoundException;
@@ -79,7 +76,6 @@ using $SecurityManager = ::java::lang::SecurityManager;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;

@@ -13,7 +13,6 @@
 #include <java/util/Map.h>
 #include <java/util/concurrent/ConcurrentHashMap.h>
 #include <org/w3c/dom/Attr.h>
-#include <org/w3c/dom/CharacterData.h>
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/Element.h>
 #include <org/w3c/dom/Node.h>
@@ -40,7 +39,6 @@ using $AbstractMap = ::java::util::AbstractMap;
 using $Map = ::java::util::Map;
 using $ConcurrentHashMap = ::java::util::concurrent::ConcurrentHashMap;
 using $Attr = ::org::w3c::dom::Attr;
-using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;

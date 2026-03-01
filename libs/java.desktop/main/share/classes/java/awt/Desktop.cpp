@@ -31,11 +31,9 @@
 #include <java/net/URI.h>
 #include <java/net/URISyntaxException.h>
 #include <java/security/AccessController.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/util/Objects.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JMenuBar.h>
 #include <sun/awt/AppContext.h>
 #include <sun/awt/SunToolkit.h>
@@ -96,11 +94,9 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $URI = ::java::net::URI;
 using $URISyntaxException = ::java::net::URISyntaxException;
 using $AccessController = ::java::security::AccessController;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Objects = ::java::util::Objects;
-using $JComponent = ::javax::swing::JComponent;
 using $JMenuBar = ::javax::swing::JMenuBar;
 using $AppContext = ::sun::awt::AppContext;
 using $SunToolkit = ::sun::awt::SunToolkit;

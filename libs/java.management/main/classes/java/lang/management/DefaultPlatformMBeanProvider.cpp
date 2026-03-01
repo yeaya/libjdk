@@ -11,7 +11,6 @@
 #include <java/lang/management/DefaultPlatformMBeanProvider$7.h>
 #include <java/lang/management/DefaultPlatformMBeanProvider$8.h>
 #include <java/lang/management/DefaultPlatformMBeanProvider$9.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collections.h>
 #include <java/util/List.h>
@@ -34,7 +33,6 @@ using $DefaultPlatformMBeanProvider$6 = ::java::lang::management::DefaultPlatfor
 using $DefaultPlatformMBeanProvider$7 = ::java::lang::management::DefaultPlatformMBeanProvider$7;
 using $DefaultPlatformMBeanProvider$8 = ::java::lang::management::DefaultPlatformMBeanProvider$8;
 using $DefaultPlatformMBeanProvider$9 = ::java::lang::management::DefaultPlatformMBeanProvider$9;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collections = ::java::util::Collections;
 using $List = ::java::util::List;

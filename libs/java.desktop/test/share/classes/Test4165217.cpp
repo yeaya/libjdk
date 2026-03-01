@@ -10,7 +10,6 @@
 #include <java/io/OutputStream.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/Error.h>
-#include <java/lang/ReflectiveOperationException.h>
 #include <java/util/Random.h>
 #include <javax/swing/JColorChooser.h>
 #include <jcpp.h>
@@ -26,9 +25,7 @@ using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $Error = ::java::lang::Error;
-using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $Random = ::java::util::Random;
 using $JColorChooser = ::javax::swing::JColorChooser;
 

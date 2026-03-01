@@ -3,7 +3,6 @@
 #include <com/sun/org/apache/bcel/internal/generic/BranchHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/GOTO.h>
-#include <com/sun/org/apache/bcel/internal/generic/GotoInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionList.h>
@@ -31,7 +30,6 @@
 
 using $BranchInstruction = ::com::sun::org::apache::bcel::internal::generic::BranchInstruction;
 using $GOTO = ::com::sun::org::apache::bcel::internal::generic::GOTO;
-using $GotoInstruction = ::com::sun::org::apache::bcel::internal::generic::GotoInstruction;
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $CastExpr = ::com::sun::org::apache::xalan::internal::xsltc::compiler::CastExpr;

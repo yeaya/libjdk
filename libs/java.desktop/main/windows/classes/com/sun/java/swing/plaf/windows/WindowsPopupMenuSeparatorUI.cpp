@@ -15,9 +15,7 @@
 #include <java/awt/Graphics.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/SeparatorUI.h>
 #include <javax/swing/plaf/basic/BasicPopupMenuSeparatorUI.h>
-#include <javax/swing/plaf/basic/BasicSeparatorUI.h>
 #include <jcpp.h>
 
 #undef GUTTER_OFFSET_KEY
@@ -31,7 +29,6 @@ using $WindowsPopupMenuUI = ::com::sun::java::swing::plaf::windows::WindowsPopup
 using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
@@ -41,9 +38,7 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $SeparatorUI = ::javax::swing::plaf::SeparatorUI;
 using $BasicPopupMenuSeparatorUI = ::javax::swing::plaf::basic::BasicPopupMenuSeparatorUI;
-using $BasicSeparatorUI = ::javax::swing::plaf::basic::BasicSeparatorUI;
 
 namespace com {
 	namespace sun {

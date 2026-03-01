@@ -4,7 +4,6 @@
 #include <com/sun/imageio/plugins/jpeg/JPEG.h>
 #include <com/sun/imageio/plugins/jpeg/JPEGBuffer.h>
 #include <com/sun/imageio/plugins/jpeg/MarkerSegment.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -12,7 +11,6 @@
 #include <javax/imageio/metadata/IIOMetadataNode.h>
 #include <javax/imageio/plugins/jpeg/JPEGQTable.h>
 #include <javax/imageio/stream/ImageOutputStream.h>
-#include <org/w3c/dom/Element.h>
 #include <org/w3c/dom/Node.h>
 #include <org/w3c/dom/NodeList.h>
 #include <jcpp.h>
@@ -31,7 +29,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
@@ -39,7 +36,6 @@ using $IIOInvalidTreeException = ::javax::imageio::metadata::IIOInvalidTreeExcep
 using $IIOMetadataNode = ::javax::imageio::metadata::IIOMetadataNode;
 using $JPEGQTable = ::javax::imageio::plugins::jpeg::JPEGQTable;
 using $ImageOutputStream = ::javax::imageio::stream::ImageOutputStream;
-using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;
 using $NodeList = ::org::w3c::dom::NodeList;
 

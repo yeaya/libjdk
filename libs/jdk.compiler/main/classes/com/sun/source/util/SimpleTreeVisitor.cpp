@@ -10,7 +10,6 @@
 #include <com/sun/source/tree/BindingPatternTree.h>
 #include <com/sun/source/tree/BlockTree.h>
 #include <com/sun/source/tree/BreakTree.h>
-#include <com/sun/source/tree/CaseLabelTree.h>
 #include <com/sun/source/tree/CaseTree.h>
 #include <com/sun/source/tree/CatchTree.h>
 #include <com/sun/source/tree/ClassTree.h>
@@ -19,14 +18,12 @@
 #include <com/sun/source/tree/ConditionalExpressionTree.h>
 #include <com/sun/source/tree/ContinueTree.h>
 #include <com/sun/source/tree/DefaultCaseLabelTree.h>
-#include <com/sun/source/tree/DirectiveTree.h>
 #include <com/sun/source/tree/DoWhileLoopTree.h>
 #include <com/sun/source/tree/EmptyStatementTree.h>
 #include <com/sun/source/tree/EnhancedForLoopTree.h>
 #include <com/sun/source/tree/ErroneousTree.h>
 #include <com/sun/source/tree/ExportsTree.h>
 #include <com/sun/source/tree/ExpressionStatementTree.h>
-#include <com/sun/source/tree/ExpressionTree.h>
 #include <com/sun/source/tree/ForLoopTree.h>
 #include <com/sun/source/tree/GuardedPatternTree.h>
 #include <com/sun/source/tree/IdentifierTree.h>
@@ -50,12 +47,10 @@
 #include <com/sun/source/tree/ParameterizedTypeTree.h>
 #include <com/sun/source/tree/ParenthesizedPatternTree.h>
 #include <com/sun/source/tree/ParenthesizedTree.h>
-#include <com/sun/source/tree/PatternTree.h>
 #include <com/sun/source/tree/PrimitiveTypeTree.h>
 #include <com/sun/source/tree/ProvidesTree.h>
 #include <com/sun/source/tree/RequiresTree.h>
 #include <com/sun/source/tree/ReturnTree.h>
-#include <com/sun/source/tree/StatementTree.h>
 #include <com/sun/source/tree/SwitchExpressionTree.h>
 #include <com/sun/source/tree/SwitchTree.h>
 #include <com/sun/source/tree/SynchronizedTree.h>
@@ -88,7 +83,6 @@ using $BinaryTree = ::com::sun::source::tree::BinaryTree;
 using $BindingPatternTree = ::com::sun::source::tree::BindingPatternTree;
 using $BlockTree = ::com::sun::source::tree::BlockTree;
 using $BreakTree = ::com::sun::source::tree::BreakTree;
-using $CaseLabelTree = ::com::sun::source::tree::CaseLabelTree;
 using $CaseTree = ::com::sun::source::tree::CaseTree;
 using $CatchTree = ::com::sun::source::tree::CatchTree;
 using $ClassTree = ::com::sun::source::tree::ClassTree;
@@ -97,14 +91,12 @@ using $CompoundAssignmentTree = ::com::sun::source::tree::CompoundAssignmentTree
 using $ConditionalExpressionTree = ::com::sun::source::tree::ConditionalExpressionTree;
 using $ContinueTree = ::com::sun::source::tree::ContinueTree;
 using $DefaultCaseLabelTree = ::com::sun::source::tree::DefaultCaseLabelTree;
-using $DirectiveTree = ::com::sun::source::tree::DirectiveTree;
 using $DoWhileLoopTree = ::com::sun::source::tree::DoWhileLoopTree;
 using $EmptyStatementTree = ::com::sun::source::tree::EmptyStatementTree;
 using $EnhancedForLoopTree = ::com::sun::source::tree::EnhancedForLoopTree;
 using $ErroneousTree = ::com::sun::source::tree::ErroneousTree;
 using $ExportsTree = ::com::sun::source::tree::ExportsTree;
 using $ExpressionStatementTree = ::com::sun::source::tree::ExpressionStatementTree;
-using $ExpressionTree = ::com::sun::source::tree::ExpressionTree;
 using $ForLoopTree = ::com::sun::source::tree::ForLoopTree;
 using $GuardedPatternTree = ::com::sun::source::tree::GuardedPatternTree;
 using $IdentifierTree = ::com::sun::source::tree::IdentifierTree;
@@ -128,12 +120,10 @@ using $PackageTree = ::com::sun::source::tree::PackageTree;
 using $ParameterizedTypeTree = ::com::sun::source::tree::ParameterizedTypeTree;
 using $ParenthesizedPatternTree = ::com::sun::source::tree::ParenthesizedPatternTree;
 using $ParenthesizedTree = ::com::sun::source::tree::ParenthesizedTree;
-using $PatternTree = ::com::sun::source::tree::PatternTree;
 using $PrimitiveTypeTree = ::com::sun::source::tree::PrimitiveTypeTree;
 using $ProvidesTree = ::com::sun::source::tree::ProvidesTree;
 using $RequiresTree = ::com::sun::source::tree::RequiresTree;
 using $ReturnTree = ::com::sun::source::tree::ReturnTree;
-using $StatementTree = ::com::sun::source::tree::StatementTree;
 using $SwitchExpressionTree = ::com::sun::source::tree::SwitchExpressionTree;
 using $SwitchTree = ::com::sun::source::tree::SwitchTree;
 using $SynchronizedTree = ::com::sun::source::tree::SynchronizedTree;

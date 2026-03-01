@@ -8,7 +8,6 @@
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <javax/accessibility/AccessibleContext.h>
@@ -16,8 +15,6 @@
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JFormattedTextField.h>
 #include <javax/swing/JLabel.h>
-#include <javax/swing/JPanel.h>
-#include <javax/swing/JTextField.h>
 #include <javax/swing/SwingConstants.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/colorchooser/AbstractColorChooserPanel.h>
@@ -43,7 +40,6 @@ using $Container = ::java::awt::Container;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -56,8 +52,6 @@ using $Icon = ::javax::swing::Icon;
 using $JComponent = ::javax::swing::JComponent;
 using $JFormattedTextField = ::javax::swing::JFormattedTextField;
 using $JLabel = ::javax::swing::JLabel;
-using $JPanel = ::javax::swing::JPanel;
-using $JTextField = ::javax::swing::JTextField;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $AbstractColorChooserPanel = ::javax::swing::colorchooser::AbstractColorChooserPanel;
 using $ColorModel = ::javax::swing::colorchooser::ColorModel;
@@ -65,7 +59,6 @@ using $ColorPanel = ::javax::swing::colorchooser::ColorPanel;
 using $ColorSelectionModel = ::javax::swing::colorchooser::ColorSelectionModel;
 using $DiagramComponent = ::javax::swing::colorchooser::DiagramComponent;
 using $ValueFormatter = ::javax::swing::colorchooser::ValueFormatter;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 namespace javax {
 	namespace swing {

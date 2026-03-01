@@ -4,7 +4,6 @@
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/comp/Attr$ResultInfo.h>
 #include <com/sun/tools/javac/comp/Check$CheckContext.h>
-#include <com/sun/tools/javac/comp/Check$NestedCheckContext.h>
 #include <com/sun/tools/javac/comp/DeferredAttr$5.h>
 #include <com/sun/tools/javac/comp/DeferredAttr$AttrMode.h>
 #include <com/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext.h>
@@ -21,14 +20,12 @@
 #include <java/lang/AssertionError.h>
 #include <java/lang/Enum.h>
 #include <java/lang/Iterable.h>
-#include <java/util/Collection.h>
 #include <java/util/Set.h>
 #include <jcpp.h>
 
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Attr$ResultInfo = ::com::sun::tools::javac::comp::Attr$ResultInfo;
 using $Check$CheckContext = ::com::sun::tools::javac::comp::Check$CheckContext;
-using $Check$NestedCheckContext = ::com::sun::tools::javac::comp::Check$NestedCheckContext;
 using $DeferredAttr = ::com::sun::tools::javac::comp::DeferredAttr;
 using $DeferredAttr$5 = ::com::sun::tools::javac::comp::DeferredAttr$5;
 using $DeferredAttr$AttrMode = ::com::sun::tools::javac::comp::DeferredAttr$AttrMode;
@@ -46,7 +43,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Collection = ::java::util::Collection;
 
 namespace com {
 	namespace sun {

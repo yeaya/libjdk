@@ -4,7 +4,6 @@
 #include <com/sun/org/slf4j/internal/LoggerFactory.h>
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/InvalidKeyException.h>
 #include <java/security/Key.h>
@@ -29,7 +28,6 @@
 #include <org/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMSignedInfo.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMUtils.h>
-#include <org/w3c/dom/CharacterData.h>
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/Element.h>
 #include <org/w3c/dom/Node.h>
@@ -50,14 +48,12 @@ using $Logger = ::com::sun::org::slf4j::internal::Logger;
 using $LoggerFactory = ::com::sun::org::slf4j::internal::LoggerFactory;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $NumberFormatException = ::java::lang::NumberFormatException;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $InvalidAlgorithmParameterException = ::java::security::InvalidAlgorithmParameterException;
 using $InvalidKeyException = ::java::security::InvalidKeyException;
 using $Key = ::java::security::Key;
@@ -82,7 +78,6 @@ using $AbstractDOMSignatureMethod = ::org::jcp::xml::dsig::internal::dom::Abstra
 using $AbstractDOMSignatureMethod$Type = ::org::jcp::xml::dsig::internal::dom::AbstractDOMSignatureMethod$Type;
 using $DOMSignedInfo = ::org::jcp::xml::dsig::internal::dom::DOMSignedInfo;
 using $DOMUtils = ::org::jcp::xml::dsig::internal::dom::DOMUtils;
-using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;

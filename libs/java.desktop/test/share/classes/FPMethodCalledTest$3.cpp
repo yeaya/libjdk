@@ -4,7 +4,6 @@
 #include <FPMethodCalledTest$Resultable.h>
 #include <FPMethodCalledTest$Test.h>
 #include <javax/swing/text/Element.h>
-#include <javax/swing/text/PlainView.h>
 #include <javax/swing/text/View.h>
 #include <jcpp.h>
 
@@ -16,7 +15,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Element = ::javax::swing::text::Element;
-using $PlainView = ::javax::swing::text::PlainView;
 using $View = ::javax::swing::text::View;
 
 $MethodInfo _FPMethodCalledTest$3_MethodInfo_[] = {

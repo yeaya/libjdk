@@ -3,7 +3,6 @@
 #include <bug5043626$1.h>
 #include <bug5043626$2.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/KeyEvent.h>
@@ -14,12 +13,10 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/text/Document.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef EXIT_ON_CLOSE
@@ -30,7 +27,6 @@
 using $bug5043626$1 = ::bug5043626$1;
 using $bug5043626$2 = ::bug5043626$2;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Robot = ::java::awt::Robot;
 using $Window = ::java::awt::Window;
 using $KeyEvent = ::java::awt::event::KeyEvent;
@@ -42,12 +38,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $JComponent = ::javax::swing::JComponent;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $JFrame = ::javax::swing::JFrame;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $Document = ::javax::swing::text::Document;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 class bug5043626$$Lambda$dispose : public $Runnable {
 	$class(bug5043626$$Lambda$dispose, $NO_CLASS_INIT, $Runnable)

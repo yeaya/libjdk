@@ -1,7 +1,5 @@
 #include <com/sun/jndi/ldap/LdapCtx.h>
 
-#include <com/sun/jndi/ldap/AbstractLdapNamingEnumeration.h>
-#include <com/sun/jndi/ldap/BasicControl.h>
 #include <com/sun/jndi/ldap/Connection.h>
 #include <com/sun/jndi/ldap/DefaultResponseControlFactory.h>
 #include <com/sun/jndi/ldap/EventSupport.h>
@@ -21,7 +19,6 @@
 #include <com/sun/jndi/ldap/LdapURL.h>
 #include <com/sun/jndi/ldap/ManageReferralControl.h>
 #include <com/sun/jndi/ldap/Obj.h>
-#include <com/sun/jndi/ldap/ReferralEnumeration.h>
 #include <com/sun/jndi/ldap/ext/StartTlsResponseImpl.h>
 #include <com/sun/jndi/toolkit/ctx/AtomicContext.h>
 #include <com/sun/jndi/toolkit/ctx/ComponentContext.h>
@@ -72,11 +69,9 @@
 #include <javax/naming/NameParser.h>
 #include <javax/naming/NamingEnumeration.h>
 #include <javax/naming/NamingException.h>
-#include <javax/naming/NamingSecurityException.h>
 #include <javax/naming/NoPermissionException.h>
 #include <javax/naming/OperationNotSupportedException.h>
 #include <javax/naming/PartialResultException.h>
-#include <javax/naming/ReferralException.h>
 #include <javax/naming/ServiceUnavailableException.h>
 #include <javax/naming/SizeLimitExceededException.h>
 #include <javax/naming/TimeLimitExceededException.h>
@@ -101,7 +96,6 @@
 #include <javax/naming/ldap/ExtendedResponse.h>
 #include <javax/naming/ldap/LdapContext.h>
 #include <javax/naming/ldap/LdapName.h>
-#include <javax/naming/ldap/LdapReferralException.h>
 #include <javax/naming/ldap/Rdn.h>
 #include <javax/naming/ldap/UnsolicitedNotificationListener.h>
 #include <javax/naming/spi/DirectoryManager.h>
@@ -224,8 +218,6 @@
 using $AttributeArray = $Array<::javax::naming::directory::Attribute>;
 using $ModificationItemArray = $Array<::javax::naming::directory::ModificationItem>;
 using $ControlArray = $Array<::javax::naming::ldap::Control>;
-using $AbstractLdapNamingEnumeration = ::com::sun::jndi::ldap::AbstractLdapNamingEnumeration;
-using $BasicControl = ::com::sun::jndi::ldap::BasicControl;
 using $DefaultResponseControlFactory = ::com::sun::jndi::ldap::DefaultResponseControlFactory;
 using $EventSupport = ::com::sun::jndi::ldap::EventSupport;
 using $LdapAttribute = ::com::sun::jndi::ldap::LdapAttribute;
@@ -244,7 +236,6 @@ using $LdapSearchEnumeration = ::com::sun::jndi::ldap::LdapSearchEnumeration;
 using $LdapURL = ::com::sun::jndi::ldap::LdapURL;
 using $ManageReferralControl = ::com::sun::jndi::ldap::ManageReferralControl;
 using $Obj = ::com::sun::jndi::ldap::Obj;
-using $ReferralEnumeration = ::com::sun::jndi::ldap::ReferralEnumeration;
 using $StartTlsResponseImpl = ::com::sun::jndi::ldap::ext::StartTlsResponseImpl;
 using $AtomicContext = ::com::sun::jndi::toolkit::ctx::AtomicContext;
 using $ComponentContext = ::com::sun::jndi::toolkit::ctx::ComponentContext;
@@ -298,11 +289,9 @@ using $NameNotFoundException = ::javax::naming::NameNotFoundException;
 using $NameParser = ::javax::naming::NameParser;
 using $NamingEnumeration = ::javax::naming::NamingEnumeration;
 using $NamingException = ::javax::naming::NamingException;
-using $NamingSecurityException = ::javax::naming::NamingSecurityException;
 using $NoPermissionException = ::javax::naming::NoPermissionException;
 using $OperationNotSupportedException = ::javax::naming::OperationNotSupportedException;
 using $PartialResultException = ::javax::naming::PartialResultException;
-using $ReferralException = ::javax::naming::ReferralException;
 using $ServiceUnavailableException = ::javax::naming::ServiceUnavailableException;
 using $SizeLimitExceededException = ::javax::naming::SizeLimitExceededException;
 using $TimeLimitExceededException = ::javax::naming::TimeLimitExceededException;
@@ -327,7 +316,6 @@ using $ExtendedRequest = ::javax::naming::ldap::ExtendedRequest;
 using $ExtendedResponse = ::javax::naming::ldap::ExtendedResponse;
 using $LdapContext = ::javax::naming::ldap::LdapContext;
 using $LdapName = ::javax::naming::ldap::LdapName;
-using $1LdapReferralException = ::javax::naming::ldap::LdapReferralException;
 using $Rdn = ::javax::naming::ldap::Rdn;
 using $UnsolicitedNotificationListener = ::javax::naming::ldap::UnsolicitedNotificationListener;
 using $DirectoryManager = ::javax::naming::spi::DirectoryManager;

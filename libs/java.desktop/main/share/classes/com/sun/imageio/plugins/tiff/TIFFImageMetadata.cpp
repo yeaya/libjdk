@@ -7,10 +7,8 @@
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/lang/reflect/Method.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/HashMap.h>
@@ -30,7 +28,6 @@
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <javax/imageio/plugins/tiff/TIFFTagSet.h>
 #include <javax/imageio/stream/ImageInputStream.h>
-#include <org/w3c/dom/Element.h>
 #include <org/w3c/dom/NamedNodeMap.h>
 #include <org/w3c/dom/Node.h>
 #include <org/w3c/dom/NodeList.h>
@@ -109,7 +106,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $Double = ::java::lang::Double;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
@@ -119,11 +115,9 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $Method = ::java::lang::reflect::Method;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $HashMap = ::java::util::HashMap;
@@ -143,7 +137,6 @@ using $TIFFField = ::javax::imageio::plugins::tiff::TIFFField;
 using $TIFFTag = ::javax::imageio::plugins::tiff::TIFFTag;
 using $TIFFTagSet = ::javax::imageio::plugins::tiff::TIFFTagSet;
 using $ImageInputStream = ::javax::imageio::stream::ImageInputStream;
-using $Element = ::org::w3c::dom::Element;
 using $NamedNodeMap = ::org::w3c::dom::NamedNodeMap;
 using $Node = ::org::w3c::dom::Node;
 using $NodeList = ::org::w3c::dom::NodeList;

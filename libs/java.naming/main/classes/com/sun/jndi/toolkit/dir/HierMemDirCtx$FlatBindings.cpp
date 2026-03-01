@@ -9,7 +9,6 @@
 #include <javax/naming/Name.h>
 #include <javax/naming/NamingException.h>
 #include <javax/naming/directory/Attributes.h>
-#include <javax/naming/directory/DirContext.h>
 #include <javax/naming/spi/DirectoryManager.h>
 #include <jcpp.h>
 
@@ -27,7 +26,6 @@ using $Context = ::javax::naming::Context;
 using $Name = ::javax::naming::Name;
 using $NamingException = ::javax::naming::NamingException;
 using $Attributes = ::javax::naming::directory::Attributes;
-using $DirContext = ::javax::naming::directory::DirContext;
 using $DirectoryManager = ::javax::naming::spi::DirectoryManager;
 
 namespace com {

@@ -2,12 +2,10 @@
 
 #include <com/sun/tools/javac/api/JavacScope.h>
 #include <com/sun/tools/javac/code/Scope$CompoundScope.h>
-#include <com/sun/tools/javac/code/Scope$ImportScope.h>
 #include <com/sun/tools/javac/code/Scope$NamedImportScope.h>
 #include <com/sun/tools/javac/code/Scope$WriteableScope.h>
 #include <com/sun/tools/javac/code/Scope.h>
 #include <com/sun/tools/javac/code/Symbol$PackageSymbol.h>
-#include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/comp/Env.h>
 #include <com/sun/tools/javac/tree/JCTree$JCCompilationUnit.h>
@@ -20,9 +18,7 @@
 using $JavacScope = ::com::sun::tools::javac::api::JavacScope;
 using $Scope = ::com::sun::tools::javac::code::Scope;
 using $Scope$CompoundScope = ::com::sun::tools::javac::code::Scope$CompoundScope;
-using $Scope$ImportScope = ::com::sun::tools::javac::code::Scope$ImportScope;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

@@ -2,10 +2,8 @@
 
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisTraverser.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMIterator.h>
-#include <com/sun/org/apache/xpath/internal/Expression.h>
 #include <com/sun/org/apache/xpath/internal/ExpressionNode.h>
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
-#include <com/sun/org/apache/xpath/internal/axes/BasicTestIterator.h>
 #include <com/sun/org/apache/xpath/internal/axes/ChildTestIterator.h>
 #include <com/sun/org/apache/xpath/internal/axes/LocPathIterator.h>
 #include <com/sun/org/apache/xpath/internal/axes/PredicatedNodeTest.h>
@@ -23,12 +21,9 @@
 using $PredicatedNodeTestArray = $Array<::com::sun::org::apache::xpath::internal::axes::PredicatedNodeTest>;
 using $DTMAxisTraverser = ::com::sun::org::apache::xml::internal::dtm::DTMAxisTraverser;
 using $DTMIterator = ::com::sun::org::apache::xml::internal::dtm::DTMIterator;
-using $Expression = ::com::sun::org::apache::xpath::internal::Expression;
 using $ExpressionNode = ::com::sun::org::apache::xpath::internal::ExpressionNode;
 using $XPathContext = ::com::sun::org::apache::xpath::internal::XPathContext;
-using $BasicTestIterator = ::com::sun::org::apache::xpath::internal::axes::BasicTestIterator;
 using $ChildTestIterator = ::com::sun::org::apache::xpath::internal::axes::ChildTestIterator;
-using $LocPathIterator = ::com::sun::org::apache::xpath::internal::axes::LocPathIterator;
 using $PredicatedNodeTest = ::com::sun::org::apache::xpath::internal::axes::PredicatedNodeTest;
 using $XObject = ::com::sun::org::apache::xpath::internal::objects::XObject;
 using $NodeTest = ::com::sun::org::apache::xpath::internal::patterns::NodeTest;

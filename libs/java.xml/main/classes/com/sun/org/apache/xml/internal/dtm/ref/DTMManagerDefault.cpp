@@ -7,8 +7,6 @@
 #include <com/sun/org/apache/xml/internal/dtm/DTMManager.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMWSFilter.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBase.h>
-#include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators.h>
-#include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseTraversers.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMNodeProxy.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/ExpandedNameTable.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/IncrementalSAXSource.h>
@@ -70,8 +68,6 @@ using $DTMIterator = ::com::sun::org::apache::xml::internal::dtm::DTMIterator;
 using $DTMManager = ::com::sun::org::apache::xml::internal::dtm::DTMManager;
 using $DTMWSFilter = ::com::sun::org::apache::xml::internal::dtm::DTMWSFilter;
 using $DTMDefaultBase = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBase;
-using $DTMDefaultBaseIterators = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators;
-using $DTMDefaultBaseTraversers = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseTraversers;
 using $DTMNodeProxy = ::com::sun::org::apache::xml::internal::dtm::ref::DTMNodeProxy;
 using $ExpandedNameTable = ::com::sun::org::apache::xml::internal::dtm::ref::ExpandedNameTable;
 using $IncrementalSAXSource = ::com::sun::org::apache::xml::internal::dtm::ref::IncrementalSAXSource;

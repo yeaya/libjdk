@@ -2,7 +2,6 @@
 
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Insets.h>
 #include <java/awt/Point.h>
@@ -23,7 +22,6 @@
 #include <javax/swing/WindowConstants.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/TextUI.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef ABSOLUTE_FILE_PATH
@@ -35,7 +33,6 @@
 using $JEditorPaneArray = $Array<::javax::swing::JEditorPane>;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Insets = ::java::awt::Insets;
 using $Point = ::java::awt::Point;
 using $Robot = ::java::awt::Robot;
@@ -54,7 +51,6 @@ using $JFrame = ::javax::swing::JFrame;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $WindowConstants = ::javax::swing::WindowConstants;
 using $TextUI = ::javax::swing::plaf::TextUI;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 class ImageViewTest$$Lambda$lambda$test$0 : public $Runnable {
 	$class(ImageViewTest$$Lambda$lambda$test$0, $NO_CLASS_INIT, $Runnable)

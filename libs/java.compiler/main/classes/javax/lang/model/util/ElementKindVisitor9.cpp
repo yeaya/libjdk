@@ -2,7 +2,6 @@
 
 #include <javax/lang/model/element/Element.h>
 #include <javax/lang/model/element/ModuleElement.h>
-#include <javax/lang/model/element/QualifiedNameable.h>
 #include <javax/lang/model/util/ElementKindVisitor8.h>
 #include <javax/lang/model/util/SimpleElementVisitor6.h>
 #include <jcpp.h>
@@ -13,7 +12,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $Element = ::javax::lang::model::element::Element;
 using $ModuleElement = ::javax::lang::model::element::ModuleElement;
-using $QualifiedNameable = ::javax::lang::model::element::QualifiedNameable;
 using $ElementKindVisitor8 = ::javax::lang::model::util::ElementKindVisitor8;
 
 namespace javax {

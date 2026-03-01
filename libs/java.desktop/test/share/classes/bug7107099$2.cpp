@@ -2,9 +2,7 @@
 
 #include <bug7107099.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <javax/swing/BoundedRangeModel.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JScrollBar.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/JTextArea.h>
@@ -13,17 +11,14 @@
 
 using $bug7107099 = ::bug7107099;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BoundedRangeModel = ::javax::swing::BoundedRangeModel;
-using $JComponent = ::javax::swing::JComponent;
 using $JScrollBar = ::javax::swing::JScrollBar;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JTextArea = ::javax::swing::JTextArea;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 $MethodInfo _bug7107099$2_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(bug7107099$2, init$, void)},

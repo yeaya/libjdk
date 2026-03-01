@@ -2,14 +2,12 @@
 
 #include <com/sun/tools/javac/code/Type$Visitor.h>
 #include <com/sun/tools/javac/code/Type.h>
-#include <com/sun/tools/javac/code/Types$DefaultTypeVisitor.h>
 #include <com/sun/tools/javac/code/Types$SimpleVisitor.h>
 #include <com/sun/tools/javac/code/Types.h>
 #include <jcpp.h>
 
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$Visitor = ::com::sun::tools::javac::code::Type$Visitor;
-using $Types$DefaultTypeVisitor = ::com::sun::tools::javac::code::Types$DefaultTypeVisitor;
 using $Types$SimpleVisitor = ::com::sun::tools::javac::code::Types$SimpleVisitor;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

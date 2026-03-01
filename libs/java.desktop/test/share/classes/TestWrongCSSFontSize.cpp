@@ -1,15 +1,12 @@
 #include <TestWrongCSSFontSize.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/RenderedImage.h>
-#include <java/awt/image/WritableRenderedImage.h>
 #include <java/io/File.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
@@ -25,7 +22,6 @@
 #include <java/util/concurrent/atomic/AtomicReference.h>
 #include <java/util/function/Consumer.h>
 #include <javax/imageio/ImageIO.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -45,14 +41,11 @@
 #undef W3C_LENGTH_UNITS
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Font = ::java::awt::Font;
 using $Graphics = ::java::awt::Graphics;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $RenderedImage = ::java::awt::image::RenderedImage;
-using $WritableRenderedImage = ::java::awt::image::WritableRenderedImage;
 using $File = ::java::io::File;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $Serializable = ::java::io::Serializable;
@@ -69,7 +62,6 @@ using $List = ::java::util::List;
 using $AtomicReference = ::java::util::concurrent::atomic::AtomicReference;
 using $Consumer = ::java::util::function::Consumer;
 using $ImageIO = ::javax::imageio::ImageIO;
-using $JComponent = ::javax::swing::JComponent;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $TextUI = ::javax::swing::plaf::TextUI;

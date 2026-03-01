@@ -8,7 +8,6 @@
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Symtab.h>
 #include <com/sun/tools/javac/comp/Env.h>
-#include <com/sun/tools/javac/comp/Resolve$ResolveError.h>
 #include <com/sun/tools/javac/comp/Resolve$SymbolNotFoundError.h>
 #include <com/sun/tools/javac/comp/Resolve.h>
 #include <com/sun/tools/javac/util/Convert.h>
@@ -41,7 +40,6 @@ using $Symbol$ModuleSymbol = ::com::sun::tools::javac::code::Symbol$ModuleSymbol
 using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
-using $Resolve$ResolveError = ::com::sun::tools::javac::comp::Resolve$ResolveError;
 using $Convert = ::com::sun::tools::javac::util::Convert;
 using $Iterators = ::com::sun::tools::javac::util::Iterators;
 using $List = ::com::sun::tools::javac::util::List;

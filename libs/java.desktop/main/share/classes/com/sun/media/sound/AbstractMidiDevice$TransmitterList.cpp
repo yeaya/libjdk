@@ -9,8 +9,6 @@
 #include <javax/sound/midi/InvalidMidiDataException.h>
 #include <javax/sound/midi/MidiMessage.h>
 #include <javax/sound/midi/Receiver.h>
-#include <javax/sound/midi/ShortMessage.h>
-#include <javax/sound/midi/SysexMessage.h>
 #include <javax/sound/midi/Transmitter.h>
 #include <jcpp.h>
 
@@ -27,8 +25,6 @@ using $ArrayList = ::java::util::ArrayList;
 using $InvalidMidiDataException = ::javax::sound::midi::InvalidMidiDataException;
 using $MidiMessage = ::javax::sound::midi::MidiMessage;
 using $Receiver = ::javax::sound::midi::Receiver;
-using $ShortMessage = ::javax::sound::midi::ShortMessage;
-using $SysexMessage = ::javax::sound::midi::SysexMessage;
 using $Transmitter = ::javax::sound::midi::Transmitter;
 
 namespace com {

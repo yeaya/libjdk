@@ -3,13 +3,11 @@
 #include <com/sun/org/apache/xpath/internal/Expression.h>
 #include <com/sun/org/apache/xpath/internal/ExpressionNode.h>
 #include <com/sun/org/apache/xpath/internal/functions/FuncExtFunction.h>
-#include <com/sun/org/apache/xpath/internal/functions/Function.h>
 #include <jcpp.h>
 
 using $Expression = ::com::sun::org::apache::xpath::internal::Expression;
 using $ExpressionNode = ::com::sun::org::apache::xpath::internal::ExpressionNode;
 using $FuncExtFunction = ::com::sun::org::apache::xpath::internal::functions::FuncExtFunction;
-using $Function = ::com::sun::org::apache::xpath::internal::functions::Function;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

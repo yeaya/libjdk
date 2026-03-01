@@ -5,7 +5,6 @@
 #include <java/lang/IllegalStateException.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
-#include <java/security/GeneralSecurityException.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/util/Map.h>
 #include <java/util/Random.h>
@@ -27,12 +26,10 @@ using $CallbackArray = $Array<::javax::security::auth::callback::Callback>;
 using $CramMD5Base = ::com::sun::security::sasl::CramMD5Base;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $Map = ::java::util::Map;
 using $Random = ::java::util::Random;

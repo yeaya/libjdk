@@ -1,15 +1,11 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Output.h>
 
-#include <com/sun/org/apache/bcel/internal/generic/CPInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/CompoundInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
-#include <com/sun/org/apache/bcel/internal/generic/FieldInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/FieldOrMethod.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEVIRTUAL.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionList.h>
-#include <com/sun/org/apache/bcel/internal/generic/InvokeInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/PUSH.h>
 #include <com/sun/org/apache/bcel/internal/generic/PUTFIELD.h>
 #include <com/sun/org/apache/bcel/internal/generic/StackInstruction.h>
@@ -25,7 +21,6 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/Util.h>
 #include <com/sun/org/apache/xml/internal/serializer/Encodings.h>
 #include <com/sun/org/apache/xml/internal/utils/XML11Char.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/OutputStreamWriter.h>
 #include <java/io/UnsupportedEncodingException.h>
@@ -58,15 +53,11 @@
 #undef WARNING
 #undef XML_VERSION
 
-using $CPInstruction = ::com::sun::org::apache::bcel::internal::generic::CPInstruction;
 using $CompoundInstruction = ::com::sun::org::apache::bcel::internal::generic::CompoundInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
-using $FieldInstruction = ::com::sun::org::apache::bcel::internal::generic::FieldInstruction;
-using $FieldOrMethod = ::com::sun::org::apache::bcel::internal::generic::FieldOrMethod;
 using $INVOKEVIRTUAL = ::com::sun::org::apache::bcel::internal::generic::INVOKEVIRTUAL;
 using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
-using $InvokeInstruction = ::com::sun::org::apache::bcel::internal::generic::InvokeInstruction;
 using $PUSH = ::com::sun::org::apache::bcel::internal::generic::PUSH;
 using $PUTFIELD = ::com::sun::org::apache::bcel::internal::generic::PUTFIELD;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
@@ -81,7 +72,6 @@ using $MethodGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compil
 using $Util = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::Util;
 using $Encodings = ::com::sun::org::apache::xml::internal::serializer::Encodings;
 using $XML11Char = ::com::sun::org::apache::xml::internal::utils::XML11Char;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $OutputStreamWriter = ::java::io::OutputStreamWriter;
 using $UnsupportedEncodingException = ::java::io::UnsupportedEncodingException;

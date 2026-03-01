@@ -2,7 +2,6 @@
 
 #include <com/sun/tools/javac/api/DiagnosticFormatter.h>
 #include <com/sun/tools/javac/resources/CompilerProperties$Errors.h>
-#include <com/sun/tools/javac/util/AbstractDiagnosticFormatter.h>
 #include <com/sun/tools/javac/util/BasicDiagnosticFormatter.h>
 #include <com/sun/tools/javac/util/Context$Key.h>
 #include <com/sun/tools/javac/util/Context.h>
@@ -26,7 +25,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/ref/SoftReference.h>
 #include <java/text/MessageFormat.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
 #include <java/util/Locale.h>
@@ -40,7 +38,6 @@
 
 using $DiagnosticFormatter = ::com::sun::tools::javac::api::DiagnosticFormatter;
 using $CompilerProperties$Errors = ::com::sun::tools::javac::resources::CompilerProperties$Errors;
-using $AbstractDiagnosticFormatter = ::com::sun::tools::javac::util::AbstractDiagnosticFormatter;
 using $BasicDiagnosticFormatter = ::com::sun::tools::javac::util::BasicDiagnosticFormatter;
 using $Context = ::com::sun::tools::javac::util::Context;
 using $Context$Key = ::com::sun::tools::javac::util::Context$Key;
@@ -56,16 +53,13 @@ using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $Error = ::java::lang::Error;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $SoftReference = ::java::lang::ref::SoftReference;
 using $MessageFormat = ::java::text::MessageFormat;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $Locale = ::java::util::Locale;

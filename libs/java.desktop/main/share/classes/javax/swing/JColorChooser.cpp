@@ -1,16 +1,13 @@
 #include <javax/swing/JColorChooser.h>
 
 #include <java/awt/Color.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Dialog.h>
 #include <java/awt/Frame.h>
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/HeadlessException.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionListener.h>
-#include <java/awt/event/ComponentAdapter.h>
 #include <java/awt/event/ComponentListener.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/util/Arrays.h>
@@ -19,7 +16,6 @@
 #include <javax/swing/ColorChooserDialog.h>
 #include <javax/swing/ColorTracker.h>
 #include <javax/swing/JColorChooser$AccessibleJColorChooser.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JDialog.h>
 #include <javax/swing/JOptionPane.h>
@@ -39,15 +35,12 @@
 using $AbstractColorChooserPanelArray = $Array<::javax::swing::colorchooser::AbstractColorChooserPanel>;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Dialog = ::java::awt::Dialog;
 using $Frame = ::java::awt::Frame;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $HeadlessException = ::java::awt::HeadlessException;
 using $Window = ::java::awt::Window;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $ComponentAdapter = ::java::awt::event::ComponentAdapter;
 using $ComponentListener = ::java::awt::event::ComponentListener;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -64,7 +57,6 @@ using $ColorChooserDialog$DisposeOnClose = ::javax::swing::ColorChooserDialog$Di
 using $ColorTracker = ::javax::swing::ColorTracker;
 using $JColorChooser$AccessibleJColorChooser = ::javax::swing::JColorChooser$AccessibleJColorChooser;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JDialog = ::javax::swing::JDialog;
 using $JOptionPane = ::javax::swing::JOptionPane;
 using $UIManager = ::javax::swing::UIManager;

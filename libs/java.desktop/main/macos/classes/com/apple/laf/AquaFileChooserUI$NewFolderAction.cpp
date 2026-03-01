@@ -2,13 +2,11 @@
 
 #include <com/apple/laf/AquaFileChooserUI.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/io/File.h>
 #include <javax/swing/AbstractAction.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JDialog.h>
 #include <javax/swing/JFileChooser.h>
 #include <javax/swing/JOptionPane.h>
@@ -22,7 +20,6 @@
 
 using $AquaFileChooserUI = ::com::apple::laf::AquaFileChooserUI;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $File = ::java::io::File;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -33,7 +30,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractAction = ::javax::swing::AbstractAction;
 using $Icon = ::javax::swing::Icon;
-using $JComponent = ::javax::swing::JComponent;
 using $JDialog = ::javax::swing::JDialog;
 using $JFileChooser = ::javax::swing::JFileChooser;
 using $JOptionPane = ::javax::swing::JOptionPane;

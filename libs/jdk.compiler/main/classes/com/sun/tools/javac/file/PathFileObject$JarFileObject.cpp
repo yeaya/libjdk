@@ -15,7 +15,6 @@ using $BaseFileManager = ::com::sun::tools::javac::file::BaseFileManager;
 using $PathFileObject = ::com::sun::tools::javac::file::PathFileObject;
 using $PathFileObject$CannotCreateUriError = ::com::sun::tools::javac::file::PathFileObject$CannotCreateUriError;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;

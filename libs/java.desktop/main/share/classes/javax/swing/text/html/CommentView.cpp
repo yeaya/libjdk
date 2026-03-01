@@ -3,18 +3,14 @@
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Font.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JTextArea.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
-#include <javax/swing/border/LineBorder.h>
 #include <javax/swing/event/DocumentListener.h>
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/ComponentView.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/Element.h>
 #include <javax/swing/text/JTextComponent.h>
-#include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/SimpleAttributeSet.h>
 #include <javax/swing/text/StyledDocument.h>
 #include <javax/swing/text/View.h>
@@ -33,17 +29,13 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JTextArea = ::javax::swing::JTextArea;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
-using $LineBorder = ::javax::swing::border::LineBorder;
 using $DocumentListener = ::javax::swing::event::DocumentListener;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $Document = ::javax::swing::text::Document;
 using $Element = ::javax::swing::text::Element;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
-using $MutableAttributeSet = ::javax::swing::text::MutableAttributeSet;
 using $SimpleAttributeSet = ::javax::swing::text::SimpleAttributeSet;
 using $StyledDocument = ::javax::swing::text::StyledDocument;
 using $CommentView$CommentBorder = ::javax::swing::text::html::CommentView$CommentBorder;

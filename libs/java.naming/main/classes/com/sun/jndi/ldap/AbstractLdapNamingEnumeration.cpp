@@ -39,7 +39,6 @@ using $LdapReferralException = ::com::sun::jndi::ldap::LdapReferralException;
 using $LdapResult = ::com::sun::jndi::ldap::LdapResult;
 using $Continuation = ::com::sun::jndi::toolkit::ctx::Continuation;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchElementException = ::java::util::NoSuchElementException;

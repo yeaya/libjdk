@@ -6,7 +6,6 @@
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/TreeVisitor.h>
 #include <com/sun/tools/javac/tree/JCTree$JCBindingPattern.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCPattern.h>
 #include <com/sun/tools/javac/tree/JCTree$JCVariableDecl.h>
@@ -26,7 +25,6 @@ using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCBindingPattern = ::com::sun::tools::javac::tree::JCTree$JCBindingPattern;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCPattern = ::com::sun::tools::javac::tree::JCTree$JCPattern;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;

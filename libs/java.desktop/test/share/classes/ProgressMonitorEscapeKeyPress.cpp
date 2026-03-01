@@ -4,9 +4,7 @@
 #include <ProgressMonitorEscapeKeyPress$2.h>
 #include <TestThread.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/EventQueue.h>
-#include <java/awt/Frame.h>
 #include <java/awt/Window.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
@@ -24,10 +22,7 @@ using $ProgressMonitorEscapeKeyPress$1 = ::ProgressMonitorEscapeKeyPress$1;
 using $ProgressMonitorEscapeKeyPress$2 = ::ProgressMonitorEscapeKeyPress$2;
 using $TestThread = ::TestThread;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $EventQueue = ::java::awt::EventQueue;
-using $Frame = ::java::awt::Frame;
-using $Window = ::java::awt::Window;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

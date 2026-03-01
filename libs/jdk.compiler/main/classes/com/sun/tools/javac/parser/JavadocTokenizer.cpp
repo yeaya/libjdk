@@ -1,6 +1,5 @@
 #include <com/sun/tools/javac/parser/JavadocTokenizer.h>
 
-#include <com/sun/tools/javac/parser/JavaTokenizer$BasicComment.h>
 #include <com/sun/tools/javac/parser/JavaTokenizer.h>
 #include <com/sun/tools/javac/parser/JavadocTokenizer$JavadocComment.h>
 #include <com/sun/tools/javac/parser/ScannerFactory.h>
@@ -13,7 +12,6 @@
 #include <jcpp.h>
 
 using $JavaTokenizer = ::com::sun::tools::javac::parser::JavaTokenizer;
-using $JavaTokenizer$BasicComment = ::com::sun::tools::javac::parser::JavaTokenizer$BasicComment;
 using $JavadocTokenizer$JavadocComment = ::com::sun::tools::javac::parser::JavadocTokenizer$JavadocComment;
 using $ScannerFactory = ::com::sun::tools::javac::parser::ScannerFactory;
 using $Tokens$Comment = ::com::sun::tools::javac::parser::Tokens$Comment;

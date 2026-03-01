@@ -3,7 +3,6 @@
 #include <java/awt/BasicStroke.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dialog.h>
 #include <java/awt/FileDialog.h>
 #include <java/awt/Font.h>
@@ -69,11 +68,9 @@
 #include <sun/awt/windows/WPrinterJob$PrintToFileErrorDialog.h>
 #include <sun/java2d/Disposer.h>
 #include <sun/java2d/DisposerRecord.h>
-#include <sun/print/PathGraphics.h>
 #include <sun/print/PeekGraphics.h>
 #include <sun/print/PeekMetrics.h>
 #include <sun/print/PrintServiceLookupProvider.h>
-#include <sun/print/ProxyGraphics2D.h>
 #include <sun/print/RasterPrinterJob.h>
 #include <sun/print/ServiceDialog.h>
 #include <sun/print/SunAlternateMedia.h>
@@ -168,7 +165,6 @@ using $AttributeArray = $Array<::javax::print::attribute::Attribute>;
 using $BasicStroke = ::java::awt::BasicStroke;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dialog = ::java::awt::Dialog;
 using $FileDialog = ::java::awt::FileDialog;
 using $Font = ::java::awt::Font;
@@ -239,11 +235,9 @@ using $WPrinterJob$HandleRecord = ::sun::awt::windows::WPrinterJob$HandleRecord;
 using $WPrinterJob$PrintToFileErrorDialog = ::sun::awt::windows::WPrinterJob$PrintToFileErrorDialog;
 using $Disposer = ::sun::java2d::Disposer;
 using $DisposerRecord = ::sun::java2d::DisposerRecord;
-using $PathGraphics = ::sun::print::PathGraphics;
 using $PeekGraphics = ::sun::print::PeekGraphics;
 using $PeekMetrics = ::sun::print::PeekMetrics;
 using $PrintServiceLookupProvider = ::sun::print::PrintServiceLookupProvider;
-using $ProxyGraphics2D = ::sun::print::ProxyGraphics2D;
 using $RasterPrinterJob = ::sun::print::RasterPrinterJob;
 using $ServiceDialog = ::sun::print::ServiceDialog;
 using $SunAlternateMedia = ::sun::print::SunAlternateMedia;

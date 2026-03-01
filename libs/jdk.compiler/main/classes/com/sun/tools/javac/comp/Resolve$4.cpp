@@ -3,7 +3,6 @@
 #include <com/sun/tools/javac/code/Kinds$KindName.h>
 #include <com/sun/tools/javac/code/Kinds.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
-#include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/Types.h>
@@ -17,7 +16,6 @@
 #include <com/sun/tools/javac/comp/Resolve$4$1.h>
 #include <com/sun/tools/javac/comp/Resolve$AbstractMethodCheck.h>
 #include <com/sun/tools/javac/comp/Resolve$MethodCheck.h>
-#include <com/sun/tools/javac/comp/Resolve$MethodCheckContext.h>
 #include <com/sun/tools/javac/comp/Resolve$MethodCheckDiag.h>
 #include <com/sun/tools/javac/comp/Resolve$MethodResolutionPhase.h>
 #include <com/sun/tools/javac/comp/Resolve$MethodResultInfo.h>
@@ -41,7 +39,6 @@
 
 using $Kinds = ::com::sun::tools::javac::code::Kinds;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $Attr$ResultInfo = ::com::sun::tools::javac::comp::Attr$ResultInfo;
@@ -55,7 +52,6 @@ using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $Resolve$4$1 = ::com::sun::tools::javac::comp::Resolve$4$1;
 using $Resolve$AbstractMethodCheck = ::com::sun::tools::javac::comp::Resolve$AbstractMethodCheck;
 using $Resolve$MethodCheck = ::com::sun::tools::javac::comp::Resolve$MethodCheck;
-using $Resolve$MethodCheckContext = ::com::sun::tools::javac::comp::Resolve$MethodCheckContext;
 using $Resolve$MethodCheckDiag = ::com::sun::tools::javac::comp::Resolve$MethodCheckDiag;
 using $Resolve$MethodResolutionPhase = ::com::sun::tools::javac::comp::Resolve$MethodResolutionPhase;
 using $Resolve$MethodResultInfo = ::com::sun::tools::javac::comp::Resolve$MethodResultInfo;

@@ -7,7 +7,6 @@
 #include <javax/security/auth/callback/CallbackHandler.h>
 #include <javax/security/auth/callback/NameCallback.h>
 #include <javax/security/auth/callback/PasswordCallback.h>
-#include <javax/security/auth/callback/TextInputCallback.h>
 #include <javax/security/auth/callback/UnsupportedCallbackException.h>
 #include <javax/security/sasl/RealmCallback.h>
 #include <jcpp.h>
@@ -25,7 +24,6 @@ using $Callback = ::javax::security::auth::callback::Callback;
 using $CallbackHandler = ::javax::security::auth::callback::CallbackHandler;
 using $NameCallback = ::javax::security::auth::callback::NameCallback;
 using $PasswordCallback = ::javax::security::auth::callback::PasswordCallback;
-using $TextInputCallback = ::javax::security::auth::callback::TextInputCallback;
 using $UnsupportedCallbackException = ::javax::security::auth::callback::UnsupportedCallbackException;
 using $RealmCallback = ::javax::security::sasl::RealmCallback;
 

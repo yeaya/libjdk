@@ -11,10 +11,8 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JApplet.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JPanel.h>
 #include <jcpp.h>
 
@@ -30,10 +28,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JApplet = ::javax::swing::JApplet;
 using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JPanel = ::javax::swing::JPanel;
 
 class bug4644444$$Lambda$lambda$new$0 : public $Runnable {

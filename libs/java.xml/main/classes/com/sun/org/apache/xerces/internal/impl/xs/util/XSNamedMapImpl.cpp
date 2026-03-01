@@ -5,7 +5,6 @@
 #include <com/sun/org/apache/xerces/internal/util/SymbolHash.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSObject.h>
 #include <java/util/AbstractMap.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
 #include <java/util/Map.h>
 #include <java/util/Set.h>
@@ -31,7 +30,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;

@@ -9,7 +9,6 @@
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Toolkit.h>
@@ -43,7 +42,6 @@
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/Timer.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/LineBorder.h>
 #include <javax/swing/event/ListDataListener.h>
@@ -74,7 +72,6 @@ using $Dimension = ::java::awt::Dimension;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $Insets = ::java::awt::Insets;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
@@ -110,7 +107,6 @@ using $ScrollPaneConstants = ::javax::swing::ScrollPaneConstants;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $Timer = ::javax::swing::Timer;
 using $UIManager = ::javax::swing::UIManager;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $LineBorder = ::javax::swing::border::LineBorder;
 using $ListDataListener = ::javax::swing::event::ListDataListener;

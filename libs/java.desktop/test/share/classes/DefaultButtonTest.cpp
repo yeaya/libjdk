@@ -9,9 +9,7 @@
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/lang/Runnable.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
-#include <javax/swing/JPanel.h>
 #include <javax/swing/SwingUtilities.h>
 #include <jcpp.h>
 
@@ -36,9 +34,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
-using $JPanel = ::javax::swing::JPanel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 
 $FieldInfo _DefaultButtonTest_FieldInfo_[] = {

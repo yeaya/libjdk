@@ -5,7 +5,6 @@
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Frame.h>
-#include <java/awt/MenuBar.h>
 #include <java/awt/MenuComponent.h>
 #include <java/awt/peer/MenuComponentPeer.h>
 #include <java/io/Serializable.h>
@@ -15,12 +14,10 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLayeredPane.h>
 #include <javax/swing/JMenuBar.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/MenuBarUI.h>
-#include <javax/swing/plaf/basic/BasicMenuBarUI.h>
 #include <sun/awt/AWTAccessor$MenuComponentAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <sun/lwawt/macosx/CFRetainedResource$CFNativeAction.h>
@@ -38,7 +35,6 @@ using $ScreenMenuBar = ::com::apple::laf::ScreenMenuBar;
 using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Frame = ::java::awt::Frame;
-using $MenuBar = ::java::awt::MenuBar;
 using $MenuComponent = ::java::awt::MenuComponent;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -46,11 +42,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $JComponent = ::javax::swing::JComponent;
 using $JLayeredPane = ::javax::swing::JLayeredPane;
 using $JMenuBar = ::javax::swing::JMenuBar;
 using $MenuBarUI = ::javax::swing::plaf::MenuBarUI;
-using $BasicMenuBarUI = ::javax::swing::plaf::basic::BasicMenuBarUI;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
 using $AWTAccessor$MenuComponentAccessor = ::sun::awt::AWTAccessor$MenuComponentAccessor;
 using $CFRetainedResource$CFNativeAction = ::sun::lwawt::macosx::CFRetainedResource$CFNativeAction;

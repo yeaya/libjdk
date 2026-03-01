@@ -14,10 +14,8 @@
 #include <com/sun/source/tree/Scope.h>
 #include <com/sun/source/tree/Tree$Kind.h>
 #include <com/sun/source/tree/Tree.h>
-#include <com/sun/source/util/DocSourcePositions.h>
 #include <com/sun/source/util/DocTreeFactory.h>
 #include <com/sun/source/util/DocTreePath.h>
-#include <com/sun/source/util/DocTreeScanner.h>
 #include <com/sun/source/util/DocTrees.h>
 #include <com/sun/source/util/JavacTask.h>
 #include <com/sun/source/util/SourcePositions.h>
@@ -81,14 +79,12 @@
 #include <com/sun/tools/javac/tree/DocCommentTable.h>
 #include <com/sun/tools/javac/tree/DocTreeMaker.h>
 #include <com/sun/tools/javac/tree/JCTree$JCBlock.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCCatch.h>
 #include <com/sun/tools/javac/tree/JCTree$JCClassDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCCompilationUnit.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCIdent.h>
 #include <com/sun/tools/javac/tree/JCTree$JCMethodDecl.h>
-#include <com/sun/tools/javac/tree/JCTree$JCStatement.h>
 #include <com/sun/tools/javac/tree/JCTree$JCVariableDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$Tag.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
@@ -123,8 +119,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/text/BreakIterator.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
@@ -188,10 +182,8 @@ using $MethodTree = ::com::sun::source::tree::MethodTree;
 using $Scope = ::com::sun::source::tree::Scope;
 using $Tree = ::com::sun::source::tree::Tree;
 using $Tree$Kind = ::com::sun::source::tree::Tree$Kind;
-using $DocSourcePositions = ::com::sun::source::util::DocSourcePositions;
 using $DocTreeFactory = ::com::sun::source::util::DocTreeFactory;
 using $DocTreePath = ::com::sun::source::util::DocTreePath;
-using $DocTreeScanner = ::com::sun::source::util::DocTreeScanner;
 using $DocTrees = ::com::sun::source::util::DocTrees;
 using $JavacTask = ::com::sun::source::util::JavacTask;
 using $SourcePositions = ::com::sun::source::util::SourcePositions;
@@ -254,14 +246,12 @@ using $DocCommentTable = ::com::sun::tools::javac::tree::DocCommentTable;
 using $DocTreeMaker = ::com::sun::tools::javac::tree::DocTreeMaker;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCBlock = ::com::sun::tools::javac::tree::JCTree$JCBlock;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCCatch = ::com::sun::tools::javac::tree::JCTree$JCCatch;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$JCCompilationUnit = ::com::sun::tools::javac::tree::JCTree$JCCompilationUnit;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCIdent = ::com::sun::tools::javac::tree::JCTree$JCIdent;
 using $JCTree$JCMethodDecl = ::com::sun::tools::javac::tree::JCTree$JCMethodDecl;
-using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
 using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariableDecl;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
@@ -293,8 +283,6 @@ using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $BreakIterator = ::java::text::BreakIterator;
-using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSet = ::java::util::AbstractSet;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;

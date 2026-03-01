@@ -3,7 +3,6 @@
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantUtf8$Cache$1.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantUtf8.h>
 #include <java/util/HashMap.h>
-#include <java/util/LinkedHashMap.h>
 #include <jcpp.h>
 
 #undef BCEL_STATISTICS
@@ -19,7 +18,6 @@ using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HashMap = ::java::util::HashMap;
-using $LinkedHashMap = ::java::util::LinkedHashMap;
 
 namespace com {
 	namespace sun {

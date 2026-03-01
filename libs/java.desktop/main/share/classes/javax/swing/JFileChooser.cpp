@@ -2,10 +2,8 @@
 
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BorderLayout.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dialog.h>
 #include <java/awt/EventQueue.h>
@@ -13,14 +11,12 @@
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/HeadlessException.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
 #include <java/awt/event/HierarchyListener.h>
 #include <java/awt/event/InputEvent.h>
-#include <java/awt/event/WindowAdapter.h>
 #include <java/awt/event/WindowListener.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/io/File.h>
@@ -32,7 +28,6 @@
 #include <java/util/Vector.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JDialog.h>
 #include <javax/swing/JFileChooser$1.h>
@@ -93,23 +88,19 @@ using $FileFilterArray = $Array<::javax::swing::filechooser::FileFilter>;
 using $AWTEvent = ::java::awt::AWTEvent;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $Container = ::java::awt::Container;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Dialog = ::java::awt::Dialog;
 using $EventQueue = ::java::awt::EventQueue;
 using $Frame = ::java::awt::Frame;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $HeadlessException = ::java::awt::HeadlessException;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Toolkit = ::java::awt::Toolkit;
 using $Window = ::java::awt::Window;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $HierarchyListener = ::java::awt::event::HierarchyListener;
 using $InputEvent = ::java::awt::event::InputEvent;
-using $WindowAdapter = ::java::awt::event::WindowAdapter;
 using $WindowListener = ::java::awt::event::WindowListener;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $File = ::java::io::File;
@@ -131,7 +122,6 @@ using $Vector = ::java::util::Vector;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $Icon = ::javax::swing::Icon;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JDialog = ::javax::swing::JDialog;
 using $JFileChooser$1 = ::javax::swing::JFileChooser$1;
 using $JFileChooser$AccessibleJFileChooser = ::javax::swing::JFileChooser$AccessibleJFileChooser;

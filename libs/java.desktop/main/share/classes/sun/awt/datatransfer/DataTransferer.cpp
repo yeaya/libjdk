@@ -14,7 +14,6 @@
 #include <java/awt/image/ImageObserver.h>
 #include <java/awt/image/RenderedImage.h>
 #include <java/awt/image/WritableRaster.h>
-#include <java/awt/image/WritableRenderedImage.h>
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/File.h>
@@ -31,7 +30,6 @@
 #include <java/io/StringReader.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
@@ -55,10 +53,7 @@
 #include <java/security/PrivilegedActionException.h>
 #include <java/security/PrivilegedExceptionAction.h>
 #include <java/security/ProtectionDomain.h>
-#include <java/util/AbstractList.h>
 #include <java/util/AbstractMap$SimpleEntry.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collections.h>
@@ -70,7 +65,6 @@
 #include <java/util/LinkedHashSet.h>
 #include <java/util/List.h>
 #include <java/util/Map.h>
-#include <java/util/NavigableMap.h>
 #include <java/util/Optional.h>
 #include <java/util/Set.h>
 #include <java/util/SortedMap.h>
@@ -124,7 +118,6 @@ using $ColorModel = ::java::awt::image::ColorModel;
 using $ImageObserver = ::java::awt::image::ImageObserver;
 using $RenderedImage = ::java::awt::image::RenderedImage;
 using $WritableRaster = ::java::awt::image::WritableRaster;
-using $WritableRenderedImage = ::java::awt::image::WritableRenderedImage;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $File = ::java::io::File;
@@ -149,9 +142,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $Runnable = ::java::lang::Runnable;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityException = ::java::lang::SecurityException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
@@ -169,10 +160,7 @@ using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $ProtectionDomain = ::java::security::ProtectionDomain;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractMap = ::java::util::AbstractMap;
 using $AbstractMap$SimpleEntry = ::java::util::AbstractMap$SimpleEntry;
-using $AbstractSet = ::java::util::AbstractSet;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $Collections = ::java::util::Collections;
@@ -184,7 +172,6 @@ using $Iterator = ::java::util::Iterator;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
-using $NavigableMap = ::java::util::NavigableMap;
 using $Optional = ::java::util::Optional;
 using $Set = ::java::util::Set;
 using $SortedMap = ::java::util::SortedMap;

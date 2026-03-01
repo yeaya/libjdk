@@ -1,9 +1,7 @@
 #include <javax/swing/JTree.h>
 
 #include <java/awt/AWTEvent.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/GraphicsEnvironment.h>
@@ -31,7 +29,6 @@
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/accessibility/AccessibleState.h>
 #include <javax/swing/DropMode.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JTree$1.h>
 #include <javax/swing/JTree$AccessibleJTree.h>
@@ -109,9 +106,7 @@ using $TreeWillExpandListenerArray = $Array<::javax::swing::event::TreeWillExpan
 using $TreePathArray = $Array<::javax::swing::tree::TreePath>;
 using $TreePathArray2 = $Array<::javax::swing::tree::TreePath, 2>;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $Container = ::java::awt::Container;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Dimension = ::java::awt::Dimension;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $HeadlessException = ::java::awt::HeadlessException;
@@ -148,7 +143,6 @@ using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AccessibleState = ::javax::accessibility::AccessibleState;
 using $DropMode = ::javax::swing::DropMode;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JTree$1 = ::javax::swing::JTree$1;
 using $JTree$AccessibleJTree = ::javax::swing::JTree$AccessibleJTree;
 using $JTree$DropLocation = ::javax::swing::JTree$DropLocation;

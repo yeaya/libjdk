@@ -7,7 +7,6 @@
 #include <java/awt/LayoutManager.h>
 #include <java/awt/Rectangle.h>
 #include <java/lang/Math.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JScrollBar.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/JViewport.h>
@@ -47,7 +46,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JScrollBar = ::javax::swing::JScrollBar;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JViewport = ::javax::swing::JViewport;

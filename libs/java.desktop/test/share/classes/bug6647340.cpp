@@ -15,19 +15,16 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JDesktopPane.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JInternalFrame$JDesktopIcon.h>
 #include <javax/swing/JInternalFrame.h>
-#include <javax/swing/JLayeredPane.h>
 #include <javax/swing/SwingUtilities.h>
 #include <jcpp.h>
 
 #undef EXIT_ON_CLOSE
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Point = ::java::awt::Point;
 using $Robot = ::java::awt::Robot;
@@ -41,12 +38,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $JComponent = ::javax::swing::JComponent;
 using $JDesktopPane = ::javax::swing::JDesktopPane;
 using $JFrame = ::javax::swing::JFrame;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $JInternalFrame$JDesktopIcon = ::javax::swing::JInternalFrame$JDesktopIcon;
-using $JLayeredPane = ::javax::swing::JLayeredPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 
 class bug6647340$$Lambda$lambda$main$0 : public $Runnable {

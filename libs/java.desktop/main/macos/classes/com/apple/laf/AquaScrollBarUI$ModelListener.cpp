@@ -2,7 +2,6 @@
 
 #include <com/apple/laf/AquaScrollBarUI.h>
 #include <java/awt/Container.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JScrollBar.h>
 #include <javax/swing/event/ChangeEvent.h>
 #include <jcpp.h>
@@ -13,7 +12,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
 
 namespace com {

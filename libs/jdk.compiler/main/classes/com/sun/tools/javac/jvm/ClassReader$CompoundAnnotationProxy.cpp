@@ -11,7 +11,6 @@
 #include <com/sun/tools/javac/util/Name.h>
 #include <com/sun/tools/javac/util/Pair.h>
 #include <java/lang/CharSequence.h>
-#include <javax/lang/model/element/Name.h>
 #include <jcpp.h>
 
 using $Attribute = ::com::sun::tools::javac::code::Attribute;
@@ -26,7 +25,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Name = ::javax::lang::model::element::Name;
 
 namespace com {
 	namespace sun {

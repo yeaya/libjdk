@@ -9,8 +9,6 @@
 #include <java/lang/Runnable.h>
 #include <java/util/logging/Level.h>
 #include <java/util/logging/Logger.h>
-#include <javax/swing/AbstractAction.h>
-#include <javax/swing/Action.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/Timer.h>
@@ -33,8 +31,6 @@ using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Level = ::java::util::logging::Level;
 using $Logger = ::java::util::logging::Logger;
-using $AbstractAction = ::javax::swing::AbstractAction;
-using $Action = ::javax::swing::Action;
 using $JFrame = ::javax::swing::JFrame;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $Timer = ::javax::swing::Timer;

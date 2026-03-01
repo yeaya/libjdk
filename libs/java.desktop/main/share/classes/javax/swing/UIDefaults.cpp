@@ -24,7 +24,6 @@
 #include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Enumeration.h>
 #include <java/util/HashMap.h>
 #include <java/util/Hashtable.h>
@@ -80,7 +79,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Method = ::java::lang::reflect::Method;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Enumeration = ::java::util::Enumeration;
 using $HashMap = ::java::util::HashMap;
 using $Hashtable = ::java::util::Hashtable;

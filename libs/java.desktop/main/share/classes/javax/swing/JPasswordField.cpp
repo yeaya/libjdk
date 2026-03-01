@@ -1,23 +1,17 @@
 #include <javax/swing/JPasswordField.h>
 
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
-#include <java/awt/Container.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/util/Arrays.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JPasswordField$AccessibleJPasswordField.h>
-#include <javax/swing/JTextField$AccessibleJTextField.h>
 #include <javax/swing/JTextField.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/text/BadLocationException.h>
 #include <javax/swing/text/Document.h>
-#include <javax/swing/text/JTextComponent$AccessibleJTextComponent.h>
 #include <javax/swing/text/JTextComponent.h>
 #include <javax/swing/text/Segment.h>
 #include <jcpp.h>
@@ -25,9 +19,6 @@
 #undef TRUE
 
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
-using $Container = ::java::awt::Container;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $Boolean = ::java::lang::Boolean;
 using $Character = ::java::lang::Character;
@@ -40,17 +31,13 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 using $Arrays = ::java::util::Arrays;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JPasswordField$AccessibleJPasswordField = ::javax::swing::JPasswordField$AccessibleJPasswordField;
 using $JTextField = ::javax::swing::JTextField;
-using $JTextField$AccessibleJTextField = ::javax::swing::JTextField$AccessibleJTextField;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $Document = ::javax::swing::text::Document;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
-using $JTextComponent$AccessibleJTextComponent = ::javax::swing::text::JTextComponent$AccessibleJTextComponent;
 using $Segment = ::javax::swing::text::Segment;
 
 namespace javax {

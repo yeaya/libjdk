@@ -8,7 +8,6 @@
 #include <javax/swing/RowFilter$ComparisonType.h>
 #include <javax/swing/RowFilter$DateFilter.h>
 #include <javax/swing/RowFilter$Entry.h>
-#include <javax/swing/RowFilter$GeneralFilter.h>
 #include <javax/swing/RowFilter$NotFilter.h>
 #include <javax/swing/RowFilter$NumberFilter.h>
 #include <javax/swing/RowFilter$OrFilter.h>
@@ -27,7 +26,6 @@ using $RowFilter$AndFilter = ::javax::swing::RowFilter$AndFilter;
 using $RowFilter$ComparisonType = ::javax::swing::RowFilter$ComparisonType;
 using $RowFilter$DateFilter = ::javax::swing::RowFilter$DateFilter;
 using $RowFilter$Entry = ::javax::swing::RowFilter$Entry;
-using $RowFilter$GeneralFilter = ::javax::swing::RowFilter$GeneralFilter;
 using $RowFilter$NotFilter = ::javax::swing::RowFilter$NotFilter;
 using $RowFilter$NumberFilter = ::javax::swing::RowFilter$NumberFilter;
 using $RowFilter$OrFilter = ::javax::swing::RowFilter$OrFilter;

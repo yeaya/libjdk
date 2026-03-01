@@ -1,7 +1,6 @@
 #include <javax/swing/colorchooser/ColorChooserComponentFactory.h>
 
 #include <javax/swing/JComponent.h>
-#include <javax/swing/JPanel.h>
 #include <javax/swing/colorchooser/AbstractColorChooserPanel.h>
 #include <javax/swing/colorchooser/ColorChooserPanel.h>
 #include <javax/swing/colorchooser/ColorModel.h>
@@ -16,7 +15,6 @@ using $AbstractColorChooserPanelArray = $Array<::javax::swing::colorchooser::Abs
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
-using $JPanel = ::javax::swing::JPanel;
 using $AbstractColorChooserPanel = ::javax::swing::colorchooser::AbstractColorChooserPanel;
 using $ColorChooserPanel = ::javax::swing::colorchooser::ColorChooserPanel;
 using $ColorModel = ::javax::swing::colorchooser::ColorModel;

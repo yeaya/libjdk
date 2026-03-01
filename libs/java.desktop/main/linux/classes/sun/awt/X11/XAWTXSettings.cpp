@@ -11,7 +11,6 @@
 #include <sun/awt/X11/XAtom.h>
 #include <sun/awt/X11/XConstants.h>
 #include <sun/awt/X11/XErrorHandler$IgnoreBadWindowHandler.h>
-#include <sun/awt/X11/XErrorHandler$XBaseErrorHandler.h>
 #include <sun/awt/X11/XErrorHandler.h>
 #include <sun/awt/X11/XMSelection.h>
 #include <sun/awt/X11/XMSelectionListener.h>
@@ -42,7 +41,6 @@ using $XAtom = ::sun::awt::X11::XAtom;
 using $XConstants = ::sun::awt::X11::XConstants;
 using $XErrorHandler = ::sun::awt::X11::XErrorHandler;
 using $XErrorHandler$IgnoreBadWindowHandler = ::sun::awt::X11::XErrorHandler$IgnoreBadWindowHandler;
-using $XErrorHandler$XBaseErrorHandler = ::sun::awt::X11::XErrorHandler$XBaseErrorHandler;
 using $XMSelection = ::sun::awt::X11::XMSelection;
 using $XMSelectionListener = ::sun::awt::X11::XMSelectionListener;
 using $XPropertyEvent = ::sun::awt::X11::XPropertyEvent;

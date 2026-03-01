@@ -3,11 +3,9 @@
 #include <bug6608456$TestRepaintManager.h>
 #include <bug6608456.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/FlowLayout.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/Window.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
@@ -17,14 +15,12 @@
 using $bug6608456 = ::bug6608456;
 using $bug6608456$TestRepaintManager = ::bug6608456$TestRepaintManager;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $FlowLayout = ::java::awt::FlowLayout;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;

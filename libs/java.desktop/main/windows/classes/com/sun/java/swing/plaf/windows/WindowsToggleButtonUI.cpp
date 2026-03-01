@@ -6,7 +6,6 @@
 #include <com/sun/java/swing/plaf/windows/XPStyle.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
@@ -16,9 +15,7 @@
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/border/Border.h>
-#include <javax/swing/plaf/ButtonUI.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/basic/BasicButtonUI.h>
 #include <javax/swing/plaf/basic/BasicGraphicsUtils.h>
 #include <javax/swing/plaf/basic/BasicToggleButtonUI.h>
 #include <sun/awt/AppContext.h>
@@ -33,7 +30,6 @@ using $WindowsGraphicsUtils = ::com::sun::java::swing::plaf::windows::WindowsGra
 using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Rectangle = ::java::awt::Rectangle;
@@ -47,9 +43,7 @@ using $AbstractButton = ::javax::swing::AbstractButton;
 using $JComponent = ::javax::swing::JComponent;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
-using $ButtonUI = ::javax::swing::plaf::ButtonUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $BasicButtonUI = ::javax::swing::plaf::basic::BasicButtonUI;
 using $BasicGraphicsUtils = ::javax::swing::plaf::basic::BasicGraphicsUtils;
 using $BasicToggleButtonUI = ::javax::swing::plaf::basic::BasicToggleButtonUI;
 using $AppContext = ::sun::awt::AppContext;

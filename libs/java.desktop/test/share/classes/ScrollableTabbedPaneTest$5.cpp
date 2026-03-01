@@ -2,22 +2,18 @@
 
 #include <ScrollableTabbedPaneTest.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/JTabbedPane.h>
 #include <jcpp.h>
 
 using $ScrollableTabbedPaneTest = ::ScrollableTabbedPaneTest;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JPanel = ::javax::swing::JPanel;
 using $JTabbedPane = ::javax::swing::JTabbedPane;
 

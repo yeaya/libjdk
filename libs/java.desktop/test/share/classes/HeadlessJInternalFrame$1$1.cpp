@@ -4,7 +4,6 @@
 #include <HeadlessJInternalFrame$1.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/JInternalFrame.h>
-#include <javax/swing/plaf/basic/BasicInternalFrameTitlePane$PropertyChangeHandler.h>
 #include <javax/swing/plaf/basic/BasicInternalFrameTitlePane.h>
 #include <jcpp.h>
 
@@ -18,7 +17,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $BasicInternalFrameTitlePane = ::javax::swing::plaf::basic::BasicInternalFrameTitlePane;
-using $BasicInternalFrameTitlePane$PropertyChangeHandler = ::javax::swing::plaf::basic::BasicInternalFrameTitlePane$PropertyChangeHandler;
 
 $FieldInfo _HeadlessJInternalFrame$1$1_FieldInfo_[] = {
 	{"this$0", "LHeadlessJInternalFrame$1;", nullptr, $FINAL | $SYNTHETIC, $field(HeadlessJInternalFrame$1$1, this$0)},

@@ -17,7 +17,6 @@
 #include <com/sun/org/apache/bcel/internal/generic/Type.h>
 #include <com/sun/org/apache/bcel/internal/util/BCELFactory.h>
 #include <com/sun/org/apache/bcel/internal/util/BCELifier$FLAGS.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/PrintWriter.h>
 #include <java/lang/Package.h>
@@ -56,7 +55,6 @@ using $MethodGen = ::com::sun::org::apache::bcel::internal::generic::MethodGen;
 using $Type = ::com::sun::org::apache::bcel::internal::generic::Type;
 using $BCELFactory = ::com::sun::org::apache::bcel::internal::util::BCELFactory;
 using $BCELifier$FLAGS = ::com::sun::org::apache::bcel::internal::util::BCELifier$FLAGS;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $PrintWriter = ::java::io::PrintWriter;

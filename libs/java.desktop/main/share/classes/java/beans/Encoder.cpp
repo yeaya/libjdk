@@ -7,7 +7,6 @@
 #include <java/beans/PersistenceDelegate.h>
 #include <java/beans/Statement.h>
 #include <java/lang/ClassLoader.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/IdentityHashMap.h>
 #include <java/util/Map.h>
@@ -24,7 +23,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $IdentityHashMap = ::java::util::IdentityHashMap;
 using $Map = ::java::util::Map;

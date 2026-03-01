@@ -5,7 +5,6 @@
 #include <com/sun/java/swing/plaf/windows/XPStyle$Skin.h>
 #include <com/sun/java/swing/plaf/windows/XPStyle.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/Insets.h>
@@ -14,7 +13,6 @@
 #include <java/awt/event/InputEvent.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/lang/Math.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/HashSet.h>
 #include <java/util/Set.h>
 #include <javax/swing/JComponent.h>
@@ -23,7 +21,6 @@
 #include <javax/swing/SwingConstants.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/TabbedPaneUI.h>
 #include <javax/swing/plaf/basic/BasicTabbedPaneUI.h>
 #include <jcpp.h>
 
@@ -48,7 +45,6 @@ using $TMSchema$State = ::com::sun::java::swing::plaf::windows::TMSchema$State;
 using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Insets = ::java::awt::Insets;
@@ -61,7 +57,6 @@ using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractSet = ::java::util::AbstractSet;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
 using $JComponent = ::javax::swing::JComponent;
@@ -70,7 +65,6 @@ using $KeyStroke = ::javax::swing::KeyStroke;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $UIManager = ::javax::swing::UIManager;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $TabbedPaneUI = ::javax::swing::plaf::TabbedPaneUI;
 using $BasicTabbedPaneUI = ::javax::swing::plaf::basic::BasicTabbedPaneUI;
 
 namespace com {

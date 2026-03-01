@@ -1,7 +1,6 @@
 #include <javax/swing/plaf/basic/BasicButtonUI$ButtonGroupInfo.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/util/Enumeration.h>
 #include <java/util/HashSet.h>
@@ -16,7 +15,6 @@
 #include <jcpp.h>
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -1,6 +1,5 @@
 #include <com/sun/media/sound/DirectAudioDeviceProvider.h>
 
-#include <com/sun/media/sound/AbstractMixer.h>
 #include <com/sun/media/sound/DirectAudioDevice.h>
 #include <com/sun/media/sound/DirectAudioDeviceProvider$DirectAudioDeviceInfo.h>
 #include <com/sun/media/sound/Platform.h>
@@ -13,7 +12,6 @@
 using $DirectAudioDeviceArray = $Array<::com::sun::media::sound::DirectAudioDevice>;
 using $DirectAudioDeviceProvider$DirectAudioDeviceInfoArray = $Array<::com::sun::media::sound::DirectAudioDeviceProvider$DirectAudioDeviceInfo>;
 using $Mixer$InfoArray = $Array<::javax::sound::sampled::Mixer$Info>;
-using $AbstractMixer = ::com::sun::media::sound::AbstractMixer;
 using $DirectAudioDevice = ::com::sun::media::sound::DirectAudioDevice;
 using $DirectAudioDeviceProvider$DirectAudioDeviceInfo = ::com::sun::media::sound::DirectAudioDeviceProvider$DirectAudioDeviceInfo;
 using $Platform = ::com::sun::media::sound::Platform;

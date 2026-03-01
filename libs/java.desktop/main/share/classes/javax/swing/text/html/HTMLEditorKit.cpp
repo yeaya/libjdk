@@ -2,7 +2,6 @@
 
 #include <java/awt/Component.h>
 #include <java/awt/Cursor.h>
-#include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/awt/event/MouseMotionListener.h>
 #include <java/io/BufferedReader.h>
@@ -17,7 +16,6 @@
 #include <java/security/PrivilegedAction.h>
 #include <java/util/Enumeration.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/event/CaretListener.h>
@@ -33,7 +31,6 @@
 #include <javax/swing/text/Style.h>
 #include <javax/swing/text/StyleConstants.h>
 #include <javax/swing/text/StyledDocument.h>
-#include <javax/swing/text/StyledEditorKit$StyledTextAction.h>
 #include <javax/swing/text/StyledEditorKit.h>
 #include <javax/swing/text/TextAction.h>
 #include <javax/swing/text/ViewFactory.h>
@@ -46,7 +43,6 @@
 #include <javax/swing/text/html/HTMLEditorKit$ActivateLinkAction.h>
 #include <javax/swing/text/html/HTMLEditorKit$BeginAction.h>
 #include <javax/swing/text/html/HTMLEditorKit$HTMLFactory.h>
-#include <javax/swing/text/html/HTMLEditorKit$HTMLTextAction.h>
 #include <javax/swing/text/html/HTMLEditorKit$InsertHRAction.h>
 #include <javax/swing/text/html/HTMLEditorKit$InsertHTMLTextAction.h>
 #include <javax/swing/text/html/HTMLEditorKit$LinkController.h>
@@ -102,7 +98,6 @@
 
 using $ActionArray = $Array<::javax::swing::Action>;
 using $Cursor = ::java::awt::Cursor;
-using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
 using $BufferedReader = ::java::io::BufferedReader;
@@ -122,7 +117,6 @@ using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Enumeration = ::java::util::Enumeration;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $AbstractAction = ::javax::swing::AbstractAction;
 using $Action = ::javax::swing::Action;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $CaretListener = ::javax::swing::event::CaretListener;
@@ -139,7 +133,6 @@ using $Style = ::javax::swing::text::Style;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
 using $StyledDocument = ::javax::swing::text::StyledDocument;
 using $StyledEditorKit = ::javax::swing::text::StyledEditorKit;
-using $StyledEditorKit$StyledTextAction = ::javax::swing::text::StyledEditorKit$StyledTextAction;
 using $TextAction = ::javax::swing::text::TextAction;
 using $ViewFactory = ::javax::swing::text::ViewFactory;
 using $AccessibleHTML = ::javax::swing::text::html::AccessibleHTML;
@@ -151,7 +144,6 @@ using $HTMLEditorKit$1 = ::javax::swing::text::html::HTMLEditorKit$1;
 using $HTMLEditorKit$ActivateLinkAction = ::javax::swing::text::html::HTMLEditorKit$ActivateLinkAction;
 using $HTMLEditorKit$BeginAction = ::javax::swing::text::html::HTMLEditorKit$BeginAction;
 using $HTMLEditorKit$HTMLFactory = ::javax::swing::text::html::HTMLEditorKit$HTMLFactory;
-using $HTMLEditorKit$HTMLTextAction = ::javax::swing::text::html::HTMLEditorKit$HTMLTextAction;
 using $HTMLEditorKit$InsertHRAction = ::javax::swing::text::html::HTMLEditorKit$InsertHRAction;
 using $HTMLEditorKit$InsertHTMLTextAction = ::javax::swing::text::html::HTMLEditorKit$InsertHTMLTextAction;
 using $HTMLEditorKit$LinkController = ::javax::swing::text::html::HTMLEditorKit$LinkController;

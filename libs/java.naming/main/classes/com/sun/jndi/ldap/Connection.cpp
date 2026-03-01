@@ -11,8 +11,6 @@
 #include <com/sun/jndi/ldap/VersionHelper.h>
 #include <java/io/BufferedInputStream.h>
 #include <java/io/BufferedOutputStream.h>
-#include <java/io/FilterInputStream.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/InterruptedIOException.h>
@@ -67,8 +65,6 @@ using $Obj = ::com::sun::jndi::ldap::Obj;
 using $VersionHelper = ::com::sun::jndi::ldap::VersionHelper;
 using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $BufferedOutputStream = ::java::io::BufferedOutputStream;
-using $FilterInputStream = ::java::io::FilterInputStream;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $InterruptedIOException = ::java::io::InterruptedIOException;

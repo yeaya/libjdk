@@ -4,7 +4,6 @@
 #include <com/apple/laf/AquaUtilControlSize$Sizeable.h>
 #include <com/apple/laf/AquaUtilControlSize.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Font.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <javax/swing/JComponent.h>
@@ -18,7 +17,6 @@ using $JRSUIConstants$Size = ::apple::laf::JRSUIConstants$Size;
 using $AquaUtilControlSize = ::com::apple::laf::AquaUtilControlSize;
 using $AquaUtilControlSize$Sizeable = ::com::apple::laf::AquaUtilControlSize$Sizeable;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Font = ::java::awt::Font;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $ClassInfo = ::java::lang::ClassInfo;

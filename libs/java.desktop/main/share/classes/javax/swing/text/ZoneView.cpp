@@ -5,7 +5,6 @@
 #include <java/util/Vector.h>
 #include <javax/swing/event/DocumentEvent$ElementChange.h>
 #include <javax/swing/event/DocumentEvent.h>
-#include <javax/swing/text/AsyncBoxView.h>
 #include <javax/swing/text/BadLocationException.h>
 #include <javax/swing/text/BoxView.h>
 #include <javax/swing/text/CompositeView.h>
@@ -30,7 +29,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Vector = ::java::util::Vector;
 using $DocumentEvent = ::javax::swing::event::DocumentEvent;
 using $DocumentEvent$ElementChange = ::javax::swing::event::DocumentEvent$ElementChange;
-using $AsyncBoxView = ::javax::swing::text::AsyncBoxView;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $BoxView = ::javax::swing::text::BoxView;
 using $Document = ::javax::swing::text::Document;

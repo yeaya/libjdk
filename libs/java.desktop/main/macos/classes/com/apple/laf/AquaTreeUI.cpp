@@ -16,14 +16,12 @@
 #include <com/apple/laf/AquaUtils.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Insets.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/FocusListener.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/beans/PropertyChangeListener.h>
-#include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/Icon.h>
@@ -32,10 +30,7 @@
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/TreeUI.h>
 #include <javax/swing/plaf/UIResource.h>
-#include <javax/swing/plaf/basic/BasicTreeUI$FocusHandler.h>
-#include <javax/swing/plaf/basic/BasicTreeUI$PropertyChangeHandler.h>
 #include <javax/swing/plaf/basic/BasicTreeUI.h>
 #include <javax/swing/tree/AbstractLayoutCache.h>
 #include <javax/swing/tree/TreeModel.h>
@@ -72,7 +67,6 @@ using $AquaTreeUI$MacPropertyChangeHandler = ::com::apple::laf::AquaTreeUI$MacPr
 using $AquaTreeUI$TreeArrowMouseInputHandler = ::com::apple::laf::AquaTreeUI$TreeArrowMouseInputHandler;
 using $AquaUtils = ::com::apple::laf::AquaUtils;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $Rectangle = ::java::awt::Rectangle;
@@ -83,7 +77,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractAction = ::javax::swing::AbstractAction;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $Icon = ::javax::swing::Icon;
@@ -92,11 +85,8 @@ using $JTree = ::javax::swing::JTree;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $TreeUI = ::javax::swing::plaf::TreeUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $BasicTreeUI = ::javax::swing::plaf::basic::BasicTreeUI;
-using $BasicTreeUI$FocusHandler = ::javax::swing::plaf::basic::BasicTreeUI$FocusHandler;
-using $BasicTreeUI$PropertyChangeHandler = ::javax::swing::plaf::basic::BasicTreeUI$PropertyChangeHandler;
 using $AbstractLayoutCache = ::javax::swing::tree::AbstractLayoutCache;
 using $TreeModel = ::javax::swing::tree::TreeModel;
 using $TreePath = ::javax::swing::tree::TreePath;

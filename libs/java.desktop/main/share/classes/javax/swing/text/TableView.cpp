@@ -48,7 +48,6 @@ using $DocumentEvent = ::javax::swing::event::DocumentEvent;
 using $DocumentEvent$ElementChange = ::javax::swing::event::DocumentEvent$ElementChange;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $BoxView = ::javax::swing::text::BoxView;
-using $CompositeView = ::javax::swing::text::CompositeView;
 using $Element = ::javax::swing::text::Element;
 using $TableView$TableCell = ::javax::swing::text::TableView$TableCell;
 using $TableView$TableRow = ::javax::swing::text::TableView$TableRow;

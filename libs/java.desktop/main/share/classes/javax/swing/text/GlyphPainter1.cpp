@@ -7,8 +7,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <java/awt/Toolkit.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <javax/swing/text/BadLocationException.h>
 #include <javax/swing/text/GlyphView$GlyphPainter.h>
 #include <javax/swing/text/GlyphView.h>
@@ -29,8 +27,6 @@ using $Graphics = ::java::awt::Graphics;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
 using $Toolkit = ::java::awt::Toolkit;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

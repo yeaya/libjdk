@@ -9,8 +9,6 @@
 #include <javax/swing/plaf/metal/MetalIconFactory$FileChooserListViewIcon.h>
 #include <javax/swing/plaf/metal/MetalIconFactory$FileChooserNewFolderIcon.h>
 #include <javax/swing/plaf/metal/MetalIconFactory$FileChooserUpFolderIcon.h>
-#include <javax/swing/plaf/metal/MetalIconFactory$FileIcon16.h>
-#include <javax/swing/plaf/metal/MetalIconFactory$FolderIcon16.h>
 #include <javax/swing/plaf/metal/MetalIconFactory$HorizontalSliderThumbIcon.h>
 #include <javax/swing/plaf/metal/MetalIconFactory$InternalFrameAltMaximizeIcon.h>
 #include <javax/swing/plaf/metal/MetalIconFactory$InternalFrameCloseIcon.h>
@@ -49,8 +47,6 @@ using $MetalIconFactory$FileChooserHomeFolderIcon = ::javax::swing::plaf::metal:
 using $MetalIconFactory$FileChooserListViewIcon = ::javax::swing::plaf::metal::MetalIconFactory$FileChooserListViewIcon;
 using $MetalIconFactory$FileChooserNewFolderIcon = ::javax::swing::plaf::metal::MetalIconFactory$FileChooserNewFolderIcon;
 using $MetalIconFactory$FileChooserUpFolderIcon = ::javax::swing::plaf::metal::MetalIconFactory$FileChooserUpFolderIcon;
-using $MetalIconFactory$FileIcon16 = ::javax::swing::plaf::metal::MetalIconFactory$FileIcon16;
-using $MetalIconFactory$FolderIcon16 = ::javax::swing::plaf::metal::MetalIconFactory$FolderIcon16;
 using $MetalIconFactory$HorizontalSliderThumbIcon = ::javax::swing::plaf::metal::MetalIconFactory$HorizontalSliderThumbIcon;
 using $MetalIconFactory$InternalFrameAltMaximizeIcon = ::javax::swing::plaf::metal::MetalIconFactory$InternalFrameAltMaximizeIcon;
 using $MetalIconFactory$InternalFrameCloseIcon = ::javax::swing::plaf::metal::MetalIconFactory$InternalFrameCloseIcon;

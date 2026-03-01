@@ -1,7 +1,6 @@
 #include <com/sun/org/apache/xml/internal/serializer/AttributesImplSerializer.h>
 
 #include <java/lang/StringBuffer.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <org/xml/sax/Attributes.h>
@@ -15,7 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $Attributes = ::org::xml::sax::Attributes;

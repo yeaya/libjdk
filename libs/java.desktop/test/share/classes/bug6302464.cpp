@@ -31,7 +31,6 @@
 #include <javax/swing/UIManager$LookAndFeelInfo.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/UnsupportedLookAndFeelException.h>
-#include <javax/swing/plaf/basic/BasicLookAndFeel.h>
 #include <jcpp.h>
 
 #undef ANTIALIASING_HINTS
@@ -78,7 +77,6 @@ using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIManager = ::javax::swing::UIManager;
 using $UIManager$LookAndFeelInfo = ::javax::swing::UIManager$LookAndFeelInfo;
 using $UnsupportedLookAndFeelException = ::javax::swing::UnsupportedLookAndFeelException;
-using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
 
 class bug6302464$$Lambda$testAntialiasingProperties : public $Runnable {
 	$class(bug6302464$$Lambda$testAntialiasingProperties, $NO_CLASS_INIT, $Runnable)

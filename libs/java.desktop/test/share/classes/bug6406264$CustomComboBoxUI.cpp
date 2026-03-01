@@ -4,7 +4,6 @@
 #include <bug6406264.h>
 #include <javax/swing/JComboBox.h>
 #include <javax/swing/plaf/basic/BasicComboBoxUI.h>
-#include <javax/swing/plaf/basic/BasicComboPopup.h>
 #include <javax/swing/plaf/basic/ComboPopup.h>
 #include <jcpp.h>
 
@@ -16,7 +15,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComboBox = ::javax::swing::JComboBox;
 using $BasicComboBoxUI = ::javax::swing::plaf::basic::BasicComboBoxUI;
-using $BasicComboPopup = ::javax::swing::plaf::basic::BasicComboPopup;
 using $ComboPopup = ::javax::swing::plaf::basic::ComboPopup;
 
 $FieldInfo _bug6406264$CustomComboBoxUI_FieldInfo_[] = {

@@ -5,7 +5,6 @@
 #include <java/awt/event/KeyEvent.h>
 #include <java/util/EventObject.h>
 #include <java/util/Set.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JToggleButton.h>
 #include <javax/swing/plaf/basic/BasicButtonUI$ButtonGroupInfo.h>
@@ -23,7 +22,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Set = ::java::util::Set;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JComponent = ::javax::swing::JComponent;
 using $JToggleButton = ::javax::swing::JToggleButton;
 using $BasicButtonUI = ::javax::swing::plaf::basic::BasicButtonUI;

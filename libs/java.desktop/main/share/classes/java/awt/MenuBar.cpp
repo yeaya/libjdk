@@ -7,7 +7,6 @@
 #include <java/awt/Menu.h>
 #include <java/awt/MenuBar$1.h>
 #include <java/awt/MenuBar$AccessibleAWTMenuBar.h>
-#include <java/awt/MenuComponent$AccessibleAWTMenuComponent.h>
 #include <java/awt/MenuComponent.h>
 #include <java/awt/MenuContainer.h>
 #include <java/awt/MenuItem.h>
@@ -36,7 +35,6 @@ using $Menu = ::java::awt::Menu;
 using $MenuBar$1 = ::java::awt::MenuBar$1;
 using $MenuBar$AccessibleAWTMenuBar = ::java::awt::MenuBar$AccessibleAWTMenuBar;
 using $MenuComponent = ::java::awt::MenuComponent;
-using $MenuComponent$AccessibleAWTMenuComponent = ::java::awt::MenuComponent$AccessibleAWTMenuComponent;
 using $MenuContainer = ::java::awt::MenuContainer;
 using $MenuItem = ::java::awt::MenuItem;
 using $MenuShortcut = ::java::awt::MenuShortcut;

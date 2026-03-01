@@ -3,7 +3,6 @@
 #include <com/sun/org/apache/xml/internal/serializer/utils/URI$MalformedURIException.h>
 #include <com/sun/org/apache/xml/internal/serializer/utils/URI.h>
 #include <java/io/File.h>
-#include <java/io/IOException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/StringBuffer.h>
 #include <javax/xml/transform/TransformerException.h>
@@ -12,10 +11,8 @@
 using $URI = ::com::sun::org::apache::xml::internal::serializer::utils::URI;
 using $URI$MalformedURIException = ::com::sun::org::apache::xml::internal::serializer::utils::URI$MalformedURIException;
 using $File = ::java::io::File;
-using $IOException = ::java::io::IOException;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityException = ::java::lang::SecurityException;
 using $StringBuffer = ::java::lang::StringBuffer;

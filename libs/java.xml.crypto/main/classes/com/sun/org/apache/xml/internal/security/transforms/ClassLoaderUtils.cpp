@@ -4,7 +4,6 @@
 #include <com/sun/org/slf4j/internal/LoggerFactory.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/ReflectiveOperationException.h>
 #include <jcpp.h>
 
 #undef LOG
@@ -14,10 +13,8 @@ using $LoggerFactory = ::com::sun::org::slf4j::internal::LoggerFactory;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 
 namespace com {
 	namespace sun {

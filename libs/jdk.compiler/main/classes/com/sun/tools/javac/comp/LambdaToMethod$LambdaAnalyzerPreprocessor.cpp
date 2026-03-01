@@ -29,7 +29,6 @@
 #include <com/sun/tools/javac/comp/Lower.h>
 #include <com/sun/tools/javac/resources/CompilerProperties$Notes.h>
 #include <com/sun/tools/javac/tree/JCTree$JCBlock.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCClassDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCFieldAccess.h>
@@ -40,8 +39,6 @@
 #include <com/sun/tools/javac/tree/JCTree$JCMethodDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCMethodInvocation.h>
 #include <com/sun/tools/javac/tree/JCTree$JCNewClass.h>
-#include <com/sun/tools/javac/tree/JCTree$JCPolyExpression.h>
-#include <com/sun/tools/javac/tree/JCTree$JCStatement.h>
 #include <com/sun/tools/javac/tree/JCTree$JCVariableDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$Tag.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
@@ -58,7 +55,6 @@
 #include <com/sun/tools/javac/util/Name.h>
 #include <com/sun/tools/javac/util/Names.h>
 #include <java/lang/Iterable.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
 #include <java/util/Map.h>
@@ -105,7 +101,6 @@ using $Lower$BasicFreeVarCollector = ::com::sun::tools::javac::comp::Lower$Basic
 using $CompilerProperties$Notes = ::com::sun::tools::javac::resources::CompilerProperties$Notes;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCBlock = ::com::sun::tools::javac::tree::JCTree$JCBlock;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCFieldAccess = ::com::sun::tools::javac::tree::JCTree$JCFieldAccess;
@@ -116,8 +111,6 @@ using $JCTree$JCMemberReference = ::com::sun::tools::javac::tree::JCTree$JCMembe
 using $JCTree$JCMethodDecl = ::com::sun::tools::javac::tree::JCTree$JCMethodDecl;
 using $JCTree$JCMethodInvocation = ::com::sun::tools::javac::tree::JCTree$JCMethodInvocation;
 using $JCTree$JCNewClass = ::com::sun::tools::javac::tree::JCTree$JCNewClass;
-using $JCTree$JCPolyExpression = ::com::sun::tools::javac::tree::JCTree$JCPolyExpression;
-using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
 using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariableDecl;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
@@ -136,7 +129,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;

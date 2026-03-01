@@ -2,24 +2,20 @@
 
 #include <PopupMenuTest.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseEvent.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/JPopupMenu.h>
 #include <jcpp.h>
 
 using $PopupMenuTest = ::PopupMenuTest;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JPopupMenu = ::javax::swing::JPopupMenu;
 
 $FieldInfo _PopupMenuTest$MousePopupListener_FieldInfo_[] = {

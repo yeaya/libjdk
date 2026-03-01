@@ -6,11 +6,9 @@
 #include <java/awt/Container.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JApplet.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JColorChooser.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/colorchooser/ColorSelectionModel.h>
 #include <javax/swing/colorchooser/DefaultColorSelectionModel.h>
 #include <jcpp.h>
@@ -24,17 +22,14 @@
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JApplet = ::javax::swing::JApplet;
 using $JButton = ::javax::swing::JButton;
 using $JColorChooser = ::javax::swing::JColorChooser;
-using $JComponent = ::javax::swing::JComponent;
 using $ColorSelectionModel = ::javax::swing::colorchooser::ColorSelectionModel;
 using $DefaultColorSelectionModel = ::javax::swing::colorchooser::DefaultColorSelectionModel;
 

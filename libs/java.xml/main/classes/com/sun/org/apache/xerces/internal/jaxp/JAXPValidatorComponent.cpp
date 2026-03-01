@@ -2,14 +2,12 @@
 
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLErrorReporter.h>
-#include <com/sun/org/apache/xerces/internal/impl/xs/opti/DefaultXMLDocumentHandler.h>
 #include <com/sun/org/apache/xerces/internal/jaxp/JAXPValidatorComponent$1.h>
 #include <com/sun/org/apache/xerces/internal/jaxp/JAXPValidatorComponent$2.h>
 #include <com/sun/org/apache/xerces/internal/jaxp/JAXPValidatorComponent$3.h>
 #include <com/sun/org/apache/xerces/internal/jaxp/JAXPValidatorComponent$SAX2XNI.h>
 #include <com/sun/org/apache/xerces/internal/jaxp/JAXPValidatorComponent$XNI2SAX.h>
 #include <com/sun/org/apache/xerces/internal/jaxp/TeeXMLDocumentFilterImpl.h>
-#include <com/sun/org/apache/xerces/internal/util/ErrorHandlerProxy.h>
 #include <com/sun/org/apache/xerces/internal/util/SymbolTable.h>
 #include <com/sun/org/apache/xerces/internal/xni/Augmentations.h>
 #include <com/sun/org/apache/xerces/internal/xni/QName.h>
@@ -25,7 +23,6 @@
 #include <org/xml/sax/Attributes.h>
 #include <org/xml/sax/ContentHandler.h>
 #include <org/xml/sax/ErrorHandler.h>
-#include <org/xml/sax/helpers/DefaultHandler.h>
 #include <jcpp.h>
 
 #undef ENTITY_MANAGER
@@ -38,14 +35,12 @@
 
 using $Constants = ::com::sun::org::apache::xerces::internal::impl::Constants;
 using $XMLErrorReporter = ::com::sun::org::apache::xerces::internal::impl::XMLErrorReporter;
-using $DefaultXMLDocumentHandler = ::com::sun::org::apache::xerces::internal::impl::xs::opti::DefaultXMLDocumentHandler;
 using $JAXPValidatorComponent$1 = ::com::sun::org::apache::xerces::internal::jaxp::JAXPValidatorComponent$1;
 using $JAXPValidatorComponent$2 = ::com::sun::org::apache::xerces::internal::jaxp::JAXPValidatorComponent$2;
 using $JAXPValidatorComponent$3 = ::com::sun::org::apache::xerces::internal::jaxp::JAXPValidatorComponent$3;
 using $JAXPValidatorComponent$SAX2XNI = ::com::sun::org::apache::xerces::internal::jaxp::JAXPValidatorComponent$SAX2XNI;
 using $JAXPValidatorComponent$XNI2SAX = ::com::sun::org::apache::xerces::internal::jaxp::JAXPValidatorComponent$XNI2SAX;
 using $TeeXMLDocumentFilterImpl = ::com::sun::org::apache::xerces::internal::jaxp::TeeXMLDocumentFilterImpl;
-using $ErrorHandlerProxy = ::com::sun::org::apache::xerces::internal::util::ErrorHandlerProxy;
 using $SymbolTable = ::com::sun::org::apache::xerces::internal::util::SymbolTable;
 using $Augmentations = ::com::sun::org::apache::xerces::internal::xni::Augmentations;
 using $QName = ::com::sun::org::apache::xerces::internal::xni::QName;
@@ -66,7 +61,6 @@ using $LSResourceResolver = ::org::w3c::dom::ls::LSResourceResolver;
 using $Attributes = ::org::xml::sax::Attributes;
 using $ContentHandler = ::org::xml::sax::ContentHandler;
 using $ErrorHandler = ::org::xml::sax::ErrorHandler;
-using $DefaultHandler = ::org::xml::sax::helpers::DefaultHandler;
 
 namespace com {
 	namespace sun {

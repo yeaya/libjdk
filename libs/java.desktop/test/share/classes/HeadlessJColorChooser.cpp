@@ -24,7 +24,6 @@
 #include <java/util/Locale.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/swing/JColorChooser.h>
-#include <javax/swing/JComponent.h>
 #include <jcpp.h>
 
 #undef BOLD
@@ -60,7 +59,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
 using $JColorChooser = ::javax::swing::JColorChooser;
-using $JComponent = ::javax::swing::JComponent;
 
 $MethodInfo _HeadlessJColorChooser_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJColorChooser, init$, void)},

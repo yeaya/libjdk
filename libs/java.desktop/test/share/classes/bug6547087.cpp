@@ -6,7 +6,6 @@
 #include <java/util/concurrent/Callable.h>
 #include <java/util/concurrent/ExecutionException.h>
 #include <java/util/concurrent/FutureTask.h>
-#include <java/util/concurrent/RunnableFuture.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JPopupMenu$Separator.h>
 #include <javax/swing/SwingUtilities.h>
@@ -23,7 +22,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Callable = ::java::util::concurrent::Callable;
 using $ExecutionException = ::java::util::concurrent::ExecutionException;
 using $FutureTask = ::java::util::concurrent::FutureTask;
-using $RunnableFuture = ::java::util::concurrent::RunnableFuture;
 using $JPopupMenu$Separator = ::javax::swing::JPopupMenu$Separator;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;

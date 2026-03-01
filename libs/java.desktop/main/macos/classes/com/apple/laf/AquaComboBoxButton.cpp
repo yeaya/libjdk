@@ -25,7 +25,6 @@
 #include <javax/swing/ButtonModel.h>
 #include <javax/swing/CellRendererPane.h>
 #include <javax/swing/ComboBoxEditor.h>
-#include <javax/swing/DefaultButtonModel.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComboBox.h>
 #include <javax/swing/JComponent.h>
@@ -76,11 +75,9 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $ButtonModel = ::javax::swing::ButtonModel;
 using $CellRendererPane = ::javax::swing::CellRendererPane;
 using $ComboBoxEditor = ::javax::swing::ComboBoxEditor;
-using $DefaultButtonModel = ::javax::swing::DefaultButtonModel;
 using $JButton = ::javax::swing::JButton;
 using $JComboBox = ::javax::swing::JComboBox;
 using $JComponent = ::javax::swing::JComponent;

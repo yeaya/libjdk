@@ -11,7 +11,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <javax/swing/JComboBox.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFileChooser.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/SwingUtilities.h>
@@ -33,7 +32,6 @@ using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $JComboBox = ::javax::swing::JComboBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JFileChooser = ::javax::swing::JFileChooser;
 using $JLabel = ::javax::swing::JLabel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;

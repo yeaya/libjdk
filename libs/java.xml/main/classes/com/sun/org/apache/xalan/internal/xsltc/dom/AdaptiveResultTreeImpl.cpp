@@ -1,7 +1,6 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/AdaptiveResultTreeImpl.h>
 
 #include <com/sun/org/apache/xalan/internal/xsltc/DOM.h>
-#include <com/sun/org/apache/xalan/internal/xsltc/DOMEnhancedForDTM.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/StripFilter.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/SAXImpl.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/SimpleResultTreeImpl.h>
@@ -14,7 +13,6 @@
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBase.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseTraversers.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2DTM.h>
-#include <com/sun/org/apache/xml/internal/serializer/EmptySerializer.h>
 #include <com/sun/org/apache/xml/internal/serializer/SerializationHandler.h>
 #include <com/sun/org/apache/xml/internal/utils/XMLString.h>
 #include <java/util/Map.h>
@@ -36,7 +34,6 @@
 #undef STRAY_ATTRIBUTE_ERR
 
 using $DOM = ::com::sun::org::apache::xalan::internal::xsltc::DOM;
-using $DOMEnhancedForDTM = ::com::sun::org::apache::xalan::internal::xsltc::DOMEnhancedForDTM;
 using $StripFilter = ::com::sun::org::apache::xalan::internal::xsltc::StripFilter;
 using $SAXImpl = ::com::sun::org::apache::xalan::internal::xsltc::dom::SAXImpl;
 using $SimpleResultTreeImpl = ::com::sun::org::apache::xalan::internal::xsltc::dom::SimpleResultTreeImpl;
@@ -45,7 +42,6 @@ using $BasisLibrary = ::com::sun::org::apache::xalan::internal::xsltc::runtime::
 using $DTMAxisIterator = ::com::sun::org::apache::xml::internal::dtm::DTMAxisIterator;
 using $DTMAxisTraverser = ::com::sun::org::apache::xml::internal::dtm::DTMAxisTraverser;
 using $DTMWSFilter = ::com::sun::org::apache::xml::internal::dtm::DTMWSFilter;
-using $EmptySerializer = ::com::sun::org::apache::xml::internal::serializer::EmptySerializer;
 using $SerializationHandler = ::com::sun::org::apache::xml::internal::serializer::SerializationHandler;
 using $XMLString = ::com::sun::org::apache::xml::internal::utils::XMLString;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -9,7 +9,6 @@
 #include <java/awt/Point.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
-#include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/io/Serializable.h>
@@ -42,7 +41,6 @@ using $FlowLayout = ::java::awt::FlowLayout;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Robot = ::java::awt::Robot;
-using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $PrintStream = ::java::io::PrintStream;

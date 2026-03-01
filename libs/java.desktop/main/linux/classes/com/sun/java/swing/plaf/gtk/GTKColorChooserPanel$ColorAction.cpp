@@ -3,26 +3,20 @@
 #include <com/sun/java/swing/plaf/gtk/GTKColorChooserPanel$ColorTriangle.h>
 #include <com/sun/java/swing/plaf/gtk/GTKColorChooserPanel.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/util/EventObject.h>
 #include <javax/swing/AbstractAction.h>
-#include <javax/swing/JComponent.h>
-#include <javax/swing/JPanel.h>
 #include <jcpp.h>
 
 using $GTKColorChooserPanel = ::com::sun::java::swing::plaf::gtk::GTKColorChooserPanel;
 using $GTKColorChooserPanel$ColorTriangle = ::com::sun::java::swing::plaf::gtk::GTKColorChooserPanel$ColorTriangle;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractAction = ::javax::swing::AbstractAction;
-using $JComponent = ::javax::swing::JComponent;
-using $JPanel = ::javax::swing::JPanel;
 
 namespace com {
 	namespace sun {

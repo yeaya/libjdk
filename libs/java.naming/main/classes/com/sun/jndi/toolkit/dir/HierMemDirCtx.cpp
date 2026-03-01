@@ -2,8 +2,6 @@
 
 #include <com/sun/jndi/toolkit/dir/AttrFilter.h>
 #include <com/sun/jndi/toolkit/dir/ContainmentFilter.h>
-#include <com/sun/jndi/toolkit/dir/ContextEnumerator.h>
-#include <com/sun/jndi/toolkit/dir/HierMemDirCtx$BaseFlatNames.h>
 #include <com/sun/jndi/toolkit/dir/HierMemDirCtx$FlatBindings.h>
 #include <com/sun/jndi/toolkit/dir/HierMemDirCtx$FlatNames.h>
 #include <com/sun/jndi/toolkit/dir/HierMemDirCtx$HierContextEnumerator.h>
@@ -14,7 +12,6 @@
 #include <java/util/Enumeration.h>
 #include <java/util/Hashtable.h>
 #include <javax/naming/CompositeName.h>
-#include <javax/naming/CompoundName.h>
 #include <javax/naming/Context.h>
 #include <javax/naming/InvalidNameException.h>
 #include <javax/naming/Name.h>
@@ -44,8 +41,6 @@
 using $ModificationItemArray = $Array<::javax::naming::directory::ModificationItem>;
 using $AttrFilter = ::com::sun::jndi::toolkit::dir::AttrFilter;
 using $ContainmentFilter = ::com::sun::jndi::toolkit::dir::ContainmentFilter;
-using $ContextEnumerator = ::com::sun::jndi::toolkit::dir::ContextEnumerator;
-using $HierMemDirCtx$BaseFlatNames = ::com::sun::jndi::toolkit::dir::HierMemDirCtx$BaseFlatNames;
 using $HierMemDirCtx$FlatBindings = ::com::sun::jndi::toolkit::dir::HierMemDirCtx$FlatBindings;
 using $HierMemDirCtx$FlatNames = ::com::sun::jndi::toolkit::dir::HierMemDirCtx$FlatNames;
 using $HierMemDirCtx$HierContextEnumerator = ::com::sun::jndi::toolkit::dir::HierMemDirCtx$HierContextEnumerator;
@@ -62,7 +57,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Hashtable = ::java::util::Hashtable;
 using $CompositeName = ::javax::naming::CompositeName;
-using $CompoundName = ::javax::naming::CompoundName;
 using $Context = ::javax::naming::Context;
 using $InvalidNameException = ::javax::naming::InvalidNameException;
 using $Name = ::javax::naming::Name;

@@ -2,14 +2,12 @@
 
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Point.h>
 #include <java/awt/event/ContainerListener.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/lang/ref/WeakReference.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <javax/swing/JCheckBox.h>
@@ -23,9 +21,7 @@
 #include <javax/swing/border/Border.h>
 #include <javax/swing/event/MouseInputListener.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/ToolBarUI.h>
 #include <javax/swing/plaf/UIResource.h>
-#include <javax/swing/plaf/basic/BasicToolBarUI$DockingListener.h>
 #include <javax/swing/plaf/basic/BasicToolBarUI$DragWindow.h>
 #include <javax/swing/plaf/basic/BasicToolBarUI.h>
 #include <javax/swing/plaf/metal/MetalLookAndFeel.h>
@@ -36,7 +32,6 @@
 #undef HORIZONTAL
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $Point = ::java::awt::Point;
@@ -48,7 +43,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $WeakReference = ::java::lang::ref::WeakReference;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $JCheckBox = ::javax::swing::JCheckBox;
@@ -62,10 +56,8 @@ using $UIManager = ::javax::swing::UIManager;
 using $Border = ::javax::swing::border::Border;
 using $MouseInputListener = ::javax::swing::event::MouseInputListener;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $ToolBarUI = ::javax::swing::plaf::ToolBarUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $BasicToolBarUI = ::javax::swing::plaf::basic::BasicToolBarUI;
-using $BasicToolBarUI$DockingListener = ::javax::swing::plaf::basic::BasicToolBarUI$DockingListener;
 using $BasicToolBarUI$DragWindow = ::javax::swing::plaf::basic::BasicToolBarUI$DragWindow;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
 using $MetalToolBarUI$MetalDockingListener = ::javax::swing::plaf::metal::MetalToolBarUI$MetalDockingListener;

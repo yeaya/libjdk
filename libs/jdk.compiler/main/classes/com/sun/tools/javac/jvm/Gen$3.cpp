@@ -6,7 +6,6 @@
 #include <com/sun/tools/javac/jvm/Gen$GenFinalizer.h>
 #include <com/sun/tools/javac/jvm/Gen.h>
 #include <com/sun/tools/javac/tree/JCTree$JCBlock.h>
-#include <com/sun/tools/javac/tree/JCTree$JCStatement.h>
 #include <com/sun/tools/javac/tree/JCTree$JCTry.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <com/sun/tools/javac/util/Assert.h>
@@ -19,7 +18,6 @@ using $Gen = ::com::sun::tools::javac::jvm::Gen;
 using $Gen$GenContext = ::com::sun::tools::javac::jvm::Gen$GenContext;
 using $Gen$GenFinalizer = ::com::sun::tools::javac::jvm::Gen$GenFinalizer;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
 using $JCTree$JCTry = ::com::sun::tools::javac::tree::JCTree$JCTry;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;

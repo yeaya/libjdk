@@ -3,7 +3,6 @@
 #include <com/sun/org/apache/xerces/internal/impl/validation/EntityState.h>
 #include <com/sun/org/apache/xerces/internal/util/SymbolTable.h>
 #include <com/sun/org/apache/xerces/internal/xni/NamespaceContext.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
@@ -17,7 +16,6 @@ using $NamespaceContext = ::com::sun::org::apache::xerces::internal::xni::Namesp
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;

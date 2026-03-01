@@ -9,7 +9,6 @@
 #include <com/sun/org/apache/xpath/internal/objects/XObject.h>
 #include <java/util/StringTokenizer.h>
 #include <jdk/xml/internal/JdkXmlUtils.h>
-#include <org/w3c/dom/CharacterData.h>
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/DocumentFragment.h>
 #include <org/w3c/dom/Node.h>
@@ -31,7 +30,6 @@ using $Double = ::java::lang::Double;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StringTokenizer = ::java::util::StringTokenizer;
 using $JdkXmlUtils = ::jdk::xml::internal::JdkXmlUtils;
-using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Document = ::org::w3c::dom::Document;
 using $DocumentFragment = ::org::w3c::dom::DocumentFragment;
 using $Node = ::org::w3c::dom::Node;

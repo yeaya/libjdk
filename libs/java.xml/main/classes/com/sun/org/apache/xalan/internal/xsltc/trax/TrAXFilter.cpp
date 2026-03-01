@@ -8,7 +8,6 @@
 #include <javax/xml/transform/Templates.h>
 #include <javax/xml/transform/Transformer.h>
 #include <javax/xml/transform/sax/SAXResult.h>
-#include <javax/xml/transform/sax/TransformerHandler.h>
 #include <jdk/xml/internal/JdkXmlUtils.h>
 #include <org/xml/sax/ContentHandler.h>
 #include <org/xml/sax/InputSource.h>
@@ -28,7 +27,6 @@ using $Result = ::javax::xml::transform::Result;
 using $Templates = ::javax::xml::transform::Templates;
 using $Transformer = ::javax::xml::transform::Transformer;
 using $SAXResult = ::javax::xml::transform::sax::SAXResult;
-using $TransformerHandler = ::javax::xml::transform::sax::TransformerHandler;
 using $JdkXmlUtils = ::jdk::xml::internal::JdkXmlUtils;
 using $ContentHandler = ::org::xml::sax::ContentHandler;
 using $InputSource = ::org::xml::sax::InputSource;

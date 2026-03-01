@@ -3,7 +3,6 @@
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ClassFormatException.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Constant$1.h>
-#include <com/sun/org/apache/bcel/internal/classfile/ConstantCP.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantClass.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantDouble.h>
 #include <com/sun/org/apache/bcel/internal/classfile/ConstantDynamic.h>
@@ -32,7 +31,6 @@
 using $Const = ::com::sun::org::apache::bcel::internal::Const;
 using $ClassFormatException = ::com::sun::org::apache::bcel::internal::classfile::ClassFormatException;
 using $Constant$1 = ::com::sun::org::apache::bcel::internal::classfile::Constant$1;
-using $ConstantCP = ::com::sun::org::apache::bcel::internal::classfile::ConstantCP;
 using $ConstantClass = ::com::sun::org::apache::bcel::internal::classfile::ConstantClass;
 using $ConstantDouble = ::com::sun::org::apache::bcel::internal::classfile::ConstantDouble;
 using $ConstantDynamic = ::com::sun::org::apache::bcel::internal::classfile::ConstantDynamic;

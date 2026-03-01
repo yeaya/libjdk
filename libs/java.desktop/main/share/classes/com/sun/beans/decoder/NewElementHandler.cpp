@@ -8,7 +8,6 @@
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/reflect/Array.h>
 #include <java/lang/reflect/Constructor.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -28,7 +27,6 @@ using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $1Array = ::java::lang::reflect::Array;
 using $Constructor = ::java::lang::reflect::Constructor;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 

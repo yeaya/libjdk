@@ -8,7 +8,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/net/ConnectException.h>
-#include <java/net/SocketException.h>
 #include <java/net/http/HttpConnectTimeoutException.h>
 #include <java/net/http/HttpTimeoutException.h>
 #include <java/time/Duration.h>
@@ -30,12 +29,10 @@
 using $IOException = ::java::io::IOException;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $ConnectException = ::java::net::ConnectException;
-using $SocketException = ::java::net::SocketException;
 using $HttpConnectTimeoutException = ::java::net::http::HttpConnectTimeoutException;
 using $HttpTimeoutException = ::java::net::http::HttpTimeoutException;
 using $Duration = ::java::time::Duration;

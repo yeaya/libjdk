@@ -13,7 +13,6 @@
 #include <java/util/List.h>
 #include <jdk/internal/net/http/ResponseBodyHandlers.h>
 #include <jdk/internal/net/http/ResponseSubscribers$PathSubscriber.h>
-#include <jdk/internal/net/http/ResponseSubscribers$TrustedSubscriber.h>
 #include <jcpp.h>
 
 using $FilePermissionArray = $Array<::java::io::FilePermission>;
@@ -34,7 +33,6 @@ using $Permission = ::java::security::Permission;
 using $List = ::java::util::List;
 using $ResponseBodyHandlers = ::jdk::internal::net::http::ResponseBodyHandlers;
 using $ResponseSubscribers$PathSubscriber = ::jdk::internal::net::http::ResponseSubscribers$PathSubscriber;
-using $ResponseSubscribers$TrustedSubscriber = ::jdk::internal::net::http::ResponseSubscribers$TrustedSubscriber;
 
 namespace jdk {
 	namespace internal {

@@ -1,7 +1,6 @@
 #include <javax/swing/text/DefaultEditorKit$SelectParagraphAction.h>
 
 #include <java/awt/event/ActionEvent.h>
-#include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/text/DefaultEditorKit$BeginParagraphAction.h>
 #include <javax/swing/text/DefaultEditorKit$EndParagraphAction.h>
@@ -14,7 +13,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractAction = ::javax::swing::AbstractAction;
 using $Action = ::javax::swing::Action;
 using $DefaultEditorKit$BeginParagraphAction = ::javax::swing::text::DefaultEditorKit$BeginParagraphAction;
 using $DefaultEditorKit$EndParagraphAction = ::javax::swing::text::DefaultEditorKit$EndParagraphAction;

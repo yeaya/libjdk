@@ -3,7 +3,6 @@
 #include <com/apple/laf/AquaMenuPainter.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
 #include <java/awt/Graphics.h>
@@ -19,7 +18,6 @@
 
 using $AquaMenuPainter = ::com::apple::laf::AquaMenuPainter;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;

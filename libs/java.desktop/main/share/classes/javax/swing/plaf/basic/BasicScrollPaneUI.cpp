@@ -3,7 +3,6 @@
 #include <java/awt/Component$BaselineResizeBehavior.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Insets.h>
@@ -34,7 +33,6 @@
 #include <javax/swing/plaf/basic/BasicScrollPaneUI$Handler.h>
 #include <javax/swing/plaf/basic/LazyActionMap.h>
 #include <sun/swing/DefaultLookup.h>
-#include <sun/swing/UIAction.h>
 #include <jcpp.h>
 
 #undef COLUMN_HEADER
@@ -57,7 +55,6 @@
 using $Component = ::java::awt::Component;
 using $Component$BaselineResizeBehavior = ::java::awt::Component$BaselineResizeBehavior;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
@@ -97,7 +94,6 @@ using $BasicScrollPaneUI$Actions = ::javax::swing::plaf::basic::BasicScrollPaneU
 using $BasicScrollPaneUI$Handler = ::javax::swing::plaf::basic::BasicScrollPaneUI$Handler;
 using $LazyActionMap = ::javax::swing::plaf::basic::LazyActionMap;
 using $DefaultLookup = ::sun::swing::DefaultLookup;
-using $UIAction = ::sun::swing::UIAction;
 
 namespace javax {
 	namespace swing {

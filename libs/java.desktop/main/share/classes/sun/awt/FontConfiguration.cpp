@@ -17,7 +17,6 @@
 #include <java/nio/charset/CharsetEncoder.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Arrays.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
@@ -91,7 +90,6 @@ using $Charset = ::java::nio::charset::Charset;
 using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Arrays = ::java::util::Arrays;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;

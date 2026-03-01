@@ -8,7 +8,6 @@
 #include <java/awt/GridBagConstraints.h>
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
@@ -19,16 +18,13 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/util/concurrent/CountDownLatch.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JColorChooser.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/JTextArea.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/border/EmptyBorder.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef BLUE
@@ -38,11 +34,9 @@ using $JColorChooserTest = ::JColorChooserTest;
 using $JColorChooserTest$1$1 = ::JColorChooserTest$1$1;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $Serializable = ::java::io::Serializable;
@@ -53,16 +47,13 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JButton = ::javax::swing::JButton;
 using $JColorChooser = ::javax::swing::JColorChooser;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JPanel = ::javax::swing::JPanel;
 using $JTextArea = ::javax::swing::JTextArea;
 using $UIManager = ::javax::swing::UIManager;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 class JColorChooserTest$1$$Lambda$lambda$run$0 : public $ActionListener {
 	$class(JColorChooserTest$1$$Lambda$lambda$run$0, $NO_CLASS_INIT, $ActionListener)

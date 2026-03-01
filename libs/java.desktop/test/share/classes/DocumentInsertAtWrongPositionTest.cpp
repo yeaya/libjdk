@@ -6,7 +6,6 @@
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/BadLocationException.h>
 #include <javax/swing/text/Document.h>
-#include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/SimpleAttributeSet.h>
 #include <jcpp.h>
 
@@ -20,7 +19,6 @@ using $JTextPane = ::javax::swing::JTextPane;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $Document = ::javax::swing::text::Document;
-using $MutableAttributeSet = ::javax::swing::text::MutableAttributeSet;
 using $SimpleAttributeSet = ::javax::swing::text::SimpleAttributeSet;
 
 $MethodInfo _DocumentInsertAtWrongPositionTest_MethodInfo_[] = {

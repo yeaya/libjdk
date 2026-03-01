@@ -9,7 +9,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/nio/channels/SelectableChannel.h>
 #include <java/nio/channels/SocketChannel.h>
-#include <java/nio/channels/spi/AbstractSelectableChannel.h>
 #include <java/util/function/Supplier.h>
 #include <jdk/internal/net/http/AsyncEvent.h>
 #include <jdk/internal/net/http/SocketTube.h>
@@ -21,14 +20,12 @@
 using $IOException = ::java::io::IOException;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $SelectableChannel = ::java::nio::channels::SelectableChannel;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
-using $AbstractSelectableChannel = ::java::nio::channels::spi::AbstractSelectableChannel;
 using $Supplier = ::java::util::function::Supplier;
 using $AsyncEvent = ::jdk::internal::net::http::AsyncEvent;
 using $Logger = ::jdk::internal::net::http::common::Logger;

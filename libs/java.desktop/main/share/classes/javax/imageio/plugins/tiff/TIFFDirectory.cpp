@@ -3,7 +3,6 @@
 #include <com/sun/imageio/plugins/tiff/TIFFIFD.h>
 #include <com/sun/imageio/plugins/tiff/TIFFImageMetadata.h>
 #include <java/lang/Cloneable.h>
-#include <java/util/AbstractList.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
@@ -36,7 +35,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $AbstractList = ::java::util::AbstractList;
 using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;

@@ -12,7 +12,6 @@
 #include <jcpp.h>
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectInputValidation = ::java::io::ObjectInputValidation;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -6,19 +6,16 @@
 #include <java/awt/event/MouseListener.h>
 #include <java/awt/event/MouseMotionListener.h>
 #include <java/awt/event/MouseWheelListener.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLayer.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/SwingUtilities.h>
 #include <jcpp.h>
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Point = ::java::awt::Point;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JPanel = ::javax::swing::JPanel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 

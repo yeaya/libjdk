@@ -6,12 +6,9 @@
 #include <java/awt/FlowLayout.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/Window.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JTextField.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef EXIT_ON_CLOSE
@@ -25,12 +22,9 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JTextField = ::javax::swing::JTextField;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 $MethodInfo _bug7049024$1_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(bug7049024$1, init$, void)},

@@ -20,17 +20,13 @@
 #include <java/lang/Math.h>
 #include <java/lang/OutOfMemoryError.h>
 #include <java/lang/Runnable.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractSequentialList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Iterator.h>
 #include <java/util/LinkedList.h>
 #include <java/util/List.h>
 #include <java/util/concurrent/Callable.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/Box.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JDialog.h>
 #include <javax/swing/SwingUtilities.h>
 #include <jcpp.h>
@@ -75,17 +71,13 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $OutOfMemoryError = ::java::lang::OutOfMemoryError;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractSequentialList = ::java::util::AbstractSequentialList;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 using $LinkedList = ::java::util::LinkedList;
 using $List = ::java::util::List;
 using $Callable = ::java::util::concurrent::Callable;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $Box = ::javax::swing::Box;
 using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JDialog = ::javax::swing::JDialog;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 

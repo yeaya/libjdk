@@ -10,14 +10,11 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSParticleDecl.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSWildcardDecl.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/util/XSObjectListImpl.h>
-#include <com/sun/org/apache/xerces/internal/xs/XSComplexTypeDefinition.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSConstants.h>
-#include <com/sun/org/apache/xerces/internal/xs/XSModelGroup.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSNamespaceItem.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSObjectList.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSTerm.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSTypeDefinition.h>
-#include <com/sun/org/apache/xerces/internal/xs/XSWildcard.h>
 #include <jcpp.h>
 
 #undef ATTVAL_ANYTYPE
@@ -41,14 +38,11 @@ using $XSModelGroupImpl = ::com::sun::org::apache::xerces::internal::impl::xs::X
 using $XSParticleDecl = ::com::sun::org::apache::xerces::internal::impl::xs::XSParticleDecl;
 using $XSWildcardDecl = ::com::sun::org::apache::xerces::internal::impl::xs::XSWildcardDecl;
 using $XSObjectListImpl = ::com::sun::org::apache::xerces::internal::impl::xs::util::XSObjectListImpl;
-using $XSComplexTypeDefinition = ::com::sun::org::apache::xerces::internal::xs::XSComplexTypeDefinition;
 using $XSConstants = ::com::sun::org::apache::xerces::internal::xs::XSConstants;
-using $XSModelGroup = ::com::sun::org::apache::xerces::internal::xs::XSModelGroup;
 using $XSNamespaceItem = ::com::sun::org::apache::xerces::internal::xs::XSNamespaceItem;
 using $XSObjectList = ::com::sun::org::apache::xerces::internal::xs::XSObjectList;
 using $XSTerm = ::com::sun::org::apache::xerces::internal::xs::XSTerm;
 using $XSTypeDefinition = ::com::sun::org::apache::xerces::internal::xs::XSTypeDefinition;
-using $XSWildcard = ::com::sun::org::apache::xerces::internal::xs::XSWildcard;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

@@ -14,11 +14,8 @@
 #include <apple/laf/JRSUIUtils$TabbedPane.h>
 #include <com/apple/laf/AquaFocusHandler.h>
 #include <com/apple/laf/AquaGroupBorder.h>
-#include <com/apple/laf/AquaIcon$CachingScalingIcon.h>
 #include <com/apple/laf/AquaImageFactory.h>
 #include <com/apple/laf/AquaPainter.h>
-#include <com/apple/laf/AquaTabbedPaneCopyFromBasicUI$PropertyChangeHandler.h>
-#include <com/apple/laf/AquaTabbedPaneCopyFromBasicUI$TabbedPaneLayout.h>
 #include <com/apple/laf/AquaTabbedPaneCopyFromBasicUI.h>
 #include <com/apple/laf/AquaTabbedPaneTabState.h>
 #include <com/apple/laf/AquaTabbedPaneUI$1.h>
@@ -32,7 +29,6 @@
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
-#include <java/awt/Container.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
 #include <java/awt/Graphics.h>
@@ -43,14 +39,11 @@
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
-#include <java/awt/event/FocusAdapter.h>
 #include <java/awt/event/FocusListener.h>
 #include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/awt/event/MouseMotionListener.h>
 #include <java/awt/geom/AffineTransform.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/lang/Math.h>
 #include <javax/swing/Icon.h>
@@ -63,7 +56,6 @@
 #include <javax/swing/event/ChangeListener.h>
 #include <javax/swing/event/MouseInputAdapter.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/TabbedPaneUI.h>
 #include <javax/swing/plaf/UIResource.h>
 #include <javax/swing/text/View.h>
 #include <sun/swing/SwingUtilities2.h>
@@ -107,12 +99,9 @@ using $JRSUIStateFactory = ::apple::laf::JRSUIStateFactory;
 using $JRSUIUtils$TabbedPane = ::apple::laf::JRSUIUtils$TabbedPane;
 using $AquaFocusHandler = ::com::apple::laf::AquaFocusHandler;
 using $AquaGroupBorder = ::com::apple::laf::AquaGroupBorder;
-using $AquaIcon$CachingScalingIcon = ::com::apple::laf::AquaIcon$CachingScalingIcon;
 using $AquaImageFactory = ::com::apple::laf::AquaImageFactory;
 using $AquaPainter = ::com::apple::laf::AquaPainter;
 using $AquaTabbedPaneCopyFromBasicUI = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI;
-using $AquaTabbedPaneCopyFromBasicUI$PropertyChangeHandler = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI$PropertyChangeHandler;
-using $AquaTabbedPaneCopyFromBasicUI$TabbedPaneLayout = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI$TabbedPaneLayout;
 using $AquaTabbedPaneTabState = ::com::apple::laf::AquaTabbedPaneTabState;
 using $AquaTabbedPaneUI$1 = ::com::apple::laf::AquaTabbedPaneUI$1;
 using $AquaTabbedPaneUI$2 = ::com::apple::laf::AquaTabbedPaneUI$2;
@@ -125,7 +114,6 @@ using $AquaUtils = ::com::apple::laf::AquaUtils;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Container = ::java::awt::Container;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
@@ -136,14 +124,11 @@ using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
-using $FocusAdapter = ::java::awt::event::FocusAdapter;
 using $FocusListener = ::java::awt::event::FocusListener;
 using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -162,7 +147,6 @@ using $Border = ::javax::swing::border::Border;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
 using $MouseInputAdapter = ::javax::swing::event::MouseInputAdapter;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $TabbedPaneUI = ::javax::swing::plaf::TabbedPaneUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $View = ::javax::swing::text::View;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;

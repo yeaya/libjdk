@@ -4,7 +4,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <java/awt/geom/GeneralPath.h>
-#include <java/awt/geom/Path2D$Float.h>
 #include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/Point2D$Float.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
@@ -28,8 +27,6 @@ using $Font = ::java::awt::Font;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
 using $GeneralPath = ::java::awt::geom::GeneralPath;
-using $Path2D = ::java::awt::geom::Path2D;
-using $Path2D$Float = ::java::awt::geom::Path2D$Float;
 using $Point2D$Float = ::java::awt::geom::Point2D$Float;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
 using $ClassInfo = ::java::lang::ClassInfo;

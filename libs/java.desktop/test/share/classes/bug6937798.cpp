@@ -11,10 +11,7 @@
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/plaf/basic/BasicLookAndFeel.h>
 #include <javax/swing/plaf/nimbus/NimbusLookAndFeel.h>
-#include <javax/swing/plaf/synth/SynthLookAndFeel.h>
-#include <javax/swing/table/AbstractTableModel.h>
 #include <javax/swing/table/TableModel.h>
 #include <jcpp.h>
 
@@ -37,10 +34,7 @@ using $JTable = ::javax::swing::JTable;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
 using $NimbusLookAndFeel = ::javax::swing::plaf::nimbus::NimbusLookAndFeel;
-using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
-using $AbstractTableModel = ::javax::swing::table::AbstractTableModel;
 using $TableModel = ::javax::swing::table::TableModel;
 
 $MethodInfo _bug6937798_MethodInfo_[] = {

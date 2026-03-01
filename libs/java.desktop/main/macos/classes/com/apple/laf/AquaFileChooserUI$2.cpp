@@ -6,7 +6,6 @@
 #include <com/apple/laf/AquaFileSystemModel.h>
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/io/File.h>
 #include <javax/swing/AbstractAction.h>
@@ -41,7 +40,6 @@ using $AquaFileChooserUI$JTableExtension = ::com::apple::laf::AquaFileChooserUI$
 using $AquaFileSystemModel = ::com::apple::laf::AquaFileSystemModel;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $File = ::java::io::File;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -24,7 +24,6 @@
 #include <java/security/MessageDigest.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/SecureRandom.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Arrays.h>
 #include <java/util/Base64$Decoder.h>
 #include <java/util/Base64$Encoder.h>
@@ -64,7 +63,6 @@ using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $MessageDigest = ::java::security::MessageDigest;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $SecureRandom = ::java::security::SecureRandom;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Arrays = ::java::util::Arrays;
 using $Base64 = ::java::util::Base64;
 using $Base64$Decoder = ::java::util::Base64$Decoder;

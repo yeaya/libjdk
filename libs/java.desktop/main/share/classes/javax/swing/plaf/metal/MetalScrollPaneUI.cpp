@@ -7,7 +7,6 @@
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/ScrollPaneUI.h>
 #include <javax/swing/plaf/basic/BasicScrollPaneUI.h>
 #include <javax/swing/plaf/metal/MetalBorders$ScrollPaneBorder.h>
 #include <javax/swing/plaf/metal/MetalScrollBarUI.h>
@@ -30,7 +29,6 @@ using $JScrollBar = ::javax::swing::JScrollBar;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $Border = ::javax::swing::border::Border;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $ScrollPaneUI = ::javax::swing::plaf::ScrollPaneUI;
 using $BasicScrollPaneUI = ::javax::swing::plaf::basic::BasicScrollPaneUI;
 using $MetalBorders$ScrollPaneBorder = ::javax::swing::plaf::metal::MetalBorders$ScrollPaneBorder;
 using $MetalScrollBarUI = ::javax::swing::plaf::metal::MetalScrollBarUI;

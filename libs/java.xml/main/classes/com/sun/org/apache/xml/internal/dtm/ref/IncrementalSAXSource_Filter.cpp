@@ -8,7 +8,6 @@
 #include <com/sun/org/apache/xml/internal/utils/ThreadControllerWrapper.h>
 #include <java/io/IOException.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/Runnable.h>
 #include <org/xml/sax/Attributes.h>
 #include <org/xml/sax/ContentHandler.h>
@@ -46,7 +45,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Attributes = ::org::xml::sax::Attributes;

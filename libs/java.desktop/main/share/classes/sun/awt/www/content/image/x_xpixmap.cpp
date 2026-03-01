@@ -5,7 +5,6 @@
 #include <java/awt/image/ImageProducer.h>
 #include <java/net/ContentHandler.h>
 #include <java/net/URLConnection.h>
-#include <sun/awt/image/InputStreamImageSource.h>
 #include <sun/awt/image/URLImageSource.h>
 #include <jcpp.h>
 
@@ -16,7 +15,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ContentHandler = ::java::net::ContentHandler;
 using $URLConnection = ::java::net::URLConnection;
-using $InputStreamImageSource = ::sun::awt::image::InputStreamImageSource;
 using $URLImageSource = ::sun::awt::image::URLImageSource;
 
 namespace sun {

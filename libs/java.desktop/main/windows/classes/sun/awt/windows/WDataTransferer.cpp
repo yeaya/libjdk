@@ -18,7 +18,6 @@
 #include <java/awt/image/DataBufferInt.h>
 #include <java/awt/image/DirectColorModel.h>
 #include <java/awt/image/ImageObserver.h>
-#include <java/awt/image/PackedColorModel.h>
 #include <java/awt/image/Raster.h>
 #include <java/awt/image/WritableRaster.h>
 #include <java/io/ByteArrayOutputStream.h>
@@ -27,7 +26,6 @@
 #include <java/io/InputStream.h>
 #include <java/net/URL.h>
 #include <java/nio/charset/Charset.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collections.h>
@@ -83,7 +81,6 @@ using $DataBufferByte = ::java::awt::image::DataBufferByte;
 using $DataBufferInt = ::java::awt::image::DataBufferInt;
 using $DirectColorModel = ::java::awt::image::DirectColorModel;
 using $ImageObserver = ::java::awt::image::ImageObserver;
-using $PackedColorModel = ::java::awt::image::PackedColorModel;
 using $Raster = ::java::awt::image::Raster;
 using $WritableRaster = ::java::awt::image::WritableRaster;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
@@ -97,7 +94,6 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
 using $Charset = ::java::nio::charset::Charset;
-using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $Collections = ::java::util::Collections;

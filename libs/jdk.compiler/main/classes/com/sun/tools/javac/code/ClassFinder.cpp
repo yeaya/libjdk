@@ -6,7 +6,6 @@
 #include <com/sun/tools/javac/code/DeferredCompletionFailureHandler.h>
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Scope$ErrorScope.h>
-#include <com/sun/tools/javac/code/Scope$ScopeImpl.h>
 #include <com/sun/tools/javac/code/Scope$WriteableScope.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$Completer.h>
@@ -54,8 +53,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/net/URI.h>
 #include <java/nio/file/Path.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
 #include <java/util/EnumSet.h>
 #include <java/util/HashMap.h>
@@ -66,7 +63,6 @@
 #include <java/util/function/Predicate.h>
 #include <java/util/function/Supplier.h>
 #include <javax/lang/model/SourceVersion.h>
-#include <javax/lang/model/element/Name.h>
 #include <javax/tools/FileObject.h>
 #include <javax/tools/JavaFileManager$Location.h>
 #include <javax/tools/JavaFileManager.h>
@@ -96,7 +92,6 @@ using $ClassFinder$BadClassFile = ::com::sun::tools::javac::code::ClassFinder$Ba
 using $DeferredCompletionFailureHandler = ::com::sun::tools::javac::code::DeferredCompletionFailureHandler;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Scope$ErrorScope = ::com::sun::tools::javac::code::Scope$ErrorScope;
-using $Scope$ScopeImpl = ::com::sun::tools::javac::code::Scope$ScopeImpl;
 using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
@@ -134,7 +129,6 @@ using $AssertionError = ::java::lang::AssertionError;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Enum = ::java::lang::Enum;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -143,8 +137,6 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Path = ::java::nio::file::Path;
-using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
 using $EnumSet = ::java::util::EnumSet;
 using $HashMap = ::java::util::HashMap;
@@ -155,7 +147,6 @@ using $Consumer = ::java::util::function::Consumer;
 using $Predicate = ::java::util::function::Predicate;
 using $Supplier = ::java::util::function::Supplier;
 using $SourceVersion = ::javax::lang::model::SourceVersion;
-using $1Name = ::javax::lang::model::element::Name;
 using $FileObject = ::javax::tools::FileObject;
 using $JavaFileManager = ::javax::tools::JavaFileManager;
 using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;

@@ -22,7 +22,6 @@
 #include <java/util/Stack.h>
 #include <javax/sql/RowSet.h>
 #include <javax/sql/RowSetInternal.h>
-#include <javax/sql/rowset/CachedRowSet.h>
 #include <javax/sql/rowset/WebRowSet.h>
 #include <javax/sql/rowset/spi/SyncProvider.h>
 #include <javax/sql/rowset/spi/XmlWriter.h>
@@ -59,7 +58,6 @@ using $Writer = ::java::io::Writer;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $Integer = ::java::lang::Integer;
@@ -83,7 +81,6 @@ using $Set = ::java::util::Set;
 using $Stack = ::java::util::Stack;
 using $RowSet = ::javax::sql::RowSet;
 using $RowSetInternal = ::javax::sql::RowSetInternal;
-using $CachedRowSet = ::javax::sql::rowset::CachedRowSet;
 using $WebRowSet = ::javax::sql::rowset::WebRowSet;
 using $SyncProvider = ::javax::sql::rowset::spi::SyncProvider;
 using $XmlWriter = ::javax::sql::rowset::spi::XmlWriter;

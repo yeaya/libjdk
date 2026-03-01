@@ -13,7 +13,6 @@
 #include <java/awt/Graphics2D.h>
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/MouseInfo.h>
 #include <java/awt/Point.h>
 #include <java/awt/PointerInfo.h>
@@ -43,14 +42,12 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
-#include <javax/swing/InternalFrameFocusTraversalPolicy.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JLayeredPane.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/JRootPane.h>
 #include <javax/swing/LayoutFocusTraversalPolicy.h>
 #include <javax/swing/RepaintManager.h>
-#include <javax/swing/SortingFocusTraversalPolicy.h>
 #include <javax/swing/SwingUtilities.h>
 #include <sun/awt/AWTAccessor$ComponentAccessor.h>
 #include <sun/awt/AWTAccessor.h>
@@ -78,12 +75,10 @@ using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $FocusTraversalPolicy = ::java::awt::FocusTraversalPolicy;
-using $Frame = ::java::awt::Frame;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $MouseInfo = ::java::awt::MouseInfo;
 using $Point = ::java::awt::Point;
 using $PointerInfo = ::java::awt::PointerInfo;
@@ -113,14 +108,12 @@ using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $InternalFrameFocusTraversalPolicy = ::javax::swing::InternalFrameFocusTraversalPolicy;
 using $JComponent = ::javax::swing::JComponent;
 using $JLayeredPane = ::javax::swing::JLayeredPane;
 using $JPanel = ::javax::swing::JPanel;
 using $JRootPane = ::javax::swing::JRootPane;
 using $LayoutFocusTraversalPolicy = ::javax::swing::LayoutFocusTraversalPolicy;
 using $RepaintManager = ::javax::swing::RepaintManager;
-using $SortingFocusTraversalPolicy = ::javax::swing::SortingFocusTraversalPolicy;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
 using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;

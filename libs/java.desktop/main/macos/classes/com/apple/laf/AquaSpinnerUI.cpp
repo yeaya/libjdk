@@ -19,12 +19,10 @@
 #include <java/awt/event/FocusListener.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/beans/PropertyChangeListener.h>
-#include <javax/swing/AbstractAction.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/InputMap.h>
-#include <javax/swing/JButton.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JFormattedTextField.h>
 #include <javax/swing/JSpinner$DefaultEditor.h>
@@ -70,12 +68,10 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractAction = ::javax::swing::AbstractAction;
 using $AbstractButton = ::javax::swing::AbstractButton;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $InputMap = ::javax::swing::InputMap;
-using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
 using $JFormattedTextField = ::javax::swing::JFormattedTextField;
 using $JSpinner = ::javax::swing::JSpinner;

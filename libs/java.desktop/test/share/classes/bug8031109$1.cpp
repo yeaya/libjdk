@@ -5,13 +5,11 @@
 #include <java/awt/Container.h>
 #include <java/awt/Window.h>
 #include <java/net/URL.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/EditorKit.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef EXIT_ON_CLOSE
@@ -26,13 +24,11 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
-using $JComponent = ::javax::swing::JComponent;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $JFrame = ::javax::swing::JFrame;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $Document = ::javax::swing::text::Document;
 using $EditorKit = ::javax::swing::text::EditorKit;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 $MethodInfo _bug8031109$1_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(bug8031109$1, init$, void)},

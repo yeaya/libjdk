@@ -2,7 +2,6 @@
 
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/classfile/AnnotationDefault.h>
-#include <com/sun/org/apache/bcel/internal/classfile/Annotations.h>
 #include <com/sun/org/apache/bcel/internal/classfile/BootstrapMethods.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Code.h>
 #include <com/sun/org/apache/bcel/internal/classfile/Constant.h>
@@ -23,7 +22,6 @@
 #include <com/sun/org/apache/bcel/internal/classfile/NestHost.h>
 #include <com/sun/org/apache/bcel/internal/classfile/NestMembers.h>
 #include <com/sun/org/apache/bcel/internal/classfile/PMGClass.h>
-#include <com/sun/org/apache/bcel/internal/classfile/ParameterAnnotations.h>
 #include <com/sun/org/apache/bcel/internal/classfile/RuntimeInvisibleAnnotations.h>
 #include <com/sun/org/apache/bcel/internal/classfile/RuntimeInvisibleParameterAnnotations.h>
 #include <com/sun/org/apache/bcel/internal/classfile/RuntimeVisibleAnnotations.h>
@@ -41,7 +39,6 @@
 #include <java/lang/Cloneable.h>
 #include <java/lang/Error.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <jcpp.h>
@@ -78,7 +75,6 @@
 
 using $Const = ::com::sun::org::apache::bcel::internal::Const;
 using $AnnotationDefault = ::com::sun::org::apache::bcel::internal::classfile::AnnotationDefault;
-using $Annotations = ::com::sun::org::apache::bcel::internal::classfile::Annotations;
 using $BootstrapMethods = ::com::sun::org::apache::bcel::internal::classfile::BootstrapMethods;
 using $Code = ::com::sun::org::apache::bcel::internal::classfile::Code;
 using $ConstantPool = ::com::sun::org::apache::bcel::internal::classfile::ConstantPool;
@@ -98,7 +94,6 @@ using $ModulePackages = ::com::sun::org::apache::bcel::internal::classfile::Modu
 using $NestHost = ::com::sun::org::apache::bcel::internal::classfile::NestHost;
 using $NestMembers = ::com::sun::org::apache::bcel::internal::classfile::NestMembers;
 using $PMGClass = ::com::sun::org::apache::bcel::internal::classfile::PMGClass;
-using $ParameterAnnotations = ::com::sun::org::apache::bcel::internal::classfile::ParameterAnnotations;
 using $RuntimeInvisibleAnnotations = ::com::sun::org::apache::bcel::internal::classfile::RuntimeInvisibleAnnotations;
 using $RuntimeInvisibleParameterAnnotations = ::com::sun::org::apache::bcel::internal::classfile::RuntimeInvisibleParameterAnnotations;
 using $RuntimeVisibleAnnotations = ::com::sun::org::apache::bcel::internal::classfile::RuntimeVisibleAnnotations;
@@ -119,7 +114,6 @@ using $Error = ::java::lang::Error;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 

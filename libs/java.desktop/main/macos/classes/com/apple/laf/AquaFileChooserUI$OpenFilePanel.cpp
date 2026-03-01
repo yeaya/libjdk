@@ -8,7 +8,6 @@
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JFileChooser.h>
 #include <javax/swing/JPanel.h>
-#include <javax/swing/JTable.h>
 #include <jcpp.h>
 
 using $AquaFileChooserUI = ::com::apple::laf::AquaFileChooserUI;
@@ -22,7 +21,6 @@ using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
 using $JFileChooser = ::javax::swing::JFileChooser;
 using $JPanel = ::javax::swing::JPanel;
-using $JTable = ::javax::swing::JTable;
 
 namespace com {
 	namespace apple {

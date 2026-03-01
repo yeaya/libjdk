@@ -4,7 +4,6 @@
 #include <com/sun/tools/javac/code/DeferredCompletionFailureHandler.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$CompletionFailure.h>
-#include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/comp/Annotate$AnnotationTypeMetadata.h>
 #include <com/sun/tools/javac/jvm/ClassReader$AnnotationDeproxy.h>
@@ -28,7 +27,6 @@ using $Attribute$Compound = ::com::sun::tools::javac::code::Attribute$Compound;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$CompletionFailure = ::com::sun::tools::javac::code::Symbol$CompletionFailure;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Annotate$AnnotationTypeMetadata = ::com::sun::tools::javac::comp::Annotate$AnnotationTypeMetadata;
 using $ClassReader = ::com::sun::tools::javac::jvm::ClassReader;
 using $ClassReader$AnnotationDeproxy = ::com::sun::tools::javac::jvm::ClassReader$AnnotationDeproxy;

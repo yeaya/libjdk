@@ -1,8 +1,6 @@
 #include <com/sun/tools/javac/tree/TreeInfo$1DiagScanner.h>
 
 #include <com/sun/tools/javac/code/Symbol.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
-#include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCFieldAccess.h>
 #include <com/sun/tools/javac/tree/JCTree$JCIdent.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
@@ -13,8 +11,6 @@
 
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCFieldAccess = ::com::sun::tools::javac::tree::JCTree$JCFieldAccess;
 using $JCTree$JCIdent = ::com::sun::tools::javac::tree::JCTree$JCIdent;
 using $TreeInfo$DeclScanner = ::com::sun::tools::javac::tree::TreeInfo$DeclScanner;

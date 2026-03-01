@@ -1,7 +1,6 @@
 #include <javax/swing/text/DefaultFormatter$DefaultDocumentFilter.h>
 
 #include <javax/swing/JFormattedTextField.h>
-#include <javax/swing/JTextField.h>
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/DefaultFormatter.h>
 #include <javax/swing/text/DocumentFilter$FilterBypass.h>
@@ -14,7 +13,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JTextField = ::javax::swing::JTextField;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $DefaultFormatter = ::javax::swing::text::DefaultFormatter;
 using $DocumentFilter = ::javax::swing::text::DocumentFilter;

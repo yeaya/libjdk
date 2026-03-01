@@ -11,7 +11,6 @@
 #include <java/awt/image/IndexColorModel.h>
 #include <java/awt/image/Raster.h>
 #include <java/lang/SecurityManager.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <sun/awt/SunHints.h>
 #include <sun/awt/image/SurfaceManager.h>
@@ -51,8 +50,6 @@
 #include <sun/java2d/pipe/DrawImage.h>
 #include <sun/java2d/pipe/DrawImagePipe.h>
 #include <sun/java2d/pipe/GeneralCompositePipe.h>
-#include <sun/java2d/pipe/GlyphListLoopPipe.h>
-#include <sun/java2d/pipe/GlyphListPipe.h>
 #include <sun/java2d/pipe/LCDTextRenderer.h>
 #include <sun/java2d/pipe/LoopBasedPipe.h>
 #include <sun/java2d/pipe/LoopPipe.h>
@@ -116,7 +113,6 @@ using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $SunHints = ::sun::awt::SunHints;
 using $SurfaceManager = ::sun::awt::image::SurfaceManager;
@@ -155,8 +151,6 @@ using $CompositePipe = ::sun::java2d::pipe::CompositePipe;
 using $DrawImage = ::sun::java2d::pipe::DrawImage;
 using $DrawImagePipe = ::sun::java2d::pipe::DrawImagePipe;
 using $GeneralCompositePipe = ::sun::java2d::pipe::GeneralCompositePipe;
-using $GlyphListLoopPipe = ::sun::java2d::pipe::GlyphListLoopPipe;
-using $GlyphListPipe = ::sun::java2d::pipe::GlyphListPipe;
 using $LCDTextRenderer = ::sun::java2d::pipe::LCDTextRenderer;
 using $LoopBasedPipe = ::sun::java2d::pipe::LoopBasedPipe;
 using $LoopPipe = ::sun::java2d::pipe::LoopPipe;

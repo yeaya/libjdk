@@ -14,7 +14,6 @@
 #include <java/io/UnsupportedEncodingException.h>
 #include <java/lang/ClassLoader.h>
 #include <java/net/URL.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Enumeration.h>
 #include <java/util/HashMap.h>
 #include <java/util/Locale.h>
@@ -58,7 +57,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $URL = ::java::net::URL;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Enumeration = ::java::util::Enumeration;
 using $HashMap = ::java::util::HashMap;
 using $Locale = ::java::util::Locale;

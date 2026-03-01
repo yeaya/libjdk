@@ -6,7 +6,6 @@
 #include <sun/font/CharToGlyphMapper.h>
 #include <sun/font/CompositeGlyphMapper.h>
 #include <sun/font/CompositeStrike.h>
-#include <sun/font/FileFont.h>
 #include <sun/font/Font2D.h>
 #include <sun/font/Font2DHandle.h>
 #include <sun/font/FontManager.h>
@@ -36,7 +35,6 @@ using $Locale = ::java::util::Locale;
 using $CharToGlyphMapper = ::sun::font::CharToGlyphMapper;
 using $CompositeGlyphMapper = ::sun::font::CompositeGlyphMapper;
 using $CompositeStrike = ::sun::font::CompositeStrike;
-using $FileFont = ::sun::font::FileFont;
 using $Font2D = ::sun::font::Font2D;
 using $Font2DHandle = ::sun::font::Font2DHandle;
 using $FontManager = ::sun::font::FontManager;

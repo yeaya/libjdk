@@ -4,7 +4,6 @@
 #include <com/sun/org/apache/xerces/internal/impl/XML11DTDScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDTDScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/dtd/XML11DTDProcessor.h>
-#include <com/sun/org/apache/xerces/internal/impl/dtd/XMLDTDLoader.h>
 #include <com/sun/org/apache/xerces/internal/impl/dtd/XMLDTDProcessor.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator.h>
 #include <com/sun/org/apache/xerces/internal/parsers/XML11Configuration.h>
@@ -12,7 +11,6 @@
 #include <com/sun/org/apache/xerces/internal/util/NamespaceSupport.h>
 #include <com/sun/org/apache/xerces/internal/util/ParserConfigurationSettings.h>
 #include <com/sun/org/apache/xerces/internal/util/SymbolTable.h>
-#include <com/sun/org/apache/xerces/internal/xinclude/MultipleScopeNamespaceSupport.h>
 #include <com/sun/org/apache/xerces/internal/xinclude/XIncludeHandler.h>
 #include <com/sun/org/apache/xerces/internal/xinclude/XIncludeNamespaceSupport.h>
 #include <com/sun/org/apache/xerces/internal/xni/NamespaceContext.h>
@@ -21,10 +19,8 @@
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLComponent.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager.h>
-#include <com/sun/org/apache/xerces/internal/xni/parser/XMLDTDFilter.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDTDScanner.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDTDSource.h>
-#include <com/sun/org/apache/xerces/internal/xni/parser/XMLDocumentFilter.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDocumentSource.h>
 #include <java/util/Map.h>
 #include <jcpp.h>
@@ -49,9 +45,7 @@
 
 using $Constants = ::com::sun::org::apache::xerces::internal::impl::Constants;
 using $XML11DTDScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XML11DTDScannerImpl;
-using $XMLDTDScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLDTDScannerImpl;
 using $XML11DTDProcessor = ::com::sun::org::apache::xerces::internal::impl::dtd::XML11DTDProcessor;
-using $XMLDTDLoader = ::com::sun::org::apache::xerces::internal::impl::dtd::XMLDTDLoader;
 using $XMLDTDProcessor = ::com::sun::org::apache::xerces::internal::impl::dtd::XMLDTDProcessor;
 using $XMLSchemaValidator = ::com::sun::org::apache::xerces::internal::impl::xs::XMLSchemaValidator;
 using $XML11Configuration = ::com::sun::org::apache::xerces::internal::parsers::XML11Configuration;
@@ -59,7 +53,6 @@ using $FeatureState = ::com::sun::org::apache::xerces::internal::util::FeatureSt
 using $NamespaceSupport = ::com::sun::org::apache::xerces::internal::util::NamespaceSupport;
 using $ParserConfigurationSettings = ::com::sun::org::apache::xerces::internal::util::ParserConfigurationSettings;
 using $SymbolTable = ::com::sun::org::apache::xerces::internal::util::SymbolTable;
-using $MultipleScopeNamespaceSupport = ::com::sun::org::apache::xerces::internal::xinclude::MultipleScopeNamespaceSupport;
 using $XIncludeHandler = ::com::sun::org::apache::xerces::internal::xinclude::XIncludeHandler;
 using $XIncludeNamespaceSupport = ::com::sun::org::apache::xerces::internal::xinclude::XIncludeNamespaceSupport;
 using $NamespaceContext = ::com::sun::org::apache::xerces::internal::xni::NamespaceContext;
@@ -68,10 +61,8 @@ using $XMLDocumentHandler = ::com::sun::org::apache::xerces::internal::xni::XMLD
 using $XMLGrammarPool = ::com::sun::org::apache::xerces::internal::xni::grammars::XMLGrammarPool;
 using $XMLComponent = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponent;
 using $XMLComponentManager = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager;
-using $XMLDTDFilter = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDTDFilter;
 using $XMLDTDScanner = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDTDScanner;
 using $XMLDTDSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDTDSource;
-using $XMLDocumentFilter = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDocumentFilter;
 using $XMLDocumentSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDocumentSource;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -11,7 +11,6 @@
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/Serializable.h>
 #include <java/lang/ref/WeakReference.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Collections.h>
 #include <java/util/Enumeration.h>
 #include <java/util/Hashtable.h>
@@ -57,7 +56,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $WeakReference = ::java::lang::ref::WeakReference;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Collections = ::java::util::Collections;
 using $Enumeration = ::java::util::Enumeration;
 using $Hashtable = ::java::util::Hashtable;

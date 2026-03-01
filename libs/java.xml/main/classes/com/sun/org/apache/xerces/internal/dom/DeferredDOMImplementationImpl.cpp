@@ -1,11 +1,9 @@
 #include <com/sun/org/apache/xerces/internal/dom/DeferredDOMImplementationImpl.h>
 
-#include <com/sun/org/apache/xerces/internal/dom/CoreDOMImplementationImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/DOMImplementationImpl.h>
 #include <org/w3c/dom/DOMImplementation.h>
 #include <jcpp.h>
 
-using $CoreDOMImplementationImpl = ::com::sun::org::apache::xerces::internal::dom::CoreDOMImplementationImpl;
 using $DOMImplementationImpl = ::com::sun::org::apache::xerces::internal::dom::DOMImplementationImpl;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

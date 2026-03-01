@@ -8,7 +8,6 @@
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JSlider.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/SliderUI.h>
 #include <javax/swing/plaf/basic/BasicSliderUI.h>
 #include <sun/swing/SwingUtilities2.h>
 #include <jcpp.h>
@@ -29,7 +28,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $JSlider = ::javax::swing::JSlider;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $SliderUI = ::javax::swing::plaf::SliderUI;
 using $BasicSliderUI = ::javax::swing::plaf::basic::BasicSliderUI;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 

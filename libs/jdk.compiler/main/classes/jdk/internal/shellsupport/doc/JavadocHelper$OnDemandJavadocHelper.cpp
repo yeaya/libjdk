@@ -31,7 +31,6 @@
 #include <java/net/URISyntaxException.h>
 #include <java/util/AbstractMap.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/Comparator.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
@@ -61,7 +60,6 @@
 #include <javax/tools/Diagnostic.h>
 #include <javax/tools/DiagnosticListener.h>
 #include <javax/tools/FileObject.h>
-#include <javax/tools/ForwardingJavaFileManager.h>
 #include <javax/tools/JavaCompiler$CompilationTask.h>
 #include <javax/tools/JavaCompiler.h>
 #include <javax/tools/JavaFileManager$Location.h>
@@ -106,7 +104,6 @@ using $Serializable = ::java::io::Serializable;
 using $Writer = ::java::io::Writer;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -119,7 +116,6 @@ using $URI = ::java::net::URI;
 using $URISyntaxException = ::java::net::URISyntaxException;
 using $AbstractMap = ::java::util::AbstractMap;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $Comparator = ::java::util::Comparator;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
@@ -148,7 +144,6 @@ using $Elements = ::javax::lang::model::util::Elements;
 using $Diagnostic = ::javax::tools::Diagnostic;
 using $DiagnosticListener = ::javax::tools::DiagnosticListener;
 using $FileObject = ::javax::tools::FileObject;
-using $ForwardingJavaFileManager = ::javax::tools::ForwardingJavaFileManager;
 using $JavaCompiler = ::javax::tools::JavaCompiler;
 using $JavaCompiler$CompilationTask = ::javax::tools::JavaCompiler$CompilationTask;
 using $JavaFileManager = ::javax::tools::JavaFileManager;

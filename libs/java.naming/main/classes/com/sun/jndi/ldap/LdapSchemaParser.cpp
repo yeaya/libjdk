@@ -2,7 +2,6 @@
 
 #include <com/sun/jndi/ldap/LdapClient.h>
 #include <com/sun/jndi/ldap/LdapSchemaCtx.h>
-#include <com/sun/jndi/toolkit/dir/HierMemDirCtx.h>
 #include <java/util/Vector.h>
 #include <javax/naming/ConfigurationException.h>
 #include <javax/naming/NamingEnumeration.h>
@@ -64,7 +63,6 @@
 
 using $LdapClient = ::com::sun::jndi::ldap::LdapClient;
 using $LdapSchemaCtx = ::com::sun::jndi::ldap::LdapSchemaCtx;
-using $HierMemDirCtx = ::com::sun::jndi::toolkit::dir::HierMemDirCtx;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

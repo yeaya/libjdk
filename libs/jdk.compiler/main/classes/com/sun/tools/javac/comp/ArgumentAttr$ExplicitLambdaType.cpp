@@ -17,9 +17,7 @@
 #include <com/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext.h>
 #include <com/sun/tools/javac/comp/DeferredAttr$FilterScanner.h>
 #include <com/sun/tools/javac/comp/Env.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
-#include <com/sun/tools/javac/tree/JCTree$JCFunctionalExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCLambda.h>
 #include <com/sun/tools/javac/tree/JCTree$JCPolyExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCReturn.h>
@@ -36,7 +34,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
 #include <java/util/Map.h>
@@ -60,10 +57,7 @@ using $Attr$TargetInfo = ::com::sun::tools::javac::comp::Attr$TargetInfo;
 using $Check$CheckContext = ::com::sun::tools::javac::comp::Check$CheckContext;
 using $DeferredAttr$DeferredAttrContext = ::com::sun::tools::javac::comp::DeferredAttr$DeferredAttrContext;
 using $Env = ::com::sun::tools::javac::comp::Env;
-using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
-using $JCTree$JCFunctionalExpression = ::com::sun::tools::javac::tree::JCTree$JCFunctionalExpression;
 using $JCTree$JCLambda = ::com::sun::tools::javac::tree::JCTree$JCLambda;
 using $JCTree$JCPolyExpression = ::com::sun::tools::javac::tree::JCTree$JCPolyExpression;
 using $JCTree$JCReturn = ::com::sun::tools::javac::tree::JCTree$JCReturn;
@@ -78,7 +72,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;

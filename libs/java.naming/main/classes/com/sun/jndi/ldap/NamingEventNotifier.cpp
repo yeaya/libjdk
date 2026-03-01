@@ -1,6 +1,5 @@
 #include <com/sun/jndi/ldap/NamingEventNotifier.h>
 
-#include <com/sun/jndi/ldap/BasicControl.h>
 #include <com/sun/jndi/ldap/EntryChangeResponseControl.h>
 #include <com/sun/jndi/ldap/EventSupport.h>
 #include <com/sun/jndi/ldap/LdapCtx.h>
@@ -23,7 +22,6 @@
 #include <javax/naming/directory/SearchControls.h>
 #include <javax/naming/directory/SearchResult.h>
 #include <javax/naming/event/EventContext.h>
-#include <javax/naming/event/EventDirContext.h>
 #include <javax/naming/event/NamingEvent.h>
 #include <javax/naming/event/NamingExceptionEvent.h>
 #include <javax/naming/event/NamingListener.h>
@@ -44,7 +42,6 @@
 #undef RENAME
 
 using $ControlArray = $Array<::javax::naming::ldap::Control>;
-using $BasicControl = ::com::sun::jndi::ldap::BasicControl;
 using $EntryChangeResponseControl = ::com::sun::jndi::ldap::EntryChangeResponseControl;
 using $EventSupport = ::com::sun::jndi::ldap::EventSupport;
 using $LdapCtx = ::com::sun::jndi::ldap::LdapCtx;
@@ -56,7 +53,6 @@ using $VersionHelper = ::com::sun::jndi::ldap::VersionHelper;
 using $Continuation = ::com::sun::jndi::toolkit::ctx::Continuation;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -71,7 +67,6 @@ using $NamingEnumeration = ::javax::naming::NamingEnumeration;
 using $NamingException = ::javax::naming::NamingException;
 using $SearchResult = ::javax::naming::directory::SearchResult;
 using $EventContext = ::javax::naming::event::EventContext;
-using $EventDirContext = ::javax::naming::event::EventDirContext;
 using $NamingEvent = ::javax::naming::event::NamingEvent;
 using $NamingExceptionEvent = ::javax::naming::event::NamingExceptionEvent;
 using $NamingListener = ::javax::naming::event::NamingListener;

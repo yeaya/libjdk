@@ -20,7 +20,6 @@
 #include <java/awt/image/ColorModel.h>
 #include <java/util/Locale.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JSplitPane.h>
 #include <jcpp.h>
 
@@ -52,7 +51,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
-using $JComponent = ::javax::swing::JComponent;
 using $JSplitPane = ::javax::swing::JSplitPane;
 
 $MethodInfo _HeadlessJSplitPane_MethodInfo_[] = {

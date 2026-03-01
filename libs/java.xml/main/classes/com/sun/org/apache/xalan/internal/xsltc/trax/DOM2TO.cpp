@@ -14,7 +14,6 @@
 #include <org/xml/sax/Locator.h>
 #include <org/xml/sax/XMLReader.h>
 #include <org/xml/sax/ext/LexicalHandler.h>
-#include <org/xml/sax/ext/Locator2.h>
 #include <jcpp.h>
 
 #undef ATTRIBUTE_NODE
@@ -50,7 +49,6 @@ using $ErrorHandler = ::org::xml::sax::ErrorHandler;
 using $InputSource = ::org::xml::sax::InputSource;
 using $Locator = ::org::xml::sax::Locator;
 using $XMLReader = ::org::xml::sax::XMLReader;
-using $Locator2 = ::org::xml::sax::ext::Locator2;
 
 namespace com {
 	namespace sun {

@@ -3,7 +3,6 @@
 #include <com/sun/tools/javac/comp/AttrRecover$1.h>
 #include <com/sun/tools/javac/tree/JCTree$JCErroneous.h>
 #include <com/sun/tools/javac/tree/JCTree$JCReturn.h>
-#include <com/sun/tools/javac/tree/JCTree$JCStatement.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <com/sun/tools/javac/tree/TreeTranslator.h>
 #include <jcpp.h>
@@ -12,7 +11,6 @@ using $AttrRecover$1 = ::com::sun::tools::javac::comp::AttrRecover$1;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCErroneous = ::com::sun::tools::javac::tree::JCTree$JCErroneous;
 using $JCTree$JCReturn = ::com::sun::tools::javac::tree::JCTree$JCReturn;
-using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
 using $TreeTranslator = ::com::sun::tools::javac::tree::TreeTranslator;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

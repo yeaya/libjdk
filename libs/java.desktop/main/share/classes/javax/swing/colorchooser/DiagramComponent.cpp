@@ -2,7 +2,6 @@
 
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Image.h>
 #include <java/awt/Insets.h>
@@ -20,8 +19,6 @@
 #undef WHITE
 
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $Image = ::java::awt::Image;
 using $Insets = ::java::awt::Insets;

@@ -5,9 +5,7 @@
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Container.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/event/MouseEvent.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <javax/swing/Action.h>
@@ -25,7 +23,6 @@
 #include <javax/swing/event/ChangeListener.h>
 #include <javax/swing/event/MenuKeyListener.h>
 #include <javax/swing/event/PopupMenuListener.h>
-#include <javax/swing/plaf/ActionMapUIResource.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/PopupMenuUI.h>
 #include <javax/swing/plaf/UIResource.h>
@@ -38,7 +35,6 @@
 #include <javax/swing/plaf/basic/DefaultMenuLayout.h>
 #include <javax/swing/plaf/basic/LazyActionMap.h>
 #include <sun/awt/AppContext.h>
-#include <sun/swing/UIAction.h>
 #include <jcpp.h>
 
 #undef BUTTON3_MASK
@@ -60,14 +56,12 @@ using $Component = ::java::awt::Component;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Container = ::java::awt::Container;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $Action = ::javax::swing::Action;
@@ -84,7 +78,6 @@ using $UIManager = ::javax::swing::UIManager;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
 using $MenuKeyListener = ::javax::swing::event::MenuKeyListener;
 using $PopupMenuListener = ::javax::swing::event::PopupMenuListener;
-using $ActionMapUIResource = ::javax::swing::plaf::ActionMapUIResource;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $PopupMenuUI = ::javax::swing::plaf::PopupMenuUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
@@ -97,7 +90,6 @@ using $BasicPopupMenuUI$MouseGrabber = ::javax::swing::plaf::basic::BasicPopupMe
 using $DefaultMenuLayout = ::javax::swing::plaf::basic::DefaultMenuLayout;
 using $LazyActionMap = ::javax::swing::plaf::basic::LazyActionMap;
 using $AppContext = ::sun::awt::AppContext;
-using $UIAction = ::sun::swing::UIAction;
 
 namespace javax {
 	namespace swing {

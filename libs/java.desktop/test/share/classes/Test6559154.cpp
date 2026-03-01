@@ -7,7 +7,6 @@
 #include <java/awt/event/ActionListener.h>
 #include <java/lang/Runnable.h>
 #include <javax/swing/JColorChooser.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JDialog.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/Timer.h>
@@ -23,7 +22,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $JColorChooser = ::javax::swing::JColorChooser;
-using $JComponent = ::javax::swing::JComponent;
 using $JDialog = ::javax::swing::JDialog;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $Timer = ::javax::swing::Timer;

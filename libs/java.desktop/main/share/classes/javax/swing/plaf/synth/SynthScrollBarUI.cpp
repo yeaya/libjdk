@@ -2,7 +2,6 @@
 
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Insets.h>
@@ -15,7 +14,6 @@
 #include <javax/swing/JScrollBar.h>
 #include <javax/swing/SwingConstants.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/ScrollBarUI.h>
 #include <javax/swing/plaf/UIResource.h>
 #include <javax/swing/plaf/basic/BasicScrollBarUI.h>
 #include <javax/swing/plaf/synth/Region.h>
@@ -45,7 +43,6 @@
 
 using $Component = ::java::awt::Component;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
@@ -63,7 +60,6 @@ using $JComponent = ::javax::swing::JComponent;
 using $JScrollBar = ::javax::swing::JScrollBar;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $ScrollBarUI = ::javax::swing::plaf::ScrollBarUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $BasicScrollBarUI = ::javax::swing::plaf::basic::BasicScrollBarUI;
 using $Region = ::javax::swing::plaf::synth::Region;

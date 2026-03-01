@@ -15,7 +15,6 @@
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/Error.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/System$Logger$Level.h>
 #include <java/lang/System$Logger.h>
@@ -37,10 +36,6 @@
 #include <java/nio/file/attribute/FileAttribute.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/security/SecureClassLoader.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/Enumeration.h>
@@ -54,14 +49,12 @@
 #include <java/util/function/Supplier.h>
 #include <javax/management/InstanceAlreadyExistsException.h>
 #include <javax/management/InstanceNotFoundException.h>
-#include <javax/management/JMException.h>
 #include <javax/management/MBeanException.h>
 #include <javax/management/MBeanRegistrationException.h>
 #include <javax/management/MBeanServer.h>
 #include <javax/management/NotCompliantMBeanException.h>
 #include <javax/management/ObjectInstance.h>
 #include <javax/management/ObjectName.h>
-#include <javax/management/OperationsException.h>
 #include <javax/management/ReflectionException.h>
 #include <javax/management/ServiceNotFoundException.h>
 #include <javax/management/loading/ClassLoaderRepository.h>
@@ -108,8 +101,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityException = ::java::lang::SecurityException;
 using $Short = ::java::lang::Short;
 using $System$Logger = ::java::lang::System$Logger;
@@ -127,10 +118,6 @@ using $Path = ::java::nio::file::Path;
 using $StandardCopyOption = ::java::nio::file::StandardCopyOption;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $SecureClassLoader = ::java::security::SecureClassLoader;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSet = ::java::util::AbstractSet;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $Enumeration = ::java::util::Enumeration;
@@ -144,14 +131,12 @@ using $StringTokenizer = ::java::util::StringTokenizer;
 using $Supplier = ::java::util::function::Supplier;
 using $InstanceAlreadyExistsException = ::javax::management::InstanceAlreadyExistsException;
 using $InstanceNotFoundException = ::javax::management::InstanceNotFoundException;
-using $JMException = ::javax::management::JMException;
 using $MBeanException = ::javax::management::MBeanException;
 using $MBeanRegistrationException = ::javax::management::MBeanRegistrationException;
 using $MBeanServer = ::javax::management::MBeanServer;
 using $NotCompliantMBeanException = ::javax::management::NotCompliantMBeanException;
 using $ObjectInstance = ::javax::management::ObjectInstance;
 using $ObjectName = ::javax::management::ObjectName;
-using $OperationsException = ::javax::management::OperationsException;
 using $ReflectionException = ::javax::management::ReflectionException;
 using $ServiceNotFoundException = ::javax::management::ServiceNotFoundException;
 using $ClassLoaderRepository = ::javax::management::loading::ClassLoaderRepository;

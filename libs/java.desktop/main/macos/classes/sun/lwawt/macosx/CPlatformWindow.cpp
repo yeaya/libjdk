@@ -5,7 +5,6 @@
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/DefaultKeyboardFocusManager.h>
 #include <java/awt/Dialog$ModalExclusionType.h>
 #include <java/awt/Dialog$ModalityType.h>
@@ -23,7 +22,6 @@
 #include <java/awt/Toolkit.h>
 #include <java/awt/Window$Type.h>
 #include <java/awt/Window.h>
-#include <java/awt/event/ComponentEvent.h>
 #include <java/awt/event/FocusEvent$Cause.h>
 #include <java/awt/event/WindowEvent.h>
 #include <java/awt/peer/ComponentPeer.h>
@@ -169,7 +167,6 @@ using $ClientPropertyApplicator$Property = ::com::apple::laf::ClientPropertyAppl
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $DefaultKeyboardFocusManager = ::java::awt::DefaultKeyboardFocusManager;
 using $Dialog = ::java::awt::Dialog;
 using $Dialog$ModalExclusionType = ::java::awt::Dialog$ModalExclusionType;
@@ -187,7 +184,6 @@ using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
 using $Window = ::java::awt::Window;
 using $Window$Type = ::java::awt::Window$Type;
-using $ComponentEvent = ::java::awt::event::ComponentEvent;
 using $FocusEvent$Cause = ::java::awt::event::FocusEvent$Cause;
 using $WindowEvent = ::java::awt::event::WindowEvent;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;

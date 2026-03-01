@@ -4,7 +4,6 @@
 #include <java/awt/Component$BaselineResizeBehavior.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
@@ -22,8 +21,6 @@
 #include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/awt/event/MouseMotionListener.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/awt/image/ImageObserver.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/lang/Math.h>
@@ -54,7 +51,6 @@
 #include <javax/swing/plaf/basic/BasicSliderUI$TrackListener.h>
 #include <javax/swing/plaf/basic/LazyActionMap.h>
 #include <sun/swing/DefaultLookup.h>
-#include <sun/swing/UIAction.h>
 #include <jcpp.h>
 
 #undef FALSE
@@ -80,7 +76,6 @@ using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Component$BaselineResizeBehavior = ::java::awt::Component$BaselineResizeBehavior;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
@@ -96,8 +91,6 @@ using $FocusListener = ::java::awt::event::FocusListener;
 using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $ImageObserver = ::java::awt::image::ImageObserver;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
@@ -136,7 +129,6 @@ using $BasicSliderUI$ScrollListener = ::javax::swing::plaf::basic::BasicSliderUI
 using $BasicSliderUI$TrackListener = ::javax::swing::plaf::basic::BasicSliderUI$TrackListener;
 using $LazyActionMap = ::javax::swing::plaf::basic::LazyActionMap;
 using $DefaultLookup = ::sun::swing::DefaultLookup;
-using $UIAction = ::sun::swing::UIAction;
 
 namespace javax {
 	namespace swing {

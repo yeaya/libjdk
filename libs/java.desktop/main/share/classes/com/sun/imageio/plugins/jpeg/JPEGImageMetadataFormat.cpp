@@ -3,7 +3,6 @@
 #include <com/sun/imageio/plugins/jpeg/JPEG.h>
 #include <com/sun/imageio/plugins/jpeg/JPEGMetadataFormat.h>
 #include <java/awt/color/ICC_Profile.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <javax/imageio/ImageTypeSpecifier.h>
@@ -26,12 +25,10 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $ImageTypeSpecifier = ::javax::imageio::ImageTypeSpecifier;
 using $IIOMetadataFormat = ::javax::imageio::metadata::IIOMetadataFormat;
-using $IIOMetadataFormatImpl = ::javax::imageio::metadata::IIOMetadataFormatImpl;
 
 namespace com {
 	namespace sun {

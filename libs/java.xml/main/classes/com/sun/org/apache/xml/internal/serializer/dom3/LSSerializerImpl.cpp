@@ -3,10 +3,7 @@
 #include <com/sun/org/apache/xml/internal/serializer/DOM3Serializer.h>
 #include <com/sun/org/apache/xml/internal/serializer/Encodings.h>
 #include <com/sun/org/apache/xml/internal/serializer/OutputPropertiesFactory.h>
-#include <com/sun/org/apache/xml/internal/serializer/SerializationHandler.h>
 #include <com/sun/org/apache/xml/internal/serializer/Serializer.h>
-#include <com/sun/org/apache/xml/internal/serializer/SerializerBase.h>
-#include <com/sun/org/apache/xml/internal/serializer/ToStream.h>
 #include <com/sun/org/apache/xml/internal/serializer/ToXMLStream.h>
 #include <com/sun/org/apache/xml/internal/serializer/dom3/DOMConstants.h>
 #include <com/sun/org/apache/xml/internal/serializer/dom3/DOMErrorImpl.h>
@@ -17,7 +14,6 @@
 #include <com/sun/org/apache/xml/internal/serializer/utils/Utils.h>
 #include <java/io/File.h>
 #include <java/io/FileOutputStream.h>
-#include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/io/OutputStreamWriter.h>
 #include <java/io/StringWriter.h>
@@ -125,10 +121,7 @@
 using $DOM3Serializer = ::com::sun::org::apache::xml::internal::serializer::DOM3Serializer;
 using $Encodings = ::com::sun::org::apache::xml::internal::serializer::Encodings;
 using $OutputPropertiesFactory = ::com::sun::org::apache::xml::internal::serializer::OutputPropertiesFactory;
-using $SerializationHandler = ::com::sun::org::apache::xml::internal::serializer::SerializationHandler;
 using $Serializer = ::com::sun::org::apache::xml::internal::serializer::Serializer;
-using $SerializerBase = ::com::sun::org::apache::xml::internal::serializer::SerializerBase;
-using $ToStream = ::com::sun::org::apache::xml::internal::serializer::ToStream;
 using $ToXMLStream = ::com::sun::org::apache::xml::internal::serializer::ToXMLStream;
 using $DOMConstants = ::com::sun::org::apache::xml::internal::serializer::dom3::DOMConstants;
 using $DOMErrorImpl = ::com::sun::org::apache::xml::internal::serializer::dom3::DOMErrorImpl;
@@ -139,7 +132,6 @@ using $SystemIDResolver = ::com::sun::org::apache::xml::internal::serializer::ut
 using $Utils = ::com::sun::org::apache::xml::internal::serializer::utils::Utils;
 using $File = ::java::io::File;
 using $FileOutputStream = ::java::io::FileOutputStream;
-using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $OutputStreamWriter = ::java::io::OutputStreamWriter;
 using $StringWriter = ::java::io::StringWriter;

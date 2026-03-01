@@ -1,7 +1,6 @@
 #include <javax/swing/plaf/basic/BasicInternalFrameTitlePane$SystemMenuBar.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Image.h>
 #include <javax/swing/Icon.h>
@@ -18,7 +17,6 @@
 #undef SCALE_SMOOTH
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $Image = ::java::awt::Image;
 using $ClassInfo = ::java::lang::ClassInfo;

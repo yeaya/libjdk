@@ -7,22 +7,15 @@
 #include <java/awt/Insets.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/TextUI.h>
 #include <javax/swing/plaf/basic/BasicHTML.h>
 #include <javax/swing/plaf/basic/BasicTextFieldUI$1.h>
 #include <javax/swing/plaf/basic/BasicTextFieldUI$I18nFieldView.h>
 #include <javax/swing/plaf/basic/BasicTextUI.h>
 #include <javax/swing/text/AbstractDocument.h>
-#include <javax/swing/text/BoxView.h>
-#include <javax/swing/text/CompositeView.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/Element.h>
 #include <javax/swing/text/FieldView.h>
-#include <javax/swing/text/FlowView.h>
-#include <javax/swing/text/GlyphView.h>
 #include <javax/swing/text/JTextComponent.h>
-#include <javax/swing/text/ParagraphView.h>
-#include <javax/swing/text/PlainView.h>
 #include <javax/swing/text/View.h>
 #include <jcpp.h>
 
@@ -39,22 +32,15 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $TextUI = ::javax::swing::plaf::TextUI;
 using $BasicHTML = ::javax::swing::plaf::basic::BasicHTML;
 using $BasicTextFieldUI$1 = ::javax::swing::plaf::basic::BasicTextFieldUI$1;
 using $BasicTextFieldUI$I18nFieldView = ::javax::swing::plaf::basic::BasicTextFieldUI$I18nFieldView;
 using $BasicTextUI = ::javax::swing::plaf::basic::BasicTextUI;
 using $AbstractDocument = ::javax::swing::text::AbstractDocument;
-using $BoxView = ::javax::swing::text::BoxView;
-using $CompositeView = ::javax::swing::text::CompositeView;
 using $Document = ::javax::swing::text::Document;
 using $Element = ::javax::swing::text::Element;
 using $FieldView = ::javax::swing::text::FieldView;
-using $FlowView = ::javax::swing::text::FlowView;
-using $GlyphView = ::javax::swing::text::GlyphView;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
-using $ParagraphView = ::javax::swing::text::ParagraphView;
-using $PlainView = ::javax::swing::text::PlainView;
 using $View = ::javax::swing::text::View;
 
 namespace javax {

@@ -2,17 +2,14 @@
 
 #include <bug7160604.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseEvent.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JPopupMenu.h>
 #include <jcpp.h>
 
 using $bug7160604 = ::bug7160604;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -20,7 +17,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
 using $JPopupMenu = ::javax::swing::JPopupMenu;
 

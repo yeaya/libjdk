@@ -8,7 +8,6 @@
 #include <java/awt/Shape.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/Path2D$Double.h>
-#include <java/awt/geom/Path2D.h>
 #include <java/lang/Math.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/ButtonModel.h>
@@ -34,7 +33,6 @@ using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Shape = ::java::awt::Shape;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
-using $Path2D = ::java::awt::geom::Path2D;
 using $Path2D$Double = ::java::awt::geom::Path2D$Double;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

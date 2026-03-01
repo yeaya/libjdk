@@ -7,7 +7,6 @@
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators$InternalAxisIteratorBase.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators$SingletonIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators.h>
-#include <com/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2DTM2.h>
 #include <jcpp.h>
 
@@ -19,7 +18,6 @@ using $DTM = ::com::sun::org::apache::xml::internal::dtm::DTM;
 using $DTMAxisIterator = ::com::sun::org::apache::xml::internal::dtm::DTMAxisIterator;
 using $DTMDefaultBaseIterators = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators;
 using $DTMDefaultBaseIterators$SingletonIterator = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators$SingletonIterator;
-using $SAX2DTM = ::com::sun::org::apache::xml::internal::dtm::ref::sax2dtm::SAX2DTM;
 using $SAX2DTM2 = ::com::sun::org::apache::xml::internal::dtm::ref::sax2dtm::SAX2DTM2;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

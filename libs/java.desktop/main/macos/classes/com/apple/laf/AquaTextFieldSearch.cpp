@@ -4,12 +4,9 @@
 #include <apple/laf/JRSUIConstants$State.h>
 #include <apple/laf/JRSUIConstants$Variant.h>
 #include <apple/laf/JRSUIState.h>
-#include <com/apple/laf/AquaBorder.h>
 #include <com/apple/laf/AquaFocusHandler.h>
 #include <com/apple/laf/AquaIcon$DynamicallySizingJRSUIIcon.h>
-#include <com/apple/laf/AquaIcon$JRSUIIcon.h>
 #include <com/apple/laf/AquaPainter.h>
-#include <com/apple/laf/AquaTextFieldBorder.h>
 #include <com/apple/laf/AquaTextFieldSearch$1.h>
 #include <com/apple/laf/AquaTextFieldSearch$10.h>
 #include <com/apple/laf/AquaTextFieldSearch$11.h>
@@ -33,20 +30,14 @@
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Cursor.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/event/ActionListener.h>
-#include <java/awt/event/FocusAdapter.h>
 #include <java/awt/event/FocusListener.h>
-#include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/lang/Runnable.h>
-#include <javax/swing/AbstractAction.h>
-#include <javax/swing/AbstractButton.h>
-#include <javax/swing/Action.h>
 #include <javax/swing/BorderFactory.h>
 #include <javax/swing/ButtonModel.h>
 #include <javax/swing/Icon.h>
@@ -85,11 +76,8 @@ using $JRSUIConstants$Property = ::apple::laf::JRSUIConstants$Property;
 using $JRSUIConstants$State = ::apple::laf::JRSUIConstants$State;
 using $JRSUIConstants$Variant = ::apple::laf::JRSUIConstants$Variant;
 using $JRSUIState = ::apple::laf::JRSUIState;
-using $AquaBorder = ::com::apple::laf::AquaBorder;
 using $AquaFocusHandler = ::com::apple::laf::AquaFocusHandler;
 using $AquaIcon$DynamicallySizingJRSUIIcon = ::com::apple::laf::AquaIcon$DynamicallySizingJRSUIIcon;
-using $AquaIcon$JRSUIIcon = ::com::apple::laf::AquaIcon$JRSUIIcon;
-using $AquaTextFieldBorder = ::com::apple::laf::AquaTextFieldBorder;
 using $AquaTextFieldSearch$1 = ::com::apple::laf::AquaTextFieldSearch$1;
 using $AquaTextFieldSearch$10 = ::com::apple::laf::AquaTextFieldSearch$10;
 using $AquaTextFieldSearch$11 = ::com::apple::laf::AquaTextFieldSearch$11;
@@ -112,13 +100,10 @@ using $AquaUtils$RecyclableSingleton = ::com::apple::laf::AquaUtils$RecyclableSi
 using $AquaUtils$RecyclableSingletonFromDefaultConstructor = ::com::apple::laf::AquaUtils$RecyclableSingletonFromDefaultConstructor;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Cursor = ::java::awt::Cursor;
 using $Insets = ::java::awt::Insets;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $FocusAdapter = ::java::awt::event::FocusAdapter;
 using $FocusListener = ::java::awt::event::FocusListener;
-using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -126,9 +111,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $AbstractAction = ::javax::swing::AbstractAction;
-using $AbstractButton = ::javax::swing::AbstractButton;
-using $Action = ::javax::swing::Action;
 using $BorderFactory = ::javax::swing::BorderFactory;
 using $ButtonModel = ::javax::swing::ButtonModel;
 using $Icon = ::javax::swing::Icon;

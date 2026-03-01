@@ -4,7 +4,6 @@
 #include <BasicAuthTest$Handler.h>
 #include <BasicAuthTest$ServerAuth.h>
 #include <com/sun/net/httpserver/Authenticator.h>
-#include <com/sun/net/httpserver/BasicAuthenticator.h>
 #include <com/sun/net/httpserver/HttpContext.h>
 #include <com/sun/net/httpserver/HttpHandler.h>
 #include <com/sun/net/httpserver/HttpServer.h>
@@ -34,7 +33,6 @@ using $BasicAuthTest$ClientAuth = ::BasicAuthTest$ClientAuth;
 using $BasicAuthTest$Handler = ::BasicAuthTest$Handler;
 using $BasicAuthTest$ServerAuth = ::BasicAuthTest$ServerAuth;
 using $Authenticator = ::com::sun::net::httpserver::Authenticator;
-using $BasicAuthenticator = ::com::sun::net::httpserver::BasicAuthenticator;
 using $HttpContext = ::com::sun::net::httpserver::HttpContext;
 using $HttpHandler = ::com::sun::net::httpserver::HttpHandler;
 using $HttpServer = ::com::sun::net::httpserver::HttpServer;

@@ -5,8 +5,6 @@
 #include <com/apple/eawt/event/FullScreenEvent.h>
 #include <java/awt/Window.h>
 #include <java/lang/Runnable.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractSequentialList.h>
 #include <java/util/Iterator.h>
 #include <java/util/LinkedList.h>
 #include <java/util/List.h>
@@ -30,8 +28,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractSequentialList = ::java::util::AbstractSequentialList;
 using $Iterator = ::java::util::Iterator;
 using $LinkedList = ::java::util::LinkedList;
 using $List = ::java::util::List;

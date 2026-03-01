@@ -6,7 +6,6 @@
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ObjectType.h>
-#include <com/sun/org/apache/bcel/internal/generic/ReferenceType.h>
 #include <com/sun/org/apache/bcel/internal/generic/Type.h>
 #include <com/sun/org/apache/bcel/internal/util/ByteSequence.h>
 #include <java/io/DataOutputStream.h>
@@ -39,7 +38,6 @@ using $Const = ::com::sun::org::apache::bcel::internal::Const;
 using $ClassGenException = ::com::sun::org::apache::bcel::internal::generic::ClassGenException;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
-using $ReferenceType = ::com::sun::org::apache::bcel::internal::generic::ReferenceType;
 using $Type = ::com::sun::org::apache::bcel::internal::generic::Type;
 using $ByteSequence = ::com::sun::org::apache::bcel::internal::util::ByteSequence;
 using $DataOutputStream = ::java::io::DataOutputStream;

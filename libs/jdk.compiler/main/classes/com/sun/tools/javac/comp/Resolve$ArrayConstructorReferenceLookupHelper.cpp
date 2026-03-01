@@ -14,7 +14,6 @@
 #include <com/sun/tools/javac/comp/Resolve$LookupHelper.h>
 #include <com/sun/tools/javac/comp/Resolve$MethodResolutionPhase.h>
 #include <com/sun/tools/javac/comp/Resolve$ReferenceLookupHelper.h>
-#include <com/sun/tools/javac/comp/Resolve$ResolveError.h>
 #include <com/sun/tools/javac/comp/Resolve$SymbolNotFoundError.h>
 #include <com/sun/tools/javac/comp/Resolve.h>
 #include <com/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind.h>
@@ -37,7 +36,6 @@ using $Env = ::com::sun::tools::javac::comp::Env;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $Resolve$MethodResolutionPhase = ::com::sun::tools::javac::comp::Resolve$MethodResolutionPhase;
 using $Resolve$ReferenceLookupHelper = ::com::sun::tools::javac::comp::Resolve$ReferenceLookupHelper;
-using $Resolve$ResolveError = ::com::sun::tools::javac::comp::Resolve$ResolveError;
 using $JCTree$JCMemberReference = ::com::sun::tools::javac::tree::JCTree$JCMemberReference;
 using $JCTree$JCMemberReference$ReferenceKind = ::com::sun::tools::javac::tree::JCTree$JCMemberReference$ReferenceKind;
 using $List = ::com::sun::tools::javac::util::List;

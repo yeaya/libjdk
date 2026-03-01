@@ -1,7 +1,6 @@
 #include <com/sun/org/apache/xerces/internal/impl/XML11NSDocumentScannerImpl$NS11ContentDriver.h>
 
 #include <com/sun/org/apache/xerces/internal/impl/ExternalSubsetResolver.h>
-#include <com/sun/org/apache/xerces/internal/impl/XML11DocumentScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XML11NSDocumentScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDocumentFragmentScannerImpl$Driver.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDocumentScannerImpl$ContentDriver.h>
@@ -12,7 +11,6 @@
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDocumentSource.h>
 #include <jcpp.h>
 
-using $XML11DocumentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XML11DocumentScannerImpl;
 using $XML11NSDocumentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XML11NSDocumentScannerImpl;
 using $XMLDocumentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentScannerImpl;
 using $XMLDocumentScannerImpl$ContentDriver = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentScannerImpl$ContentDriver;

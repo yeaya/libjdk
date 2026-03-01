@@ -5,7 +5,6 @@
 #include <java/awt/BufferCapabilities.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
@@ -26,7 +25,6 @@
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JList.h>
 #include <javax/swing/JScrollBar.h>
-#include <javax/swing/JScrollPane.h>
 #include <javax/swing/ListCellRenderer.h>
 #include <javax/swing/ListSelectionModel.h>
 #include <sun/java2d/pipe/Region.h>
@@ -45,7 +43,6 @@ using $BufferCapabilities = ::java::awt::BufferCapabilities;
 using $BufferCapabilities$FlipContents = ::java::awt::BufferCapabilities$FlipContents;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
@@ -70,7 +67,6 @@ using $DefaultListModel = ::javax::swing::DefaultListModel;
 using $JComponent = ::javax::swing::JComponent;
 using $JList = ::javax::swing::JList;
 using $JScrollBar = ::javax::swing::JScrollBar;
-using $JScrollPane = ::javax::swing::JScrollPane;
 using $ListCellRenderer = ::javax::swing::ListCellRenderer;
 using $ListSelectionModel = ::javax::swing::ListSelectionModel;
 using $Region = ::sun::java2d::pipe::Region;

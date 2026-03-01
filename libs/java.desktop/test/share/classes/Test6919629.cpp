@@ -8,9 +8,7 @@
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/plaf/basic/BasicLookAndFeel.h>
 #include <javax/swing/plaf/nimbus/NimbusLookAndFeel.h>
-#include <javax/swing/plaf/synth/SynthLookAndFeel.h>
 #include <jcpp.h>
 
 using $Test6919629$1 = ::Test6919629$1;
@@ -25,9 +23,7 @@ using $WeakReference = ::java::lang::ref::WeakReference;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
 using $NimbusLookAndFeel = ::javax::swing::plaf::nimbus::NimbusLookAndFeel;
-using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
 
 $FieldInfo _Test6919629_FieldInfo_[] = {
 	{"f", "Ljavax/swing/JFrame;", nullptr, 0, $field(Test6919629, f)},

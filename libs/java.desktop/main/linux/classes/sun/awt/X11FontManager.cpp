@@ -6,10 +6,8 @@
 #include <java/io/File.h>
 #include <java/io/FileReader.h>
 #include <java/io/IOException.h>
-#include <java/io/InputStreamReader.h>
 #include <java/io/Reader.h>
 #include <java/io/StreamTokenizer.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
 #include <java/util/Locale.h>
@@ -57,13 +55,11 @@ using $BufferedReader = ::java::io::BufferedReader;
 using $File = ::java::io::File;
 using $FileReader = ::java::io::FileReader;
 using $IOException = ::java::io::IOException;
-using $InputStreamReader = ::java::io::InputStreamReader;
 using $Reader = ::java::io::Reader;
 using $StreamTokenizer = ::java::io::StreamTokenizer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
 using $Locale = ::java::util::Locale;

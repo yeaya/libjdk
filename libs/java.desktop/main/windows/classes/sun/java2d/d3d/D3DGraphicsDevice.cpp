@@ -1,7 +1,6 @@
 #include <sun/java2d/d3d/D3DGraphicsDevice.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dialog.h>
 #include <java/awt/DisplayMode.h>
 #include <java/awt/Frame.h>
@@ -10,7 +9,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/Window.h>
-#include <java/awt/event/WindowAdapter.h>
 #include <java/awt/event/WindowListener.h>
 #include <java/awt/peer/ComponentPeer.h>
 #include <java/awt/peer/WindowPeer.h>
@@ -18,7 +16,6 @@
 #include <java/util/ArrayList.h>
 #include <sun/awt/AWTAccessor$ComponentAccessor.h>
 #include <sun/awt/AWTAccessor.h>
-#include <sun/awt/Win32GraphicsConfig.h>
 #include <sun/awt/Win32GraphicsDevice.h>
 #include <sun/awt/windows/WComponentPeer.h>
 #include <sun/awt/windows/WWindowPeer.h>
@@ -46,7 +43,6 @@
 
 using $GraphicsConfigurationArray = $Array<::java::awt::GraphicsConfiguration>;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dialog = ::java::awt::Dialog;
 using $DisplayMode = ::java::awt::DisplayMode;
 using $Frame = ::java::awt::Frame;
@@ -54,7 +50,6 @@ using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
 using $Window = ::java::awt::Window;
-using $WindowAdapter = ::java::awt::event::WindowAdapter;
 using $WindowListener = ::java::awt::event::WindowListener;
 using $WindowPeer = ::java::awt::peer::WindowPeer;
 using $PrintStream = ::java::io::PrintStream;
@@ -66,7 +61,6 @@ using $Runnable = ::java::lang::Runnable;
 using $ArrayList = ::java::util::ArrayList;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
 using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
-using $Win32GraphicsConfig = ::sun::awt::Win32GraphicsConfig;
 using $Win32GraphicsDevice = ::sun::awt::Win32GraphicsDevice;
 using $WWindowPeer = ::sun::awt::windows::WWindowPeer;
 using $D3DContext = ::sun::java2d::d3d::D3DContext;

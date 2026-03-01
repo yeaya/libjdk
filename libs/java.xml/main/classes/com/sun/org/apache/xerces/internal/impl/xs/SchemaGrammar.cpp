@@ -28,10 +28,8 @@
 #include <com/sun/org/apache/xerces/internal/util/SymbolHash.h>
 #include <com/sun/org/apache/xerces/internal/util/SymbolTable.h>
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription.h>
-#include <com/sun/org/apache/xerces/internal/xni/grammars/XMLSchemaDescription.h>
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XSGrammar.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration.h>
-#include <com/sun/org/apache/xerces/internal/xni/parser/XMLPullParserConfiguration.h>
 #include <com/sun/org/apache/xerces/internal/xs/StringList.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSAttributeDeclaration.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSAttributeGroupDefinition.h>
@@ -49,7 +47,6 @@
 #include <com/sun/org/apache/xerces/internal/xs/datatypes/ObjectList.h>
 #include <java/lang/Math.h>
 #include <java/lang/ref/SoftReference.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <java/util/concurrent/CopyOnWriteArrayList.h>
@@ -125,10 +122,8 @@ using $XML11Configuration = ::com::sun::org::apache::xerces::internal::parsers::
 using $SymbolHash = ::com::sun::org::apache::xerces::internal::util::SymbolHash;
 using $SymbolTable = ::com::sun::org::apache::xerces::internal::util::SymbolTable;
 using $XMLGrammarDescription = ::com::sun::org::apache::xerces::internal::xni::grammars::XMLGrammarDescription;
-using $XMLSchemaDescription = ::com::sun::org::apache::xerces::internal::xni::grammars::XMLSchemaDescription;
 using $XSGrammar = ::com::sun::org::apache::xerces::internal::xni::grammars::XSGrammar;
 using $XMLParserConfiguration = ::com::sun::org::apache::xerces::internal::xni::parser::XMLParserConfiguration;
-using $XMLPullParserConfiguration = ::com::sun::org::apache::xerces::internal::xni::parser::XMLPullParserConfiguration;
 using $StringList = ::com::sun::org::apache::xerces::internal::xs::StringList;
 using $XSAttributeDeclaration = ::com::sun::org::apache::xerces::internal::xs::XSAttributeDeclaration;
 using $XSAttributeGroupDefinition = ::com::sun::org::apache::xerces::internal::xs::XSAttributeGroupDefinition;
@@ -149,7 +144,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SoftReference = ::java::lang::ref::SoftReference;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $CopyOnWriteArrayList = ::java::util::concurrent::CopyOnWriteArrayList;

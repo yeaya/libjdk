@@ -10,13 +10,11 @@
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/Image.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Point.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/InputEvent.h>
 #include <java/awt/geom/AffineTransform.h>
-#include <java/awt/image/AbstractMultiResolutionImage.h>
 #include <java/awt/image/BaseMultiResolutionImage.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/io/Serializable.h>
@@ -27,10 +25,8 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/ImageIcon.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/JToggleButton.h>
@@ -58,12 +54,10 @@ using $Graphics = ::java::awt::Graphics;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $Image = ::java::awt::Image;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Point = ::java::awt::Point;
 using $Robot = ::java::awt::Robot;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
-using $AbstractMultiResolutionImage = ::java::awt::image::AbstractMultiResolutionImage;
 using $BaseMultiResolutionImage = ::java::awt::image::BaseMultiResolutionImage;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $Serializable = ::java::io::Serializable;
@@ -74,10 +68,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $Icon = ::javax::swing::Icon;
 using $ImageIcon = ::javax::swing::ImageIcon;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JPanel = ::javax::swing::JPanel;
 using $JToggleButton = ::javax::swing::JToggleButton;

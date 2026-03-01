@@ -12,8 +12,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <java/awt/font/FontRenderContext.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/awt/print/PageFormat.h>
 #include <java/awt/print/Printable.h>
 #include <java/awt/print/PrinterException.h>
@@ -24,7 +22,6 @@
 #include <java/lang/Runnable.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/text/MessageFormat.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
@@ -32,11 +29,9 @@
 #include <java/util/concurrent/Callable.h>
 #include <java/util/concurrent/ExecutionException.h>
 #include <java/util/concurrent/FutureTask.h>
-#include <java/util/concurrent/RunnableFuture.h>
 #include <java/util/concurrent/atomic/AtomicReference.h>
 #include <javax/swing/BorderFactory.h>
 #include <javax/swing/CellRendererPane.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/JPasswordField.h>
 #include <javax/swing/JTextArea.h>
@@ -44,7 +39,6 @@
 #include <javax/swing/JTextPane.h>
 #include <javax/swing/JViewport.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/TitledBorder.h>
 #include <javax/swing/text/AbstractDocument.h>
@@ -99,8 +93,6 @@ using $Graphics2D = ::java::awt::Graphics2D;
 using $Insets = ::java::awt::Insets;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $PageFormat = ::java::awt::print::PageFormat;
 using $Printable = ::java::awt::print::Printable;
 using $PrinterException = ::java::awt::print::PrinterException;
@@ -119,7 +111,6 @@ using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $MessageFormat = ::java::text::MessageFormat;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
@@ -127,11 +118,9 @@ using $List = ::java::util::List;
 using $Callable = ::java::util::concurrent::Callable;
 using $ExecutionException = ::java::util::concurrent::ExecutionException;
 using $FutureTask = ::java::util::concurrent::FutureTask;
-using $RunnableFuture = ::java::util::concurrent::RunnableFuture;
 using $AtomicReference = ::java::util::concurrent::atomic::AtomicReference;
 using $BorderFactory = ::javax::swing::BorderFactory;
 using $CellRendererPane = ::javax::swing::CellRendererPane;
-using $JComponent = ::javax::swing::JComponent;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $JPasswordField = ::javax::swing::JPasswordField;
 using $JTextArea = ::javax::swing::JTextArea;
@@ -139,7 +128,6 @@ using $JTextField = ::javax::swing::JTextField;
 using $JTextPane = ::javax::swing::JTextPane;
 using $JViewport = ::javax::swing::JViewport;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $TitledBorder = ::javax::swing::border::TitledBorder;
 using $AbstractDocument = ::javax::swing::text::AbstractDocument;

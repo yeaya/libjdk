@@ -12,7 +12,6 @@
 #include <java/awt/font/FontRenderContext.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/lang/Math.h>
 #include <java/lang/Module.h>
 #include <java/lang/ref/SoftReference.h>
@@ -65,7 +64,6 @@ using $Shape = ::java::awt::Shape;
 using $FontRenderContext = ::java::awt::font::FontRenderContext;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;

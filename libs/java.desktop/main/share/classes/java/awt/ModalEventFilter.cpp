@@ -27,7 +27,6 @@
 
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dialog = ::java::awt::Dialog;
 using $Dialog$ModalityType = ::java::awt::Dialog$ModalityType;
 using $EventFilter$FilterAction = ::java::awt::EventFilter$FilterAction;

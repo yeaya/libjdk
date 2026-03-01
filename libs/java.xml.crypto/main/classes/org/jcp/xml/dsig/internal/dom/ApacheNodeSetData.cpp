@@ -3,9 +3,7 @@
 #include <com/sun/org/apache/xml/internal/security/signature/NodeFilter.h>
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureInput.h>
 #include <com/sun/org/apache/xml/internal/security/utils/XMLUtils.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collections.h>
-#include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
 #include <java/util/LinkedHashSet.h>
 #include <java/util/List.h>
@@ -23,9 +21,7 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Collections = ::java::util::Collections;
-using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
 using $List = ::java::util::List;

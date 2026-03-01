@@ -13,11 +13,9 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/Transparency.h>
 #include <java/awt/geom/AffineTransform.h>
-#include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/DirectColorModel.h>
 #include <java/awt/image/ImageObserver.h>
-#include <java/awt/image/PackedColorModel.h>
 #include <java/awt/image/VolatileImage.h>
 #include <java/awt/image/WritableRaster.h>
 #include <sun/awt/DisplayChangedListener.h>
@@ -53,11 +51,9 @@ using $Image = ::java::awt::Image;
 using $Rectangle = ::java::awt::Rectangle;
 using $Transparency = ::java::awt::Transparency;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
-using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $DirectColorModel = ::java::awt::image::DirectColorModel;
 using $ImageObserver = ::java::awt::image::ImageObserver;
-using $PackedColorModel = ::java::awt::image::PackedColorModel;
 using $VolatileImage = ::java::awt::image::VolatileImage;
 using $WritableRaster = ::java::awt::image::WritableRaster;
 using $Boolean = ::java::lang::Boolean;

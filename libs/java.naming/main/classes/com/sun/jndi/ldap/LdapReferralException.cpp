@@ -8,9 +8,7 @@
 #include <javax/naming/Name.h>
 #include <javax/naming/NamingException.h>
 #include <javax/naming/ReferralException.h>
-#include <javax/naming/directory/DirContext.h>
 #include <javax/naming/ldap/Control.h>
-#include <javax/naming/ldap/LdapContext.h>
 #include <javax/naming/ldap/LdapReferralException.h>
 #include <jcpp.h>
 
@@ -22,7 +20,6 @@ using $LdapClient = ::com::sun::jndi::ldap::LdapClient;
 using $LdapReferralContext = ::com::sun::jndi::ldap::LdapReferralContext;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Hashtable = ::java::util::Hashtable;
@@ -31,8 +28,6 @@ using $Context = ::javax::naming::Context;
 using $Name = ::javax::naming::Name;
 using $NamingException = ::javax::naming::NamingException;
 using $ReferralException = ::javax::naming::ReferralException;
-using $DirContext = ::javax::naming::directory::DirContext;
-using $LdapContext = ::javax::naming::ldap::LdapContext;
 using $LdapReferralException = ::javax::naming::ldap::LdapReferralException;
 
 namespace com {

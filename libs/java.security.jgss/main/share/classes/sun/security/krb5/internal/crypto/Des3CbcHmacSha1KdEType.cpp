@@ -14,7 +14,6 @@
 #undef KEYTYPE_DES3
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $Checksum = ::sun::security::krb5::Checksum;

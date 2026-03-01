@@ -16,12 +16,10 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator.h>
 #include <com/sun/org/apache/xerces/internal/parsers/DOMParserImpl.h>
 #include <com/sun/org/apache/xerces/internal/parsers/XIncludeAwareParserConfiguration.h>
-#include <com/sun/org/apache/xerces/internal/parsers/XML11Configuration.h>
 #include <com/sun/org/apache/xerces/internal/parsers/XML11DTDConfiguration.h>
 #include <com/sun/org/apache/xerces/internal/util/XMLChar.h>
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration.h>
-#include <com/sun/org/apache/xerces/internal/xni/parser/XMLPullParserConfiguration.h>
 #include <com/sun/org/apache/xml/internal/serializer/dom3/LSSerializerImpl.h>
 #include <java/lang/ref/SoftReference.h>
 #include <org/w3c/dom/DOMException.h>
@@ -63,12 +61,10 @@ using $XMLDTDValidator = ::com::sun::org::apache::xerces::internal::impl::dtd::X
 using $XMLSchemaValidator = ::com::sun::org::apache::xerces::internal::impl::xs::XMLSchemaValidator;
 using $DOMParserImpl = ::com::sun::org::apache::xerces::internal::parsers::DOMParserImpl;
 using $XIncludeAwareParserConfiguration = ::com::sun::org::apache::xerces::internal::parsers::XIncludeAwareParserConfiguration;
-using $XML11Configuration = ::com::sun::org::apache::xerces::internal::parsers::XML11Configuration;
 using $XML11DTDConfiguration = ::com::sun::org::apache::xerces::internal::parsers::XML11DTDConfiguration;
 using $XMLChar = ::com::sun::org::apache::xerces::internal::util::XMLChar;
 using $XMLGrammarDescription = ::com::sun::org::apache::xerces::internal::xni::grammars::XMLGrammarDescription;
 using $XMLParserConfiguration = ::com::sun::org::apache::xerces::internal::xni::parser::XMLParserConfiguration;
-using $XMLPullParserConfiguration = ::com::sun::org::apache::xerces::internal::xni::parser::XMLPullParserConfiguration;
 using $LSSerializerImpl = ::com::sun::org::apache::xml::internal::serializer::dom3::LSSerializerImpl;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -4,9 +4,7 @@
 #include <com/sun/org/apache/xerces/internal/impl/XML11NSDocumentScannerImpl$NS11ContentDriver.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDocumentFragmentScannerImpl$Driver.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDocumentFragmentScannerImpl$ElementStack.h>
-#include <com/sun/org/apache/xerces/internal/impl/XMLDocumentFragmentScannerImpl$FragmentContentDriver.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDocumentFragmentScannerImpl.h>
-#include <com/sun/org/apache/xerces/internal/impl/XMLDocumentScannerImpl$ContentDriver.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDocumentScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLEntityScanner.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLErrorReporter.h>
@@ -53,8 +51,6 @@ using $XML11NSDocumentScannerImpl$NS11ContentDriver = ::com::sun::org::apache::x
 using $XMLDocumentFragmentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentFragmentScannerImpl;
 using $XMLDocumentFragmentScannerImpl$Driver = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentFragmentScannerImpl$Driver;
 using $XMLDocumentFragmentScannerImpl$ElementStack = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentFragmentScannerImpl$ElementStack;
-using $XMLDocumentFragmentScannerImpl$FragmentContentDriver = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentFragmentScannerImpl$FragmentContentDriver;
-using $XMLDocumentScannerImpl$ContentDriver = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentScannerImpl$ContentDriver;
 using $XMLEntityScanner = ::com::sun::org::apache::xerces::internal::impl::XMLEntityScanner;
 using $XMLErrorReporter = ::com::sun::org::apache::xerces::internal::impl::XMLErrorReporter;
 using $XMLScanner$NameType = ::com::sun::org::apache::xerces::internal::impl::XMLScanner$NameType;

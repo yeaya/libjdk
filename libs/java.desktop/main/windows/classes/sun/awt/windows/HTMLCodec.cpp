@@ -2,7 +2,6 @@
 
 #include <java/io/BufferedInputStream.h>
 #include <java/io/BufferedReader.h>
-#include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
@@ -36,7 +35,6 @@
 
 using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $BufferedReader = ::java::io::BufferedReader;
-using $FilterInputStream = ::java::io::FilterInputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;

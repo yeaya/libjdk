@@ -4,7 +4,6 @@
 #include <java/awt/font/TextAttribute.h>
 #include <java/lang/Math.h>
 #include <java/text/AttributedCharacterIterator$Attribute.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/HashSet.h>
 #include <java/util/Hashtable.h>
 #include <java/util/Map.h>
@@ -31,7 +30,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AttributedCharacterIterator$Attribute = ::java::text::AttributedCharacterIterator$Attribute;
-using $AbstractSet = ::java::util::AbstractSet;
 using $HashSet = ::java::util::HashSet;
 using $Hashtable = ::java::util::Hashtable;
 using $Map = ::java::util::Map;

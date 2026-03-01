@@ -3,9 +3,7 @@
 #include <bug6836089.h>
 #include <java/lang/CharSequence.h>
 #include <javax/swing/JTextPane.h>
-#include <javax/swing/text/DefaultEditorKit.h>
 #include <javax/swing/text/EditorKit.h>
-#include <javax/swing/text/StyledEditorKit.h>
 #include <javax/swing/text/html/HTMLEditorKit.h>
 #include <jcpp.h>
 
@@ -16,9 +14,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $JTextPane = ::javax::swing::JTextPane;
-using $DefaultEditorKit = ::javax::swing::text::DefaultEditorKit;
 using $EditorKit = ::javax::swing::text::EditorKit;
-using $StyledEditorKit = ::javax::swing::text::StyledEditorKit;
 using $HTMLEditorKit = ::javax::swing::text::html::HTMLEditorKit;
 
 $MethodInfo _bug6836089$1_MethodInfo_[] = {

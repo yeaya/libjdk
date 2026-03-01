@@ -12,7 +12,6 @@
 #include <java/nio/file/LinkOption.h>
 #include <java/nio/file/Path.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
@@ -54,7 +53,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractMap = ::java::util::AbstractMap;
 using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;

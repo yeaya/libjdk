@@ -7,7 +7,6 @@
 #include <java/nio/file/FileVisitor.h>
 #include <java/nio/file/Files.h>
 #include <java/nio/file/Path.h>
-#include <java/nio/file/SimpleFileVisitor.h>
 #include <jcpp.h>
 
 using $HangDuringStaticInitialization$1 = ::HangDuringStaticInitialization$1;
@@ -20,7 +19,6 @@ using $FileSystems = ::java::nio::file::FileSystems;
 using $FileVisitor = ::java::nio::file::FileVisitor;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
-using $SimpleFileVisitor = ::java::nio::file::SimpleFileVisitor;
 
 $MethodInfo _HangDuringStaticInitialization_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(HangDuringStaticInitialization, init$, void)},

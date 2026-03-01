@@ -8,19 +8,15 @@
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/lang/Runnable.h>
-#include <javax/swing/JComponent.h>
-#include <javax/swing/JEditorPane.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JTextPane.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/WindowConstants.h>
-#include <javax/swing/text/DefaultEditorKit.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/EditorKit.h>
 #include <javax/swing/text/Element.h>
 #include <javax/swing/text/JTextComponent.h>
-#include <javax/swing/text/StyledEditorKit.h>
 #include <javax/swing/text/html/HTMLDocument.h>
 #include <javax/swing/text/html/HTMLEditorKit.h>
 #include <jcpp.h>
@@ -41,19 +37,14 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $JComponent = ::javax::swing::JComponent;
-using $JEditorPane = ::javax::swing::JEditorPane;
 using $JFrame = ::javax::swing::JFrame;
 using $JTextPane = ::javax::swing::JTextPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $WindowConstants = ::javax::swing::WindowConstants;
-using $DefaultEditorKit = ::javax::swing::text::DefaultEditorKit;
 using $Document = ::javax::swing::text::Document;
 using $EditorKit = ::javax::swing::text::EditorKit;
 using $Element = ::javax::swing::text::Element;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
-using $StyledEditorKit = ::javax::swing::text::StyledEditorKit;
 using $HTMLDocument = ::javax::swing::text::html::HTMLDocument;
 using $HTMLEditorKit = ::javax::swing::text::html::HTMLEditorKit;
 

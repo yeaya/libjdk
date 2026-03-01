@@ -10,7 +10,6 @@
 #include <com/sun/java/swing/plaf/windows/XPStyle.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Insets.h>
@@ -22,8 +21,6 @@
 #include <javax/swing/UIManager.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/ScrollBarUI.h>
-#include <javax/swing/plaf/basic/BasicArrowButton.h>
 #include <javax/swing/plaf/basic/BasicScrollBarUI$ArrowButtonListener.h>
 #include <javax/swing/plaf/basic/BasicScrollBarUI.h>
 #include <jcpp.h>
@@ -55,7 +52,6 @@ using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
@@ -71,8 +67,6 @@ using $JScrollBar = ::javax::swing::JScrollBar;
 using $UIManager = ::javax::swing::UIManager;
 using $Border = ::javax::swing::border::Border;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $ScrollBarUI = ::javax::swing::plaf::ScrollBarUI;
-using $BasicArrowButton = ::javax::swing::plaf::basic::BasicArrowButton;
 using $BasicScrollBarUI = ::javax::swing::plaf::basic::BasicScrollBarUI;
 using $BasicScrollBarUI$ArrowButtonListener = ::javax::swing::plaf::basic::BasicScrollBarUI$ArrowButtonListener;
 

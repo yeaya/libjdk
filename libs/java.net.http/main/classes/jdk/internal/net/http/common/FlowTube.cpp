@@ -3,9 +3,7 @@
 #include <java/util/concurrent/Flow$Publisher.h>
 #include <java/util/concurrent/Flow$Subscriber.h>
 #include <jdk/internal/net/http/common/FlowTube$AbstractTubePublisher$TubePublisherWrapper.h>
-#include <jdk/internal/net/http/common/FlowTube$AbstractTubePublisher.h>
 #include <jdk/internal/net/http/common/FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper.h>
-#include <jdk/internal/net/http/common/FlowTube$AbstractTubeSubscriber.h>
 #include <jdk/internal/net/http/common/FlowTube$TubePublisher.h>
 #include <jdk/internal/net/http/common/FlowTube$TubeSubscriber.h>
 #include <jcpp.h>
@@ -15,9 +13,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Flow$Publisher = ::java::util::concurrent::Flow$Publisher;
 using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
-using $FlowTube$AbstractTubePublisher = ::jdk::internal::net::http::common::FlowTube$AbstractTubePublisher;
 using $FlowTube$AbstractTubePublisher$TubePublisherWrapper = ::jdk::internal::net::http::common::FlowTube$AbstractTubePublisher$TubePublisherWrapper;
-using $FlowTube$AbstractTubeSubscriber = ::jdk::internal::net::http::common::FlowTube$AbstractTubeSubscriber;
 using $FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper = ::jdk::internal::net::http::common::FlowTube$AbstractTubeSubscriber$TubeSubscriberWrapper;
 using $FlowTube$TubePublisher = ::jdk::internal::net::http::common::FlowTube$TubePublisher;
 using $FlowTube$TubeSubscriber = ::jdk::internal::net::http::common::FlowTube$TubeSubscriber;

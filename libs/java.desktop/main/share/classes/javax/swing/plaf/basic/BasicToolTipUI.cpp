@@ -9,8 +9,6 @@
 #include <java/awt/Insets.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JToolTip.h>
@@ -36,8 +34,6 @@ using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;

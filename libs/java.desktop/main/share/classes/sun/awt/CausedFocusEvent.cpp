@@ -2,7 +2,6 @@
 
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
-#include <java/awt/event/ComponentEvent.h>
 #include <java/awt/event/FocusEvent$Cause.h>
 #include <java/awt/event/FocusEvent.h>
 #include <java/lang/IllegalStateException.h>
@@ -32,7 +31,6 @@
 
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
-using $ComponentEvent = ::java::awt::event::ComponentEvent;
 using $FocusEvent = ::java::awt::event::FocusEvent;
 using $FocusEvent$Cause = ::java::awt::event::FocusEvent$Cause;
 using $ClassInfo = ::java::lang::ClassInfo;

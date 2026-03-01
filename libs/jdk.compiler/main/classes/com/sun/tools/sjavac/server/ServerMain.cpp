@@ -6,7 +6,6 @@
 #include <com/sun/tools/sjavac/server/SjavacServer.h>
 #include <com/sun/tools/sjavac/server/log/LazyInitFileLog.h>
 #include <com/sun/tools/sjavac/server/log/LoggingOutputStream.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
@@ -29,7 +28,6 @@ using $Log$Level = ::com::sun::tools::sjavac::Log$Level;
 using $SjavacServer = ::com::sun::tools::sjavac::server::SjavacServer;
 using $LazyInitFileLog = ::com::sun::tools::sjavac::server::log::LazyInitFileLog;
 using $LoggingOutputStream = ::com::sun::tools::sjavac::server::log::LoggingOutputStream;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;

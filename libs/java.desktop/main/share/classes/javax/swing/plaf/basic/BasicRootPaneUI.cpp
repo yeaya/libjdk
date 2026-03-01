@@ -12,14 +12,12 @@
 #include <javax/swing/JRootPane.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/plaf/ComponentInputMapUIResource.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/RootPaneUI.h>
 #include <javax/swing/plaf/basic/BasicRootPaneUI$Actions.h>
 #include <javax/swing/plaf/basic/BasicRootPaneUI$RootPaneInputMap.h>
 #include <javax/swing/plaf/basic/LazyActionMap.h>
 #include <sun/swing/DefaultLookup.h>
-#include <sun/swing/UIAction.h>
 #include <jcpp.h>
 
 #undef FALSE
@@ -44,14 +42,12 @@ using $JComponent = ::javax::swing::JComponent;
 using $JRootPane = ::javax::swing::JRootPane;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $ComponentInputMapUIResource = ::javax::swing::plaf::ComponentInputMapUIResource;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $RootPaneUI = ::javax::swing::plaf::RootPaneUI;
 using $BasicRootPaneUI$Actions = ::javax::swing::plaf::basic::BasicRootPaneUI$Actions;
 using $BasicRootPaneUI$RootPaneInputMap = ::javax::swing::plaf::basic::BasicRootPaneUI$RootPaneInputMap;
 using $LazyActionMap = ::javax::swing::plaf::basic::LazyActionMap;
 using $DefaultLookup = ::sun::swing::DefaultLookup;
-using $UIAction = ::sun::swing::UIAction;
 
 namespace javax {
 	namespace swing {

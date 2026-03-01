@@ -12,7 +12,6 @@
 #include <sun/awt/AWTAccessor$ClientPropertyKeyAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <sun/lwawt/LWComponentPeer.h>
-#include <sun/lwawt/LWTextComponentPeer.h>
 #include <sun/lwawt/LWTextFieldPeer.h>
 #include <jcpp.h>
 
@@ -28,7 +27,6 @@ using $DocumentListener = ::javax::swing::event::DocumentListener;
 using $Document = ::javax::swing::text::Document;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
 using $AWTAccessor$ClientPropertyKeyAccessor = ::sun::awt::AWTAccessor$ClientPropertyKeyAccessor;
-using $LWTextComponentPeer = ::sun::lwawt::LWTextComponentPeer;
 using $LWTextFieldPeer = ::sun::lwawt::LWTextFieldPeer;
 
 namespace sun {

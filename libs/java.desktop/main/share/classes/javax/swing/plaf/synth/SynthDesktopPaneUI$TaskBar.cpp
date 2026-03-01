@@ -10,12 +10,10 @@
 #include <java/awt/event/ComponentListener.h>
 #include <java/awt/event/ContainerEvent.h>
 #include <java/util/EventObject.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JDesktopPane.h>
 #include <javax/swing/JInternalFrame$JDesktopIcon.h>
 #include <javax/swing/JInternalFrame.h>
 #include <javax/swing/JPanel.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/BevelBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/plaf/synth/SynthDesktopPaneUI$TaskBar$1.h>
@@ -28,7 +26,6 @@
 
 using $ComponentArray = $Array<::java::awt::Component>;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $FlowLayout = ::java::awt::FlowLayout;
 using $Insets = ::java::awt::Insets;
 using $LayoutManager = ::java::awt::LayoutManager;
@@ -38,12 +35,10 @@ using $ContainerEvent = ::java::awt::event::ContainerEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JDesktopPane = ::javax::swing::JDesktopPane;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $JInternalFrame$JDesktopIcon = ::javax::swing::JInternalFrame$JDesktopIcon;
 using $JPanel = ::javax::swing::JPanel;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $BevelBorder = ::javax::swing::border::BevelBorder;
 using $Border = ::javax::swing::border::Border;
 using $SynthDesktopPaneUI$TaskBar$1 = ::javax::swing::plaf::synth::SynthDesktopPaneUI$TaskBar$1;

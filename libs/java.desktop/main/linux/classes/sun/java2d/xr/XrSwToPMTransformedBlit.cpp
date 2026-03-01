@@ -8,7 +8,6 @@
 #include <sun/java2d/loops/SurfaceType.h>
 #include <sun/java2d/loops/TransformBlit.h>
 #include <sun/java2d/pipe/Region.h>
-#include <sun/java2d/x11/XSurfaceData.h>
 #include <sun/java2d/xr/XRPMBlitLoops.h>
 #include <sun/java2d/xr/XRPMTransformedBlit.h>
 #include <sun/java2d/xr/XRSurfaceData.h>
@@ -25,7 +24,6 @@ using $CompositeType = ::sun::java2d::loops::CompositeType;
 using $SurfaceType = ::sun::java2d::loops::SurfaceType;
 using $TransformBlit = ::sun::java2d::loops::TransformBlit;
 using $Region = ::sun::java2d::pipe::Region;
-using $XSurfaceData = ::sun::java2d::x11::XSurfaceData;
 using $XRPMBlitLoops = ::sun::java2d::xr::XRPMBlitLoops;
 using $XRPMTransformedBlit = ::sun::java2d::xr::XRPMTransformedBlit;
 using $XRSurfaceData = ::sun::java2d::xr::XRSurfaceData;

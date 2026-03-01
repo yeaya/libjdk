@@ -9,10 +9,8 @@
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
-#include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/awt/geom/Line2D$Float.h>
-#include <java/awt/geom/Line2D.h>
 #include <java/awt/geom/Point2D.h>
 #include <java/awt/geom/Rectangle2D$Double.h>
 #include <java/awt/geom/Rectangle2D.h>
@@ -44,16 +42,13 @@ using $Graphics2D = ::java::awt::Graphics2D;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
-using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseListener = ::java::awt::event::MouseListener;
-using $Line2D = ::java::awt::geom::Line2D;
 using $Line2D$Float = ::java::awt::geom::Line2D$Float;
 using $Point2D = ::java::awt::geom::Point2D;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Double = ::java::awt::geom::Rectangle2D$Double;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;

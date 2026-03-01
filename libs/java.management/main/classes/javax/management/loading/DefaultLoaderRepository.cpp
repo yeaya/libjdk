@@ -5,7 +5,6 @@
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/System$Logger$Level.h>
 #include <java/lang/System$Logger.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -25,7 +24,6 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
-using $AbstractList = ::java::util::AbstractList;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $MBeanServer = ::javax::management::MBeanServer;

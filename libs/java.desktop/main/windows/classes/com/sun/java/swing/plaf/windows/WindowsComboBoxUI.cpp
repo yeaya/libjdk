@@ -9,7 +9,6 @@
 #include <com/sun/java/swing/plaf/windows/WindowsComboBoxUI$WindowsComboBoxEditor.h>
 #include <com/sun/java/swing/plaf/windows/WindowsComboBoxUI$WindowsComboBoxRenderer.h>
 #include <com/sun/java/swing/plaf/windows/WindowsComboBoxUI$XPComboBoxButton.h>
-#include <com/sun/java/swing/plaf/windows/XPStyle$GlyphButton.h>
 #include <com/sun/java/swing/plaf/windows/XPStyle$Skin.h>
 #include <com/sun/java/swing/plaf/windows/XPStyle.h>
 #include <java/awt/Color.h>
@@ -21,7 +20,6 @@
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/Rectangle.h>
-#include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/CellRendererPane.h>
@@ -32,18 +30,10 @@
 #include <javax/swing/JList.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/ListCellRenderer.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/EmptyBorder.h>
-#include <javax/swing/plaf/ComboBoxUI.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/basic/BasicComboBoxEditor$UIResource.h>
-#include <javax/swing/plaf/basic/BasicComboBoxEditor.h>
-#include <javax/swing/plaf/basic/BasicComboBoxRenderer$UIResource.h>
-#include <javax/swing/plaf/basic/BasicComboBoxRenderer.h>
-#include <javax/swing/plaf/basic/BasicComboBoxUI$ComboBoxLayoutManager.h>
 #include <javax/swing/plaf/basic/BasicComboBoxUI.h>
-#include <javax/swing/plaf/basic/BasicComboPopup.h>
 #include <javax/swing/plaf/basic/ComboPopup.h>
 #include <sun/swing/DefaultLookup.h>
 #include <jcpp.h>
@@ -66,7 +56,6 @@ using $WindowsComboBoxUI$WindowsComboBoxEditor = ::com::sun::java::swing::plaf::
 using $WindowsComboBoxUI$WindowsComboBoxRenderer = ::com::sun::java::swing::plaf::windows::WindowsComboBoxUI$WindowsComboBoxRenderer;
 using $WindowsComboBoxUI$XPComboBoxButton = ::com::sun::java::swing::plaf::windows::WindowsComboBoxUI$XPComboBoxButton;
 using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
-using $XPStyle$GlyphButton = ::com::sun::java::swing::plaf::windows::XPStyle$GlyphButton;
 using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
@@ -76,7 +65,6 @@ using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $Rectangle = ::java::awt::Rectangle;
-using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -90,18 +78,10 @@ using $JComboBox = ::javax::swing::JComboBox;
 using $JComponent = ::javax::swing::JComponent;
 using $JPanel = ::javax::swing::JPanel;
 using $ListCellRenderer = ::javax::swing::ListCellRenderer;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;
-using $ComboBoxUI = ::javax::swing::plaf::ComboBoxUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $BasicComboBoxEditor = ::javax::swing::plaf::basic::BasicComboBoxEditor;
-using $BasicComboBoxEditor$UIResource = ::javax::swing::plaf::basic::BasicComboBoxEditor$UIResource;
-using $BasicComboBoxRenderer = ::javax::swing::plaf::basic::BasicComboBoxRenderer;
-using $BasicComboBoxRenderer$UIResource = ::javax::swing::plaf::basic::BasicComboBoxRenderer$UIResource;
 using $BasicComboBoxUI = ::javax::swing::plaf::basic::BasicComboBoxUI;
-using $BasicComboBoxUI$ComboBoxLayoutManager = ::javax::swing::plaf::basic::BasicComboBoxUI$ComboBoxLayoutManager;
-using $BasicComboPopup = ::javax::swing::plaf::basic::BasicComboPopup;
 using $ComboPopup = ::javax::swing::plaf::basic::ComboPopup;
 using $DefaultLookup = ::sun::swing::DefaultLookup;
 

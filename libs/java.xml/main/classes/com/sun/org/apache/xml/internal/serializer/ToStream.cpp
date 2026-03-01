@@ -5,11 +5,9 @@
 #include <com/sun/org/apache/xml/internal/serializer/ElemContext.h>
 #include <com/sun/org/apache/xml/internal/serializer/EncodingInfo.h>
 #include <com/sun/org/apache/xml/internal/serializer/Encodings.h>
-#include <com/sun/org/apache/xml/internal/serializer/ExtendedContentHandler.h>
 #include <com/sun/org/apache/xml/internal/serializer/NamespaceMappings$MappingRecord.h>
 #include <com/sun/org/apache/xml/internal/serializer/NamespaceMappings.h>
 #include <com/sun/org/apache/xml/internal/serializer/OutputPropertiesFactory.h>
-#include <com/sun/org/apache/xml/internal/serializer/SerializationHandler.h>
 #include <com/sun/org/apache/xml/internal/serializer/SerializerBase.h>
 #include <com/sun/org/apache/xml/internal/serializer/SerializerConstants.h>
 #include <com/sun/org/apache/xml/internal/serializer/SerializerTrace.h>
@@ -33,7 +31,6 @@
 #include <java/io/Writer.h>
 #include <java/lang/StringBuffer.h>
 #include <java/lang/reflect/Method.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Enumeration.h>
 #include <java/util/Iterator.h>
@@ -91,11 +88,9 @@ using $CharInfo = ::com::sun::org::apache::xml::internal::serializer::CharInfo;
 using $ElemContext = ::com::sun::org::apache::xml::internal::serializer::ElemContext;
 using $EncodingInfo = ::com::sun::org::apache::xml::internal::serializer::EncodingInfo;
 using $Encodings = ::com::sun::org::apache::xml::internal::serializer::Encodings;
-using $ExtendedContentHandler = ::com::sun::org::apache::xml::internal::serializer::ExtendedContentHandler;
 using $NamespaceMappings = ::com::sun::org::apache::xml::internal::serializer::NamespaceMappings;
 using $NamespaceMappings$MappingRecord = ::com::sun::org::apache::xml::internal::serializer::NamespaceMappings$MappingRecord;
 using $OutputPropertiesFactory = ::com::sun::org::apache::xml::internal::serializer::OutputPropertiesFactory;
-using $SerializationHandler = ::com::sun::org::apache::xml::internal::serializer::SerializationHandler;
 using $SerializerBase = ::com::sun::org::apache::xml::internal::serializer::SerializerBase;
 using $SerializerConstants = ::com::sun::org::apache::xml::internal::serializer::SerializerConstants;
 using $SerializerTrace = ::com::sun::org::apache::xml::internal::serializer::SerializerTrace;
@@ -126,7 +121,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Enumeration = ::java::util::Enumeration;
 using $Iterator = ::java::util::Iterator;

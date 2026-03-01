@@ -4,12 +4,9 @@
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/text/AbstractDocument.h>
 #include <javax/swing/text/BoxView.h>
-#include <javax/swing/text/CompositeView.h>
 #include <javax/swing/text/DefaultEditorKit.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/Element.h>
-#include <javax/swing/text/FlowView.h>
-#include <javax/swing/text/ParagraphView.h>
 #include <javax/swing/text/View.h>
 #include <javax/swing/text/ViewFactory.h>
 #include <javax/swing/text/WrappedPlainView.h>
@@ -25,12 +22,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JEditorPane$PlainEditorKit$PlainParagraph = ::javax::swing::JEditorPane$PlainEditorKit$PlainParagraph;
 using $AbstractDocument = ::javax::swing::text::AbstractDocument;
 using $BoxView = ::javax::swing::text::BoxView;
-using $CompositeView = ::javax::swing::text::CompositeView;
 using $DefaultEditorKit = ::javax::swing::text::DefaultEditorKit;
 using $Document = ::javax::swing::text::Document;
 using $Element = ::javax::swing::text::Element;
-using $FlowView = ::javax::swing::text::FlowView;
-using $ParagraphView = ::javax::swing::text::ParagraphView;
 using $View = ::javax::swing::text::View;
 using $ViewFactory = ::javax::swing::text::ViewFactory;
 using $WrappedPlainView = ::javax::swing::text::WrappedPlainView;

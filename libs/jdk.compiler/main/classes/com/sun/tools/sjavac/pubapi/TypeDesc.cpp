@@ -10,12 +10,6 @@
 #include <javax/lang/model/type/TypeKind.h>
 #include <javax/lang/model/type/TypeMirror.h>
 #include <javax/lang/model/type/TypeVisitor.h>
-#include <javax/lang/model/util/AbstractTypeVisitor6.h>
-#include <javax/lang/model/util/SimpleTypeVisitor14.h>
-#include <javax/lang/model/util/SimpleTypeVisitor6.h>
-#include <javax/lang/model/util/SimpleTypeVisitor7.h>
-#include <javax/lang/model/util/SimpleTypeVisitor8.h>
-#include <javax/lang/model/util/SimpleTypeVisitor9.h>
 #include <jcpp.h>
 
 #undef ARRAY
@@ -37,12 +31,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $TypeKind = ::javax::lang::model::type::TypeKind;
 using $TypeMirror = ::javax::lang::model::type::TypeMirror;
 using $TypeVisitor = ::javax::lang::model::type::TypeVisitor;
-using $AbstractTypeVisitor6 = ::javax::lang::model::util::AbstractTypeVisitor6;
-using $SimpleTypeVisitor14 = ::javax::lang::model::util::SimpleTypeVisitor14;
-using $SimpleTypeVisitor6 = ::javax::lang::model::util::SimpleTypeVisitor6;
-using $SimpleTypeVisitor7 = ::javax::lang::model::util::SimpleTypeVisitor7;
-using $SimpleTypeVisitor8 = ::javax::lang::model::util::SimpleTypeVisitor8;
-using $SimpleTypeVisitor9 = ::javax::lang::model::util::SimpleTypeVisitor9;
 
 namespace com {
 	namespace sun {

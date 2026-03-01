@@ -2,7 +2,6 @@
 
 #include <com/sun/org/apache/xml/internal/security/c14n/CanonicalizationException.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/implementations/Canonicalizer11_OmitComments.h>
-#include <com/sun/org/apache/xml/internal/security/c14n/implementations/Canonicalizer20010315.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/implementations/Canonicalizer20010315OmitComments.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/implementations/CanonicalizerBase.h>
 #include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityRuntimeException.h>
@@ -15,10 +14,7 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/ArrayList.h>
-#include <java/util/HashSet.h>
 #include <java/util/LinkedHashSet.h>
 #include <java/util/List.h>
 #include <java/util/Set.h>
@@ -28,7 +24,6 @@
 
 using $CanonicalizationException = ::com::sun::org::apache::xml::internal::security::c14n::CanonicalizationException;
 using $Canonicalizer11_OmitComments = ::com::sun::org::apache::xml::internal::security::c14n::implementations::Canonicalizer11_OmitComments;
-using $Canonicalizer20010315 = ::com::sun::org::apache::xml::internal::security::c14n::implementations::Canonicalizer20010315;
 using $Canonicalizer20010315OmitComments = ::com::sun::org::apache::xml::internal::security::c14n::implementations::Canonicalizer20010315OmitComments;
 using $CanonicalizerBase = ::com::sun::org::apache::xml::internal::security::c14n::implementations::CanonicalizerBase;
 using $XMLSecurityRuntimeException = ::com::sun::org::apache::xml::internal::security::exceptions::XMLSecurityRuntimeException;
@@ -46,10 +41,7 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractSet = ::java::util::AbstractSet;
 using $ArrayList = ::java::util::ArrayList;
-using $HashSet = ::java::util::HashSet;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
 using $List = ::java::util::List;
 using $Set = ::java::util::Set;

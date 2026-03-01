@@ -3,14 +3,11 @@
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel.h>
 #include <com/sun/java/swing/plaf/windows/WindowsMenuBarUI.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/util/EventObject.h>
 #include <javax/swing/AbstractAction.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JMenu.h>
 #include <javax/swing/JMenuBar.h>
-#include <javax/swing/JMenuItem.h>
 #include <javax/swing/MenuElement.h>
 #include <javax/swing/MenuSelectionManager.h>
 #include <jcpp.h>
@@ -18,16 +15,13 @@
 using $MenuElementArray = $Array<::javax::swing::MenuElement>;
 using $WindowsLookAndFeel = ::com::sun::java::swing::plaf::windows::WindowsLookAndFeel;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractAction = ::javax::swing::AbstractAction;
-using $JComponent = ::javax::swing::JComponent;
 using $JMenu = ::javax::swing::JMenu;
 using $JMenuBar = ::javax::swing::JMenuBar;
-using $JMenuItem = ::javax::swing::JMenuItem;
 using $MenuElement = ::javax::swing::MenuElement;
 using $MenuSelectionManager = ::javax::swing::MenuSelectionManager;
 

@@ -4,10 +4,8 @@
 #include <com/apple/laf/AquaInternalFrameDockIconUI$ScaledImageLabel.h>
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/InputEvent.h>
 #include <java/awt/event/MouseEvent.h>
@@ -17,7 +15,6 @@
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JInternalFrame$JDesktopIcon.h>
 #include <javax/swing/JInternalFrame.h>
-#include <javax/swing/JLabel.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/DesktopIconUI.h>
 #include <jcpp.h>
@@ -29,10 +26,8 @@ using $AquaInternalFrameDockIconUI$DockLabel = ::com::apple::laf::AquaInternalFr
 using $AquaInternalFrameDockIconUI$ScaledImageLabel = ::com::apple::laf::AquaInternalFrameDockIconUI$ScaledImageLabel;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Rectangle = ::java::awt::Rectangle;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
@@ -46,7 +41,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $JInternalFrame$JDesktopIcon = ::javax::swing::JInternalFrame$JDesktopIcon;
-using $JLabel = ::javax::swing::JLabel;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $DesktopIconUI = ::javax::swing::plaf::DesktopIconUI;
 

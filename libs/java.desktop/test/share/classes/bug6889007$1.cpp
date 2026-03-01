@@ -5,11 +5,9 @@
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Window.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/plaf/TableHeaderUI.h>
-#include <javax/swing/plaf/basic/BasicTableHeaderUI.h>
 #include <javax/swing/table/JTableHeader.h>
 #include <javax/swing/table/TableColumnModel.h>
 #include <jcpp.h>
@@ -18,17 +16,14 @@
 
 using $bug6889007$MyTableHeaderUI = ::bug6889007$MyTableHeaderUI;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JTable = ::javax::swing::JTable;
 using $TableHeaderUI = ::javax::swing::plaf::TableHeaderUI;
-using $BasicTableHeaderUI = ::javax::swing::plaf::basic::BasicTableHeaderUI;
 using $JTableHeader = ::javax::swing::table::JTableHeader;
 
 $FieldInfo _bug6889007$1_FieldInfo_[] = {

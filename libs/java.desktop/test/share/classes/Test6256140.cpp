@@ -5,7 +5,6 @@
 #include <Test6256140$3.h>
 #include <Test6256140$4.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/FlowLayout.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/Point.h>
@@ -19,14 +18,11 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFormattedTextField.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JLabel.h>
-#include <javax/swing/JTextField.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/ToolTipManager.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef EXIT_ON_CLOSE
@@ -39,7 +35,6 @@ using $Test6256140$2 = ::Test6256140$2;
 using $Test6256140$3 = ::Test6256140$3;
 using $Test6256140$4 = ::Test6256140$4;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $FlowLayout = ::java::awt::FlowLayout;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
@@ -55,14 +50,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $JComponent = ::javax::swing::JComponent;
 using $JFormattedTextField = ::javax::swing::JFormattedTextField;
 using $JFrame = ::javax::swing::JFrame;
 using $JLabel = ::javax::swing::JLabel;
-using $JTextField = ::javax::swing::JTextField;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $ToolTipManager = ::javax::swing::ToolTipManager;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 class Test6256140$$Lambda$dispose : public $Runnable {
 	$class(Test6256140$$Lambda$dispose, $NO_CLASS_INIT, $Runnable)

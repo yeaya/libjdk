@@ -8,7 +8,6 @@
 #include <javax/swing/RowFilter.h>
 #include <javax/swing/RowSorter.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/table/AbstractTableModel.h>
 #include <javax/swing/table/DefaultTableModel.h>
 #include <javax/swing/table/TableModel.h>
 #include <jcpp.h>
@@ -24,7 +23,6 @@ using $DefaultRowSorter = ::javax::swing::DefaultRowSorter;
 using $JTable = ::javax::swing::JTable;
 using $RowFilter = ::javax::swing::RowFilter;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $AbstractTableModel = ::javax::swing::table::AbstractTableModel;
 using $DefaultTableModel = ::javax::swing::table::DefaultTableModel;
 using $TableModel = ::javax::swing::table::TableModel;
 

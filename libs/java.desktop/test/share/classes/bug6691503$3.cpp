@@ -3,7 +3,6 @@
 #include <bug6691503.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
-#include <java/awt/Frame.h>
 #include <java/awt/Window.h>
 #include <java/lang/SecurityManager.h>
 #include <javax/swing/JFrame.h>
@@ -13,7 +12,6 @@
 using $bug6691503 = ::bug6691503;
 using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
-using $Frame = ::java::awt::Frame;
 using $Window = ::java::awt::Window;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;

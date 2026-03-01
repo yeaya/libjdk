@@ -5,7 +5,6 @@
 #include <java/awt/im/spi/InputMethod.h>
 #include <java/util/List.h>
 #include <java/util/Locale.h>
-#include <sun/awt/im/InputMethodAdapter.h>
 #include <sun/lwawt/macosx/CInputMethod.h>
 #include <jcpp.h>
 
@@ -17,7 +16,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
-using $InputMethodAdapter = ::sun::awt::im::InputMethodAdapter;
 using $CInputMethod = ::sun::lwawt::macosx::CInputMethod;
 
 namespace sun {

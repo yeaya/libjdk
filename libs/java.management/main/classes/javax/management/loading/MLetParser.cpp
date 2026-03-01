@@ -11,8 +11,6 @@
 #include <java/lang/System$Logger.h>
 #include <java/net/URL.h>
 #include <java/net/URLConnection.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
 #include <java/util/HashMap.h>
 #include <java/util/List.h>
@@ -38,8 +36,6 @@ using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $URL = ::java::net::URL;
 using $URLConnection = ::java::net::URLConnection;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $List = ::java::util::List;

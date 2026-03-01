@@ -1,7 +1,6 @@
 #include <com/sun/tools/javac/comp/TypeEnter$AbstractHeaderPhase$Synthesizer.h>
 
 #include <com/sun/tools/javac/code/Scope$ErrorScope.h>
-#include <com/sun/tools/javac/code/Scope$ScopeImpl.h>
 #include <com/sun/tools/javac/code/Scope$WriteableScope.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$ModuleSymbol.h>
@@ -10,7 +9,6 @@
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Symtab.h>
 #include <com/sun/tools/javac/code/Type$ClassType.h>
-#include <com/sun/tools/javac/code/Type$ErrorType.h>
 #include <com/sun/tools/javac/code/Type$TypeVar.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/TypeTag.h>
@@ -18,7 +16,6 @@
 #include <com/sun/tools/javac/comp/TypeEnter$AbstractHeaderPhase$Synthesizer$2.h>
 #include <com/sun/tools/javac/comp/TypeEnter$AbstractHeaderPhase.h>
 #include <com/sun/tools/javac/comp/TypeEnter.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCFieldAccess.h>
 #include <com/sun/tools/javac/tree/JCTree$JCIdent.h>
@@ -36,7 +33,6 @@
 #undef ERROR
 
 using $Scope$ErrorScope = ::com::sun::tools::javac::code::Scope$ErrorScope;
-using $Scope$ScopeImpl = ::com::sun::tools::javac::code::Scope$ScopeImpl;
 using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
@@ -44,14 +40,12 @@ using $Symbol$ModuleSymbol = ::com::sun::tools::javac::code::Symbol$ModuleSymbol
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
-using $Type$ErrorType = ::com::sun::tools::javac::code::Type$ErrorType;
 using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $TypeEnter$AbstractHeaderPhase = ::com::sun::tools::javac::comp::TypeEnter$AbstractHeaderPhase;
 using $TypeEnter$AbstractHeaderPhase$Synthesizer$1 = ::com::sun::tools::javac::comp::TypeEnter$AbstractHeaderPhase$Synthesizer$1;
 using $TypeEnter$AbstractHeaderPhase$Synthesizer$2 = ::com::sun::tools::javac::comp::TypeEnter$AbstractHeaderPhase$Synthesizer$2;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCFieldAccess = ::com::sun::tools::javac::tree::JCTree$JCFieldAccess;
 using $JCTree$JCIdent = ::com::sun::tools::javac::tree::JCTree$JCIdent;
 using $JCTree$JCTypeApply = ::com::sun::tools::javac::tree::JCTree$JCTypeApply;

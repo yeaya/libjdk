@@ -1,9 +1,7 @@
 #include <sun/awt/X11/XTextAreaPeer$AWTTextArea.h>
 
-#include <com/sun/java/swing/plaf/motif/MotifTextAreaUI.h>
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/FocusEvent$Cause.h>
 #include <java/awt/event/FocusEvent.h>
@@ -15,9 +13,6 @@
 #include <javax/swing/TransferHandler.h>
 #include <javax/swing/event/DocumentEvent.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/TextUI.h>
-#include <javax/swing/plaf/basic/BasicTextAreaUI.h>
-#include <javax/swing/plaf/basic/BasicTextUI.h>
 #include <javax/swing/text/JTextComponent.h>
 #include <sun/awt/AWTAccessor$ClientPropertyKeyAccessor.h>
 #include <sun/awt/AWTAccessor.h>
@@ -28,10 +23,8 @@
 
 #undef TEXT_VALUE_CHANGED
 
-using $MotifTextAreaUI = ::com::sun::java::swing::plaf::motif::MotifTextAreaUI;
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $FocusEvent = ::java::awt::event::FocusEvent;
 using $InputMethodEvent = ::java::awt::event::InputMethodEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
@@ -40,15 +33,10 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JTextArea = ::javax::swing::JTextArea;
 using $TransferHandler = ::javax::swing::TransferHandler;
 using $DocumentEvent = ::javax::swing::event::DocumentEvent;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $TextUI = ::javax::swing::plaf::TextUI;
-using $BasicTextAreaUI = ::javax::swing::plaf::basic::BasicTextAreaUI;
-using $BasicTextUI = ::javax::swing::plaf::basic::BasicTextUI;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
 using $AWTAccessor$ClientPropertyKeyAccessor = ::sun::awt::AWTAccessor$ClientPropertyKeyAccessor;
 using $XTextAreaPeer = ::sun::awt::X11::XTextAreaPeer;

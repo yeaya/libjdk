@@ -4,11 +4,9 @@
 #include <java/awt/Graphics.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/TextUI.h>
 #include <javax/swing/plaf/basic/BasicTextFieldUI.h>
 #include <javax/swing/plaf/basic/BasicTextUI.h>
 #include <javax/swing/text/Caret.h>
-#include <javax/swing/text/DefaultCaret.h>
 #include <jcpp.h>
 
 using $WindowsTextFieldUI$WindowsFieldCaret = ::com::sun::java::swing::plaf::windows::WindowsTextFieldUI$WindowsFieldCaret;
@@ -18,11 +16,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $TextUI = ::javax::swing::plaf::TextUI;
 using $BasicTextFieldUI = ::javax::swing::plaf::basic::BasicTextFieldUI;
-using $BasicTextUI = ::javax::swing::plaf::basic::BasicTextUI;
 using $Caret = ::javax::swing::text::Caret;
-using $DefaultCaret = ::javax::swing::text::DefaultCaret;
 
 namespace com {
 	namespace sun {

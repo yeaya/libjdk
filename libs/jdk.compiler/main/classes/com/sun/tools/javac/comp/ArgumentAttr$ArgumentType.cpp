@@ -15,7 +15,6 @@
 #include <com/sun/tools/javac/comp/DeferredAttr.h>
 #include <com/sun/tools/javac/comp/Env.h>
 #include <com/sun/tools/javac/comp/Resolve$MethodResolutionPhase.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <java/util/Iterator.h>
@@ -40,7 +39,6 @@ using $DeferredAttr$DeferredType = ::com::sun::tools::javac::comp::DeferredAttr$
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $Resolve$MethodResolutionPhase = ::com::sun::tools::javac::comp::Resolve$MethodResolutionPhase;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

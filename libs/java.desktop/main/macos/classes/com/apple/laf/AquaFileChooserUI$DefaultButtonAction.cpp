@@ -3,13 +3,10 @@
 #include <com/apple/laf/AquaFileChooserUI$FCSubpanel.h>
 #include <com/apple/laf/AquaFileChooserUI.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/event/ActionEvent.h>
 #include <javax/swing/AbstractAction.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFileChooser.h>
 #include <javax/swing/JRootPane.h>
 #include <javax/swing/SwingUtilities.h>
@@ -18,7 +15,6 @@
 using $AquaFileChooserUI = ::com::apple::laf::AquaFileChooserUI;
 using $AquaFileChooserUI$FCSubpanel = ::com::apple::laf::AquaFileChooserUI$FCSubpanel;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Toolkit = ::java::awt::Toolkit;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -26,9 +22,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractAction = ::javax::swing::AbstractAction;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JFileChooser = ::javax::swing::JFileChooser;
 using $JRootPane = ::javax::swing::JRootPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;

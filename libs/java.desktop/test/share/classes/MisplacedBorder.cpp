@@ -2,13 +2,11 @@
 
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/Window.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/RenderedImage.h>
-#include <java/awt/image/WritableRenderedImage.h>
 #include <java/io/File.h>
 #include <java/io/IOException.h>
 #include <java/io/Serializable.h>
@@ -22,7 +20,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <javax/imageio/ImageIO.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JMenu.h>
 #include <javax/swing/JMenuBar.h>
@@ -40,12 +37,10 @@
 using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $RenderedImage = ::java::awt::image::RenderedImage;
-using $WritableRenderedImage = ::java::awt::image::WritableRenderedImage;
 using $File = ::java::io::File;
 using $IOException = ::java::io::IOException;
 using $PrintStream = ::java::io::PrintStream;
@@ -61,7 +56,6 @@ using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $ImageIO = ::javax::imageio::ImageIO;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JMenu = ::javax::swing::JMenu;
 using $JMenuBar = ::javax::swing::JMenuBar;

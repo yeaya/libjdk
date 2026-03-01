@@ -6,7 +6,6 @@
 #include <java/awt/GridBagConstraints.h>
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
@@ -20,10 +19,8 @@
 #include <java/util/EventObject.h>
 #include <java/util/logging/Level.h>
 #include <java/util/logging/Logger.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/BorderFactory.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JMenu.h>
 #include <javax/swing/JMenuBar.h>
@@ -31,7 +28,6 @@
 #include <javax/swing/JPanel.h>
 #include <javax/swing/JTextArea.h>
 #include <javax/swing/border/Border.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef HORIZONTAL
@@ -40,11 +36,9 @@
 
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $Serializable = ::java::io::Serializable;
@@ -56,17 +50,14 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Level = ::java::util::logging::Level;
 using $Logger = ::java::util::logging::Logger;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $BorderFactory = ::javax::swing::BorderFactory;
 using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JMenu = ::javax::swing::JMenu;
 using $JMenuBar = ::javax::swing::JMenuBar;
 using $JMenuItem = ::javax::swing::JMenuItem;
 using $JPanel = ::javax::swing::JPanel;
 using $JTextArea = ::javax::swing::JTextArea;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 class ClickMenuTestManual$$Lambda$lambda$createControlPanelUI$0 : public $ActionListener {
 	$class(ClickMenuTestManual$$Lambda$lambda$createControlPanelUI$0, $NO_CLASS_INIT, $ActionListener)

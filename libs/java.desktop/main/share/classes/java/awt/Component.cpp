@@ -44,11 +44,8 @@
 #include <java/awt/Insets.h>
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/Menu.h>
 #include <java/awt/MenuComponent.h>
 #include <java/awt/MenuContainer.h>
-#include <java/awt/MenuItem.h>
-#include <java/awt/Panel.h>
 #include <java/awt/Point.h>
 #include <java/awt/PointerInfo.h>
 #include <java/awt/PopupMenu.h>
@@ -110,8 +107,6 @@
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/EventListener.h>
@@ -147,7 +142,6 @@
 #include <sun/font/SunFontManager.h>
 #include <sun/java2d/SunGraphicsEnvironment.h>
 #include <sun/java2d/pipe/Region.h>
-#include <sun/java2d/pipe/hw/ExtendedBufferCapabilities.h>
 #include <sun/security/action/GetPropertyAction.h>
 #include <sun/swing/SwingAccessor$JComponentAccessor.h>
 #include <sun/swing/SwingAccessor.h>
@@ -313,11 +307,8 @@ using $Image = ::java::awt::Image;
 using $ImageCapabilities = ::java::awt::ImageCapabilities;
 using $Insets = ::java::awt::Insets;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
-using $Menu = ::java::awt::Menu;
 using $MenuComponent = ::java::awt::MenuComponent;
 using $MenuContainer = ::java::awt::MenuContainer;
-using $MenuItem = ::java::awt::MenuItem;
-using $Panel = ::java::awt::Panel;
 using $Point = ::java::awt::Point;
 using $PointerInfo = ::java::awt::PointerInfo;
 using $PopupMenu = ::java::awt::PopupMenu;
@@ -375,7 +366,6 @@ using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $Double = ::java::lang::Double;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -393,8 +383,6 @@ using $Short = ::java::lang::Short;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $EventListener = ::java::util::EventListener;
@@ -429,7 +417,6 @@ using $FontManagerFactory = ::sun::font::FontManagerFactory;
 using $SunFontManager = ::sun::font::SunFontManager;
 using $SunGraphicsEnvironment = ::sun::java2d::SunGraphicsEnvironment;
 using $Region = ::sun::java2d::pipe::Region;
-using $ExtendedBufferCapabilities = ::sun::java2d::pipe::hw::ExtendedBufferCapabilities;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 using $SwingAccessor = ::sun::swing::SwingAccessor;
 using $SwingAccessor$JComponentAccessor = ::sun::swing::SwingAccessor$JComponentAccessor;

@@ -5,7 +5,6 @@
 #include <com/sun/org/apache/xml/internal/dtm/DTMManager.h>
 #include <com/sun/org/apache/xpath/internal/Expression.h>
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
-#include <com/sun/org/apache/xpath/internal/axes/NodeSequence.h>
 #include <com/sun/org/apache/xpath/internal/objects/XNodeSet.h>
 #include <com/sun/org/apache/xpath/internal/objects/XObject.h>
 #include <com/sun/org/apache/xpath/internal/operations/Variable.h>
@@ -15,7 +14,6 @@ using $DTM = ::com::sun::org::apache::xml::internal::dtm::DTM;
 using $DTMManager = ::com::sun::org::apache::xml::internal::dtm::DTMManager;
 using $Expression = ::com::sun::org::apache::xpath::internal::Expression;
 using $XPathContext = ::com::sun::org::apache::xpath::internal::XPathContext;
-using $NodeSequence = ::com::sun::org::apache::xpath::internal::axes::NodeSequence;
 using $XNodeSet = ::com::sun::org::apache::xpath::internal::objects::XNodeSet;
 using $XObject = ::com::sun::org::apache::xpath::internal::objects::XObject;
 using $Variable = ::com::sun::org::apache::xpath::internal::operations::Variable;

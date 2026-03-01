@@ -4,8 +4,6 @@
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/plaf/FontUIResource.h>
-#include <javax/swing/plaf/basic/BasicLookAndFeel.h>
-#include <javax/swing/plaf/metal/DefaultMetalTheme.h>
 #include <javax/swing/plaf/metal/MetalLookAndFeel.h>
 #include <javax/swing/plaf/metal/MetalTheme.h>
 #include <jcpp.h>
@@ -17,8 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
-using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
-using $DefaultMetalTheme = ::javax::swing::plaf::metal::DefaultMetalTheme;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
 using $MetalTheme = ::javax::swing::plaf::metal::MetalTheme;
 

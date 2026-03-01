@@ -5,11 +5,9 @@
 #include <DefaultRowSorterIOOBEtest$3.h>
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/OutputStream.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <javax/swing/DefaultRowSorter.h>
-#include <javax/swing/table/AbstractTableModel.h>
 #include <javax/swing/table/TableModel.h>
 #include <javax/swing/table/TableRowSorter.h>
 #include <jcpp.h>
@@ -25,11 +23,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $DefaultRowSorter = ::javax::swing::DefaultRowSorter;
-using $AbstractTableModel = ::javax::swing::table::AbstractTableModel;
 using $TableModel = ::javax::swing::table::TableModel;
 using $TableRowSorter = ::javax::swing::table::TableRowSorter;
 

@@ -4,31 +4,25 @@
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
-#include <java/awt/Frame.h>
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Robot.h>
-#include <java/awt/Window.h>
 #include <java/awt/event/InputEvent.h>
 #include <java/lang/Error.h>
 #include <javax/swing/DefaultCellEditor.h>
 #include <javax/swing/JComboBox.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JDesktopPane.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JInternalFrame.h>
-#include <javax/swing/JLayeredPane.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/JTextField.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/table/AbstractTableModel.h>
 #include <javax/swing/table/DefaultTableModel.h>
 #include <javax/swing/table/TableCellEditor.h>
 #include <javax/swing/table/TableColumn.h>
 #include <javax/swing/table/TableModel.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef BUTTON1_MASK
@@ -48,12 +42,10 @@ using $SwingTest = ::SwingTest;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
-using $Frame = ::java::awt::Frame;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Robot = ::java::awt::Robot;
-using $Window = ::java::awt::Window;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -63,21 +55,17 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DefaultCellEditor = ::javax::swing::DefaultCellEditor;
 using $JComboBox = ::javax::swing::JComboBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JDesktopPane = ::javax::swing::JDesktopPane;
 using $JFrame = ::javax::swing::JFrame;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
-using $JLayeredPane = ::javax::swing::JLayeredPane;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JTable = ::javax::swing::JTable;
 using $JTextField = ::javax::swing::JTextField;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $AbstractTableModel = ::javax::swing::table::AbstractTableModel;
 using $DefaultTableModel = ::javax::swing::table::DefaultTableModel;
 using $TableCellEditor = ::javax::swing::table::TableCellEditor;
 using $TableColumn = ::javax::swing::table::TableColumn;
 using $TableModel = ::javax::swing::table::TableModel;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 $FieldInfo _Test6505027_FieldInfo_[] = {
 	{"INTERNAL", "Z", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Test6505027, INTERNAL)},

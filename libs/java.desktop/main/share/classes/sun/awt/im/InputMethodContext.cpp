@@ -2,14 +2,11 @@
 
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Frame.h>
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/HeadlessException.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/Window.h>
-#include <java/awt/event/ComponentEvent.h>
-#include <java/awt/event/InputEvent.h>
 #include <java/awt/event/InputMethodEvent.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/font/TextHitInfo.h>
@@ -38,14 +35,11 @@
 using $AttributedCharacterIterator$AttributeArray = $Array<::java::text::AttributedCharacterIterator$Attribute>;
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
-using $Frame = ::java::awt::Frame;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $HeadlessException = ::java::awt::HeadlessException;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
 using $Window = ::java::awt::Window;
-using $ComponentEvent = ::java::awt::event::ComponentEvent;
-using $InputEvent = ::java::awt::event::InputEvent;
 using $InputMethodEvent = ::java::awt::event::InputMethodEvent;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $TextHitInfo = ::java::awt::font::TextHitInfo;

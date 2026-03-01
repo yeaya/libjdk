@@ -20,7 +20,6 @@
 #include <java/nio/file/Files.h>
 #include <java/nio/file/LinkOption.h>
 #include <java/nio/file/Path.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
@@ -39,7 +38,6 @@ using $OptionArray = $Array<::com::sun::tools::javac::main::Option>;
 using $IterableArray = $Array<::java::lang::Iterable>;
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
 using $Locations = ::com::sun::tools::javac::file::Locations;
-using $Locations$BasicLocationHandler = ::com::sun::tools::javac::file::Locations$BasicLocationHandler;
 using $Locations$LocationHandler = ::com::sun::tools::javac::file::Locations$LocationHandler;
 using $Locations$ModuleLocationHandler = ::com::sun::tools::javac::file::Locations$ModuleLocationHandler;
 using $Locations$ModulePathLocationHandler$ModulePathIterator = ::com::sun::tools::javac::file::Locations$ModulePathLocationHandler$ModulePathIterator;
@@ -58,7 +56,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;

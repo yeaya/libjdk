@@ -1,6 +1,5 @@
 #include <javax/imageio/plugins/tiff/ExifParentTIFFTagSet.h>
 
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <javax/imageio/plugins/tiff/ExifParentTIFFTagSet$ExifIFDPointer.h>
@@ -15,7 +14,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $ExifParentTIFFTagSet$ExifIFDPointer = ::javax::imageio::plugins::tiff::ExifParentTIFFTagSet$ExifIFDPointer;

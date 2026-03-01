@@ -2,7 +2,6 @@
 
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
@@ -14,8 +13,6 @@
 #include <javax/swing/UIManager.h>
 #include <javax/swing/plaf/ColorUIResource.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/SliderUI.h>
-#include <javax/swing/plaf/basic/BasicSliderUI$PropertyChangeHandler.h>
 #include <javax/swing/plaf/basic/BasicSliderUI$ScrollListener.h>
 #include <javax/swing/plaf/basic/BasicSliderUI.h>
 #include <javax/swing/plaf/metal/MetalLookAndFeel.h>
@@ -32,7 +29,6 @@
 
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Rectangle = ::java::awt::Rectangle;
@@ -49,9 +45,7 @@ using $JComponent = ::javax::swing::JComponent;
 using $JSlider = ::javax::swing::JSlider;
 using $UIManager = ::javax::swing::UIManager;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $SliderUI = ::javax::swing::plaf::SliderUI;
 using $BasicSliderUI = ::javax::swing::plaf::basic::BasicSliderUI;
-using $BasicSliderUI$PropertyChangeHandler = ::javax::swing::plaf::basic::BasicSliderUI$PropertyChangeHandler;
 using $BasicSliderUI$ScrollListener = ::javax::swing::plaf::basic::BasicSliderUI$ScrollListener;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
 using $MetalSliderUI$MetalPropertyListener = ::javax::swing::plaf::metal::MetalSliderUI$MetalPropertyListener;

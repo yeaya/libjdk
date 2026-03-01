@@ -4,12 +4,9 @@
 #include <sun/awt/SunToolkit.h>
 #include <sun/awt/X11/XAtom.h>
 #include <sun/awt/X11/XBaseWindow.h>
-#include <sun/awt/X11/XCanvasPeer.h>
 #include <sun/awt/X11/XClientMessageEvent.h>
-#include <sun/awt/X11/XComponentPeer.h>
 #include <sun/awt/X11/XConstants.h>
 #include <sun/awt/X11/XLayerProtocol.h>
-#include <sun/awt/X11/XPanelPeer.h>
 #include <sun/awt/X11/XPropertyEvent.h>
 #include <sun/awt/X11/XProtocol.h>
 #include <sun/awt/X11/XToolkit.h>
@@ -47,16 +44,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $XAtom = ::sun::awt::X11::XAtom;
 using $XBaseWindow = ::sun::awt::X11::XBaseWindow;
-using $XCanvasPeer = ::sun::awt::X11::XCanvasPeer;
 using $XClientMessageEvent = ::sun::awt::X11::XClientMessageEvent;
-using $XComponentPeer = ::sun::awt::X11::XComponentPeer;
 using $XConstants = ::sun::awt::X11::XConstants;
 using $XLayerProtocol = ::sun::awt::X11::XLayerProtocol;
-using $XPanelPeer = ::sun::awt::X11::XPanelPeer;
 using $XPropertyEvent = ::sun::awt::X11::XPropertyEvent;
 using $XProtocol = ::sun::awt::X11::XProtocol;
 using $XToolkit = ::sun::awt::X11::XToolkit;
-using $XWindow = ::sun::awt::X11::XWindow;
 using $XWindowPeer = ::sun::awt::X11::XWindowPeer;
 using $XlibWrapper = ::sun::awt::X11::XlibWrapper;
 using $PlatformLogger = ::sun::util::logging::PlatformLogger;

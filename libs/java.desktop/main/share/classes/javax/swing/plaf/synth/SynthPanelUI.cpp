@@ -1,14 +1,12 @@
 #include <javax/swing/plaf/synth/SynthPanelUI.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/PanelUI.h>
 #include <javax/swing/plaf/basic/BasicPanelUI.h>
 #include <javax/swing/plaf/synth/SynthConstants.h>
 #include <javax/swing/plaf/synth/SynthContext.h>
@@ -21,7 +19,6 @@
 #undef ENABLED
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
@@ -31,7 +28,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $JPanel = ::javax::swing::JPanel;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $PanelUI = ::javax::swing::plaf::PanelUI;
 using $BasicPanelUI = ::javax::swing::plaf::basic::BasicPanelUI;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;

@@ -9,7 +9,6 @@
 #include <java/util/Map.h>
 #include <org/w3c/dom/Attr.h>
 #include <org/w3c/dom/CDATASection.h>
-#include <org/w3c/dom/CharacterData.h>
 #include <org/w3c/dom/Comment.h>
 #include <org/w3c/dom/DOMException.h>
 #include <org/w3c/dom/Document.h>
@@ -42,13 +41,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $Map = ::java::util::Map;
 using $Attr = ::org::w3c::dom::Attr;
-using $CharacterData = ::org::w3c::dom::CharacterData;
 using $DOMException = ::org::w3c::dom::DOMException;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $NamedNodeMap = ::org::w3c::dom::NamedNodeMap;
 using $Node = ::org::w3c::dom::Node;
-using $Text = ::org::w3c::dom::Text;
 using $LSException = ::org::w3c::dom::ls::LSException;
 
 namespace com {

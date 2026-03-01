@@ -3,7 +3,6 @@
 #include <java/lang/management/LockInfo.h>
 #include <java/lang/reflect/Type.h>
 #include <java/util/Map.h>
-#include <javax/management/JMException.h>
 #include <javax/management/openmbean/CompositeData.h>
 #include <javax/management/openmbean/CompositeDataSupport.h>
 #include <javax/management/openmbean/CompositeType.h>
@@ -28,7 +27,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $LockInfo = ::java::lang::management::LockInfo;
 using $Type = ::java::lang::reflect::Type;
 using $Map = ::java::util::Map;
-using $JMException = ::javax::management::JMException;
 using $CompositeData = ::javax::management::openmbean::CompositeData;
 using $CompositeDataSupport = ::javax::management::openmbean::CompositeDataSupport;
 using $CompositeType = ::javax::management::openmbean::CompositeType;

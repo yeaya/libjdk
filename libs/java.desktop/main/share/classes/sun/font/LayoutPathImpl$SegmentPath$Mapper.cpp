@@ -3,7 +3,6 @@
 #include <java/awt/Shape.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/GeneralPath.h>
-#include <java/awt/geom/Path2D$Float.h>
 #include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/PathIterator.h>
 #include <java/awt/geom/Point2D$Double.h>
@@ -17,8 +16,6 @@
 using $Shape = ::java::awt::Shape;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $GeneralPath = ::java::awt::geom::GeneralPath;
-using $Path2D = ::java::awt::geom::Path2D;
-using $Path2D$Float = ::java::awt::geom::Path2D$Float;
 using $PathIterator = ::java::awt::geom::PathIterator;
 using $Point2D$Double = ::java::awt::geom::Point2D$Double;
 using $ClassInfo = ::java::lang::ClassInfo;

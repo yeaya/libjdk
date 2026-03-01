@@ -7,7 +7,6 @@
 #include <java/awt/Graphics2D.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/RenderedImage.h>
-#include <java/awt/image/WritableRenderedImage.h>
 #include <java/io/File.h>
 #include <java/io/IOException.h>
 #include <javax/imageio/ImageIO.h>
@@ -28,7 +27,6 @@ using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $RenderedImage = ::java::awt::image::RenderedImage;
-using $WritableRenderedImage = ::java::awt::image::WritableRenderedImage;
 using $File = ::java::io::File;
 using $IOException = ::java::io::IOException;
 using $PrintStream = ::java::io::PrintStream;

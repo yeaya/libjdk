@@ -1,7 +1,6 @@
 #include <org/xml/sax/helpers/AttributeListImpl.h>
 
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <org/xml/sax/AttributeList.h>
@@ -13,7 +12,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $AttributeList = ::org::xml::sax::AttributeList;

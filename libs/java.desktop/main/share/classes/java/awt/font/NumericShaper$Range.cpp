@@ -3,7 +3,6 @@
 #include <java/awt/font/NumericShaper$Range$1.h>
 #include <java/awt/font/NumericShaper.h>
 #include <java/lang/Enum.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/EnumSet.h>
 #include <java/util/Iterator.h>
 #include <java/util/Set.h>
@@ -54,7 +53,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractSet = ::java::util::AbstractSet;
 using $EnumSet = ::java::util::EnumSet;
 using $Iterator = ::java::util::Iterator;
 using $Set = ::java::util::Set;

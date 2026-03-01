@@ -15,7 +15,6 @@
 #include <sun/lwawt/macosx/CPrinterGraphics.h>
 #include <sun/lwawt/macosx/CPrinterJob.h>
 #include <sun/lwawt/macosx/CPrinterSurfaceData.h>
-#include <sun/print/ProxyGraphics2D.h>
 #include <jcpp.h>
 
 #undef PLAIN
@@ -31,7 +30,6 @@ using $PrinterException = ::java::awt::print::PrinterException;
 using $PrinterJob = ::java::awt::print::PrinterJob;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -41,7 +39,6 @@ using $SurfaceData = ::sun::java2d::SurfaceData;
 using $CPrinterGraphics = ::sun::lwawt::macosx::CPrinterGraphics;
 using $CPrinterJob = ::sun::lwawt::macosx::CPrinterJob;
 using $CPrinterSurfaceData = ::sun::lwawt::macosx::CPrinterSurfaceData;
-using $ProxyGraphics2D = ::sun::print::ProxyGraphics2D;
 
 namespace sun {
 	namespace lwawt {

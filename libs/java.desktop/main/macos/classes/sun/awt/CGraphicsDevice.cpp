@@ -2,7 +2,6 @@
 
 #include <java/awt/AWTPermission.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/DisplayMode.h>
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/GraphicsDevice.h>
@@ -16,13 +15,11 @@
 #include <java/lang/Math.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/util/Arrays.h>
 #include <java/util/Objects.h>
 #include <sun/awt/AWTAccessor$ComponentAccessor.h>
 #include <sun/awt/AWTAccessor.h>
-#include <sun/awt/CGraphicsConfig.h>
 #include <sun/awt/FullScreenCapable.h>
 #include <sun/java2d/MacOSFlags.h>
 #include <sun/java2d/SunGraphicsEnvironment.h>
@@ -37,7 +34,6 @@ using $DisplayModeArray = $Array<::java::awt::DisplayMode>;
 using $GraphicsConfigurationArray = $Array<::java::awt::GraphicsConfiguration>;
 using $AWTPermission = ::java::awt::AWTPermission;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $DisplayMode = ::java::awt::DisplayMode;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $GraphicsDevice = ::java::awt::GraphicsDevice;
@@ -55,13 +51,11 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $Arrays = ::java::util::Arrays;
 using $Objects = ::java::util::Objects;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
 using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
-using $CGraphicsConfig = ::sun::awt::CGraphicsConfig;
 using $FullScreenCapable = ::sun::awt::FullScreenCapable;
 using $MacOSFlags = ::sun::java2d::MacOSFlags;
 using $SunGraphicsEnvironment = ::sun::java2d::SunGraphicsEnvironment;

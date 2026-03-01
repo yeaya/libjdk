@@ -1,6 +1,5 @@
 #include <sun/text/resources/ext/BreakIteratorResources_th.h>
 
-#include <java/util/ListResourceBundle.h>
 #include <java/util/ResourceBundle.h>
 #include <sun/text/resources/ext/BreakIteratorInfo_th.h>
 #include <sun/util/resources/BreakIteratorResourceBundle.h>
@@ -8,7 +7,6 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ListResourceBundle = ::java::util::ListResourceBundle;
 using $ResourceBundle = ::java::util::ResourceBundle;
 using $BreakIteratorInfo_th = ::sun::text::resources::ext::BreakIteratorInfo_th;
 using $BreakIteratorResourceBundle = ::sun::util::resources::BreakIteratorResourceBundle;

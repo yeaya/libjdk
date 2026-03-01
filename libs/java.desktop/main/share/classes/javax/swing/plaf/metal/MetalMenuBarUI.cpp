@@ -2,14 +2,12 @@
 
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JMenuBar.h>
 #include <javax/swing/JToolBar.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/MenuBarUI.h>
 #include <javax/swing/plaf/UIResource.h>
 #include <javax/swing/plaf/basic/BasicMenuBarUI.h>
 #include <javax/swing/plaf/metal/MetalToolBarUI.h>
@@ -17,7 +15,6 @@
 #include <jcpp.h>
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -27,7 +24,6 @@ using $JMenuBar = ::javax::swing::JMenuBar;
 using $JToolBar = ::javax::swing::JToolBar;
 using $UIManager = ::javax::swing::UIManager;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $MenuBarUI = ::javax::swing::plaf::MenuBarUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $BasicMenuBarUI = ::javax::swing::plaf::basic::BasicMenuBarUI;
 using $MetalToolBarUI = ::javax::swing::plaf::metal::MetalToolBarUI;

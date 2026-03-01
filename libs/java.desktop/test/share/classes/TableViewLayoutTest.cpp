@@ -15,7 +15,6 @@
 #include <java/awt/event/KeyEvent.h>
 #include <java/lang/Math.h>
 #include <java/lang/Runnable.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JScrollPane.h>
@@ -24,11 +23,8 @@
 #include <javax/swing/text/AbstractDocument.h>
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/BadLocationException.h>
-#include <javax/swing/text/DefaultEditorKit.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/EditorKit.h>
-#include <javax/swing/text/JTextComponent.h>
-#include <javax/swing/text/StyledEditorKit.h>
 #include <jcpp.h>
 
 #undef EXIT_ON_CLOSE
@@ -59,7 +55,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $JComponent = ::javax::swing::JComponent;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $JFrame = ::javax::swing::JFrame;
 using $JScrollPane = ::javax::swing::JScrollPane;
@@ -67,11 +62,8 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $CaretListener = ::javax::swing::event::CaretListener;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
-using $DefaultEditorKit = ::javax::swing::text::DefaultEditorKit;
 using $Document = ::javax::swing::text::Document;
 using $EditorKit = ::javax::swing::text::EditorKit;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
-using $StyledEditorKit = ::javax::swing::text::StyledEditorKit;
 
 $FieldInfo _TableViewLayoutTest_FieldInfo_[] = {
 	{"yCaret", "D", nullptr, $PRIVATE | $STATIC, $staticField(TableViewLayoutTest, yCaret)},

@@ -25,7 +25,6 @@
 #include <com/sun/tools/javac/parser/Parser.h>
 #include <com/sun/tools/javac/parser/ParserFactory.h>
 #include <com/sun/tools/javac/processing/AnnotationProcessingError.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCClassDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCCompilationUnit.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
@@ -60,7 +59,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/nio/CharBuffer.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/AbstractQueue.h>
 #include <java/util/Collection.h>
 #include <java/util/HashMap.h>
@@ -109,7 +107,6 @@ using $Parser = ::com::sun::tools::javac::parser::Parser;
 using $ParserFactory = ::com::sun::tools::javac::parser::ParserFactory;
 using $AnnotationProcessingError = ::com::sun::tools::javac::processing::AnnotationProcessingError;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$JCCompilationUnit = ::com::sun::tools::javac::tree::JCTree$JCCompilationUnit;
 using $JCTree$JCModuleDecl = ::com::sun::tools::javac::tree::JCTree$JCModuleDecl;
@@ -144,7 +141,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $CharBuffer = ::java::nio::CharBuffer;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractMap = ::java::util::AbstractMap;
 using $AbstractQueue = ::java::util::AbstractQueue;
 using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;

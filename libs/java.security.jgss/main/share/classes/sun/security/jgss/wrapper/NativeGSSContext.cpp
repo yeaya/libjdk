@@ -7,7 +7,6 @@
 #include <java/io/OutputStream.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/SecurityManager.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/security/Provider.h>
 #include <javax/security/auth/kerberos/DelegationPermission.h>
@@ -63,7 +62,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $Provider = ::java::security::Provider;
 using $DelegationPermission = ::javax::security::auth::kerberos::DelegationPermission;

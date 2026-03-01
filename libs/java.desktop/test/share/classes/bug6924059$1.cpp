@@ -4,8 +4,6 @@
 #include <bug6924059.h>
 #include <javax/swing/JScrollBar.h>
 #include <javax/swing/plaf/ScrollBarUI.h>
-#include <javax/swing/plaf/basic/BasicScrollBarUI.h>
-#include <javax/swing/plaf/synth/SynthScrollBarUI.h>
 #include <jcpp.h>
 
 using $bug6924059 = ::bug6924059;
@@ -17,8 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $JScrollBar = ::javax::swing::JScrollBar;
 using $ScrollBarUI = ::javax::swing::plaf::ScrollBarUI;
-using $BasicScrollBarUI = ::javax::swing::plaf::basic::BasicScrollBarUI;
-using $SynthScrollBarUI = ::javax::swing::plaf::synth::SynthScrollBarUI;
 
 $MethodInfo _bug6924059$1_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(bug6924059$1, init$, void)},

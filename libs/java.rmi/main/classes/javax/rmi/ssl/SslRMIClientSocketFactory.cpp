@@ -11,11 +11,9 @@
 
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $Socket = ::java::net::Socket;
 using $RMIClientSocketFactory = ::java::rmi::server::RMIClientSocketFactory;
 using $StringTokenizer = ::java::util::StringTokenizer;

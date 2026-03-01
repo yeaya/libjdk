@@ -19,7 +19,6 @@
 #include <sun/font/Font2D.h>
 #include <sun/font/FontScaler.h>
 #include <sun/font/FontScalerException.h>
-#include <sun/font/PhysicalFont.h>
 #include <sun/font/Type1Font$1.h>
 #include <sun/font/Type1Font$2.h>
 #include <sun/font/Type1Font$T1DisposerRecord.h>
@@ -60,7 +59,6 @@ using $FileFont = ::sun::font::FileFont;
 using $Font2D = ::sun::font::Font2D;
 using $FontScaler = ::sun::font::FontScaler;
 using $FontScalerException = ::sun::font::FontScalerException;
-using $PhysicalFont = ::sun::font::PhysicalFont;
 using $Type1Font$1 = ::sun::font::Type1Font$1;
 using $Type1Font$2 = ::sun::font::Type1Font$2;
 using $Type1Font$T1DisposerRecord = ::sun::font::Type1Font$T1DisposerRecord;

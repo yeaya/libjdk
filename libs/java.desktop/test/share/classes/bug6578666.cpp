@@ -6,11 +6,9 @@
 #include <java/awt/Container.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
-#include <java/awt/event/KeyAdapter.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/event/KeyListener.h>
 #include <java/lang/Runnable.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JTree.h>
 #include <javax/swing/SwingUtilities.h>
@@ -22,9 +20,7 @@
 using $bug6578666$1 = ::bug6578666$1;
 using $bug6578666$2 = ::bug6578666$2;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Robot = ::java::awt::Robot;
-using $KeyAdapter = ::java::awt::event::KeyAdapter;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $KeyListener = ::java::awt::event::KeyListener;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -32,7 +28,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JTree = ::javax::swing::JTree;
 using $SwingUtilities = ::javax::swing::SwingUtilities;

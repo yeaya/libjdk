@@ -2,9 +2,6 @@
 
 #include <ComponentTest.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
-#include <java/awt/Frame.h>
-#include <java/awt/Window.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager$LookAndFeelInfo.h>
@@ -13,9 +10,6 @@
 
 using $ComponentTest = ::ComponentTest;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
-using $Frame = ::java::awt::Frame;
-using $Window = ::java::awt::Window;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $Exception = ::java::lang::Exception;

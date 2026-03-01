@@ -2,11 +2,9 @@
 
 #include <LastNodeLowerHalfDrop.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/geom/RectangularShape.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JTree.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/tree/DefaultMutableTreeNode.h>
@@ -16,7 +14,6 @@
 
 using $LastNodeLowerHalfDrop = ::LastNodeLowerHalfDrop;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -24,7 +21,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JTree = ::javax::swing::JTree;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $DefaultMutableTreeNode = ::javax::swing::tree::DefaultMutableTreeNode;

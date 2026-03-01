@@ -10,7 +10,6 @@
 #include <javax/tools/JavaFileManager.h>
 #include <javax/tools/JavaFileObject$Kind.h>
 #include <javax/tools/JavaFileObject.h>
-#include <javax/tools/SimpleJavaFileObject.h>
 #include <javax/tools/StandardLocation.h>
 #include <jcpp.h>
 
@@ -30,7 +29,6 @@ using $JavaFileManager = ::javax::tools::JavaFileManager;
 using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
-using $SimpleJavaFileObject = ::javax::tools::SimpleJavaFileObject;
 using $StandardLocation = ::javax::tools::StandardLocation;
 
 namespace com {

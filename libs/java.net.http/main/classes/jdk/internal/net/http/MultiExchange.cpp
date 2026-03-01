@@ -10,7 +10,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/net/ConnectException.h>
 #include <java/net/InetSocketAddress.h>
-#include <java/net/SocketException.h>
 #include <java/net/http/HttpClient$Version.h>
 #include <java/net/http/HttpConnectTimeoutException.h>
 #include <java/net/http/HttpHeaders.h>
@@ -79,14 +78,12 @@ using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $ConnectException = ::java::net::ConnectException;
-using $SocketException = ::java::net::SocketException;
 using $HttpClient$Version = ::java::net::http::HttpClient$Version;
 using $HttpConnectTimeoutException = ::java::net::http::HttpConnectTimeoutException;
 using $HttpHeaders = ::java::net::http::HttpHeaders;

@@ -1,24 +1,20 @@
 #include <com/sun/tools/javac/code/Types$22.h>
 
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
-#include <com/sun/tools/javac/code/Type$DelegatedType.h>
 #include <com/sun/tools/javac/code/Type$ForAll.h>
 #include <com/sun/tools/javac/code/Type$MethodType.h>
 #include <com/sun/tools/javac/code/Type$Visitor.h>
 #include <com/sun/tools/javac/code/Type.h>
-#include <com/sun/tools/javac/code/Types$DefaultTypeVisitor.h>
 #include <com/sun/tools/javac/code/Types$MapVisitor.h>
 #include <com/sun/tools/javac/code/Types.h>
 #include <com/sun/tools/javac/util/List.h>
 #include <jcpp.h>
 
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Type$DelegatedType = ::com::sun::tools::javac::code::Type$DelegatedType;
 using $Type$ForAll = ::com::sun::tools::javac::code::Type$ForAll;
 using $Type$MethodType = ::com::sun::tools::javac::code::Type$MethodType;
 using $Type$Visitor = ::com::sun::tools::javac::code::Type$Visitor;
 using $Types = ::com::sun::tools::javac::code::Types;
-using $Types$DefaultTypeVisitor = ::com::sun::tools::javac::code::Types$DefaultTypeVisitor;
 using $Types$MapVisitor = ::com::sun::tools::javac::code::Types$MapVisitor;
 using $List = ::com::sun::tools::javac::util::List;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -7,7 +7,6 @@
 #include <java/beans/PropertyVetoException.h>
 #include <java/util/Vector.h>
 #include <javax/swing/DefaultDesktopManager.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JInternalFrame$JDesktopIcon.h>
 #include <javax/swing/JInternalFrame.h>
 #include <jcpp.h>
@@ -24,7 +23,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Vector = ::java::util::Vector;
 using $DefaultDesktopManager = ::javax::swing::DefaultDesktopManager;
-using $JComponent = ::javax::swing::JComponent;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $JInternalFrame$JDesktopIcon = ::javax::swing::JInternalFrame$JDesktopIcon;
 

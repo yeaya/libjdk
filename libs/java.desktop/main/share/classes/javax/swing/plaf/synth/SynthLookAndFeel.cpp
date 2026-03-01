@@ -19,9 +19,7 @@
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
 #include <java/net/URL.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
-#include <java/util/Hashtable.h>
 #include <java/util/Locale.h>
 #include <java/util/Map.h>
 #include <javax/swing/JComponent.h>
@@ -136,9 +134,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $URL = ::java::net::URL;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
-using $Hashtable = ::java::util::Hashtable;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
 using $JComponent = ::javax::swing::JComponent;

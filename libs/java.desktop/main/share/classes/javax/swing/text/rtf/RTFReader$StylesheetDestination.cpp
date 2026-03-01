@@ -7,7 +7,6 @@
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/Style.h>
 #include <javax/swing/text/rtf/Constants.h>
-#include <javax/swing/text/rtf/RTFReader$AttributeTrackingDestination.h>
 #include <javax/swing/text/rtf/RTFReader$Destination.h>
 #include <javax/swing/text/rtf/RTFReader$DiscardingDestination.h>
 #include <javax/swing/text/rtf/RTFReader$StylesheetDestination$StyleDefiningDestination.h>
@@ -26,7 +25,6 @@ using $Vector = ::java::util::Vector;
 using $Style = ::javax::swing::text::Style;
 using $Constants = ::javax::swing::text::rtf::Constants;
 using $RTFReader = ::javax::swing::text::rtf::RTFReader;
-using $RTFReader$AttributeTrackingDestination = ::javax::swing::text::rtf::RTFReader$AttributeTrackingDestination;
 using $RTFReader$Destination = ::javax::swing::text::rtf::RTFReader$Destination;
 using $RTFReader$DiscardingDestination = ::javax::swing::text::rtf::RTFReader$DiscardingDestination;
 using $RTFReader$StylesheetDestination$StyleDefiningDestination = ::javax::swing::text::rtf::RTFReader$StylesheetDestination$StyleDefiningDestination;

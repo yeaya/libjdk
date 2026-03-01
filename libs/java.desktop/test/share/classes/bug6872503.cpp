@@ -12,7 +12,6 @@
 #include <java/awt/event/AWTEventListenerProxy.h>
 #include <java/lang/Runnable.h>
 #include <java/util/EventListener.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JLayer.h>
 #include <javax/swing/SwingUtilities.h>
@@ -26,7 +25,6 @@ using $AWTEventListenerArray = $Array<::java::awt::event::AWTEventListener>;
 using $bug6872503$1 = ::bug6872503$1;
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $FlowLayout = ::java::awt::FlowLayout;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $Toolkit = ::java::awt::Toolkit;
@@ -39,7 +37,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JLayer = ::javax::swing::JLayer;
 using $SwingUtilities = ::javax::swing::SwingUtilities;

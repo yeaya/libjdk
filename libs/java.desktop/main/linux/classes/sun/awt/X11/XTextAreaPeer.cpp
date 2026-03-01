@@ -16,11 +16,8 @@
 #include <java/awt/Point.h>
 #include <java/awt/SystemColor.h>
 #include <java/awt/TextArea.h>
-#include <java/awt/TextComponent.h>
-#include <java/awt/event/ComponentEvent.h>
 #include <java/awt/event/FocusEvent$Cause.h>
 #include <java/awt/event/FocusEvent.h>
-#include <java/awt/event/InputEvent.h>
 #include <java/awt/event/InputMethodEvent.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/event/MouseEvent.h>
@@ -34,14 +31,12 @@
 #include <java/awt/peer/ContainerPeer.h>
 #include <java/lang/Math.h>
 #include <java/util/HashMap.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JScrollBar.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/JTextArea.h>
 #include <javax/swing/event/DocumentListener.h>
 #include <javax/swing/text/Caret.h>
 #include <javax/swing/text/Document.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <sun/awt/AWTAccessor$ComponentAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <sun/awt/GlobalCursorManager.h>
@@ -71,7 +66,6 @@ using $BufferCapabilities = ::java::awt::BufferCapabilities;
 using $BufferCapabilities$FlipContents = ::java::awt::BufferCapabilities$FlipContents;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Cursor = ::java::awt::Cursor;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
@@ -82,11 +76,8 @@ using $Image = ::java::awt::Image;
 using $Point = ::java::awt::Point;
 using $SystemColor = ::java::awt::SystemColor;
 using $TextArea = ::java::awt::TextArea;
-using $TextComponent = ::java::awt::TextComponent;
-using $ComponentEvent = ::java::awt::event::ComponentEvent;
 using $FocusEvent = ::java::awt::event::FocusEvent;
 using $FocusEvent$Cause = ::java::awt::event::FocusEvent$Cause;
-using $InputEvent = ::java::awt::event::InputEvent;
 using $InputMethodEvent = ::java::awt::event::InputMethodEvent;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
@@ -104,14 +95,12 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HashMap = ::java::util::HashMap;
-using $JComponent = ::javax::swing::JComponent;
 using $JScrollBar = ::javax::swing::JScrollBar;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JTextArea = ::javax::swing::JTextArea;
 using $DocumentListener = ::javax::swing::event::DocumentListener;
 using $Caret = ::javax::swing::text::Caret;
 using $Document = ::javax::swing::text::Document;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
 using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $XComponentPeer = ::sun::awt::X11::XComponentPeer;

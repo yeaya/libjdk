@@ -19,7 +19,6 @@
 #include <com/sun/tools/javac/util/RawDiagnosticFormatter$RawDiagnosticPosHelper.h>
 #include <com/sun/tools/javac/util/StringUtils.h>
 #include <java/lang/Enum.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
 #include <java/util/EnumSet.h>
 #include <java/util/Iterator.h>
@@ -63,7 +62,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
 using $EnumSet = ::java::util::EnumSet;
 using $Iterator = ::java::util::Iterator;

@@ -1,14 +1,12 @@
 #include <WebSocketExample$2.h>
 
 #include <WebSocketExample.h>
-#include <java/lang/AbstractStringBuilder.h>
 #include <java/lang/CharSequence.h>
 #include <java/net/http/WebSocket.h>
 #include <java/util/concurrent/CompletionStage.h>
 #include <jcpp.h>
 
 using $WebSocketExample = ::WebSocketExample;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

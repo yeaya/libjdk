@@ -1,8 +1,6 @@
 #include <sun/awt/shell/Win32ShellFolder2$15.h>
 
 #include <java/awt/Image.h>
-#include <java/awt/image/AbstractMultiResolutionImage.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <sun/awt/shell/ShellFolder.h>
@@ -11,14 +9,12 @@
 #include <jcpp.h>
 
 using $Image = ::java::awt::Image;
-using $AbstractMultiResolutionImage = ::java::awt::image::AbstractMultiResolutionImage;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $Win32ShellFolder2 = ::sun::awt::shell::Win32ShellFolder2;

@@ -6,16 +6,13 @@
 #include <com/sun/java/swing/plaf/windows/XPStyle$Skin.h>
 #include <com/sun/java/swing/plaf/windows/XPStyle.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JSpinner.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/SpinnerUI.h>
 #include <javax/swing/plaf/UIResource.h>
 #include <javax/swing/plaf/basic/BasicSpinnerUI.h>
 #include <jcpp.h>
@@ -32,17 +29,14 @@ using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $XPStyle$GlyphButton = ::com::sun::java::swing::plaf::windows::XPStyle$GlyphButton;
 using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
 using $UIManager = ::javax::swing::UIManager;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $SpinnerUI = ::javax::swing::plaf::SpinnerUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $BasicSpinnerUI = ::javax::swing::plaf::basic::BasicSpinnerUI;
 

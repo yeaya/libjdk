@@ -2,11 +2,9 @@
 
 #include <java/awt/AlphaComposite.h>
 #include <java/awt/Color.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Composite.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
@@ -20,18 +18,13 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <java/awt/event/ActionListener.h>
-#include <java/awt/event/ComponentAdapter.h>
 #include <java/awt/event/ComponentListener.h>
 #include <java/awt/geom/AffineTransform.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
-#include <java/awt/image/AbstractMultiResolutionImage.h>
 #include <java/awt/image/ImageObserver.h>
 #include <java/awt/peer/ComponentPeer.h>
 #include <java/lang/Math.h>
 #include <java/util/EventListener.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JViewport$1.h>
 #include <javax/swing/JViewport$AccessibleJViewport.h>
@@ -62,11 +55,9 @@ using $ComponentArray = $Array<::java::awt::Component>;
 using $ChangeListenerArray = $Array<::javax::swing::event::ChangeListener>;
 using $AlphaComposite = ::java::awt::AlphaComposite;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Composite = ::java::awt::Composite;
 using $Container = ::java::awt::Container;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
@@ -78,12 +69,8 @@ using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $ComponentAdapter = ::java::awt::event::ComponentAdapter;
 using $ComponentListener = ::java::awt::event::ComponentListener;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
-using $AbstractMultiResolutionImage = ::java::awt::image::AbstractMultiResolutionImage;
 using $ImageObserver = ::java::awt::image::ImageObserver;
 using $ComponentPeer = ::java::awt::peer::ComponentPeer;
 using $Attribute = ::java::lang::Attribute;
@@ -98,7 +85,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 using $EventListener = ::java::util::EventListener;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JViewport$1 = ::javax::swing::JViewport$1;
 using $JViewport$AccessibleJViewport = ::javax::swing::JViewport$AccessibleJViewport;
 using $JViewport$BackingStoreMultiResolutionImage = ::javax::swing::JViewport$BackingStoreMultiResolutionImage;

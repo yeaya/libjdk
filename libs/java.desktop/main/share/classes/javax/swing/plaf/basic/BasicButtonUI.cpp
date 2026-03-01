@@ -3,7 +3,6 @@
 #include <java/awt/Color.h>
 #include <java/awt/Component$BaselineResizeBehavior.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
@@ -16,11 +15,8 @@
 #include <java/awt/event/KeyListener.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/awt/event/MouseMotionListener.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/util/EventObject.h>
-#include <javax/swing/AbstractAction.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
@@ -66,7 +62,6 @@ using $MouseMotionListenerArray = $Array<::java::awt::event::MouseMotionListener
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Component$BaselineResizeBehavior = ::java::awt::Component$BaselineResizeBehavior;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
@@ -78,8 +73,6 @@ using $FocusListener = ::java::awt::event::FocusListener;
 using $KeyListener = ::java::awt::event::KeyListener;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -87,7 +80,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractAction = ::javax::swing::AbstractAction;
 using $AbstractButton = ::javax::swing::AbstractButton;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;

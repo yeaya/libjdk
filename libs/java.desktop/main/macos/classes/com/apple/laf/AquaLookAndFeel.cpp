@@ -39,7 +39,6 @@
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/util/Enumeration.h>
-#include <java/util/Hashtable.h>
 #include <java/util/Locale.h>
 #include <java/util/Map.h>
 #include <java/util/ResourceBundle.h>
@@ -53,10 +52,7 @@
 #include <javax/swing/UIDefaults$LazyValue.h>
 #include <javax/swing/UIDefaults.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
-#include <javax/swing/border/EmptyBorder.h>
-#include <javax/swing/border/LineBorder.h>
 #include <javax/swing/plaf/ActionMapUIResource.h>
 #include <javax/swing/plaf/BorderUIResource$EmptyBorderUIResource.h>
 #include <javax/swing/plaf/BorderUIResource$LineBorderUIResource.h>
@@ -124,7 +120,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Enumeration = ::java::util::Enumeration;
-using $Hashtable = ::java::util::Hashtable;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
 using $ResourceBundle = ::java::util::ResourceBundle;
@@ -136,10 +131,7 @@ using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIDefaults$LazyInputMap = ::javax::swing::UIDefaults$LazyInputMap;
 using $UIDefaults$LazyValue = ::javax::swing::UIDefaults$LazyValue;
 using $UIManager = ::javax::swing::UIManager;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
-using $EmptyBorder = ::javax::swing::border::EmptyBorder;
-using $LineBorder = ::javax::swing::border::LineBorder;
 using $ActionMapUIResource = ::javax::swing::plaf::ActionMapUIResource;
 using $BorderUIResource = ::javax::swing::plaf::BorderUIResource;
 using $BorderUIResource$EmptyBorderUIResource = ::javax::swing::plaf::BorderUIResource$EmptyBorderUIResource;

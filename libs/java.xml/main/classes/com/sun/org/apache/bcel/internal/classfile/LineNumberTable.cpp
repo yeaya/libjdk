@@ -7,7 +7,6 @@
 #include <com/sun/org/apache/bcel/internal/classfile/Visitor.h>
 #include <java/io/DataInput.h>
 #include <java/io/DataOutputStream.h>
-#include <java/lang/AbstractStringBuilder.h>
 #include <java/lang/CharSequence.h>
 #include <jdk/xml/internal/SecuritySupport.h>
 #include <jcpp.h>
@@ -24,7 +23,6 @@ using $LineNumber = ::com::sun::org::apache::bcel::internal::classfile::LineNumb
 using $Visitor = ::com::sun::org::apache::bcel::internal::classfile::Visitor;
 using $DataInput = ::java::io::DataInput;
 using $DataOutputStream = ::java::io::DataOutputStream;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

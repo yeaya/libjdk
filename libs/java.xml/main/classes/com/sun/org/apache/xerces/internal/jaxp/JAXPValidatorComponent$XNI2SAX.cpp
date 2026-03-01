@@ -15,8 +15,6 @@
 #include <org/xml/sax/ContentHandler.h>
 #include <org/xml/sax/Locator.h>
 #include <org/xml/sax/SAXException.h>
-#include <org/xml/sax/ext/Attributes2.h>
-#include <org/xml/sax/ext/Locator2.h>
 #include <jcpp.h>
 
 using $DefaultXMLDocumentHandler = ::com::sun::org::apache::xerces::internal::impl::xs::opti::DefaultXMLDocumentHandler;
@@ -39,8 +37,6 @@ using $Attributes = ::org::xml::sax::Attributes;
 using $ContentHandler = ::org::xml::sax::ContentHandler;
 using $Locator = ::org::xml::sax::Locator;
 using $SAXException = ::org::xml::sax::SAXException;
-using $Attributes2 = ::org::xml::sax::ext::Attributes2;
-using $Locator2 = ::org::xml::sax::ext::Locator2;
 
 namespace com {
 	namespace sun {

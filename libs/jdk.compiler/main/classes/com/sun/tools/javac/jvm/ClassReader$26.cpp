@@ -3,7 +3,6 @@
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$RecordComponent.h>
-#include <com/sun/tools/javac/code/Symbol$VarSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/jvm/ClassFile$Version.h>
@@ -24,7 +23,6 @@ using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$RecordComponent = ::com::sun::tools::javac::code::Symbol$RecordComponent;
-using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $ClassFile$Version = ::com::sun::tools::javac::jvm::ClassFile$Version;
 using $ClassReader = ::com::sun::tools::javac::jvm::ClassReader;

@@ -5,14 +5,12 @@
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
 #include <java/io/IOException.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URL.h>
 #include <java/net/URLEncoder.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JPanel.h>
@@ -22,7 +20,6 @@
 #include <javax/swing/text/ComponentView.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/Element.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <javax/swing/text/View.h>
 #include <javax/swing/text/html/HTML$Attribute.h>
 #include <javax/swing/text/html/HTMLDocument.h>
@@ -36,9 +33,7 @@
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $IOException = ::java::io::IOException;
@@ -49,7 +44,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MalformedURLException = ::java::net::MalformedURLException;
 using $URL = ::java::net::URL;
 using $URLEncoder = ::java::net::URLEncoder;
-using $JComponent = ::javax::swing::JComponent;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $JLabel = ::javax::swing::JLabel;
 using $JPanel = ::javax::swing::JPanel;
@@ -58,7 +52,6 @@ using $UIManager = ::javax::swing::UIManager;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $ComponentView = ::javax::swing::text::ComponentView;
 using $Element = ::javax::swing::text::Element;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $HTML$Attribute = ::javax::swing::text::html::HTML$Attribute;
 using $HTMLDocument = ::javax::swing::text::html::HTMLDocument;
 

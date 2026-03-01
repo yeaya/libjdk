@@ -4,16 +4,13 @@
 #include <com/sun/java/swing/plaf/windows/WindowsInternalFrameTitlePane.h>
 #include <com/sun/java/swing/plaf/windows/WindowsInternalFrameUI$XPBorder.h>
 #include <com/sun/java/swing/plaf/windows/XPStyle.h>
-#include <javax/swing/DefaultDesktopManager.h>
 #include <javax/swing/DesktopManager.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JInternalFrame.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/InternalFrameUI.h>
 #include <javax/swing/plaf/basic/BasicInternalFrameTitlePane.h>
 #include <javax/swing/plaf/basic/BasicInternalFrameUI.h>
 #include <jcpp.h>
@@ -30,16 +27,13 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DefaultDesktopManager = ::javax::swing::DefaultDesktopManager;
 using $DesktopManager = ::javax::swing::DesktopManager;
 using $JComponent = ::javax::swing::JComponent;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $InternalFrameUI = ::javax::swing::plaf::InternalFrameUI;
 using $BasicInternalFrameTitlePane = ::javax::swing::plaf::basic::BasicInternalFrameTitlePane;
 using $BasicInternalFrameUI = ::javax::swing::plaf::basic::BasicInternalFrameUI;
 

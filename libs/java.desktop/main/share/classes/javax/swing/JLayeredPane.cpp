@@ -1,9 +1,7 @@
 #include <javax/swing/JLayeredPane.h>
 
 #include <java/awt/Color.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/LayoutManager.h>
@@ -11,7 +9,6 @@
 #include <java/util/ArrayList.h>
 #include <java/util/Hashtable.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JLayeredPane$AccessibleJLayeredPane.h>
 #include <sun/awt/SunToolkit.h>
@@ -28,8 +25,6 @@
 using $ComponentArray = $Array<::java::awt::Component>;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Graphics = ::java::awt::Graphics;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $Rectangle = ::java::awt::Rectangle;
@@ -44,7 +39,6 @@ using $ArrayList = ::java::util::ArrayList;
 using $Hashtable = ::java::util::Hashtable;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JLayeredPane$AccessibleJLayeredPane = ::javax::swing::JLayeredPane$AccessibleJLayeredPane;
 using $SunToolkit = ::sun::awt::SunToolkit;
 

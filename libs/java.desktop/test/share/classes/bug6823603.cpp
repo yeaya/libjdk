@@ -8,7 +8,6 @@
 #include <java/util/Enumeration.h>
 #include <java/util/List.h>
 #include <java/util/Vector.h>
-#include <javax/swing/AbstractListModel.h>
 #include <javax/swing/DefaultListCellRenderer.h>
 #include <javax/swing/DefaultListModel.h>
 #include <javax/swing/JList.h>
@@ -34,7 +33,6 @@ using $Arrays = ::java::util::Arrays;
 using $Enumeration = ::java::util::Enumeration;
 using $List = ::java::util::List;
 using $Vector = ::java::util::Vector;
-using $AbstractListModel = ::javax::swing::AbstractListModel;
 using $DefaultListCellRenderer = ::javax::swing::DefaultListCellRenderer;
 using $DefaultListModel = ::javax::swing::DefaultListModel;
 using $JList = ::javax::swing::JList;

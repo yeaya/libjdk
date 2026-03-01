@@ -2,9 +2,7 @@
 
 #include <com/sun/java/swing/plaf/gtk/GTKFileChooserUI.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <javax/swing/DefaultListCellRenderer.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JList.h>
 #include <javax/swing/filechooser/FileFilter.h>
@@ -12,14 +10,11 @@
 
 using $GTKFileChooserUI = ::com::sun::java::swing::plaf::gtk::GTKFileChooserUI;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DefaultListCellRenderer = ::javax::swing::DefaultListCellRenderer;
-using $JComponent = ::javax::swing::JComponent;
-using $JLabel = ::javax::swing::JLabel;
 using $JList = ::javax::swing::JList;
 using $FileFilter = ::javax::swing::filechooser::FileFilter;
 

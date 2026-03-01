@@ -8,11 +8,9 @@
 #include <sun/font/CMap$NullCMapClass.h>
 #include <sun/font/CMap.h>
 #include <sun/font/CharToGlyphMapper.h>
-#include <sun/font/FileFont.h>
 #include <sun/font/FileFontStrike.h>
 #include <sun/font/Font2D.h>
 #include <sun/font/FontUtilities.h>
-#include <sun/font/PhysicalFont.h>
 #include <sun/font/SunFontManager.h>
 #include <sun/font/TrueTypeFont.h>
 #include <jcpp.h>
@@ -40,11 +38,9 @@ using $CMap$CMapFormat10 = ::sun::font::CMap$CMapFormat10;
 using $CMap$CMapFormat12 = ::sun::font::CMap$CMapFormat12;
 using $CMap$CMapFormat8 = ::sun::font::CMap$CMapFormat8;
 using $CharToGlyphMapper = ::sun::font::CharToGlyphMapper;
-using $FileFont = ::sun::font::FileFont;
 using $FileFontStrike = ::sun::font::FileFontStrike;
 using $Font2D = ::sun::font::Font2D;
 using $FontUtilities = ::sun::font::FontUtilities;
-using $PhysicalFont = ::sun::font::PhysicalFont;
 using $SunFontManager = ::sun::font::SunFontManager;
 using $TrueTypeFont = ::sun::font::TrueTypeFont;
 

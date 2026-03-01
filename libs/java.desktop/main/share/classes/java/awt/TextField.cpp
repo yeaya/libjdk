@@ -2,18 +2,15 @@
 
 #include <java/awt/AWTEvent.h>
 #include <java/awt/AWTEventMulticaster.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/GraphicsEnvironment.h>
-#include <java/awt/TextComponent$AccessibleAWTTextComponent.h>
 #include <java/awt/TextComponent.h>
 #include <java/awt/TextField$AccessibleAWTTextField.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
 #include <java/awt/peer/ComponentPeer.h>
-#include <java/awt/peer/TextComponentPeer.h>
 #include <java/awt/peer/TextFieldPeer.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
@@ -31,17 +28,14 @@ using $EventListenerArray = $Array<::java::util::EventListener>;
 using $AWTEvent = ::java::awt::AWTEvent;
 using $AWTEventMulticaster = ::java::awt::AWTEventMulticaster;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $Dimension = ::java::awt::Dimension;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $TextComponent = ::java::awt::TextComponent;
-using $TextComponent$AccessibleAWTTextComponent = ::java::awt::TextComponent$AccessibleAWTTextComponent;
 using $TextField$AccessibleAWTTextField = ::java::awt::TextField$AccessibleAWTTextField;
 using $Toolkit = ::java::awt::Toolkit;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $ComponentPeer = ::java::awt::peer::ComponentPeer;
-using $TextComponentPeer = ::java::awt::peer::TextComponentPeer;
 using $TextFieldPeer = ::java::awt::peer::TextFieldPeer;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;

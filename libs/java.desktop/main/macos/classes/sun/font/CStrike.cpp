@@ -12,13 +12,11 @@
 #include <sun/font/CFont.h>
 #include <sun/font/CStrike$GlyphAdvanceCache.h>
 #include <sun/font/CStrike$GlyphInfoCache.h>
-#include <sun/font/CStrikeDisposer.h>
 #include <sun/font/CharToGlyphMapper.h>
 #include <sun/font/Font2D.h>
 #include <sun/font/FontStrike.h>
 #include <sun/font/FontStrikeDesc.h>
 #include <sun/font/FontStrikeDisposer.h>
-#include <sun/font/PhysicalFont.h>
 #include <sun/font/PhysicalStrike.h>
 #include <sun/font/StrikeMetrics.h>
 #include <jcpp.h>
@@ -40,12 +38,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $CFont = ::sun::font::CFont;
 using $CStrike$GlyphAdvanceCache = ::sun::font::CStrike$GlyphAdvanceCache;
 using $CStrike$GlyphInfoCache = ::sun::font::CStrike$GlyphInfoCache;
-using $CStrikeDisposer = ::sun::font::CStrikeDisposer;
 using $CharToGlyphMapper = ::sun::font::CharToGlyphMapper;
 using $Font2D = ::sun::font::Font2D;
 using $FontStrikeDesc = ::sun::font::FontStrikeDesc;
 using $FontStrikeDisposer = ::sun::font::FontStrikeDisposer;
-using $PhysicalFont = ::sun::font::PhysicalFont;
 using $PhysicalStrike = ::sun::font::PhysicalStrike;
 using $StrikeMetrics = ::sun::font::StrikeMetrics;
 

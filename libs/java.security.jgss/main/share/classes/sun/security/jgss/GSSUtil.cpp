@@ -7,7 +7,6 @@
 #include <java/security/PrivilegedActionException.h>
 #include <java/security/PrivilegedExceptionAction.h>
 #include <java/security/Security.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Date.h>
 #include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
@@ -61,7 +60,6 @@ using $AccessController = ::java::security::AccessController;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $Security = ::java::security::Security;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Date = ::java::util::Date;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;

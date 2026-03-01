@@ -9,7 +9,6 @@
 #include <java/lang/reflect/Type.h>
 #include <java/lang/reflect/TypeVariable.h>
 #include <java/lang/reflect/WildcardType.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
 #include <java/util/Map$Entry.h>
@@ -36,7 +35,6 @@ using $ParameterizedType = ::java::lang::reflect::ParameterizedType;
 using $Type = ::java::lang::reflect::Type;
 using $TypeVariable = ::java::lang::reflect::TypeVariable;
 using $WildcardType = ::java::lang::reflect::WildcardType;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;

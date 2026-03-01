@@ -14,7 +14,6 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/traversers/XSDHandler.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/traversers/XSDocumentInfo.h>
 #include <com/sun/org/apache/xerces/internal/util/DOMUtil.h>
-#include <com/sun/org/apache/xerces/internal/util/NamespaceSupport.h>
 #include <com/sun/org/apache/xerces/internal/util/SymbolTable.h>
 #include <com/sun/org/apache/xerces/internal/util/XMLChar.h>
 #include <com/sun/org/apache/xerces/internal/xni/NamespaceContext.h>
@@ -40,7 +39,6 @@ using $XSDAbstractTraverser = ::com::sun::org::apache::xerces::internal::impl::x
 using $XSDHandler = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDHandler;
 using $XSDocumentInfo = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSDocumentInfo;
 using $DOMUtil = ::com::sun::org::apache::xerces::internal::util::DOMUtil;
-using $NamespaceSupport = ::com::sun::org::apache::xerces::internal::util::NamespaceSupport;
 using $XMLChar = ::com::sun::org::apache::xerces::internal::util::XMLChar;
 using $NamespaceContext = ::com::sun::org::apache::xerces::internal::xni::NamespaceContext;
 using $ClassInfo = ::java::lang::ClassInfo;

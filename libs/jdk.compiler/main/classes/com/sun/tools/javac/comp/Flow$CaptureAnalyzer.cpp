@@ -12,17 +12,13 @@
 #include <com/sun/tools/javac/resources/CompilerProperties$Fragments.h>
 #include <com/sun/tools/javac/tree/JCTree$JCAssign.h>
 #include <com/sun/tools/javac/tree/JCTree$JCAssignOp.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCClassDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
-#include <com/sun/tools/javac/tree/JCTree$JCFunctionalExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCGuardPattern.h>
 #include <com/sun/tools/javac/tree/JCTree$JCIdent.h>
 #include <com/sun/tools/javac/tree/JCTree$JCLambda.h>
 #include <com/sun/tools/javac/tree/JCTree$JCModuleDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCPattern.h>
-#include <com/sun/tools/javac/tree/JCTree$JCPolyExpression.h>
-#include <com/sun/tools/javac/tree/JCTree$JCStatement.h>
 #include <com/sun/tools/javac/tree/JCTree$JCTry.h>
 #include <com/sun/tools/javac/tree/JCTree$JCUnary.h>
 #include <com/sun/tools/javac/tree/JCTree$JCYield.h>
@@ -63,17 +59,11 @@ using $CompilerProperties$Fragments = ::com::sun::tools::javac::resources::Compi
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCAssign = ::com::sun::tools::javac::tree::JCTree$JCAssign;
 using $JCTree$JCAssignOp = ::com::sun::tools::javac::tree::JCTree$JCAssignOp;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
-using $JCTree$JCFunctionalExpression = ::com::sun::tools::javac::tree::JCTree$JCFunctionalExpression;
 using $JCTree$JCGuardPattern = ::com::sun::tools::javac::tree::JCTree$JCGuardPattern;
 using $JCTree$JCIdent = ::com::sun::tools::javac::tree::JCTree$JCIdent;
 using $JCTree$JCLambda = ::com::sun::tools::javac::tree::JCTree$JCLambda;
 using $JCTree$JCModuleDecl = ::com::sun::tools::javac::tree::JCTree$JCModuleDecl;
-using $JCTree$JCPattern = ::com::sun::tools::javac::tree::JCTree$JCPattern;
-using $JCTree$JCPolyExpression = ::com::sun::tools::javac::tree::JCTree$JCPolyExpression;
-using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
 using $JCTree$JCTry = ::com::sun::tools::javac::tree::JCTree$JCTry;
 using $JCTree$JCUnary = ::com::sun::tools::javac::tree::JCTree$JCUnary;
 using $JCTree$JCYield = ::com::sun::tools::javac::tree::JCTree$JCYield;

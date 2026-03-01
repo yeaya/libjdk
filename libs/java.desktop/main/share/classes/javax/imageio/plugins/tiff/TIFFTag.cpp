@@ -1,7 +1,6 @@
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 
 #include <java/util/Iterator.h>
-#include <java/util/NavigableMap.h>
 #include <java/util/Set.h>
 #include <java/util/SortedMap.h>
 #include <java/util/TreeMap.h>
@@ -34,7 +33,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $Iterator = ::java::util::Iterator;
-using $NavigableMap = ::java::util::NavigableMap;
 using $Set = ::java::util::Set;
 using $SortedMap = ::java::util::SortedMap;
 using $TreeMap = ::java::util::TreeMap;

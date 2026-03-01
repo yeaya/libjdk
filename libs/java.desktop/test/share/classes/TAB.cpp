@@ -16,16 +16,13 @@
 #include <javax/swing/DefaultCellEditor.h>
 #include <javax/swing/JApplet.h>
 #include <javax/swing/JComboBox.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/BevelBorder.h>
 #include <javax/swing/border/Border.h>
-#include <javax/swing/table/AbstractTableModel.h>
 #include <javax/swing/table/DefaultTableCellRenderer.h>
 #include <javax/swing/table/TableCellEditor.h>
 #include <javax/swing/table/TableCellRenderer.h>
@@ -59,16 +56,13 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $DefaultCellEditor = ::javax::swing::DefaultCellEditor;
 using $JApplet = ::javax::swing::JApplet;
 using $JComboBox = ::javax::swing::JComboBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JTable = ::javax::swing::JTable;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $BevelBorder = ::javax::swing::border::BevelBorder;
 using $Border = ::javax::swing::border::Border;
-using $AbstractTableModel = ::javax::swing::table::AbstractTableModel;
 using $DefaultTableCellRenderer = ::javax::swing::table::DefaultTableCellRenderer;
 using $TableCellEditor = ::javax::swing::table::TableCellEditor;
 using $TableCellRenderer = ::javax::swing::table::TableCellRenderer;

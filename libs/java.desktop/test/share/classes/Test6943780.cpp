@@ -3,9 +3,7 @@
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/lang/Runnable.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JTabbedPane.h>
 #include <javax/swing/SwingUtilities.h>
 #include <jcpp.h>
@@ -15,14 +13,11 @@
 
 using $ComponentArray = $Array<::java::awt::Component>;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 

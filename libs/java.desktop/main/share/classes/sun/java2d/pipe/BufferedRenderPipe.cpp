@@ -7,12 +7,9 @@
 #include <java/awt/geom/Arc2D$Float.h>
 #include <java/awt/geom/Arc2D.h>
 #include <java/awt/geom/Ellipse2D$Float.h>
-#include <java/awt/geom/Ellipse2D.h>
 #include <java/awt/geom/Path2D$Float.h>
 #include <java/awt/geom/PathIterator.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/awt/geom/RoundRectangle2D$Float.h>
-#include <java/awt/geom/RoundRectangle2D.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/lang/Runnable.h>
 #include <sun/java2d/SunGraphics2D.h>
@@ -47,11 +44,8 @@ using $Stroke = ::java::awt::Stroke;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $Arc2D = ::java::awt::geom::Arc2D;
 using $Arc2D$Float = ::java::awt::geom::Arc2D$Float;
-using $Ellipse2D = ::java::awt::geom::Ellipse2D;
 using $Ellipse2D$Float = ::java::awt::geom::Ellipse2D$Float;
 using $Path2D$Float = ::java::awt::geom::Path2D$Float;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
-using $RoundRectangle2D = ::java::awt::geom::RoundRectangle2D;
 using $RoundRectangle2D$Float = ::java::awt::geom::RoundRectangle2D$Float;
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -1,6 +1,5 @@
 #include <javax/xml/catalog/Normalizer.h>
 
-#include <java/io/IOException.h>
 #include <java/io/UnsupportedEncodingException.h>
 #include <java/lang/CharSequence.h>
 #include <java/net/URLDecoder.h>
@@ -12,11 +11,9 @@
 #undef ERR_OTHER
 #undef URN
 
-using $IOException = ::java::io::IOException;
 using $UnsupportedEncodingException = ::java::io::UnsupportedEncodingException;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URLDecoder = ::java::net::URLDecoder;

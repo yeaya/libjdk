@@ -9,7 +9,6 @@
 #include <java/awt/MenuComponent.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Toolkit.h>
-#include <java/awt/Window.h>
 #include <java/awt/dnd/DragGestureEvent.h>
 #include <java/awt/dnd/DragGestureListener.h>
 #include <java/awt/dnd/DragGestureRecognizer.h>
@@ -17,9 +16,7 @@
 #include <java/awt/dnd/DropTarget.h>
 #include <java/awt/dnd/peer/DragSourceContextPeer.h>
 #include <java/awt/peer/ComponentPeer.h>
-#include <java/awt/peer/ContainerPeer.h>
 #include <java/awt/peer/FramePeer.h>
-#include <java/awt/peer/WindowPeer.h>
 #include <java/util/List.h>
 #include <sun/awt/AWTAccessor$ComponentAccessor.h>
 #include <sun/awt/AWTAccessor.h>
@@ -35,7 +32,6 @@ using $MenuBar = ::java::awt::MenuBar;
 using $MenuComponent = ::java::awt::MenuComponent;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
-using $Window = ::java::awt::Window;
 using $DragGestureEvent = ::java::awt::dnd::DragGestureEvent;
 using $DragGestureListener = ::java::awt::dnd::DragGestureListener;
 using $DragGestureRecognizer = ::java::awt::dnd::DragGestureRecognizer;
@@ -43,9 +39,7 @@ using $DragSource = ::java::awt::dnd::DragSource;
 using $DropTarget = ::java::awt::dnd::DropTarget;
 using $DragSourceContextPeer = ::java::awt::dnd::peer::DragSourceContextPeer;
 using $ComponentPeer = ::java::awt::peer::ComponentPeer;
-using $ContainerPeer = ::java::awt::peer::ContainerPeer;
 using $FramePeer = ::java::awt::peer::FramePeer;
-using $WindowPeer = ::java::awt::peer::WindowPeer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $Exception = ::java::lang::Exception;

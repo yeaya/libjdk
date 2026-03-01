@@ -4,13 +4,11 @@
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/InstantiationException.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JCheckBox.h>
 #include <javax/swing/JComboBox.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JMenu.h>
-#include <javax/swing/JMenuItem.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/JRadioButton.h>
 #include <javax/swing/JScrollPane.h>
@@ -19,12 +17,10 @@
 #include <javax/swing/JTable.h>
 #include <javax/swing/JTextArea.h>
 #include <javax/swing/JTextField.h>
-#include <javax/swing/JToggleButton.h>
 #include <javax/swing/JToolBar.h>
 #include <javax/swing/UIManager$LookAndFeelInfo.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/UnsupportedLookAndFeelException.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 using $ComponentSetNameTest = ::ComponentSetNameTest;
@@ -33,19 +29,16 @@ using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAnd
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Exception = ::java::lang::Exception;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InstantiationException = ::java::lang::InstantiationException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JButton = ::javax::swing::JButton;
 using $JCheckBox = ::javax::swing::JCheckBox;
 using $JComboBox = ::javax::swing::JComboBox;
 using $JComponent = ::javax::swing::JComponent;
 using $JMenu = ::javax::swing::JMenu;
-using $JMenuItem = ::javax::swing::JMenuItem;
 using $JPanel = ::javax::swing::JPanel;
 using $JRadioButton = ::javax::swing::JRadioButton;
 using $JScrollPane = ::javax::swing::JScrollPane;
@@ -54,12 +47,10 @@ using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $JTable = ::javax::swing::JTable;
 using $JTextArea = ::javax::swing::JTextArea;
 using $JTextField = ::javax::swing::JTextField;
-using $JToggleButton = ::javax::swing::JToggleButton;
 using $JToolBar = ::javax::swing::JToolBar;
 using $UIManager = ::javax::swing::UIManager;
 using $UIManager$LookAndFeelInfo = ::javax::swing::UIManager$LookAndFeelInfo;
 using $UnsupportedLookAndFeelException = ::javax::swing::UnsupportedLookAndFeelException;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 $MethodInfo _ComponentSetNameTest$1_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(ComponentSetNameTest$1, init$, void)},

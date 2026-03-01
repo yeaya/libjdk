@@ -2,16 +2,12 @@
 
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
-#include <java/awt/Frame.h>
 #include <java/awt/Window.h>
 #include <javax/swing/JApplet.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JDesktopPane.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JInternalFrame.h>
 #include <javax/swing/JLabel.h>
-#include <javax/swing/JLayeredPane.h>
 #include <jcpp.h>
 
 #undef EXIT_ON_CLOSE
@@ -19,18 +15,14 @@
 
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
-using $Frame = ::java::awt::Frame;
 using $Window = ::java::awt::Window;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JApplet = ::javax::swing::JApplet;
-using $JComponent = ::javax::swing::JComponent;
 using $JDesktopPane = ::javax::swing::JDesktopPane;
 using $JFrame = ::javax::swing::JFrame;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $JLabel = ::javax::swing::JLabel;
-using $JLayeredPane = ::javax::swing::JLayeredPane;
 
 $MethodInfo _bug6726866_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6726866, init$, void)},

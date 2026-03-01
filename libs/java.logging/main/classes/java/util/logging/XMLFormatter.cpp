@@ -1,12 +1,10 @@
 #include <java/util/logging/XMLFormatter.h>
 
-#include <java/lang/AbstractStringBuilder.h>
 #include <java/lang/Appendable.h>
 #include <java/lang/StackTraceElement.h>
 #include <java/nio/charset/Charset.h>
 #include <java/time/Instant.h>
 #include <java/time/format/DateTimeFormatter.h>
-#include <java/time/temporal/Temporal.h>
 #include <java/time/temporal/TemporalAccessor.h>
 #include <java/util/Calendar.h>
 #include <java/util/GregorianCalendar.h>
@@ -27,7 +25,6 @@
 #undef YEAR
 
 using $StackTraceElementArray = $Array<::java::lang::StackTraceElement>;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $Appendable = ::java::lang::Appendable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -37,7 +34,6 @@ using $StackTraceElement = ::java::lang::StackTraceElement;
 using $Charset = ::java::nio::charset::Charset;
 using $Instant = ::java::time::Instant;
 using $DateTimeFormatter = ::java::time::format::DateTimeFormatter;
-using $Temporal = ::java::time::temporal::Temporal;
 using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
 using $Calendar = ::java::util::Calendar;
 using $GregorianCalendar = ::java::util::GregorianCalendar;

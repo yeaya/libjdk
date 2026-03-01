@@ -7,9 +7,7 @@
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JTree.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/TreeUI.h>
 #include <javax/swing/plaf/basic/BasicTreeUI.h>
-#include <javax/swing/tree/DefaultTreeCellRenderer.h>
 #include <javax/swing/tree/TreeCellRenderer.h>
 #include <jcpp.h>
 
@@ -26,9 +24,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $JTree = ::javax::swing::JTree;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $TreeUI = ::javax::swing::plaf::TreeUI;
 using $BasicTreeUI = ::javax::swing::plaf::basic::BasicTreeUI;
-using $DefaultTreeCellRenderer = ::javax::swing::tree::DefaultTreeCellRenderer;
 using $TreeCellRenderer = ::javax::swing::tree::TreeCellRenderer;
 
 namespace com {

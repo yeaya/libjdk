@@ -12,7 +12,6 @@
 #include <javax/swing/ButtonModel.h>
 #include <javax/swing/CellRendererPane.h>
 #include <javax/swing/ComboBoxEditor.h>
-#include <javax/swing/DefaultButtonModel.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComboBox.h>
 #include <javax/swing/JComponent.h>
@@ -22,13 +21,9 @@
 #include <javax/swing/ListCellRenderer.h>
 #include <javax/swing/SwingConstants.h>
 #include <javax/swing/event/PopupMenuListener.h>
-#include <javax/swing/plaf/ComboBoxUI.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/UIResource.h>
-#include <javax/swing/plaf/basic/BasicComboBoxEditor$UIResource.h>
-#include <javax/swing/plaf/basic/BasicComboBoxEditor.h>
 #include <javax/swing/plaf/basic/BasicComboBoxUI.h>
-#include <javax/swing/plaf/basic/BasicComboPopup.h>
 #include <javax/swing/plaf/basic/ComboPopup.h>
 #include <javax/swing/plaf/synth/SynthArrowButton.h>
 #include <javax/swing/plaf/synth/SynthComboBoxUI$ButtonHandler.h>
@@ -67,7 +62,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $ButtonModel = ::javax::swing::ButtonModel;
 using $CellRendererPane = ::javax::swing::CellRendererPane;
 using $ComboBoxEditor = ::javax::swing::ComboBoxEditor;
-using $DefaultButtonModel = ::javax::swing::DefaultButtonModel;
 using $JButton = ::javax::swing::JButton;
 using $JComboBox = ::javax::swing::JComboBox;
 using $JComponent = ::javax::swing::JComponent;
@@ -75,13 +69,9 @@ using $JPanel = ::javax::swing::JPanel;
 using $ListCellRenderer = ::javax::swing::ListCellRenderer;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $PopupMenuListener = ::javax::swing::event::PopupMenuListener;
-using $ComboBoxUI = ::javax::swing::plaf::ComboBoxUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
-using $BasicComboBoxEditor = ::javax::swing::plaf::basic::BasicComboBoxEditor;
-using $BasicComboBoxEditor$UIResource = ::javax::swing::plaf::basic::BasicComboBoxEditor$UIResource;
 using $BasicComboBoxUI = ::javax::swing::plaf::basic::BasicComboBoxUI;
-using $BasicComboPopup = ::javax::swing::plaf::basic::BasicComboPopup;
 using $ComboPopup = ::javax::swing::plaf::basic::ComboPopup;
 using $SynthArrowButton = ::javax::swing::plaf::synth::SynthArrowButton;
 using $SynthComboBoxUI$ButtonHandler = ::javax::swing::plaf::synth::SynthComboBoxUI$ButtonHandler;

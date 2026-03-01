@@ -1,9 +1,7 @@
 #include <java/rmi/server/RemoteObjectInvocationHandler.h>
 
-#include <java/io/IOException.h>
 #include <java/io/InvalidObjectException.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/reflect/InvocationHandler.h>
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Proxy.h>
@@ -16,7 +14,6 @@
 #include <java/util/Map.h>
 #include <jcpp.h>
 
-using $IOException = ::java::io::IOException;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -29,7 +26,6 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $InvocationHandler = ::java::lang::reflect::InvocationHandler;
 using $Method = ::java::lang::reflect::Method;

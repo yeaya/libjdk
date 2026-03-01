@@ -4,8 +4,6 @@
 #include <java/awt/event/MouseWheelListener.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/ScrollPaneUI.h>
-#include <javax/swing/plaf/basic/BasicScrollPaneUI$MouseWheelHandler.h>
 #include <javax/swing/plaf/basic/BasicScrollPaneUI.h>
 #include <jcpp.h>
 
@@ -16,9 +14,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $ScrollPaneUI = ::javax::swing::plaf::ScrollPaneUI;
 using $BasicScrollPaneUI = ::javax::swing::plaf::basic::BasicScrollPaneUI;
-using $BasicScrollPaneUI$MouseWheelHandler = ::javax::swing::plaf::basic::BasicScrollPaneUI$MouseWheelHandler;
 
 namespace com {
 	namespace apple {

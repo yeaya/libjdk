@@ -36,7 +36,6 @@
 #include <com/sun/tools/javac/comp/Resolve.h>
 #include <com/sun/tools/javac/comp/TypeEnvs.h>
 #include <com/sun/tools/javac/tree/JCTree$JCBlock.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCCompilationUnit.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCIdent.h>
@@ -54,7 +53,6 @@
 #include <com/sun/tools/javac/util/JCDiagnostic$Factory.h>
 #include <com/sun/tools/javac/util/List.h>
 #include <com/sun/tools/javac/util/ListBuffer.h>
-#include <com/sun/tools/javac/util/Log$DeferredDiagnosticHandler.h>
 #include <com/sun/tools/javac/util/Log$DiagnosticHandler.h>
 #include <com/sun/tools/javac/util/Log.h>
 #include <com/sun/tools/javac/util/Name.h>
@@ -118,7 +116,6 @@ using $Resolve$MethodResolutionPhase = ::com::sun::tools::javac::comp::Resolve$M
 using $TypeEnvs = ::com::sun::tools::javac::comp::TypeEnvs;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCBlock = ::com::sun::tools::javac::tree::JCTree$JCBlock;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCIdent = ::com::sun::tools::javac::tree::JCTree$JCIdent;
 using $JCTree$JCLambda = ::com::sun::tools::javac::tree::JCTree$JCLambda;
@@ -135,7 +132,6 @@ using $JCDiagnostic$Factory = ::com::sun::tools::javac::util::JCDiagnostic$Facto
 using $List = ::com::sun::tools::javac::util::List;
 using $ListBuffer = ::com::sun::tools::javac::util::ListBuffer;
 using $Log = ::com::sun::tools::javac::util::Log;
-using $Log$DeferredDiagnosticHandler = ::com::sun::tools::javac::util::Log$DeferredDiagnosticHandler;
 using $Log$DiagnosticHandler = ::com::sun::tools::javac::util::Log$DiagnosticHandler;
 using $Names = ::com::sun::tools::javac::util::Names;
 using $Warner = ::com::sun::tools::javac::util::Warner;

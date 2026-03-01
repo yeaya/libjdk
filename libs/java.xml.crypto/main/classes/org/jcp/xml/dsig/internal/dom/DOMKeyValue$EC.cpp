@@ -22,7 +22,6 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMKeyValue$EC$Curve.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMKeyValue.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMUtils.h>
-#include <org/w3c/dom/CharacterData.h>
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/Element.h>
 #include <org/w3c/dom/Node.h>
@@ -32,7 +31,6 @@
 using $XMLUtils = ::com::sun::org::apache::xml::internal::security::utils::XMLUtils;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -57,7 +55,6 @@ using $DOMCryptoContext = ::javax::xml::crypto::dom::DOMCryptoContext;
 using $DOMKeyValue = ::org::jcp::xml::dsig::internal::dom::DOMKeyValue;
 using $DOMKeyValue$EC$Curve = ::org::jcp::xml::dsig::internal::dom::DOMKeyValue$EC$Curve;
 using $DOMUtils = ::org::jcp::xml::dsig::internal::dom::DOMUtils;
-using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;

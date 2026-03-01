@@ -11,9 +11,7 @@
 #include <java/awt/Window.h>
 #include <java/lang/Error.h>
 #include <java/lang/Runnable.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JToggleButton.h>
 #include <javax/swing/JToolBar.h>
@@ -41,9 +39,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JToggleButton = ::javax::swing::JToggleButton;
 using $JToolBar = ::javax::swing::JToolBar;

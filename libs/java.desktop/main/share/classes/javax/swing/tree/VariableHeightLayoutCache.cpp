@@ -9,7 +9,6 @@
 #include <javax/swing/event/TreeModelEvent.h>
 #include <javax/swing/tree/AbstractLayoutCache$NodeDimensions.h>
 #include <javax/swing/tree/AbstractLayoutCache.h>
-#include <javax/swing/tree/DefaultMutableTreeNode.h>
 #include <javax/swing/tree/MutableTreeNode.h>
 #include <javax/swing/tree/TreeModel.h>
 #include <javax/swing/tree/TreeNode.h>
@@ -35,7 +34,6 @@ using $Vector = ::java::util::Vector;
 using $TreeModelEvent = ::javax::swing::event::TreeModelEvent;
 using $AbstractLayoutCache = ::javax::swing::tree::AbstractLayoutCache;
 using $AbstractLayoutCache$NodeDimensions = ::javax::swing::tree::AbstractLayoutCache$NodeDimensions;
-using $DefaultMutableTreeNode = ::javax::swing::tree::DefaultMutableTreeNode;
 using $MutableTreeNode = ::javax::swing::tree::MutableTreeNode;
 using $TreeModel = ::javax::swing::tree::TreeModel;
 using $TreeNode = ::javax::swing::tree::TreeNode;

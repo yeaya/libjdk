@@ -3,7 +3,6 @@
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
-#include <java/awt/Frame.h>
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Window.h>
 #include <javax/swing/JWindow.h>
@@ -17,7 +16,6 @@
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
-using $Frame = ::java::awt::Frame;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $Window = ::java::awt::Window;
 using $ClassInfo = ::java::lang::ClassInfo;

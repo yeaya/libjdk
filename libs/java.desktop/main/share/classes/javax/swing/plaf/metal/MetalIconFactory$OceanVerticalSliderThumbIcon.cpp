@@ -10,8 +10,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <java/awt/Transparency.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/awt/image/BufferedImage.h>
 #include <javax/swing/plaf/ColorUIResource.h>
 #include <javax/swing/plaf/metal/MetalIconFactory.h>
@@ -36,8 +34,6 @@ using $Polygon = ::java::awt::Polygon;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
 using $Transparency = ::java::awt::Transparency;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;

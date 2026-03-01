@@ -29,14 +29,12 @@
 #include <com/sun/org/apache/xerces/internal/xs/ElementPSVI.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSSimpleTypeDefinition.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSTypeDefinition.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <javax/xml/transform/dom/DOMResult.h>
 #include <org/w3c/dom/Attr.h>
 #include <org/w3c/dom/CDATASection.h>
-#include <org/w3c/dom/CharacterData.h>
 #include <org/w3c/dom/Comment.h>
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/DocumentType.h>
@@ -96,14 +94,12 @@ using $XSTypeDefinition = ::com::sun::org::apache::xerces::internal::xs::XSTypeD
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $DOMResult = ::javax::xml::transform::dom::DOMResult;
 using $Attr = ::org::w3c::dom::Attr;
 using $CDATASection = ::org::w3c::dom::CDATASection;
-using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Comment = ::org::w3c::dom::Comment;
 using $Document = ::org::w3c::dom::Document;
 using $DocumentType = ::org::w3c::dom::DocumentType;

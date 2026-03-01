@@ -1,22 +1,18 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/UnionPathExpr.h>
 
-#include <com/sun/org/apache/bcel/internal/generic/CPInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
-#include <com/sun/org/apache/bcel/internal/generic/FieldOrMethod.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEINTERFACE.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKESPECIAL.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEVIRTUAL.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionList.h>
-#include <com/sun/org/apache/bcel/internal/generic/InvokeInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/NEW.h>
 #include <com/sun/org/apache/bcel/internal/generic/StackInstruction.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/CastExpr.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Constants.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Expression.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Parser.h>
-#include <com/sun/org/apache/xalan/internal/xsltc/compiler/RelativeLocationPath.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Step.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode.h>
@@ -25,7 +21,6 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/Type.h>
 #include <com/sun/org/apache/xml/internal/dtm/Axis.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -43,21 +38,17 @@
 #undef UNION_ITERATOR_CLASS
 
 using $ExpressionArray = $Array<::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression>;
-using $CPInstruction = ::com::sun::org::apache::bcel::internal::generic::CPInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
-using $FieldOrMethod = ::com::sun::org::apache::bcel::internal::generic::FieldOrMethod;
 using $INVOKEINTERFACE = ::com::sun::org::apache::bcel::internal::generic::INVOKEINTERFACE;
 using $INVOKESPECIAL = ::com::sun::org::apache::bcel::internal::generic::INVOKESPECIAL;
 using $INVOKEVIRTUAL = ::com::sun::org::apache::bcel::internal::generic::INVOKEVIRTUAL;
 using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
-using $InvokeInstruction = ::com::sun::org::apache::bcel::internal::generic::InvokeInstruction;
 using $NEW = ::com::sun::org::apache::bcel::internal::generic::NEW;
 using $CastExpr = ::com::sun::org::apache::xalan::internal::xsltc::compiler::CastExpr;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
 using $Expression = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression;
 using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;
-using $RelativeLocationPath = ::com::sun::org::apache::xalan::internal::xsltc::compiler::RelativeLocationPath;
 using $Step = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Step;
 using $SymbolTable = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SymbolTable;
 using $SyntaxTreeNode = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SyntaxTreeNode;
@@ -69,7 +60,6 @@ using $DTM = ::com::sun::org::apache::xml::internal::dtm::DTM;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 

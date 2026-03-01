@@ -3,23 +3,18 @@
 #include <com/sun/org/apache/bcel/internal/generic/ArithmeticInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/CPInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/CompoundInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
-#include <com/sun/org/apache/bcel/internal/generic/FieldOrMethod.h>
 #include <com/sun/org/apache/bcel/internal/generic/GOTO.h>
-#include <com/sun/org/apache/bcel/internal/generic/GotoInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/IFEQ.h>
 #include <com/sun/org/apache/bcel/internal/generic/IFNE.h>
 #include <com/sun/org/apache/bcel/internal/generic/IF_ICMPEQ.h>
 #include <com/sun/org/apache/bcel/internal/generic/IF_ICMPNE.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKESTATIC.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEVIRTUAL.h>
-#include <com/sun/org/apache/bcel/internal/generic/IfInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionList.h>
-#include <com/sun/org/apache/bcel/internal/generic/InvokeInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/PUSH.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/CastExpr.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Constants.h>
@@ -57,23 +52,18 @@
 
 using $BranchHandle = ::com::sun::org::apache::bcel::internal::generic::BranchHandle;
 using $BranchInstruction = ::com::sun::org::apache::bcel::internal::generic::BranchInstruction;
-using $CPInstruction = ::com::sun::org::apache::bcel::internal::generic::CPInstruction;
 using $CompoundInstruction = ::com::sun::org::apache::bcel::internal::generic::CompoundInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
-using $FieldOrMethod = ::com::sun::org::apache::bcel::internal::generic::FieldOrMethod;
 using $GOTO = ::com::sun::org::apache::bcel::internal::generic::GOTO;
-using $GotoInstruction = ::com::sun::org::apache::bcel::internal::generic::GotoInstruction;
 using $IFEQ = ::com::sun::org::apache::bcel::internal::generic::IFEQ;
 using $IFNE = ::com::sun::org::apache::bcel::internal::generic::IFNE;
 using $IF_ICMPEQ = ::com::sun::org::apache::bcel::internal::generic::IF_ICMPEQ;
 using $IF_ICMPNE = ::com::sun::org::apache::bcel::internal::generic::IF_ICMPNE;
 using $INVOKESTATIC = ::com::sun::org::apache::bcel::internal::generic::INVOKESTATIC;
 using $INVOKEVIRTUAL = ::com::sun::org::apache::bcel::internal::generic::INVOKEVIRTUAL;
-using $IfInstruction = ::com::sun::org::apache::bcel::internal::generic::IfInstruction;
 using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
-using $InvokeInstruction = ::com::sun::org::apache::bcel::internal::generic::InvokeInstruction;
 using $PUSH = ::com::sun::org::apache::bcel::internal::generic::PUSH;
 using $CastExpr = ::com::sun::org::apache::xalan::internal::xsltc::compiler::CastExpr;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;

@@ -5,7 +5,6 @@
 #include <java/io/File.h>
 #include <java/io/FileWriter.h>
 #include <java/io/IOException.h>
-#include <java/io/OutputStreamWriter.h>
 #include <java/io/PrintWriter.h>
 #include <java/io/Writer.h>
 #include <java/nio/file/Files.h>
@@ -19,7 +18,6 @@ using $Log = ::com::sun::tools::sjavac::Log;
 using $Log$Level = ::com::sun::tools::sjavac::Log$Level;
 using $FileWriter = ::java::io::FileWriter;
 using $IOException = ::java::io::IOException;
-using $OutputStreamWriter = ::java::io::OutputStreamWriter;
 using $PrintStream = ::java::io::PrintStream;
 using $PrintWriter = ::java::io::PrintWriter;
 using $Writer = ::java::io::Writer;

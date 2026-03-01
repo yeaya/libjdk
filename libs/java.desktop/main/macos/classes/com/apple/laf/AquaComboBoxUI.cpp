@@ -6,7 +6,6 @@
 #include <com/apple/laf/AquaComboBoxButton.h>
 #include <com/apple/laf/AquaComboBoxPopup.h>
 #include <com/apple/laf/AquaComboBoxRenderer.h>
-#include <com/apple/laf/AquaComboBoxRendererInternal.h>
 #include <com/apple/laf/AquaComboBoxUI$1.h>
 #include <com/apple/laf/AquaComboBoxUI$10.h>
 #include <com/apple/laf/AquaComboBoxUI$11.h>
@@ -21,12 +20,10 @@
 #include <com/apple/laf/AquaComboBoxUI$9.h>
 #include <com/apple/laf/AquaComboBoxUI$AquaComboBoxEditor.h>
 #include <com/apple/laf/AquaComboBoxUI$AquaComboBoxLayoutManager.h>
-#include <com/apple/laf/AquaComboBoxUI$ComboBoxAction.h>
 #include <com/apple/laf/AquaUtilControlSize.h>
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
 #include <com/apple/laf/ClientPropertyApplicator.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Insets.h>
@@ -37,8 +34,6 @@
 #include <java/awt/event/ItemListener.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/lang/Math.h>
-#include <javax/swing/AbstractAction.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/CellRendererPane.h>
@@ -58,11 +53,7 @@
 #include <javax/swing/plaf/ButtonUI.h>
 #include <javax/swing/plaf/ComboBoxUI.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/basic/BasicComboBoxEditor.h>
-#include <javax/swing/plaf/basic/BasicComboBoxUI$ComboBoxLayoutManager.h>
-#include <javax/swing/plaf/basic/BasicComboBoxUI$FocusHandler.h>
 #include <javax/swing/plaf/basic/BasicComboBoxUI.h>
-#include <javax/swing/plaf/basic/BasicComboPopup.h>
 #include <javax/swing/plaf/basic/ComboPopup.h>
 #include <jcpp.h>
 
@@ -80,7 +71,6 @@ using $AquaButtonBorder = ::com::apple::laf::AquaButtonBorder;
 using $AquaComboBoxButton = ::com::apple::laf::AquaComboBoxButton;
 using $AquaComboBoxPopup = ::com::apple::laf::AquaComboBoxPopup;
 using $AquaComboBoxRenderer = ::com::apple::laf::AquaComboBoxRenderer;
-using $AquaComboBoxRendererInternal = ::com::apple::laf::AquaComboBoxRendererInternal;
 using $AquaComboBoxUI$1 = ::com::apple::laf::AquaComboBoxUI$1;
 using $AquaComboBoxUI$10 = ::com::apple::laf::AquaComboBoxUI$10;
 using $AquaComboBoxUI$11 = ::com::apple::laf::AquaComboBoxUI$11;
@@ -95,12 +85,10 @@ using $AquaComboBoxUI$8 = ::com::apple::laf::AquaComboBoxUI$8;
 using $AquaComboBoxUI$9 = ::com::apple::laf::AquaComboBoxUI$9;
 using $AquaComboBoxUI$AquaComboBoxEditor = ::com::apple::laf::AquaComboBoxUI$AquaComboBoxEditor;
 using $AquaComboBoxUI$AquaComboBoxLayoutManager = ::com::apple::laf::AquaComboBoxUI$AquaComboBoxLayoutManager;
-using $AquaComboBoxUI$ComboBoxAction = ::com::apple::laf::AquaComboBoxUI$ComboBoxAction;
 using $AquaUtilControlSize = ::com::apple::laf::AquaUtilControlSize;
 using $AquaUtils$RecyclableSingleton = ::com::apple::laf::AquaUtils$RecyclableSingleton;
 using $ClientPropertyApplicator = ::com::apple::laf::ClientPropertyApplicator;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
@@ -116,8 +104,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractAction = ::javax::swing::AbstractAction;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $ComboBoxEditor = ::javax::swing::ComboBoxEditor;
@@ -136,11 +122,7 @@ using $ActionMapUIResource = ::javax::swing::plaf::ActionMapUIResource;
 using $ButtonUI = ::javax::swing::plaf::ButtonUI;
 using $ComboBoxUI = ::javax::swing::plaf::ComboBoxUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $BasicComboBoxEditor = ::javax::swing::plaf::basic::BasicComboBoxEditor;
 using $BasicComboBoxUI = ::javax::swing::plaf::basic::BasicComboBoxUI;
-using $BasicComboBoxUI$ComboBoxLayoutManager = ::javax::swing::plaf::basic::BasicComboBoxUI$ComboBoxLayoutManager;
-using $BasicComboBoxUI$FocusHandler = ::javax::swing::plaf::basic::BasicComboBoxUI$FocusHandler;
-using $BasicComboPopup = ::javax::swing::plaf::basic::BasicComboPopup;
 using $ComboPopup = ::javax::swing::plaf::basic::ComboPopup;
 
 namespace com {

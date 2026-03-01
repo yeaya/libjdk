@@ -11,7 +11,6 @@
 #include <com/sun/tools/javac/comp/Resolve$LookupHelper.h>
 #include <com/sun/tools/javac/comp/Resolve$MethodResolutionContext.h>
 #include <com/sun/tools/javac/comp/Resolve$MethodResolutionPhase.h>
-#include <com/sun/tools/javac/comp/Resolve$ResolveError.h>
 #include <com/sun/tools/javac/comp/Resolve.h>
 #include <com/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition.h>
 #include <com/sun/tools/javac/util/JCDiagnostic.h>
@@ -34,7 +33,6 @@ using $Resolve$BasicLookupHelper = ::com::sun::tools::javac::comp::Resolve$Basic
 using $Resolve$DiamondError = ::com::sun::tools::javac::comp::Resolve$DiamondError;
 using $Resolve$InapplicableSymbolError = ::com::sun::tools::javac::comp::Resolve$InapplicableSymbolError;
 using $Resolve$MethodResolutionPhase = ::com::sun::tools::javac::comp::Resolve$MethodResolutionPhase;
-using $Resolve$ResolveError = ::com::sun::tools::javac::comp::Resolve$ResolveError;
 using $JCDiagnostic = ::com::sun::tools::javac::util::JCDiagnostic;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $List = ::com::sun::tools::javac::util::List;

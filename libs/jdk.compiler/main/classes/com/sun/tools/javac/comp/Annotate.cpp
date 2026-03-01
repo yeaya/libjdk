@@ -47,7 +47,6 @@
 #include <com/sun/tools/javac/comp/Attr$ResultInfo.h>
 #include <com/sun/tools/javac/comp/Attr.h>
 #include <com/sun/tools/javac/comp/Check$CheckContext.h>
-#include <com/sun/tools/javac/comp/Check$NestedCheckContext.h>
 #include <com/sun/tools/javac/comp/Check.h>
 #include <com/sun/tools/javac/comp/ConstFold.h>
 #include <com/sun/tools/javac/comp/Enter.h>
@@ -58,7 +57,6 @@
 #include <com/sun/tools/javac/resources/CompilerProperties$Errors.h>
 #include <com/sun/tools/javac/tree/JCTree$JCAnnotation.h>
 #include <com/sun/tools/javac/tree/JCTree$JCAssign.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCClassDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCCompilationUnit.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
@@ -70,7 +68,6 @@
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <com/sun/tools/javac/tree/TreeInfo.h>
 #include <com/sun/tools/javac/tree/TreeMaker.h>
-#include <com/sun/tools/javac/tree/TreeScanner.h>
 #include <com/sun/tools/javac/util/Assert.h>
 #include <com/sun/tools/javac/util/Context$Key.h>
 #include <com/sun/tools/javac/util/Context.h>
@@ -91,7 +88,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Collection.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
@@ -171,7 +167,6 @@ using $Attr = ::com::sun::tools::javac::comp::Attr;
 using $Attr$ResultInfo = ::com::sun::tools::javac::comp::Attr$ResultInfo;
 using $Check = ::com::sun::tools::javac::comp::Check;
 using $Check$CheckContext = ::com::sun::tools::javac::comp::Check$CheckContext;
-using $Check$NestedCheckContext = ::com::sun::tools::javac::comp::Check$NestedCheckContext;
 using $ConstFold = ::com::sun::tools::javac::comp::ConstFold;
 using $Enter = ::com::sun::tools::javac::comp::Enter;
 using $Env = ::com::sun::tools::javac::comp::Env;
@@ -182,7 +177,6 @@ using $CompilerProperties$Errors = ::com::sun::tools::javac::resources::Compiler
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCAnnotation = ::com::sun::tools::javac::tree::JCTree$JCAnnotation;
 using $JCTree$JCAssign = ::com::sun::tools::javac::tree::JCTree$JCAssign;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCFieldAccess = ::com::sun::tools::javac::tree::JCTree$JCFieldAccess;
@@ -192,7 +186,6 @@ using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
 using $TreeMaker = ::com::sun::tools::javac::tree::TreeMaker;
-using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $Context = ::com::sun::tools::javac::util::Context;
 using $Context$Key = ::com::sun::tools::javac::util::Context$Key;
@@ -214,7 +207,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $Void = ::java::lang::Void;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;

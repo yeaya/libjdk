@@ -3,7 +3,6 @@
 #include <java/awt/Color.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/LinearGradientPaint.h>
-#include <java/awt/MultipleGradientPaint.h>
 #include <java/awt/Paint.h>
 #include <java/awt/Shape.h>
 #include <java/awt/geom/Ellipse2D$Float.h>
@@ -24,7 +23,6 @@
 
 using $ColorArray = $Array<::java::awt::Color>;
 using $Graphics2D = ::java::awt::Graphics2D;
-using $MultipleGradientPaint = ::java::awt::MultipleGradientPaint;
 using $Paint = ::java::awt::Paint;
 using $Shape = ::java::awt::Shape;
 using $Ellipse2D = ::java::awt::geom::Ellipse2D;

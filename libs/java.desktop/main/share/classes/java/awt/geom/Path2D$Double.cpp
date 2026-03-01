@@ -5,7 +5,6 @@
 #include <java/awt/geom/IllegalPathStateException.h>
 #include <java/awt/geom/Path2D$Double$CopyIterator.h>
 #include <java/awt/geom/Path2D$Double$TxIterator.h>
-#include <java/awt/geom/Path2D$Iterator.h>
 #include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/PathIterator.h>
 #include <java/awt/geom/Point2D$Double.h>
@@ -40,7 +39,6 @@ using $IllegalPathStateException = ::java::awt::geom::IllegalPathStateException;
 using $Path2D = ::java::awt::geom::Path2D;
 using $Path2D$Double$CopyIterator = ::java::awt::geom::Path2D$Double$CopyIterator;
 using $Path2D$Double$TxIterator = ::java::awt::geom::Path2D$Double$TxIterator;
-using $Path2D$Iterator = ::java::awt::geom::Path2D$Iterator;
 using $PathIterator = ::java::awt::geom::PathIterator;
 using $Point2D = ::java::awt::geom::Point2D;
 using $Point2D$Double = ::java::awt::geom::Point2D$Double;

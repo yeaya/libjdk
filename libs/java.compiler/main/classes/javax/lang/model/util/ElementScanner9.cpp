@@ -1,7 +1,6 @@
 #include <javax/lang/model/util/ElementScanner9.h>
 
 #include <java/lang/Iterable.h>
-#include <java/util/Collection.h>
 #include <java/util/List.h>
 #include <javax/lang/model/element/ModuleElement.h>
 #include <javax/lang/model/util/ElementScanner6.h>
@@ -13,7 +12,6 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $Collection = ::java::util::Collection;
 using $ModuleElement = ::javax::lang::model::element::ModuleElement;
 using $ElementScanner8 = ::javax::lang::model::util::ElementScanner8;
 

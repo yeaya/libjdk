@@ -7,7 +7,6 @@
 #include <com/sun/tools/javac/util/JCDiagnostic$Warning.h>
 #include <com/sun/tools/javac/util/Log.h>
 #include <com/sun/tools/javac/util/MandatoryWarningHandler$DeferredDiagnosticKind.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/HashSet.h>
 #include <java/util/Objects.h>
 #include <java/util/Set.h>
@@ -30,7 +29,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractSet = ::java::util::AbstractSet;
 using $HashSet = ::java::util::HashSet;
 using $Objects = ::java::util::Objects;
 using $Set = ::java::util::Set;

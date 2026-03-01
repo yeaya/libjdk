@@ -8,7 +8,6 @@
 #include <javax/xml/transform/Templates.h>
 #include <javax/xml/transform/Transformer.h>
 #include <javax/xml/transform/URIResolver.h>
-#include <javax/xml/transform/sax/SAXTransformerFactory.h>
 #include <jcpp.h>
 
 using $TransformerFactoryImpl = ::com::sun::org::apache::xalan::internal::xsltc::trax::TransformerFactoryImpl;
@@ -21,7 +20,6 @@ using $Source = ::javax::xml::transform::Source;
 using $Templates = ::javax::xml::transform::Templates;
 using $Transformer = ::javax::xml::transform::Transformer;
 using $URIResolver = ::javax::xml::transform::URIResolver;
-using $SAXTransformerFactory = ::javax::xml::transform::sax::SAXTransformerFactory;
 
 namespace javax {
 	namespace xml {

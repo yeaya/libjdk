@@ -14,7 +14,6 @@
 #include <java/net/InetSocketAddress.h>
 #include <java/net/URI.h>
 #include <java/util/AbstractMap.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Base64$Encoder.h>
 #include <java/util/Base64.h>
 #include <java/util/Collection.h>
@@ -51,7 +50,6 @@ using $IOException = ::java::io::IOException;
 using $Serializable = ::java::io::Serializable;
 using $UncheckedIOException = ::java::io::UncheckedIOException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
@@ -60,7 +58,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $URI = ::java::net::URI;
 using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Base64 = ::java::util::Base64;
 using $Base64$Encoder = ::java::util::Base64$Encoder;
 using $Collection = ::java::util::Collection;

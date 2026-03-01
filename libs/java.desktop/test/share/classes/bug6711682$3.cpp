@@ -2,29 +2,22 @@
 
 #include <bug6711682.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/JCheckBox.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JTable.h>
-#include <javax/swing/JToggleButton.h>
 #include <jcpp.h>
 
 #undef TRUE
 
 using $bug6711682 = ::bug6711682;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JCheckBox = ::javax::swing::JCheckBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JTable = ::javax::swing::JTable;
-using $JToggleButton = ::javax::swing::JToggleButton;
 
 $MethodInfo _bug6711682$3_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(bug6711682$3, init$, void)},

@@ -27,8 +27,6 @@
 #include <java/nio/file/LinkOption.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/ProviderNotFoundException.h>
-#include <java/security/SecureClassLoader.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
@@ -57,13 +55,11 @@ using $IOException = ::java::io::IOException;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $URI = ::java::net::URI;
 using $URL = ::java::net::URL;
@@ -76,8 +72,6 @@ using $FileSystems = ::java::nio::file::FileSystems;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
 using $ProviderNotFoundException = ::java::nio::file::ProviderNotFoundException;
-using $SecureClassLoader = ::java::security::SecureClassLoader;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;

@@ -10,7 +10,6 @@
 #include <java/awt/Toolkit.h>
 #include <java/awt/Window.h>
 #include <javax/swing/JApplet.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JDialog.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JLayeredPane.h>
@@ -36,7 +35,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JApplet = ::javax::swing::JApplet;
-using $JComponent = ::javax::swing::JComponent;
 using $JDialog = ::javax::swing::JDialog;
 using $JFrame = ::javax::swing::JFrame;
 using $JPopupMenu = ::javax::swing::JPopupMenu;

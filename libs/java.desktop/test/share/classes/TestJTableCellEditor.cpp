@@ -13,7 +13,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/table/AbstractTableModel.h>
 #include <javax/swing/table/TableCellEditor.h>
 #include <javax/swing/table/TableModel.h>
 #include <jcpp.h>
@@ -32,7 +31,6 @@ using $SecurityManager = ::java::lang::SecurityManager;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $JTable = ::javax::swing::JTable;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $AbstractTableModel = ::javax::swing::table::AbstractTableModel;
 using $TableCellEditor = ::javax::swing::table::TableCellEditor;
 using $TableModel = ::javax::swing::table::TableModel;
 

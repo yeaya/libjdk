@@ -1,8 +1,6 @@
 #include <javax/swing/Spring.h>
 
 #include <java/awt/Component.h>
-#include <javax/swing/Spring$AbstractSpring.h>
-#include <javax/swing/Spring$CompoundSpring.h>
 #include <javax/swing/Spring$HeightSpring.h>
 #include <javax/swing/Spring$MaxSpring.h>
 #include <javax/swing/Spring$NegativeSpring.h>
@@ -21,8 +19,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $Spring$AbstractSpring = ::javax::swing::Spring$AbstractSpring;
-using $Spring$CompoundSpring = ::javax::swing::Spring$CompoundSpring;
 using $Spring$HeightSpring = ::javax::swing::Spring$HeightSpring;
 using $Spring$MaxSpring = ::javax::swing::Spring$MaxSpring;
 using $Spring$NegativeSpring = ::javax::swing::Spring$NegativeSpring;

@@ -9,7 +9,6 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/dtd/NMTOKENDatatypeValidator.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/dtd/NOTATIONDatatypeValidator.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/dtd/StringDatatypeValidator.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
@@ -27,7 +26,6 @@ using $StringDatatypeValidator = ::com::sun::org::apache::xerces::internal::impl
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;

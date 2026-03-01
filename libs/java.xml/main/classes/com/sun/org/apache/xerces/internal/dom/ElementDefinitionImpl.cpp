@@ -1,6 +1,5 @@
 #include <com/sun/org/apache/xerces/internal/dom/ElementDefinitionImpl.h>
 
-#include <com/sun/org/apache/xerces/internal/dom/ChildNode.h>
 #include <com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/NamedNodeMapImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/NodeImpl.h>
@@ -11,7 +10,6 @@
 
 #undef ELEMENT_DEFINITION_NODE
 
-using $ChildNode = ::com::sun::org::apache::xerces::internal::dom::ChildNode;
 using $CoreDocumentImpl = ::com::sun::org::apache::xerces::internal::dom::CoreDocumentImpl;
 using $NamedNodeMapImpl = ::com::sun::org::apache::xerces::internal::dom::NamedNodeMapImpl;
 using $NodeImpl = ::com::sun::org::apache::xerces::internal::dom::NodeImpl;

@@ -1,21 +1,17 @@
 #include <javax/swing/plaf/synth/SynthMenuUI.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Insets.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JMenu.h>
 #include <javax/swing/JMenuItem.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/plaf/ButtonUI.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/MenuItemUI.h>
 #include <javax/swing/plaf/UIResource.h>
 #include <javax/swing/plaf/basic/BasicMenuItemUI.h>
 #include <javax/swing/plaf/basic/BasicMenuUI.h>
@@ -41,7 +37,6 @@
 #undef SELECTED
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
@@ -50,17 +45,13 @@ using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $Icon = ::javax::swing::Icon;
 using $JComponent = ::javax::swing::JComponent;
 using $JMenu = ::javax::swing::JMenu;
 using $JMenuItem = ::javax::swing::JMenuItem;
 using $UIManager = ::javax::swing::UIManager;
-using $ButtonUI = ::javax::swing::plaf::ButtonUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $MenuItemUI = ::javax::swing::plaf::MenuItemUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
-using $BasicMenuItemUI = ::javax::swing::plaf::basic::BasicMenuItemUI;
 using $BasicMenuUI = ::javax::swing::plaf::basic::BasicMenuUI;
 using $Region = ::javax::swing::plaf::synth::Region;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;

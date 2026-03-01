@@ -9,7 +9,6 @@
 #include <com/apple/laf/ScreenMenuItemCheckbox.h>
 #include <com/apple/laf/ScreenMenuPropertyHandler.h>
 #include <com/apple/laf/ScreenMenuPropertyListener.h>
-#include <java/awt/CheckboxMenuItem.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Font.h>
@@ -29,11 +28,9 @@
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/util/Hashtable.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/JCheckBoxMenuItem.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JMenu.h>
 #include <javax/swing/JMenuItem.h>
 #include <javax/swing/JPopupMenu$Separator.h>
@@ -59,9 +56,7 @@ using $ScreenMenuItem = ::com::apple::laf::ScreenMenuItem;
 using $ScreenMenuItemCheckbox = ::com::apple::laf::ScreenMenuItemCheckbox;
 using $ScreenMenuPropertyHandler = ::com::apple::laf::ScreenMenuPropertyHandler;
 using $ScreenMenuPropertyListener = ::com::apple::laf::ScreenMenuPropertyListener;
-using $CheckboxMenuItem = ::java::awt::CheckboxMenuItem;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Font = ::java::awt::Font;
 using $Image = ::java::awt::Image;
 using $Menu = ::java::awt::Menu;
@@ -85,11 +80,9 @@ using $Runnable = ::java::lang::Runnable;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Hashtable = ::java::util::Hashtable;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $Action = ::javax::swing::Action;
 using $Icon = ::javax::swing::Icon;
 using $JCheckBoxMenuItem = ::javax::swing::JCheckBoxMenuItem;
-using $JComponent = ::javax::swing::JComponent;
 using $JMenu = ::javax::swing::JMenu;
 using $JMenuItem = ::javax::swing::JMenuItem;
 using $JPopupMenu = ::javax::swing::JPopupMenu;

@@ -2,7 +2,6 @@
 
 #include <com/sun/source/util/JavacTask.h>
 #include <com/sun/tools/javac/Main.h>
-#include <com/sun/tools/javac/api/BasicJavacTask.h>
 #include <com/sun/tools/javac/api/ClientCodeWrapper.h>
 #include <com/sun/tools/javac/api/JavacTaskImpl.h>
 #include <com/sun/tools/javac/file/BaseFileManager.h>
@@ -17,7 +16,6 @@
 #include <com/sun/tools/javac/util/List.h>
 #include <com/sun/tools/javac/util/Log.h>
 #include <com/sun/tools/javac/util/PropagatedException.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/OutputStreamWriter.h>
@@ -27,7 +25,6 @@
 #include <java/lang/Enum.h>
 #include <java/lang/Iterable.h>
 #include <java/nio/charset/Charset.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collections.h>
 #include <java/util/EnumSet.h>
 #include <java/util/Iterator.h>
@@ -49,7 +46,6 @@
 
 using $JavacTask = ::com::sun::source::util::JavacTask;
 using $Main = ::com::sun::tools::javac::Main;
-using $BasicJavacTask = ::com::sun::tools::javac::api::BasicJavacTask;
 using $ClientCodeWrapper = ::com::sun::tools::javac::api::ClientCodeWrapper;
 using $JavacTaskImpl = ::com::sun::tools::javac::api::JavacTaskImpl;
 using $BaseFileManager = ::com::sun::tools::javac::file::BaseFileManager;
@@ -63,7 +59,6 @@ using $Context = ::com::sun::tools::javac::util::Context;
 using $List = ::com::sun::tools::javac::util::List;
 using $Log = ::com::sun::tools::javac::util::Log;
 using $PropagatedException = ::com::sun::tools::javac::util::PropagatedException;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $OutputStreamWriter = ::java::io::OutputStreamWriter;
@@ -78,7 +73,6 @@ using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Charset = ::java::nio::charset::Charset;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Collections = ::java::util::Collections;
 using $EnumSet = ::java::util::EnumSet;
 using $Iterator = ::java::util::Iterator;

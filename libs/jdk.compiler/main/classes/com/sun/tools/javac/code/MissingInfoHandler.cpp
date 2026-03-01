@@ -2,7 +2,6 @@
 
 #include <com/sun/source/util/ParameterNameProvider.h>
 #include <com/sun/tools/javac/code/Symbol$ParamSymbol.h>
-#include <com/sun/tools/javac/code/Symbol$VarSymbol.h>
 #include <com/sun/tools/javac/util/Context$Key.h>
 #include <com/sun/tools/javac/util/Context.h>
 #include <com/sun/tools/javac/util/Name.h>
@@ -13,7 +12,6 @@
 
 using $ParameterNameProvider = ::com::sun::source::util::ParameterNameProvider;
 using $Symbol$ParamSymbol = ::com::sun::tools::javac::code::Symbol$ParamSymbol;
-using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $Context = ::com::sun::tools::javac::util::Context;
 using $Context$Key = ::com::sun::tools::javac::util::Context$Key;
 using $Name = ::com::sun::tools::javac::util::Name;

@@ -8,15 +8,12 @@
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
-#include <java/awt/event/ComponentEvent.h>
 #include <java/awt/event/FocusEvent.h>
-#include <java/awt/event/InputEvent.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/text/AttributedCharacterIterator$Attribute.h>
 #include <java/text/AttributedCharacterIterator.h>
 #include <java/text/CharacterIterator.h>
 #include <java/text/DateFormat$Field.h>
-#include <java/text/DateFormat.h>
 #include <java/text/Format$Field.h>
 #include <java/text/Format.h>
 #include <java/text/ParseException.h>
@@ -24,7 +21,6 @@
 #include <java/util/Calendar.h>
 #include <java/util/Map.h>
 #include <javax/swing/AbstractAction.h>
-#include <javax/swing/Action.h>
 #include <javax/swing/ButtonModel.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComponent.h>
@@ -56,9 +52,7 @@ using $FocusTraversalPolicy = ::java::awt::FocusTraversalPolicy;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $ComponentEvent = ::java::awt::event::ComponentEvent;
 using $FocusEvent = ::java::awt::event::FocusEvent;
-using $InputEvent = ::java::awt::event::InputEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -68,7 +62,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AttributedCharacterIterator = ::java::text::AttributedCharacterIterator;
 using $AttributedCharacterIterator$Attribute = ::java::text::AttributedCharacterIterator$Attribute;
 using $CharacterIterator = ::java::text::CharacterIterator;
-using $DateFormat = ::java::text::DateFormat;
 using $DateFormat$Field = ::java::text::DateFormat$Field;
 using $Format = ::java::text::Format;
 using $Format$Field = ::java::text::Format$Field;
@@ -76,7 +69,6 @@ using $ParseException = ::java::text::ParseException;
 using $Calendar = ::java::util::Calendar;
 using $Map = ::java::util::Map;
 using $AbstractAction = ::javax::swing::AbstractAction;
-using $Action = ::javax::swing::Action;
 using $ButtonModel = ::javax::swing::ButtonModel;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;

@@ -9,9 +9,7 @@
 #include <java/lang/NumberFormatException.h>
 #include <java/lang/SecurityManager.h>
 #include <java/lang/StringBuffer.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Date.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
@@ -23,7 +21,6 @@
 #undef VERBOSE
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $OutputStreamWriter = ::java::io::OutputStreamWriter;
@@ -37,9 +34,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $StringBuffer = ::java::lang::StringBuffer;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Date = ::java::util::Date;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;

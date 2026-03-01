@@ -21,7 +21,6 @@
 #include <java/awt/image/VolatileImage.h>
 #include <java/awt/peer/ComponentPeer.h>
 #include <java/awt/peer/ContainerPeer.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComponent.h>
 #include <sun/java2d/pipe/Region.h>
@@ -56,7 +55,6 @@ using $ContainerPeer = ::java::awt::peer::ContainerPeer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
 using $Region = ::sun::java2d::pipe::Region;

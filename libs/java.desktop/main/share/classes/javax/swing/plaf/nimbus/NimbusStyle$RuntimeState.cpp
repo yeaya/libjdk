@@ -1,6 +1,5 @@
 #include <javax/swing/plaf/nimbus/NimbusStyle$RuntimeState.h>
 
-#include <java/util/Hashtable.h>
 #include <java/util/Map.h>
 #include <javax/swing/Painter.h>
 #include <javax/swing/UIDefaults.h>
@@ -12,7 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Hashtable = ::java::util::Hashtable;
 using $Map = ::java::util::Map;
 using $UIDefaults = ::javax::swing::UIDefaults;
 using $NimbusStyle = ::javax::swing::plaf::nimbus::NimbusStyle;

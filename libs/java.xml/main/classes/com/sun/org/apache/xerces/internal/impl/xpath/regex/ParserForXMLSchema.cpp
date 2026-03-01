@@ -10,7 +10,6 @@
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/Token$ParenToken.h>
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/Token$UnionToken.h>
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/Token.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Locale.h>
 #include <java/util/Map.h>
@@ -40,7 +39,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;

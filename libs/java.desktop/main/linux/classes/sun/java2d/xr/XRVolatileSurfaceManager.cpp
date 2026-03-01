@@ -4,12 +4,10 @@
 #include <java/awt/Image.h>
 #include <java/awt/ImageCapabilities.h>
 #include <java/awt/image/ColorModel.h>
-#include <java/awt/image/VolatileImage.h>
 #include <java/lang/OutOfMemoryError.h>
 #include <sun/awt/image/SunVolatileImage.h>
 #include <sun/awt/image/VolatileSurfaceManager.h>
 #include <sun/java2d/SurfaceData.h>
-#include <sun/java2d/x11/XSurfaceData.h>
 #include <sun/java2d/xr/XRGraphicsConfig.h>
 #include <sun/java2d/xr/XRSurfaceData$XRPixmapSurfaceData.h>
 #include <sun/java2d/xr/XRSurfaceData.h>
@@ -19,7 +17,6 @@ using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $Image = ::java::awt::Image;
 using $ImageCapabilities = ::java::awt::ImageCapabilities;
 using $ColorModel = ::java::awt::image::ColorModel;
-using $VolatileImage = ::java::awt::image::VolatileImage;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -28,7 +25,6 @@ using $OutOfMemoryError = ::java::lang::OutOfMemoryError;
 using $SunVolatileImage = ::sun::awt::image::SunVolatileImage;
 using $VolatileSurfaceManager = ::sun::awt::image::VolatileSurfaceManager;
 using $SurfaceData = ::sun::java2d::SurfaceData;
-using $XSurfaceData = ::sun::java2d::x11::XSurfaceData;
 using $XRGraphicsConfig = ::sun::java2d::xr::XRGraphicsConfig;
 using $XRSurfaceData = ::sun::java2d::xr::XRSurfaceData;
 

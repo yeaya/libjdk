@@ -6,10 +6,8 @@
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/parsers/AbstractDOMParser$Abort.h>
 #include <com/sun/org/apache/xerces/internal/parsers/AbstractDOMParser.h>
-#include <com/sun/org/apache/xerces/internal/parsers/AbstractXMLDocumentParser.h>
 #include <com/sun/org/apache/xerces/internal/parsers/DOMParserImpl$AbortHandler.h>
 #include <com/sun/org/apache/xerces/internal/parsers/XIncludeAwareParserConfiguration.h>
-#include <com/sun/org/apache/xerces/internal/parsers/XML11Configuration.h>
 #include <com/sun/org/apache/xerces/internal/parsers/XMLParser.h>
 #include <com/sun/org/apache/xerces/internal/util/DOMEntityResolverWrapper.h>
 #include <com/sun/org/apache/xerces/internal/util/DOMErrorHandlerWrapper.h>
@@ -28,11 +26,9 @@
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLInputSource.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLParseException.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration.h>
-#include <com/sun/org/apache/xerces/internal/xni/parser/XMLPullParserConfiguration.h>
 #include <java/io/InputStream.h>
 #include <java/io/Reader.h>
 #include <java/io/StringReader.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <java/util/Locale.h>
@@ -134,10 +130,8 @@ using $DOMStringListImpl = ::com::sun::org::apache::xerces::internal::dom::DOMSt
 using $Constants = ::com::sun::org::apache::xerces::internal::impl::Constants;
 using $AbstractDOMParser = ::com::sun::org::apache::xerces::internal::parsers::AbstractDOMParser;
 using $AbstractDOMParser$Abort = ::com::sun::org::apache::xerces::internal::parsers::AbstractDOMParser$Abort;
-using $AbstractXMLDocumentParser = ::com::sun::org::apache::xerces::internal::parsers::AbstractXMLDocumentParser;
 using $DOMParserImpl$AbortHandler = ::com::sun::org::apache::xerces::internal::parsers::DOMParserImpl$AbortHandler;
 using $XIncludeAwareParserConfiguration = ::com::sun::org::apache::xerces::internal::parsers::XIncludeAwareParserConfiguration;
-using $XML11Configuration = ::com::sun::org::apache::xerces::internal::parsers::XML11Configuration;
 using $XMLParser = ::com::sun::org::apache::xerces::internal::parsers::XMLParser;
 using $DOMEntityResolverWrapper = ::com::sun::org::apache::xerces::internal::util::DOMEntityResolverWrapper;
 using $DOMErrorHandlerWrapper = ::com::sun::org::apache::xerces::internal::util::DOMErrorHandlerWrapper;
@@ -156,7 +150,6 @@ using $XMLEntityResolver = ::com::sun::org::apache::xerces::internal::xni::parse
 using $XMLInputSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLInputSource;
 using $XMLParseException = ::com::sun::org::apache::xerces::internal::xni::parser::XMLParseException;
 using $XMLParserConfiguration = ::com::sun::org::apache::xerces::internal::xni::parser::XMLParserConfiguration;
-using $XMLPullParserConfiguration = ::com::sun::org::apache::xerces::internal::xni::parser::XMLPullParserConfiguration;
 using $InputStream = ::java::io::InputStream;
 using $Reader = ::java::io::Reader;
 using $StringReader = ::java::io::StringReader;
@@ -166,7 +159,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;

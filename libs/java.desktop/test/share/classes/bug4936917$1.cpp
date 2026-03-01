@@ -5,10 +5,8 @@
 #include <java/awt/Container.h>
 #include <java/awt/Insets.h>
 #include <java/awt/Window.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/JFrame.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 using $bug4936917 = ::bug4936917;
@@ -20,10 +18,8 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $JFrame = ::javax::swing::JFrame;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 $FieldInfo _bug4936917$1_FieldInfo_[] = {
 	{"this$0", "Lbug4936917;", nullptr, $FINAL | $SYNTHETIC, $field(bug4936917$1, this$0)},

@@ -8,7 +8,6 @@
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/comp/Lower$BasicFreeVarCollector.h>
 #include <com/sun/tools/javac/comp/Lower.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCFieldAccess.h>
 #include <com/sun/tools/javac/tree/JCTree$JCMethodInvocation.h>
@@ -34,7 +33,6 @@ using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $Lower = ::com::sun::tools::javac::comp::Lower;
 using $Lower$BasicFreeVarCollector = ::com::sun::tools::javac::comp::Lower$BasicFreeVarCollector;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCFieldAccess = ::com::sun::tools::javac::tree::JCTree$JCFieldAccess;
 using $JCTree$JCMethodInvocation = ::com::sun::tools::javac::tree::JCTree$JCMethodInvocation;

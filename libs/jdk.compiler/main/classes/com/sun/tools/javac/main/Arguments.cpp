@@ -16,7 +16,6 @@
 #include <com/sun/tools/javac/main/JavaCompiler.h>
 #include <com/sun/tools/javac/main/Option$InvalidValueException.h>
 #include <com/sun/tools/javac/main/Option.h>
-#include <com/sun/tools/javac/main/OptionHelper$GrumpyHelper.h>
 #include <com/sun/tools/javac/main/OptionHelper.h>
 #include <com/sun/tools/javac/platform/PlatformDescription.h>
 #include <com/sun/tools/javac/platform/PlatformUtils.h>
@@ -51,14 +50,11 @@
 #include <java/nio/file/Path.h>
 #include <java/nio/file/Paths.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/AbstractQueue.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/EnumSet.h>
-#include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
 #include <java/util/LinkedHashMap.h>
@@ -161,7 +157,6 @@ using $JavaCompiler = ::com::sun::tools::javac::main::JavaCompiler;
 using $Option = ::com::sun::tools::javac::main::Option;
 using $Option$InvalidValueException = ::com::sun::tools::javac::main::Option$InvalidValueException;
 using $OptionHelper = ::com::sun::tools::javac::main::OptionHelper;
-using $OptionHelper$GrumpyHelper = ::com::sun::tools::javac::main::OptionHelper$GrumpyHelper;
 using $PlatformDescription = ::com::sun::tools::javac::platform::PlatformDescription;
 using $PlatformUtils = ::com::sun::tools::javac::platform::PlatformUtils;
 using $CompilerProperties$Errors = ::com::sun::tools::javac::resources::CompilerProperties$Errors;
@@ -196,14 +191,11 @@ using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractMap = ::java::util::AbstractMap;
 using $AbstractQueue = ::java::util::AbstractQueue;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $EnumSet = ::java::util::EnumSet;
-using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashMap = ::java::util::LinkedHashMap;

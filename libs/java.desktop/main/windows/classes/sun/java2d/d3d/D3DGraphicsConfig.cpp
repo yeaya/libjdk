@@ -16,11 +16,9 @@
 #include <java/awt/image/DataBuffer.h>
 #include <java/awt/image/DirectColorModel.h>
 #include <java/awt/image/ImageObserver.h>
-#include <java/awt/image/PackedColorModel.h>
 #include <java/awt/image/VolatileImage.h>
 #include <java/lang/Math.h>
 #include <sun/awt/Win32GraphicsConfig.h>
-#include <sun/awt/Win32GraphicsDevice.h>
 #include <sun/awt/image/SunVolatileImage.h>
 #include <sun/awt/image/SurfaceManager.h>
 #include <sun/awt/windows/WComponentPeer.h>
@@ -62,7 +60,6 @@ using $ColorModel = ::java::awt::image::ColorModel;
 using $DataBuffer = ::java::awt::image::DataBuffer;
 using $DirectColorModel = ::java::awt::image::DirectColorModel;
 using $ImageObserver = ::java::awt::image::ImageObserver;
-using $PackedColorModel = ::java::awt::image::PackedColorModel;
 using $VolatileImage = ::java::awt::image::VolatileImage;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -71,7 +68,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Win32GraphicsConfig = ::sun::awt::Win32GraphicsConfig;
-using $Win32GraphicsDevice = ::sun::awt::Win32GraphicsDevice;
 using $SunVolatileImage = ::sun::awt::image::SunVolatileImage;
 using $SurfaceManager = ::sun::awt::image::SurfaceManager;
 using $WComponentPeer = ::sun::awt::windows::WComponentPeer;

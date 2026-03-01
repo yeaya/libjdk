@@ -1,8 +1,5 @@
 #include <com/sun/jmx/mbeanserver/Util.h>
 
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
@@ -14,23 +11,16 @@
 #include <java/util/LinkedHashMap.h>
 #include <java/util/List.h>
 #include <java/util/Map.h>
-#include <java/util/NavigableMap.h>
 #include <java/util/Set.h>
 #include <java/util/SortedMap.h>
 #include <java/util/TreeMap.h>
-#include <javax/management/JMException.h>
 #include <javax/management/MalformedObjectNameException.h>
 #include <javax/management/ObjectName.h>
-#include <javax/management/OperationsException.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSet = ::java::util::AbstractSet;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
@@ -42,14 +32,11 @@ using $IdentityHashMap = ::java::util::IdentityHashMap;
 using $LinkedHashMap = ::java::util::LinkedHashMap;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
-using $NavigableMap = ::java::util::NavigableMap;
 using $Set = ::java::util::Set;
 using $SortedMap = ::java::util::SortedMap;
 using $TreeMap = ::java::util::TreeMap;
-using $JMException = ::javax::management::JMException;
 using $MalformedObjectNameException = ::javax::management::MalformedObjectNameException;
 using $ObjectName = ::javax::management::ObjectName;
-using $OperationsException = ::javax::management::OperationsException;
 
 namespace com {
 	namespace sun {

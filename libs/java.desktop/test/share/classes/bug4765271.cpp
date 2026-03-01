@@ -7,8 +7,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <java/awt/Window.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -17,7 +15,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/util/concurrent/atomic/AtomicBoolean.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/SwingUtilities.h>
@@ -25,12 +22,10 @@
 #include <javax/swing/plaf/TextUI.h>
 #include <javax/swing/text/AbstractDocument$AbstractElement.h>
 #include <javax/swing/text/AttributeSet.h>
-#include <javax/swing/text/DefaultEditorKit.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/EditorKit.h>
 #include <javax/swing/text/Element.h>
 #include <javax/swing/text/JTextComponent.h>
-#include <javax/swing/text/StyledEditorKit.h>
 #include <javax/swing/text/View.h>
 #include <javax/swing/text/html/HTMLDocument.h>
 #include <javax/swing/text/html/HTMLEditorKit.h>
@@ -48,8 +43,6 @@ using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Font = ::java::awt::Font;
 using $Shape = ::java::awt::Shape;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
@@ -60,17 +53,14 @@ using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AtomicBoolean = ::java::util::concurrent::atomic::AtomicBoolean;
-using $JComponent = ::javax::swing::JComponent;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $JFrame = ::javax::swing::JFrame;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $TextUI = ::javax::swing::plaf::TextUI;
 using $AbstractDocument$AbstractElement = ::javax::swing::text::AbstractDocument$AbstractElement;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
-using $DefaultEditorKit = ::javax::swing::text::DefaultEditorKit;
 using $EditorKit = ::javax::swing::text::EditorKit;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
-using $StyledEditorKit = ::javax::swing::text::StyledEditorKit;
 using $View = ::javax::swing::text::View;
 using $HTMLDocument = ::javax::swing::text::html::HTMLDocument;
 using $HTMLEditorKit = ::javax::swing::text::html::HTMLEditorKit;

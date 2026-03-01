@@ -14,12 +14,9 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <javax/swing/AbstractButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/JRadioButton.h>
-#include <javax/swing/JToggleButton.h>
 #include <javax/swing/SwingUtilities.h>
 #include <jcpp.h>
 
@@ -39,12 +36,9 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractButton = ::javax::swing::AbstractButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JPanel = ::javax::swing::JPanel;
 using $JRadioButton = ::javax::swing::JRadioButton;
-using $JToggleButton = ::javax::swing::JToggleButton;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 
 class bug8041561$$Lambda$lambda$main$0 : public $Runnable {

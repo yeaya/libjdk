@@ -2,11 +2,9 @@
 
 #include <com/sun/java/swing/plaf/windows/WindowsDesktopProperty.h>
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel$ActiveWindowsIcon$1.h>
-#include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel$TriggerDesktopProperty.h>
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel.h>
 #include <java/awt/Image.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/ImageIcon.h>
 #include <javax/swing/UIDefaults$LazyValue.h>
 #include <javax/swing/UIDefaults.h>
 #include <javax/swing/plaf/basic/BasicLookAndFeel.h>
@@ -24,14 +22,12 @@
 using $WindowsDesktopProperty = ::com::sun::java::swing::plaf::windows::WindowsDesktopProperty;
 using $WindowsLookAndFeel = ::com::sun::java::swing::plaf::windows::WindowsLookAndFeel;
 using $WindowsLookAndFeel$ActiveWindowsIcon$1 = ::com::sun::java::swing::plaf::windows::WindowsLookAndFeel$ActiveWindowsIcon$1;
-using $WindowsLookAndFeel$TriggerDesktopProperty = ::com::sun::java::swing::plaf::windows::WindowsLookAndFeel$TriggerDesktopProperty;
 using $Image = ::java::awt::Image;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Icon = ::javax::swing::Icon;
-using $ImageIcon = ::javax::swing::ImageIcon;
 using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIDefaults$LazyValue = ::javax::swing::UIDefaults$LazyValue;
 using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;

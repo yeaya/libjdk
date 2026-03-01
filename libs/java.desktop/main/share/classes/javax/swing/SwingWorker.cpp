@@ -4,13 +4,11 @@
 #include <java/beans/PropertyChangeSupport.h>
 #include <java/lang/Runnable.h>
 #include <java/util/List.h>
-#include <java/util/concurrent/AbstractExecutorService.h>
 #include <java/util/concurrent/BlockingQueue.h>
 #include <java/util/concurrent/Callable.h>
 #include <java/util/concurrent/ExecutorService.h>
 #include <java/util/concurrent/FutureTask.h>
 #include <java/util/concurrent/LinkedBlockingQueue.h>
-#include <java/util/concurrent/RunnableFuture.h>
 #include <java/util/concurrent/ThreadFactory.h>
 #include <java/util/concurrent/ThreadPoolExecutor.h>
 #include <java/util/concurrent/TimeUnit.h>
@@ -49,13 +47,11 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $List = ::java::util::List;
-using $AbstractExecutorService = ::java::util::concurrent::AbstractExecutorService;
 using $BlockingQueue = ::java::util::concurrent::BlockingQueue;
 using $Callable = ::java::util::concurrent::Callable;
 using $ExecutorService = ::java::util::concurrent::ExecutorService;
 using $FutureTask = ::java::util::concurrent::FutureTask;
 using $LinkedBlockingQueue = ::java::util::concurrent::LinkedBlockingQueue;
-using $RunnableFuture = ::java::util::concurrent::RunnableFuture;
 using $ThreadFactory = ::java::util::concurrent::ThreadFactory;
 using $ThreadPoolExecutor = ::java::util::concurrent::ThreadPoolExecutor;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;

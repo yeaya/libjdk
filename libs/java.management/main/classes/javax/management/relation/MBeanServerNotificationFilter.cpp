@@ -12,7 +12,6 @@
 #include <java/lang/System$Logger.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/util/AbstractList.h>
 #include <java/util/Collection.h>
 #include <java/util/List.h>
 #include <java/util/Vector.h>
@@ -46,7 +45,6 @@ using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $AbstractList = ::java::util::AbstractList;
 using $Collection = ::java::util::Collection;
 using $List = ::java::util::List;
 using $Vector = ::java::util::Vector;

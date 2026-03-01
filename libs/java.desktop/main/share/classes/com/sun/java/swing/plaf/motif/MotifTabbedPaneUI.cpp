@@ -11,7 +11,6 @@
 #include <javax/swing/SwingConstants.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/TabbedPaneUI.h>
 #include <javax/swing/plaf/basic/BasicTabbedPaneUI.h>
 #include <jcpp.h>
 
@@ -33,7 +32,6 @@ using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $UIManager = ::javax::swing::UIManager;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $TabbedPaneUI = ::javax::swing::plaf::TabbedPaneUI;
 using $BasicTabbedPaneUI = ::javax::swing::plaf::basic::BasicTabbedPaneUI;
 
 namespace com {

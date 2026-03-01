@@ -3,7 +3,6 @@
 #include <PopupReferenceMemoryLeak$FrameCloser.h>
 #include <java/awt/BorderLayout.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionListener.h>
@@ -18,8 +17,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/ref/WeakReference.h>
 #include <java/util/ArrayList.h>
-#include <javax/swing/AbstractAction.h>
-#include <javax/swing/Action.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JMenu.h>
 #include <javax/swing/JMenuBar.h>
@@ -43,7 +40,6 @@ using $PopupReferenceMemoryLeak$FrameCloser = ::PopupReferenceMemoryLeak$FrameCl
 using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Robot = ::java::awt::Robot;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $InputEvent = ::java::awt::event::InputEvent;
@@ -60,8 +56,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $ArrayList = ::java::util::ArrayList;
-using $AbstractAction = ::javax::swing::AbstractAction;
-using $Action = ::javax::swing::Action;
 using $JFrame = ::javax::swing::JFrame;
 using $JMenu = ::javax::swing::JMenu;
 using $JMenuBar = ::javax::swing::JMenuBar;

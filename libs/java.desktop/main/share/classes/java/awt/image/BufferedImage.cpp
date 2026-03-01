@@ -17,7 +17,6 @@
 #include <java/awt/image/ImageObserver.h>
 #include <java/awt/image/ImageProducer.h>
 #include <java/awt/image/IndexColorModel.h>
-#include <java/awt/image/PackedColorModel.h>
 #include <java/awt/image/PixelInterleavedSampleModel.h>
 #include <java/awt/image/Raster.h>
 #include <java/awt/image/RasterFormatException.h>
@@ -94,7 +93,6 @@ using $DirectColorModel = ::java::awt::image::DirectColorModel;
 using $ImageObserver = ::java::awt::image::ImageObserver;
 using $ImageProducer = ::java::awt::image::ImageProducer;
 using $IndexColorModel = ::java::awt::image::IndexColorModel;
-using $PackedColorModel = ::java::awt::image::PackedColorModel;
 using $PixelInterleavedSampleModel = ::java::awt::image::PixelInterleavedSampleModel;
 using $Raster = ::java::awt::image::Raster;
 using $RasterFormatException = ::java::awt::image::RasterFormatException;

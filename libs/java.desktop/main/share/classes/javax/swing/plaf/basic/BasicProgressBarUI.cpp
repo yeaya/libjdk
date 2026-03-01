@@ -4,7 +4,6 @@
 #include <java/awt/Color.h>
 #include <java/awt/Component$BaselineResizeBehavior.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
@@ -18,7 +17,6 @@
 #include <java/awt/event/HierarchyListener.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/lang/Math.h>
 #include <javax/swing/BoundedRangeModel.h>
@@ -51,7 +49,6 @@ using $BasicStroke = ::java::awt::BasicStroke;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Component$BaselineResizeBehavior = ::java::awt::Component$BaselineResizeBehavior;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
@@ -65,7 +62,6 @@ using $Stroke = ::java::awt::Stroke;
 using $HierarchyListener = ::java::awt::event::HierarchyListener;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;

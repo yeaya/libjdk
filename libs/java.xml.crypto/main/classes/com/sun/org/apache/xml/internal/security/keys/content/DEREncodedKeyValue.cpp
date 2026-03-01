@@ -9,7 +9,6 @@
 #include <java/security/KeyFactory.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/PublicKey.h>
-#include <java/security/spec/EncodedKeySpec.h>
 #include <java/security/spec/InvalidKeySpecException.h>
 #include <java/security/spec/KeySpec.h>
 #include <java/security/spec/X509EncodedKeySpec.h>
@@ -32,7 +31,6 @@ using $Key = ::java::security::Key;
 using $KeyFactory = ::java::security::KeyFactory;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $PublicKey = ::java::security::PublicKey;
-using $EncodedKeySpec = ::java::security::spec::EncodedKeySpec;
 using $InvalidKeySpecException = ::java::security::spec::InvalidKeySpecException;
 using $KeySpec = ::java::security::spec::KeySpec;
 using $X509EncodedKeySpec = ::java::security::spec::X509EncodedKeySpec;

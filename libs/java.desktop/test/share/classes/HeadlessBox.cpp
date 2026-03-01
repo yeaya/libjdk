@@ -17,7 +17,6 @@
 #include <java/awt/IllegalComponentStateException.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Toolkit.h>
@@ -55,7 +54,6 @@ using $Font = ::java::awt::Font;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $Insets = ::java::awt::Insets;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;

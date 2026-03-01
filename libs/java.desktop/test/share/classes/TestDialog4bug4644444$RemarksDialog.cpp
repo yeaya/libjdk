@@ -4,14 +4,11 @@
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Button.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dialog.h>
 #include <java/awt/FlowLayout.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Panel.h>
 #include <java/awt/TextArea.h>
-#include <java/awt/TextComponent.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
@@ -22,14 +19,11 @@ using $TestDialog4bug4644444 = ::TestDialog4bug4644444;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Button = ::java::awt::Button;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dialog = ::java::awt::Dialog;
 using $FlowLayout = ::java::awt::FlowLayout;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Panel = ::java::awt::Panel;
 using $TextArea = ::java::awt::TextArea;
-using $TextComponent = ::java::awt::TextComponent;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $ClassInfo = ::java::lang::ClassInfo;

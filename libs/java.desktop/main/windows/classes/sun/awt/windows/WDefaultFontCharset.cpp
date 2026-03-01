@@ -2,7 +2,6 @@
 
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetEncoder.h>
-#include <sun/awt/AWTCharset$Encoder.h>
 #include <sun/awt/AWTCharset.h>
 #include <sun/awt/windows/WDefaultFontCharset$Encoder.h>
 #include <jcpp.h>
@@ -14,7 +13,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
 using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $AWTCharset = ::sun::awt::AWTCharset;
-using $AWTCharset$Encoder = ::sun::awt::AWTCharset$Encoder;
 using $WDefaultFontCharset$Encoder = ::sun::awt::windows::WDefaultFontCharset$Encoder;
 
 namespace sun {

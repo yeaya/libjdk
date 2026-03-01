@@ -20,14 +20,12 @@
 #include <java/awt/font/TextLine$TextLineMetrics.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/GeneralPath.h>
-#include <java/awt/geom/Path2D$Float.h>
 #include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/Point2D$Double.h>
 #include <java/awt/geom/Point2D$Float.h>
 #include <java/awt/geom/Point2D.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/Math.h>
@@ -87,14 +85,11 @@ using $TextLine$Function = ::java::awt::font::TextLine$Function;
 using $TextLine$TextLineMetrics = ::java::awt::font::TextLine$TextLineMetrics;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $GeneralPath = ::java::awt::geom::GeneralPath;
-using $Path2D = ::java::awt::geom::Path2D;
-using $Path2D$Float = ::java::awt::geom::Path2D$Float;
 using $Point2D = ::java::awt::geom::Point2D;
 using $Point2D$Double = ::java::awt::geom::Point2D$Double;
 using $Point2D$Float = ::java::awt::geom::Point2D$Float;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;

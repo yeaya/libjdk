@@ -6,7 +6,6 @@
 #include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
 #include <java/io/UncheckedIOException.h>
-#include <java/lang/AbstractStringBuilder.h>
 #include <java/lang/Appendable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
@@ -21,7 +20,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/net/ConnectException.h>
 #include <java/net/InetSocketAddress.h>
-#include <java/net/SocketException.h>
 #include <java/net/URI.h>
 #include <java/net/URLPermission.h>
 #include <java/net/http/HttpClient.h>
@@ -130,7 +128,6 @@ using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $UncheckedIOException = ::java::io::UncheckedIOException;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $Appendable = ::java::lang::Appendable;
 using $AssertionError = ::java::lang::AssertionError;
 using $Boolean = ::java::lang::Boolean;
@@ -138,7 +135,6 @@ using $CharSequence = ::java::lang::CharSequence;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Error = ::java::lang::Error;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -150,7 +146,6 @@ using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $ConnectException = ::java::net::ConnectException;
 using $InetSocketAddress = ::java::net::InetSocketAddress;
-using $SocketException = ::java::net::SocketException;
 using $URI = ::java::net::URI;
 using $URLPermission = ::java::net::URLPermission;
 using $HttpClient = ::java::net::http::HttpClient;

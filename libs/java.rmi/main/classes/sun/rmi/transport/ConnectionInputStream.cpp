@@ -5,13 +5,9 @@
 #include <java/io/DataOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
-#include <java/io/ObjectInput.h>
-#include <java/io/ObjectInputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/rmi/RemoteException.h>
 #include <java/rmi/server/UID.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
@@ -38,15 +34,11 @@ using $DataOutput = ::java::io::DataOutput;
 using $DataOutputStream = ::java::io::DataOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
-using $ObjectInput = ::java::io::ObjectInput;
-using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RemoteException = ::java::rmi::RemoteException;
 using $UID = ::java::rmi::server::UID;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;

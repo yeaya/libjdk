@@ -4,17 +4,14 @@
 #include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/BoxLayout.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JMenuBar.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/MenuBarUI.h>
 #include <javax/swing/plaf/UIResource.h>
 #include <javax/swing/plaf/basic/BasicMenuBarUI.h>
-#include <javax/swing/plaf/basic/DefaultMenuLayout.h>
 #include <javax/swing/plaf/synth/SynthConstants.h>
 #include <javax/swing/plaf/synth/SynthContext.h>
 #include <javax/swing/plaf/synth/SynthLookAndFeel.h>
@@ -31,7 +28,6 @@ using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -41,10 +37,8 @@ using $BoxLayout = ::javax::swing::BoxLayout;
 using $JComponent = ::javax::swing::JComponent;
 using $JMenuBar = ::javax::swing::JMenuBar;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $MenuBarUI = ::javax::swing::plaf::MenuBarUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $BasicMenuBarUI = ::javax::swing::plaf::basic::BasicMenuBarUI;
-using $DefaultMenuLayout = ::javax::swing::plaf::basic::DefaultMenuLayout;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;

@@ -1,7 +1,6 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/trax/XSLTCSource.h>
 
 #include <com/sun/org/apache/xalan/internal/xsltc/DOM.h>
-#include <com/sun/org/apache/xalan/internal/xsltc/DOMEnhancedForDTM.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/StripFilter.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/DOMWSFilter.h>
@@ -11,7 +10,6 @@
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMManager.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMWSFilter.h>
-#include <com/sun/org/apache/xml/internal/dtm/ref/DTMManagerDefault.h>
 #include <java/lang/ThreadLocal.h>
 #include <javax/xml/transform/Source.h>
 #include <javax/xml/transform/stream/StreamSource.h>
@@ -21,7 +19,6 @@
 #undef XSLTC_SOURCE_ERR
 
 using $DOM = ::com::sun::org::apache::xalan::internal::xsltc::DOM;
-using $DOMEnhancedForDTM = ::com::sun::org::apache::xalan::internal::xsltc::DOMEnhancedForDTM;
 using $StripFilter = ::com::sun::org::apache::xalan::internal::xsltc::StripFilter;
 using $ErrorMsg = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ErrorMsg;
 using $DOMWSFilter = ::com::sun::org::apache::xalan::internal::xsltc::dom::DOMWSFilter;
@@ -30,7 +27,6 @@ using $XSLTCDTMManager = ::com::sun::org::apache::xalan::internal::xsltc::dom::X
 using $AbstractTranslet = ::com::sun::org::apache::xalan::internal::xsltc::runtime::AbstractTranslet;
 using $DTMManager = ::com::sun::org::apache::xml::internal::dtm::DTMManager;
 using $DTMWSFilter = ::com::sun::org::apache::xml::internal::dtm::DTMWSFilter;
-using $DTMManagerDefault = ::com::sun::org::apache::xml::internal::dtm::ref::DTMManagerDefault;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

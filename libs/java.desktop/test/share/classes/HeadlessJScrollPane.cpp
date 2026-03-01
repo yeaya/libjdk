@@ -22,7 +22,6 @@
 #include <java/awt/image/ColorModel.h>
 #include <java/util/Locale.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/ScrollPaneLayout.h>
 #include <jcpp.h>
@@ -58,7 +57,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
-using $JComponent = ::javax::swing::JComponent;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $ScrollPaneLayout = ::javax::swing::ScrollPaneLayout;
 

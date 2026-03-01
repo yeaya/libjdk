@@ -7,11 +7,9 @@
 #include <java/awt/BorderLayout.h>
 #include <java/awt/BufferCapabilities.h>
 #include <java/awt/Color.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Composite.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/awt/Cursor.h>
 #include <java/awt/Dialog$ModalExclusionType.h>
@@ -33,7 +31,6 @@
 #include <java/awt/Insets.h>
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
@@ -54,13 +51,11 @@
 #include <java/awt/event/WindowStateListener.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/Path2D$Float.h>
-#include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/Point2D$Double.h>
 #include <java/awt/geom/Point2D.h>
 #include <java/awt/im/InputContext.h>
 #include <java/awt/image/BufferStrategy.h>
 #include <java/awt/peer/ComponentPeer.h>
-#include <java/awt/peer/ContainerPeer.h>
 #include <java/awt/peer/WindowPeer.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/io/ObjectInputStream$GetField.h>
@@ -80,7 +75,6 @@
 #include <java/lang/ref/WeakReference.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/security/AccessController.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/util/AbstractCollection.h>
@@ -167,11 +161,9 @@ using $BorderLayout = ::java::awt::BorderLayout;
 using $BufferCapabilities = ::java::awt::BufferCapabilities;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Composite = ::java::awt::Composite;
 using $Container = ::java::awt::Container;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Cursor = ::java::awt::Cursor;
 using $Dialog = ::java::awt::Dialog;
 using $Dialog$ModalExclusionType = ::java::awt::Dialog$ModalExclusionType;
@@ -192,7 +184,6 @@ using $Image = ::java::awt::Image;
 using $Insets = ::java::awt::Insets;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
@@ -212,14 +203,12 @@ using $WindowFocusListener = ::java::awt::event::WindowFocusListener;
 using $WindowListener = ::java::awt::event::WindowListener;
 using $WindowStateListener = ::java::awt::event::WindowStateListener;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
-using $Path2D = ::java::awt::geom::Path2D;
 using $Path2D$Float = ::java::awt::geom::Path2D$Float;
 using $Point2D = ::java::awt::geom::Point2D;
 using $Point2D$Double = ::java::awt::geom::Point2D$Double;
 using $InputContext = ::java::awt::im::InputContext;
 using $BufferStrategy = ::java::awt::image::BufferStrategy;
 using $ComponentPeer = ::java::awt::peer::ComponentPeer;
-using $ContainerPeer = ::java::awt::peer::ContainerPeer;
 using $WindowPeer = ::java::awt::peer::WindowPeer;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
@@ -247,7 +236,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $AccessController = ::java::security::AccessController;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AbstractCollection = ::java::util::AbstractCollection;

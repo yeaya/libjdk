@@ -18,7 +18,6 @@
 #include <java/awt/image/DirectColorModel.h>
 #include <java/awt/image/IndexColorModel.h>
 #include <java/awt/image/MultiPixelPackedSampleModel.h>
-#include <java/awt/image/PackedColorModel.h>
 #include <java/awt/image/Raster.h>
 #include <java/awt/image/RenderedImage.h>
 #include <java/awt/image/SampleModel.h>
@@ -64,7 +63,6 @@ using $DataBufferUShort = ::java::awt::image::DataBufferUShort;
 using $DirectColorModel = ::java::awt::image::DirectColorModel;
 using $IndexColorModel = ::java::awt::image::IndexColorModel;
 using $MultiPixelPackedSampleModel = ::java::awt::image::MultiPixelPackedSampleModel;
-using $PackedColorModel = ::java::awt::image::PackedColorModel;
 using $Raster = ::java::awt::image::Raster;
 using $RenderedImage = ::java::awt::image::RenderedImage;
 using $SampleModel = ::java::awt::image::SampleModel;

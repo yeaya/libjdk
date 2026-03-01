@@ -6,15 +6,12 @@
 #include <com/sun/java/swing/plaf/windows/XPStyle$Skin.h>
 #include <com/sun/java/swing/plaf/windows/XPStyle.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/JComponent.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/EmptyBorder.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/ToolBarUI.h>
 #include <javax/swing/plaf/basic/BasicToolBarUI.h>
 #include <jcpp.h>
 
@@ -26,17 +23,14 @@ using $WindowsButtonUI = ::com::sun::java::swing::plaf::windows::WindowsButtonUI
 using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractButton = ::javax::swing::AbstractButton;
 using $JComponent = ::javax::swing::JComponent;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $ToolBarUI = ::javax::swing::plaf::ToolBarUI;
 using $BasicToolBarUI = ::javax::swing::plaf::basic::BasicToolBarUI;
 
 namespace com {

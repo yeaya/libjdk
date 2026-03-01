@@ -7,9 +7,7 @@
 #include <com/apple/eawt/event/RotationEvent.h>
 #include <com/apple/eawt/event/SwipeEvent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Window.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JRootPane.h>
 #include <javax/swing/RootPaneContainer.h>
 #include <javax/swing/SwingUtilities.h>
@@ -22,14 +20,12 @@ using $MagnificationEvent = ::com::apple::eawt::event::MagnificationEvent;
 using $RotationEvent = ::com::apple::eawt::event::RotationEvent;
 using $SwipeEvent = ::com::apple::eawt::event::SwipeEvent;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Window = ::java::awt::Window;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $RootPaneContainer = ::javax::swing::RootPaneContainer;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 

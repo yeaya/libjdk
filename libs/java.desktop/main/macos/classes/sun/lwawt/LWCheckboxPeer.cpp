@@ -7,7 +7,6 @@
 #include <java/awt/CheckboxGroup.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
@@ -24,7 +23,6 @@
 #include <java/awt/peer/ComponentPeer.h>
 #include <java/awt/peer/ContainerPeer.h>
 #include <java/lang/Runnable.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JToggleButton.h>
 #include <javax/swing/SwingUtilities.h>
@@ -42,7 +40,6 @@ using $Checkbox = ::java::awt::Checkbox;
 using $CheckboxGroup = ::java::awt::CheckboxGroup;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
@@ -62,7 +59,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JComponent = ::javax::swing::JComponent;
 using $JToggleButton = ::javax::swing::JToggleButton;
 using $SwingUtilities = ::javax::swing::SwingUtilities;

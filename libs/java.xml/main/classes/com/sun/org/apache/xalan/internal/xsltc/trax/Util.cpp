@@ -62,7 +62,6 @@ using $StAXStream2SAX = ::com::sun::org::apache::xalan::internal::xsltc::trax::S
 using $InputStream = ::java::io::InputStream;
 using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;

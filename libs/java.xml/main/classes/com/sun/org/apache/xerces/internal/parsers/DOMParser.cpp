@@ -3,7 +3,6 @@
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/parsers/AbstractDOMParser.h>
 #include <com/sun/org/apache/xerces/internal/parsers/XIncludeAwareParserConfiguration.h>
-#include <com/sun/org/apache/xerces/internal/parsers/XML11Configuration.h>
 #include <com/sun/org/apache/xerces/internal/parsers/XMLParser.h>
 #include <com/sun/org/apache/xerces/internal/util/EntityResolver2Wrapper.h>
 #include <com/sun/org/apache/xerces/internal/util/EntityResolverWrapper.h>
@@ -22,7 +21,6 @@
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLInputSource.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLParseException.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration.h>
-#include <com/sun/org/apache/xerces/internal/xni/parser/XMLPullParserConfiguration.h>
 #include <java/io/CharConversionException.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
@@ -69,7 +67,6 @@
 using $Constants = ::com::sun::org::apache::xerces::internal::impl::Constants;
 using $AbstractDOMParser = ::com::sun::org::apache::xerces::internal::parsers::AbstractDOMParser;
 using $XIncludeAwareParserConfiguration = ::com::sun::org::apache::xerces::internal::parsers::XIncludeAwareParserConfiguration;
-using $XML11Configuration = ::com::sun::org::apache::xerces::internal::parsers::XML11Configuration;
 using $XMLParser = ::com::sun::org::apache::xerces::internal::parsers::XMLParser;
 using $EntityResolver2Wrapper = ::com::sun::org::apache::xerces::internal::util::EntityResolver2Wrapper;
 using $EntityResolverWrapper = ::com::sun::org::apache::xerces::internal::util::EntityResolverWrapper;
@@ -88,7 +85,6 @@ using $XMLErrorHandler = ::com::sun::org::apache::xerces::internal::xni::parser:
 using $XMLInputSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLInputSource;
 using $XMLParseException = ::com::sun::org::apache::xerces::internal::xni::parser::XMLParseException;
 using $XMLParserConfiguration = ::com::sun::org::apache::xerces::internal::xni::parser::XMLParserConfiguration;
-using $XMLPullParserConfiguration = ::com::sun::org::apache::xerces::internal::xni::parser::XMLPullParserConfiguration;
 using $CharConversionException = ::java::io::CharConversionException;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;

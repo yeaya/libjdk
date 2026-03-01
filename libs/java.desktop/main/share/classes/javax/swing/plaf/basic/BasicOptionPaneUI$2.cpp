@@ -1,11 +1,8 @@
 #include <javax/swing/plaf/basic/BasicOptionPaneUI$2.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/event/HierarchyEvent.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JRootPane.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/plaf/basic/BasicOptionPaneUI.h>
@@ -14,16 +11,13 @@
 #undef PARENT_CHANGED
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $HierarchyEvent = ::java::awt::event::HierarchyEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JRootPane = ::javax::swing::JRootPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $BasicOptionPaneUI = ::javax::swing::plaf::basic::BasicOptionPaneUI;

@@ -3,7 +3,6 @@
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/swing/text/Element.h>
 #include <javax/swing/text/html/AccessibleHTML$ElementInfo.h>
-#include <javax/swing/text/html/AccessibleHTML$HTMLAccessibleContext.h>
 #include <javax/swing/text/html/AccessibleHTML$TextElementInfo$TextAccessibleContext.h>
 #include <javax/swing/text/html/AccessibleHTML.h>
 #include <jcpp.h>
@@ -16,7 +15,6 @@ using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $Element = ::javax::swing::text::Element;
 using $AccessibleHTML = ::javax::swing::text::html::AccessibleHTML;
 using $AccessibleHTML$ElementInfo = ::javax::swing::text::html::AccessibleHTML$ElementInfo;
-using $AccessibleHTML$HTMLAccessibleContext = ::javax::swing::text::html::AccessibleHTML$HTMLAccessibleContext;
 using $AccessibleHTML$TextElementInfo$TextAccessibleContext = ::javax::swing::text::html::AccessibleHTML$TextElementInfo$TextAccessibleContext;
 
 namespace javax {

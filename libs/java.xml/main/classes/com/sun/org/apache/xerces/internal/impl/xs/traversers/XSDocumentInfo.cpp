@@ -7,10 +7,8 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/traversers/XSAnnotationInfo.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/traversers/XSAttributeChecker.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/util/XInt.h>
-#include <com/sun/org/apache/xerces/internal/util/NamespaceSupport.h>
 #include <com/sun/org/apache/xerces/internal/util/SymbolTable.h>
 #include <com/sun/org/apache/xerces/internal/xni/NamespaceContext.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <java/util/Stack.h>
@@ -35,13 +33,11 @@ using $XMLSchemaException = ::com::sun::org::apache::xerces::internal::impl::xs:
 using $XSAnnotationInfo = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSAnnotationInfo;
 using $XSAttributeChecker = ::com::sun::org::apache::xerces::internal::impl::xs::traversers::XSAttributeChecker;
 using $XInt = ::com::sun::org::apache::xerces::internal::impl::xs::util::XInt;
-using $NamespaceSupport = ::com::sun::org::apache::xerces::internal::util::NamespaceSupport;
 using $SymbolTable = ::com::sun::org::apache::xerces::internal::util::SymbolTable;
 using $NamespaceContext = ::com::sun::org::apache::xerces::internal::xni::NamespaceContext;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $Stack = ::java::util::Stack;

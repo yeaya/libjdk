@@ -1,7 +1,6 @@
 #include <jdk/internal/net/http/Http1AsyncReceiver$Http1TubeSubscriber.h>
 
 #include <java/io/EOFException.h>
-#include <java/io/IOException.h>
 #include <java/lang/AssertionError.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/util/Iterator.h>
@@ -17,10 +16,8 @@
 #include <jcpp.h>
 
 using $EOFException = ::java::io::EOFException;
-using $IOException = ::java::io::IOException;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

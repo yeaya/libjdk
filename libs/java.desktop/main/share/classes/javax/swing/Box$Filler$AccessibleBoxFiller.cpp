@@ -2,24 +2,20 @@
 
 #include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <javax/accessibility/AccessibleRole.h>
 #include <javax/swing/Box$Filler.h>
-#include <javax/swing/JComponent.h>
 #include <jcpp.h>
 
 #undef FILLER
 
 using $Component = ::java::awt::Component;
 using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
-using $Container = ::java::awt::Container;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessibleRole = ::javax::accessibility::AccessibleRole;
 using $Box$Filler = ::javax::swing::Box$Filler;
-using $JComponent = ::javax::swing::JComponent;
 
 namespace javax {
 	namespace swing {

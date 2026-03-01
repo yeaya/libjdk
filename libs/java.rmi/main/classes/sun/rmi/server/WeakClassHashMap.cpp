@@ -2,7 +2,6 @@
 
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/SoftReference.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Map.h>
 #include <java/util/WeakHashMap.h>
 #include <sun/rmi/server/WeakClassHashMap$ValueCell.h>
@@ -14,7 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Reference = ::java::lang::ref::Reference;
 using $SoftReference = ::java::lang::ref::SoftReference;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Map = ::java::util::Map;
 using $WeakHashMap = ::java::util::WeakHashMap;
 using $WeakClassHashMap$ValueCell = ::sun::rmi::server::WeakClassHashMap$ValueCell;

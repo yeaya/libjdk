@@ -4,7 +4,6 @@
 #include <java/awt/Container.h>
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/awt/Window.h>
-#include <java/awt/event/FocusAdapter.h>
 #include <java/awt/event/FocusListener.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/event/KeyListener.h>
@@ -37,10 +36,8 @@
 
 using $MenuElementArray = $Array<::javax::swing::MenuElement>;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $Window = ::java::awt::Window;
-using $FocusAdapter = ::java::awt::event::FocusAdapter;
 using $FocusListener = ::java::awt::event::FocusListener;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $KeyListener = ::java::awt::event::KeyListener;

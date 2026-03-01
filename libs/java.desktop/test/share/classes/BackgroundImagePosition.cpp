@@ -7,7 +7,6 @@
 #include <java/awt/Graphics2D.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/RenderedImage.h>
-#include <java/awt/image/WritableRenderedImage.h>
 #include <java/io/File.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
@@ -21,9 +20,7 @@
 #include <javax/imageio/ImageIO.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane.h>
-#include <javax/swing/text/DefaultEditorKit.h>
 #include <javax/swing/text/EditorKit.h>
-#include <javax/swing/text/StyledEditorKit.h>
 #include <javax/swing/text/html/HTMLEditorKit.h>
 #include <jcpp.h>
 
@@ -37,7 +34,6 @@ using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $RenderedImage = ::java::awt::image::RenderedImage;
-using $WritableRenderedImage = ::java::awt::image::WritableRenderedImage;
 using $File = ::java::io::File;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -51,9 +47,7 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $ImageIO = ::javax::imageio::ImageIO;
 using $JEditorPane = ::javax::swing::JEditorPane;
-using $DefaultEditorKit = ::javax::swing::text::DefaultEditorKit;
 using $EditorKit = ::javax::swing::text::EditorKit;
-using $StyledEditorKit = ::javax::swing::text::StyledEditorKit;
 using $HTMLEditorKit = ::javax::swing::text::html::HTMLEditorKit;
 
 class BackgroundImagePosition$$Lambda$lambda$test$0 : public $Runnable {

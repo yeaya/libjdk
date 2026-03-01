@@ -4,7 +4,6 @@
 #include <java/io/File.h>
 #include <java/io/FileReader.h>
 #include <java/io/InputStream.h>
-#include <java/io/InputStreamReader.h>
 #include <java/io/OutputStream.h>
 #include <java/io/Reader.h>
 #include <java/lang/InterruptedException.h>
@@ -22,7 +21,6 @@ using $BufferedReader = ::java::io::BufferedReader;
 using $File = ::java::io::File;
 using $FileReader = ::java::io::FileReader;
 using $InputStream = ::java::io::InputStream;
-using $InputStreamReader = ::java::io::InputStreamReader;
 using $OutputStream = ::java::io::OutputStream;
 using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;

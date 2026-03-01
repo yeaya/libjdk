@@ -5,7 +5,6 @@
 #include <java/awt/EventQueue.h>
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Menu.h>
-#include <java/awt/MenuComponent$AccessibleAWTMenuComponent.h>
 #include <java/awt/MenuComponent.h>
 #include <java/awt/MenuContainer.h>
 #include <java/awt/MenuItem$1.h>
@@ -40,7 +39,6 @@ using $EventQueue = ::java::awt::EventQueue;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $Menu = ::java::awt::Menu;
 using $MenuComponent = ::java::awt::MenuComponent;
-using $MenuComponent$AccessibleAWTMenuComponent = ::java::awt::MenuComponent$AccessibleAWTMenuComponent;
 using $MenuContainer = ::java::awt::MenuContainer;
 using $MenuItem$1 = ::java::awt::MenuItem$1;
 using $MenuItem$AccessibleAWTMenuItem = ::java::awt::MenuItem$AccessibleAWTMenuItem;

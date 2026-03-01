@@ -1,7 +1,6 @@
 #include <com/sun/tools/javac/code/Types$9.h>
 
 #include <com/sun/tools/javac/code/Type$CapturedType.h>
-#include <com/sun/tools/javac/code/Type$TypeVar.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/Types$TypeMapping.h>
 #include <com/sun/tools/javac/code/Types.h>
@@ -9,7 +8,6 @@
 
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$CapturedType = ::com::sun::tools::javac::code::Type$CapturedType;
-using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $Types$TypeMapping = ::com::sun::tools::javac::code::Types$TypeMapping;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -1,14 +1,10 @@
 #include <sun/awt/X11/XTrayIconPeer.h>
 
 #include <java/awt/AWTException.h>
-#include <java/awt/Canvas.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Frame.h>
 #include <java/awt/GraphicsConfiguration.h>
-#include <java/awt/Menu.h>
 #include <java/awt/MenuComponent.h>
-#include <java/awt/MenuItem.h>
 #include <java/awt/Point.h>
 #include <java/awt/PopupMenu.h>
 #include <java/awt/Rectangle.h>
@@ -35,7 +31,6 @@
 #include <sun/awt/X11/InfoWindow$Tooltip.h>
 #include <sun/awt/X11/XBaseWindow.h>
 #include <sun/awt/X11/XConstants.h>
-#include <sun/awt/X11/XEmbeddedFrame.h>
 #include <sun/awt/X11/XEmbeddedFramePeer.h>
 #include <sun/awt/X11/XEventDispatcher.h>
 #include <sun/awt/X11/XSystemTrayPeer.h>
@@ -46,7 +41,6 @@
 #include <sun/awt/X11/XTrayIconPeer$4.h>
 #include <sun/awt/X11/XTrayIconPeer$5.h>
 #include <sun/awt/X11/XTrayIconPeer$6.h>
-#include <sun/awt/X11/XTrayIconPeer$IconCanvas.h>
 #include <sun/awt/X11/XTrayIconPeer$TrayIconCanvas.h>
 #include <sun/awt/X11/XTrayIconPeer$TrayIconEventProxy.h>
 #include <sun/awt/X11/XTrayIconPeer$XTrayIconEmbeddedFrame.h>
@@ -61,14 +55,10 @@
 #undef TRAY_ICON_WIDTH
 
 using $AWTException = ::java::awt::AWTException;
-using $Canvas = ::java::awt::Canvas;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Frame = ::java::awt::Frame;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
-using $Menu = ::java::awt::Menu;
 using $MenuComponent = ::java::awt::MenuComponent;
-using $MenuItem = ::java::awt::MenuItem;
 using $Point = ::java::awt::Point;
 using $PopupMenu = ::java::awt::PopupMenu;
 using $Rectangle = ::java::awt::Rectangle;
@@ -90,7 +80,6 @@ using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
 using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $AWTAccessor$WindowAccessor = ::sun::awt::AWTAccessor$WindowAccessor;
-using $EmbeddedFrame = ::sun::awt::EmbeddedFrame;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $InfoWindow$Balloon = ::sun::awt::X11::InfoWindow$Balloon;
 using $InfoWindow$Balloon$LiveArguments = ::sun::awt::X11::InfoWindow$Balloon$LiveArguments;
@@ -98,7 +87,6 @@ using $InfoWindow$Tooltip = ::sun::awt::X11::InfoWindow$Tooltip;
 using $InfoWindow$Tooltip$LiveArguments = ::sun::awt::X11::InfoWindow$Tooltip$LiveArguments;
 using $XBaseWindow = ::sun::awt::X11::XBaseWindow;
 using $XConstants = ::sun::awt::X11::XConstants;
-using $XEmbeddedFrame = ::sun::awt::X11::XEmbeddedFrame;
 using $XEmbeddedFramePeer = ::sun::awt::X11::XEmbeddedFramePeer;
 using $XEventDispatcher = ::sun::awt::X11::XEventDispatcher;
 using $XSystemTrayPeer = ::sun::awt::X11::XSystemTrayPeer;
@@ -109,7 +97,6 @@ using $XTrayIconPeer$3 = ::sun::awt::X11::XTrayIconPeer$3;
 using $XTrayIconPeer$4 = ::sun::awt::X11::XTrayIconPeer$4;
 using $XTrayIconPeer$5 = ::sun::awt::X11::XTrayIconPeer$5;
 using $XTrayIconPeer$6 = ::sun::awt::X11::XTrayIconPeer$6;
-using $XTrayIconPeer$IconCanvas = ::sun::awt::X11::XTrayIconPeer$IconCanvas;
 using $XTrayIconPeer$TrayIconCanvas = ::sun::awt::X11::XTrayIconPeer$TrayIconCanvas;
 using $XTrayIconPeer$TrayIconEventProxy = ::sun::awt::X11::XTrayIconPeer$TrayIconEventProxy;
 using $XTrayIconPeer$XTrayIconEmbeddedFrame = ::sun::awt::X11::XTrayIconPeer$XTrayIconEmbeddedFrame;

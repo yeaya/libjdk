@@ -1,6 +1,5 @@
 #include <javax/management/remote/rmi/RMIConnectorServer.h>
 
-#include <com/sun/jmx/remote/security/MBeanServerAccessController.h>
 #include <com/sun/jmx/remote/security/MBeanServerFileAccessController.h>
 #include <com/sun/jmx/remote/util/ClassLogger.h>
 #include <com/sun/jmx/remote/util/EnvHelp.h>
@@ -14,8 +13,6 @@
 #include <java/rmi/Remote.h>
 #include <java/rmi/server/RMIClientSocketFactory.h>
 #include <java/rmi/server/RMIServerSocketFactory.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
@@ -23,9 +20,7 @@
 #include <java/util/Map.h>
 #include <java/util/Set.h>
 #include <javax/management/InstanceNotFoundException.h>
-#include <javax/management/JMException.h>
 #include <javax/management/MBeanServer.h>
-#include <javax/management/OperationsException.h>
 #include <javax/management/remote/JMXConnector.h>
 #include <javax/management/remote/JMXConnectorServer.h>
 #include <javax/management/remote/JMXServiceURL.h>
@@ -47,7 +42,6 @@
 #undef STARTED
 #undef STOPPED
 
-using $MBeanServerAccessController = ::com::sun::jmx::remote::security::MBeanServerAccessController;
 using $MBeanServerFileAccessController = ::com::sun::jmx::remote::security::MBeanServerFileAccessController;
 using $ClassLogger = ::com::sun::jmx::remote::util::ClassLogger;
 using $EnvHelp = ::com::sun::jmx::remote::util::EnvHelp;
@@ -65,8 +59,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $MalformedURLException = ::java::net::MalformedURLException;
 using $RMIClientSocketFactory = ::java::rmi::server::RMIClientSocketFactory;
 using $RMIServerSocketFactory = ::java::rmi::server::RMIServerSocketFactory;
-using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
@@ -74,9 +66,7 @@ using $Hashtable = ::java::util::Hashtable;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $InstanceNotFoundException = ::javax::management::InstanceNotFoundException;
-using $JMException = ::javax::management::JMException;
 using $MBeanServer = ::javax::management::MBeanServer;
-using $OperationsException = ::javax::management::OperationsException;
 using $JMXConnector = ::javax::management::remote::JMXConnector;
 using $JMXConnectorServer = ::javax::management::remote::JMXConnectorServer;
 using $JMXServiceURL = ::javax::management::remote::JMXServiceURL;

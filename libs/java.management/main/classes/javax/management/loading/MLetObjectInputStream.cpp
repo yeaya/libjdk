@@ -6,8 +6,6 @@
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/reflect/Array.h>
-#include <java/net/URLClassLoader.h>
-#include <java/security/SecureClassLoader.h>
 #include <javax/management/loading/MLet.h>
 #include <jcpp.h>
 
@@ -31,8 +29,6 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Short = ::java::lang::Short;
 using $1Array = ::java::lang::reflect::Array;
-using $URLClassLoader = ::java::net::URLClassLoader;
-using $SecureClassLoader = ::java::security::SecureClassLoader;
 using $MLet = ::javax::management::loading::MLet;
 
 namespace javax {

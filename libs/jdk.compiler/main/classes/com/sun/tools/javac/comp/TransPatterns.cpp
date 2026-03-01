@@ -63,10 +63,8 @@
 #include <com/sun/tools/javac/tree/JCTree$JCMethodDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCMethodInvocation.h>
 #include <com/sun/tools/javac/tree/JCTree$JCModifiers.h>
-#include <com/sun/tools/javac/tree/JCTree$JCOperatorExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCParenthesizedPattern.h>
 #include <com/sun/tools/javac/tree/JCTree$JCPattern.h>
-#include <com/sun/tools/javac/tree/JCTree$JCPolyExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCStatement.h>
 #include <com/sun/tools/javac/tree/JCTree$JCSwitch.h>
 #include <com/sun/tools/javac/tree/JCTree$JCSwitchExpression.h>
@@ -181,10 +179,8 @@ using $JCTree$JCLiteral = ::com::sun::tools::javac::tree::JCTree$JCLiteral;
 using $JCTree$JCMethodDecl = ::com::sun::tools::javac::tree::JCTree$JCMethodDecl;
 using $JCTree$JCMethodInvocation = ::com::sun::tools::javac::tree::JCTree$JCMethodInvocation;
 using $JCTree$JCModifiers = ::com::sun::tools::javac::tree::JCTree$JCModifiers;
-using $JCTree$JCOperatorExpression = ::com::sun::tools::javac::tree::JCTree$JCOperatorExpression;
 using $JCTree$JCParenthesizedPattern = ::com::sun::tools::javac::tree::JCTree$JCParenthesizedPattern;
 using $JCTree$JCPattern = ::com::sun::tools::javac::tree::JCTree$JCPattern;
-using $JCTree$JCPolyExpression = ::com::sun::tools::javac::tree::JCTree$JCPolyExpression;
 using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
 using $JCTree$JCSwitch = ::com::sun::tools::javac::tree::JCTree$JCSwitch;
 using $JCTree$JCSwitchExpression = ::com::sun::tools::javac::tree::JCTree$JCSwitchExpression;

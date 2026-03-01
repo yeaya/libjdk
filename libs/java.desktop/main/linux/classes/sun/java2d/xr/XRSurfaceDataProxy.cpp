@@ -8,7 +8,6 @@
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/SurfaceDataProxy.h>
 #include <sun/java2d/loops/CompositeType.h>
-#include <sun/java2d/x11/XSurfaceData.h>
 #include <sun/java2d/xr/XRGraphicsConfig.h>
 #include <sun/java2d/xr/XRSurfaceData$XRPixmapSurfaceData.h>
 #include <sun/java2d/xr/XRSurfaceData.h>
@@ -28,7 +27,6 @@ using $OutOfMemoryError = ::java::lang::OutOfMemoryError;
 using $SurfaceData = ::sun::java2d::SurfaceData;
 using $SurfaceDataProxy = ::sun::java2d::SurfaceDataProxy;
 using $CompositeType = ::sun::java2d::loops::CompositeType;
-using $XSurfaceData = ::sun::java2d::x11::XSurfaceData;
 using $XRGraphicsConfig = ::sun::java2d::xr::XRGraphicsConfig;
 using $XRSurfaceData = ::sun::java2d::xr::XRSurfaceData;
 

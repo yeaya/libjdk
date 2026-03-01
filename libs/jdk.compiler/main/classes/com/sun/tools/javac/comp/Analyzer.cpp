@@ -17,7 +17,6 @@
 #include <com/sun/tools/javac/comp/Analyzer$DiamondInitializer.h>
 #include <com/sun/tools/javac/comp/Analyzer$LambdaAnalyzer.h>
 #include <com/sun/tools/javac/comp/Analyzer$RedundantLocalVarTypeAnalyzer.h>
-#include <com/sun/tools/javac/comp/Analyzer$RedundantLocalVarTypeAnalyzerBase.h>
 #include <com/sun/tools/javac/comp/Analyzer$RedundantLocalVarTypeAnalyzerForEach.h>
 #include <com/sun/tools/javac/comp/Analyzer$RedundantTypeArgAnalyzer.h>
 #include <com/sun/tools/javac/comp/Analyzer$RewritingContext.h>
@@ -92,7 +91,6 @@ using $Analyzer$DeferredAnalysisHelper = ::com::sun::tools::javac::comp::Analyze
 using $Analyzer$DiamondInitializer = ::com::sun::tools::javac::comp::Analyzer$DiamondInitializer;
 using $Analyzer$LambdaAnalyzer = ::com::sun::tools::javac::comp::Analyzer$LambdaAnalyzer;
 using $Analyzer$RedundantLocalVarTypeAnalyzer = ::com::sun::tools::javac::comp::Analyzer$RedundantLocalVarTypeAnalyzer;
-using $Analyzer$RedundantLocalVarTypeAnalyzerBase = ::com::sun::tools::javac::comp::Analyzer$RedundantLocalVarTypeAnalyzerBase;
 using $Analyzer$RedundantLocalVarTypeAnalyzerForEach = ::com::sun::tools::javac::comp::Analyzer$RedundantLocalVarTypeAnalyzerForEach;
 using $Analyzer$RedundantTypeArgAnalyzer = ::com::sun::tools::javac::comp::Analyzer$RedundantTypeArgAnalyzer;
 using $Analyzer$RewritingContext = ::com::sun::tools::javac::comp::Analyzer$RewritingContext;

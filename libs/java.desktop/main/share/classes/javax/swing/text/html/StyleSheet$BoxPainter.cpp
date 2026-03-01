@@ -7,7 +7,6 @@
 #include <java/awt/Graphics.h>
 #include <java/awt/Insets.h>
 #include <javax/swing/ImageIcon.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/BevelBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/text/AttributeSet.h>
@@ -61,7 +60,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $BevelBorder = ::javax::swing::border::BevelBorder;
 using $Border = ::javax::swing::border::Border;
 using $AttributeSet = ::javax::swing::text::AttributeSet;

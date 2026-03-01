@@ -5,9 +5,7 @@
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
-#include <java/awt/event/FocusAdapter.h>
 #include <java/awt/event/FocusListener.h>
-#include <java/awt/event/KeyAdapter.h>
 #include <java/awt/event/KeyListener.h>
 #include <java/awt/event/MouseEvent.h>
 #include <javax/swing/JComponent.h>
@@ -20,9 +18,7 @@ using $Color = ::java::awt::Color;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
-using $FocusAdapter = ::java::awt::event::FocusAdapter;
 using $FocusListener = ::java::awt::event::FocusListener;
-using $KeyAdapter = ::java::awt::event::KeyAdapter;
 using $KeyListener = ::java::awt::event::KeyListener;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $ClassInfo = ::java::lang::ClassInfo;

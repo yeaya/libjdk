@@ -3,18 +3,13 @@
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Event.h>
-#include <java/awt/Menu$AccessibleAWTMenu.h>
 #include <java/awt/Menu.h>
-#include <java/awt/MenuComponent$AccessibleAWTMenuComponent.h>
 #include <java/awt/MenuContainer.h>
-#include <java/awt/MenuItem$AccessibleAWTMenuItem.h>
 #include <java/awt/MenuItem.h>
 #include <java/awt/PopupMenu$1.h>
 #include <java/awt/PopupMenu$AccessibleAWTPopupMenu.h>
 #include <java/awt/peer/ComponentPeer.h>
 #include <java/awt/peer/MenuComponentPeer.h>
-#include <java/awt/peer/MenuItemPeer.h>
-#include <java/awt/peer/MenuPeer.h>
 #include <java/awt/peer/PopupMenuPeer.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <sun/awt/AWTAccessor$PopupMenuAccessor.h>
@@ -28,16 +23,11 @@ using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Event = ::java::awt::Event;
 using $Menu = ::java::awt::Menu;
-using $Menu$AccessibleAWTMenu = ::java::awt::Menu$AccessibleAWTMenu;
-using $MenuComponent$AccessibleAWTMenuComponent = ::java::awt::MenuComponent$AccessibleAWTMenuComponent;
 using $MenuContainer = ::java::awt::MenuContainer;
 using $MenuItem = ::java::awt::MenuItem;
-using $MenuItem$AccessibleAWTMenuItem = ::java::awt::MenuItem$AccessibleAWTMenuItem;
 using $PopupMenu$1 = ::java::awt::PopupMenu$1;
 using $PopupMenu$AccessibleAWTPopupMenu = ::java::awt::PopupMenu$AccessibleAWTPopupMenu;
 using $MenuComponentPeer = ::java::awt::peer::MenuComponentPeer;
-using $MenuItemPeer = ::java::awt::peer::MenuItemPeer;
-using $MenuPeer = ::java::awt::peer::MenuPeer;
 using $PopupMenuPeer = ::java::awt::peer::PopupMenuPeer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

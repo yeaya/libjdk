@@ -5,7 +5,6 @@
 #include <java/awt/ImageCapabilities.h>
 #include <java/awt/Transparency.h>
 #include <java/awt/image/ColorModel.h>
-#include <java/awt/image/VolatileImage.h>
 #include <java/lang/OutOfMemoryError.h>
 #include <sun/awt/X11GraphicsConfig.h>
 #include <sun/awt/image/SunVolatileImage.h>
@@ -13,7 +12,6 @@
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/x11/X11SurfaceData$X11PixmapSurfaceData.h>
 #include <sun/java2d/x11/X11SurfaceData.h>
-#include <sun/java2d/x11/XSurfaceData.h>
 #include <jcpp.h>
 
 #undef OPAQUE
@@ -23,7 +21,6 @@ using $Image = ::java::awt::Image;
 using $ImageCapabilities = ::java::awt::ImageCapabilities;
 using $Transparency = ::java::awt::Transparency;
 using $ColorModel = ::java::awt::image::ColorModel;
-using $VolatileImage = ::java::awt::image::VolatileImage;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Long = ::java::lang::Long;
@@ -35,7 +32,6 @@ using $SunVolatileImage = ::sun::awt::image::SunVolatileImage;
 using $VolatileSurfaceManager = ::sun::awt::image::VolatileSurfaceManager;
 using $SurfaceData = ::sun::java2d::SurfaceData;
 using $X11SurfaceData = ::sun::java2d::x11::X11SurfaceData;
-using $XSurfaceData = ::sun::java2d::x11::XSurfaceData;
 
 namespace sun {
 	namespace java2d {

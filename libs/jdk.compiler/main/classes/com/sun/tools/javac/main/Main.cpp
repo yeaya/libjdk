@@ -15,7 +15,6 @@
 #include <com/sun/tools/javac/main/Main$Result.h>
 #include <com/sun/tools/javac/main/Option$InvalidValueException.h>
 #include <com/sun/tools/javac/main/Option.h>
-#include <com/sun/tools/javac/main/OptionHelper$GrumpyHelper.h>
 #include <com/sun/tools/javac/main/OptionHelper.h>
 #include <com/sun/tools/javac/processing/AnnotationProcessingError.h>
 #include <com/sun/tools/javac/resources/CompilerProperties$Errors.h>
@@ -34,7 +33,6 @@
 #include <com/sun/tools/javac/util/PropagatedException.h>
 #include <java/io/BufferedWriter.h>
 #include <java/io/FileNotFoundException.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
@@ -42,12 +40,9 @@
 #include <java/io/Writer.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/Error.h>
 #include <java/lang/IllegalAccessError.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/IncompatibleClassChangeError.h>
 #include <java/lang/Iterable.h>
-#include <java/lang/LinkageError.h>
 #include <java/lang/OutOfMemoryError.h>
 #include <java/lang/StackOverflowError.h>
 #include <java/lang/VirtualMachineError.h>
@@ -104,7 +99,6 @@ using $Main$Result = ::com::sun::tools::javac::main::Main$Result;
 using $Option = ::com::sun::tools::javac::main::Option;
 using $Option$InvalidValueException = ::com::sun::tools::javac::main::Option$InvalidValueException;
 using $OptionHelper = ::com::sun::tools::javac::main::OptionHelper;
-using $OptionHelper$GrumpyHelper = ::com::sun::tools::javac::main::OptionHelper$GrumpyHelper;
 using $AnnotationProcessingError = ::com::sun::tools::javac::processing::AnnotationProcessingError;
 using $CompilerProperties$Errors = ::com::sun::tools::javac::resources::CompilerProperties$Errors;
 using $ClientCodeException = ::com::sun::tools::javac::util::ClientCodeException;
@@ -119,7 +113,6 @@ using $Log$WriterKind = ::com::sun::tools::javac::util::Log$WriterKind;
 using $Options = ::com::sun::tools::javac::util::Options;
 using $PropagatedException = ::com::sun::tools::javac::util::PropagatedException;
 using $FileNotFoundException = ::java::io::FileNotFoundException;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
@@ -130,20 +123,15 @@ using $Byte = ::java::lang::Byte;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
-using $Error = ::java::lang::Error;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessError = ::java::lang::IllegalAccessError;
 using $IllegalStateException = ::java::lang::IllegalStateException;
-using $IncompatibleClassChangeError = ::java::lang::IncompatibleClassChangeError;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
-using $LinkageError = ::java::lang::LinkageError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $OutOfMemoryError = ::java::lang::OutOfMemoryError;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $StackOverflowError = ::java::lang::StackOverflowError;
-using $VirtualMachineError = ::java::lang::VirtualMachineError;
 using $URL = ::java::net::URL;
 using $Files = ::java::nio::file::Files;
 using $NoSuchFileException = ::java::nio::file::NoSuchFileException;

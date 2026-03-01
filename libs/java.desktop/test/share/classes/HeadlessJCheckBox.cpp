@@ -26,7 +26,6 @@
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/JCheckBox.h>
 #include <javax/swing/JComponent.h>
-#include <javax/swing/JToggleButton.h>
 #include <jcpp.h>
 
 #undef BOLD
@@ -61,10 +60,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JCheckBox = ::javax::swing::JCheckBox;
-using $JComponent = ::javax::swing::JComponent;
-using $JToggleButton = ::javax::swing::JToggleButton;
 
 $MethodInfo _HeadlessJCheckBox_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJCheckBox, init$, void)},

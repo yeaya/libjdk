@@ -6,7 +6,6 @@
 #include <java/awt/Panel.h>
 #include <java/awt/Scrollbar.h>
 #include <java/awt/Window.h>
-#include <java/awt/event/ComponentEvent.h>
 #include <java/awt/event/FocusEvent$Cause.h>
 #include <java/awt/event/FocusEvent.h>
 #include <java/awt/peer/ComponentPeer.h>
@@ -35,7 +34,6 @@ using $Component = ::java::awt::Component;
 using $Panel = ::java::awt::Panel;
 using $Scrollbar = ::java::awt::Scrollbar;
 using $Window = ::java::awt::Window;
-using $ComponentEvent = ::java::awt::event::ComponentEvent;
 using $FocusEvent = ::java::awt::event::FocusEvent;
 using $FocusEvent$Cause = ::java::awt::event::FocusEvent$Cause;
 using $ComponentPeer = ::java::awt::peer::ComponentPeer;

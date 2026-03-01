@@ -1,6 +1,5 @@
 #include <javax/swing/plaf/basic/BasicTableUI$Actions.h>
 
-#include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
 #include <java/awt/Container.h>
@@ -13,7 +12,6 @@
 #include <java/util/EventObject.h>
 #include <javax/swing/CellEditor.h>
 #include <javax/swing/DefaultListSelectionModel.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/ListSelectionModel.h>
@@ -72,7 +70,6 @@
 #undef TOGGLE_AND_ANCHOR
 #undef TRUE
 
-using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Container = ::java::awt::Container;
@@ -89,7 +86,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $EventObject = ::java::util::EventObject;
 using $CellEditor = ::javax::swing::CellEditor;
 using $DefaultListSelectionModel = ::javax::swing::DefaultListSelectionModel;
-using $JComponent = ::javax::swing::JComponent;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JTable = ::javax::swing::JTable;
 using $ListSelectionModel = ::javax::swing::ListSelectionModel;

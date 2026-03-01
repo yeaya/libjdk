@@ -3,10 +3,8 @@
 #include <java/awt/AWTEvent.h>
 #include <java/awt/AWTPermission.h>
 #include <java/awt/Color.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
 #include <java/awt/Conditional.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dialog$1.h>
 #include <java/awt/Dialog$AccessibleAWTDialog.h>
@@ -24,7 +22,6 @@
 #include <java/awt/SecondaryLoop.h>
 #include <java/awt/Shape.h>
 #include <java/awt/Toolkit.h>
-#include <java/awt/Window$AccessibleAWTWindow.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ComponentEvent.h>
 #include <java/awt/event/ComponentListener.h>
@@ -32,9 +29,7 @@
 #include <java/awt/event/InvocationEvent.h>
 #include <java/awt/event/WindowEvent.h>
 #include <java/awt/peer/ComponentPeer.h>
-#include <java/awt/peer/ContainerPeer.h>
 #include <java/awt/peer/DialogPeer.h>
-#include <java/awt/peer/WindowPeer.h>
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/Serializable.h>
@@ -50,12 +45,10 @@
 #include <java/lang/ref/WeakReference.h>
 #include <java/security/AccessControlException.h>
 #include <java/security/AccessController.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/AbstractList.h>
-#include <java/util/AbstractSequentialList.h>
 #include <java/util/Collection.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -91,10 +84,8 @@ using $WindowArray = $Array<::java::awt::Window>;
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $Conditional = ::java::awt::Conditional;
 using $Container = ::java::awt::Container;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Dialog$1 = ::java::awt::Dialog$1;
 using $Dialog$AccessibleAWTDialog = ::java::awt::Dialog$AccessibleAWTDialog;
 using $Dialog$ModalExclusionType = ::java::awt::Dialog$ModalExclusionType;
@@ -112,15 +103,12 @@ using $SecondaryLoop = ::java::awt::SecondaryLoop;
 using $Shape = ::java::awt::Shape;
 using $Toolkit = ::java::awt::Toolkit;
 using $Window = ::java::awt::Window;
-using $Window$AccessibleAWTWindow = ::java::awt::Window$AccessibleAWTWindow;
 using $ComponentEvent = ::java::awt::event::ComponentEvent;
 using $HierarchyEvent = ::java::awt::event::HierarchyEvent;
 using $InvocationEvent = ::java::awt::event::InvocationEvent;
 using $WindowEvent = ::java::awt::event::WindowEvent;
 using $ComponentPeer = ::java::awt::peer::ComponentPeer;
-using $ContainerPeer = ::java::awt::peer::ContainerPeer;
 using $DialogPeer = ::java::awt::peer::DialogPeer;
-using $WindowPeer = ::java::awt::peer::WindowPeer;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectInputStream$GetField = ::java::io::ObjectInputStream$GetField;
 using $Serializable = ::java::io::Serializable;
@@ -139,12 +127,10 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $AccessControlException = ::java::security::AccessControlException;
 using $AccessController = ::java::security::AccessController;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AbstractCollection = ::java::util::AbstractCollection;
 using $AbstractList = ::java::util::AbstractList;
-using $AbstractSequentialList = ::java::util::AbstractSequentialList;
 using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;

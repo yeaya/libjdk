@@ -6,7 +6,6 @@
 #include <com/sun/media/sound/WaveExtensibleFileReader$GUID.h>
 #include <com/sun/media/sound/WaveFileFormat.h>
 #include <java/io/InputStream.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <javax/sound/sampled/AudioFileFormat$Type.h>
@@ -37,7 +36,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $AudioFileFormat$Type = ::javax::sound::sampled::AudioFileFormat$Type;

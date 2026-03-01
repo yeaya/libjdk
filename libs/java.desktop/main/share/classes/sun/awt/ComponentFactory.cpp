@@ -7,7 +7,6 @@
 #include <java/awt/CheckboxMenuItem.h>
 #include <java/awt/Choice.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Desktop.h>
 #include <java/awt/Dialog.h>
 #include <java/awt/FileDialog.h>
@@ -68,7 +67,6 @@ using $Checkbox = ::java::awt::Checkbox;
 using $CheckboxMenuItem = ::java::awt::CheckboxMenuItem;
 using $Choice = ::java::awt::Choice;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Desktop = ::java::awt::Desktop;
 using $Dialog = ::java::awt::Dialog;
 using $FileDialog = ::java::awt::FileDialog;

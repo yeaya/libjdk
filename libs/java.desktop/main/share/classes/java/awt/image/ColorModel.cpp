@@ -7,7 +7,6 @@
 #include <java/awt/image/ColorModel$1.h>
 #include <java/awt/image/DataBuffer.h>
 #include <java/awt/image/DirectColorModel.h>
-#include <java/awt/image/PackedColorModel.h>
 #include <java/awt/image/Raster.h>
 #include <java/awt/image/SampleModel.h>
 #include <java/awt/image/WritableRaster.h>
@@ -15,7 +14,6 @@
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collections.h>
 #include <java/util/Map.h>
@@ -42,7 +40,6 @@ using $ICC_ColorSpace = ::java::awt::color::ICC_ColorSpace;
 using $ColorModel$1 = ::java::awt::image::ColorModel$1;
 using $DataBuffer = ::java::awt::image::DataBuffer;
 using $DirectColorModel = ::java::awt::image::DirectColorModel;
-using $PackedColorModel = ::java::awt::image::PackedColorModel;
 using $Raster = ::java::awt::image::Raster;
 using $SampleModel = ::java::awt::image::SampleModel;
 using $WritableRaster = ::java::awt::image::WritableRaster;
@@ -60,7 +57,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Arrays = ::java::util::Arrays;
 using $Collections = ::java::util::Collections;
 using $Map = ::java::util::Map;

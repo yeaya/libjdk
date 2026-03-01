@@ -12,8 +12,6 @@
 #include <com/sun/tools/javac/util/JCDiagnostic$Error.h>
 #include <java/io/BufferedInputStream.h>
 #include <java/io/BufferedReader.h>
-#include <java/io/FilterInputStream.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
@@ -41,7 +39,6 @@
 #include <java/nio/file/Path.h>
 #include <java/nio/file/Paths.h>
 #include <java/text/MessageFormat.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
@@ -58,7 +55,6 @@
 #include <javax/tools/JavaFileManager.h>
 #include <javax/tools/JavaFileObject$Kind.h>
 #include <javax/tools/JavaFileObject.h>
-#include <javax/tools/SimpleJavaFileObject.h>
 #include <javax/tools/StandardJavaFileManager.h>
 #include <javax/tools/StandardLocation.h>
 #include <jdk/internal/misc/VM.h>
@@ -85,8 +81,6 @@ using $LauncherProperties$Errors = ::com::sun::tools::javac::resources::Launcher
 using $JCDiagnostic$Error = ::com::sun::tools::javac::util::JCDiagnostic$Error;
 using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $BufferedReader = ::java::io::BufferedReader;
-using $FilterInputStream = ::java::io::FilterInputStream;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
@@ -101,7 +95,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $Error = ::java::lang::Error;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -119,7 +112,6 @@ using $InvalidPathException = ::java::nio::file::InvalidPathException;
 using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 using $MessageFormat = ::java::text::MessageFormat;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
@@ -135,7 +127,6 @@ using $JavaFileManager = ::javax::tools::JavaFileManager;
 using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
-using $SimpleJavaFileObject = ::javax::tools::SimpleJavaFileObject;
 using $StandardJavaFileManager = ::javax::tools::StandardJavaFileManager;
 using $StandardLocation = ::javax::tools::StandardLocation;
 using $VM = ::jdk::internal::misc::VM;

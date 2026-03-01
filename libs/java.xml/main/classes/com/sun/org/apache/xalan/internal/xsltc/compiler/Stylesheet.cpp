@@ -6,12 +6,9 @@
 #include <com/sun/org/apache/bcel/internal/generic/ANEWARRAY.h>
 #include <com/sun/org/apache/bcel/internal/generic/ArrayInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/BasicType.h>
-#include <com/sun/org/apache/bcel/internal/generic/CPInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/CompoundInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/FieldGen.h>
-#include <com/sun/org/apache/bcel/internal/generic/FieldInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/FieldOrMethod.h>
 #include <com/sun/org/apache/bcel/internal/generic/GETFIELD.h>
 #include <com/sun/org/apache/bcel/internal/generic/GETSTATIC.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEINTERFACE.h>
@@ -22,9 +19,7 @@
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionList.h>
-#include <com/sun/org/apache/bcel/internal/generic/InvokeInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/LocalVariableGen.h>
-#include <com/sun/org/apache/bcel/internal/generic/LocalVariableInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/NEW.h>
 #include <com/sun/org/apache/bcel/internal/generic/NEWARRAY.h>
 #include <com/sun/org/apache/bcel/internal/generic/PUSH.h>
@@ -32,7 +27,6 @@
 #include <com/sun/org/apache/bcel/internal/generic/PUTSTATIC.h>
 #include <com/sun/org/apache/bcel/internal/generic/ReturnInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/StackInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/StoreInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/TargetLostException.h>
 #include <com/sun/org/apache/bcel/internal/generic/Type.h>
 #include <com/sun/org/apache/bcel/internal/util/InstructionFinder.h>
@@ -70,8 +64,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/HashMap.h>
@@ -150,12 +142,9 @@ using $InstructionHandleArray = $Array<::com::sun::org::apache::bcel::internal::
 using $TypeArray = $Array<::com::sun::org::apache::bcel::internal::generic::Type>;
 using $ANEWARRAY = ::com::sun::org::apache::bcel::internal::generic::ANEWARRAY;
 using $BasicType = ::com::sun::org::apache::bcel::internal::generic::BasicType;
-using $CPInstruction = ::com::sun::org::apache::bcel::internal::generic::CPInstruction;
 using $CompoundInstruction = ::com::sun::org::apache::bcel::internal::generic::CompoundInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $FieldGen = ::com::sun::org::apache::bcel::internal::generic::FieldGen;
-using $FieldInstruction = ::com::sun::org::apache::bcel::internal::generic::FieldInstruction;
-using $FieldOrMethod = ::com::sun::org::apache::bcel::internal::generic::FieldOrMethod;
 using $GETFIELD = ::com::sun::org::apache::bcel::internal::generic::GETFIELD;
 using $GETSTATIC = ::com::sun::org::apache::bcel::internal::generic::GETSTATIC;
 using $INVOKEINTERFACE = ::com::sun::org::apache::bcel::internal::generic::INVOKEINTERFACE;
@@ -166,15 +155,12 @@ using $ISTORE = ::com::sun::org::apache::bcel::internal::generic::ISTORE;
 using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
-using $InvokeInstruction = ::com::sun::org::apache::bcel::internal::generic::InvokeInstruction;
 using $LocalVariableGen = ::com::sun::org::apache::bcel::internal::generic::LocalVariableGen;
-using $LocalVariableInstruction = ::com::sun::org::apache::bcel::internal::generic::LocalVariableInstruction;
 using $NEW = ::com::sun::org::apache::bcel::internal::generic::NEW;
 using $NEWARRAY = ::com::sun::org::apache::bcel::internal::generic::NEWARRAY;
 using $PUSH = ::com::sun::org::apache::bcel::internal::generic::PUSH;
 using $PUTFIELD = ::com::sun::org::apache::bcel::internal::generic::PUTFIELD;
 using $PUTSTATIC = ::com::sun::org::apache::bcel::internal::generic::PUTSTATIC;
-using $StoreInstruction = ::com::sun::org::apache::bcel::internal::generic::StoreInstruction;
 using $TargetLostException = ::com::sun::org::apache::bcel::internal::generic::TargetLostException;
 using $1Type = ::com::sun::org::apache::bcel::internal::generic::Type;
 using $InstructionFinder = ::com::sun::org::apache::bcel::internal::util::InstructionFinder;
@@ -213,8 +199,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;

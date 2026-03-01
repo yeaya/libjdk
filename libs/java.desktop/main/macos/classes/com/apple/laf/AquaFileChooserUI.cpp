@@ -1,6 +1,5 @@
 #include <com/apple/laf/AquaFileChooserUI.h>
 
-#include <com/apple/laf/AquaComboBoxRendererInternal.h>
 #include <com/apple/laf/AquaFileChooserUI$1.h>
 #include <com/apple/laf/AquaFileChooserUI$2.h>
 #include <com/apple/laf/AquaFileChooserUI$3.h>
@@ -14,7 +13,6 @@
 #include <com/apple/laf/AquaFileChooserUI$CustomFilePanel.h>
 #include <com/apple/laf/AquaFileChooserUI$DateRenderer.h>
 #include <com/apple/laf/AquaFileChooserUI$DefaultButtonAction.h>
-#include <com/apple/laf/AquaFileChooserUI$DirOrAnyPanel.h>
 #include <com/apple/laf/AquaFileChooserUI$DirectoryComboBoxAction.h>
 #include <com/apple/laf/AquaFileChooserUI$DirectoryComboBoxModel.h>
 #include <com/apple/laf/AquaFileChooserUI$DnDHandler.h>
@@ -26,7 +24,6 @@
 #include <com/apple/laf/AquaFileChooserUI$FilterComboBoxModel.h>
 #include <com/apple/laf/AquaFileChooserUI$JSortingTableHeader.h>
 #include <com/apple/laf/AquaFileChooserUI$JTableExtension.h>
-#include <com/apple/laf/AquaFileChooserUI$MacFCTableCellRenderer.h>
 #include <com/apple/laf/AquaFileChooserUI$MacListSelectionModel.h>
 #include <com/apple/laf/AquaFileChooserUI$NewFolderAction.h>
 #include <com/apple/laf/AquaFileChooserUI$OpenDirOrAnyPanel.h>
@@ -50,15 +47,12 @@
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/dnd/DnDConstants.h>
 #include <java/awt/dnd/DropTarget.h>
-#include <java/awt/dnd/DropTargetAdapter.h>
 #include <java/awt/dnd/DropTargetListener.h>
 #include <java/awt/event/ActionListener.h>
 #include <java/awt/event/FocusListener.h>
 #include <java/awt/event/KeyEvent.h>
-#include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
@@ -70,12 +64,10 @@
 #include <java/util/Objects.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/swing/AbstractAction.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/Box.h>
 #include <javax/swing/BoxLayout.h>
 #include <javax/swing/ComboBoxModel.h>
-#include <javax/swing/DefaultListSelectionModel.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComboBox.h>
@@ -105,14 +97,11 @@
 #include <javax/swing/plaf/ComboBoxUI.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/FileChooserUI.h>
-#include <javax/swing/table/AbstractTableModel.h>
-#include <javax/swing/table/DefaultTableCellRenderer.h>
 #include <javax/swing/table/JTableHeader.h>
 #include <javax/swing/table/TableCellRenderer.h>
 #include <javax/swing/table/TableColumnModel.h>
 #include <javax/swing/table/TableModel.h>
 #include <javax/swing/text/Document.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef ACTION_COPY
@@ -153,7 +142,6 @@
 #undef Y_AXIS
 
 using $AbstractActionArray = $Array<::javax::swing::AbstractAction>;
-using $AquaComboBoxRendererInternal = ::com::apple::laf::AquaComboBoxRendererInternal;
 using $AquaFileChooserUI$1 = ::com::apple::laf::AquaFileChooserUI$1;
 using $AquaFileChooserUI$2 = ::com::apple::laf::AquaFileChooserUI$2;
 using $AquaFileChooserUI$3 = ::com::apple::laf::AquaFileChooserUI$3;
@@ -167,7 +155,6 @@ using $AquaFileChooserUI$CustomDirOrAnyPanel = ::com::apple::laf::AquaFileChoose
 using $AquaFileChooserUI$CustomFilePanel = ::com::apple::laf::AquaFileChooserUI$CustomFilePanel;
 using $AquaFileChooserUI$DateRenderer = ::com::apple::laf::AquaFileChooserUI$DateRenderer;
 using $AquaFileChooserUI$DefaultButtonAction = ::com::apple::laf::AquaFileChooserUI$DefaultButtonAction;
-using $AquaFileChooserUI$DirOrAnyPanel = ::com::apple::laf::AquaFileChooserUI$DirOrAnyPanel;
 using $AquaFileChooserUI$DirectoryComboBoxAction = ::com::apple::laf::AquaFileChooserUI$DirectoryComboBoxAction;
 using $AquaFileChooserUI$DirectoryComboBoxModel = ::com::apple::laf::AquaFileChooserUI$DirectoryComboBoxModel;
 using $AquaFileChooserUI$DnDHandler = ::com::apple::laf::AquaFileChooserUI$DnDHandler;
@@ -179,7 +166,6 @@ using $AquaFileChooserUI$FilterComboBoxAction = ::com::apple::laf::AquaFileChoos
 using $AquaFileChooserUI$FilterComboBoxModel = ::com::apple::laf::AquaFileChooserUI$FilterComboBoxModel;
 using $AquaFileChooserUI$JSortingTableHeader = ::com::apple::laf::AquaFileChooserUI$JSortingTableHeader;
 using $AquaFileChooserUI$JTableExtension = ::com::apple::laf::AquaFileChooserUI$JTableExtension;
-using $AquaFileChooserUI$MacFCTableCellRenderer = ::com::apple::laf::AquaFileChooserUI$MacFCTableCellRenderer;
 using $AquaFileChooserUI$MacListSelectionModel = ::com::apple::laf::AquaFileChooserUI$MacListSelectionModel;
 using $AquaFileChooserUI$NewFolderAction = ::com::apple::laf::AquaFileChooserUI$NewFolderAction;
 using $AquaFileChooserUI$OpenDirOrAnyPanel = ::com::apple::laf::AquaFileChooserUI$OpenDirOrAnyPanel;
@@ -203,15 +189,12 @@ using $FlowLayout = ::java::awt::FlowLayout;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $DnDConstants = ::java::awt::dnd::DnDConstants;
 using $DropTarget = ::java::awt::dnd::DropTarget;
-using $DropTargetAdapter = ::java::awt::dnd::DropTargetAdapter;
 using $DropTargetListener = ::java::awt::dnd::DropTargetListener;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $FocusListener = ::java::awt::event::FocusListener;
 using $KeyEvent = ::java::awt::event::KeyEvent;
-using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
@@ -228,12 +211,10 @@ using $Locale = ::java::util::Locale;
 using $Objects = ::java::util::Objects;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AbstractAction = ::javax::swing::AbstractAction;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $Action = ::javax::swing::Action;
 using $Box = ::javax::swing::Box;
 using $BoxLayout = ::javax::swing::BoxLayout;
 using $ComboBoxModel = ::javax::swing::ComboBoxModel;
-using $DefaultListSelectionModel = ::javax::swing::DefaultListSelectionModel;
 using $Icon = ::javax::swing::Icon;
 using $JButton = ::javax::swing::JButton;
 using $JComboBox = ::javax::swing::JComboBox;
@@ -262,13 +243,10 @@ using $ButtonUI = ::javax::swing::plaf::ButtonUI;
 using $ComboBoxUI = ::javax::swing::plaf::ComboBoxUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $FileChooserUI = ::javax::swing::plaf::FileChooserUI;
-using $AbstractTableModel = ::javax::swing::table::AbstractTableModel;
-using $DefaultTableCellRenderer = ::javax::swing::table::DefaultTableCellRenderer;
 using $JTableHeader = ::javax::swing::table::JTableHeader;
 using $TableCellRenderer = ::javax::swing::table::TableCellRenderer;
 using $TableModel = ::javax::swing::table::TableModel;
 using $Document = ::javax::swing::text::Document;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 namespace com {
 	namespace apple {

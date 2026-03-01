@@ -36,9 +36,7 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/LastCall.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/LiteralExpr.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/LocalNameCall.h>
-#include <com/sun/org/apache/xalan/internal/xsltc/compiler/LocationPathPattern.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/LogicalExpr.h>
-#include <com/sun/org/apache/xalan/internal/xsltc/compiler/NameBase.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/NameCall.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/NamespaceUriCall.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/NodeTest.h>
@@ -71,12 +69,10 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/UnresolvedRef.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Variable.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/VariableRef.h>
-#include <com/sun/org/apache/xalan/internal/xsltc/compiler/VariableRefBase.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/XPathParser.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/Operators.h>
 #include <com/sun/org/apache/xml/internal/dtm/Axis.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <java/util/Stack.h>
@@ -154,9 +150,7 @@ using $LangCall = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Lan
 using $LastCall = ::com::sun::org::apache::xalan::internal::xsltc::compiler::LastCall;
 using $LiteralExpr = ::com::sun::org::apache::xalan::internal::xsltc::compiler::LiteralExpr;
 using $LocalNameCall = ::com::sun::org::apache::xalan::internal::xsltc::compiler::LocalNameCall;
-using $LocationPathPattern = ::com::sun::org::apache::xalan::internal::xsltc::compiler::LocationPathPattern;
 using $LogicalExpr = ::com::sun::org::apache::xalan::internal::xsltc::compiler::LogicalExpr;
-using $NameBase = ::com::sun::org::apache::xalan::internal::xsltc::compiler::NameBase;
 using $NameCall = ::com::sun::org::apache::xalan::internal::xsltc::compiler::NameCall;
 using $NamespaceUriCall = ::com::sun::org::apache::xalan::internal::xsltc::compiler::NamespaceUriCall;
 using $NodeTest = ::com::sun::org::apache::xalan::internal::xsltc::compiler::NodeTest;
@@ -189,7 +183,6 @@ using $UnparsedEntityUriCall = ::com::sun::org::apache::xalan::internal::xsltc::
 using $UnresolvedRef = ::com::sun::org::apache::xalan::internal::xsltc::compiler::UnresolvedRef;
 using $Variable = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Variable;
 using $VariableRef = ::com::sun::org::apache::xalan::internal::xsltc::compiler::VariableRef;
-using $VariableRefBase = ::com::sun::org::apache::xalan::internal::xsltc::compiler::VariableRefBase;
 using $XPathParser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::XPathParser;
 using $Operators = ::com::sun::org::apache::xalan::internal::xsltc::runtime::Operators;
 using $Axis = ::com::sun::org::apache::xml::internal::dtm::Axis;
@@ -201,7 +194,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $Stack = ::java::util::Stack;

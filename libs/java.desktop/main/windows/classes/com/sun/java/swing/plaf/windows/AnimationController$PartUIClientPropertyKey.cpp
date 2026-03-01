@@ -2,7 +2,6 @@
 
 #include <com/sun/java/swing/plaf/windows/AnimationController.h>
 #include <com/sun/java/swing/plaf/windows/TMSchema$Part.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/EnumMap.h>
 #include <java/util/Map.h>
 #include <jcpp.h>
@@ -12,7 +11,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $EnumMap = ::java::util::EnumMap;
 using $Map = ::java::util::Map;
 

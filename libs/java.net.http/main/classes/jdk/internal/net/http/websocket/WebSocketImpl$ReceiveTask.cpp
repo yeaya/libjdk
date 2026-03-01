@@ -56,7 +56,6 @@ using $ProtocolException = ::java::net::ProtocolException;
 using $WebSocket = ::java::net::http::WebSocket;
 using $WebSocket$Listener = ::java::net::http::WebSocket$Listener;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $CompletionStage = ::java::util::concurrent::CompletionStage;
 using $AtomicBoolean = ::java::util::concurrent::atomic::AtomicBoolean;
 using $AtomicLong = ::java::util::concurrent::atomic::AtomicLong;

@@ -6,7 +6,6 @@
 #include <javax/swing/DefaultListCellRenderer.h>
 #include <javax/swing/JComboBox.h>
 #include <javax/swing/ListCellRenderer.h>
-#include <javax/swing/MutableComboBoxModel.h>
 #include <jcpp.h>
 
 #undef TEST_ELEMENT1
@@ -23,7 +22,6 @@ using $DefaultComboBoxModel = ::javax::swing::DefaultComboBoxModel;
 using $DefaultListCellRenderer = ::javax::swing::DefaultListCellRenderer;
 using $JComboBox = ::javax::swing::JComboBox;
 using $ListCellRenderer = ::javax::swing::ListCellRenderer;
-using $MutableComboBoxModel = ::javax::swing::MutableComboBoxModel;
 
 $FieldInfo _bug7031551_FieldInfo_[] = {
 	{"TEST_ELEMENT1", "Ljava/lang/String;", nullptr, $PRIVATE | $STATIC | $FINAL, $staticField(bug7031551, TEST_ELEMENT1)},

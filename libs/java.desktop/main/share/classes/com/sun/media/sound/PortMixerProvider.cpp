@@ -1,6 +1,5 @@
 #include <com/sun/media/sound/PortMixerProvider.h>
 
-#include <com/sun/media/sound/AbstractMixer.h>
 #include <com/sun/media/sound/Platform.h>
 #include <com/sun/media/sound/PortMixer.h>
 #include <com/sun/media/sound/PortMixerProvider$PortMixerInfo.h>
@@ -12,7 +11,6 @@
 using $PortMixerArray = $Array<::com::sun::media::sound::PortMixer>;
 using $PortMixerProvider$PortMixerInfoArray = $Array<::com::sun::media::sound::PortMixerProvider$PortMixerInfo>;
 using $Mixer$InfoArray = $Array<::javax::sound::sampled::Mixer$Info>;
-using $AbstractMixer = ::com::sun::media::sound::AbstractMixer;
 using $Platform = ::com::sun::media::sound::Platform;
 using $PortMixer = ::com::sun::media::sound::PortMixer;
 using $PortMixerProvider$PortMixerInfo = ::com::sun::media::sound::PortMixerProvider$PortMixerInfo;

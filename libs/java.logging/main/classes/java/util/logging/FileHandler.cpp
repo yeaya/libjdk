@@ -3,7 +3,6 @@
 #include <java/io/BufferedOutputStream.h>
 #include <java/io/File.h>
 #include <java/io/FileOutputStream.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/lang/AssertionError.h>
@@ -22,7 +21,6 @@
 #include <java/nio/file/StandardOpenOption.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
 #include <java/util/Set.h>
@@ -56,7 +54,6 @@ using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;
 using $BufferedOutputStream = ::java::io::BufferedOutputStream;
 using $File = ::java::io::File;
 using $FileOutputStream = ::java::io::FileOutputStream;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $AssertionError = ::java::lang::AssertionError;
@@ -82,7 +79,6 @@ using $Paths = ::java::nio::file::Paths;
 using $StandardOpenOption = ::java::nio::file::StandardOpenOption;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $AbstractSet = ::java::util::AbstractSet;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $Set = ::java::util::Set;

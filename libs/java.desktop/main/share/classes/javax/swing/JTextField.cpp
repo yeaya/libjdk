@@ -1,9 +1,7 @@
 #include <javax/swing/JTextField.h>
 
 #include <java/awt/AWTEvent.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/EventQueue.h>
@@ -20,10 +18,8 @@
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
-#include <javax/swing/ActionPropertyChangeListener.h>
 #include <javax/swing/BoundedRangeModel.h>
 #include <javax/swing/DefaultBoundedRangeModel.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JTextField$AccessibleJTextField.h>
 #include <javax/swing/JTextField$NotifyAction.h>
@@ -35,9 +31,7 @@
 #include <javax/swing/event/ChangeListener.h>
 #include <javax/swing/event/EventListenerList.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/text/AbstractDocument.h>
 #include <javax/swing/text/Document.h>
-#include <javax/swing/text/JTextComponent$AccessibleJTextComponent.h>
 #include <javax/swing/text/JTextComponent.h>
 #include <javax/swing/text/PlainDocument.h>
 #include <javax/swing/text/TextAction.h>
@@ -57,9 +51,6 @@ using $ActionListenerArray = $Array<::java::awt::event::ActionListener>;
 using $ActionArray = $Array<::javax::swing::Action>;
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
-using $Container = ::java::awt::Container;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Dimension = ::java::awt::Dimension;
 using $EventQueue = ::java::awt::EventQueue;
 using $Font = ::java::awt::Font;
@@ -84,11 +75,9 @@ using $EventListener = ::java::util::EventListener;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AbstractAction = ::javax::swing::AbstractAction;
 using $Action = ::javax::swing::Action;
-using $ActionPropertyChangeListener = ::javax::swing::ActionPropertyChangeListener;
 using $BoundedRangeModel = ::javax::swing::BoundedRangeModel;
 using $DefaultBoundedRangeModel = ::javax::swing::DefaultBoundedRangeModel;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JTextField$AccessibleJTextField = ::javax::swing::JTextField$AccessibleJTextField;
 using $JTextField$NotifyAction = ::javax::swing::JTextField$NotifyAction;
 using $JTextField$ScrollRepainter = ::javax::swing::JTextField$ScrollRepainter;
@@ -99,10 +88,8 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
 using $EventListenerList = ::javax::swing::event::EventListenerList;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $AbstractDocument = ::javax::swing::text::AbstractDocument;
 using $Document = ::javax::swing::text::Document;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
-using $JTextComponent$AccessibleJTextComponent = ::javax::swing::text::JTextComponent$AccessibleJTextComponent;
 using $PlainDocument = ::javax::swing::text::PlainDocument;
 using $TextAction = ::javax::swing::text::TextAction;
 

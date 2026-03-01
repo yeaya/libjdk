@@ -2,7 +2,6 @@
 
 #include <bug8078268.h>
 #include <java/io/FileReader.h>
-#include <java/io/InputStreamReader.h>
 #include <java/io/Reader.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/html/HTMLEditorKit.h>
@@ -10,7 +9,6 @@
 
 using $bug8078268 = ::bug8078268;
 using $FileReader = ::java::io::FileReader;
-using $InputStreamReader = ::java::io::InputStreamReader;
 using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

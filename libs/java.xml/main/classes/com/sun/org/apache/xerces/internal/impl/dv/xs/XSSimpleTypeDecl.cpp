@@ -7,7 +7,6 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/ValidationContext.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/XSFacets.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/XSSimpleType.h>
-#include <com/sun/org/apache/xerces/internal/impl/dv/xs/AbstractDateTimeDV.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/AnyAtomicDV.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/AnySimpleDV.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/AnyURIDV.h>
@@ -40,7 +39,6 @@
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl$2.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl$3.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl$4.h>
-#include <com/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl$AbstractObjectList.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl$ValidationContextImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl$XSFacetImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/xs/XSSimpleTypeDecl$XSMVFacetImpl.h>
@@ -69,7 +67,6 @@
 #include <com/sun/org/apache/xerces/internal/xs/XSTypeDefinition.h>
 #include <com/sun/org/apache/xerces/internal/xs/datatypes/ObjectList.h>
 #include <java/lang/StringBuffer.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <java/util/Locale.h>
@@ -176,7 +173,6 @@ using $ValidatedInfo = ::com::sun::org::apache::xerces::internal::impl::dv::Vali
 using $ValidationContext = ::com::sun::org::apache::xerces::internal::impl::dv::ValidationContext;
 using $XSFacets = ::com::sun::org::apache::xerces::internal::impl::dv::XSFacets;
 using $XSSimpleType = ::com::sun::org::apache::xerces::internal::impl::dv::XSSimpleType;
-using $AbstractDateTimeDV = ::com::sun::org::apache::xerces::internal::impl::dv::xs::AbstractDateTimeDV;
 using $AnyAtomicDV = ::com::sun::org::apache::xerces::internal::impl::dv::xs::AnyAtomicDV;
 using $AnySimpleDV = ::com::sun::org::apache::xerces::internal::impl::dv::xs::AnySimpleDV;
 using $AnyURIDV = ::com::sun::org::apache::xerces::internal::impl::dv::xs::AnyURIDV;
@@ -209,7 +205,6 @@ using $XSSimpleTypeDecl$1 = ::com::sun::org::apache::xerces::internal::impl::dv:
 using $XSSimpleTypeDecl$2 = ::com::sun::org::apache::xerces::internal::impl::dv::xs::XSSimpleTypeDecl$2;
 using $XSSimpleTypeDecl$3 = ::com::sun::org::apache::xerces::internal::impl::dv::xs::XSSimpleTypeDecl$3;
 using $XSSimpleTypeDecl$4 = ::com::sun::org::apache::xerces::internal::impl::dv::xs::XSSimpleTypeDecl$4;
-using $XSSimpleTypeDecl$AbstractObjectList = ::com::sun::org::apache::xerces::internal::impl::dv::xs::XSSimpleTypeDecl$AbstractObjectList;
 using $XSSimpleTypeDecl$ValidationContextImpl = ::com::sun::org::apache::xerces::internal::impl::dv::xs::XSSimpleTypeDecl$ValidationContextImpl;
 using $XSSimpleTypeDecl$XSFacetImpl = ::com::sun::org::apache::xerces::internal::impl::dv::xs::XSSimpleTypeDecl$XSFacetImpl;
 using $XSSimpleTypeDecl$XSMVFacetImpl = ::com::sun::org::apache::xerces::internal::impl::dv::xs::XSSimpleTypeDecl$XSMVFacetImpl;
@@ -244,7 +239,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $StringBuffer = ::java::lang::StringBuffer;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $StringTokenizer = ::java::util::StringTokenizer;

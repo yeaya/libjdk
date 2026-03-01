@@ -5,7 +5,6 @@
 #include <java/awt/AWTPermission.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
-#include <java/awt/ContainerOrderFocusTraversalPolicy.h>
 #include <java/awt/DefaultFocusTraversalPolicy.h>
 #include <java/awt/DefaultKeyboardFocusManager.h>
 #include <java/awt/Dialog.h>
@@ -24,7 +23,6 @@
 #include <java/awt/SequencedEvent.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/Window.h>
-#include <java/awt/event/ComponentEvent.h>
 #include <java/awt/event/FocusEvent$Cause.h>
 #include <java/awt/event/FocusEvent.h>
 #include <java/awt/event/InputEvent.h>
@@ -44,11 +42,8 @@
 #include <java/lang/SecurityManager.h>
 #include <java/lang/ref/WeakReference.h>
 #include <java/security/AccessController.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/HashSet.h>
@@ -106,7 +101,6 @@ using $AWTKeyStroke = ::java::awt::AWTKeyStroke;
 using $AWTPermission = ::java::awt::AWTPermission;
 using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
-using $ContainerOrderFocusTraversalPolicy = ::java::awt::ContainerOrderFocusTraversalPolicy;
 using $DefaultFocusTraversalPolicy = ::java::awt::DefaultFocusTraversalPolicy;
 using $DefaultKeyboardFocusManager = ::java::awt::DefaultKeyboardFocusManager;
 using $Dialog = ::java::awt::Dialog;
@@ -125,7 +119,6 @@ using $KeyboardFocusManager$LightweightFocusRequest = ::java::awt::KeyboardFocus
 using $SequencedEvent = ::java::awt::SequencedEvent;
 using $Toolkit = ::java::awt::Toolkit;
 using $Window = ::java::awt::Window;
-using $ComponentEvent = ::java::awt::event::ComponentEvent;
 using $FocusEvent = ::java::awt::event::FocusEvent;
 using $FocusEvent$Cause = ::java::awt::event::FocusEvent$Cause;
 using $InputEvent = ::java::awt::event::InputEvent;
@@ -143,7 +136,6 @@ using $AssertionError = ::java::lang::AssertionError;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Error = ::java::lang::Error;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -153,11 +145,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $AccessController = ::java::security::AccessController;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashSet = ::java::util::HashSet;

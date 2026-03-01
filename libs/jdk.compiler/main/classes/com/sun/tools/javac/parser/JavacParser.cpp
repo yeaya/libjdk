@@ -62,7 +62,6 @@
 #include <com/sun/tools/javac/tree/JCTree$JCExpressionStatement.h>
 #include <com/sun/tools/javac/tree/JCTree$JCFieldAccess.h>
 #include <com/sun/tools/javac/tree/JCTree$JCForLoop.h>
-#include <com/sun/tools/javac/tree/JCTree$JCFunctionalExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCGuardPattern.h>
 #include <com/sun/tools/javac/tree/JCTree$JCIdent.h>
 #include <com/sun/tools/javac/tree/JCTree$JCIf.h>
@@ -79,12 +78,10 @@
 #include <com/sun/tools/javac/tree/JCTree$JCNewArray.h>
 #include <com/sun/tools/javac/tree/JCTree$JCNewClass.h>
 #include <com/sun/tools/javac/tree/JCTree$JCOpens.h>
-#include <com/sun/tools/javac/tree/JCTree$JCOperatorExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCPackageDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCParens.h>
 #include <com/sun/tools/javac/tree/JCTree$JCParenthesizedPattern.h>
 #include <com/sun/tools/javac/tree/JCTree$JCPattern.h>
-#include <com/sun/tools/javac/tree/JCTree$JCPolyExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCPrimitiveTypeTree.h>
 #include <com/sun/tools/javac/tree/JCTree$JCProvides.h>
 #include <com/sun/tools/javac/tree/JCTree$JCRequires.h>
@@ -138,8 +135,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/EnumSet.h>
@@ -401,7 +396,6 @@ using $JCTree$JCErroneous = ::com::sun::tools::javac::tree::JCTree$JCErroneous;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCExpressionStatement = ::com::sun::tools::javac::tree::JCTree$JCExpressionStatement;
 using $JCTree$JCFieldAccess = ::com::sun::tools::javac::tree::JCTree$JCFieldAccess;
-using $JCTree$JCFunctionalExpression = ::com::sun::tools::javac::tree::JCTree$JCFunctionalExpression;
 using $JCTree$JCIdent = ::com::sun::tools::javac::tree::JCTree$JCIdent;
 using $JCTree$JCLiteral = ::com::sun::tools::javac::tree::JCTree$JCLiteral;
 using $JCTree$JCMemberReference = ::com::sun::tools::javac::tree::JCTree$JCMemberReference;
@@ -410,10 +404,8 @@ using $JCTree$JCModifiers = ::com::sun::tools::javac::tree::JCTree$JCModifiers;
 using $JCTree$JCModuleDecl = ::com::sun::tools::javac::tree::JCTree$JCModuleDecl;
 using $JCTree$JCNewArray = ::com::sun::tools::javac::tree::JCTree$JCNewArray;
 using $JCTree$JCNewClass = ::com::sun::tools::javac::tree::JCTree$JCNewClass;
-using $JCTree$JCOperatorExpression = ::com::sun::tools::javac::tree::JCTree$JCOperatorExpression;
 using $JCTree$JCPackageDecl = ::com::sun::tools::javac::tree::JCTree$JCPackageDecl;
 using $JCTree$JCPattern = ::com::sun::tools::javac::tree::JCTree$JCPattern;
-using $JCTree$JCPolyExpression = ::com::sun::tools::javac::tree::JCTree$JCPolyExpression;
 using $JCTree$JCPrimitiveTypeTree = ::com::sun::tools::javac::tree::JCTree$JCPrimitiveTypeTree;
 using $JCTree$JCReturn = ::com::sun::tools::javac::tree::JCTree$JCReturn;
 using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
@@ -455,8 +447,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractSet = ::java::util::AbstractSet;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;

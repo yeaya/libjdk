@@ -52,7 +52,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/security/AccessController.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/text/AttributedCharacterIterator$Attribute.h>
@@ -60,7 +59,6 @@
 #include <java/text/AttributedString.h>
 #include <java/text/BreakIterator.h>
 #include <java/text/CharacterIterator.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Locale.h>
 #include <java/util/Map.h>
@@ -68,7 +66,6 @@
 #include <java/util/concurrent/Callable.h>
 #include <java/util/concurrent/Future.h>
 #include <java/util/concurrent/FutureTask.h>
-#include <java/util/concurrent/RunnableFuture.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JList.h>
 #include <javax/swing/JTable.h>
@@ -204,7 +201,6 @@ using $StringBuffer = ::java::lang::StringBuffer;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Modifier = ::java::lang::reflect::Modifier;
 using $AccessController = ::java::security::AccessController;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AttributedCharacterIterator = ::java::text::AttributedCharacterIterator;
@@ -212,7 +208,6 @@ using $AttributedCharacterIterator$Attribute = ::java::text::AttributedCharacter
 using $AttributedString = ::java::text::AttributedString;
 using $BreakIterator = ::java::text::BreakIterator;
 using $CharacterIterator = ::java::text::CharacterIterator;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
@@ -220,7 +215,6 @@ using $Objects = ::java::util::Objects;
 using $Callable = ::java::util::concurrent::Callable;
 using $Future = ::java::util::concurrent::Future;
 using $FutureTask = ::java::util::concurrent::FutureTask;
-using $RunnableFuture = ::java::util::concurrent::RunnableFuture;
 using $JComponent = ::javax::swing::JComponent;
 using $JList = ::javax::swing::JList;
 using $JTable = ::javax::swing::JTable;

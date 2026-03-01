@@ -18,7 +18,6 @@
 #include <org/xml/sax/Locator.h>
 #include <org/xml/sax/SAXException.h>
 #include <org/xml/sax/ext/LexicalHandler.h>
-#include <org/xml/sax/helpers/AttributesImpl.h>
 #include <jcpp.h>
 
 #undef EMPTYSTRING
@@ -45,7 +44,6 @@ using $ContentHandler = ::org::xml::sax::ContentHandler;
 using $Locator = ::org::xml::sax::Locator;
 using $SAXException = ::org::xml::sax::SAXException;
 using $LexicalHandler = ::org::xml::sax::ext::LexicalHandler;
-using $AttributesImpl = ::org::xml::sax::helpers::AttributesImpl;
 
 namespace com {
 	namespace sun {

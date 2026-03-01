@@ -4,14 +4,11 @@
 #include <java/awt/Container.h>
 #include <java/lang/Error.h>
 #include <javax/swing/JApplet.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/text/AttributeSet.h>
-#include <javax/swing/text/DefaultEditorKit.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/EditorKit.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/SimpleAttributeSet.h>
 #include <javax/swing/text/StyleConstants.h>
@@ -25,14 +22,11 @@ using $Error = ::java::lang::Error;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JApplet = ::javax::swing::JApplet;
-using $JComponent = ::javax::swing::JComponent;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
-using $DefaultEditorKit = ::javax::swing::text::DefaultEditorKit;
 using $Document = ::javax::swing::text::Document;
 using $EditorKit = ::javax::swing::text::EditorKit;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $MutableAttributeSet = ::javax::swing::text::MutableAttributeSet;
 using $SimpleAttributeSet = ::javax::swing::text::SimpleAttributeSet;
 using $StyleConstants = ::javax::swing::text::StyleConstants;

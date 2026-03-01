@@ -4,10 +4,8 @@
 #include <com/sun/beans/util/Cache.h>
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Color.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/EventQueue.h>
@@ -59,12 +57,10 @@
 #include <javax/print/PrintService.h>
 #include <javax/print/attribute/HashPrintRequestAttributeSet.h>
 #include <javax/print/attribute/PrintRequestAttributeSet.h>
-#include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/DropMode.h>
 #include <javax/swing/InputMap.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JViewport.h>
 #include <javax/swing/KeyStroke.h>
@@ -106,13 +102,11 @@
 #include <javax/swing/text/JTextComponent$KeymapWrapper.h>
 #include <javax/swing/text/JTextComponent$MutableCaretEvent.h>
 #include <javax/swing/text/Keymap.h>
-#include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/NavigationFilter.h>
 #include <javax/swing/text/Position$Bias.h>
 #include <javax/swing/text/Position.h>
 #include <javax/swing/text/SimpleAttributeSet.h>
 #include <javax/swing/text/StyleConstants.h>
-#include <javax/swing/text/TextAction.h>
 #include <sun/awt/AppContext.h>
 #include <sun/swing/PrintingStatus.h>
 #include <sun/swing/SwingAccessor$JTextComponentAccessor.h>
@@ -153,10 +147,8 @@ using $Cache$Kind = ::com::sun::beans::util::Cache$Kind;
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Container = ::java::awt::Container;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Dimension = ::java::awt::Dimension;
 using $EventQueue = ::java::awt::EventQueue;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
@@ -193,7 +185,6 @@ using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $Error = ::java::lang::Error;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -219,13 +210,11 @@ using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $PrintService = ::javax::print::PrintService;
 using $HashPrintRequestAttributeSet = ::javax::print::attribute::HashPrintRequestAttributeSet;
 using $PrintRequestAttributeSet = ::javax::print::attribute::PrintRequestAttributeSet;
-using $AbstractAction = ::javax::swing::AbstractAction;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $DropMode = ::javax::swing::DropMode;
 using $InputMap = ::javax::swing::InputMap;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JViewport = ::javax::swing::JViewport;
 using $KeyStroke = ::javax::swing::KeyStroke;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
@@ -266,13 +255,11 @@ using $JTextComponent$KeymapActionMap = ::javax::swing::text::JTextComponent$Key
 using $JTextComponent$KeymapWrapper = ::javax::swing::text::JTextComponent$KeymapWrapper;
 using $JTextComponent$MutableCaretEvent = ::javax::swing::text::JTextComponent$MutableCaretEvent;
 using $Keymap = ::javax::swing::text::Keymap;
-using $MutableAttributeSet = ::javax::swing::text::MutableAttributeSet;
 using $NavigationFilter = ::javax::swing::text::NavigationFilter;
 using $Position = ::javax::swing::text::Position;
 using $Position$Bias = ::javax::swing::text::Position$Bias;
 using $SimpleAttributeSet = ::javax::swing::text::SimpleAttributeSet;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
-using $TextAction = ::javax::swing::text::TextAction;
 using $AppContext = ::sun::awt::AppContext;
 using $PrintingStatus = ::sun::swing::PrintingStatus;
 using $SwingAccessor = ::sun::swing::SwingAccessor;

@@ -3,7 +3,6 @@
 #include <com/sun/org/apache/xml/internal/security/Init.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/Canonicalizer.h>
 #include <com/sun/org/apache/xml/internal/security/c14n/InvalidCanonicalizerException.h>
-#include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureInput.h>
 #include <com/sun/org/apache/xml/internal/security/transforms/Transform.h>
 #include <com/sun/org/apache/xml/internal/security/utils/ElementProxy.h>
@@ -27,7 +26,6 @@
 #include <javax/xml/crypto/dsig/TransformException.h>
 #include <javax/xml/crypto/dsig/TransformService.h>
 #include <javax/xml/crypto/dsig/spec/C14NMethodParameterSpec.h>
-#include <javax/xml/crypto/dsig/spec/TransformParameterSpec.h>
 #include <org/jcp/xml/dsig/internal/dom/ApacheData.h>
 #include <org/jcp/xml/dsig/internal/dom/ApacheNodeSetData.h>
 #include <org/jcp/xml/dsig/internal/dom/ApacheOctetStreamData.h>
@@ -45,7 +43,6 @@
 using $Init = ::com::sun::org::apache::xml::internal::security::Init;
 using $Canonicalizer = ::com::sun::org::apache::xml::internal::security::c14n::Canonicalizer;
 using $InvalidCanonicalizerException = ::com::sun::org::apache::xml::internal::security::c14n::InvalidCanonicalizerException;
-using $XMLSecurityException = ::com::sun::org::apache::xml::internal::security::exceptions::XMLSecurityException;
 using $XMLSignatureInput = ::com::sun::org::apache::xml::internal::security::signature::XMLSignatureInput;
 using $Transform = ::com::sun::org::apache::xml::internal::security::transforms::Transform;
 using $Logger = ::com::sun::org::slf4j::internal::Logger;
@@ -72,7 +69,6 @@ using $DOMCryptoContext = ::javax::xml::crypto::dom::DOMCryptoContext;
 using $DOMStructure = ::javax::xml::crypto::dom::DOMStructure;
 using $TransformException = ::javax::xml::crypto::dsig::TransformException;
 using $TransformService = ::javax::xml::crypto::dsig::TransformService;
-using $TransformParameterSpec = ::javax::xml::crypto::dsig::spec::TransformParameterSpec;
 using $ApacheData = ::org::jcp::xml::dsig::internal::dom::ApacheData;
 using $ApacheNodeSetData = ::org::jcp::xml::dsig::internal::dom::ApacheNodeSetData;
 using $ApacheOctetStreamData = ::org::jcp::xml::dsig::internal::dom::ApacheOctetStreamData;

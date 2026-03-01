@@ -1,7 +1,6 @@
 #include <com/sun/media/sound/AiffFileWriter.h>
 
 #include <com/sun/media/sound/AiffFileFormat.h>
-#include <com/sun/media/sound/StandardFileFormat.h>
 #include <com/sun/media/sound/SunFileWriter$NoCloseInputStream.h>
 #include <com/sun/media/sound/SunFileWriter.h>
 #include <java/io/BufferedOutputStream.h>
@@ -10,7 +9,6 @@
 #include <java/io/DataOutputStream.h>
 #include <java/io/File.h>
 #include <java/io/FileOutputStream.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
@@ -51,7 +49,6 @@
 
 using $AudioFileFormat$TypeArray = $Array<::javax::sound::sampled::AudioFileFormat$Type>;
 using $AiffFileFormat = ::com::sun::media::sound::AiffFileFormat;
-using $StandardFileFormat = ::com::sun::media::sound::StandardFileFormat;
 using $SunFileWriter = ::com::sun::media::sound::SunFileWriter;
 using $SunFileWriter$NoCloseInputStream = ::com::sun::media::sound::SunFileWriter$NoCloseInputStream;
 using $BufferedOutputStream = ::java::io::BufferedOutputStream;
@@ -60,7 +57,6 @@ using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $DataOutputStream = ::java::io::DataOutputStream;
 using $File = ::java::io::File;
 using $FileOutputStream = ::java::io::FileOutputStream;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;

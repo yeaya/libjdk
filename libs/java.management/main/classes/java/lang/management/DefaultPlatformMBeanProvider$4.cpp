@@ -4,7 +4,6 @@
 #include <java/lang/management/GarbageCollectorMXBean.h>
 #include <java/lang/management/ManagementFactory.h>
 #include <java/lang/management/MemoryManagerMXBean.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
@@ -29,7 +28,6 @@ using $DefaultPlatformMBeanProvider = ::java::lang::management::DefaultPlatformM
 using $GarbageCollectorMXBean = ::java::lang::management::GarbageCollectorMXBean;
 using $ManagementFactory = ::java::lang::management::ManagementFactory;
 using $MemoryManagerMXBean = ::java::lang::management::MemoryManagerMXBean;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;

@@ -44,7 +44,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Hashtable.h>
 #include <java/util/Iterator.h>
@@ -56,7 +55,6 @@
 #include <jdk/xml/internal/SecuritySupport.h>
 #include <org/w3c/dom/Attr.h>
 #include <org/w3c/dom/CDATASection.h>
-#include <org/w3c/dom/CharacterData.h>
 #include <org/w3c/dom/Comment.h>
 #include <org/w3c/dom/DOMConfiguration.h>
 #include <org/w3c/dom/DOMException.h>
@@ -156,7 +154,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Hashtable = ::java::util::Hashtable;
 using $Iterator = ::java::util::Iterator;
@@ -168,7 +165,6 @@ using $Stream = ::java::util::stream::Stream;
 using $SecuritySupport = ::jdk::xml::internal::SecuritySupport;
 using $Attr = ::org::w3c::dom::Attr;
 using $CDATASection = ::org::w3c::dom::CDATASection;
-using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Comment = ::org::w3c::dom::Comment;
 using $DOMConfiguration = ::org::w3c::dom::DOMConfiguration;
 using $DOMException = ::org::w3c::dom::DOMException;

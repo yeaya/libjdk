@@ -12,8 +12,6 @@
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/Token$ParenToken.h>
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/Token$StringToken.h>
 #include <com/sun/org/apache/xerces/internal/impl/xpath/regex/Token$UnionToken.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
@@ -105,8 +103,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;

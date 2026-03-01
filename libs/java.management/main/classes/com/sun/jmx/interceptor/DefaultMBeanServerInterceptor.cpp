@@ -27,12 +27,9 @@
 #include <java/lang/ref/WeakReference.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/security/ProtectionDomain.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/ArrayList.h>
 #include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
@@ -46,7 +43,6 @@
 #include <javax/management/InstanceAlreadyExistsException.h>
 #include <javax/management/InstanceNotFoundException.h>
 #include <javax/management/InvalidAttributeValueException.h>
-#include <javax/management/JMException.h>
 #include <javax/management/JMRuntimeException.h>
 #include <javax/management/ListenerNotFoundException.h>
 #include <javax/management/MBeanException.h>
@@ -66,7 +62,6 @@
 #include <javax/management/NotificationListener.h>
 #include <javax/management/ObjectInstance.h>
 #include <javax/management/ObjectName.h>
-#include <javax/management/OperationsException.h>
 #include <javax/management/QueryEval.h>
 #include <javax/management/QueryExp.h>
 #include <javax/management/ReflectionException.h>
@@ -121,12 +116,9 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ProtectionDomain = ::java::security::ProtectionDomain;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractSet = ::java::util::AbstractSet;
 using $ArrayList = ::java::util::ArrayList;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
@@ -140,7 +132,6 @@ using $DynamicMBean = ::javax::management::DynamicMBean;
 using $InstanceAlreadyExistsException = ::javax::management::InstanceAlreadyExistsException;
 using $InstanceNotFoundException = ::javax::management::InstanceNotFoundException;
 using $InvalidAttributeValueException = ::javax::management::InvalidAttributeValueException;
-using $JMException = ::javax::management::JMException;
 using $JMRuntimeException = ::javax::management::JMRuntimeException;
 using $ListenerNotFoundException = ::javax::management::ListenerNotFoundException;
 using $MBeanException = ::javax::management::MBeanException;
@@ -160,7 +151,6 @@ using $NotificationFilter = ::javax::management::NotificationFilter;
 using $NotificationListener = ::javax::management::NotificationListener;
 using $ObjectInstance = ::javax::management::ObjectInstance;
 using $ObjectName = ::javax::management::ObjectName;
-using $OperationsException = ::javax::management::OperationsException;
 using $QueryEval = ::javax::management::QueryEval;
 using $QueryExp = ::javax::management::QueryExp;
 using $ReflectionException = ::javax::management::ReflectionException;

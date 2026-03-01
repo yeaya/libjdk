@@ -23,7 +23,6 @@
 #include <java/awt/Toolkit.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/lang/Number.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <javax/swing/Icon.h>
@@ -142,7 +141,6 @@ using $PangoFonts = ::com::sun::java::swing::plaf::gtk::PangoFonts;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Container = ::java::awt::Container;
 using $Font = ::java::awt::Font;
 using $Image = ::java::awt::Image;
 using $Insets = ::java::awt::Insets;
@@ -155,7 +153,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Number = ::java::lang::Number;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $Icon = ::javax::swing::Icon;

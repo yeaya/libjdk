@@ -1,10 +1,8 @@
 #include <javax/swing/plaf/metal/MetalBorders.h>
 
 #include <java/awt/Color.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/CompoundBorder.h>
-#include <javax/swing/border/EmptyBorder.h>
 #include <javax/swing/border/LineBorder.h>
 #include <javax/swing/border/MatteBorder.h>
 #include <javax/swing/plaf/BorderUIResource$CompoundBorderUIResource.h>
@@ -27,10 +25,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $CompoundBorder = ::javax::swing::border::CompoundBorder;
-using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 using $LineBorder = ::javax::swing::border::LineBorder;
 using $MatteBorder = ::javax::swing::border::MatteBorder;
 using $BorderUIResource$CompoundBorderUIResource = ::javax::swing::plaf::BorderUIResource$CompoundBorderUIResource;

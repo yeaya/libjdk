@@ -29,7 +29,6 @@
 #include <javax/swing/TransferHandler$TransferSupport.h>
 #include <sun/awt/AppContext.h>
 #include <sun/reflect/misc/MethodUtil.h>
-#include <sun/swing/UIAction.h>
 #include <jcpp.h>
 
 #undef COPY
@@ -74,7 +73,6 @@ using $TransferHandler$TransferAction = ::javax::swing::TransferHandler$Transfer
 using $TransferHandler$TransferSupport = ::javax::swing::TransferHandler$TransferSupport;
 using $AppContext = ::sun::awt::AppContext;
 using $MethodUtil = ::sun::reflect::misc::MethodUtil;
-using $UIAction = ::sun::swing::UIAction;
 
 namespace javax {
 	namespace swing {

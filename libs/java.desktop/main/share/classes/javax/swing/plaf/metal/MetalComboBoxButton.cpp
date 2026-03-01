@@ -14,7 +14,6 @@
 #include <javax/swing/Icon.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComboBox.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JList.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/ListCellRenderer.h>
@@ -35,14 +34,12 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $ButtonModel = ::javax::swing::ButtonModel;
 using $CellRendererPane = ::javax::swing::CellRendererPane;
 using $DefaultButtonModel = ::javax::swing::DefaultButtonModel;
 using $Icon = ::javax::swing::Icon;
 using $JButton = ::javax::swing::JButton;
 using $JComboBox = ::javax::swing::JComboBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JList = ::javax::swing::JList;
 using $JPanel = ::javax::swing::JPanel;
 using $ListCellRenderer = ::javax::swing::ListCellRenderer;

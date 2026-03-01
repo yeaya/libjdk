@@ -14,7 +14,6 @@
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/ImageObserver.h>
 #include <java/lang/Math.h>
-#include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/InputMap.h>
@@ -59,7 +58,6 @@ using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractAction = ::javax::swing::AbstractAction;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $InputMap = ::javax::swing::InputMap;

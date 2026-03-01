@@ -3,7 +3,6 @@
 #include <java/awt/image/ImageConsumer.h>
 #include <java/awt/image/ImageProducer.h>
 #include <java/io/BufferedInputStream.h>
-#include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/lang/SecurityException.h>
@@ -26,7 +25,6 @@
 using $ImageConsumer = ::java::awt::image::ImageConsumer;
 using $ImageProducer = ::java::awt::image::ImageProducer;
 using $BufferedInputStream = ::java::io::BufferedInputStream;
-using $FilterInputStream = ::java::io::FilterInputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $PrintStream = ::java::io::PrintStream;

@@ -20,13 +20,11 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JTree.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/tree/DefaultMutableTreeNode.h>
 #include <javax/swing/tree/DefaultTreeModel.h>
-#include <javax/swing/tree/MutableTreeNode.h>
 #include <javax/swing/tree/TreeModel.h>
 #include <javax/swing/tree/TreeNode.h>
 #include <jcpp.h>
@@ -57,13 +55,11 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JTree = ::javax::swing::JTree;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $DefaultMutableTreeNode = ::javax::swing::tree::DefaultMutableTreeNode;
 using $DefaultTreeModel = ::javax::swing::tree::DefaultTreeModel;
-using $MutableTreeNode = ::javax::swing::tree::MutableTreeNode;
 using $TreeModel = ::javax::swing::tree::TreeModel;
 using $TreeNode = ::javax::swing::tree::TreeNode;
 

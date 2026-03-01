@@ -8,7 +8,6 @@
 #include <com/sun/org/apache/xerces/internal/xni/grammars/Grammar.h>
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSModel.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -25,7 +24,6 @@ using $XMLGrammarDescription = ::com::sun::org::apache::xerces::internal::xni::g
 using $XSModel = ::com::sun::org::apache::xerces::internal::xs::XSModel;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 

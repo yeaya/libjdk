@@ -12,12 +12,9 @@
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMManager.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMAxisIterNodeList.h>
-#include <com/sun/org/apache/xml/internal/dtm/ref/DTMAxisIteratorBase.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBase.h>
-#include <com/sun/org/apache/xml/internal/dtm/ref/DTMNodeListBase.h>
 #include <com/sun/org/apache/xml/internal/serializer/SerializationHandler.h>
 #include <com/sun/org/apache/xml/internal/utils/SuballocatedIntVector.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <org/w3c/dom/Node.h>
@@ -44,9 +41,7 @@ using $DTM = ::com::sun::org::apache::xml::internal::dtm::DTM;
 using $DTMAxisIterator = ::com::sun::org::apache::xml::internal::dtm::DTMAxisIterator;
 using $DTMManager = ::com::sun::org::apache::xml::internal::dtm::DTMManager;
 using $DTMAxisIterNodeList = ::com::sun::org::apache::xml::internal::dtm::ref::DTMAxisIterNodeList;
-using $DTMAxisIteratorBase = ::com::sun::org::apache::xml::internal::dtm::ref::DTMAxisIteratorBase;
 using $DTMDefaultBase = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBase;
-using $DTMNodeListBase = ::com::sun::org::apache::xml::internal::dtm::ref::DTMNodeListBase;
 using $SerializationHandler = ::com::sun::org::apache::xml::internal::serializer::SerializationHandler;
 using $SuballocatedIntVector = ::com::sun::org::apache::xml::internal::utils::SuballocatedIntVector;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -54,7 +49,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $Node = ::org::w3c::dom::Node;

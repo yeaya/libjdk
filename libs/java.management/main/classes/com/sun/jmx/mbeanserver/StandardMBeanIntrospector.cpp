@@ -10,12 +10,10 @@
 #include <javax/management/Descriptor.h>
 #include <javax/management/ImmutableDescriptor.h>
 #include <javax/management/IntrospectionException.h>
-#include <javax/management/JMException.h>
 #include <javax/management/MBeanAttributeInfo.h>
 #include <javax/management/MBeanOperationInfo.h>
 #include <javax/management/NotificationBroadcaster.h>
 #include <javax/management/NotificationBroadcasterSupport.h>
-#include <javax/management/OperationsException.h>
 #include <sun/reflect/misc/MethodUtil.h>
 #include <jcpp.h>
 
@@ -38,12 +36,10 @@ using $WeakHashMap = ::java::util::WeakHashMap;
 using $Descriptor = ::javax::management::Descriptor;
 using $ImmutableDescriptor = ::javax::management::ImmutableDescriptor;
 using $IntrospectionException = ::javax::management::IntrospectionException;
-using $JMException = ::javax::management::JMException;
 using $MBeanAttributeInfo = ::javax::management::MBeanAttributeInfo;
 using $MBeanOperationInfo = ::javax::management::MBeanOperationInfo;
 using $NotificationBroadcaster = ::javax::management::NotificationBroadcaster;
 using $NotificationBroadcasterSupport = ::javax::management::NotificationBroadcasterSupport;
-using $OperationsException = ::javax::management::OperationsException;
 using $MethodUtil = ::sun::reflect::misc::MethodUtil;
 
 namespace com {

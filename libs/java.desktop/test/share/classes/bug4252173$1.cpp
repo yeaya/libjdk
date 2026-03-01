@@ -2,7 +2,6 @@
 
 #include <bug4252173.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/image/BufferedImage.h>
 #include <javax/swing/Icon.h>
@@ -17,7 +16,6 @@
 #undef TYPE_4BYTE_ABGR
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ClassInfo = ::java::lang::ClassInfo;

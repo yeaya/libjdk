@@ -3,7 +3,6 @@
 #include <java/nio/charset/Charset.h>
 #include <java/util/HashMap.h>
 #include <java/util/Hashtable.h>
-#include <sun/awt/AWTCharset.h>
 #include <sun/awt/FontConfiguration.h>
 #include <sun/awt/FontDescriptor.h>
 #include <sun/awt/windows/WDefaultFontCharset.h>
@@ -17,7 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
 using $HashMap = ::java::util::HashMap;
 using $Hashtable = ::java::util::Hashtable;
-using $AWTCharset = ::sun::awt::AWTCharset;
 using $FontConfiguration = ::sun::awt::FontConfiguration;
 using $FontDescriptor = ::sun::awt::FontDescriptor;
 using $WDefaultFontCharset = ::sun::awt::windows::WDefaultFontCharset;

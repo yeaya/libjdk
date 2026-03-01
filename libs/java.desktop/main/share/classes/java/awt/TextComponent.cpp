@@ -4,7 +4,6 @@
 #include <java/awt/AWTEventMulticaster.h>
 #include <java/awt/AWTPermission.h>
 #include <java/awt/Color.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
 #include <java/awt/Cursor.h>
 #include <java/awt/GraphicsEnvironment.h>
@@ -20,7 +19,6 @@
 #include <java/io/ObjectOutputStream.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/util/EventListener.h>
 #include <javax/accessibility/AccessibleContext.h>
@@ -40,7 +38,6 @@ using $AWTEvent = ::java::awt::AWTEvent;
 using $AWTEventMulticaster = ::java::awt::AWTEventMulticaster;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $Cursor = ::java::awt::Cursor;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $SystemColor = ::java::awt::SystemColor;
@@ -60,7 +57,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $EventListener = ::java::util::EventListener;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;

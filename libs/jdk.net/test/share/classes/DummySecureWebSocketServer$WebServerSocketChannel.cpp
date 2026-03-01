@@ -7,7 +7,6 @@
 #include <DummySecureWebSocketServer$WebServerSocketChannel$Config.h>
 #include <DummySecureWebSocketServer$WebSocketChannel.h>
 #include <DummySecureWebSocketServer.h>
-#include <java/io/Closeable.h>
 #include <java/io/Serializable.h>
 #include <java/lang/AutoCloseable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -27,7 +26,6 @@ using $DummySecureWebSocketServer$WebServerSocketChannel$Binder = ::DummySecureW
 using $DummySecureWebSocketServer$WebServerSocketChannel$Closer = ::DummySecureWebSocketServer$WebServerSocketChannel$Closer;
 using $DummySecureWebSocketServer$WebServerSocketChannel$Config = ::DummySecureWebSocketServer$WebServerSocketChannel$Config;
 using $DummySecureWebSocketServer$WebSocketChannel = ::DummySecureWebSocketServer$WebSocketChannel;
-using $Closeable = ::java::io::Closeable;
 using $Serializable = ::java::io::Serializable;
 using $AutoCloseable = ::java::lang::AutoCloseable;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -332,9 +330,9 @@ DummySecureWebSocketServer$WebServerSocketChannel* DummySecureWebSocketServer$We
 	$var($AutoCloseable, var$0, static_cast<$AutoCloseable*>(ss));
 	$var($DummySecureWebSocketServer$WebServerSocketChannel$Accepter, var$1, a);
 	$var($DummySecureWebSocketServer$WebServerSocketChannel$Binder, var$2, static_cast<$DummySecureWebSocketServer$WebServerSocketChannel$Binder*>($new(DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$bind$1, static_cast<$ServerSocket*>($nc(ss)))));
-	$var($DummySecureWebSocketServer$WebServerSocketChannel$Addressable, var$3, static_cast<$DummySecureWebSocketServer$WebServerSocketChannel$Addressable*>($new(DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$getLocalSocketAddress$2, static_cast<$ServerSocket*>(ss))));
-	$var($DummySecureWebSocketServer$WebServerSocketChannel$Config, var$4, static_cast<$DummySecureWebSocketServer$WebServerSocketChannel$Config*>($new(DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$setOption$3, static_cast<$ServerSocket*>(ss))));
-	return $new(DummySecureWebSocketServer$WebServerSocketChannel, var$0, var$1, var$2, var$3, var$4, static_cast<$DummySecureWebSocketServer$WebServerSocketChannel$Closer*>($$new(DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$close$4, static_cast<$ServerSocket*>(ss))));
+	$var($DummySecureWebSocketServer$WebServerSocketChannel$Addressable, var$3, static_cast<$DummySecureWebSocketServer$WebServerSocketChannel$Addressable*>($new(DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$getLocalSocketAddress$2, static_cast<$ServerSocket*>($nc(ss)))));
+	$var($DummySecureWebSocketServer$WebServerSocketChannel$Config, var$4, static_cast<$DummySecureWebSocketServer$WebServerSocketChannel$Config*>($new(DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$setOption$3, static_cast<$ServerSocket*>($nc(ss)))));
+	return $new(DummySecureWebSocketServer$WebServerSocketChannel, var$0, var$1, var$2, var$3, var$4, static_cast<$DummySecureWebSocketServer$WebServerSocketChannel$Closer*>($$new(DummySecureWebSocketServer$WebServerSocketChannel$$Lambda$close$4, static_cast<$ServerSocket*>($nc(ss)))));
 }
 
 $DummySecureWebSocketServer$WebSocketChannel* DummySecureWebSocketServer$WebServerSocketChannel::lambda$of$0($ServerSocket* ss) {

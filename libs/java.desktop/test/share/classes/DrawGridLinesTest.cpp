@@ -16,7 +16,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/table/AbstractTableModel.h>
 #include <javax/swing/table/DefaultTableCellRenderer.h>
 #include <javax/swing/table/TableCellRenderer.h>
 #include <javax/swing/table/TableModel.h>
@@ -49,7 +48,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $JTable = ::javax::swing::JTable;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $AbstractTableModel = ::javax::swing::table::AbstractTableModel;
 using $DefaultTableCellRenderer = ::javax::swing::table::DefaultTableCellRenderer;
 using $TableCellRenderer = ::javax::swing::table::TableCellRenderer;
 using $TableModel = ::javax::swing::table::TableModel;

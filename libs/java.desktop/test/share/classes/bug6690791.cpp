@@ -2,9 +2,7 @@
 
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/event/MouseEvent.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/MenuSelectionManager.h>
 #include <jcpp.h>
@@ -14,11 +12,9 @@
 #undef MOUSE_CLICKED
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
 using $MenuSelectionManager = ::javax::swing::MenuSelectionManager;
 

@@ -4,10 +4,6 @@
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
 #include <sun/nio/cs/Big5.h>
-#include <sun/nio/cs/DoubleByte$Decoder.h>
-#include <sun/nio/cs/DoubleByte$Encoder.h>
-#include <sun/nio/cs/HKSCS$Decoder.h>
-#include <sun/nio/cs/HKSCS$Encoder.h>
 #include <sun/nio/cs/ext/Big5_HKSCS_2001$Decoder.h>
 #include <sun/nio/cs/ext/Big5_HKSCS_2001$Encoder.h>
 #include <sun/nio/cs/ext/ExtendedCharsets.h>
@@ -20,10 +16,6 @@ using $Charset = ::java::nio::charset::Charset;
 using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $Big5 = ::sun::nio::cs::Big5;
-using $DoubleByte$Decoder = ::sun::nio::cs::DoubleByte$Decoder;
-using $DoubleByte$Encoder = ::sun::nio::cs::DoubleByte$Encoder;
-using $HKSCS$Decoder = ::sun::nio::cs::HKSCS$Decoder;
-using $HKSCS$Encoder = ::sun::nio::cs::HKSCS$Encoder;
 using $Big5_HKSCS_2001$Decoder = ::sun::nio::cs::ext::Big5_HKSCS_2001$Decoder;
 using $Big5_HKSCS_2001$Encoder = ::sun::nio::cs::ext::Big5_HKSCS_2001$Encoder;
 using $ExtendedCharsets = ::sun::nio::cs::ext::ExtendedCharsets;

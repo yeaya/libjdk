@@ -9,11 +9,9 @@
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
-#include <java/awt/event/WindowAdapter.h>
 #include <java/awt/event/WindowListener.h>
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -28,8 +26,6 @@
 #include <javax/print/attribute/HashPrintRequestAttributeSet.h>
 #include <javax/print/attribute/PrintRequestAttributeSet.h>
 #include <javax/print/attribute/standard/OrientationRequested.h>
-#include <javax/swing/AbstractAction.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/InputMap.h>
@@ -41,7 +37,6 @@
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/KeyStroke.h>
-#include <javax/swing/table/AbstractTableModel.h>
 #include <javax/swing/table/TableModel.h>
 #include <jcpp.h>
 
@@ -59,10 +54,8 @@ using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $WindowAdapter = ::java::awt::event::WindowAdapter;
 using $WindowListener = ::java::awt::event::WindowListener;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -78,8 +71,6 @@ using $DocAttribute = ::javax::print::attribute::DocAttribute;
 using $HashPrintRequestAttributeSet = ::javax::print::attribute::HashPrintRequestAttributeSet;
 using $PrintRequestAttributeSet = ::javax::print::attribute::PrintRequestAttributeSet;
 using $OrientationRequested = ::javax::print::attribute::standard::OrientationRequested;
-using $AbstractAction = ::javax::swing::AbstractAction;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $InputMap = ::javax::swing::InputMap;
@@ -91,7 +82,6 @@ using $JRootPane = ::javax::swing::JRootPane;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JTable = ::javax::swing::JTable;
 using $KeyStroke = ::javax::swing::KeyStroke;
-using $AbstractTableModel = ::javax::swing::table::AbstractTableModel;
 using $TableModel = ::javax::swing::table::TableModel;
 
 class PrintManualTest_FitWidthMultiple$1$$Lambda$lambda$run$0 : public $ActionListener {

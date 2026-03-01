@@ -7,7 +7,6 @@
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/event/MouseEvent.h>
-#include <javax/swing/AbstractListModel.h>
 #include <javax/swing/DefaultListModel.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JList.h>
@@ -32,7 +31,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractListModel = ::javax::swing::AbstractListModel;
 using $JList = ::javax::swing::JList;
 using $ListModel = ::javax::swing::ListModel;
 using $LWListPeer = ::sun::lwawt::LWListPeer;

@@ -6,7 +6,6 @@
 #include <java/security/Provider.h>
 #include <java/security/ProviderException.h>
 #include <java/security/cert/CertStoreParameters.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/List.h>
 #include <java/util/Map.h>
@@ -24,7 +23,6 @@ using $Provider = ::java::security::Provider;
 using $Provider$Service = ::java::security::Provider$Service;
 using $ProviderException = ::java::security::ProviderException;
 using $CertStoreParameters = ::java::security::cert::CertStoreParameters;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;

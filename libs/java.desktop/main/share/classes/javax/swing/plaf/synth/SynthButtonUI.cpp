@@ -17,7 +17,6 @@
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/LookAndFeel.h>
-#include <javax/swing/plaf/ButtonUI.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/UIResource.h>
 #include <javax/swing/plaf/basic/BasicButtonUI.h>
@@ -65,7 +64,6 @@ using $Icon = ::javax::swing::Icon;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
-using $ButtonUI = ::javax::swing::plaf::ButtonUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $BasicButtonUI = ::javax::swing::plaf::basic::BasicButtonUI;

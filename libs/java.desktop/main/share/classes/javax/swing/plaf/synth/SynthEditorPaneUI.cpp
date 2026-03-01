@@ -1,13 +1,11 @@
 #include <javax/swing/plaf/synth/SynthEditorPaneUI.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/TextUI.h>
 #include <javax/swing/plaf/basic/BasicEditorPaneUI.h>
 #include <javax/swing/plaf/basic/BasicTextUI.h>
 #include <javax/swing/plaf/synth/SynthConstants.h>
@@ -26,7 +24,6 @@
 #undef TRUE
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $Boolean = ::java::lang::Boolean;
@@ -36,9 +33,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $TextUI = ::javax::swing::plaf::TextUI;
 using $BasicEditorPaneUI = ::javax::swing::plaf::basic::BasicEditorPaneUI;
-using $BasicTextUI = ::javax::swing::plaf::basic::BasicTextUI;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;

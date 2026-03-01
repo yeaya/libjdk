@@ -7,17 +7,13 @@
 #include <com/sun/org/apache/bcel/internal/generic/ASTORE.h>
 #include <com/sun/org/apache/bcel/internal/generic/BasicType.h>
 #include <com/sun/org/apache/bcel/internal/generic/CHECKCAST.h>
-#include <com/sun/org/apache/bcel/internal/generic/CPInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/CompoundInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
-#include <com/sun/org/apache/bcel/internal/generic/FieldInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/FieldOrMethod.h>
 #include <com/sun/org/apache/bcel/internal/generic/GETFIELD.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKESPECIAL.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionList.h>
-#include <com/sun/org/apache/bcel/internal/generic/InvokeInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/LocalVariableGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/LocalVariableInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/NEW.h>
@@ -25,7 +21,6 @@
 #include <com/sun/org/apache/bcel/internal/generic/PUTFIELD.h>
 #include <com/sun/org/apache/bcel/internal/generic/ReturnInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/StackInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/StoreInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Type.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/AbsoluteLocationPath.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/BooleanExpr.h>
@@ -34,7 +29,6 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Constants.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/EqualityExpr.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Expression.h>
-#include <com/sun/org/apache/xalan/internal/xsltc/compiler/FunctionCall.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/LiteralExpr.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Parser.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Pattern.h>
@@ -61,7 +55,6 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/Type.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/Util.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/Operators.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -87,23 +80,17 @@ using $TypeArray = $Array<::com::sun::org::apache::bcel::internal::generic::Type
 using $Field = ::com::sun::org::apache::bcel::internal::classfile::Field;
 using $ASTORE = ::com::sun::org::apache::bcel::internal::generic::ASTORE;
 using $CHECKCAST = ::com::sun::org::apache::bcel::internal::generic::CHECKCAST;
-using $CPInstruction = ::com::sun::org::apache::bcel::internal::generic::CPInstruction;
 using $CompoundInstruction = ::com::sun::org::apache::bcel::internal::generic::CompoundInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
-using $FieldInstruction = ::com::sun::org::apache::bcel::internal::generic::FieldInstruction;
-using $FieldOrMethod = ::com::sun::org::apache::bcel::internal::generic::FieldOrMethod;
 using $GETFIELD = ::com::sun::org::apache::bcel::internal::generic::GETFIELD;
 using $INVOKESPECIAL = ::com::sun::org::apache::bcel::internal::generic::INVOKESPECIAL;
 using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
-using $InvokeInstruction = ::com::sun::org::apache::bcel::internal::generic::InvokeInstruction;
 using $LocalVariableGen = ::com::sun::org::apache::bcel::internal::generic::LocalVariableGen;
-using $LocalVariableInstruction = ::com::sun::org::apache::bcel::internal::generic::LocalVariableInstruction;
 using $NEW = ::com::sun::org::apache::bcel::internal::generic::NEW;
 using $PUSH = ::com::sun::org::apache::bcel::internal::generic::PUSH;
 using $PUTFIELD = ::com::sun::org::apache::bcel::internal::generic::PUTFIELD;
-using $StoreInstruction = ::com::sun::org::apache::bcel::internal::generic::StoreInstruction;
 using $1Type = ::com::sun::org::apache::bcel::internal::generic::Type;
 using $AbsoluteLocationPath = ::com::sun::org::apache::xalan::internal::xsltc::compiler::AbsoluteLocationPath;
 using $BooleanExpr = ::com::sun::org::apache::xalan::internal::xsltc::compiler::BooleanExpr;
@@ -112,7 +99,6 @@ using $Closure = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Clos
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
 using $EqualityExpr = ::com::sun::org::apache::xalan::internal::xsltc::compiler::EqualityExpr;
 using $Expression = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression;
-using $FunctionCall = ::com::sun::org::apache::xalan::internal::xsltc::compiler::FunctionCall;
 using $LiteralExpr = ::com::sun::org::apache::xalan::internal::xsltc::compiler::LiteralExpr;
 using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;
 using $Pattern = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Pattern;
@@ -141,7 +127,6 @@ using $Operators = ::com::sun::org::apache::xalan::internal::xsltc::runtime::Ope
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 

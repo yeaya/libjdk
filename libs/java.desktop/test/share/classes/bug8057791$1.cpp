@@ -5,9 +5,7 @@
 #include <java/awt/Container.h>
 #include <java/awt/Font.h>
 #include <java/awt/Window.h>
-#include <javax/swing/AbstractListModel.h>
 #include <javax/swing/DefaultListModel.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JList.h>
 #include <javax/swing/ListModel.h>
@@ -18,15 +16,12 @@
 
 using $bug8057791 = ::bug8057791;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Font = ::java::awt::Font;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractListModel = ::javax::swing::AbstractListModel;
 using $DefaultListModel = ::javax::swing::DefaultListModel;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JList = ::javax::swing::JList;
 using $ListModel = ::javax::swing::ListModel;

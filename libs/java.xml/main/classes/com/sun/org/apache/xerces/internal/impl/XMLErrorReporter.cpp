@@ -3,14 +3,12 @@
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLErrorReporter$1.h>
 #include <com/sun/org/apache/xerces/internal/util/DefaultErrorHandler.h>
-#include <com/sun/org/apache/xerces/internal/util/ErrorHandlerProxy.h>
 #include <com/sun/org/apache/xerces/internal/util/MessageFormatter.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLLocator.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLErrorHandler.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLParseException.h>
 #include <java/lang/StringBuffer.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Locale.h>
 #include <java/util/Map.h>
@@ -35,7 +33,6 @@ using $BooleanArray = $Array<::java::lang::Boolean>;
 using $Constants = ::com::sun::org::apache::xerces::internal::impl::Constants;
 using $XMLErrorReporter$1 = ::com::sun::org::apache::xerces::internal::impl::XMLErrorReporter$1;
 using $DefaultErrorHandler = ::com::sun::org::apache::xerces::internal::util::DefaultErrorHandler;
-using $ErrorHandlerProxy = ::com::sun::org::apache::xerces::internal::util::ErrorHandlerProxy;
 using $MessageFormatter = ::com::sun::org::apache::xerces::internal::util::MessageFormatter;
 using $XMLLocator = ::com::sun::org::apache::xerces::internal::xni::XMLLocator;
 using $XMLComponentManager = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager;
@@ -48,7 +45,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;

@@ -1,6 +1,5 @@
 #include <javax/swing/plaf/basic/BasicTreeUI.h>
 
-#include <java/awt/AWTEvent.h>
 #include <java/awt/BasicStroke.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component$BaselineResizeBehavior.h>
@@ -16,8 +15,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/Stroke.h>
 #include <java/awt/dnd/DropTarget.h>
-#include <java/awt/event/ComponentAdapter.h>
-#include <java/awt/event/ComponentEvent.h>
 #include <java/awt/event/ComponentListener.h>
 #include <java/awt/event/FocusListener.h>
 #include <java/awt/event/InputEvent.h>
@@ -78,7 +75,6 @@
 #include <sun/awt/AWTAccessor.h>
 #include <sun/swing/DefaultLookup.h>
 #include <sun/swing/SwingUtilities2.h>
-#include <sun/swing/UIAction.h>
 #include <jcpp.h>
 
 #undef ADD_TO_SELECTION
@@ -133,7 +129,6 @@
 #undef WHEN_ANCESTOR_OF_FOCUSED_COMPONENT
 #undef WHEN_FOCUSED
 
-using $AWTEvent = ::java::awt::AWTEvent;
 using $BasicStroke = ::java::awt::BasicStroke;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
@@ -148,8 +143,6 @@ using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Stroke = ::java::awt::Stroke;
 using $DropTarget = ::java::awt::dnd::DropTarget;
-using $ComponentAdapter = ::java::awt::event::ComponentAdapter;
-using $ComponentEvent = ::java::awt::event::ComponentEvent;
 using $ComponentListener = ::java::awt::event::ComponentListener;
 using $FocusListener = ::java::awt::event::FocusListener;
 using $InputEvent = ::java::awt::event::InputEvent;
@@ -219,7 +212,6 @@ using $AWTAccessor = ::sun::awt::AWTAccessor;
 using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $DefaultLookup = ::sun::swing::DefaultLookup;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
-using $UIAction = ::sun::swing::UIAction;
 
 namespace javax {
 	namespace swing {

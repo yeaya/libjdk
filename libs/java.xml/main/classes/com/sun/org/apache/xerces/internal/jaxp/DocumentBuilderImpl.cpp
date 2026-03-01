@@ -1,6 +1,5 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/DocumentBuilderImpl.h>
 
-#include <com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/DOMImplementationImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/DOMMessageFormatter.h>
 #include <com/sun/org/apache/xerces/internal/dom/DocumentImpl.h>
@@ -14,7 +13,6 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/SchemaValidatorConfiguration.h>
 #include <com/sun/org/apache/xerces/internal/jaxp/UnparsedEntityHandler.h>
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/XSGrammarPoolContainer.h>
-#include <com/sun/org/apache/xerces/internal/parsers/AbstractDOMParser.h>
 #include <com/sun/org/apache/xerces/internal/parsers/AbstractXMLDocumentParser.h>
 #include <com/sun/org/apache/xerces/internal/parsers/DOMParser.h>
 #include <com/sun/org/apache/xerces/internal/utils/XMLSecurityManager.h>
@@ -23,11 +21,9 @@
 #include <com/sun/org/apache/xerces/internal/utils/XMLSecurityPropertyManager.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLDTDHandler.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLDocumentHandler.h>
-#include <com/sun/org/apache/xerces/internal/xni/XNIException.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLComponent.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLConfigurationException.h>
-#include <com/sun/org/apache/xerces/internal/xni/parser/XMLDTDFilter.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDTDSource.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDocumentSource.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration.h>
@@ -49,7 +45,6 @@
 #include <org/xml/sax/ErrorHandler.h>
 #include <org/xml/sax/InputSource.h>
 #include <org/xml/sax/SAXException.h>
-#include <org/xml/sax/helpers/DefaultHandler.h>
 #include <jcpp.h>
 
 #undef ACCESS_EXTERNAL_DTD
@@ -78,7 +73,6 @@
 #undef XMLSCHEMA_VALIDATION_FEATURE
 #undef XML_SECURITY_PROPERTY_MANAGER
 
-using $CoreDocumentImpl = ::com::sun::org::apache::xerces::internal::dom::CoreDocumentImpl;
 using $DOMImplementationImpl = ::com::sun::org::apache::xerces::internal::dom::DOMImplementationImpl;
 using $DOMMessageFormatter = ::com::sun::org::apache::xerces::internal::dom::DOMMessageFormatter;
 using $DocumentImpl = ::com::sun::org::apache::xerces::internal::dom::DocumentImpl;
@@ -92,8 +86,6 @@ using $JAXPValidatorComponent = ::com::sun::org::apache::xerces::internal::jaxp:
 using $SchemaValidatorConfiguration = ::com::sun::org::apache::xerces::internal::jaxp::SchemaValidatorConfiguration;
 using $UnparsedEntityHandler = ::com::sun::org::apache::xerces::internal::jaxp::UnparsedEntityHandler;
 using $XSGrammarPoolContainer = ::com::sun::org::apache::xerces::internal::jaxp::validation::XSGrammarPoolContainer;
-using $AbstractDOMParser = ::com::sun::org::apache::xerces::internal::parsers::AbstractDOMParser;
-using $AbstractXMLDocumentParser = ::com::sun::org::apache::xerces::internal::parsers::AbstractXMLDocumentParser;
 using $DOMParser = ::com::sun::org::apache::xerces::internal::parsers::DOMParser;
 using $XMLSecurityManager = ::com::sun::org::apache::xerces::internal::utils::XMLSecurityManager;
 using $XMLSecurityPropertyManager = ::com::sun::org::apache::xerces::internal::utils::XMLSecurityPropertyManager;
@@ -101,11 +93,9 @@ using $XMLSecurityPropertyManager$Property = ::com::sun::org::apache::xerces::in
 using $XMLSecurityPropertyManager$State = ::com::sun::org::apache::xerces::internal::utils::XMLSecurityPropertyManager$State;
 using $XMLDTDHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDTDHandler;
 using $XMLDocumentHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDocumentHandler;
-using $XNIException = ::com::sun::org::apache::xerces::internal::xni::XNIException;
 using $XMLComponent = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponent;
 using $XMLComponentManager = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager;
 using $XMLConfigurationException = ::com::sun::org::apache::xerces::internal::xni::parser::XMLConfigurationException;
-using $XMLDTDFilter = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDTDFilter;
 using $XMLDTDSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDTDSource;
 using $XMLDocumentSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDocumentSource;
 using $XMLParserConfiguration = ::com::sun::org::apache::xerces::internal::xni::parser::XMLParserConfiguration;
@@ -116,7 +106,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $Map$Entry = ::java::util::Map$Entry;
@@ -132,7 +121,6 @@ using $EntityResolver = ::org::xml::sax::EntityResolver;
 using $ErrorHandler = ::org::xml::sax::ErrorHandler;
 using $InputSource = ::org::xml::sax::InputSource;
 using $SAXException = ::org::xml::sax::SAXException;
-using $DefaultHandler = ::org::xml::sax::helpers::DefaultHandler;
 
 namespace com {
 	namespace sun {

@@ -1,11 +1,8 @@
 #include <sun/swing/text/TextComponentPrintable$1.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <javax/swing/CellRendererPane.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <sun/swing/text/TextComponentPrintable.h>
 #include <jcpp.h>
 
@@ -13,16 +10,13 @@
 #undef WIDTH
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $CellRendererPane = ::javax::swing::CellRendererPane;
-using $JComponent = ::javax::swing::JComponent;
 using $JEditorPane = ::javax::swing::JEditorPane;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 namespace sun {
 	namespace swing {

@@ -1,7 +1,6 @@
 #include <Test7163696.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Point.h>
 #include <java/awt/Robot.h>
@@ -9,7 +8,6 @@
 #include <java/awt/event/InputEvent.h>
 #include <java/lang/Error.h>
 #include <java/lang/Runnable.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JScrollBar.h>
 #include <javax/swing/LookAndFeel.h>
@@ -24,7 +22,6 @@
 
 using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Point = ::java::awt::Point;
 using $Robot = ::java::awt::Robot;
@@ -36,7 +33,6 @@ using $Error = ::java::lang::Error;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JScrollBar = ::javax::swing::JScrollBar;
 using $LookAndFeel = ::javax::swing::LookAndFeel;

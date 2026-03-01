@@ -2,10 +2,8 @@
 
 #include <bug6462008.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JList.h>
 #include <javax/swing/SwingUtilities.h>
 #include <jcpp.h>
@@ -13,7 +11,6 @@
 using $PointArray = $Array<::java::awt::Point>;
 using $bug6462008 = ::bug6462008;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -21,7 +18,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JList = ::javax::swing::JList;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 

@@ -3,8 +3,6 @@
 #include <JFileChooserOrientation$1.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
-#include <java/awt/Container.h>
-#include <java/awt/Frame.h>
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/Window.h>
 #include <java/lang/ClassNotFoundException.h>
@@ -32,14 +30,10 @@ using $JFileChooserOrientation$1 = ::JFileChooserOrientation$1;
 using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
 using $Component = ::java::awt::Component;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Container = ::java::awt::Container;
-using $Frame = ::java::awt::Frame;
 using $GridBagLayout = ::java::awt::GridBagLayout;
-using $Window = ::java::awt::Window;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

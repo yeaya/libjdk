@@ -34,7 +34,6 @@
 #include <jdk/internal/net/http/common/Log.h>
 #include <jdk/internal/net/http/common/Logger.h>
 #include <jdk/internal/net/http/common/MinimalFuture.h>
-#include <jdk/internal/net/http/common/SequentialScheduler$CompleteRestartableTask.h>
 #include <jdk/internal/net/http/common/SequentialScheduler$RestartableTask.h>
 #include <jdk/internal/net/http/common/SequentialScheduler.h>
 #include <jdk/internal/net/http/common/Utils.h>
@@ -64,7 +63,6 @@ using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $IllegalStateException = ::java::lang::IllegalStateException;
@@ -73,7 +71,6 @@ using $Integer = ::java::lang::Integer;
 using $InternalError = ::java::lang::InternalError;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Reference = ::java::lang::ref::Reference;
 using $URI = ::java::net::URI;
@@ -99,7 +96,6 @@ using $Log = ::jdk::internal::net::http::common::Log;
 using $Logger = ::jdk::internal::net::http::common::Logger;
 using $MinimalFuture = ::jdk::internal::net::http::common::MinimalFuture;
 using $SequentialScheduler = ::jdk::internal::net::http::common::SequentialScheduler;
-using $SequentialScheduler$CompleteRestartableTask = ::jdk::internal::net::http::common::SequentialScheduler$CompleteRestartableTask;
 using $SequentialScheduler$RestartableTask = ::jdk::internal::net::http::common::SequentialScheduler$RestartableTask;
 using $Utils = ::jdk::internal::net::http::common::Utils;
 using $BuilderImpl = ::jdk::internal::net::http::websocket::BuilderImpl;

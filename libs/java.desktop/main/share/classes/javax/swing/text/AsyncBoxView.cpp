@@ -6,7 +6,6 @@
 #include <java/awt/Shape.h>
 #include <java/lang/Math.h>
 #include <java/lang/Runnable.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <javax/swing/event/DocumentEvent$ElementChange.h>
@@ -43,7 +42,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $Short = ::java::lang::Short;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $DocumentEvent = ::javax::swing::event::DocumentEvent;

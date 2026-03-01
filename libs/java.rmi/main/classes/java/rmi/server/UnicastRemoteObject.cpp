@@ -1,13 +1,11 @@
 #include <java/rmi/server/UnicastRemoteObject.h>
 
-#include <java/io/IOException.h>
 #include <java/io/ObjectInputFilter.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/rmi/Remote.h>
 #include <java/rmi/RemoteException.h>
 #include <java/rmi/server/RMIClientSocketFactory.h>
 #include <java/rmi/server/RMIServerSocketFactory.h>
-#include <java/rmi/server/RemoteObject.h>
 #include <java/rmi/server/RemoteRef.h>
 #include <java/rmi/server/RemoteServer.h>
 #include <java/rmi/server/RemoteStub.h>
@@ -19,7 +17,6 @@
 #include <sun/rmi/transport/ObjectTable.h>
 #include <jcpp.h>
 
-using $IOException = ::java::io::IOException;
 using $ObjectInputFilter = ::java::io::ObjectInputFilter;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -31,7 +28,6 @@ using $Remote = ::java::rmi::Remote;
 using $RemoteException = ::java::rmi::RemoteException;
 using $RMIClientSocketFactory = ::java::rmi::server::RMIClientSocketFactory;
 using $RMIServerSocketFactory = ::java::rmi::server::RMIServerSocketFactory;
-using $RemoteObject = ::java::rmi::server::RemoteObject;
 using $RemoteRef = ::java::rmi::server::RemoteRef;
 using $RemoteServer = ::java::rmi::server::RemoteServer;
 using $RemoteStub = ::java::rmi::server::RemoteStub;

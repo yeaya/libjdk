@@ -27,7 +27,6 @@ using $XMLUtils = ::com::sun::org::apache::xml::internal::security::utils::XMLUt
 using $Logger = ::com::sun::org::slf4j::internal::Logger;
 using $LoggerFactory = ::com::sun::org::slf4j::internal::LoggerFactory;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $PrivateKey = ::java::security::PrivateKey;

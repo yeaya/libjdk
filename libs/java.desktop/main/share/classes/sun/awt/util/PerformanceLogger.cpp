@@ -1,6 +1,5 @@
 #include <sun/awt/util/PerformanceLogger.h>
 
-#include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/OutputStreamWriter.h>
 #include <java/io/Writer.h>
@@ -15,7 +14,6 @@
 #undef LAST_RESERVED
 #undef START_INDEX
 
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $OutputStreamWriter = ::java::io::OutputStreamWriter;
 using $PrintStream = ::java::io::PrintStream;

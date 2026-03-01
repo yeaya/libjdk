@@ -14,7 +14,6 @@
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/File.h>
 #include <java/io/FileOutputStream.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
@@ -22,8 +21,6 @@
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/Error.h>
 #include <java/net/URL.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collections.h>
 #include <java/util/Date.h>
@@ -38,9 +35,7 @@
 #include <java/util/jar/JarEntry.h>
 #include <java/util/jar/JarOutputStream.h>
 #include <java/util/jar/Manifest.h>
-#include <java/util/zip/DeflaterOutputStream.h>
 #include <java/util/zip/ZipEntry.h>
-#include <java/util/zip/ZipOutputStream.h>
 #include <javax/xml/XMLConstants.h>
 #include <javax/xml/catalog/CatalogFeatures.h>
 #include <jdk/xml/internal/JdkConstants.h>
@@ -86,7 +81,6 @@ using $DTM = ::com::sun::org::apache::xml::internal::dtm::DTM;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $File = ::java::io::File;
 using $FileOutputStream = ::java::io::FileOutputStream;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
@@ -99,8 +93,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $Collections = ::java::util::Collections;
 using $Date = ::java::util::Date;
@@ -115,9 +107,7 @@ using $Attributes$Name = ::java::util::jar::Attributes$Name;
 using $JarEntry = ::java::util::jar::JarEntry;
 using $JarOutputStream = ::java::util::jar::JarOutputStream;
 using $Manifest = ::java::util::jar::Manifest;
-using $DeflaterOutputStream = ::java::util::zip::DeflaterOutputStream;
 using $ZipEntry = ::java::util::zip::ZipEntry;
-using $ZipOutputStream = ::java::util::zip::ZipOutputStream;
 using $XMLConstants = ::javax::xml::XMLConstants;
 using $CatalogFeatures = ::javax::xml::catalog::CatalogFeatures;
 using $JdkConstants = ::jdk::xml::internal::JdkConstants;

@@ -8,7 +8,6 @@
 #include <java/awt/Polygon.h>
 #include <java/awt/Shape.h>
 #include <java/lang/Math.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <javax/swing/border/AbstractBorder.h>
@@ -26,9 +25,7 @@
 #include <javax/swing/text/html/CSSBorder$GrooveRidgePainter.h>
 #include <javax/swing/text/html/CSSBorder$InsetOutsetPainter.h>
 #include <javax/swing/text/html/CSSBorder$NullPainter.h>
-#include <javax/swing/text/html/CSSBorder$ShadowLightPainter.h>
 #include <javax/swing/text/html/CSSBorder$SolidPainter.h>
-#include <javax/swing/text/html/CSSBorder$StrokePainter.h>
 #include <jcpp.h>
 
 #undef ATTRIBUTES
@@ -84,7 +81,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $AbstractBorder = ::javax::swing::border::AbstractBorder;
@@ -102,9 +98,7 @@ using $CSSBorder$DoublePainter = ::javax::swing::text::html::CSSBorder$DoublePai
 using $CSSBorder$GrooveRidgePainter = ::javax::swing::text::html::CSSBorder$GrooveRidgePainter;
 using $CSSBorder$InsetOutsetPainter = ::javax::swing::text::html::CSSBorder$InsetOutsetPainter;
 using $CSSBorder$NullPainter = ::javax::swing::text::html::CSSBorder$NullPainter;
-using $CSSBorder$ShadowLightPainter = ::javax::swing::text::html::CSSBorder$ShadowLightPainter;
 using $CSSBorder$SolidPainter = ::javax::swing::text::html::CSSBorder$SolidPainter;
-using $CSSBorder$StrokePainter = ::javax::swing::text::html::CSSBorder$StrokePainter;
 
 namespace javax {
 	namespace swing {

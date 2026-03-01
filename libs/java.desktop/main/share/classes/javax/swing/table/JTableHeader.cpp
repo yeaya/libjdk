@@ -1,17 +1,14 @@
 #include <javax/swing/table/JTableHeader.h>
 
 #include <java/awt/AWTEvent.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/io/ObjectOutputStream.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/SwingUtilities.h>
@@ -23,7 +20,6 @@
 #include <javax/swing/event/TableColumnModelListener.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/TableHeaderUI.h>
-#include <javax/swing/table/DefaultTableCellRenderer.h>
 #include <javax/swing/table/DefaultTableColumnModel.h>
 #include <javax/swing/table/JTableHeader$AccessibleJTableHeader.h>
 #include <javax/swing/table/TableCellRenderer.h>
@@ -38,9 +34,7 @@
 #undef NOBUTTON
 
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Dimension = ::java::awt::Dimension;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
@@ -55,7 +49,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JTable = ::javax::swing::JTable;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $ToolTipManager = ::javax::swing::ToolTipManager;
@@ -66,7 +59,6 @@ using $TableColumnModelEvent = ::javax::swing::event::TableColumnModelEvent;
 using $TableColumnModelListener = ::javax::swing::event::TableColumnModelListener;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $TableHeaderUI = ::javax::swing::plaf::TableHeaderUI;
-using $DefaultTableCellRenderer = ::javax::swing::table::DefaultTableCellRenderer;
 using $DefaultTableColumnModel = ::javax::swing::table::DefaultTableColumnModel;
 using $JTableHeader$AccessibleJTableHeader = ::javax::swing::table::JTableHeader$AccessibleJTableHeader;
 using $TableCellRenderer = ::javax::swing::table::TableCellRenderer;

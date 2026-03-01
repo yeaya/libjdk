@@ -13,8 +13,6 @@
 #include <java/net/ProtocolException.h>
 #include <java/net/http/HttpHeaders.h>
 #include <java/nio/ByteBuffer.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
 #include <java/util/HashMap.h>
 #include <java/util/List.h>
@@ -63,8 +61,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $ProtocolException = ::java::net::ProtocolException;
 using $HttpHeaders = ::java::net::http::HttpHeaders;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $List = ::java::util::List;

@@ -4,8 +4,6 @@
 #include <com/sun/org/apache/bcel/internal/generic/ALOAD.h>
 #include <com/sun/org/apache/bcel/internal/generic/ClassGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/LoadInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/LocalVariableInstruction.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Constants.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Parser.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet.h>
@@ -23,8 +21,6 @@ using $MethodArray = $Array<::com::sun::org::apache::bcel::internal::classfile::
 using $ALOAD = ::com::sun::org::apache::bcel::internal::generic::ALOAD;
 using $ClassGen = ::com::sun::org::apache::bcel::internal::generic::ClassGen;
 using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
-using $LoadInstruction = ::com::sun::org::apache::bcel::internal::generic::LoadInstruction;
-using $LocalVariableInstruction = ::com::sun::org::apache::bcel::internal::generic::LocalVariableInstruction;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
 using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;
 using $Stylesheet = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Stylesheet;

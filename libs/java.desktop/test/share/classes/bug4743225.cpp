@@ -16,7 +16,6 @@
 #include <javax/accessibility/Accessible.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/swing/JComboBox.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/event/PopupMenuListener.h>
@@ -30,7 +29,6 @@ using $bug4743225$1 = ::bug4743225$1;
 using $bug4743225$2 = ::bug4743225$2;
 using $bug4743225$3 = ::bug4743225$3;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $FlowLayout = ::java::awt::FlowLayout;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
@@ -45,7 +43,6 @@ using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $JComboBox = ::javax::swing::JComboBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $PopupMenuListener = ::javax::swing::event::PopupMenuListener;

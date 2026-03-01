@@ -7,10 +7,8 @@
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/event/ActionListener.h>
 #include <java/beans/PropertyChangeListener.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComponent.h>
@@ -19,13 +17,10 @@
 #include <javax/swing/JLabel.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
-#include <javax/swing/border/EmptyBorder.h>
 #include <javax/swing/border/MatteBorder.h>
 #include <javax/swing/plaf/ColorUIResource.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/DesktopIconUI.h>
 #include <javax/swing/plaf/basic/BasicDesktopIconUI.h>
 #include <javax/swing/plaf/metal/MetalBumps.h>
 #include <javax/swing/plaf/metal/MetalDesktopIconUI$1.h>
@@ -42,14 +37,12 @@ using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $Icon = ::javax::swing::Icon;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
@@ -58,12 +51,9 @@ using $JInternalFrame$JDesktopIcon = ::javax::swing::JInternalFrame$JDesktopIcon
 using $JLabel = ::javax::swing::JLabel;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
-using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 using $MatteBorder = ::javax::swing::border::MatteBorder;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $DesktopIconUI = ::javax::swing::plaf::DesktopIconUI;
 using $BasicDesktopIconUI = ::javax::swing::plaf::basic::BasicDesktopIconUI;
 using $MetalBumps = ::javax::swing::plaf::metal::MetalBumps;
 using $MetalDesktopIconUI$1 = ::javax::swing::plaf::metal::MetalDesktopIconUI$1;

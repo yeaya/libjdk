@@ -2,7 +2,6 @@
 
 #include <com/sun/org/apache/xml/internal/utils/StopParseException.h>
 #include <com/sun/org/apache/xml/internal/utils/SystemIDResolver.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <java/util/StringTokenizer.h>
@@ -22,7 +21,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $StringTokenizer = ::java::util::StringTokenizer;

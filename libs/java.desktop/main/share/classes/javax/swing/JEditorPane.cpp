@@ -1,15 +1,12 @@
 #include <javax/swing/JEditorPane.h>
 
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/FocusTraversalPolicy.h>
 #include <java/awt/Rectangle.h>
 #include <java/io/BufferedInputStream.h>
 #include <java/io/DataOutputStream.h>
-#include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
@@ -23,14 +20,12 @@
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Math.h>
-#include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/StringBuffer.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/net/HttpURLConnection.h>
 #include <java/net/URL.h>
 #include <java/net/URLConnection.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Enumeration.h>
 #include <java/util/EventListener.h>
 #include <java/util/HashMap.h>
@@ -39,8 +34,6 @@
 #include <java/util/Map.h>
 #include <java/util/Set.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/InternalFrameFocusTraversalPolicy.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane$1.h>
 #include <javax/swing/JEditorPane$2.h>
@@ -51,9 +44,7 @@
 #include <javax/swing/JEditorPane$PageLoader.h>
 #include <javax/swing/JEditorPane$PlainEditorKit.h>
 #include <javax/swing/JViewport.h>
-#include <javax/swing/LayoutFocusTraversalPolicy.h>
 #include <javax/swing/LookAndFeel.h>
-#include <javax/swing/SortingFocusTraversalPolicy.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/SwingWorker.h>
 #include <javax/swing/UIManager.h>
@@ -67,11 +58,9 @@
 #include <javax/swing/text/BadLocationException.h>
 #include <javax/swing/text/Caret.h>
 #include <javax/swing/text/ChangedCharSetException.h>
-#include <javax/swing/text/DefaultEditorKit.h>
 #include <javax/swing/text/DefaultStyledDocument.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/EditorKit.h>
-#include <javax/swing/text/JTextComponent$AccessibleJTextComponent.h>
 #include <javax/swing/text/JTextComponent.h>
 #include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/StyledEditorKit.h>
@@ -92,15 +81,12 @@
 
 using $HyperlinkListenerArray = $Array<::javax::swing::event::HyperlinkListener>;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $Container = ::java::awt::Container;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Dimension = ::java::awt::Dimension;
 using $FocusTraversalPolicy = ::java::awt::FocusTraversalPolicy;
 using $Rectangle = ::java::awt::Rectangle;
 using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $DataOutputStream = ::java::io::DataOutputStream;
-using $FilterInputStream = ::java::io::FilterInputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
@@ -123,7 +109,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $StringBuffer = ::java::lang::StringBuffer;
@@ -131,7 +116,6 @@ using $InvocationTargetException = ::java::lang::reflect::InvocationTargetExcept
 using $HttpURLConnection = ::java::net::HttpURLConnection;
 using $URL = ::java::net::URL;
 using $URLConnection = ::java::net::URLConnection;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Enumeration = ::java::util::Enumeration;
 using $EventListener = ::java::util::EventListener;
 using $HashMap = ::java::util::HashMap;
@@ -140,9 +124,7 @@ using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $InternalFrameFocusTraversalPolicy = ::javax::swing::InternalFrameFocusTraversalPolicy;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JEditorPane$1 = ::javax::swing::JEditorPane$1;
 using $JEditorPane$2 = ::javax::swing::JEditorPane$2;
 using $JEditorPane$3 = ::javax::swing::JEditorPane$3;
@@ -152,9 +134,7 @@ using $JEditorPane$HeaderParser = ::javax::swing::JEditorPane$HeaderParser;
 using $JEditorPane$PageLoader = ::javax::swing::JEditorPane$PageLoader;
 using $JEditorPane$PlainEditorKit = ::javax::swing::JEditorPane$PlainEditorKit;
 using $JViewport = ::javax::swing::JViewport;
-using $LayoutFocusTraversalPolicy = ::javax::swing::LayoutFocusTraversalPolicy;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
-using $SortingFocusTraversalPolicy = ::javax::swing::SortingFocusTraversalPolicy;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $SwingWorker = ::javax::swing::SwingWorker;
 using $UIManager = ::javax::swing::UIManager;
@@ -168,12 +148,10 @@ using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $Caret = ::javax::swing::text::Caret;
 using $ChangedCharSetException = ::javax::swing::text::ChangedCharSetException;
-using $DefaultEditorKit = ::javax::swing::text::DefaultEditorKit;
 using $DefaultStyledDocument = ::javax::swing::text::DefaultStyledDocument;
 using $Document = ::javax::swing::text::Document;
 using $EditorKit = ::javax::swing::text::EditorKit;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
-using $JTextComponent$AccessibleJTextComponent = ::javax::swing::text::JTextComponent$AccessibleJTextComponent;
 using $StyledEditorKit = ::javax::swing::text::StyledEditorKit;
 using $HTML$Attribute = ::javax::swing::text::html::HTML$Attribute;
 using $HTML$Tag = ::javax::swing::text::html::HTML$Tag;

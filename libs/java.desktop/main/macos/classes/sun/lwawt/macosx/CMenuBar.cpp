@@ -4,7 +4,6 @@
 #include <java/awt/Menu.h>
 #include <java/awt/MenuBar.h>
 #include <java/awt/MenuComponent.h>
-#include <java/awt/MenuItem.h>
 #include <java/awt/peer/MenuComponentPeer.h>
 #include <java/io/Serializable.h>
 #include <java/lang/invoke/CallSite.h>
@@ -24,7 +23,6 @@ using $Font = ::java::awt::Font;
 using $Menu = ::java::awt::Menu;
 using $MenuBar = ::java::awt::MenuBar;
 using $MenuComponent = ::java::awt::MenuComponent;
-using $MenuItem = ::java::awt::MenuItem;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

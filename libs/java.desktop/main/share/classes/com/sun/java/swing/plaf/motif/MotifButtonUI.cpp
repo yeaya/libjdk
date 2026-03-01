@@ -3,14 +3,11 @@
 #include <com/sun/java/swing/plaf/motif/MotifButtonListener.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Insets.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/LookAndFeel.h>
@@ -18,7 +15,6 @@
 #include <javax/swing/UIManager.h>
 #include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
-#include <javax/swing/plaf/ButtonUI.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/basic/BasicButtonListener.h>
 #include <javax/swing/plaf/basic/BasicButtonUI.h>
@@ -31,14 +27,11 @@
 using $MotifButtonListener = ::com::sun::java::swing::plaf::motif::MotifButtonListener;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -50,7 +43,6 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
-using $ButtonUI = ::javax::swing::plaf::ButtonUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $BasicButtonListener = ::javax::swing::plaf::basic::BasicButtonListener;
 using $BasicButtonUI = ::javax::swing::plaf::basic::BasicButtonUI;

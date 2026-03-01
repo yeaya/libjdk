@@ -4,7 +4,6 @@
 #include <java/awt/Container.h>
 #include <javax/accessibility/AccessibleRole.h>
 #include <javax/swing/Box.h>
-#include <javax/swing/JComponent.h>
 #include <jcpp.h>
 
 #undef FILLER
@@ -17,7 +16,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessibleRole = ::javax::accessibility::AccessibleRole;
 using $Box = ::javax::swing::Box;
-using $JComponent = ::javax::swing::JComponent;
 
 namespace javax {
 	namespace swing {

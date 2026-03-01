@@ -1,8 +1,6 @@
 #include <sun/rmi/transport/ConnectionOutputStream.h>
 
 #include <java/io/DataOutput.h>
-#include <java/io/ObjectOutput.h>
-#include <java/io/ObjectOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/lang/AssertionError.h>
 #include <java/rmi/server/UID.h>
@@ -12,8 +10,6 @@
 #include <jcpp.h>
 
 using $DataOutput = ::java::io::DataOutput;
-using $ObjectOutput = ::java::io::ObjectOutput;
-using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

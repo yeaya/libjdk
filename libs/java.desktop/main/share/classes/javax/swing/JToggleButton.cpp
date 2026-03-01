@@ -1,21 +1,16 @@
 #include <javax/swing/JToggleButton.h>
 
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/event/FocusEvent$Cause.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/util/Enumeration.h>
 #include <java/util/Iterator.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/AbstractButton$AccessibleAbstractButton.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ButtonGroup.h>
 #include <javax/swing/ButtonModel.h>
-#include <javax/swing/DefaultButtonModel.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JToggleButton$1.h>
 #include <javax/swing/JToggleButton$AccessibleJToggleButton.h>
@@ -25,8 +20,6 @@
 #include <javax/swing/plaf/ComponentUI.h>
 #include <jcpp.h>
 
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $FocusEvent$Cause = ::java::awt::event::FocusEvent$Cause;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -39,14 +32,11 @@ using $Enumeration = ::java::util::Enumeration;
 using $Iterator = ::java::util::Iterator;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AbstractButton = ::javax::swing::AbstractButton;
-using $AbstractButton$AccessibleAbstractButton = ::javax::swing::AbstractButton$AccessibleAbstractButton;
 using $Action = ::javax::swing::Action;
 using $ButtonGroup = ::javax::swing::ButtonGroup;
 using $ButtonModel = ::javax::swing::ButtonModel;
-using $DefaultButtonModel = ::javax::swing::DefaultButtonModel;
 using $Icon = ::javax::swing::Icon;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JToggleButton$1 = ::javax::swing::JToggleButton$1;
 using $JToggleButton$AccessibleJToggleButton = ::javax::swing::JToggleButton$AccessibleJToggleButton;
 using $JToggleButton$ToggleButtonModel = ::javax::swing::JToggleButton$ToggleButtonModel;

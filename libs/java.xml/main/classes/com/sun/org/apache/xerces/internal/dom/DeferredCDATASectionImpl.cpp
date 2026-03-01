@@ -4,7 +4,6 @@
 #include <com/sun/org/apache/xerces/internal/dom/CharacterDataImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/DeferredDocumentImpl.h>
-#include <com/sun/org/apache/xerces/internal/dom/DocumentImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/NodeImpl.h>
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/NamedNodeMap.h>
@@ -16,7 +15,6 @@
 using $CDATASectionImpl = ::com::sun::org::apache::xerces::internal::dom::CDATASectionImpl;
 using $CoreDocumentImpl = ::com::sun::org::apache::xerces::internal::dom::CoreDocumentImpl;
 using $DeferredDocumentImpl = ::com::sun::org::apache::xerces::internal::dom::DeferredDocumentImpl;
-using $DocumentImpl = ::com::sun::org::apache::xerces::internal::dom::DocumentImpl;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

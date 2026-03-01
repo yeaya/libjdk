@@ -4,7 +4,6 @@
 #include <apple/laf/JRSUIConstants$Variant.h>
 #include <apple/laf/JRSUIConstants$Widget.h>
 #include <apple/laf/JRSUIState.h>
-#include <com/apple/laf/AquaBorder$Default.h>
 #include <com/apple/laf/AquaBorder.h>
 #include <com/apple/laf/AquaComboBoxRenderer.h>
 #include <com/apple/laf/AquaListUI$AquaHomeEndAction.h>
@@ -19,7 +18,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/FocusListener.h>
 #include <java/beans/PropertyChangeListener.h>
-#include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/CellRendererPane.h>
@@ -29,10 +27,6 @@
 #include <javax/swing/border/Border.h>
 #include <javax/swing/event/MouseInputListener.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/ListUI.h>
-#include <javax/swing/plaf/basic/BasicListUI$FocusHandler.h>
-#include <javax/swing/plaf/basic/BasicListUI$MouseInputHandler.h>
-#include <javax/swing/plaf/basic/BasicListUI$PropertyChangeHandler.h>
 #include <javax/swing/plaf/basic/BasicListUI.h>
 #include <jcpp.h>
 
@@ -48,7 +42,6 @@ using $JRSUIConstants$Variant = ::apple::laf::JRSUIConstants$Variant;
 using $JRSUIConstants$Widget = ::apple::laf::JRSUIConstants$Widget;
 using $JRSUIState = ::apple::laf::JRSUIState;
 using $AquaBorder = ::com::apple::laf::AquaBorder;
-using $AquaBorder$Default = ::com::apple::laf::AquaBorder$Default;
 using $AquaComboBoxRenderer = ::com::apple::laf::AquaComboBoxRenderer;
 using $AquaListUI$AquaHomeEndAction = ::com::apple::laf::AquaListUI$AquaHomeEndAction;
 using $AquaListUI$AquaPropertyChangeHandler = ::com::apple::laf::AquaListUI$AquaPropertyChangeHandler;
@@ -64,7 +57,6 @@ using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractAction = ::javax::swing::AbstractAction;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $CellRendererPane = ::javax::swing::CellRendererPane;
@@ -74,11 +66,7 @@ using $ListCellRenderer = ::javax::swing::ListCellRenderer;
 using $Border = ::javax::swing::border::Border;
 using $MouseInputListener = ::javax::swing::event::MouseInputListener;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $ListUI = ::javax::swing::plaf::ListUI;
 using $BasicListUI = ::javax::swing::plaf::basic::BasicListUI;
-using $BasicListUI$FocusHandler = ::javax::swing::plaf::basic::BasicListUI$FocusHandler;
-using $BasicListUI$MouseInputHandler = ::javax::swing::plaf::basic::BasicListUI$MouseInputHandler;
-using $BasicListUI$PropertyChangeHandler = ::javax::swing::plaf::basic::BasicListUI$PropertyChangeHandler;
 
 namespace com {
 	namespace apple {

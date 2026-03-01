@@ -1,14 +1,12 @@
 #include <javax/swing/plaf/synth/SynthTableHeaderUI.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/TableHeaderUI.h>
 #include <javax/swing/plaf/UIResource.h>
 #include <javax/swing/plaf/basic/BasicTableHeaderUI.h>
 #include <javax/swing/plaf/synth/SynthConstants.h>
@@ -18,16 +16,13 @@
 #include <javax/swing/plaf/synth/SynthStyle.h>
 #include <javax/swing/plaf/synth/SynthTableHeaderUI$HeaderRenderer.h>
 #include <javax/swing/plaf/synth/SynthUI.h>
-#include <javax/swing/table/DefaultTableCellRenderer.h>
 #include <javax/swing/table/JTableHeader.h>
 #include <javax/swing/table/TableCellRenderer.h>
-#include <sun/swing/table/DefaultTableCellHeaderRenderer.h>
 #include <jcpp.h>
 
 #undef ENABLED
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
@@ -37,7 +32,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $TableHeaderUI = ::javax::swing::plaf::TableHeaderUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $BasicTableHeaderUI = ::javax::swing::plaf::basic::BasicTableHeaderUI;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;
@@ -47,10 +41,8 @@ using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;
 using $SynthStyle = ::javax::swing::plaf::synth::SynthStyle;
 using $SynthTableHeaderUI$HeaderRenderer = ::javax::swing::plaf::synth::SynthTableHeaderUI$HeaderRenderer;
 using $SynthUI = ::javax::swing::plaf::synth::SynthUI;
-using $DefaultTableCellRenderer = ::javax::swing::table::DefaultTableCellRenderer;
 using $JTableHeader = ::javax::swing::table::JTableHeader;
 using $TableCellRenderer = ::javax::swing::table::TableCellRenderer;
-using $DefaultTableCellHeaderRenderer = ::sun::swing::table::DefaultTableCellHeaderRenderer;
 
 namespace javax {
 	namespace swing {

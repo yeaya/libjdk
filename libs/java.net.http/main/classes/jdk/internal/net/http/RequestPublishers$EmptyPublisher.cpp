@@ -1,7 +1,6 @@
 #include <jdk/internal/net/http/RequestPublishers$EmptyPublisher.h>
 
 #include <java/lang/Iterable.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/List.h>
 #include <java/util/concurrent/Flow$Publisher.h>
@@ -15,7 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Flow$Publisher = ::java::util::concurrent::Flow$Publisher;
 using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;

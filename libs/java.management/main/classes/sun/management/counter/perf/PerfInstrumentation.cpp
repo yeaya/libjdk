@@ -5,13 +5,11 @@
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/ByteOrder.h>
 #include <java/nio/LongBuffer.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <java/util/Map$Entry.h>
-#include <java/util/NavigableMap.h>
 #include <java/util/Set.h>
 #include <java/util/SortedMap.h>
 #include <java/util/TreeMap.h>
@@ -41,12 +39,10 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Map$Entry = ::java::util::Map$Entry;
-using $NavigableMap = ::java::util::NavigableMap;
 using $Set = ::java::util::Set;
 using $SortedMap = ::java::util::SortedMap;
 using $TreeMap = ::java::util::TreeMap;

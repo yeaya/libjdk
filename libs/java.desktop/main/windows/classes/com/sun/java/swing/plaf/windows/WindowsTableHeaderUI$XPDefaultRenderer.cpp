@@ -9,22 +9,18 @@
 #include <com/sun/java/swing/plaf/windows/XPStyle$Skin.h>
 #include <com/sun/java/swing/plaf/windows/XPStyle.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Insets.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/SortOrder.h>
 #include <javax/swing/SwingConstants.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/EmptyBorder.h>
 #include <javax/swing/plaf/UIResource.h>
-#include <javax/swing/table/DefaultTableCellRenderer.h>
 #include <javax/swing/table/JTableHeader.h>
 #include <javax/swing/table/TableColumn.h>
 #include <javax/swing/table/TableColumnModel.h>
@@ -50,7 +46,6 @@ using $WindowsTableHeaderUI$IconBorder = ::com::sun::java::swing::plaf::windows:
 using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
@@ -59,17 +54,13 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Icon = ::javax::swing::Icon;
-using $JComponent = ::javax::swing::JComponent;
-using $JLabel = ::javax::swing::JLabel;
 using $JTable = ::javax::swing::JTable;
 using $SortOrder = ::javax::swing::SortOrder;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $UIManager = ::javax::swing::UIManager;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 using $UIResource = ::javax::swing::plaf::UIResource;
-using $DefaultTableCellRenderer = ::javax::swing::table::DefaultTableCellRenderer;
 using $JTableHeader = ::javax::swing::table::JTableHeader;
 using $TableColumn = ::javax::swing::table::TableColumn;
 using $TableColumnModel = ::javax::swing::table::TableColumnModel;

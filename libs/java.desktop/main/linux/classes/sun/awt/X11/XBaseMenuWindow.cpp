@@ -13,7 +13,6 @@
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/SystemColor.h>
-#include <java/awt/event/ComponentEvent.h>
 #include <java/awt/event/InvocationEvent.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/event/MouseEvent.h>
@@ -96,7 +95,6 @@ using $MenuItem = ::java::awt::MenuItem;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $SystemColor = ::java::awt::SystemColor;
-using $ComponentEvent = ::java::awt::event::ComponentEvent;
 using $InvocationEvent = ::java::awt::event::InvocationEvent;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;

@@ -5,14 +5,12 @@
 #include <com/sun/org/apache/xerces/internal/impl/XML11DocumentScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XML11NSDocumentScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDTDScannerImpl.h>
-#include <com/sun/org/apache/xerces/internal/impl/XMLDocumentFragmentScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDocumentScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLEntityHandler.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLEntityManager.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLEntityScanner.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLErrorReporter.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLNSDocumentScannerImpl.h>
-#include <com/sun/org/apache/xerces/internal/impl/XMLScanner.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLVersionDetector.h>
 #include <com/sun/org/apache/xerces/internal/impl/dtd/XMLDTDValidatorFilter.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/DTDDVFactory.h>
@@ -38,8 +36,6 @@
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLErrorHandler.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLInputSource.h>
 #include <java/io/IOException.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
@@ -112,13 +108,11 @@ using $XML11DTDScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XM
 using $XML11DocumentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XML11DocumentScannerImpl;
 using $XML11NSDocumentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XML11NSDocumentScannerImpl;
 using $XMLDTDScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLDTDScannerImpl;
-using $XMLDocumentFragmentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentFragmentScannerImpl;
 using $XMLDocumentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentScannerImpl;
 using $XMLEntityHandler = ::com::sun::org::apache::xerces::internal::impl::XMLEntityHandler;
 using $XMLEntityManager = ::com::sun::org::apache::xerces::internal::impl::XMLEntityManager;
 using $XMLErrorReporter = ::com::sun::org::apache::xerces::internal::impl::XMLErrorReporter;
 using $XMLNSDocumentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLNSDocumentScannerImpl;
-using $XMLScanner = ::com::sun::org::apache::xerces::internal::impl::XMLScanner;
 using $XMLVersionDetector = ::com::sun::org::apache::xerces::internal::impl::XMLVersionDetector;
 using $XMLDTDValidatorFilter = ::com::sun::org::apache::xerces::internal::impl::dtd::XMLDTDValidatorFilter;
 using $DTDDVFactory = ::com::sun::org::apache::xerces::internal::impl::dv::DTDDVFactory;
@@ -150,8 +144,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;

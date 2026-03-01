@@ -3,7 +3,6 @@
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
 #include <java/awt/Graphics.h>
@@ -17,9 +16,7 @@
 #include <javax/swing/JTree.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
-#include <javax/swing/border/EmptyBorder.h>
 #include <javax/swing/plaf/BorderUIResource$EmptyBorderUIResource.h>
 #include <javax/swing/plaf/ColorUIResource.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -35,7 +32,6 @@
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $Graphics = ::java::awt::Graphics;
@@ -52,9 +48,7 @@ using $JTree = ::javax::swing::JTree;
 using $JTree$DropLocation = ::javax::swing::JTree$DropLocation;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
-using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 using $BorderUIResource$EmptyBorderUIResource = ::javax::swing::plaf::BorderUIResource$EmptyBorderUIResource;
 using $ColorUIResource = ::javax::swing::plaf::ColorUIResource;
 using $FontUIResource = ::javax::swing::plaf::FontUIResource;

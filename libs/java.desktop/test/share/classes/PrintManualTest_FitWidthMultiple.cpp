@@ -2,27 +2,23 @@
 
 #include <PrintManualTest_FitWidthMultiple$1.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Window.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Runnable.h>
 #include <java/text/MessageFormat.h>
 #include <java/util/concurrent/CountDownLatch.h>
 #include <java/util/concurrent/TimeUnit.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/JTextArea.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef SECONDS
 
 using $PrintManualTest_FitWidthMultiple$1 = ::PrintManualTest_FitWidthMultiple$1;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -34,13 +30,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $MessageFormat = ::java::text::MessageFormat;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JTable = ::javax::swing::JTable;
 using $JTextArea = ::javax::swing::JTextArea;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 $FieldInfo _PrintManualTest_FitWidthMultiple_FieldInfo_[] = {
 	{"testPassed", "Z", nullptr, $STATIC, $staticField(PrintManualTest_FitWidthMultiple, testPassed)},

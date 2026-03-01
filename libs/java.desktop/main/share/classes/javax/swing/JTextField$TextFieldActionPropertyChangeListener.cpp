@@ -6,7 +6,6 @@
 #include <javax/swing/ActionPropertyChangeListener.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JTextField.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
@@ -18,7 +17,6 @@ using $Action = ::javax::swing::Action;
 using $ActionPropertyChangeListener = ::javax::swing::ActionPropertyChangeListener;
 using $JComponent = ::javax::swing::JComponent;
 using $JTextField = ::javax::swing::JTextField;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 namespace javax {
 	namespace swing {

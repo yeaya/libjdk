@@ -1,7 +1,6 @@
 #include <com/apple/laf/AquaImageFactory.h>
 
 #include <apple/laf/JRSUIUtils$Images.h>
-#include <com/apple/laf/AquaIcon$CachingScalingIcon.h>
 #include <com/apple/laf/AquaIcon$JRSUIControlSpec.h>
 #include <com/apple/laf/AquaIcon$SystemIcon.h>
 #include <com/apple/laf/AquaIcon.h>
@@ -26,7 +25,6 @@
 #include <java/awt/RenderingHints.h>
 #include <java/awt/SystemColor.h>
 #include <java/awt/Toolkit.h>
-#include <java/awt/image/AbstractMultiResolutionImage.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/ImageObserver.h>
 #include <java/io/Serializable.h>
@@ -62,7 +60,6 @@
 
 using $JRSUIUtils$Images = ::apple::laf::JRSUIUtils$Images;
 using $AquaIcon = ::com::apple::laf::AquaIcon;
-using $AquaIcon$CachingScalingIcon = ::com::apple::laf::AquaIcon$CachingScalingIcon;
 using $AquaIcon$JRSUIControlSpec = ::com::apple::laf::AquaIcon$JRSUIControlSpec;
 using $AquaIcon$SystemIcon = ::com::apple::laf::AquaIcon$SystemIcon;
 using $AquaImageFactory$1 = ::com::apple::laf::AquaImageFactory$1;
@@ -85,7 +82,6 @@ using $Image = ::java::awt::Image;
 using $RenderingHints = ::java::awt::RenderingHints;
 using $SystemColor = ::java::awt::SystemColor;
 using $Toolkit = ::java::awt::Toolkit;
-using $AbstractMultiResolutionImage = ::java::awt::image::AbstractMultiResolutionImage;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ImageObserver = ::java::awt::image::ImageObserver;
 using $Serializable = ::java::io::Serializable;

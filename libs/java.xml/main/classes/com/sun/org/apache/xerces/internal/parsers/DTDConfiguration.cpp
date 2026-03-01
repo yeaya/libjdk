@@ -2,7 +2,6 @@
 
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDTDScannerImpl.h>
-#include <com/sun/org/apache/xerces/internal/impl/XMLDocumentFragmentScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDocumentScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLEntityManager.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLEntityScanner.h>
@@ -29,9 +28,7 @@
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLComponent.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager.h>
-#include <com/sun/org/apache/xerces/internal/xni/parser/XMLDTDContentModelFilter.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDTDContentModelSource.h>
-#include <com/sun/org/apache/xerces/internal/xni/parser/XMLDTDFilter.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDTDScanner.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDTDSource.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDocumentFilter.h>
@@ -122,7 +119,6 @@
 using $CatalogFeatures$FeatureArray = $Array<::javax::xml::catalog::CatalogFeatures$Feature>;
 using $Constants = ::com::sun::org::apache::xerces::internal::impl::Constants;
 using $XMLDTDScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLDTDScannerImpl;
-using $XMLDocumentFragmentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentFragmentScannerImpl;
 using $XMLDocumentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentScannerImpl;
 using $XMLEntityManager = ::com::sun::org::apache::xerces::internal::impl::XMLEntityManager;
 using $XMLErrorReporter = ::com::sun::org::apache::xerces::internal::impl::XMLErrorReporter;
@@ -147,9 +143,7 @@ using $XNIException = ::com::sun::org::apache::xerces::internal::xni::XNIExcepti
 using $XMLGrammarPool = ::com::sun::org::apache::xerces::internal::xni::grammars::XMLGrammarPool;
 using $XMLComponent = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponent;
 using $XMLComponentManager = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager;
-using $XMLDTDContentModelFilter = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDTDContentModelFilter;
 using $XMLDTDContentModelSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDTDContentModelSource;
-using $XMLDTDFilter = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDTDFilter;
 using $XMLDTDScanner = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDTDScanner;
 using $XMLDTDSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDTDSource;
 using $XMLDocumentFilter = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDocumentFilter;

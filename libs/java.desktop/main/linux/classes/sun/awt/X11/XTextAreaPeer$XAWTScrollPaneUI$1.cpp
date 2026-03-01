@@ -1,12 +1,9 @@
 #include <sun/awt/X11/XTextAreaPeer$XAWTScrollPaneUI$1.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JScrollBar.h>
 #include <javax/swing/JScrollPane.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/CompoundBorder.h>
 #include <javax/swing/border/EmptyBorder.h>
@@ -14,17 +11,14 @@
 #include <jcpp.h>
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JScrollBar = ::javax::swing::JScrollBar;
 using $JScrollPane = ::javax::swing::JScrollPane;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $CompoundBorder = ::javax::swing::border::CompoundBorder;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;

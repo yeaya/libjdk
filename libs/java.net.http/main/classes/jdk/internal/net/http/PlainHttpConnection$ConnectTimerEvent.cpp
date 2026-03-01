@@ -9,7 +9,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/net/ConnectException.h>
-#include <java/net/SocketException.h>
 #include <java/time/Duration.h>
 #include <java/util/concurrent/CompletableFuture.h>
 #include <jdk/internal/net/http/Exchange.h>
@@ -24,14 +23,12 @@
 using $IOException = ::java::io::IOException;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $ConnectException = ::java::net::ConnectException;
-using $SocketException = ::java::net::SocketException;
 using $Duration = ::java::time::Duration;
 using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $Exchange = ::jdk::internal::net::http::Exchange;

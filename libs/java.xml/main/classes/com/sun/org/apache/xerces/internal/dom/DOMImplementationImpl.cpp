@@ -1,7 +1,6 @@
 #include <com/sun/org/apache/xerces/internal/dom/DOMImplementationImpl.h>
 
 #include <com/sun/org/apache/xerces/internal/dom/CoreDOMImplementationImpl.h>
-#include <com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/DOMMessageFormatter.h>
 #include <com/sun/org/apache/xerces/internal/dom/DocumentImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/NodeImpl.h>
@@ -17,7 +16,6 @@
 #undef WRONG_DOCUMENT_ERR
 
 using $CoreDOMImplementationImpl = ::com::sun::org::apache::xerces::internal::dom::CoreDOMImplementationImpl;
-using $CoreDocumentImpl = ::com::sun::org::apache::xerces::internal::dom::CoreDocumentImpl;
 using $DOMMessageFormatter = ::com::sun::org::apache::xerces::internal::dom::DOMMessageFormatter;
 using $DocumentImpl = ::com::sun::org::apache::xerces::internal::dom::DocumentImpl;
 using $ClassInfo = ::java::lang::ClassInfo;

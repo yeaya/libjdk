@@ -10,7 +10,6 @@
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/DirectColorModel.h>
-#include <java/awt/image/PackedColorModel.h>
 #include <java/awt/image/Raster.h>
 #include <java/lang/InternalError.h>
 #include <sun/awt/SunHints.h>
@@ -30,9 +29,7 @@
 #include <sun/java2d/loops/RenderLoops.h>
 #include <sun/java2d/loops/SurfaceType.h>
 #include <sun/java2d/loops/XORComposite.h>
-#include <sun/java2d/pipe/DrawImage.h>
 #include <sun/java2d/pipe/DrawImagePipe.h>
-#include <sun/java2d/pipe/GlyphListPipe.h>
 #include <sun/java2d/pipe/PixelDrawPipe.h>
 #include <sun/java2d/pipe/PixelFillPipe.h>
 #include <sun/java2d/pipe/PixelToShapeConverter.h>
@@ -80,7 +77,6 @@ using $Transparency = ::java::awt::Transparency;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $DirectColorModel = ::java::awt::image::DirectColorModel;
-using $PackedColorModel = ::java::awt::image::PackedColorModel;
 using $Raster = ::java::awt::image::Raster;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -102,9 +98,7 @@ using $MaskFill = ::sun::java2d::loops::MaskFill;
 using $RenderLoops = ::sun::java2d::loops::RenderLoops;
 using $SurfaceType = ::sun::java2d::loops::SurfaceType;
 using $XORComposite = ::sun::java2d::loops::XORComposite;
-using $DrawImage = ::sun::java2d::pipe::DrawImage;
 using $DrawImagePipe = ::sun::java2d::pipe::DrawImagePipe;
-using $GlyphListPipe = ::sun::java2d::pipe::GlyphListPipe;
 using $PixelDrawPipe = ::sun::java2d::pipe::PixelDrawPipe;
 using $PixelFillPipe = ::sun::java2d::pipe::PixelFillPipe;
 using $PixelToShapeConverter = ::sun::java2d::pipe::PixelToShapeConverter;

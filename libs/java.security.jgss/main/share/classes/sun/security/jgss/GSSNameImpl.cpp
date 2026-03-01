@@ -3,7 +3,6 @@
 #include <java/io/IOException.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
 #include <java/util/HashMap.h>
@@ -38,7 +37,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Arrays = ::java::util::Arrays;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;

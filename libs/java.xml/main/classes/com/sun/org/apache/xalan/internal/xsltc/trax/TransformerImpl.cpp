@@ -22,7 +22,6 @@
 #include <com/sun/org/apache/xml/internal/dtm/DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMManager.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMWSFilter.h>
-#include <com/sun/org/apache/xml/internal/serializer/ExtendedContentHandler.h>
 #include <com/sun/org/apache/xml/internal/serializer/OutputPropertiesFactory.h>
 #include <com/sun/org/apache/xml/internal/serializer/SerializationHandler.h>
 #include <com/sun/org/apache/xml/internal/utils/SystemIDResolver.h>
@@ -40,8 +39,6 @@
 #include <java/net/UnknownServiceException.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/Paths.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Enumeration.h>
 #include <java/util/HashMap.h>
@@ -156,7 +153,6 @@ using $TransformerFactoryImpl = ::com::sun::org::apache::xalan::internal::xsltc:
 using $TransformerImpl$MessageHandler = ::com::sun::org::apache::xalan::internal::xsltc::trax::TransformerImpl$MessageHandler;
 using $XSLTCSource = ::com::sun::org::apache::xalan::internal::xsltc::trax::XSLTCSource;
 using $DTMWSFilter = ::com::sun::org::apache::xml::internal::dtm::DTMWSFilter;
-using $ExtendedContentHandler = ::com::sun::org::apache::xml::internal::serializer::ExtendedContentHandler;
 using $OutputPropertiesFactory = ::com::sun::org::apache::xml::internal::serializer::OutputPropertiesFactory;
 using $SerializationHandler = ::com::sun::org::apache::xml::internal::serializer::SerializationHandler;
 using $SystemIDResolver = ::com::sun::org::apache::xml::internal::utils::SystemIDResolver;
@@ -183,8 +179,6 @@ using $URLConnection = ::java::net::URLConnection;
 using $UnknownServiceException = ::java::net::UnknownServiceException;
 using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $Enumeration = ::java::util::Enumeration;
 using $HashMap = ::java::util::HashMap;

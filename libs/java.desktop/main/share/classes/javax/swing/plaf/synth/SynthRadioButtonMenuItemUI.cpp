@@ -2,10 +2,7 @@
 
 #include <java/awt/Graphics.h>
 #include <javax/swing/JComponent.h>
-#include <javax/swing/plaf/ButtonUI.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/MenuItemUI.h>
-#include <javax/swing/plaf/basic/BasicMenuItemUI.h>
 #include <javax/swing/plaf/synth/SynthContext.h>
 #include <javax/swing/plaf/synth/SynthMenuItemUI.h>
 #include <javax/swing/plaf/synth/SynthPainter.h>
@@ -15,10 +12,7 @@ using $Graphics = ::java::awt::Graphics;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
-using $ButtonUI = ::javax::swing::plaf::ButtonUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $MenuItemUI = ::javax::swing::plaf::MenuItemUI;
-using $BasicMenuItemUI = ::javax::swing::plaf::basic::BasicMenuItemUI;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $SynthMenuItemUI = ::javax::swing::plaf::synth::SynthMenuItemUI;
 using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;

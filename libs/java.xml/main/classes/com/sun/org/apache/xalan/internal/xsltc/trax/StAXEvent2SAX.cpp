@@ -28,7 +28,6 @@
 #include <org/xml/sax/SAXException.h>
 #include <org/xml/sax/XMLReader.h>
 #include <org/xml/sax/ext/LexicalHandler.h>
-#include <org/xml/sax/ext/Locator2.h>
 #include <org/xml/sax/helpers/AttributesImpl.h>
 #include <jcpp.h>
 
@@ -81,7 +80,6 @@ using $Locator = ::org::xml::sax::Locator;
 using $SAXException = ::org::xml::sax::SAXException;
 using $XMLReader = ::org::xml::sax::XMLReader;
 using $LexicalHandler = ::org::xml::sax::ext::LexicalHandler;
-using $Locator2 = ::org::xml::sax::ext::Locator2;
 using $AttributesImpl = ::org::xml::sax::helpers::AttributesImpl;
 
 namespace com {

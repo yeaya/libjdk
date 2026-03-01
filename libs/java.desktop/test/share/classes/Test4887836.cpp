@@ -6,7 +6,6 @@
 #include <java/awt/Font.h>
 #include <javax/swing/JApplet.h>
 #include <javax/swing/JColorChooser.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/UIManager.h>
 #include <jcpp.h>
 
@@ -14,13 +13,11 @@
 
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Font = ::java::awt::Font;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JApplet = ::javax::swing::JApplet;
 using $JColorChooser = ::javax::swing::JColorChooser;
-using $JComponent = ::javax::swing::JComponent;
 using $UIManager = ::javax::swing::UIManager;
 
 $MethodInfo _Test4887836_MethodInfo_[] = {

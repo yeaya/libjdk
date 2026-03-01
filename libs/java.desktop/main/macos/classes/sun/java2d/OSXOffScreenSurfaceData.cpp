@@ -14,8 +14,6 @@
 #include <java/awt/Shape.h>
 #include <java/awt/Transparency.h>
 #include <java/awt/color/ColorSpace.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/ComponentColorModel.h>
@@ -24,7 +22,6 @@
 #include <java/awt/image/DirectColorModel.h>
 #include <java/awt/image/ImageObserver.h>
 #include <java/awt/image/IndexColorModel.h>
-#include <java/awt/image/PackedColorModel.h>
 #include <java/awt/image/PixelInterleavedSampleModel.h>
 #include <java/awt/image/Raster.h>
 #include <java/awt/image/SampleModel.h>
@@ -35,7 +32,6 @@
 #include <java/nio/ByteOrder.h>
 #include <java/nio/IntBuffer.h>
 #include <java/util/Hashtable.h>
-#include <sun/awt/image/BufImgSurfaceData.h>
 #include <sun/awt/image/ByteComponentRaster.h>
 #include <sun/awt/image/BytePackedRaster.h>
 #include <sun/awt/image/IntegerComponentRaster.h>
@@ -85,8 +81,6 @@ using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
 using $Transparency = ::java::awt::Transparency;
 using $ColorSpace = ::java::awt::color::ColorSpace;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $ComponentColorModel = ::java::awt::image::ComponentColorModel;
@@ -95,7 +89,6 @@ using $DataBuffer = ::java::awt::image::DataBuffer;
 using $DirectColorModel = ::java::awt::image::DirectColorModel;
 using $ImageObserver = ::java::awt::image::ImageObserver;
 using $IndexColorModel = ::java::awt::image::IndexColorModel;
-using $PackedColorModel = ::java::awt::image::PackedColorModel;
 using $PixelInterleavedSampleModel = ::java::awt::image::PixelInterleavedSampleModel;
 using $Raster = ::java::awt::image::Raster;
 using $SampleModel = ::java::awt::image::SampleModel;
@@ -109,7 +102,6 @@ using $ByteBuffer = ::java::nio::ByteBuffer;
 using $ByteOrder = ::java::nio::ByteOrder;
 using $IntBuffer = ::java::nio::IntBuffer;
 using $Hashtable = ::java::util::Hashtable;
-using $BufImgSurfaceData = ::sun::awt::image::BufImgSurfaceData;
 using $ByteComponentRaster = ::sun::awt::image::ByteComponentRaster;
 using $BytePackedRaster = ::sun::awt::image::BytePackedRaster;
 using $IntegerComponentRaster = ::sun::awt::image::IntegerComponentRaster;

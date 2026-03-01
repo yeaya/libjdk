@@ -1,12 +1,10 @@
 #include <com/sun/jmx/mbeanserver/Introspector.h>
 
-#include <com/sun/jmx/mbeanserver/DynamicMBean2.h>
 #include <com/sun/jmx/mbeanserver/GetPropertyAction.h>
 #include <com/sun/jmx/mbeanserver/Introspector$SimpleIntrospector.h>
 #include <com/sun/jmx/mbeanserver/JavaBeansAccessor.h>
 #include <com/sun/jmx/mbeanserver/MBeanAnalyzer.h>
 #include <com/sun/jmx/mbeanserver/MBeanIntrospector.h>
-#include <com/sun/jmx/mbeanserver/MBeanSupport.h>
 #include <com/sun/jmx/mbeanserver/MXBeanIntrospector.h>
 #include <com/sun/jmx/mbeanserver/MXBeanSupport.h>
 #include <com/sun/jmx/mbeanserver/PerInterface.h>
@@ -16,7 +14,6 @@
 #include <com/sun/jmx/remote/util/EnvHelp.h>
 #include <java/lang/Enum.h>
 #include <java/lang/Number.h>
-#include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/annotation/Annotation.h>
 #include <java/lang/reflect/AnnotatedElement.h>
@@ -29,7 +26,6 @@
 #include <java/lang/reflect/UndeclaredThrowableException.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Arrays.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
@@ -38,10 +34,8 @@
 #include <javax/management/DescriptorKey.h>
 #include <javax/management/DynamicMBean.h>
 #include <javax/management/ImmutableDescriptor.h>
-#include <javax/management/JMException.h>
 #include <javax/management/MBeanInfo.h>
 #include <javax/management/NotCompliantMBeanException.h>
-#include <javax/management/OperationsException.h>
 #include <javax/management/openmbean/CompositeData.h>
 #include <sun/reflect/misc/MethodUtil.h>
 #include <sun/reflect/misc/ReflectUtil.h>
@@ -53,12 +47,10 @@
 using $AnnotationArray = $Array<::java::lang::annotation::Annotation>;
 using $ConstructorArray = $Array<::java::lang::reflect::Constructor>;
 using $MethodArray = $Array<::java::lang::reflect::Method>;
-using $DynamicMBean2 = ::com::sun::jmx::mbeanserver::DynamicMBean2;
 using $GetPropertyAction = ::com::sun::jmx::mbeanserver::GetPropertyAction;
 using $Introspector$SimpleIntrospector = ::com::sun::jmx::mbeanserver::Introspector$SimpleIntrospector;
 using $JavaBeansAccessor = ::com::sun::jmx::mbeanserver::JavaBeansAccessor;
 using $MBeanIntrospector = ::com::sun::jmx::mbeanserver::MBeanIntrospector;
-using $MBeanSupport = ::com::sun::jmx::mbeanserver::MBeanSupport;
 using $MXBeanIntrospector = ::com::sun::jmx::mbeanserver::MXBeanIntrospector;
 using $MXBeanSupport = ::com::sun::jmx::mbeanserver::MXBeanSupport;
 using $PerInterface = ::com::sun::jmx::mbeanserver::PerInterface;
@@ -77,7 +69,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Number = ::java::lang::Number;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityException = ::java::lang::SecurityException;
 using $Annotation = ::java::lang::annotation::Annotation;
@@ -90,7 +81,6 @@ using $Proxy = ::java::lang::reflect::Proxy;
 using $UndeclaredThrowableException = ::java::lang::reflect::UndeclaredThrowableException;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Arrays = ::java::util::Arrays;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
@@ -99,10 +89,8 @@ using $Descriptor = ::javax::management::Descriptor;
 using $DescriptorKey = ::javax::management::DescriptorKey;
 using $DynamicMBean = ::javax::management::DynamicMBean;
 using $ImmutableDescriptor = ::javax::management::ImmutableDescriptor;
-using $JMException = ::javax::management::JMException;
 using $MBeanInfo = ::javax::management::MBeanInfo;
 using $NotCompliantMBeanException = ::javax::management::NotCompliantMBeanException;
-using $OperationsException = ::javax::management::OperationsException;
 using $CompositeData = ::javax::management::openmbean::CompositeData;
 using $MethodUtil = ::sun::reflect::misc::MethodUtil;
 using $ReflectUtil = ::sun::reflect::misc::ReflectUtil;

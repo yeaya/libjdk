@@ -3,10 +3,8 @@
 #include <java/awt/Component$BaselineResizeBehavior.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
-#include <javax/swing/Spring$SpringMap.h>
 #include <javax/swing/Spring.h>
 #include <javax/swing/SpringLayout$1.h>
 #include <javax/swing/SpringLayout$Constraints$1.h>
@@ -29,11 +27,9 @@ using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $Spring = ::javax::swing::Spring;
-using $Spring$SpringMap = ::javax::swing::Spring$SpringMap;
 using $SpringLayout = ::javax::swing::SpringLayout;
 using $SpringLayout$1 = ::javax::swing::SpringLayout$1;
 using $SpringLayout$Constraints$1 = ::javax::swing::SpringLayout$Constraints$1;

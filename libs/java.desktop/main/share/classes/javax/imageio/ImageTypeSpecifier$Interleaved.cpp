@@ -2,7 +2,6 @@
 
 #include <java/awt/color/ColorSpace.h>
 #include <java/awt/image/ColorModel.h>
-#include <java/awt/image/ComponentSampleModel.h>
 #include <java/awt/image/DataBuffer.h>
 #include <java/awt/image/PixelInterleavedSampleModel.h>
 #include <java/awt/image/SampleModel.h>
@@ -18,7 +17,6 @@
 #undef TYPE_USHORT
 
 using $ColorSpace = ::java::awt::color::ColorSpace;
-using $ComponentSampleModel = ::java::awt::image::ComponentSampleModel;
 using $DataBuffer = ::java::awt::image::DataBuffer;
 using $PixelInterleavedSampleModel = ::java::awt::image::PixelInterleavedSampleModel;
 using $SampleModel = ::java::awt::image::SampleModel;

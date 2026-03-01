@@ -1,7 +1,6 @@
 #include <javax/swing/plaf/synth/SynthInternalFrameUI.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/event/ComponentListener.h>
@@ -13,10 +12,8 @@
 #include <javax/swing/JPopupMenu.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/InternalFrameUI.h>
 #include <javax/swing/plaf/UIResource.h>
 #include <javax/swing/plaf/basic/BasicInternalFrameTitlePane.h>
-#include <javax/swing/plaf/basic/BasicInternalFrameUI$ComponentHandler.h>
 #include <javax/swing/plaf/basic/BasicInternalFrameUI.h>
 #include <javax/swing/plaf/synth/SynthConstants.h>
 #include <javax/swing/plaf/synth/SynthContext.h>
@@ -33,7 +30,6 @@
 #undef IS_SELECTED_PROPERTY
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $ComponentListener = ::java::awt::event::ComponentListener;
@@ -49,11 +45,9 @@ using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $JPopupMenu = ::javax::swing::JPopupMenu;
 using $UIManager = ::javax::swing::UIManager;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $InternalFrameUI = ::javax::swing::plaf::InternalFrameUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $BasicInternalFrameTitlePane = ::javax::swing::plaf::basic::BasicInternalFrameTitlePane;
 using $BasicInternalFrameUI = ::javax::swing::plaf::basic::BasicInternalFrameUI;
-using $BasicInternalFrameUI$ComponentHandler = ::javax::swing::plaf::basic::BasicInternalFrameUI$ComponentHandler;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $SynthInternalFrameTitlePane = ::javax::swing::plaf::synth::SynthInternalFrameTitlePane;

@@ -6,7 +6,6 @@
 #include <com/apple/laf/AquaKeyBindings$SimpleBinding.h>
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
 #include <com/apple/laf/AquaUtils$RecyclableSingletonFromDefaultConstructor.h>
-#include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/JTextField.h>
@@ -28,7 +27,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractAction = ::javax::swing::AbstractAction;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $JTextField = ::javax::swing::JTextField;

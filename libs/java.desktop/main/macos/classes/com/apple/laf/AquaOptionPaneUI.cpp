@@ -7,7 +7,6 @@
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <javax/swing/Box.h>
 #include <javax/swing/BoxLayout.h>
 #include <javax/swing/Icon.h>
@@ -18,8 +17,6 @@
 #include <javax/swing/UIManager.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/OptionPaneUI.h>
-#include <javax/swing/plaf/basic/BasicOptionPaneUI$ButtonAreaLayout.h>
 #include <javax/swing/plaf/basic/BasicOptionPaneUI.h>
 #include <jcpp.h>
 
@@ -35,7 +32,6 @@ using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $Insets = ::java::awt::Insets;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -49,9 +45,7 @@ using $JPanel = ::javax::swing::JPanel;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $UIManager = ::javax::swing::UIManager;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $OptionPaneUI = ::javax::swing::plaf::OptionPaneUI;
 using $BasicOptionPaneUI = ::javax::swing::plaf::basic::BasicOptionPaneUI;
-using $BasicOptionPaneUI$ButtonAreaLayout = ::javax::swing::plaf::basic::BasicOptionPaneUI$ButtonAreaLayout;
 
 namespace com {
 	namespace apple {

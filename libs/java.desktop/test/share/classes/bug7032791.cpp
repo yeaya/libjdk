@@ -4,7 +4,6 @@
 #include <javax/swing/JTable.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/plaf/basic/BasicLookAndFeel.h>
 #include <javax/swing/plaf/synth/SynthLookAndFeel.h>
 #include <javax/swing/table/TableCellRenderer.h>
 #include <jcpp.h>
@@ -15,7 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JTable = ::javax::swing::JTable;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
-using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
 using $TableCellRenderer = ::javax::swing::table::TableCellRenderer;
 

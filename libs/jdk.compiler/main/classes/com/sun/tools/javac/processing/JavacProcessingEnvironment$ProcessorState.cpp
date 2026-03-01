@@ -14,9 +14,7 @@
 #include <com/sun/tools/javac/util/MatchingUtils.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/Enum.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
-#include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
 #include <java/util/LinkedHashSet.h>
 #include <java/util/Set.h>
@@ -43,9 +41,7 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
-using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
 using $Set = ::java::util::Set;

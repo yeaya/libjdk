@@ -3,7 +3,6 @@
 #include <com/sun/java/swing/plaf/gtk/GTKStyle.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/JComponent.h>
@@ -14,7 +13,6 @@
 using $GTKStyle = ::com::sun::java::swing::plaf::gtk::GTKStyle;
 using $Component = ::java::awt::Component;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -12,7 +12,6 @@
 #include <javax/naming/NamingException.h>
 #include <javax/naming/directory/SearchControls.h>
 #include <javax/naming/event/EventContext.h>
-#include <javax/naming/event/EventDirContext.h>
 #include <javax/naming/event/NamespaceChangeListener.h>
 #include <javax/naming/event/NamingExceptionEvent.h>
 #include <javax/naming/event/NamingListener.h>
@@ -37,7 +36,6 @@ using $Vector = ::java::util::Vector;
 using $NamingException = ::javax::naming::NamingException;
 using $SearchControls = ::javax::naming::directory::SearchControls;
 using $EventContext = ::javax::naming::event::EventContext;
-using $EventDirContext = ::javax::naming::event::EventDirContext;
 using $NamespaceChangeListener = ::javax::naming::event::NamespaceChangeListener;
 using $NamingExceptionEvent = ::javax::naming::event::NamingExceptionEvent;
 using $NamingListener = ::javax::naming::event::NamingListener;

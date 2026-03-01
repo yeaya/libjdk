@@ -19,7 +19,6 @@
 #include <javax/swing/text/View.h>
 #include <javax/swing/text/html/AccessibleHTML$DocumentHandler.h>
 #include <javax/swing/text/html/AccessibleHTML$ElementInfo.h>
-#include <javax/swing/text/html/AccessibleHTML$HTMLAccessibleContext.h>
 #include <javax/swing/text/html/AccessibleHTML$IconElementInfo.h>
 #include <javax/swing/text/html/AccessibleHTML$PropertyChangeHandler.h>
 #include <javax/swing/text/html/AccessibleHTML$RootHTMLAccessibleContext.h>
@@ -53,7 +52,6 @@ using $StyleConstants = ::javax::swing::text::StyleConstants;
 using $View = ::javax::swing::text::View;
 using $AccessibleHTML$DocumentHandler = ::javax::swing::text::html::AccessibleHTML$DocumentHandler;
 using $AccessibleHTML$ElementInfo = ::javax::swing::text::html::AccessibleHTML$ElementInfo;
-using $AccessibleHTML$HTMLAccessibleContext = ::javax::swing::text::html::AccessibleHTML$HTMLAccessibleContext;
 using $AccessibleHTML$IconElementInfo = ::javax::swing::text::html::AccessibleHTML$IconElementInfo;
 using $AccessibleHTML$PropertyChangeHandler = ::javax::swing::text::html::AccessibleHTML$PropertyChangeHandler;
 using $AccessibleHTML$RootHTMLAccessibleContext = ::javax::swing::text::html::AccessibleHTML$RootHTMLAccessibleContext;

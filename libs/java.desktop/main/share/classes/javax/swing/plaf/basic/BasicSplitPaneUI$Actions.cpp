@@ -9,7 +9,6 @@
 #include <java/lang/Math.h>
 #include <java/util/EventObject.h>
 #include <java/util/HashSet.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JSplitPane.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -41,7 +40,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $HashSet = ::java::util::HashSet;
-using $JComponent = ::javax::swing::JComponent;
 using $JSplitPane = ::javax::swing::JSplitPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;

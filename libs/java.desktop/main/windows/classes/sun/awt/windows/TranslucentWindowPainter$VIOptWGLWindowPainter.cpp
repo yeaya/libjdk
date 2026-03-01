@@ -2,9 +2,7 @@
 
 #include <sun/awt/windows/TranslucentWindowPainter$VIOptWindowPainter.h>
 #include <sun/awt/windows/TranslucentWindowPainter.h>
-#include <sun/awt/windows/WCanvasPeer.h>
 #include <sun/awt/windows/WComponentPeer.h>
-#include <sun/awt/windows/WPanelPeer.h>
 #include <sun/awt/windows/WWindowPeer.h>
 #include <sun/java2d/opengl/WGLSurfaceData.h>
 #include <jcpp.h>
@@ -13,9 +11,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $TranslucentWindowPainter$VIOptWindowPainter = ::sun::awt::windows::TranslucentWindowPainter$VIOptWindowPainter;
-using $WCanvasPeer = ::sun::awt::windows::WCanvasPeer;
 using $WComponentPeer = ::sun::awt::windows::WComponentPeer;
-using $WPanelPeer = ::sun::awt::windows::WPanelPeer;
 using $WWindowPeer = ::sun::awt::windows::WWindowPeer;
 using $WGLSurfaceData = ::sun::java2d::opengl::WGLSurfaceData;
 

@@ -17,7 +17,6 @@
 #include <java/io/File.h>
 #include <java/io/UnsupportedEncodingException.h>
 #include <java/lang/SecurityException.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <jdk/xml/internal/SecuritySupport.h>
@@ -53,7 +52,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityException = ::java::lang::SecurityException;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $SecuritySupport = ::jdk::xml::internal::SecuritySupport;

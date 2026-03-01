@@ -1,7 +1,6 @@
 #include <TextViewOOM.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/EventQueue.h>
 #include <java/awt/Window.h>
 #include <java/io/Serializable.h>
@@ -13,18 +12,15 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/JTextArea.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef N
 #undef STRING
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $EventQueue = ::java::awt::EventQueue;
 using $Window = ::java::awt::Window;
 using $PrintStream = ::java::io::PrintStream;
@@ -36,11 +32,9 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $Runtime = ::java::lang::Runtime;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JTextArea = ::javax::swing::JTextArea;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 class TextViewOOM$$Lambda$createAndShowGUI : public $Runnable {
 	$class(TextViewOOM$$Lambda$createAndShowGUI, $NO_CLASS_INIT, $Runnable)

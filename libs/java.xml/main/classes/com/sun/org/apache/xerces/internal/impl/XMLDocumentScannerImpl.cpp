@@ -5,7 +5,6 @@
 #include <com/sun/org/apache/xerces/internal/impl/PropertyManager.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDTDScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDocumentFragmentScannerImpl$Driver.h>
-#include <com/sun/org/apache/xerces/internal/impl/XMLDocumentFragmentScannerImpl$FragmentContentDriver.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDocumentFragmentScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDocumentScannerImpl$ContentDriver.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDocumentScannerImpl$PrologDriver.h>
@@ -82,7 +81,6 @@ using $PropertyManager = ::com::sun::org::apache::xerces::internal::impl::Proper
 using $XMLDTDScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLDTDScannerImpl;
 using $XMLDocumentFragmentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentFragmentScannerImpl;
 using $XMLDocumentFragmentScannerImpl$Driver = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentFragmentScannerImpl$Driver;
-using $XMLDocumentFragmentScannerImpl$FragmentContentDriver = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentFragmentScannerImpl$FragmentContentDriver;
 using $XMLDocumentScannerImpl$ContentDriver = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentScannerImpl$ContentDriver;
 using $XMLDocumentScannerImpl$PrologDriver = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentScannerImpl$PrologDriver;
 using $XMLDocumentScannerImpl$TrailingMiscDriver = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentScannerImpl$TrailingMiscDriver;

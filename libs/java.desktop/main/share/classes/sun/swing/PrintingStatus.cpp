@@ -16,7 +16,6 @@
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/text/MessageFormat.h>
 #include <java/util/concurrent/atomic/AtomicBoolean.h>
-#include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/Icon.h>
@@ -47,7 +46,6 @@ using $PrinterJob = ::java::awt::print::PrinterJob;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Error = ::java::lang::Error;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
@@ -59,7 +57,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $MessageFormat = ::java::text::MessageFormat;
 using $AtomicBoolean = ::java::util::concurrent::atomic::AtomicBoolean;
-using $AbstractAction = ::javax::swing::AbstractAction;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $Icon = ::javax::swing::Icon;

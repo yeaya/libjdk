@@ -1,7 +1,6 @@
 #include <sun/swing/FilePane$DetailsTableCellRenderer.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Insets.h>
 #include <java/io/File.h>
@@ -12,7 +11,6 @@
 #include <java/util/Date.h>
 #include <java/util/Locale.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFileChooser.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JTable.h>
@@ -28,7 +26,6 @@
 #undef SHORT
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Insets = ::java::awt::Insets;
 using $File = ::java::io::File;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -43,9 +40,7 @@ using $DateFormat = ::java::text::DateFormat;
 using $MessageFormat = ::java::text::MessageFormat;
 using $Date = ::java::util::Date;
 using $Icon = ::javax::swing::Icon;
-using $JComponent = ::javax::swing::JComponent;
 using $JFileChooser = ::javax::swing::JFileChooser;
-using $JLabel = ::javax::swing::JLabel;
 using $JTable = ::javax::swing::JTable;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $DefaultTableCellRenderer = ::javax::swing::table::DefaultTableCellRenderer;

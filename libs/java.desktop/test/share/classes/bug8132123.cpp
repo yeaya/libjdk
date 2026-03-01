@@ -11,7 +11,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <javax/swing/JApplet.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/JSplitPane.h>
 #include <javax/swing/SwingUtilities.h>
@@ -30,7 +29,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $JApplet = ::javax::swing::JApplet;
-using $JComponent = ::javax::swing::JComponent;
 using $JPanel = ::javax::swing::JPanel;
 using $JSplitPane = ::javax::swing::JSplitPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;

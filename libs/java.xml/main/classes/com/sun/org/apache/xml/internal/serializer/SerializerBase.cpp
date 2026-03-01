@@ -3,7 +3,6 @@
 #include <com/sun/org/apache/xml/internal/serializer/AttributesImplSerializer.h>
 #include <com/sun/org/apache/xml/internal/serializer/DOMSerializer.h>
 #include <com/sun/org/apache/xml/internal/serializer/ElemContext.h>
-#include <com/sun/org/apache/xml/internal/serializer/ExtendedContentHandler.h>
 #include <com/sun/org/apache/xml/internal/serializer/NamespaceMappings.h>
 #include <com/sun/org/apache/xml/internal/serializer/SerializationHandler.h>
 #include <com/sun/org/apache/xml/internal/serializer/SerializerConstants.h>
@@ -28,7 +27,6 @@
 #include <org/xml/sax/SAXParseException.h>
 #include <org/xml/sax/ext/LexicalHandler.h>
 #include <org/xml/sax/ext/Locator2.h>
-#include <org/xml/sax/helpers/AttributesImpl.h>
 #include <jcpp.h>
 
 #undef CDATA_SECTION_ELEMENTS
@@ -56,7 +54,6 @@
 using $AttributesImplSerializer = ::com::sun::org::apache::xml::internal::serializer::AttributesImplSerializer;
 using $DOMSerializer = ::com::sun::org::apache::xml::internal::serializer::DOMSerializer;
 using $ElemContext = ::com::sun::org::apache::xml::internal::serializer::ElemContext;
-using $ExtendedContentHandler = ::com::sun::org::apache::xml::internal::serializer::ExtendedContentHandler;
 using $NamespaceMappings = ::com::sun::org::apache::xml::internal::serializer::NamespaceMappings;
 using $SerializationHandler = ::com::sun::org::apache::xml::internal::serializer::SerializationHandler;
 using $SerializerConstants = ::com::sun::org::apache::xml::internal::serializer::SerializerConstants;
@@ -84,7 +81,6 @@ using $ContentHandler = ::org::xml::sax::ContentHandler;
 using $Locator = ::org::xml::sax::Locator;
 using $SAXParseException = ::org::xml::sax::SAXParseException;
 using $Locator2 = ::org::xml::sax::ext::Locator2;
-using $AttributesImpl = ::org::xml::sax::helpers::AttributesImpl;
 
 namespace com {
 	namespace sun {

@@ -5,7 +5,6 @@
 #include <java/awt/GridBagConstraints.h>
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
@@ -20,9 +19,7 @@
 #include <java/text/Format.h>
 #include <java/text/NumberFormat.h>
 #include <java/util/EventObject.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFormattedTextField.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JLabel.h>
@@ -30,17 +27,14 @@
 #include <javax/swing/JTextField.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef HORIZONTAL
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $Serializable = ::java::io::Serializable;
@@ -52,9 +46,7 @@ using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Format = ::java::text::Format;
 using $NumberFormat = ::java::text::NumberFormat;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JFormattedTextField = ::javax::swing::JFormattedTextField;
 using $JFrame = ::javax::swing::JFrame;
 using $JLabel = ::javax::swing::JLabel;
@@ -62,7 +54,6 @@ using $JPanel = ::javax::swing::JPanel;
 using $JTextField = ::javax::swing::JTextField;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 class JFormattedTextFieldTest$$Lambda$lambda$createUI$0 : public $Runnable {
 	$class(JFormattedTextFieldTest$$Lambda$lambda$createUI$0, $NO_CLASS_INIT, $Runnable)

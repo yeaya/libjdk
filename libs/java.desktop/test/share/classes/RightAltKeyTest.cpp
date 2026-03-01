@@ -20,7 +20,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JMenu.h>
@@ -37,7 +36,6 @@
 #include <javax/swing/event/ChangeEvent.h>
 #include <javax/swing/event/ChangeListener.h>
 #include <javax/swing/event/MenuListener.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef ALT_GRAPH_DOWN_MASK
@@ -55,7 +53,6 @@ using $RightAltKeyTest$1 = ::RightAltKeyTest$1;
 using $RightAltKeyTest$2 = ::RightAltKeyTest$2;
 using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $GridLayout = ::java::awt::GridLayout;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $Robot = ::java::awt::Robot;
@@ -73,7 +70,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JLabel = ::javax::swing::JLabel;
 using $JMenu = ::javax::swing::JMenu;
@@ -90,7 +86,6 @@ using $UIManager$LookAndFeelInfo = ::javax::swing::UIManager$LookAndFeelInfo;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
 using $MenuListener = ::javax::swing::event::MenuListener;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 class RightAltKeyTest$$Lambda$lambda$testJMenuItem$0 : public $ActionListener {
 	$class(RightAltKeyTest$$Lambda$lambda$testJMenuItem$0, $NO_CLASS_INIT, $ActionListener)

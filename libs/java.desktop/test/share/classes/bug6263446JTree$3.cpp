@@ -3,7 +3,6 @@
 #include <bug6263446JTree.h>
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/NoSuchFieldException.h>
-#include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/reflect/Field.h>
 #include <javax/swing/DefaultCellEditor.h>
 #include <javax/swing/JTree.h>
@@ -14,13 +13,11 @@
 using $bug6263446JTree = ::bug6263446JTree;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchFieldException = ::java::lang::NoSuchFieldException;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Field = ::java::lang::reflect::Field;
 using $DefaultCellEditor = ::javax::swing::DefaultCellEditor;

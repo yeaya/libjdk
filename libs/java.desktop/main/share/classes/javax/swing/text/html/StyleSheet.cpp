@@ -15,7 +15,6 @@
 #include <java/util/Hashtable.h>
 #include <java/util/Vector.h>
 #include <javax/swing/ImageIcon.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/EmptyBorder.h>
 #include <javax/swing/plaf/UIResource.h>
@@ -36,7 +35,6 @@
 #include <javax/swing/text/html/HTML$Tag.h>
 #include <javax/swing/text/html/HTML.h>
 #include <javax/swing/text/html/HTMLDocument$TaggedAttributeSet.h>
-#include <javax/swing/text/html/MuxingAttributeSet.h>
 #include <javax/swing/text/html/StyleSheet$BoxPainter.h>
 #include <javax/swing/text/html/StyleSheet$CssParser.h>
 #include <javax/swing/text/html/StyleSheet$LargeConversionSet.h>
@@ -78,7 +76,6 @@ using $Enumeration = ::java::util::Enumeration;
 using $Hashtable = ::java::util::Hashtable;
 using $Vector = ::java::util::Vector;
 using $ImageIcon = ::javax::swing::ImageIcon;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 using $UIResource = ::javax::swing::plaf::UIResource;
@@ -99,7 +96,6 @@ using $HTML = ::javax::swing::text::html::HTML;
 using $HTML$Attribute = ::javax::swing::text::html::HTML$Attribute;
 using $HTML$Tag = ::javax::swing::text::html::HTML$Tag;
 using $HTMLDocument$TaggedAttributeSet = ::javax::swing::text::html::HTMLDocument$TaggedAttributeSet;
-using $MuxingAttributeSet = ::javax::swing::text::html::MuxingAttributeSet;
 using $StyleSheet$BoxPainter = ::javax::swing::text::html::StyleSheet$BoxPainter;
 using $StyleSheet$CssParser = ::javax::swing::text::html::StyleSheet$CssParser;
 using $StyleSheet$LargeConversionSet = ::javax::swing::text::html::StyleSheet$LargeConversionSet;

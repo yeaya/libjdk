@@ -16,7 +16,6 @@
 #include <java/lang/ref/Cleaner$Cleanable.h>
 #include <java/lang/ref/Cleaner.h>
 #include <java/lang/ref/WeakReference.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <javax/swing/Icon.h>
@@ -51,7 +50,6 @@ using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Cleaner = ::java::lang::ref::Cleaner;
 using $WeakReference = ::java::lang::ref::WeakReference;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $Icon = ::javax::swing::Icon;

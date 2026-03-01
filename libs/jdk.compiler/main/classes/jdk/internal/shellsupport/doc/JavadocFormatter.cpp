@@ -9,9 +9,7 @@
 #include <java/lang/Iterable.h>
 #include <java/net/URI.h>
 #include <java/net/URISyntaxException.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Arrays.h>
-#include <java/util/HashMap.h>
 #include <java/util/IdentityHashMap.h>
 #include <java/util/LinkedHashMap.h>
 #include <java/util/Map.h>
@@ -23,8 +21,6 @@
 #include <javax/tools/JavaCompiler.h>
 #include <javax/tools/JavaFileManager.h>
 #include <javax/tools/JavaFileObject$Kind.h>
-#include <javax/tools/JavaFileObject.h>
-#include <javax/tools/SimpleJavaFileObject.h>
 #include <javax/tools/ToolProvider.h>
 #include <jdk/internal/shellsupport/doc/JavadocFormatter$1.h>
 #include <jdk/internal/shellsupport/doc/JavadocFormatter$2.h>
@@ -51,7 +47,6 @@ using $DocTrees = ::com::sun::source::util::DocTrees;
 using $JavacTask = ::com::sun::source::util::JavacTask;
 using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InternalError = ::java::lang::InternalError;
@@ -59,9 +54,7 @@ using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URI = ::java::net::URI;
 using $URISyntaxException = ::java::net::URISyntaxException;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Arrays = ::java::util::Arrays;
-using $HashMap = ::java::util::HashMap;
 using $IdentityHashMap = ::java::util::IdentityHashMap;
 using $LinkedHashMap = ::java::util::LinkedHashMap;
 using $Map = ::java::util::Map;
@@ -72,9 +65,7 @@ using $FileObject = ::javax::tools::FileObject;
 using $JavaCompiler = ::javax::tools::JavaCompiler;
 using $JavaCompiler$CompilationTask = ::javax::tools::JavaCompiler$CompilationTask;
 using $JavaFileManager = ::javax::tools::JavaFileManager;
-using $JavaFileObject = ::javax::tools::JavaFileObject;
 using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
-using $SimpleJavaFileObject = ::javax::tools::SimpleJavaFileObject;
 using $ToolProvider = ::javax::tools::ToolProvider;
 using $JavadocFormatter$1 = ::jdk::internal::shellsupport::doc::JavadocFormatter$1;
 using $JavadocFormatter$2 = ::jdk::internal::shellsupport::doc::JavadocFormatter$2;

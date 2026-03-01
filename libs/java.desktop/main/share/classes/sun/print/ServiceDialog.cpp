@@ -12,12 +12,10 @@
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
 #include <java/awt/event/KeyEvent.h>
-#include <java/awt/event/WindowAdapter.h>
 #include <java/awt/event/WindowListener.h>
 #include <java/io/File.h>
 #include <java/lang/CharSequence.h>
@@ -42,7 +40,6 @@
 #include <javax/print/attribute/PrintRequestAttributeSet.h>
 #include <javax/print/attribute/standard/Destination.h>
 #include <javax/print/attribute/standard/DialogOwner.h>
-#include <javax/swing/AbstractAction.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
@@ -59,7 +56,6 @@
 #include <javax/swing/JRootPane.h>
 #include <javax/swing/JTabbedPane.h>
 #include <javax/swing/KeyStroke.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/EmptyBorder.h>
 #include <sun/print/ServiceDialog$1.h>
@@ -98,12 +94,10 @@ using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $Insets = ::java::awt::Insets;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Window = ::java::awt::Window;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $KeyEvent = ::java::awt::event::KeyEvent;
-using $WindowAdapter = ::java::awt::event::WindowAdapter;
 using $WindowListener = ::java::awt::event::WindowListener;
 using $File = ::java::io::File;
 using $CharSequence = ::java::lang::CharSequence;
@@ -132,7 +126,6 @@ using $PrintJobAttribute = ::javax::print::attribute::PrintJobAttribute;
 using $PrintRequestAttributeSet = ::javax::print::attribute::PrintRequestAttributeSet;
 using $Destination = ::javax::print::attribute::standard::Destination;
 using $DialogOwner = ::javax::print::attribute::standard::DialogOwner;
-using $AbstractAction = ::javax::swing::AbstractAction;
 using $AbstractButton = ::javax::swing::AbstractButton;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
@@ -149,7 +142,6 @@ using $JRadioButton = ::javax::swing::JRadioButton;
 using $JRootPane = ::javax::swing::JRootPane;
 using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $KeyStroke = ::javax::swing::KeyStroke;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 using $ServiceDialog$1 = ::sun::print::ServiceDialog$1;

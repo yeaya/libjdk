@@ -2,7 +2,6 @@
 
 #include <com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/DeferredDocumentImpl.h>
-#include <com/sun/org/apache/xerces/internal/dom/DocumentImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/NodeImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/NotationImpl.h>
 #include <org/w3c/dom/Document.h>
@@ -14,7 +13,6 @@
 
 using $CoreDocumentImpl = ::com::sun::org::apache::xerces::internal::dom::CoreDocumentImpl;
 using $DeferredDocumentImpl = ::com::sun::org::apache::xerces::internal::dom::DeferredDocumentImpl;
-using $DocumentImpl = ::com::sun::org::apache::xerces::internal::dom::DocumentImpl;
 using $NotationImpl = ::com::sun::org::apache::xerces::internal::dom::NotationImpl;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

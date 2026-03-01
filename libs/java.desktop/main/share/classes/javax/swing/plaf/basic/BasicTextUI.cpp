@@ -9,7 +9,6 @@
 #include <java/awt/Insets.h>
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
@@ -20,20 +19,16 @@
 #include <java/awt/event/MouseMotionListener.h>
 #include <java/awt/geom/Point2D.h>
 #include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/lang/Error.h>
 #include <java/lang/Math.h>
 #include <java/lang/Number.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
 #include <java/util/HashSet.h>
 #include <java/util/Set.h>
-#include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
-#include <javax/swing/ComponentInputMap.h>
 #include <javax/swing/InputMap.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane.h>
@@ -70,7 +65,6 @@
 #include <javax/swing/text/DefaultCaret.h>
 #include <javax/swing/text/DefaultEditorKit$InsertBreakAction.h>
 #include <javax/swing/text/DefaultEditorKit.h>
-#include <javax/swing/text/DefaultHighlighter.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/EditorKit.h>
 #include <javax/swing/text/Element.h>
@@ -78,7 +72,6 @@
 #include <javax/swing/text/JTextComponent$KeyBinding.h>
 #include <javax/swing/text/JTextComponent.h>
 #include <javax/swing/text/Keymap.h>
-#include <javax/swing/text/LayeredHighlighter.h>
 #include <javax/swing/text/Position$Bias.h>
 #include <javax/swing/text/TextAction.h>
 #include <javax/swing/text/View.h>
@@ -114,7 +107,6 @@ using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
@@ -125,7 +117,6 @@ using $MouseListener = ::java::awt::event::MouseListener;
 using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
 using $Point2D = ::java::awt::geom::Point2D;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
@@ -139,14 +130,11 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $Number = ::java::lang::Number;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
-using $AbstractAction = ::javax::swing::AbstractAction;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
-using $ComponentInputMap = ::javax::swing::ComponentInputMap;
 using $InputMap = ::javax::swing::InputMap;
 using $JComponent = ::javax::swing::JComponent;
 using $JEditorPane = ::javax::swing::JEditorPane;
@@ -183,14 +171,12 @@ using $Caret = ::javax::swing::text::Caret;
 using $DefaultCaret = ::javax::swing::text::DefaultCaret;
 using $DefaultEditorKit = ::javax::swing::text::DefaultEditorKit;
 using $DefaultEditorKit$InsertBreakAction = ::javax::swing::text::DefaultEditorKit$InsertBreakAction;
-using $DefaultHighlighter = ::javax::swing::text::DefaultHighlighter;
 using $Document = ::javax::swing::text::Document;
 using $EditorKit = ::javax::swing::text::EditorKit;
 using $Element = ::javax::swing::text::Element;
 using $Highlighter = ::javax::swing::text::Highlighter;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $Keymap = ::javax::swing::text::Keymap;
-using $LayeredHighlighter = ::javax::swing::text::LayeredHighlighter;
 using $Position$Bias = ::javax::swing::text::Position$Bias;
 using $TextAction = ::javax::swing::text::TextAction;
 using $View = ::javax::swing::text::View;

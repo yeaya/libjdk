@@ -22,7 +22,6 @@
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMManager.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMWSFilter.h>
-#include <com/sun/org/apache/xml/internal/dtm/ref/DTMAxisIteratorBase.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBase.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMNodeProxy.h>
 #include <com/sun/org/apache/xml/internal/serializer/NamespaceMappings.h>
@@ -128,7 +127,6 @@ using $DTM = ::com::sun::org::apache::xml::internal::dtm::DTM;
 using $DTMAxisIterator = ::com::sun::org::apache::xml::internal::dtm::DTMAxisIterator;
 using $DTMManager = ::com::sun::org::apache::xml::internal::dtm::DTMManager;
 using $DTMWSFilter = ::com::sun::org::apache::xml::internal::dtm::DTMWSFilter;
-using $DTMAxisIteratorBase = ::com::sun::org::apache::xml::internal::dtm::ref::DTMAxisIteratorBase;
 using $DTMDefaultBase = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBase;
 using $DTMNodeProxy = ::com::sun::org::apache::xml::internal::dtm::ref::DTMNodeProxy;
 using $NamespaceMappings = ::com::sun::org::apache::xml::internal::serializer::NamespaceMappings;

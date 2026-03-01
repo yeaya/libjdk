@@ -1,11 +1,9 @@
 #include <javax/swing/JFileChooser$FCHierarchyListener.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/event/HierarchyEvent.h>
 #include <java/awt/event/HierarchyListener.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFileChooser.h>
 #include <javax/swing/JRootPane.h>
 #include <javax/swing/SwingUtilities.h>
@@ -16,14 +14,12 @@
 #undef PARENT_CHANGED
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $HierarchyEvent = ::java::awt::event::HierarchyEvent;
 using $HierarchyListener = ::java::awt::event::HierarchyListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JFileChooser = ::javax::swing::JFileChooser;
 using $JRootPane = ::javax::swing::JRootPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;

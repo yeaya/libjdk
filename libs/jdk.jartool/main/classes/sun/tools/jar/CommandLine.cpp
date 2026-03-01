@@ -2,10 +2,8 @@
 
 #include <java/io/BufferedReader.h>
 #include <java/io/FileReader.h>
-#include <java/io/InputStreamReader.h>
 #include <java/io/Reader.h>
 #include <java/io/StreamTokenizer.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -14,12 +12,10 @@
 
 using $BufferedReader = ::java::io::BufferedReader;
 using $FileReader = ::java::io::FileReader;
-using $InputStreamReader = ::java::io::InputStreamReader;
 using $Reader = ::java::io::Reader;
 using $StreamTokenizer = ::java::io::StreamTokenizer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 

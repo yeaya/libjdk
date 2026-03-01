@@ -30,7 +30,6 @@
 #undef TGS_DEFAULT_SRV_NAME
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Asn1Exception = ::sun::security::krb5::Asn1Exception;

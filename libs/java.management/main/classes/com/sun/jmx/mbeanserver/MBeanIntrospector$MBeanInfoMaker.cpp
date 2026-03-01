@@ -5,7 +5,6 @@
 #include <com/sun/jmx/mbeanserver/MBeanIntrospector.h>
 #include <com/sun/jmx/mbeanserver/Util.h>
 #include <java/lang/reflect/AnnotatedElement.h>
-#include <java/lang/reflect/GenericDeclaration.h>
 #include <java/util/List.h>
 #include <javax/management/Descriptor.h>
 #include <javax/management/ImmutableDescriptor.h>
@@ -30,7 +29,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AnnotatedElement = ::java::lang::reflect::AnnotatedElement;
-using $GenericDeclaration = ::java::lang::reflect::GenericDeclaration;
 using $List = ::java::util::List;
 using $Descriptor = ::javax::management::Descriptor;
 using $ImmutableDescriptor = ::javax::management::ImmutableDescriptor;

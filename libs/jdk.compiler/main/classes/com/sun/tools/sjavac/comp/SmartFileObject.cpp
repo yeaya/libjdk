@@ -3,7 +3,6 @@
 #include <com/sun/tools/sjavac/comp/SmartWriter.h>
 #include <java/io/BufferedReader.h>
 #include <java/io/FileNotFoundException.h>
-#include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/Reader.h>
@@ -21,7 +20,6 @@
 using $SmartWriter = ::com::sun::tools::sjavac::comp::SmartWriter;
 using $BufferedReader = ::java::io::BufferedReader;
 using $FileNotFoundException = ::java::io::FileNotFoundException;
-using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $Reader = ::java::io::Reader;

@@ -31,7 +31,6 @@ using $AWTAccessor = ::sun::awt::AWTAccessor;
 using $AWTAccessor$ClientPropertyKeyAccessor = ::sun::awt::AWTAccessor$ClientPropertyKeyAccessor;
 using $LWTextAreaPeer = ::sun::lwawt::LWTextAreaPeer;
 using $LWTextAreaPeer$ScrollableJTextArea = ::sun::lwawt::LWTextAreaPeer$ScrollableJTextArea;
-using $LWTextComponentPeer = ::sun::lwawt::LWTextComponentPeer;
 
 namespace sun {
 	namespace lwawt {

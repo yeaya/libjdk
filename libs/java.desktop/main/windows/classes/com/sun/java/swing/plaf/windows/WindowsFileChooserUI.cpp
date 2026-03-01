@@ -31,13 +31,9 @@
 #include <java/awt/Image.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/event/ActionListener.h>
-#include <java/awt/event/FocusAdapter.h>
 #include <java/awt/event/FocusListener.h>
-#include <java/awt/event/KeyAdapter.h>
 #include <java/awt/event/KeyListener.h>
-#include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/beans/PropertyChangeEvent.h>
@@ -53,8 +49,6 @@
 #include <javax/swing/ButtonGroup.h>
 #include <javax/swing/ButtonModel.h>
 #include <javax/swing/ComboBoxModel.h>
-#include <javax/swing/DefaultButtonModel.h>
-#include <javax/swing/DefaultListCellRenderer.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/ImageIcon.h>
 #include <javax/swing/JButton.h>
@@ -72,7 +66,6 @@
 #include <javax/swing/ListCellRenderer.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/EmptyBorder.h>
 #include <javax/swing/event/ListSelectionEvent.h>
@@ -82,11 +75,9 @@
 #include <javax/swing/filechooser/FileView.h>
 #include <javax/swing/plaf/ActionMapUIResource.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/FileChooserUI.h>
 #include <javax/swing/plaf/InsetsUIResource.h>
 #include <javax/swing/plaf/basic/BasicFileChooserUI$BasicFileView.h>
 #include <javax/swing/plaf/basic/BasicFileChooserUI.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <sun/swing/FilePane$FileChooserUIAccessor.h>
 #include <sun/swing/FilePane.h>
 #include <sun/swing/SwingUtilities2.h>
@@ -155,13 +146,9 @@ using $Graphics = ::java::awt::Graphics;
 using $Image = ::java::awt::Image;
 using $Insets = ::java::awt::Insets;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $FocusAdapter = ::java::awt::event::FocusAdapter;
 using $FocusListener = ::java::awt::event::FocusListener;
-using $KeyAdapter = ::java::awt::event::KeyAdapter;
 using $KeyListener = ::java::awt::event::KeyListener;
-using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
@@ -183,8 +170,6 @@ using $BoxLayout = ::javax::swing::BoxLayout;
 using $ButtonGroup = ::javax::swing::ButtonGroup;
 using $ButtonModel = ::javax::swing::ButtonModel;
 using $ComboBoxModel = ::javax::swing::ComboBoxModel;
-using $DefaultButtonModel = ::javax::swing::DefaultButtonModel;
-using $DefaultListCellRenderer = ::javax::swing::DefaultListCellRenderer;
 using $Icon = ::javax::swing::Icon;
 using $ImageIcon = ::javax::swing::ImageIcon;
 using $JButton = ::javax::swing::JButton;
@@ -202,7 +187,6 @@ using $JToolBar = ::javax::swing::JToolBar;
 using $ListCellRenderer = ::javax::swing::ListCellRenderer;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 using $ListSelectionEvent = ::javax::swing::event::ListSelectionEvent;
@@ -212,11 +196,9 @@ using $FileSystemView = ::javax::swing::filechooser::FileSystemView;
 using $FileView = ::javax::swing::filechooser::FileView;
 using $ActionMapUIResource = ::javax::swing::plaf::ActionMapUIResource;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $FileChooserUI = ::javax::swing::plaf::FileChooserUI;
 using $InsetsUIResource = ::javax::swing::plaf::InsetsUIResource;
 using $BasicFileChooserUI = ::javax::swing::plaf::basic::BasicFileChooserUI;
 using $BasicFileChooserUI$BasicFileView = ::javax::swing::plaf::basic::BasicFileChooserUI$BasicFileView;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $FilePane = ::sun::swing::FilePane;
 using $FilePane$FileChooserUIAccessor = ::sun::swing::FilePane$FileChooserUIAccessor;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;

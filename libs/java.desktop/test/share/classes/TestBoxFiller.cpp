@@ -19,11 +19,9 @@
 #include <java/lang/invoke/MethodType.h>
 #include <javax/swing/Box$Filler.h>
 #include <javax/swing/Box.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JTextField.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef VK_TAB
@@ -47,11 +45,9 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Box = ::javax::swing::Box;
 using $Box$Filler = ::javax::swing::Box$Filler;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JTextField = ::javax::swing::JTextField;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 class TestBoxFiller$$Lambda$lambda$main$0 : public $Runnable {
 	$class(TestBoxFiller$$Lambda$lambda$main$0, $NO_CLASS_INIT, $Runnable)

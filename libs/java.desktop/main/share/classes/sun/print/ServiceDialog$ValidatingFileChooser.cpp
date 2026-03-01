@@ -1,11 +1,9 @@
 #include <sun/print/ServiceDialog$ValidatingFileChooser.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/io/File.h>
 #include <java/io/IOException.h>
 #include <java/lang/SecurityException.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFileChooser.h>
 #include <javax/swing/JOptionPane.h>
 #include <sun/print/ServiceDialog.h>
@@ -16,7 +14,6 @@
 #undef YES_OPTION
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $File = ::java::io::File;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -24,7 +21,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityException = ::java::lang::SecurityException;
-using $JComponent = ::javax::swing::JComponent;
 using $JFileChooser = ::javax::swing::JFileChooser;
 using $JOptionPane = ::javax::swing::JOptionPane;
 using $ServiceDialog = ::sun::print::ServiceDialog;

@@ -2,7 +2,6 @@
 
 #include <java/awt/Component$BaselineResizeBehavior.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/LookAndFeel.h>
@@ -17,7 +16,6 @@
 
 using $Component = ::java::awt::Component;
 using $Component$BaselineResizeBehavior = ::java::awt::Component$BaselineResizeBehavior;
-using $Container = ::java::awt::Container;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

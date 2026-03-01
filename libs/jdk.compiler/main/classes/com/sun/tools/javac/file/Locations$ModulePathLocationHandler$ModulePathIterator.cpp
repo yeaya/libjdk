@@ -5,7 +5,6 @@
 #include <com/sun/tools/javac/file/Locations$LocationHandler.h>
 #include <com/sun/tools/javac/file/Locations$ModuleLocationHandler.h>
 #include <com/sun/tools/javac/file/Locations$ModulePathLocationHandler.h>
-#include <com/sun/tools/javac/file/Locations$SimpleLocationHandler.h>
 #include <com/sun/tools/javac/file/Locations.h>
 #include <com/sun/tools/javac/jvm/ModuleNameReader$BadClassFile.h>
 #include <com/sun/tools/javac/jvm/ModuleNameReader.h>
@@ -27,10 +26,8 @@
 #include <java/nio/file/OpenOption.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/spi/FileSystemProvider.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
-#include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
 #include <java/util/LinkedHashSet.h>
 #include <java/util/List.h>
@@ -50,11 +47,9 @@
 using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
 using $OpenOptionArray = $Array<::java::nio::file::OpenOption>;
 using $FSInfo = ::com::sun::tools::javac::file::FSInfo;
-using $Locations$BasicLocationHandler = ::com::sun::tools::javac::file::Locations$BasicLocationHandler;
 using $Locations$LocationHandler = ::com::sun::tools::javac::file::Locations$LocationHandler;
 using $Locations$ModuleLocationHandler = ::com::sun::tools::javac::file::Locations$ModuleLocationHandler;
 using $Locations$ModulePathLocationHandler = ::com::sun::tools::javac::file::Locations$ModulePathLocationHandler;
-using $Locations$SimpleLocationHandler = ::com::sun::tools::javac::file::Locations$SimpleLocationHandler;
 using $ModuleNameReader = ::com::sun::tools::javac::jvm::ModuleNameReader;
 using $ModuleNameReader$BadClassFile = ::com::sun::tools::javac::jvm::ModuleNameReader$BadClassFile;
 using $CompilerProperties$Errors = ::com::sun::tools::javac::resources::CompilerProperties$Errors;
@@ -65,7 +60,6 @@ using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -75,10 +69,8 @@ using $FileSystem = ::java::nio::file::FileSystem;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
 using $FileSystemProvider = ::java::nio::file::spi::FileSystemProvider;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
-using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
 using $List = ::java::util::List;

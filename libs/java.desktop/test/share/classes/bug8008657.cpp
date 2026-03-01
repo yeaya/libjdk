@@ -19,7 +19,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/util/Calendar.h>
 #include <java/util/Date.h>
-#include <javax/swing/AbstractSpinnerModel.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JFormattedTextField.h>
 #include <javax/swing/JFrame.h>
@@ -52,7 +51,6 @@ using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $Comparable = ::java::lang::Comparable;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -63,8 +61,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Calendar = ::java::util::Calendar;
 using $Date = ::java::util::Date;
-using $AbstractSpinnerModel = ::javax::swing::AbstractSpinnerModel;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JSpinner = ::javax::swing::JSpinner;
 using $JSpinner$DefaultEditor = ::javax::swing::JSpinner$DefaultEditor;

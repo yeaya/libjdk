@@ -5,17 +5,13 @@
 #include <com/apple/laf/AquaFileView$2.h>
 #include <com/apple/laf/AquaFileView$3.h>
 #include <com/apple/laf/AquaFileView$FileInfo.h>
-#include <com/apple/laf/AquaIcon$CachingScalingIcon.h>
 #include <com/apple/laf/AquaIcon$FileIcon.h>
 #include <com/apple/laf/AquaIcon$SystemIcon.h>
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
 #include <java/io/File.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
-#include <java/util/LinkedHashMap.h>
 #include <java/util/LinkedList.h>
 #include <java/util/Map.h>
 #include <javax/swing/Icon.h>
@@ -36,7 +32,6 @@ using $AquaFileView$1 = ::com::apple::laf::AquaFileView$1;
 using $AquaFileView$2 = ::com::apple::laf::AquaFileView$2;
 using $AquaFileView$3 = ::com::apple::laf::AquaFileView$3;
 using $AquaFileView$FileInfo = ::com::apple::laf::AquaFileView$FileInfo;
-using $AquaIcon$CachingScalingIcon = ::com::apple::laf::AquaIcon$CachingScalingIcon;
 using $AquaIcon$FileIcon = ::com::apple::laf::AquaIcon$FileIcon;
 using $AquaIcon$SystemIcon = ::com::apple::laf::AquaIcon$SystemIcon;
 using $AquaUtils$RecyclableSingleton = ::com::apple::laf::AquaUtils$RecyclableSingleton;
@@ -48,10 +43,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $AbstractMap = ::java::util::AbstractMap;
-using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
-using $LinkedHashMap = ::java::util::LinkedHashMap;
 using $LinkedList = ::java::util::LinkedList;
 using $Map = ::java::util::Map;
 using $Icon = ::javax::swing::Icon;

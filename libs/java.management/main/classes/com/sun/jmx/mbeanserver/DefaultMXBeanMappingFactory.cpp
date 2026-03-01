@@ -15,9 +15,7 @@
 #include <com/sun/jmx/mbeanserver/MXBeanMappingFactory.h>
 #include <com/sun/jmx/mbeanserver/Util.h>
 #include <com/sun/jmx/remote/util/EnvHelp.h>
-#include <java/io/IOException.h>
 #include <java/io/InvalidObjectException.h>
-#include <java/io/ObjectStreamException.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/CharSequence.h>
 #include <java/lang/ClassLoader.h>
@@ -26,7 +24,6 @@
 #include <java/lang/Error.h>
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/NoSuchFieldException.h>
-#include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/annotation/ElementType.h>
 #include <java/lang/ref/WeakReference.h>
 #include <java/lang/reflect/Array.h>
@@ -36,7 +33,6 @@
 #include <java/lang/reflect/ParameterizedType.h>
 #include <java/lang/reflect/RecordComponent.h>
 #include <java/lang/reflect/Type.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Arrays.h>
 #include <java/util/IdentityHashMap.h>
 #include <java/util/Iterator.h>
@@ -46,7 +42,6 @@
 #include <java/util/Set.h>
 #include <java/util/SortedMap.h>
 #include <java/util/SortedSet.h>
-#include <javax/management/JMException.h>
 #include <javax/management/JMX.h>
 #include <javax/management/ObjectName.h>
 #include <javax/management/openmbean/ArrayType.h>
@@ -93,9 +88,7 @@ using $MXBeanMapping = ::com::sun::jmx::mbeanserver::MXBeanMapping;
 using $MXBeanMappingFactory = ::com::sun::jmx::mbeanserver::MXBeanMappingFactory;
 using $Util = ::com::sun::jmx::mbeanserver::Util;
 using $EnvHelp = ::com::sun::jmx::remote::util::EnvHelp;
-using $IOException = ::java::io::IOException;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
-using $ObjectStreamException = ::java::io::ObjectStreamException;
 using $AssertionError = ::java::lang::AssertionError;
 using $Boolean = ::java::lang::Boolean;
 using $CharSequence = ::java::lang::CharSequence;
@@ -104,13 +97,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $Comparable = ::java::lang::Comparable;
 using $Error = ::java::lang::Error;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchFieldException = ::java::lang::NoSuchFieldException;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $Void = ::java::lang::Void;
 using $ElementType = ::java::lang::annotation::ElementType;
 using $WeakReference = ::java::lang::ref::WeakReference;
@@ -121,7 +112,6 @@ using $Method = ::java::lang::reflect::Method;
 using $ParameterizedType = ::java::lang::reflect::ParameterizedType;
 using $RecordComponent = ::java::lang::reflect::RecordComponent;
 using $Type = ::java::lang::reflect::Type;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Arrays = ::java::util::Arrays;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
@@ -130,7 +120,6 @@ using $Map$Entry = ::java::util::Map$Entry;
 using $Set = ::java::util::Set;
 using $SortedMap = ::java::util::SortedMap;
 using $SortedSet = ::java::util::SortedSet;
-using $JMException = ::javax::management::JMException;
 using $JMX = ::javax::management::JMX;
 using $ObjectName = ::javax::management::ObjectName;
 using $ArrayType = ::javax::management::openmbean::ArrayType;

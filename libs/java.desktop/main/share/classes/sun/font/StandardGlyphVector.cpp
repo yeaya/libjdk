@@ -12,13 +12,11 @@
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/GeneralPath.h>
 #include <java/awt/geom/NoninvertibleTransformException.h>
-#include <java/awt/geom/Path2D$Float.h>
 #include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/Point2D$Float.h>
 #include <java/awt/geom/Point2D.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/ClassCastException.h>
@@ -74,13 +72,10 @@ using $LineMetrics = ::java::awt::font::LineMetrics;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $GeneralPath = ::java::awt::geom::GeneralPath;
 using $NoninvertibleTransformException = ::java::awt::geom::NoninvertibleTransformException;
-using $Path2D = ::java::awt::geom::Path2D;
-using $Path2D$Float = ::java::awt::geom::Path2D$Float;
 using $Point2D = ::java::awt::geom::Point2D;
 using $Point2D$Float = ::java::awt::geom::Point2D$Float;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassCastException = ::java::lang::ClassCastException;

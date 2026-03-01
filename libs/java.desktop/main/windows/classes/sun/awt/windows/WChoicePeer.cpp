@@ -6,7 +6,6 @@
 #include <java/awt/Choice.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
@@ -17,7 +16,6 @@
 #include <java/awt/Window.h>
 #include <java/awt/event/FocusEvent$Cause.h>
 #include <java/awt/event/PaintEvent.h>
-#include <java/awt/event/WindowAdapter.h>
 #include <java/awt/event/WindowListener.h>
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/VolatileImage.h>
@@ -43,7 +41,6 @@ using $BufferCapabilities$FlipContents = ::java::awt::BufferCapabilities$FlipCon
 using $Choice = ::java::awt::Choice;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
@@ -54,7 +51,6 @@ using $Point = ::java::awt::Point;
 using $Window = ::java::awt::Window;
 using $FocusEvent$Cause = ::java::awt::event::FocusEvent$Cause;
 using $PaintEvent = ::java::awt::event::PaintEvent;
-using $WindowAdapter = ::java::awt::event::WindowAdapter;
 using $WindowListener = ::java::awt::event::WindowListener;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $VolatileImage = ::java::awt::image::VolatileImage;

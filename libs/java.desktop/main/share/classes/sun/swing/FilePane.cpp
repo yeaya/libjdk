@@ -11,16 +11,11 @@
 #include <java/awt/Font.h>
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/ActionListener.h>
-#include <java/awt/event/ComponentAdapter.h>
 #include <java/awt/event/ComponentListener.h>
-#include <java/awt/event/FocusAdapter.h>
 #include <java/awt/event/FocusListener.h>
-#include <java/awt/event/KeyAdapter.h>
 #include <java/awt/event/KeyListener.h>
-#include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
@@ -34,14 +29,10 @@
 #include <java/util/Locale.h>
 #include <java/util/Set.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/AbstractAction.h>
 #include <javax/swing/AbstractButton.h>
-#include <javax/swing/AbstractListModel.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/ButtonGroup.h>
-#include <javax/swing/DefaultCellEditor.h>
-#include <javax/swing/DefaultListCellRenderer.h>
 #include <javax/swing/DefaultListSelectionModel.h>
 #include <javax/swing/DefaultRowSorter.h>
 #include <javax/swing/Icon.h>
@@ -70,8 +61,6 @@
 #include <javax/swing/event/ListSelectionListener.h>
 #include <javax/swing/filechooser/FileSystemView.h>
 #include <javax/swing/plaf/basic/BasicDirectoryModel.h>
-#include <javax/swing/table/AbstractTableModel.h>
-#include <javax/swing/table/DefaultTableCellRenderer.h>
 #include <javax/swing/table/DefaultTableColumnModel.h>
 #include <javax/swing/table/JTableHeader.h>
 #include <javax/swing/table/TableCellEditor.h>
@@ -79,8 +68,6 @@
 #include <javax/swing/table/TableColumn.h>
 #include <javax/swing/table/TableColumnModel.h>
 #include <javax/swing/table/TableModel.h>
-#include <javax/swing/table/TableRowSorter.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <sun/awt/shell/ShellFolder.h>
 #include <sun/awt/shell/ShellFolderColumnInfo.h>
 #include <sun/swing/FilePane$1.h>
@@ -155,16 +142,11 @@ using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Rectangle = ::java::awt::Rectangle;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $ComponentAdapter = ::java::awt::event::ComponentAdapter;
 using $ComponentListener = ::java::awt::event::ComponentListener;
-using $FocusAdapter = ::java::awt::event::FocusAdapter;
 using $FocusListener = ::java::awt::event::FocusListener;
-using $KeyAdapter = ::java::awt::event::KeyAdapter;
 using $KeyListener = ::java::awt::event::KeyListener;
-using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
@@ -184,16 +166,11 @@ using $Arrays = ::java::util::Arrays;
 using $Locale = ::java::util::Locale;
 using $Set = ::java::util::Set;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $AbstractAction = ::javax::swing::AbstractAction;
 using $AbstractButton = ::javax::swing::AbstractButton;
-using $AbstractListModel = ::javax::swing::AbstractListModel;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $ButtonGroup = ::javax::swing::ButtonGroup;
-using $DefaultCellEditor = ::javax::swing::DefaultCellEditor;
-using $DefaultListCellRenderer = ::javax::swing::DefaultListCellRenderer;
 using $DefaultListSelectionModel = ::javax::swing::DefaultListSelectionModel;
-using $DefaultRowSorter = ::javax::swing::DefaultRowSorter;
 using $Icon = ::javax::swing::Icon;
 using $JComponent = ::javax::swing::JComponent;
 using $JFileChooser = ::javax::swing::JFileChooser;
@@ -218,8 +195,6 @@ using $ListDataListener = ::javax::swing::event::ListDataListener;
 using $ListSelectionListener = ::javax::swing::event::ListSelectionListener;
 using $FileSystemView = ::javax::swing::filechooser::FileSystemView;
 using $BasicDirectoryModel = ::javax::swing::plaf::basic::BasicDirectoryModel;
-using $AbstractTableModel = ::javax::swing::table::AbstractTableModel;
-using $DefaultTableCellRenderer = ::javax::swing::table::DefaultTableCellRenderer;
 using $DefaultTableColumnModel = ::javax::swing::table::DefaultTableColumnModel;
 using $JTableHeader = ::javax::swing::table::JTableHeader;
 using $TableCellEditor = ::javax::swing::table::TableCellEditor;
@@ -227,8 +202,6 @@ using $TableCellRenderer = ::javax::swing::table::TableCellRenderer;
 using $TableColumn = ::javax::swing::table::TableColumn;
 using $TableColumnModel = ::javax::swing::table::TableColumnModel;
 using $TableModel = ::javax::swing::table::TableModel;
-using $TableRowSorter = ::javax::swing::table::TableRowSorter;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $ShellFolder = ::sun::awt::shell::ShellFolder;
 using $ShellFolderColumnInfo = ::sun::awt::shell::ShellFolderColumnInfo;
 using $FilePane$1 = ::sun::swing::FilePane$1;

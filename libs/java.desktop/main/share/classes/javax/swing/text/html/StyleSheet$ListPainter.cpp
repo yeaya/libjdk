@@ -12,8 +12,6 @@
 #include <java/awt/RenderingHints$Key.h>
 #include <java/awt/RenderingHints.h>
 #include <java/awt/Shape.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/lang/Math.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/net/MalformedURLException.h>
@@ -70,8 +68,6 @@ using $Graphics2D = ::java::awt::Graphics2D;
 using $Rectangle = ::java::awt::Rectangle;
 using $RenderingHints = ::java::awt::RenderingHints;
 using $Shape = ::java::awt::Shape;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

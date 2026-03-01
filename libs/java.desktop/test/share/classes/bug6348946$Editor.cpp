@@ -3,10 +3,8 @@
 #include <bug6348946$Editor$1.h>
 #include <bug6348946.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/util/EventObject.h>
 #include <javax/swing/AbstractCellEditor.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JSlider.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/event/CellEditorListener.h>
@@ -15,7 +13,6 @@
 
 using $bug6348946$Editor$1 = ::bug6348946$Editor$1;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -23,7 +20,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $EventObject = ::java::util::EventObject;
 using $AbstractCellEditor = ::javax::swing::AbstractCellEditor;
-using $JComponent = ::javax::swing::JComponent;
 using $JSlider = ::javax::swing::JSlider;
 using $JTable = ::javax::swing::JTable;
 using $CellEditorListener = ::javax::swing::event::CellEditorListener;

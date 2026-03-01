@@ -2,14 +2,12 @@
 
 #include <java/awt/BorderLayout.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Panel.h>
 #include <javax/swing/PopupFactory$MediumWeightPopup.h>
 #include <jcpp.h>
 
 using $BorderLayout = ::java::awt::BorderLayout;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Panel = ::java::awt::Panel;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

@@ -3,7 +3,6 @@
 #include <java/io/OutputStream.h>
 #include <java/lang/ClassCastException.h>
 #include <java/util/Locale.h>
-#include <javax/print/CancelablePrintJob.h>
 #include <javax/print/DocFlavor$BYTE_ARRAY.h>
 #include <javax/print/DocFlavor$INPUT_STREAM.h>
 #include <javax/print/DocFlavor$SERVICE_FORMATTED.h>
@@ -99,7 +98,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $Locale = ::java::util::Locale;
-using $CancelablePrintJob = ::javax::print::CancelablePrintJob;
 using $DocFlavor = ::javax::print::DocFlavor;
 using $DocFlavor$BYTE_ARRAY = ::javax::print::DocFlavor$BYTE_ARRAY;
 using $DocFlavor$INPUT_STREAM = ::javax::print::DocFlavor$INPUT_STREAM;

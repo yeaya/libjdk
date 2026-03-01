@@ -7,7 +7,6 @@
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionListener.h>
 #include <javax/swing/JComboBox.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <jcpp.h>
 
@@ -16,7 +15,6 @@
 using $ActionListenerExceptionTest = ::ActionListenerExceptionTest;
 using $ActionListenerExceptionTest$1$1 = ::ActionListenerExceptionTest$1$1;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -24,7 +22,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComboBox = ::javax::swing::JComboBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 
 $FieldInfo _ActionListenerExceptionTest$1_FieldInfo_[] = {

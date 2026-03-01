@@ -10,7 +10,6 @@
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/InputEvent.h>
-#include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
@@ -19,7 +18,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JMenuItem.h>
 #include <javax/swing/JPanel.h>
@@ -28,7 +26,6 @@
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/event/PopupMenuListener.h>
 #include <javax/swing/plaf/PopupMenuUI.h>
-#include <javax/swing/plaf/basic/BasicPopupMenuUI.h>
 #include <jcpp.h>
 
 #undef BUTTON1_DOWN_MASK
@@ -43,7 +40,6 @@ using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Robot = ::java::awt::Robot;
 using $InputEvent = ::java::awt::event::InputEvent;
-using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -53,7 +49,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JMenuItem = ::javax::swing::JMenuItem;
 using $JPanel = ::javax::swing::JPanel;
@@ -62,7 +57,6 @@ using $Popup = ::javax::swing::Popup;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $PopupMenuListener = ::javax::swing::event::PopupMenuListener;
 using $PopupMenuUI = ::javax::swing::plaf::PopupMenuUI;
-using $BasicPopupMenuUI = ::javax::swing::plaf::basic::BasicPopupMenuUI;
 
 class PopupMenuTest$$Lambda$lambda$createUI$0 : public $Runnable {
 	$class(PopupMenuTest$$Lambda$lambda$createUI$0, $NO_CLASS_INIT, $Runnable)

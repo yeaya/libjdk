@@ -10,11 +10,9 @@
 #include <com/sun/jmx/mbeanserver/Util.h>
 #include <java/lang/reflect/Method.h>
 #include <java/util/Map.h>
-#include <javax/management/JMException.h>
 #include <javax/management/MBeanServerConnection.h>
 #include <javax/management/NotCompliantMBeanException.h>
 #include <javax/management/ObjectName.h>
-#include <javax/management/OperationsException.h>
 #include <jcpp.h>
 
 using $ConvertingMethod = ::com::sun::jmx::mbeanserver::ConvertingMethod;
@@ -26,18 +24,15 @@ using $MXBeanProxy$Handler = ::com::sun::jmx::mbeanserver::MXBeanProxy$Handler;
 using $MXBeanProxy$Visitor = ::com::sun::jmx::mbeanserver::MXBeanProxy$Visitor;
 using $Util = ::com::sun::jmx::mbeanserver::Util;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Method = ::java::lang::reflect::Method;
 using $Map = ::java::util::Map;
-using $JMException = ::javax::management::JMException;
 using $MBeanServerConnection = ::javax::management::MBeanServerConnection;
 using $NotCompliantMBeanException = ::javax::management::NotCompliantMBeanException;
 using $ObjectName = ::javax::management::ObjectName;
-using $OperationsException = ::javax::management::OperationsException;
 
 namespace com {
 	namespace sun {

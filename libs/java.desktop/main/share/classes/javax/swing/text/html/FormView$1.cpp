@@ -1,22 +1,17 @@
 #include <javax/swing/text/html/FormView$1.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/io/IOException.h>
 #include <java/net/URL.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/event/HyperlinkEvent.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <javax/swing/text/html/FormSubmitEvent.h>
 #include <javax/swing/text/html/FormView.h>
-#include <javax/swing/text/html/HTMLFrameHyperlinkEvent.h>
 #include <jcpp.h>
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
@@ -24,15 +19,12 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
-using $JComponent = ::javax::swing::JComponent;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
 using $HyperlinkEvent = ::javax::swing::event::HyperlinkEvent;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $FormSubmitEvent = ::javax::swing::text::html::FormSubmitEvent;
 using $FormView = ::javax::swing::text::html::FormView;
-using $HTMLFrameHyperlinkEvent = ::javax::swing::text::html::HTMLFrameHyperlinkEvent;
 
 namespace javax {
 	namespace swing {

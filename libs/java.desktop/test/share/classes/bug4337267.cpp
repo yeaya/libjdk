@@ -9,7 +9,6 @@
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Window.h>
 #include <java/awt/font/NumericShaper.h>
 #include <java/awt/font/TextAttribute.h>
@@ -28,7 +27,6 @@
 #include <javax/swing/JPanel.h>
 #include <javax/swing/JTextArea.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef ARABIC
@@ -46,7 +44,6 @@ using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $NumericShaper = ::java::awt::font::NumericShaper;
 using $TextAttribute = ::java::awt::font::TextAttribute;
 using $BufferedImage = ::java::awt::image::BufferedImage;
@@ -66,7 +63,6 @@ using $JLabel = ::javax::swing::JLabel;
 using $JPanel = ::javax::swing::JPanel;
 using $JTextArea = ::javax::swing::JTextArea;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 class bug4337267$$Lambda$lambda$main$0 : public $Runnable {
 	$class(bug4337267$$Lambda$lambda$main$0, $NO_CLASS_INIT, $Runnable)

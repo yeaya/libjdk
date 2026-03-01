@@ -28,7 +28,6 @@
 #include <java/nio/file/attribute/FileAttribute.h>
 #include <java/nio/file/attribute/FileAttributeView.h>
 #include <java/nio/file/spi/FileSystemProvider.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/util/Map.h>
 #include <java/util/Set.h>
@@ -66,7 +65,6 @@ using $ProviderMismatchException = ::java::nio::file::ProviderMismatchException;
 using $BasicFileAttributes = ::java::nio::file::attribute::BasicFileAttributes;
 using $FileAttributeView = ::java::nio::file::attribute::FileAttributeView;
 using $FileSystemProvider = ::java::nio::file::spi::FileSystemProvider;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $Map = ::java::util::Map;
 using $Set = ::java::util::Set;

@@ -5,7 +5,6 @@
 #include <com/apple/laf/AquaUtils$RecyclableSingletonFromDefaultConstructor.h>
 #include <com/apple/laf/AquaUtils.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JRootPane.h>
@@ -13,7 +12,6 @@
 #include <javax/swing/RootPaneContainer.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/ToolBarUI.h>
 #include <javax/swing/plaf/basic/BasicToolBarUI.h>
 #include <jcpp.h>
 
@@ -22,7 +20,6 @@ using $AquaUtils = ::com::apple::laf::AquaUtils;
 using $AquaUtils$RecyclableSingleton = ::com::apple::laf::AquaUtils$RecyclableSingleton;
 using $AquaUtils$RecyclableSingletonFromDefaultConstructor = ::com::apple::laf::AquaUtils$RecyclableSingletonFromDefaultConstructor;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -34,7 +31,6 @@ using $JToolBar = ::javax::swing::JToolBar;
 using $RootPaneContainer = ::javax::swing::RootPaneContainer;
 using $Border = ::javax::swing::border::Border;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $ToolBarUI = ::javax::swing::plaf::ToolBarUI;
 using $BasicToolBarUI = ::javax::swing::plaf::basic::BasicToolBarUI;
 
 namespace com {

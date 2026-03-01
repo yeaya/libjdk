@@ -1,19 +1,15 @@
 #include <Test8039464.h>
 
 #include <Test8039464$1.h>
-#include <java/applet/Applet.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/GridBagConstraints.h>
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
-#include <java/awt/Panel.h>
 #include <java/lang/Error.h>
 #include <java/lang/Runnable.h>
 #include <javax/swing/JApplet.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JScrollBar.h>
 #include <javax/swing/SwingUtilities.h>
@@ -25,15 +21,12 @@
 #undef VERTICAL
 
 using $Test8039464$1 = ::Test8039464$1;
-using $Applet = ::java::applet::Applet;
 using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
-using $Panel = ::java::awt::Panel;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Error = ::java::lang::Error;
 using $Exception = ::java::lang::Exception;
@@ -41,7 +34,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $JApplet = ::javax::swing::JApplet;
-using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
 using $JScrollBar = ::javax::swing::JScrollBar;
 using $SwingUtilities = ::javax::swing::SwingUtilities;

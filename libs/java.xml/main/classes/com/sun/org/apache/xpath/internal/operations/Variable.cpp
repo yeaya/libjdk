@@ -6,12 +6,10 @@
 #include <com/sun/org/apache/xml/internal/utils/QName.h>
 #include <com/sun/org/apache/xml/internal/utils/WrappedRuntimeException.h>
 #include <com/sun/org/apache/xpath/internal/Expression.h>
-#include <com/sun/org/apache/xpath/internal/ExpressionNode.h>
 #include <com/sun/org/apache/xpath/internal/ExpressionOwner.h>
 #include <com/sun/org/apache/xpath/internal/VariableStack.h>
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
 #include <com/sun/org/apache/xpath/internal/XPathVisitor.h>
-#include <com/sun/org/apache/xpath/internal/axes/NodeSequence.h>
 #include <com/sun/org/apache/xpath/internal/axes/WalkerFactory.h>
 #include <com/sun/org/apache/xpath/internal/objects/XNodeSet.h>
 #include <com/sun/org/apache/xpath/internal/objects/XObject.h>
@@ -31,12 +29,10 @@ using $PrefixResolver = ::com::sun::org::apache::xml::internal::utils::PrefixRes
 using $QName = ::com::sun::org::apache::xml::internal::utils::QName;
 using $WrappedRuntimeException = ::com::sun::org::apache::xml::internal::utils::WrappedRuntimeException;
 using $Expression = ::com::sun::org::apache::xpath::internal::Expression;
-using $ExpressionNode = ::com::sun::org::apache::xpath::internal::ExpressionNode;
 using $ExpressionOwner = ::com::sun::org::apache::xpath::internal::ExpressionOwner;
 using $VariableStack = ::com::sun::org::apache::xpath::internal::VariableStack;
 using $XPathContext = ::com::sun::org::apache::xpath::internal::XPathContext;
 using $XPathVisitor = ::com::sun::org::apache::xpath::internal::XPathVisitor;
-using $NodeSequence = ::com::sun::org::apache::xpath::internal::axes::NodeSequence;
 using $WalkerFactory = ::com::sun::org::apache::xpath::internal::axes::WalkerFactory;
 using $XNodeSet = ::com::sun::org::apache::xpath::internal::objects::XNodeSet;
 using $XObject = ::com::sun::org::apache::xpath::internal::objects::XObject;

@@ -3,7 +3,6 @@
 #include <com/sun/tools/javac/model/AnnotationProxyMaker.h>
 #include <java/io/ObjectInputStream.h>
 #include <javax/lang/model/type/MirroredTypeException.h>
-#include <javax/lang/model/type/MirroredTypesException.h>
 #include <javax/lang/model/type/TypeMirror.h>
 #include <sun/reflect/annotation/ExceptionProxy.h>
 #include <jcpp.h>
@@ -15,7 +14,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MirroredTypeException = ::javax::lang::model::type::MirroredTypeException;
-using $MirroredTypesException = ::javax::lang::model::type::MirroredTypesException;
 using $TypeMirror = ::javax::lang::model::type::TypeMirror;
 using $ExceptionProxy = ::sun::reflect::annotation::ExceptionProxy;
 

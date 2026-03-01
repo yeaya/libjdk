@@ -6,10 +6,8 @@
 #include <java/awt/event/MouseWheelEvent.h>
 #include <java/awt/event/MouseWheelListener.h>
 #include <javax/swing/JApplet.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JPanel.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/LineBorder.h>
 #include <jcpp.h>
@@ -18,17 +16,14 @@
 
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $MouseWheelEvent = ::java::awt::event::MouseWheelEvent;
 using $MouseWheelListener = ::java::awt::event::MouseWheelListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JApplet = ::javax::swing::JApplet;
-using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
 using $JPanel = ::javax::swing::JPanel;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $LineBorder = ::javax::swing::border::LineBorder;
 

@@ -8,7 +8,6 @@
 #include <javax/swing/SizeRequirements.h>
 #include <javax/swing/event/DocumentEvent.h>
 #include <javax/swing/text/BoxView.h>
-#include <javax/swing/text/CompositeView.h>
 #include <javax/swing/text/Element.h>
 #include <javax/swing/text/FlowView$FlowStrategy.h>
 #include <javax/swing/text/FlowView$LogicalView.h>
@@ -33,7 +32,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SizeRequirements = ::javax::swing::SizeRequirements;
 using $DocumentEvent = ::javax::swing::event::DocumentEvent;
 using $BoxView = ::javax::swing::text::BoxView;
-using $CompositeView = ::javax::swing::text::CompositeView;
 using $Element = ::javax::swing::text::Element;
 using $FlowView$FlowStrategy = ::javax::swing::text::FlowView$FlowStrategy;
 using $FlowView$LogicalView = ::javax::swing::text::FlowView$LogicalView;

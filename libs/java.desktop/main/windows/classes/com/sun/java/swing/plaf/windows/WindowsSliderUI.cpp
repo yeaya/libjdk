@@ -9,14 +9,12 @@
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JSlider.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/SliderUI.h>
 #include <javax/swing/plaf/basic/BasicSliderUI$TrackListener.h>
 #include <javax/swing/plaf/basic/BasicSliderUI.h>
 #include <jcpp.h>
@@ -48,7 +46,6 @@ using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Rectangle = ::java::awt::Rectangle;
@@ -60,7 +57,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $JSlider = ::javax::swing::JSlider;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $SliderUI = ::javax::swing::plaf::SliderUI;
 using $BasicSliderUI = ::javax::swing::plaf::basic::BasicSliderUI;
 using $BasicSliderUI$TrackListener = ::javax::swing::plaf::basic::BasicSliderUI$TrackListener;
 

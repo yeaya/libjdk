@@ -7,8 +7,6 @@
 #include <java/awt/Graphics.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/SeparatorUI.h>
-#include <javax/swing/plaf/basic/BasicSeparatorUI.h>
 #include <jcpp.h>
 
 using $MotifSeparatorUI = ::com::sun::java::swing::plaf::motif::MotifSeparatorUI;
@@ -18,8 +16,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $SeparatorUI = ::javax::swing::plaf::SeparatorUI;
-using $BasicSeparatorUI = ::javax::swing::plaf::basic::BasicSeparatorUI;
 
 namespace com {
 	namespace sun {

@@ -5,7 +5,6 @@
 #include <com/sun/org/apache/xml/internal/security/keys/content/keyvalues/RSAKeyValue.h>
 #include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <com/sun/org/apache/xml/internal/security/utils/ElementProxy.h>
-#include <com/sun/org/apache/xml/internal/security/utils/Signature11ElementProxy.h>
 #include <com/sun/org/apache/xml/internal/security/utils/SignatureElementProxy.h>
 #include <com/sun/org/apache/xml/internal/security/utils/XMLUtils.h>
 #include <java/security/Key.h>
@@ -27,7 +26,6 @@ using $ECKeyValue = ::com::sun::org::apache::xml::internal::security::keys::cont
 using $RSAKeyValue = ::com::sun::org::apache::xml::internal::security::keys::content::keyvalues::RSAKeyValue;
 using $Constants = ::com::sun::org::apache::xml::internal::security::utils::Constants;
 using $ElementProxy = ::com::sun::org::apache::xml::internal::security::utils::ElementProxy;
-using $Signature11ElementProxy = ::com::sun::org::apache::xml::internal::security::utils::Signature11ElementProxy;
 using $SignatureElementProxy = ::com::sun::org::apache::xml::internal::security::utils::SignatureElementProxy;
 using $XMLUtils = ::com::sun::org::apache::xml::internal::security::utils::XMLUtils;
 using $ClassInfo = ::java::lang::ClassInfo;

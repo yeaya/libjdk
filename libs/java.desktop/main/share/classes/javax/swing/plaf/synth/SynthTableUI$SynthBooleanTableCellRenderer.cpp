@@ -2,13 +2,10 @@
 
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/JCheckBox.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JTable.h>
-#include <javax/swing/JToggleButton.h>
 #include <javax/swing/plaf/UIResource.h>
 #include <javax/swing/plaf/synth/SynthTableUI.h>
 #include <jcpp.h>
@@ -17,18 +14,14 @@
 
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JCheckBox = ::javax::swing::JCheckBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
 using $JTable = ::javax::swing::JTable;
-using $JToggleButton = ::javax::swing::JToggleButton;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $SynthTableUI = ::javax::swing::plaf::synth::SynthTableUI;
 

@@ -9,7 +9,6 @@
 #include <com/sun/tools/javac/jvm/StringConcat.h>
 #include <com/sun/tools/javac/tree/JCTree$JCAssignOp.h>
 #include <com/sun/tools/javac/tree/JCTree$JCBinary.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <com/sun/tools/javac/util/Context.h>
@@ -31,7 +30,6 @@ using $StringConcat = ::com::sun::tools::javac::jvm::StringConcat;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCAssignOp = ::com::sun::tools::javac::tree::JCTree$JCAssignOp;
 using $JCTree$JCBinary = ::com::sun::tools::javac::tree::JCTree$JCBinary;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $Context = ::com::sun::tools::javac::util::Context;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $List = ::com::sun::tools::javac::util::List;

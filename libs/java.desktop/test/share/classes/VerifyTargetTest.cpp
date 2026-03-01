@@ -20,7 +20,6 @@
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JTextField.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef NORTH
@@ -46,7 +45,6 @@ using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JTextField = ::javax::swing::JTextField;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 class VerifyTargetTest$$Lambda$lambda$main$0 : public $Runnable {
 	$class(VerifyTargetTest$$Lambda$lambda$main$0, $NO_CLASS_INIT, $Runnable)

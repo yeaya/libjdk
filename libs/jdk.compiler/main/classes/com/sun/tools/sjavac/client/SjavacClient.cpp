@@ -39,7 +39,6 @@
 #include <java/nio/charset/StandardCharsets.h>
 #include <java/nio/file/Files.h>
 #include <java/nio/file/Path.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
@@ -76,7 +75,6 @@ using $Writer = ::java::io::Writer;
 using $AssertionError = ::java::lang::AssertionError;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $IllegalThreadStateException = ::java::lang::IllegalThreadStateException;
@@ -94,7 +92,6 @@ using $SocketAddress = ::java::net::SocketAddress;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;

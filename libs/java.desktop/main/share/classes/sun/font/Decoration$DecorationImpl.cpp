@@ -10,11 +10,8 @@
 #include <java/awt/geom/GeneralPath.h>
 #include <java/awt/geom/Line2D$Float.h>
 #include <java/awt/geom/Line2D.h>
-#include <java/awt/geom/Path2D$Float.h>
-#include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/lang/ClassCastException.h>
 #include <java/lang/Math.h>
 #include <sun/font/CoreMetrics.h>
@@ -38,11 +35,8 @@ using $Area = ::java::awt::geom::Area;
 using $GeneralPath = ::java::awt::geom::GeneralPath;
 using $Line2D = ::java::awt::geom::Line2D;
 using $Line2D$Float = ::java::awt::geom::Line2D$Float;
-using $Path2D = ::java::awt::geom::Path2D;
-using $Path2D$Float = ::java::awt::geom::Path2D$Float;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

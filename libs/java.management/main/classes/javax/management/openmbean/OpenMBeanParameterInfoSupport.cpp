@@ -4,7 +4,6 @@
 #include <java/util/Set.h>
 #include <javax/management/Descriptor.h>
 #include <javax/management/ImmutableDescriptor.h>
-#include <javax/management/JMException.h>
 #include <javax/management/MBeanFeatureInfo.h>
 #include <javax/management/MBeanParameterInfo.h>
 #include <javax/management/openmbean/OpenDataException.h>
@@ -16,7 +15,6 @@
 using $DescriptorArray = $Array<::javax::management::Descriptor>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Comparable = ::java::lang::Comparable;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $Integer = ::java::lang::Integer;
@@ -24,7 +22,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Set = ::java::util::Set;
 using $Descriptor = ::javax::management::Descriptor;
 using $ImmutableDescriptor = ::javax::management::ImmutableDescriptor;
-using $JMException = ::javax::management::JMException;
 using $MBeanParameterInfo = ::javax::management::MBeanParameterInfo;
 using $OpenDataException = ::javax::management::openmbean::OpenDataException;
 using $OpenMBeanAttributeInfoSupport = ::javax::management::openmbean::OpenMBeanAttributeInfoSupport;

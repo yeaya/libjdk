@@ -4,7 +4,6 @@
 #include <com/sun/tools/javac/code/TypeMetadata$Entry.h>
 #include <com/sun/tools/javac/util/Assert.h>
 #include <java/lang/Enum.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
 #include <java/util/EnumMap.h>
 #include <java/util/HashSet.h>
@@ -22,7 +21,6 @@ using $Enum = ::java::lang::Enum;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
 using $EnumMap = ::java::util::EnumMap;
 using $HashSet = ::java::util::HashSet;

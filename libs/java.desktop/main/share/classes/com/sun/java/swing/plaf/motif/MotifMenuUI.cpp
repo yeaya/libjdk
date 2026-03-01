@@ -9,11 +9,7 @@
 #include <javax/swing/MenuElement.h>
 #include <javax/swing/event/ChangeListener.h>
 #include <javax/swing/event/MouseInputListener.h>
-#include <javax/swing/plaf/ButtonUI.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/MenuItemUI.h>
-#include <javax/swing/plaf/basic/BasicMenuItemUI.h>
-#include <javax/swing/plaf/basic/BasicMenuUI$ChangeHandler.h>
 #include <javax/swing/plaf/basic/BasicMenuUI.h>
 #include <jcpp.h>
 
@@ -29,12 +25,8 @@ using $JPopupMenu = ::javax::swing::JPopupMenu;
 using $MenuElement = ::javax::swing::MenuElement;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
 using $MouseInputListener = ::javax::swing::event::MouseInputListener;
-using $ButtonUI = ::javax::swing::plaf::ButtonUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $MenuItemUI = ::javax::swing::plaf::MenuItemUI;
-using $BasicMenuItemUI = ::javax::swing::plaf::basic::BasicMenuItemUI;
 using $BasicMenuUI = ::javax::swing::plaf::basic::BasicMenuUI;
-using $BasicMenuUI$ChangeHandler = ::javax::swing::plaf::basic::BasicMenuUI$ChangeHandler;
 
 namespace com {
 	namespace sun {

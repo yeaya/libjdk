@@ -5,7 +5,6 @@
 #include <sun/util/locale/provider/LocaleProviderAdapter.h>
 #include <sun/util/locale/provider/ResourceBundleBasedAdapter.h>
 #include <sun/util/resources/LocaleData.h>
-#include <sun/util/resources/OpenListResourceBundle.h>
 #include <sun/util/resources/TimeZoneNamesBundle.h>
 #include <jcpp.h>
 
@@ -19,7 +18,6 @@ using $ResourceBundle = ::java::util::ResourceBundle;
 using $LocaleProviderAdapter = ::sun::util::locale::provider::LocaleProviderAdapter;
 using $ResourceBundleBasedAdapter = ::sun::util::locale::provider::ResourceBundleBasedAdapter;
 using $LocaleData = ::sun::util::resources::LocaleData;
-using $OpenListResourceBundle = ::sun::util::resources::OpenListResourceBundle;
 using $TimeZoneNamesBundle = ::sun::util::resources::TimeZoneNamesBundle;
 
 namespace sun {

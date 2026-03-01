@@ -1,7 +1,6 @@
 #include <javax/swing/plaf/synth/SynthScrollPaneUI.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/ContainerListener.h>
@@ -12,10 +11,8 @@
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/JViewport.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/ScrollPaneUI.h>
 #include <javax/swing/plaf/UIResource.h>
 #include <javax/swing/plaf/basic/BasicScrollPaneUI.h>
 #include <javax/swing/plaf/synth/SynthConstants.h>
@@ -33,7 +30,6 @@
 #undef FOCUSED
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $Rectangle = ::java::awt::Rectangle;
 using $ContainerListener = ::java::awt::event::ContainerListener;
@@ -48,10 +44,8 @@ using $JComponent = ::javax::swing::JComponent;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JViewport = ::javax::swing::JViewport;
 using $UIManager = ::javax::swing::UIManager;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $ScrollPaneUI = ::javax::swing::plaf::ScrollPaneUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $BasicScrollPaneUI = ::javax::swing::plaf::basic::BasicScrollPaneUI;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;

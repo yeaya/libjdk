@@ -3,7 +3,6 @@
 #include <FileFilterDescription$CustomFileFilter.h>
 #include <java/applet/Applet.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/io/Serializable.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/IllegalAccessException.h>
@@ -14,7 +13,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFileChooser.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager$LookAndFeelInfo.h>
@@ -27,7 +25,6 @@ using $FileFilterDescription$CustomFileFilter = ::FileFilterDescription$CustomFi
 using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAndFeelInfo>;
 using $Applet = ::java::applet::Applet;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
@@ -40,7 +37,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $JComponent = ::javax::swing::JComponent;
 using $JFileChooser = ::javax::swing::JFileChooser;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;

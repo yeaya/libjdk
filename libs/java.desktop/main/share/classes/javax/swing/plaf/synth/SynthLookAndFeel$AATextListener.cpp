@@ -1,7 +1,6 @@
 #include <javax/swing/plaf/synth/SynthLookAndFeel$AATextListener.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Frame.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/Window.h>
@@ -11,7 +10,6 @@
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/ReferenceQueue.h>
 #include <java/lang/ref/WeakReference.h>
-#include <java/util/Hashtable.h>
 #include <java/util/Map.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/SwingUtilities.h>
@@ -28,7 +26,6 @@
 using $FrameArray = $Array<::java::awt::Frame>;
 using $WindowArray = $Array<::java::awt::Window>;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Frame = ::java::awt::Frame;
 using $Toolkit = ::java::awt::Toolkit;
 using $Window = ::java::awt::Window;
@@ -40,7 +37,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $WeakReference = ::java::lang::ref::WeakReference;
-using $Hashtable = ::java::util::Hashtable;
 using $Map = ::java::util::Map;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;

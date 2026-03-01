@@ -3,7 +3,6 @@
 #include <com/apple/laf/AquaInternalFrameUI$5$1.h>
 #include <com/apple/laf/AquaInternalFrameUI$InternalFrameShadow.h>
 #include <com/apple/laf/AquaUtils$Painter.h>
-#include <com/apple/laf/AquaUtils$ShadowBorder.h>
 #include <com/apple/laf/AquaUtils$SlicedShadowBorder.h>
 #include <javax/swing/border/Border.h>
 #include <jcpp.h>
@@ -11,7 +10,6 @@
 using $AquaInternalFrameUI$5$1 = ::com::apple::laf::AquaInternalFrameUI$5$1;
 using $AquaInternalFrameUI$InternalFrameShadow = ::com::apple::laf::AquaInternalFrameUI$InternalFrameShadow;
 using $AquaUtils$Painter = ::com::apple::laf::AquaUtils$Painter;
-using $AquaUtils$ShadowBorder = ::com::apple::laf::AquaUtils$ShadowBorder;
 using $AquaUtils$SlicedShadowBorder = ::com::apple::laf::AquaUtils$SlicedShadowBorder;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

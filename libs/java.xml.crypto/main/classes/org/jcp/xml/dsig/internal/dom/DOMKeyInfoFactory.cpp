@@ -13,7 +13,6 @@
 #include <javax/xml/crypto/URIDereferencer.h>
 #include <javax/xml/crypto/XMLCryptoContext.h>
 #include <javax/xml/crypto/XMLStructure.h>
-#include <javax/xml/crypto/dom/DOMCryptoContext.h>
 #include <javax/xml/crypto/dom/DOMStructure.h>
 #include <javax/xml/crypto/dsig/XMLSignature.h>
 #include <javax/xml/crypto/dsig/keyinfo/KeyInfo.h>
@@ -30,7 +29,6 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMKeyValue$DSA.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMKeyValue$EC.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMKeyValue$RSA.h>
-#include <org/jcp/xml/dsig/internal/dom/DOMKeyValue.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMPGPData.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMRetrievalMethod.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMURIDereferencer.h>
@@ -63,7 +61,6 @@ using $MarshalException = ::javax::xml::crypto::MarshalException;
 using $URIDereferencer = ::javax::xml::crypto::URIDereferencer;
 using $XMLCryptoContext = ::javax::xml::crypto::XMLCryptoContext;
 using $XMLStructure = ::javax::xml::crypto::XMLStructure;
-using $DOMCryptoContext = ::javax::xml::crypto::dom::DOMCryptoContext;
 using $DOMStructure = ::javax::xml::crypto::dom::DOMStructure;
 using $XMLSignature = ::javax::xml::crypto::dsig::XMLSignature;
 using $KeyInfo = ::javax::xml::crypto::dsig::keyinfo::KeyInfo;
@@ -77,7 +74,6 @@ using $X509IssuerSerial = ::javax::xml::crypto::dsig::keyinfo::X509IssuerSerial;
 using $DOMKeyInfo = ::org::jcp::xml::dsig::internal::dom::DOMKeyInfo;
 using $DOMKeyInfoFactory$UnmarshalContext = ::org::jcp::xml::dsig::internal::dom::DOMKeyInfoFactory$UnmarshalContext;
 using $DOMKeyName = ::org::jcp::xml::dsig::internal::dom::DOMKeyName;
-using $DOMKeyValue = ::org::jcp::xml::dsig::internal::dom::DOMKeyValue;
 using $DOMKeyValue$DSA = ::org::jcp::xml::dsig::internal::dom::DOMKeyValue$DSA;
 using $DOMKeyValue$EC = ::org::jcp::xml::dsig::internal::dom::DOMKeyValue$EC;
 using $DOMKeyValue$RSA = ::org::jcp::xml::dsig::internal::dom::DOMKeyValue$RSA;

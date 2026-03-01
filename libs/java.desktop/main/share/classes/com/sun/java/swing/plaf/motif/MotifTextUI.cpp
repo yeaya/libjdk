@@ -5,7 +5,6 @@
 #include <java/awt/event/KeyEvent.h>
 #include <javax/swing/KeyStroke.h>
 #include <javax/swing/text/Caret.h>
-#include <javax/swing/text/DefaultCaret.h>
 #include <javax/swing/text/DefaultEditorKit.h>
 #include <javax/swing/text/JTextComponent$KeyBinding.h>
 #include <jcpp.h>
@@ -27,7 +26,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $KeyStroke = ::javax::swing::KeyStroke;
 using $Caret = ::javax::swing::text::Caret;
-using $DefaultCaret = ::javax::swing::text::DefaultCaret;
 using $DefaultEditorKit = ::javax::swing::text::DefaultEditorKit;
 using $JTextComponent$KeyBinding = ::javax::swing::text::JTextComponent$KeyBinding;
 

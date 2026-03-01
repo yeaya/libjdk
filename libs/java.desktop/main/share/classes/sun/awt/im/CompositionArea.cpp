@@ -15,7 +15,6 @@
 #include <java/awt/Window.h>
 #include <java/awt/event/InputMethodEvent.h>
 #include <java/awt/event/InputMethodListener.h>
-#include <java/awt/event/WindowAdapter.h>
 #include <java/awt/event/WindowListener.h>
 #include <java/awt/font/FontRenderContext.h>
 #include <java/awt/font/TextHitInfo.h>
@@ -57,7 +56,6 @@ using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
 using $InputMethodEvent = ::java::awt::event::InputMethodEvent;
 using $InputMethodListener = ::java::awt::event::InputMethodListener;
-using $WindowAdapter = ::java::awt::event::WindowAdapter;
 using $WindowListener = ::java::awt::event::WindowListener;
 using $FontRenderContext = ::java::awt::font::FontRenderContext;
 using $TextHitInfo = ::java::awt::font::TextHitInfo;
@@ -70,7 +68,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AttributedCharacterIterator = ::java::text::AttributedCharacterIterator;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JPanel = ::javax::swing::JPanel;
 using $LineBorder = ::javax::swing::border::LineBorder;

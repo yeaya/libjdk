@@ -25,7 +25,6 @@
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JTextArea.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef BOLD
@@ -60,9 +59,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
-using $JComponent = ::javax::swing::JComponent;
 using $JTextArea = ::javax::swing::JTextArea;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 $MethodInfo _HeadlessJTextArea_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJTextArea, init$, void)},

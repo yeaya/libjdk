@@ -1,17 +1,13 @@
 #include <com/sun/imageio/plugins/tiff/TIFFImageWriter.h>
 
 #include <com/sun/imageio/plugins/common/ImageUtil.h>
-#include <com/sun/imageio/plugins/common/SimpleRenderedImage.h>
 #include <com/sun/imageio/plugins/common/SingleTileRenderedImage.h>
 #include <com/sun/imageio/plugins/tiff/EmptyImage.h>
-#include <com/sun/imageio/plugins/tiff/TIFFBaseJPEGCompressor.h>
 #include <com/sun/imageio/plugins/tiff/TIFFCIELabColorConverter.h>
 #include <com/sun/imageio/plugins/tiff/TIFFColorConverter.h>
 #include <com/sun/imageio/plugins/tiff/TIFFCompressor.h>
 #include <com/sun/imageio/plugins/tiff/TIFFDeflateCompressor.h>
-#include <com/sun/imageio/plugins/tiff/TIFFDeflater.h>
 #include <com/sun/imageio/plugins/tiff/TIFFExifJPEGCompressor.h>
-#include <com/sun/imageio/plugins/tiff/TIFFFaxCompressor.h>
 #include <com/sun/imageio/plugins/tiff/TIFFIFD.h>
 #include <com/sun/imageio/plugins/tiff/TIFFImageMetadata.h>
 #include <com/sun/imageio/plugins/tiff/TIFFImageReader.h>
@@ -52,7 +48,6 @@
 #include <java/nio/ByteOrder.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
@@ -186,17 +181,13 @@
 using $byteArray2 = $Array<int8_t, 2>;
 using $longArray2 = $Array<int64_t, 2>;
 using $ImageUtil = ::com::sun::imageio::plugins::common::ImageUtil;
-using $SimpleRenderedImage = ::com::sun::imageio::plugins::common::SimpleRenderedImage;
 using $SingleTileRenderedImage = ::com::sun::imageio::plugins::common::SingleTileRenderedImage;
 using $EmptyImage = ::com::sun::imageio::plugins::tiff::EmptyImage;
-using $TIFFBaseJPEGCompressor = ::com::sun::imageio::plugins::tiff::TIFFBaseJPEGCompressor;
 using $TIFFCIELabColorConverter = ::com::sun::imageio::plugins::tiff::TIFFCIELabColorConverter;
 using $TIFFColorConverter = ::com::sun::imageio::plugins::tiff::TIFFColorConverter;
 using $TIFFCompressor = ::com::sun::imageio::plugins::tiff::TIFFCompressor;
 using $TIFFDeflateCompressor = ::com::sun::imageio::plugins::tiff::TIFFDeflateCompressor;
-using $TIFFDeflater = ::com::sun::imageio::plugins::tiff::TIFFDeflater;
 using $TIFFExifJPEGCompressor = ::com::sun::imageio::plugins::tiff::TIFFExifJPEGCompressor;
-using $TIFFFaxCompressor = ::com::sun::imageio::plugins::tiff::TIFFFaxCompressor;
 using $TIFFIFD = ::com::sun::imageio::plugins::tiff::TIFFIFD;
 using $TIFFImageMetadata = ::com::sun::imageio::plugins::tiff::TIFFImageMetadata;
 using $TIFFImageReader = ::com::sun::imageio::plugins::tiff::TIFFImageReader;
@@ -244,7 +235,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $ByteOrder = ::java::nio::ByteOrder;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $List = ::java::util::List;

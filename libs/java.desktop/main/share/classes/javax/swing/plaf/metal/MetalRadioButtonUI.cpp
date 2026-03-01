@@ -2,7 +2,6 @@
 
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
@@ -10,8 +9,6 @@
 #include <java/awt/Insets.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/ButtonModel.h>
 #include <javax/swing/Icon.h>
@@ -19,12 +16,9 @@
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/plaf/ButtonUI.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/basic/BasicButtonUI.h>
 #include <javax/swing/plaf/basic/BasicHTML.h>
 #include <javax/swing/plaf/basic/BasicRadioButtonUI.h>
-#include <javax/swing/plaf/basic/BasicToggleButtonUI.h>
 #include <javax/swing/text/View.h>
 #include <sun/awt/AppContext.h>
 #include <sun/swing/SwingUtilities2.h>
@@ -35,7 +29,6 @@
 
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
@@ -43,8 +36,6 @@ using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -56,12 +47,9 @@ using $JComponent = ::javax::swing::JComponent;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $ButtonUI = ::javax::swing::plaf::ButtonUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $BasicButtonUI = ::javax::swing::plaf::basic::BasicButtonUI;
 using $BasicHTML = ::javax::swing::plaf::basic::BasicHTML;
 using $BasicRadioButtonUI = ::javax::swing::plaf::basic::BasicRadioButtonUI;
-using $BasicToggleButtonUI = ::javax::swing::plaf::basic::BasicToggleButtonUI;
 using $View = ::javax::swing::text::View;
 using $AppContext = ::sun::awt::AppContext;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;

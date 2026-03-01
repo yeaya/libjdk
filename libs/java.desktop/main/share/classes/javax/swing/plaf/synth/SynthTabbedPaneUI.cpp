@@ -2,7 +2,6 @@
 
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
@@ -13,8 +12,6 @@
 #include <java/awt/Shape.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/awt/event/MouseMotionListener.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/lang/Math.h>
@@ -28,12 +25,10 @@
 #include <javax/swing/UIManager.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/TabbedPaneUI.h>
 #include <javax/swing/plaf/basic/BasicTabbedPaneUI$TabbedPaneLayout.h>
 #include <javax/swing/plaf/basic/BasicTabbedPaneUI.h>
 #include <javax/swing/plaf/synth/ColorType.h>
 #include <javax/swing/plaf/synth/Region.h>
-#include <javax/swing/plaf/synth/SynthArrowButton.h>
 #include <javax/swing/plaf/synth/SynthConstants.h>
 #include <javax/swing/plaf/synth/SynthContext.h>
 #include <javax/swing/plaf/synth/SynthGraphicsUtils.h>
@@ -70,7 +65,6 @@
 
 using $RectangleArray = $Array<::java::awt::Rectangle>;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
@@ -80,8 +74,6 @@ using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -99,12 +91,10 @@ using $SwingConstants = ::javax::swing::SwingConstants;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $TabbedPaneUI = ::javax::swing::plaf::TabbedPaneUI;
 using $BasicTabbedPaneUI = ::javax::swing::plaf::basic::BasicTabbedPaneUI;
 using $BasicTabbedPaneUI$TabbedPaneLayout = ::javax::swing::plaf::basic::BasicTabbedPaneUI$TabbedPaneLayout;
 using $ColorType = ::javax::swing::plaf::synth::ColorType;
 using $Region = ::javax::swing::plaf::synth::Region;
-using $SynthArrowButton = ::javax::swing::plaf::synth::SynthArrowButton;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $SynthGraphicsUtils = ::javax::swing::plaf::synth::SynthGraphicsUtils;

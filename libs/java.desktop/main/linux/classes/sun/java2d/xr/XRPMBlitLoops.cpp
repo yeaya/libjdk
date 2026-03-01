@@ -14,11 +14,8 @@
 #include <sun/java2d/loops/CompositeType.h>
 #include <sun/java2d/loops/GraphicsPrimitive.h>
 #include <sun/java2d/loops/GraphicsPrimitiveMgr.h>
-#include <sun/java2d/loops/ScaledBlit.h>
 #include <sun/java2d/loops/SurfaceType.h>
-#include <sun/java2d/loops/TransformBlit.h>
 #include <sun/java2d/pipe/Region.h>
-#include <sun/java2d/x11/XSurfaceData.h>
 #include <sun/java2d/xr/XRGraphicsConfig.h>
 #include <sun/java2d/xr/XRPMBlit.h>
 #include <sun/java2d/xr/XRPMScaledBlit.h>
@@ -47,11 +44,8 @@ using $Blit = ::sun::java2d::loops::Blit;
 using $CompositeType = ::sun::java2d::loops::CompositeType;
 using $GraphicsPrimitive = ::sun::java2d::loops::GraphicsPrimitive;
 using $GraphicsPrimitiveMgr = ::sun::java2d::loops::GraphicsPrimitiveMgr;
-using $ScaledBlit = ::sun::java2d::loops::ScaledBlit;
 using $SurfaceType = ::sun::java2d::loops::SurfaceType;
-using $TransformBlit = ::sun::java2d::loops::TransformBlit;
 using $Region = ::sun::java2d::pipe::Region;
-using $XSurfaceData = ::sun::java2d::x11::XSurfaceData;
 using $XRGraphicsConfig = ::sun::java2d::xr::XRGraphicsConfig;
 using $XRPMBlit = ::sun::java2d::xr::XRPMBlit;
 using $XRPMScaledBlit = ::sun::java2d::xr::XRPMScaledBlit;

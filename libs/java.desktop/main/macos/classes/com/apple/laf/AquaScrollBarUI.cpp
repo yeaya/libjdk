@@ -10,7 +10,6 @@
 #include <apple/laf/JRSUIConstants$State.h>
 #include <apple/laf/JRSUIControl.h>
 #include <apple/laf/JRSUIState$ScrollBarState.h>
-#include <apple/laf/JRSUIState$ValueState.h>
 #include <apple/laf/JRSUIState.h>
 #include <apple/laf/JRSUIStateFactory.h>
 #include <apple/laf/JRSUIUtils$HitDetection.h>
@@ -31,7 +30,6 @@
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/ActionListener.h>
-#include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/awt/event/MouseMotionListener.h>
 #include <java/beans/PropertyChangeListener.h>
@@ -71,7 +69,6 @@ using $JRSUIConstants$State = ::apple::laf::JRSUIConstants$State;
 using $JRSUIControl = ::apple::laf::JRSUIControl;
 using $JRSUIState = ::apple::laf::JRSUIState;
 using $JRSUIState$ScrollBarState = ::apple::laf::JRSUIState$ScrollBarState;
-using $JRSUIState$ValueState = ::apple::laf::JRSUIState$ValueState;
 using $JRSUIStateFactory = ::apple::laf::JRSUIStateFactory;
 using $JRSUIUtils$HitDetection = ::apple::laf::JRSUIUtils$HitDetection;
 using $JRSUIUtils$ScrollBar = ::apple::laf::JRSUIUtils$ScrollBar;
@@ -91,7 +88,6 @@ using $Graphics = ::java::awt::Graphics;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;

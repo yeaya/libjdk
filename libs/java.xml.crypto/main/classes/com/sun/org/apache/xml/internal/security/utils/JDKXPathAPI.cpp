@@ -7,7 +7,6 @@
 #include <javax/xml/transform/TransformerException.h>
 #include <javax/xml/xpath/XPath.h>
 #include <javax/xml/xpath/XPathConstants.h>
-#include <javax/xml/xpath/XPathException.h>
 #include <javax/xml/xpath/XPathExpression.h>
 #include <javax/xml/xpath/XPathExpressionException.h>
 #include <javax/xml/xpath/XPathFactory.h>
@@ -24,7 +23,6 @@
 using $DOMNamespaceContext = ::com::sun::org::apache::xml::internal::security::utils::DOMNamespaceContext;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $XMLConstants = ::javax::xml::XMLConstants;
@@ -32,7 +30,6 @@ using $NamespaceContext = ::javax::xml::namespace$::NamespaceContext;
 using $TransformerException = ::javax::xml::transform::TransformerException;
 using $XPath = ::javax::xml::xpath::XPath;
 using $XPathConstants = ::javax::xml::xpath::XPathConstants;
-using $XPathException = ::javax::xml::xpath::XPathException;
 using $XPathExpression = ::javax::xml::xpath::XPathExpression;
 using $XPathExpressionException = ::javax::xml::xpath::XPathExpressionException;
 using $XPathFactory = ::javax::xml::xpath::XPathFactory;

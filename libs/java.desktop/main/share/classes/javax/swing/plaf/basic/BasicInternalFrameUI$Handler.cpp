@@ -18,7 +18,6 @@
 #include <javax/swing/event/InternalFrameEvent.h>
 #include <javax/swing/event/InternalFrameListener.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/InternalFrameUI.h>
 #include <javax/swing/plaf/basic/BasicInternalFrameTitlePane.h>
 #include <javax/swing/plaf/basic/BasicInternalFrameUI.h>
 #include <sun/swing/DefaultLookup.h>
@@ -55,7 +54,6 @@ using $JRootPane = ::javax::swing::JRootPane;
 using $InternalFrameEvent = ::javax::swing::event::InternalFrameEvent;
 using $InternalFrameListener = ::javax::swing::event::InternalFrameListener;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $InternalFrameUI = ::javax::swing::plaf::InternalFrameUI;
 using $BasicInternalFrameTitlePane = ::javax::swing::plaf::basic::BasicInternalFrameTitlePane;
 using $BasicInternalFrameUI = ::javax::swing::plaf::basic::BasicInternalFrameUI;
 using $DefaultLookup = ::sun::swing::DefaultLookup;

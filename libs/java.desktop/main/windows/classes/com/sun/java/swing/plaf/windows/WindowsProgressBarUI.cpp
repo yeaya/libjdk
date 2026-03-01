@@ -11,7 +11,6 @@
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Composite.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
@@ -21,15 +20,12 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <java/awt/Stroke.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JProgressBar.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/ProgressBarUI.h>
 #include <javax/swing/plaf/basic/BasicProgressBarUI.h>
 #include <jcpp.h>
 
@@ -57,7 +53,6 @@ using $AlphaComposite = ::java::awt::AlphaComposite;
 using $BasicStroke = ::java::awt::BasicStroke;
 using $Component = ::java::awt::Component;
 using $Composite = ::java::awt::Composite;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
@@ -66,8 +61,6 @@ using $Insets = ::java::awt::Insets;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
 using $Stroke = ::java::awt::Stroke;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -79,7 +72,6 @@ using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
 using $Border = ::javax::swing::border::Border;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $ProgressBarUI = ::javax::swing::plaf::ProgressBarUI;
 using $BasicProgressBarUI = ::javax::swing::plaf::basic::BasicProgressBarUI;
 
 namespace com {

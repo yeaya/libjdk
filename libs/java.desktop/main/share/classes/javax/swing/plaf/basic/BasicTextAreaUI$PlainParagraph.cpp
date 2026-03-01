@@ -8,7 +8,6 @@
 #include <javax/swing/plaf/basic/BasicTextAreaUI$PlainParagraph$LogicalView.h>
 #include <javax/swing/plaf/basic/BasicTextAreaUI.h>
 #include <javax/swing/text/BoxView.h>
-#include <javax/swing/text/CompositeView.h>
 #include <javax/swing/text/Element.h>
 #include <javax/swing/text/FlowView.h>
 #include <javax/swing/text/ParagraphView.h>
@@ -29,10 +28,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JTextArea = ::javax::swing::JTextArea;
 using $SizeRequirements = ::javax::swing::SizeRequirements;
 using $BasicTextAreaUI$PlainParagraph$LogicalView = ::javax::swing::plaf::basic::BasicTextAreaUI$PlainParagraph$LogicalView;
-using $BoxView = ::javax::swing::text::BoxView;
-using $CompositeView = ::javax::swing::text::CompositeView;
 using $Element = ::javax::swing::text::Element;
-using $FlowView = ::javax::swing::text::FlowView;
 using $ParagraphView = ::javax::swing::text::ParagraphView;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
 using $View = ::javax::swing::text::View;

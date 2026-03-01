@@ -19,7 +19,6 @@ using $DTMAxisTraverser = ::com::sun::org::apache::xml::internal::dtm::DTMAxisTr
 using $DTMIterator = ::com::sun::org::apache::xml::internal::dtm::DTMIterator;
 using $PrefixResolver = ::com::sun::org::apache::xml::internal::utils::PrefixResolver;
 using $BasicTestIterator = ::com::sun::org::apache::xpath::internal::axes::BasicTestIterator;
-using $LocPathIterator = ::com::sun::org::apache::xpath::internal::axes::LocPathIterator;
 using $Compiler = ::com::sun::org::apache::xpath::internal::compiler::Compiler;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

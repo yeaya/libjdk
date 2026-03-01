@@ -2,7 +2,6 @@
 
 #include <bug8032667$1.h>
 #include <java/awt/Canvas.h>
-#include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Image.h>
 #include <java/awt/image/ImageObserver.h>
@@ -10,7 +9,6 @@
 
 using $bug8032667$1 = ::bug8032667$1;
 using $Canvas = ::java::awt::Canvas;
-using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $Image = ::java::awt::Image;
 using $ImageObserver = ::java::awt::image::ImageObserver;

@@ -27,7 +27,6 @@
 #include <javax/swing/InputMap.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JPasswordField.h>
-#include <javax/swing/JTextField.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/text/JTextComponent.h>
@@ -73,7 +72,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $InputMap = ::javax::swing::InputMap;
 using $JComponent = ::javax::swing::JComponent;
 using $JPasswordField = ::javax::swing::JPasswordField;
-using $JTextField = ::javax::swing::JTextField;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $JTextComponent = ::javax::swing::text::JTextComponent;

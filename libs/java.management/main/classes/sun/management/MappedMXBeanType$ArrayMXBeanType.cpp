@@ -1,7 +1,6 @@
 #include <sun/management/MappedMXBeanType$ArrayMXBeanType.h>
 
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/reflect/Array.h>
 #include <java/lang/reflect/Type.h>
 #include <javax/management/openmbean/ArrayType.h>
@@ -12,11 +11,9 @@
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $1Array = ::java::lang::reflect::Array;
 using $Type = ::java::lang::reflect::Type;
 using $ArrayType = ::javax::management::openmbean::ArrayType;

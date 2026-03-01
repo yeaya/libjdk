@@ -12,7 +12,6 @@
 #include <java/awt/image/RenderedImage.h>
 #include <java/awt/image/SampleModel.h>
 #include <java/awt/image/WritableRaster.h>
-#include <java/awt/image/WritableRenderedImage.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/util/ArrayList.h>
@@ -38,7 +37,6 @@ using $MultiPixelPackedSampleModel = ::java::awt::image::MultiPixelPackedSampleM
 using $Raster = ::java::awt::image::Raster;
 using $RenderedImage = ::java::awt::image::RenderedImage;
 using $WritableRaster = ::java::awt::image::WritableRaster;
-using $WritableRenderedImage = ::java::awt::image::WritableRenderedImage;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;

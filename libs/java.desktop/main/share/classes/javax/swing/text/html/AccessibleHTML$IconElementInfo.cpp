@@ -7,7 +7,6 @@
 #include <javax/swing/text/Element.h>
 #include <javax/swing/text/View.h>
 #include <javax/swing/text/html/AccessibleHTML$ElementInfo.h>
-#include <javax/swing/text/html/AccessibleHTML$HTMLAccessibleContext.h>
 #include <javax/swing/text/html/AccessibleHTML$IconElementInfo$IconAccessibleContext.h>
 #include <javax/swing/text/html/AccessibleHTML.h>
 #include <javax/swing/text/html/HTML$Attribute.h>
@@ -27,7 +26,6 @@ using $Element = ::javax::swing::text::Element;
 using $View = ::javax::swing::text::View;
 using $AccessibleHTML = ::javax::swing::text::html::AccessibleHTML;
 using $AccessibleHTML$ElementInfo = ::javax::swing::text::html::AccessibleHTML$ElementInfo;
-using $AccessibleHTML$HTMLAccessibleContext = ::javax::swing::text::html::AccessibleHTML$HTMLAccessibleContext;
 using $AccessibleHTML$IconElementInfo$IconAccessibleContext = ::javax::swing::text::html::AccessibleHTML$IconElementInfo$IconAccessibleContext;
 using $HTML$Attribute = ::javax::swing::text::html::HTML$Attribute;
 using $ImageView = ::javax::swing::text::html::ImageView;

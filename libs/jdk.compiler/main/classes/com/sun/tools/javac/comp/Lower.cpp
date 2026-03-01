@@ -88,7 +88,6 @@
 #include <com/sun/tools/javac/tree/JCTree$JCOperatorExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCPackageDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCParens.h>
-#include <com/sun/tools/javac/tree/JCTree$JCPolyExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCReturn.h>
 #include <com/sun/tools/javac/tree/JCTree$JCSkip.h>
 #include <com/sun/tools/javac/tree/JCTree$JCStatement.h>
@@ -107,7 +106,6 @@
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <com/sun/tools/javac/tree/TreeInfo.h>
 #include <com/sun/tools/javac/tree/TreeMaker.h>
-#include <com/sun/tools/javac/tree/TreeScanner.h>
 #include <com/sun/tools/javac/tree/TreeTranslator.h>
 #include <com/sun/tools/javac/util/Assert.h>
 #include <com/sun/tools/javac/util/Context$Key.h>
@@ -130,8 +128,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
@@ -301,7 +297,6 @@ using $JCTree$JCOperatorExpression = ::com::sun::tools::javac::tree::JCTree$JCOp
 using $JCTree$JCOperatorExpression$OperandPos = ::com::sun::tools::javac::tree::JCTree$JCOperatorExpression$OperandPos;
 using $JCTree$JCPackageDecl = ::com::sun::tools::javac::tree::JCTree$JCPackageDecl;
 using $JCTree$JCParens = ::com::sun::tools::javac::tree::JCTree$JCParens;
-using $JCTree$JCPolyExpression = ::com::sun::tools::javac::tree::JCTree$JCPolyExpression;
 using $JCTree$JCReturn = ::com::sun::tools::javac::tree::JCTree$JCReturn;
 using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
 using $JCTree$JCSwitch = ::com::sun::tools::javac::tree::JCTree$JCSwitch;
@@ -318,7 +313,6 @@ using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
 using $TreeMaker = ::com::sun::tools::javac::tree::TreeMaker;
-using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;
 using $TreeTranslator = ::com::sun::tools::javac::tree::TreeTranslator;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $Context = ::com::sun::tools::javac::util::Context;
@@ -344,8 +338,6 @@ using $Integer = ::java::lang::Integer;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;

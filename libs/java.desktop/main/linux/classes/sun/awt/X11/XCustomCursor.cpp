@@ -6,7 +6,6 @@
 #include <java/awt/Point.h>
 #include <java/lang/Math.h>
 #include <jdk/internal/misc/Unsafe.h>
-#include <sun/awt/CustomCursor.h>
 #include <sun/awt/SunToolkit.h>
 #include <sun/awt/X11/Native.h>
 #include <sun/awt/X11/XColor.h>
@@ -25,7 +24,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Unsafe = ::jdk::internal::misc::Unsafe;
-using $CustomCursor = ::sun::awt::CustomCursor;
 using $Native = ::sun::awt::X11::Native;
 using $XColor = ::sun::awt::X11::XColor;
 using $XConstants = ::sun::awt::X11::XConstants;

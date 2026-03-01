@@ -3,7 +3,6 @@
 #include <com/apple/laf/AquaFileChooserUI.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
 #include <java/awt/Graphics.h>
@@ -22,7 +21,6 @@
 using $AquaFileChooserUI = ::com::apple::laf::AquaFileChooserUI;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;

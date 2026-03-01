@@ -18,7 +18,6 @@
 #include <java/nio/channels/NetworkChannel.h>
 #include <java/nio/channels/SelectableChannel.h>
 #include <java/nio/channels/SocketChannel.h>
-#include <java/nio/channels/spi/AbstractSelectableChannel.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedActionException.h>
 #include <java/security/PrivilegedExceptionAction.h>
@@ -75,7 +74,6 @@ using $SocketAddress = ::java::net::SocketAddress;
 using $StandardSocketOptions = ::java::net::StandardSocketOptions;
 using $SelectableChannel = ::java::nio::channels::SelectableChannel;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
-using $AbstractSelectableChannel = ::java::nio::channels::spi::AbstractSelectableChannel;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;

@@ -12,7 +12,6 @@
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <sun/awt/AppContext.h>
 #include <sun/awt/SunToolkit.h>
@@ -44,7 +43,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $AppContext = ::sun::awt::AppContext;
 using $SunToolkit = ::sun::awt::SunToolkit;

@@ -4,7 +4,6 @@
 #include <com/sun/org/apache/xerces/internal/dom/DOMImplementationSourceImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/PSVIDOMImplementationImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSImplementationImpl.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <org/w3c/dom/DOMImplementation.h>
@@ -17,7 +16,6 @@ using $PSVIDOMImplementationImpl = ::com::sun::org::apache::xerces::internal::do
 using $XSImplementationImpl = ::com::sun::org::apache::xerces::internal::impl::xs::XSImplementationImpl;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $DOMImplementation = ::org::w3c::dom::DOMImplementation;

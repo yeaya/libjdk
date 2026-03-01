@@ -8,8 +8,6 @@
 #include <java/awt/event/InputEvent.h>
 #include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseEvent.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URL.h>
 #include <javax/swing/JEditorPane.h>
@@ -52,8 +50,6 @@ using $Shape = ::java::awt::Shape;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseEvent = ::java::awt::event::MouseEvent;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

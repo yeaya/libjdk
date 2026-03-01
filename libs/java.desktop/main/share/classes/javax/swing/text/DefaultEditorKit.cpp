@@ -7,10 +7,8 @@
 #include <java/io/Reader.h>
 #include <java/io/Writer.h>
 #include <java/lang/Math.h>
-#include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/SwingConstants.h>
-#include <javax/swing/text/AbstractDocument.h>
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/BadLocationException.h>
 #include <javax/swing/text/Caret.h>
@@ -52,7 +50,6 @@
 #include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/PlainDocument.h>
 #include <javax/swing/text/Segment.h>
-#include <javax/swing/text/TextAction.h>
 #include <javax/swing/text/ViewFactory.h>
 #include <jcpp.h>
 
@@ -73,10 +70,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractAction = ::javax::swing::AbstractAction;
 using $Action = ::javax::swing::Action;
 using $SwingConstants = ::javax::swing::SwingConstants;
-using $AbstractDocument = ::javax::swing::text::AbstractDocument;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $Caret = ::javax::swing::text::Caret;
@@ -118,7 +113,6 @@ using $EditorKit = ::javax::swing::text::EditorKit;
 using $MutableAttributeSet = ::javax::swing::text::MutableAttributeSet;
 using $PlainDocument = ::javax::swing::text::PlainDocument;
 using $Segment = ::javax::swing::text::Segment;
-using $TextAction = ::javax::swing::text::TextAction;
 using $ViewFactory = ::javax::swing::text::ViewFactory;
 
 namespace javax {

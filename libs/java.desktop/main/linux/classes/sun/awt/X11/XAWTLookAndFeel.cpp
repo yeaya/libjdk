@@ -9,9 +9,7 @@
 #include <javax/swing/JTextField.h>
 #include <javax/swing/UIDefaults$LazyInputMap.h>
 #include <javax/swing/UIDefaults.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
-#include <javax/swing/border/CompoundBorder.h>
 #include <javax/swing/plaf/BorderUIResource$CompoundBorderUIResource.h>
 #include <javax/swing/plaf/ColorUIResource.h>
 #include <javax/swing/plaf/FontUIResource.h>
@@ -44,9 +42,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JTextField = ::javax::swing::JTextField;
 using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIDefaults$LazyInputMap = ::javax::swing::UIDefaults$LazyInputMap;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
-using $CompoundBorder = ::javax::swing::border::CompoundBorder;
 using $BorderUIResource$CompoundBorderUIResource = ::javax::swing::plaf::BorderUIResource$CompoundBorderUIResource;
 using $ColorUIResource = ::javax::swing::plaf::ColorUIResource;
 using $FontUIResource = ::javax::swing::plaf::FontUIResource;

@@ -8,12 +8,10 @@
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/ComponentInputMap.h>
-#include <javax/swing/DefaultDesktopManager.h>
 #include <javax/swing/DesktopManager.h>
 #include <javax/swing/InputMap.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JDesktopPane.h>
-#include <javax/swing/JLayeredPane.h>
 #include <javax/swing/KeyStroke.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/SwingUtilities.h>
@@ -26,7 +24,6 @@
 #include <javax/swing/plaf/basic/BasicDesktopPaneUI$Handler.h>
 #include <javax/swing/plaf/basic/LazyActionMap.h>
 #include <sun/swing/DefaultLookup.h>
-#include <sun/swing/UIAction.h>
 #include <jcpp.h>
 
 #undef CLOSE
@@ -66,12 +63,10 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
-using $DefaultDesktopManager = ::javax::swing::DefaultDesktopManager;
 using $DesktopManager = ::javax::swing::DesktopManager;
 using $InputMap = ::javax::swing::InputMap;
 using $JComponent = ::javax::swing::JComponent;
 using $JDesktopPane = ::javax::swing::JDesktopPane;
-using $JLayeredPane = ::javax::swing::JLayeredPane;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
@@ -83,7 +78,6 @@ using $BasicDesktopPaneUI$BasicDesktopManager = ::javax::swing::plaf::basic::Bas
 using $BasicDesktopPaneUI$Handler = ::javax::swing::plaf::basic::BasicDesktopPaneUI$Handler;
 using $LazyActionMap = ::javax::swing::plaf::basic::LazyActionMap;
 using $DefaultLookup = ::sun::swing::DefaultLookup;
-using $UIAction = ::sun::swing::UIAction;
 
 namespace javax {
 	namespace swing {

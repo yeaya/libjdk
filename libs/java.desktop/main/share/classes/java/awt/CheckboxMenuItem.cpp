@@ -7,16 +7,13 @@
 #include <java/awt/EventQueue.h>
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/ItemSelectable.h>
-#include <java/awt/MenuComponent$AccessibleAWTMenuComponent.h>
 #include <java/awt/MenuComponent.h>
-#include <java/awt/MenuItem$AccessibleAWTMenuItem.h>
 #include <java/awt/MenuItem.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/event/ItemEvent.h>
 #include <java/awt/event/ItemListener.h>
 #include <java/awt/peer/CheckboxMenuItemPeer.h>
 #include <java/awt/peer/MenuComponentPeer.h>
-#include <java/awt/peer/MenuItemPeer.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/util/EventListener.h>
@@ -41,15 +38,12 @@ using $EventQueue = ::java::awt::EventQueue;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $ItemSelectable = ::java::awt::ItemSelectable;
 using $MenuComponent = ::java::awt::MenuComponent;
-using $MenuComponent$AccessibleAWTMenuComponent = ::java::awt::MenuComponent$AccessibleAWTMenuComponent;
 using $MenuItem = ::java::awt::MenuItem;
-using $MenuItem$AccessibleAWTMenuItem = ::java::awt::MenuItem$AccessibleAWTMenuItem;
 using $Toolkit = ::java::awt::Toolkit;
 using $ItemEvent = ::java::awt::event::ItemEvent;
 using $ItemListener = ::java::awt::event::ItemListener;
 using $CheckboxMenuItemPeer = ::java::awt::peer::CheckboxMenuItemPeer;
 using $MenuComponentPeer = ::java::awt::peer::MenuComponentPeer;
-using $MenuItemPeer = ::java::awt::peer::MenuItemPeer;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;

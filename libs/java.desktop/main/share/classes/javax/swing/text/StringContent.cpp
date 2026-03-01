@@ -11,7 +11,6 @@
 #include <javax/swing/text/StringContent$RemoveUndo.h>
 #include <javax/swing/text/StringContent$StickyPosition.h>
 #include <javax/swing/text/StringContent$UndoPosRef.h>
-#include <javax/swing/undo/AbstractUndoableEdit.h>
 #include <javax/swing/undo/UndoableEdit.h>
 #include <jcpp.h>
 
@@ -30,7 +29,6 @@ using $StringContent$PosRec = ::javax::swing::text::StringContent$PosRec;
 using $StringContent$RemoveUndo = ::javax::swing::text::StringContent$RemoveUndo;
 using $StringContent$StickyPosition = ::javax::swing::text::StringContent$StickyPosition;
 using $StringContent$UndoPosRef = ::javax::swing::text::StringContent$UndoPosRef;
-using $AbstractUndoableEdit = ::javax::swing::undo::AbstractUndoableEdit;
 using $UndoableEdit = ::javax::swing::undo::UndoableEdit;
 
 namespace javax {

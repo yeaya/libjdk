@@ -11,7 +11,6 @@
 #include <com/sun/tools/javac/code/Types$DefaultTypeVisitor.h>
 #include <com/sun/tools/javac/code/Types$MapVisitor.h>
 #include <com/sun/tools/javac/code/Types.h>
-#include <com/sun/tools/javac/comp/Attr$RecoveryInfo.h>
 #include <com/sun/tools/javac/comp/Attr$ResultInfo.h>
 #include <com/sun/tools/javac/comp/Attr.h>
 #include <com/sun/tools/javac/comp/DeferredAttr$AttrMode.h>
@@ -41,7 +40,6 @@ using $Type$MethodType = ::com::sun::tools::javac::code::Type$MethodType;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $Attr = ::com::sun::tools::javac::comp::Attr;
-using $Attr$RecoveryInfo = ::com::sun::tools::javac::comp::Attr$RecoveryInfo;
 using $Attr$ResultInfo = ::com::sun::tools::javac::comp::Attr$ResultInfo;
 using $DeferredAttr = ::com::sun::tools::javac::comp::DeferredAttr;
 using $DeferredAttr$AttrMode = ::com::sun::tools::javac::comp::DeferredAttr$AttrMode;

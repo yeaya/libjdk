@@ -28,14 +28,12 @@
 #include <java/util/Vector.h>
 #include <javax/swing/FocusManager.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/InternalFrameFocusTraversalPolicy.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JRootPane.h>
 #include <javax/swing/LayoutFocusTraversalPolicy.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/MultiUIDefaults.h>
 #include <javax/swing/RepaintManager.h>
-#include <javax/swing/SortingFocusTraversalPolicy.h>
 #include <javax/swing/SwingPaintEventDispatcher.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIDefaults.h>
@@ -47,7 +45,6 @@
 #include <javax/swing/border/Border.h>
 #include <javax/swing/event/SwingPropertyChangeSupport.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/basic/BasicLookAndFeel.h>
 #include <javax/swing/plaf/metal/MetalLookAndFeel.h>
 #include <sun/awt/AWTAccessor$ComponentAccessor.h>
 #include <sun/awt/AWTAccessor.h>
@@ -104,13 +101,11 @@ using $StringTokenizer = ::java::util::StringTokenizer;
 using $Vector = ::java::util::Vector;
 using $FocusManager = ::javax::swing::FocusManager;
 using $Icon = ::javax::swing::Icon;
-using $InternalFrameFocusTraversalPolicy = ::javax::swing::InternalFrameFocusTraversalPolicy;
 using $JComponent = ::javax::swing::JComponent;
 using $JRootPane = ::javax::swing::JRootPane;
 using $LayoutFocusTraversalPolicy = ::javax::swing::LayoutFocusTraversalPolicy;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $RepaintManager = ::javax::swing::RepaintManager;
-using $SortingFocusTraversalPolicy = ::javax::swing::SortingFocusTraversalPolicy;
 using $SwingPaintEventDispatcher = ::javax::swing::SwingPaintEventDispatcher;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIDefaults = ::javax::swing::UIDefaults;
@@ -122,7 +117,6 @@ using $UnsupportedLookAndFeelException = ::javax::swing::UnsupportedLookAndFeelE
 using $Border = ::javax::swing::border::Border;
 using $SwingPropertyChangeSupport = ::javax::swing::event::SwingPropertyChangeSupport;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
 using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;

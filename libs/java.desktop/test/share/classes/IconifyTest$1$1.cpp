@@ -6,7 +6,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/WindowAdapter.h>
 #include <java/awt/event/WindowEvent.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/RepaintManager.h>
@@ -22,7 +21,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
 using $RepaintManager = ::javax::swing::RepaintManager;

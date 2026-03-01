@@ -4,16 +4,12 @@
 #include <TestDialog4bug8037575$2.h>
 #include <TestDialog4bug8037575$3.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dialog.h>
 #include <java/awt/Frame.h>
 #include <java/awt/Panel.h>
 #include <java/awt/TextArea.h>
-#include <java/awt/TextComponent.h>
 #include <java/awt/event/ActionListener.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JDialog.h>
 #include <javax/swing/JFrame.h>
 #include <jcpp.h>
@@ -25,19 +21,15 @@ using $TestDialog4bug8037575$1 = ::TestDialog4bug8037575$1;
 using $TestDialog4bug8037575$2 = ::TestDialog4bug8037575$2;
 using $TestDialog4bug8037575$3 = ::TestDialog4bug8037575$3;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Frame = ::java::awt::Frame;
 using $Panel = ::java::awt::Panel;
 using $TextArea = ::java::awt::TextArea;
-using $TextComponent = ::java::awt::TextComponent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JDialog = ::javax::swing::JDialog;
 using $JFrame = ::javax::swing::JFrame;
 

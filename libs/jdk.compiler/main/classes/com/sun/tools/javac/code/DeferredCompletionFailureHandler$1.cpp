@@ -1,7 +1,6 @@
 #include <com/sun/tools/javac/code/DeferredCompletionFailureHandler$1.h>
 
 #include <com/sun/tools/javac/code/DeferredCompletionFailureHandler$1$1.h>
-#include <com/sun/tools/javac/code/DeferredCompletionFailureHandler$DeferredCompleter.h>
 #include <com/sun/tools/javac/code/DeferredCompletionFailureHandler$FlipSymbolDescription.h>
 #include <com/sun/tools/javac/code/DeferredCompletionFailureHandler.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
@@ -13,7 +12,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Collection.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
@@ -22,7 +20,6 @@
 
 using $DeferredCompletionFailureHandler = ::com::sun::tools::javac::code::DeferredCompletionFailureHandler;
 using $DeferredCompletionFailureHandler$1$1 = ::com::sun::tools::javac::code::DeferredCompletionFailureHandler$1$1;
-using $DeferredCompletionFailureHandler$DeferredCompleter = ::com::sun::tools::javac::code::DeferredCompletionFailureHandler$DeferredCompleter;
 using $DeferredCompletionFailureHandler$FlipSymbolDescription = ::com::sun::tools::javac::code::DeferredCompletionFailureHandler$FlipSymbolDescription;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$Completer = ::com::sun::tools::javac::code::Symbol$Completer;
@@ -34,7 +31,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;

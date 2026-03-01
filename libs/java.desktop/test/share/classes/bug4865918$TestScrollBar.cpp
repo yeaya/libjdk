@@ -2,7 +2,6 @@
 
 #include <bug4865918.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/util/Date.h>
 #include <javax/swing/JComponent.h>
@@ -14,13 +13,11 @@
 
 using $bug4865918 = ::bug4865918;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Date = ::java::util::Date;
-using $JComponent = ::javax::swing::JComponent;
 using $JScrollBar = ::javax::swing::JScrollBar;
 
 $MethodInfo _bug4865918$TestScrollBar_MethodInfo_[] = {

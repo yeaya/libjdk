@@ -17,16 +17,13 @@
 #include <java/util/Objects.h>
 #include <java/util/concurrent/CountDownLatch.h>
 #include <java/util/concurrent/TimeUnit.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <jcpp.h>
 
 #undef SECONDS
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $EventQueue = ::java::awt::EventQueue;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
@@ -41,9 +38,7 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Objects = ::java::util::Objects;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 
 class TestSingleScreenGConfigNotify$$Lambda$lambda$main$1 : public $Runnable {

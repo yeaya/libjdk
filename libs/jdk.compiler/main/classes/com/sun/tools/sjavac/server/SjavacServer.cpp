@@ -20,7 +20,6 @@
 #include <java/net/Socket.h>
 #include <java/net/SocketAddress.h>
 #include <java/net/SocketException.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Date.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
@@ -56,7 +55,6 @@ using $ServerSocket = ::java::net::ServerSocket;
 using $Socket = ::java::net::Socket;
 using $SocketAddress = ::java::net::SocketAddress;
 using $SocketException = ::java::net::SocketException;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Date = ::java::util::Date;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;

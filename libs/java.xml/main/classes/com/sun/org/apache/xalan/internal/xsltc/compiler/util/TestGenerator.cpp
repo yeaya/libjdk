@@ -7,9 +7,6 @@
 #include <com/sun/org/apache/bcel/internal/generic/ISTORE.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionList.h>
-#include <com/sun/org/apache/bcel/internal/generic/LoadInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/LocalVariableInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/StoreInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Type.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator.h>
 #include <jcpp.h>
@@ -27,9 +24,6 @@ using $ILOAD = ::com::sun::org::apache::bcel::internal::generic::ILOAD;
 using $ISTORE = ::com::sun::org::apache::bcel::internal::generic::ISTORE;
 using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
-using $LoadInstruction = ::com::sun::org::apache::bcel::internal::generic::LoadInstruction;
-using $LocalVariableInstruction = ::com::sun::org::apache::bcel::internal::generic::LocalVariableInstruction;
-using $StoreInstruction = ::com::sun::org::apache::bcel::internal::generic::StoreInstruction;
 using $Type = ::com::sun::org::apache::bcel::internal::generic::Type;
 using $MethodGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::MethodGenerator;
 using $ClassInfo = ::java::lang::ClassInfo;

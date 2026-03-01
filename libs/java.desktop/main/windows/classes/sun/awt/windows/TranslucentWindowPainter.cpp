@@ -15,8 +15,6 @@
 #include <sun/awt/windows/TranslucentWindowPainter$BIWindowPainter.h>
 #include <sun/awt/windows/TranslucentWindowPainter$VIOptD3DWindowPainter.h>
 #include <sun/awt/windows/TranslucentWindowPainter$VIOptWGLWindowPainter.h>
-#include <sun/awt/windows/TranslucentWindowPainter$VIOptWindowPainter.h>
-#include <sun/awt/windows/TranslucentWindowPainter$VIWindowPainter.h>
 #include <sun/awt/windows/WComponentPeer.h>
 #include <sun/awt/windows/WObjectPeer.h>
 #include <sun/awt/windows/WWindowPeer.h>
@@ -44,8 +42,6 @@ using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $TranslucentWindowPainter$BIWindowPainter = ::sun::awt::windows::TranslucentWindowPainter$BIWindowPainter;
 using $TranslucentWindowPainter$VIOptD3DWindowPainter = ::sun::awt::windows::TranslucentWindowPainter$VIOptD3DWindowPainter;
 using $TranslucentWindowPainter$VIOptWGLWindowPainter = ::sun::awt::windows::TranslucentWindowPainter$VIOptWGLWindowPainter;
-using $TranslucentWindowPainter$VIOptWindowPainter = ::sun::awt::windows::TranslucentWindowPainter$VIOptWindowPainter;
-using $TranslucentWindowPainter$VIWindowPainter = ::sun::awt::windows::TranslucentWindowPainter$VIWindowPainter;
 using $WWindowPeer = ::sun::awt::windows::WWindowPeer;
 using $AccelGraphicsConfig = ::sun::java2d::pipe::hw::AccelGraphicsConfig;
 using $ContextCapabilities = ::sun::java2d::pipe::hw::ContextCapabilities;

@@ -17,7 +17,6 @@
 #include <java/rmi/server/RMIClassLoader$2.h>
 #include <java/rmi/server/RMIClassLoaderSpi.h>
 #include <java/security/AccessController.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/util/Iterator.h>
@@ -31,7 +30,6 @@ using $ClassLoader = ::java::lang::ClassLoader;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $Error = ::java::lang::Error;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessError = ::java::lang::IllegalAccessError;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
@@ -41,7 +39,6 @@ using $InstantiationException = ::java::lang::InstantiationException;
 using $LinkageError = ::java::lang::LinkageError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoClassDefFoundError = ::java::lang::NoClassDefFoundError;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $URL = ::java::net::URL;
@@ -49,7 +46,6 @@ using $RMIClassLoader$1 = ::java::rmi::server::RMIClassLoader$1;
 using $RMIClassLoader$2 = ::java::rmi::server::RMIClassLoader$2;
 using $RMIClassLoaderSpi = ::java::rmi::server::RMIClassLoaderSpi;
 using $AccessController = ::java::security::AccessController;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Iterator = ::java::util::Iterator;

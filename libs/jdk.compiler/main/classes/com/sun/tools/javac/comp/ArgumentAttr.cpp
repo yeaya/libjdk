@@ -17,7 +17,6 @@
 #include <com/sun/tools/javac/comp/ArgumentAttr$ResolvedMethodType.h>
 #include <com/sun/tools/javac/comp/ArgumentAttr$SwitchExpressionType.h>
 #include <com/sun/tools/javac/comp/ArgumentAttr$UniquePos.h>
-#include <com/sun/tools/javac/comp/Attr$MethodAttrInfo.h>
 #include <com/sun/tools/javac/comp/Attr$ResultInfo.h>
 #include <com/sun/tools/javac/comp/Attr.h>
 #include <com/sun/tools/javac/comp/AttrContext.h>
@@ -26,10 +25,8 @@
 #include <com/sun/tools/javac/comp/DeferredAttr.h>
 #include <com/sun/tools/javac/comp/Env.h>
 #include <com/sun/tools/javac/comp/Resolve.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCConditional.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
-#include <com/sun/tools/javac/tree/JCTree$JCFunctionalExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCLambda$ParameterKind.h>
 #include <com/sun/tools/javac/tree/JCTree$JCLambda.h>
 #include <com/sun/tools/javac/tree/JCTree$JCMemberReference$OverloadKind.h>
@@ -37,7 +34,6 @@
 #include <com/sun/tools/javac/tree/JCTree$JCMethodInvocation.h>
 #include <com/sun/tools/javac/tree/JCTree$JCNewClass.h>
 #include <com/sun/tools/javac/tree/JCTree$JCParens.h>
-#include <com/sun/tools/javac/tree/JCTree$JCPolyExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCSwitchExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$Visitor.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
@@ -59,8 +55,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/HashMap.h>
 #include <java/util/LinkedHashMap.h>
 #include <java/util/List.h>
 #include <java/util/Map.h>
@@ -95,7 +89,6 @@ using $ArgumentAttr$ResolvedMethodType = ::com::sun::tools::javac::comp::Argumen
 using $ArgumentAttr$SwitchExpressionType = ::com::sun::tools::javac::comp::ArgumentAttr$SwitchExpressionType;
 using $ArgumentAttr$UniquePos = ::com::sun::tools::javac::comp::ArgumentAttr$UniquePos;
 using $Attr = ::com::sun::tools::javac::comp::Attr;
-using $Attr$MethodAttrInfo = ::com::sun::tools::javac::comp::Attr$MethodAttrInfo;
 using $Attr$ResultInfo = ::com::sun::tools::javac::comp::Attr$ResultInfo;
 using $AttrContext = ::com::sun::tools::javac::comp::AttrContext;
 using $DeferredAttr = ::com::sun::tools::javac::comp::DeferredAttr;
@@ -104,10 +97,8 @@ using $DeferredAttr$DeferredType = ::com::sun::tools::javac::comp::DeferredAttr$
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCConditional = ::com::sun::tools::javac::tree::JCTree$JCConditional;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
-using $JCTree$JCFunctionalExpression = ::com::sun::tools::javac::tree::JCTree$JCFunctionalExpression;
 using $JCTree$JCLambda = ::com::sun::tools::javac::tree::JCTree$JCLambda;
 using $JCTree$JCLambda$ParameterKind = ::com::sun::tools::javac::tree::JCTree$JCLambda$ParameterKind;
 using $JCTree$JCMemberReference = ::com::sun::tools::javac::tree::JCTree$JCMemberReference;
@@ -115,7 +106,6 @@ using $JCTree$JCMemberReference$OverloadKind = ::com::sun::tools::javac::tree::J
 using $JCTree$JCMethodInvocation = ::com::sun::tools::javac::tree::JCTree$JCMethodInvocation;
 using $JCTree$JCNewClass = ::com::sun::tools::javac::tree::JCTree$JCNewClass;
 using $JCTree$JCParens = ::com::sun::tools::javac::tree::JCTree$JCParens;
-using $JCTree$JCPolyExpression = ::com::sun::tools::javac::tree::JCTree$JCPolyExpression;
 using $JCTree$JCSwitchExpression = ::com::sun::tools::javac::tree::JCTree$JCSwitchExpression;
 using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
 using $TreeCopier = ::com::sun::tools::javac::tree::TreeCopier;
@@ -132,8 +122,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractMap = ::java::util::AbstractMap;
-using $HashMap = ::java::util::HashMap;
 using $LinkedHashMap = ::java::util::LinkedHashMap;
 using $Map = ::java::util::Map;
 using $Function = ::java::util::function::Function;

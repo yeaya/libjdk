@@ -2,7 +2,6 @@
 
 #include <com/sun/source/util/JavacTask.h>
 #include <com/sun/source/util/TaskListener.h>
-#include <com/sun/tools/javac/api/BasicJavacTask.h>
 #include <com/sun/tools/javac/api/JavacTaskImpl.h>
 #include <com/sun/tools/javac/api/JavacTaskPool$ReusableContext.h>
 #include <com/sun/tools/javac/api/JavacTaskPool$Worker.h>
@@ -18,12 +17,10 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/ArrayDeque.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/Comparator.h>
-#include <java/util/Deque.h>
 #include <java/util/HashMap.h>
 #include <java/util/List.h>
 #include <java/util/Map.h>
@@ -44,7 +41,6 @@
 
 using $JavacTask = ::com::sun::source::util::JavacTask;
 using $TaskListener = ::com::sun::source::util::TaskListener;
-using $BasicJavacTask = ::com::sun::tools::javac::api::BasicJavacTask;
 using $JavacTaskImpl = ::com::sun::tools::javac::api::JavacTaskImpl;
 using $JavacTaskPool$ReusableContext = ::com::sun::tools::javac::api::JavacTaskPool$ReusableContext;
 using $JavacTaskPool$Worker = ::com::sun::tools::javac::api::JavacTaskPool$Worker;
@@ -61,12 +57,10 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayDeque = ::java::util::ArrayDeque;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $Comparator = ::java::util::Comparator;
-using $Deque = ::java::util::Deque;
 using $HashMap = ::java::util::HashMap;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;

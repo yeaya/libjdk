@@ -2,7 +2,6 @@
 
 #include <com/apple/laf/AquaIcon$1.h>
 #include <com/apple/laf/AquaIcon$JRSUIControlSpec.h>
-#include <com/apple/laf/AquaIcon$ScalingJRSUIIcon.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Image.h>
@@ -16,7 +15,6 @@
 
 using $AquaIcon$1 = ::com::apple::laf::AquaIcon$1;
 using $AquaIcon$JRSUIControlSpec = ::com::apple::laf::AquaIcon$JRSUIControlSpec;
-using $AquaIcon$ScalingJRSUIIcon = ::com::apple::laf::AquaIcon$ScalingJRSUIIcon;
 using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
 using $Image = ::java::awt::Image;

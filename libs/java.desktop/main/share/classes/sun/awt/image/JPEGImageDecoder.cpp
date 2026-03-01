@@ -4,7 +4,6 @@
 #include <java/awt/image/DirectColorModel.h>
 #include <java/awt/image/ImageConsumer.h>
 #include <java/awt/image/IndexColorModel.h>
-#include <java/awt/image/PackedColorModel.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/security/AccessController.h>
@@ -23,7 +22,6 @@ using $ColorModel = ::java::awt::image::ColorModel;
 using $DirectColorModel = ::java::awt::image::DirectColorModel;
 using $ImageConsumer = ::java::awt::image::ImageConsumer;
 using $IndexColorModel = ::java::awt::image::IndexColorModel;
-using $PackedColorModel = ::java::awt::image::PackedColorModel;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;

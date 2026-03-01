@@ -1,6 +1,5 @@
 #include <sun/awt/shell/Win32ShellFolder2$16.h>
 
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Comparator.h>
 #include <java/util/List.h>
@@ -21,7 +20,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Comparator = ::java::util::Comparator;
 using $List = ::java::util::List;

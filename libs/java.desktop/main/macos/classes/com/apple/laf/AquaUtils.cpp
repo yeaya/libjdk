@@ -4,7 +4,6 @@
 #include <com/apple/laf/AquaUtils$2.h>
 #include <com/apple/laf/AquaUtils$3.h>
 #include <com/apple/laf/AquaUtils$4.h>
-#include <com/apple/laf/AquaUtils$IconImageFilter.h>
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
 #include <com/apple/laf/AquaUtils$Selectable.h>
 #include <java/awt/AlphaComposite.h>
@@ -24,7 +23,6 @@
 #include <java/awt/image/ImageFilter.h>
 #include <java/awt/image/ImageProducer.h>
 #include <java/awt/image/MultiResolutionImage.h>
-#include <java/awt/image/RGBImageFilter.h>
 #include <java/io/Serializable.h>
 #include <java/lang/InterruptedException.h>
 #include <java/lang/invoke/CallSite.h>
@@ -55,7 +53,6 @@ using $AquaUtils$1 = ::com::apple::laf::AquaUtils$1;
 using $AquaUtils$2 = ::com::apple::laf::AquaUtils$2;
 using $AquaUtils$3 = ::com::apple::laf::AquaUtils$3;
 using $AquaUtils$4 = ::com::apple::laf::AquaUtils$4;
-using $AquaUtils$IconImageFilter = ::com::apple::laf::AquaUtils$IconImageFilter;
 using $AquaUtils$RecyclableSingleton = ::com::apple::laf::AquaUtils$RecyclableSingleton;
 using $AquaUtils$Selectable = ::com::apple::laf::AquaUtils$Selectable;
 using $AlphaComposite = ::java::awt::AlphaComposite;
@@ -75,7 +72,6 @@ using $FilteredImageSource = ::java::awt::image::FilteredImageSource;
 using $ImageFilter = ::java::awt::image::ImageFilter;
 using $ImageProducer = ::java::awt::image::ImageProducer;
 using $MultiResolutionImage = ::java::awt::image::MultiResolutionImage;
-using $RGBImageFilter = ::java::awt::image::RGBImageFilter;
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;

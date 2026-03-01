@@ -24,7 +24,6 @@
 #include <java/util/Locale.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/swing/JComponent.h>
-#include <javax/swing/JSeparator.h>
 #include <javax/swing/JToolBar$Separator.h>
 #include <jcpp.h>
 
@@ -60,8 +59,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
-using $JComponent = ::javax::swing::JComponent;
-using $JSeparator = ::javax::swing::JSeparator;
 using $JToolBar$Separator = ::javax::swing::JToolBar$Separator;
 
 $MethodInfo _HeadlessJToolBar_Separator_MethodInfo_[] = {

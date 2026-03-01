@@ -27,7 +27,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $DocumentEvent = ::javax::swing::event::DocumentEvent;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $Element = ::javax::swing::text::Element;
-using $GlyphView = ::javax::swing::text::GlyphView;
 using $LabelView = ::javax::swing::text::LabelView;
 using $View = ::javax::swing::text::View;
 using $ViewFactory = ::javax::swing::text::ViewFactory;

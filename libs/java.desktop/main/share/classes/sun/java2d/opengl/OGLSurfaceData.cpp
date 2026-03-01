@@ -35,16 +35,11 @@
 #include <sun/java2d/opengl/OGLSurfaceDataProxy.h>
 #include <sun/java2d/opengl/OGLTextRenderer.h>
 #include <sun/java2d/pipe/BufferedContext.h>
-#include <sun/java2d/pipe/BufferedRenderPipe.h>
-#include <sun/java2d/pipe/BufferedTextPipe.h>
-#include <sun/java2d/pipe/DrawImage.h>
 #include <sun/java2d/pipe/DrawImagePipe.h>
-#include <sun/java2d/pipe/GlyphListPipe.h>
 #include <sun/java2d/pipe/ParallelogramPipe.h>
 #include <sun/java2d/pipe/PixelDrawPipe.h>
 #include <sun/java2d/pipe/PixelFillPipe.h>
 #include <sun/java2d/pipe/PixelToParallelogramConverter.h>
-#include <sun/java2d/pipe/PixelToShapeConverter.h>
 #include <sun/java2d/pipe/RenderBuffer.h>
 #include <sun/java2d/pipe/RenderQueue.h>
 #include <sun/java2d/pipe/ShapeDrawPipe.h>
@@ -123,16 +118,11 @@ using $OGLSurfaceData$1 = ::sun::java2d::opengl::OGLSurfaceData$1;
 using $OGLSurfaceDataProxy = ::sun::java2d::opengl::OGLSurfaceDataProxy;
 using $OGLTextRenderer = ::sun::java2d::opengl::OGLTextRenderer;
 using $BufferedContext = ::sun::java2d::pipe::BufferedContext;
-using $BufferedRenderPipe = ::sun::java2d::pipe::BufferedRenderPipe;
-using $BufferedTextPipe = ::sun::java2d::pipe::BufferedTextPipe;
-using $DrawImage = ::sun::java2d::pipe::DrawImage;
 using $DrawImagePipe = ::sun::java2d::pipe::DrawImagePipe;
-using $GlyphListPipe = ::sun::java2d::pipe::GlyphListPipe;
 using $ParallelogramPipe = ::sun::java2d::pipe::ParallelogramPipe;
 using $PixelDrawPipe = ::sun::java2d::pipe::PixelDrawPipe;
 using $PixelFillPipe = ::sun::java2d::pipe::PixelFillPipe;
 using $PixelToParallelogramConverter = ::sun::java2d::pipe::PixelToParallelogramConverter;
-using $PixelToShapeConverter = ::sun::java2d::pipe::PixelToShapeConverter;
 using $RenderBuffer = ::sun::java2d::pipe::RenderBuffer;
 using $RenderQueue = ::sun::java2d::pipe::RenderQueue;
 using $ShapeDrawPipe = ::sun::java2d::pipe::ShapeDrawPipe;

@@ -6,7 +6,6 @@
 #include <javax/swing/JButton.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/plaf/basic/BasicLookAndFeel.h>
 #include <javax/swing/plaf/synth/SynthLookAndFeel.h>
 #include <jcpp.h>
 
@@ -20,7 +19,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $JButton = ::javax::swing::JButton;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
-using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
 
 $MethodInfo _SynthTest_MethodInfo_[] = {

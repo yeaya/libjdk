@@ -22,10 +22,8 @@
 #include <java/awt/SentEvent.h>
 #include <java/awt/SequencedEvent.h>
 #include <java/awt/Window.h>
-#include <java/awt/event/ComponentEvent.h>
 #include <java/awt/event/FocusEvent$Cause.h>
 #include <java/awt/event/FocusEvent.h>
-#include <java/awt/event/InputEvent.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/event/WindowEvent.h>
 #include <java/awt/peer/ComponentPeer.h>
@@ -94,10 +92,8 @@ using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $SentEvent = ::java::awt::SentEvent;
 using $SequencedEvent = ::java::awt::SequencedEvent;
 using $Window = ::java::awt::Window;
-using $ComponentEvent = ::java::awt::event::ComponentEvent;
 using $FocusEvent = ::java::awt::event::FocusEvent;
 using $FocusEvent$Cause = ::java::awt::event::FocusEvent$Cause;
-using $InputEvent = ::java::awt::event::InputEvent;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $WindowEvent = ::java::awt::event::WindowEvent;
 using $ComponentPeer = ::java::awt::peer::ComponentPeer;

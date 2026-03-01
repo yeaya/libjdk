@@ -4,7 +4,6 @@
 #include <java/awt/Shape.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/Path2D$Double.h>
-#include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/PathIterator.h>
 #include <java/lang/Math.h>
 #include <java/security/AccessController.h>
@@ -13,8 +12,6 @@
 #include <sun/awt/geom/PathConsumer2D.h>
 #include <sun/java2d/ReentrantContext.h>
 #include <sun/java2d/ReentrantContextProvider.h>
-#include <sun/java2d/ReentrantContextProviderCLQ.h>
-#include <sun/java2d/ReentrantContextProviderTL.h>
 #include <sun/java2d/marlin/CollinearSimplifier.h>
 #include <sun/java2d/marlin/DMarlinRenderingEngine$1.h>
 #include <sun/java2d/marlin/DMarlinRenderingEngine$2.h>
@@ -108,7 +105,6 @@
 using $BasicStroke = ::java::awt::BasicStroke;
 using $Shape = ::java::awt::Shape;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
-using $Path2D = ::java::awt::geom::Path2D;
 using $Path2D$Double = ::java::awt::geom::Path2D$Double;
 using $PathIterator = ::java::awt::geom::PathIterator;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -124,8 +120,6 @@ using $Arrays = ::java::util::Arrays;
 using $PathConsumer2D = ::sun::awt::geom::PathConsumer2D;
 using $ReentrantContext = ::sun::java2d::ReentrantContext;
 using $ReentrantContextProvider = ::sun::java2d::ReentrantContextProvider;
-using $ReentrantContextProviderCLQ = ::sun::java2d::ReentrantContextProviderCLQ;
-using $ReentrantContextProviderTL = ::sun::java2d::ReentrantContextProviderTL;
 using $CollinearSimplifier = ::sun::java2d::marlin::CollinearSimplifier;
 using $DMarlinRenderingEngine$1 = ::sun::java2d::marlin::DMarlinRenderingEngine$1;
 using $DMarlinRenderingEngine$2 = ::sun::java2d::marlin::DMarlinRenderingEngine$2;

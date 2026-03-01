@@ -1,7 +1,6 @@
 #include <com/sun/tools/javac/comp/Attr$4.h>
 
 #include <com/sun/tools/javac/comp/Attr.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCTypeApply.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
@@ -10,7 +9,6 @@
 
 using $Attr = ::com::sun::tools::javac::comp::Attr;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCTypeApply = ::com::sun::tools::javac::tree::JCTree$JCTypeApply;
 using $TreeTranslator = ::com::sun::tools::javac::tree::TreeTranslator;
 using $ClassInfo = ::java::lang::ClassInfo;

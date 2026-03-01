@@ -12,7 +12,6 @@
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/Element.h>
 #include <javax/swing/text/ElementIterator.h>
-#include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/Style.h>
 #include <javax/swing/text/StyleConstants$CharacterConstants.h>
 #include <javax/swing/text/StyleConstants$ColorConstants.h>
@@ -45,7 +44,6 @@ using $DefaultStyledDocument = ::javax::swing::text::DefaultStyledDocument;
 using $Document = ::javax::swing::text::Document;
 using $Element = ::javax::swing::text::Element;
 using $ElementIterator = ::javax::swing::text::ElementIterator;
-using $MutableAttributeSet = ::javax::swing::text::MutableAttributeSet;
 using $Style = ::javax::swing::text::Style;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
 using $StyleConstants$CharacterConstants = ::javax::swing::text::StyleConstants$CharacterConstants;

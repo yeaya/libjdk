@@ -13,7 +13,6 @@
 #include <com/sun/org/apache/xerces/internal/util/DOMUtil.h>
 #include <com/sun/org/apache/xerces/internal/util/XMLSymbols.h>
 #include <com/sun/org/apache/xerces/internal/xni/QName.h>
-#include <com/sun/org/apache/xerces/internal/xs/XSAnnotation.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSObject.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSObjectList.h>
 #include <org/w3c/dom/Element.h>
@@ -41,7 +40,6 @@ using $XSObjectListImpl = ::com::sun::org::apache::xerces::internal::impl::xs::u
 using $DOMUtil = ::com::sun::org::apache::xerces::internal::util::DOMUtil;
 using $XMLSymbols = ::com::sun::org::apache::xerces::internal::util::XMLSymbols;
 using $QName = ::com::sun::org::apache::xerces::internal::xni::QName;
-using $XSAnnotation = ::com::sun::org::apache::xerces::internal::xs::XSAnnotation;
 using $XSObject = ::com::sun::org::apache::xerces::internal::xs::XSObject;
 using $XSObjectList = ::com::sun::org::apache::xerces::internal::xs::XSObjectList;
 using $ClassInfo = ::java::lang::ClassInfo;

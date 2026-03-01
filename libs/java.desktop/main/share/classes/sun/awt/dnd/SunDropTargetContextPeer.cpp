@@ -18,14 +18,10 @@
 #include <java/awt/dnd/DropTargetListener.h>
 #include <java/awt/dnd/InvalidDnDOperationException.h>
 #include <java/awt/dnd/peer/DropTargetContextPeer.h>
-#include <java/awt/event/ComponentEvent.h>
-#include <java/awt/event/InputEvent.h>
-#include <java/awt/event/MouseEvent.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/lang/SecurityManager.h>
 #include <java/lang/Thread$UncaughtExceptionHandler.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/util/Map.h>
 #include <sun/awt/AWTAccessor$DropTargetContextAccessor.h>
@@ -72,9 +68,6 @@ using $DropTargetEvent = ::java::awt::dnd::DropTargetEvent;
 using $DropTargetListener = ::java::awt::dnd::DropTargetListener;
 using $InvalidDnDOperationException = ::java::awt::dnd::InvalidDnDOperationException;
 using $DropTargetContextPeer = ::java::awt::dnd::peer::DropTargetContextPeer;
-using $ComponentEvent = ::java::awt::event::ComponentEvent;
-using $InputEvent = ::java::awt::event::InputEvent;
-using $MouseEvent = ::java::awt::event::MouseEvent;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -86,7 +79,6 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $Thread$UncaughtExceptionHandler = ::java::lang::Thread$UncaughtExceptionHandler;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $Map = ::java::util::Map;
 using $AWTAccessor = ::sun::awt::AWTAccessor;

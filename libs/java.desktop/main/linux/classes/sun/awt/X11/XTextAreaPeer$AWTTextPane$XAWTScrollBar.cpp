@@ -4,8 +4,6 @@
 #include <javax/swing/JScrollPane$ScrollBar.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/ScrollBarUI.h>
-#include <javax/swing/plaf/basic/BasicScrollBarUI.h>
 #include <sun/awt/X11/XTextAreaPeer$AWTTextPane.h>
 #include <sun/awt/X11/XTextAreaPeer$XAWTScrollBarUI.h>
 #include <sun/awt/X11/XTextAreaPeer.h>
@@ -18,8 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JScrollPane$ScrollBar = ::javax::swing::JScrollPane$ScrollBar;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $ScrollBarUI = ::javax::swing::plaf::ScrollBarUI;
-using $BasicScrollBarUI = ::javax::swing::plaf::basic::BasicScrollBarUI;
 using $XTextAreaPeer$AWTTextPane = ::sun::awt::X11::XTextAreaPeer$AWTTextPane;
 using $XTextAreaPeer$XAWTScrollBarUI = ::sun::awt::X11::XTextAreaPeer$XAWTScrollBarUI;
 

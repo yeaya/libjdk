@@ -5,23 +5,17 @@
 #include <java/awt/Container.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/JCheckBox.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JPanel.h>
-#include <javax/swing/JToggleButton.h>
 #include <javax/swing/JTree.h>
 #include <jcpp.h>
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JCheckBox = ::javax::swing::JCheckBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JPanel = ::javax::swing::JPanel;
-using $JToggleButton = ::javax::swing::JToggleButton;
 using $JTree = ::javax::swing::JTree;
 
 $FieldInfo _bug8023474$CheckboxCellRenderer_FieldInfo_[] = {

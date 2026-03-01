@@ -1,19 +1,15 @@
 #include <com/sun/media/sound/SoftReceiver.h>
 
-#include <com/sun/media/sound/AudioSynthesizer.h>
 #include <com/sun/media/sound/SoftMainMixer.h>
 #include <com/sun/media/sound/SoftSynthesizer.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/util/TreeMap.h>
 #include <javax/sound/midi/MidiDevice.h>
-#include <javax/sound/midi/MidiDeviceReceiver.h>
 #include <javax/sound/midi/MidiMessage.h>
 #include <javax/sound/midi/Receiver.h>
 #include <javax/sound/midi/ShortMessage.h>
-#include <javax/sound/midi/Synthesizer.h>
 #include <jcpp.h>
 
-using $AudioSynthesizer = ::com::sun::media::sound::AudioSynthesizer;
 using $SoftMainMixer = ::com::sun::media::sound::SoftMainMixer;
 using $SoftSynthesizer = ::com::sun::media::sound::SoftSynthesizer;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -23,11 +19,9 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $TreeMap = ::java::util::TreeMap;
 using $MidiDevice = ::javax::sound::midi::MidiDevice;
-using $MidiDeviceReceiver = ::javax::sound::midi::MidiDeviceReceiver;
 using $MidiMessage = ::javax::sound::midi::MidiMessage;
 using $Receiver = ::javax::sound::midi::Receiver;
 using $ShortMessage = ::javax::sound::midi::ShortMessage;
-using $Synthesizer = ::javax::sound::midi::Synthesizer;
 
 namespace com {
 	namespace sun {

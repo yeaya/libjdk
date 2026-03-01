@@ -8,7 +8,6 @@
 #include <sun/java2d/loops/CompositeType.h>
 #include <sun/java2d/loops/GraphicsPrimitive.h>
 #include <sun/java2d/loops/GraphicsPrimitiveMgr.h>
-#include <sun/java2d/loops/MaskBlit.h>
 #include <sun/java2d/loops/SurfaceType.h>
 #include <sun/java2d/metal/MTLContext.h>
 #include <sun/java2d/metal/MTLRenderQueue.h>
@@ -32,7 +31,6 @@ using $SurfaceData = ::sun::java2d::SurfaceData;
 using $CompositeType = ::sun::java2d::loops::CompositeType;
 using $GraphicsPrimitive = ::sun::java2d::loops::GraphicsPrimitive;
 using $GraphicsPrimitiveMgr = ::sun::java2d::loops::GraphicsPrimitiveMgr;
-using $MaskBlit = ::sun::java2d::loops::MaskBlit;
 using $SurfaceType = ::sun::java2d::loops::SurfaceType;
 using $MTLContext = ::sun::java2d::metal::MTLContext;
 using $MTLRenderQueue = ::sun::java2d::metal::MTLRenderQueue;

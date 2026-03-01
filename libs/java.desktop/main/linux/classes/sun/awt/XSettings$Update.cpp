@@ -3,7 +3,6 @@
 #include <java/awt/Color.h>
 #include <java/io/UnsupportedEncodingException.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <sun/awt/XSettings.h>
@@ -25,7 +24,6 @@ using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $XSettings = ::sun::awt::XSettings;

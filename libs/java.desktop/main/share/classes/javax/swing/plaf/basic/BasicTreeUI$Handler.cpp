@@ -1,7 +1,6 @@
 #include <javax/swing/plaf/basic/BasicTreeUI$Handler.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/FocusEvent.h>
 #include <java/awt/event/InputEvent.h>
@@ -50,7 +49,6 @@
 
 using $TreePathArray = $Array<::javax::swing::tree::TreePath>;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Rectangle = ::java::awt::Rectangle;
 using $FocusEvent = ::java::awt::event::FocusEvent;
 using $InputEvent = ::java::awt::event::InputEvent;

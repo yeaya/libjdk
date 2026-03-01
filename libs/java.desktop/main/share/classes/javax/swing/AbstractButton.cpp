@@ -8,7 +8,6 @@
 #include <java/awt/Insets.h>
 #include <java/awt/ItemSelectable.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
@@ -24,7 +23,6 @@
 #include <javax/swing/AbstractButton$ButtonActionPropertyChangeListener.h>
 #include <javax/swing/AbstractButton$Handler.h>
 #include <javax/swing/Action.h>
-#include <javax/swing/ActionPropertyChangeListener.h>
 #include <javax/swing/ButtonGroup.h>
 #include <javax/swing/ButtonModel.h>
 #include <javax/swing/DefaultButtonModel.h>
@@ -97,7 +95,6 @@ using $Image = ::java::awt::Image;
 using $Insets = ::java::awt::Insets;
 using $ItemSelectable = ::java::awt::ItemSelectable;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Rectangle = ::java::awt::Rectangle;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
@@ -123,7 +120,6 @@ using $AbstractAction = ::javax::swing::AbstractAction;
 using $AbstractButton$ButtonActionPropertyChangeListener = ::javax::swing::AbstractButton$ButtonActionPropertyChangeListener;
 using $AbstractButton$Handler = ::javax::swing::AbstractButton$Handler;
 using $Action = ::javax::swing::Action;
-using $ActionPropertyChangeListener = ::javax::swing::ActionPropertyChangeListener;
 using $ButtonGroup = ::javax::swing::ButtonGroup;
 using $ButtonModel = ::javax::swing::ButtonModel;
 using $DefaultButtonModel = ::javax::swing::DefaultButtonModel;

@@ -7,9 +7,7 @@
 #include <javax/swing/JMenuItem.h>
 #include <javax/swing/event/ChangeListener.h>
 #include <javax/swing/event/MouseInputListener.h>
-#include <javax/swing/plaf/ButtonUI.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/MenuItemUI.h>
 #include <javax/swing/plaf/basic/BasicCheckBoxMenuItemUI.h>
 #include <javax/swing/plaf/basic/BasicMenuItemUI.h>
 #include <jcpp.h>
@@ -20,16 +18,12 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JComponent = ::javax::swing::JComponent;
 using $JMenuItem = ::javax::swing::JMenuItem;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
 using $MouseInputListener = ::javax::swing::event::MouseInputListener;
-using $ButtonUI = ::javax::swing::plaf::ButtonUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $MenuItemUI = ::javax::swing::plaf::MenuItemUI;
 using $BasicCheckBoxMenuItemUI = ::javax::swing::plaf::basic::BasicCheckBoxMenuItemUI;
-using $BasicMenuItemUI = ::javax::swing::plaf::basic::BasicMenuItemUI;
 
 namespace com {
 	namespace sun {

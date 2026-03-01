@@ -9,12 +9,9 @@
 #include <java/awt/event/KeyEvent.h>
 #include <java/lang/Error.h>
 #include <java/lang/Runnable.h>
-#include <javax/swing/AbstractAction.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/InputMap.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JMenuBar.h>
 #include <javax/swing/JMenuItem.h>
@@ -28,7 +25,6 @@
 using $Test8013370$1 = ::Test8013370$1;
 using $Test8013370$2 = ::Test8013370$2;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Robot = ::java::awt::Robot;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -37,12 +33,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $AbstractAction = ::javax::swing::AbstractAction;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $InputMap = ::javax::swing::InputMap;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JMenuBar = ::javax::swing::JMenuBar;
 using $JMenuItem = ::javax::swing::JMenuItem;

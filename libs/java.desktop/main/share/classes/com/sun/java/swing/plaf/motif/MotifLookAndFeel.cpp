@@ -24,10 +24,7 @@
 #include <javax/swing/JTextField.h>
 #include <javax/swing/UIDefaults$LazyInputMap.h>
 #include <javax/swing/UIDefaults.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
-#include <javax/swing/border/CompoundBorder.h>
-#include <javax/swing/border/LineBorder.h>
 #include <javax/swing/plaf/BorderUIResource$CompoundBorderUIResource.h>
 #include <javax/swing/plaf/BorderUIResource$EmptyBorderUIResource.h>
 #include <javax/swing/plaf/BorderUIResource$LineBorderUIResource.h>
@@ -82,10 +79,7 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 using $JTextField = ::javax::swing::JTextField;
 using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIDefaults$LazyInputMap = ::javax::swing::UIDefaults$LazyInputMap;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
-using $CompoundBorder = ::javax::swing::border::CompoundBorder;
-using $LineBorder = ::javax::swing::border::LineBorder;
 using $BorderUIResource$CompoundBorderUIResource = ::javax::swing::plaf::BorderUIResource$CompoundBorderUIResource;
 using $BorderUIResource$EmptyBorderUIResource = ::javax::swing::plaf::BorderUIResource$EmptyBorderUIResource;
 using $BorderUIResource$LineBorderUIResource = ::javax::swing::plaf::BorderUIResource$LineBorderUIResource;

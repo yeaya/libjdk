@@ -33,7 +33,6 @@
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
 #include <java/security/AccessController.h>
-#include <java/security/GeneralSecurityException.h>
 #include <java/security/MessageDigest.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/Permission.h>
@@ -116,7 +115,6 @@ using $HttpResponse$BodyHandlers = ::java::net::http::HttpResponse$BodyHandlers;
 using $WebSocketHandshakeException = ::java::net::http::WebSocketHandshakeException;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
 using $AccessController = ::java::security::AccessController;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $MessageDigest = ::java::security::MessageDigest;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $Permission = ::java::security::Permission;

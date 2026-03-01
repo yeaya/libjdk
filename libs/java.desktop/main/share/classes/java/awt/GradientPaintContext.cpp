@@ -7,7 +7,6 @@
 #include <java/awt/geom/Point2D.h>
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/DirectColorModel.h>
-#include <java/awt/image/PackedColorModel.h>
 #include <java/awt/image/Raster.h>
 #include <java/awt/image/WritableRaster.h>
 #include <java/lang/ref/WeakReference.h>
@@ -23,7 +22,6 @@ using $Point2D = ::java::awt::geom::Point2D;
 using $Point2D$Double = ::java::awt::geom::Point2D$Double;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $DirectColorModel = ::java::awt::image::DirectColorModel;
-using $PackedColorModel = ::java::awt::image::PackedColorModel;
 using $Raster = ::java::awt::image::Raster;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;

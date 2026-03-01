@@ -7,11 +7,9 @@
 #include <java/awt/FontMetrics.h>
 #include <java/awt/Insets.h>
 #include <java/lang/Math.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JInternalFrame.h>
-#include <javax/swing/plaf/basic/BasicInternalFrameTitlePane.h>
 #include <javax/swing/plaf/synth/SynthContext.h>
 #include <javax/swing/plaf/synth/SynthGraphicsUtils.h>
 #include <javax/swing/plaf/synth/SynthInternalFrameTitlePane.h>
@@ -30,11 +28,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
-using $BasicInternalFrameTitlePane = ::javax::swing::plaf::basic::BasicInternalFrameTitlePane;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $SynthGraphicsUtils = ::javax::swing::plaf::synth::SynthGraphicsUtils;
 using $SynthInternalFrameTitlePane = ::javax::swing::plaf::synth::SynthInternalFrameTitlePane;

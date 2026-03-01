@@ -12,7 +12,6 @@
 #include <com/sun/tools/javac/tree/JCTree$JCBlock.h>
 #include <com/sun/tools/javac/tree/JCTree$JCBreak.h>
 #include <com/sun/tools/javac/tree/JCTree$JCCase.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCCatch.h>
 #include <com/sun/tools/javac/tree/JCTree$JCClassDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCCompilationUnit.h>
@@ -91,7 +90,6 @@ using $JCTree$JCBindingPattern = ::com::sun::tools::javac::tree::JCTree$JCBindin
 using $JCTree$JCBlock = ::com::sun::tools::javac::tree::JCTree$JCBlock;
 using $JCTree$JCBreak = ::com::sun::tools::javac::tree::JCTree$JCBreak;
 using $JCTree$JCCase = ::com::sun::tools::javac::tree::JCTree$JCCase;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCCatch = ::com::sun::tools::javac::tree::JCTree$JCCatch;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$JCCompilationUnit = ::com::sun::tools::javac::tree::JCTree$JCCompilationUnit;
@@ -129,7 +127,6 @@ using $JCTree$JCProvides = ::com::sun::tools::javac::tree::JCTree$JCProvides;
 using $JCTree$JCRequires = ::com::sun::tools::javac::tree::JCTree$JCRequires;
 using $JCTree$JCReturn = ::com::sun::tools::javac::tree::JCTree$JCReturn;
 using $JCTree$JCSkip = ::com::sun::tools::javac::tree::JCTree$JCSkip;
-using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
 using $JCTree$JCSwitch = ::com::sun::tools::javac::tree::JCTree$JCSwitch;
 using $JCTree$JCSwitchExpression = ::com::sun::tools::javac::tree::JCTree$JCSwitchExpression;
 using $JCTree$JCSynchronized = ::com::sun::tools::javac::tree::JCTree$JCSynchronized;

@@ -1,7 +1,6 @@
 #include <javax/swing/plaf/synth/ImagePainter.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Image.h>
 #include <java/awt/Insets.h>
@@ -25,7 +24,6 @@
 #undef PAINT_CENTER
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $Image = ::java::awt::Image;
 using $Insets = ::java::awt::Insets;

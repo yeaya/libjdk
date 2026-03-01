@@ -9,7 +9,6 @@
 #include <java/net/MalformedURLException.h>
 #include <java/net/URL.h>
 #include <java/nio/charset/Charset.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Collections.h>
 #include <java/util/Enumeration.h>
 #include <java/util/HashMap.h>
@@ -36,7 +35,6 @@ using $SecurityException = ::java::lang::SecurityException;
 using $MalformedURLException = ::java::net::MalformedURLException;
 using $URL = ::java::net::URL;
 using $Charset = ::java::nio::charset::Charset;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Collections = ::java::util::Collections;
 using $Enumeration = ::java::util::Enumeration;
 using $HashMap = ::java::util::HashMap;

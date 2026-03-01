@@ -9,7 +9,6 @@
 #include <com/sun/tools/javac/file/Locations.h>
 #include <com/sun/tools/javac/main/Option$InvalidValueException.h>
 #include <com/sun/tools/javac/main/Option.h>
-#include <com/sun/tools/javac/main/OptionHelper$GrumpyHelper.h>
 #include <com/sun/tools/javac/main/OptionHelper.h>
 #include <com/sun/tools/javac/resources/CompilerProperties$Errors.h>
 #include <com/sun/tools/javac/util/Context.h>
@@ -39,8 +38,6 @@
 #include <java/nio/charset/IllegalCharsetNameException.h>
 #include <java/nio/charset/UnsupportedCharsetException.h>
 #include <java/nio/file/Path.h>
-#include <java/security/SecureClassLoader.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Collection.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
@@ -72,7 +69,6 @@ using $Locations = ::com::sun::tools::javac::file::Locations;
 using $Option = ::com::sun::tools::javac::main::Option;
 using $Option$InvalidValueException = ::com::sun::tools::javac::main::Option$InvalidValueException;
 using $OptionHelper = ::com::sun::tools::javac::main::OptionHelper;
-using $OptionHelper$GrumpyHelper = ::com::sun::tools::javac::main::OptionHelper$GrumpyHelper;
 using $CompilerProperties$Errors = ::com::sun::tools::javac::resources::CompilerProperties$Errors;
 using $Context = ::com::sun::tools::javac::util::Context;
 using $Log = ::com::sun::tools::javac::util::Log;
@@ -83,7 +79,6 @@ using $AssertionError = ::java::lang::AssertionError;
 using $Byte = ::java::lang::Byte;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -103,8 +98,6 @@ using $CodingErrorAction = ::java::nio::charset::CodingErrorAction;
 using $IllegalCharsetNameException = ::java::nio::charset::IllegalCharsetNameException;
 using $UnsupportedCharsetException = ::java::nio::charset::UnsupportedCharsetException;
 using $Path = ::java::nio::file::Path;
-using $SecureClassLoader = ::java::security::SecureClassLoader;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;

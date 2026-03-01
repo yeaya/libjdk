@@ -2,7 +2,6 @@
 
 #include <java/awt/Choice.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Point.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
@@ -14,7 +13,6 @@
 #include <javax/accessibility/Accessible.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/swing/JComboBox.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JPopupMenu.h>
 #include <javax/swing/SwingUtilities.h>
 #include <sun/lwawt/LWChoicePeer.h>
@@ -22,7 +20,6 @@
 
 using $Choice = ::java::awt::Choice;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Point = ::java::awt::Point;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -34,7 +31,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Accessible = ::javax::accessibility::Accessible;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $JComboBox = ::javax::swing::JComboBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JPopupMenu = ::javax::swing::JPopupMenu;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $LWChoicePeer = ::sun::lwawt::LWChoicePeer;

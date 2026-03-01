@@ -27,7 +27,6 @@
 #include <java/net/http/HttpResponse$ResponseInfo.h>
 #include <java/net/http/HttpResponse.h>
 #include <java/nio/ByteBuffer.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collections.h>
 #include <java/util/List.h>
@@ -49,7 +48,6 @@
 #include <jdk/internal/net/http/Exchange.h>
 #include <jdk/internal/net/http/ExchangeImpl.h>
 #include <jdk/internal/net/http/Http2Connection$ConnectionWindowUpdateSender.h>
-#include <jdk/internal/net/http/Http2Connection$ValidatingHeadersConsumer.h>
 #include <jdk/internal/net/http/Http2Connection.h>
 #include <jdk/internal/net/http/HttpConnection.h>
 #include <jdk/internal/net/http/HttpRequestImpl.h>
@@ -131,7 +129,6 @@ using $HttpResponse$BodySubscriber = ::java::net::http::HttpResponse$BodySubscri
 using $HttpResponse$BodySubscribers = ::java::net::http::HttpResponse$BodySubscribers;
 using $HttpResponse$ResponseInfo = ::java::net::http::HttpResponse$ResponseInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collections = ::java::util::Collections;
 using $List = ::java::util::List;
@@ -153,7 +150,6 @@ using $Exchange = ::jdk::internal::net::http::Exchange;
 using $ExchangeImpl = ::jdk::internal::net::http::ExchangeImpl;
 using $Http2Connection = ::jdk::internal::net::http::Http2Connection;
 using $Http2Connection$ConnectionWindowUpdateSender = ::jdk::internal::net::http::Http2Connection$ConnectionWindowUpdateSender;
-using $Http2Connection$ValidatingHeadersConsumer = ::jdk::internal::net::http::Http2Connection$ValidatingHeadersConsumer;
 using $HttpConnection = ::jdk::internal::net::http::HttpConnection;
 using $HttpRequestImpl = ::jdk::internal::net::http::HttpRequestImpl;
 using $MultiExchange = ::jdk::internal::net::http::MultiExchange;

@@ -3,8 +3,6 @@
 #include <com/sun/media/sound/AbstractMixer.h>
 #include <com/sun/media/sound/EventDispatcher.h>
 #include <java/lang/ThreadGroup.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/List.h>
 #include <java/util/Map.h>
 #include <java/util/Vector.h>
@@ -31,8 +29,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ThreadGroup = ::java::lang::ThreadGroup;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractMap = ::java::util::AbstractMap;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
 using $Vector = ::java::util::Vector;

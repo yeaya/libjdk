@@ -11,8 +11,6 @@
 #include <java/awt/event/FocusListener.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/beans/PropertyChangeListener.h>
-#include <javax/swing/AbstractAction.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/InputMap.h>
 #include <javax/swing/JButton.h>
@@ -27,7 +25,6 @@
 #include <javax/swing/SwingConstants.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/CompoundBorder.h>
 #include <javax/swing/event/ChangeListener.h>
@@ -63,8 +60,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractAction = ::javax::swing::AbstractAction;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $Action = ::javax::swing::Action;
 using $InputMap = ::javax::swing::InputMap;
 using $JButton = ::javax::swing::JButton;
@@ -78,7 +73,6 @@ using $SpinnerModel = ::javax::swing::SpinnerModel;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $CompoundBorder = ::javax::swing::border::CompoundBorder;
 using $ChangeListener = ::javax::swing::event::ChangeListener;

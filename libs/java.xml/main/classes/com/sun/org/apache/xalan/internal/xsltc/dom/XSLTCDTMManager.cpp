@@ -1,7 +1,6 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/XSLTCDTMManager.h>
 
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/DOMBuilder.h>
-#include <com/sun/org/apache/xalan/internal/xsltc/dom/ExtendedSAX.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/SAXImpl.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/trax/DOM2SAX.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/trax/StAXEvent2SAX.h>
@@ -11,8 +10,6 @@
 #include <com/sun/org/apache/xml/internal/dtm/DTMManager.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMWSFilter.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBase.h>
-#include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators.h>
-#include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseTraversers.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMManagerDefault.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2DTM2.h>
@@ -44,7 +41,6 @@
 #undef ER_NOT_SUPPORTED
 #undef IDENT_DTM_NODE_BITS
 
-using $ExtendedSAX = ::com::sun::org::apache::xalan::internal::xsltc::dom::ExtendedSAX;
 using $SAXImpl = ::com::sun::org::apache::xalan::internal::xsltc::dom::SAXImpl;
 using $DOM2SAX = ::com::sun::org::apache::xalan::internal::xsltc::trax::DOM2SAX;
 using $StAXEvent2SAX = ::com::sun::org::apache::xalan::internal::xsltc::trax::StAXEvent2SAX;
@@ -54,8 +50,6 @@ using $DTMException = ::com::sun::org::apache::xml::internal::dtm::DTMException;
 using $DTMManager = ::com::sun::org::apache::xml::internal::dtm::DTMManager;
 using $DTMWSFilter = ::com::sun::org::apache::xml::internal::dtm::DTMWSFilter;
 using $DTMDefaultBase = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBase;
-using $DTMDefaultBaseIterators = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators;
-using $DTMDefaultBaseTraversers = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseTraversers;
 using $DTMManagerDefault = ::com::sun::org::apache::xml::internal::dtm::ref::DTMManagerDefault;
 using $SAX2DTM = ::com::sun::org::apache::xml::internal::dtm::ref::sax2dtm::SAX2DTM;
 using $SAX2DTM2 = ::com::sun::org::apache::xml::internal::dtm::ref::sax2dtm::SAX2DTM2;

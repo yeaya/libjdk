@@ -16,8 +16,6 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/util/XInt.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/util/XSObjectListImpl.h>
 #include <com/sun/org/apache/xerces/internal/util/DOMUtil.h>
-#include <com/sun/org/apache/xerces/internal/xs/XSAnnotation.h>
-#include <com/sun/org/apache/xerces/internal/xs/XSModelGroup.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSObject.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSObjectList.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSTerm.h>
@@ -59,8 +57,6 @@ using $XSDocumentInfo = ::com::sun::org::apache::xerces::internal::impl::xs::tra
 using $XInt = ::com::sun::org::apache::xerces::internal::impl::xs::util::XInt;
 using $XSObjectListImpl = ::com::sun::org::apache::xerces::internal::impl::xs::util::XSObjectListImpl;
 using $DOMUtil = ::com::sun::org::apache::xerces::internal::util::DOMUtil;
-using $XSAnnotation = ::com::sun::org::apache::xerces::internal::xs::XSAnnotation;
-using $XSModelGroup = ::com::sun::org::apache::xerces::internal::xs::XSModelGroup;
 using $XSObject = ::com::sun::org::apache::xerces::internal::xs::XSObject;
 using $XSObjectList = ::com::sun::org::apache::xerces::internal::xs::XSObjectList;
 using $XSTerm = ::com::sun::org::apache::xerces::internal::xs::XSTerm;

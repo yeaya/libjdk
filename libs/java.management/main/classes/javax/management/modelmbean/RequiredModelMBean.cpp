@@ -10,7 +10,6 @@
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/System$Logger$Level.h>
 #include <java/lang/System$Logger.h>
 #include <java/lang/invoke/CallSite.h>
@@ -23,8 +22,6 @@
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Date.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
@@ -41,8 +38,6 @@
 #include <javax/management/AttributeNotFoundException.h>
 #include <javax/management/Descriptor.h>
 #include <javax/management/InvalidAttributeValueException.h>
-#include <javax/management/JMException.h>
-#include <javax/management/JMRuntimeException.h>
 #include <javax/management/ListenerNotFoundException.h>
 #include <javax/management/MBeanAttributeInfo.h>
 #include <javax/management/MBeanConstructorInfo.h>
@@ -58,7 +53,6 @@
 #include <javax/management/NotificationFilter.h>
 #include <javax/management/NotificationListener.h>
 #include <javax/management/ObjectName.h>
-#include <javax/management/OperationsException.h>
 #include <javax/management/ReflectionException.h>
 #include <javax/management/RuntimeErrorException.h>
 #include <javax/management/RuntimeOperationsException.h>
@@ -126,7 +120,6 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Short = ::java::lang::Short;
 using $System$Logger = ::java::lang::System$Logger;
@@ -138,8 +131,6 @@ using $Method = ::java::lang::reflect::Method;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Date = ::java::util::Date;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
@@ -156,8 +147,6 @@ using $AttributeList = ::javax::management::AttributeList;
 using $AttributeNotFoundException = ::javax::management::AttributeNotFoundException;
 using $Descriptor = ::javax::management::Descriptor;
 using $InvalidAttributeValueException = ::javax::management::InvalidAttributeValueException;
-using $JMException = ::javax::management::JMException;
-using $JMRuntimeException = ::javax::management::JMRuntimeException;
 using $ListenerNotFoundException = ::javax::management::ListenerNotFoundException;
 using $MBeanAttributeInfo = ::javax::management::MBeanAttributeInfo;
 using $MBeanException = ::javax::management::MBeanException;
@@ -169,7 +158,6 @@ using $NotificationBroadcasterSupport = ::javax::management::NotificationBroadca
 using $NotificationFilter = ::javax::management::NotificationFilter;
 using $NotificationListener = ::javax::management::NotificationListener;
 using $ObjectName = ::javax::management::ObjectName;
-using $OperationsException = ::javax::management::OperationsException;
 using $ReflectionException = ::javax::management::ReflectionException;
 using $RuntimeErrorException = ::javax::management::RuntimeErrorException;
 using $RuntimeOperationsException = ::javax::management::RuntimeOperationsException;

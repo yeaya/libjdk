@@ -1,15 +1,12 @@
 #include <javax/swing/JWindow.h>
 
 #include <java/awt/BorderLayout.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/awt/Frame.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/Window$AccessibleAWTWindow.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/WindowListener.h>
 #include <java/util/Locale.h>
@@ -29,15 +26,12 @@
 
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $Container = ::java::awt::Container;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Frame = ::java::awt::Frame;
 using $Graphics = ::java::awt::Graphics;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $Window = ::java::awt::Window;
-using $Window$AccessibleAWTWindow = ::java::awt::Window$AccessibleAWTWindow;
 using $WindowListener = ::java::awt::event::WindowListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;

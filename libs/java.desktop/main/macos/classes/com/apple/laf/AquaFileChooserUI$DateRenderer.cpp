@@ -4,15 +4,12 @@
 #include <com/apple/laf/AquaFileChooserUI$MacFCTableCellRenderer.h>
 #include <com/apple/laf/AquaFileChooserUI.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Font.h>
 #include <java/io/File.h>
 #include <java/text/DateFormat.h>
 #include <java/util/Date.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JTable.h>
-#include <javax/swing/table/DefaultTableCellRenderer.h>
 #include <jcpp.h>
 
 #undef FULL
@@ -22,7 +19,6 @@ using $AquaFileChooserUI = ::com::apple::laf::AquaFileChooserUI;
 using $AquaFileChooserUI$JTableExtension = ::com::apple::laf::AquaFileChooserUI$JTableExtension;
 using $AquaFileChooserUI$MacFCTableCellRenderer = ::com::apple::laf::AquaFileChooserUI$MacFCTableCellRenderer;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Font = ::java::awt::Font;
 using $File = ::java::io::File;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -31,10 +27,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DateFormat = ::java::text::DateFormat;
 using $Date = ::java::util::Date;
-using $JComponent = ::javax::swing::JComponent;
-using $JLabel = ::javax::swing::JLabel;
 using $JTable = ::javax::swing::JTable;
-using $DefaultTableCellRenderer = ::javax::swing::table::DefaultTableCellRenderer;
 
 namespace com {
 	namespace apple {

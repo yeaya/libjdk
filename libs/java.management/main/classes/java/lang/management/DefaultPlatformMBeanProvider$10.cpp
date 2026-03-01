@@ -8,7 +8,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/management/BufferPoolMXBean.h>
 #include <java/lang/management/DefaultPlatformMBeanProvider.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
 #include <java/util/List.h>
@@ -29,7 +28,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $BufferPoolMXBean = ::java::lang::management::BufferPoolMXBean;
 using $DefaultPlatformMBeanProvider = ::java::lang::management::DefaultPlatformMBeanProvider;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $List = ::java::util::List;

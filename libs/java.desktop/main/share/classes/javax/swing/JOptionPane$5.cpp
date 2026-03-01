@@ -3,7 +3,6 @@
 #include <java/awt/Container.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyVetoException.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JInternalFrame.h>
 #include <javax/swing/JOptionPane.h>
 #include <sun/awt/AWTAccessor$ContainerAccessor.h>
@@ -18,7 +17,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $JOptionPane = ::javax::swing::JOptionPane;
 using $AWTAccessor = ::sun::awt::AWTAccessor;

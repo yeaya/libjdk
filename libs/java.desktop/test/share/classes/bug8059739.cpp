@@ -13,7 +13,6 @@
 #include <javax/swing/JTextField.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/TransferHandler.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef COPY
@@ -38,7 +37,6 @@ using $JComponent = ::javax::swing::JComponent;
 using $JTextField = ::javax::swing::JTextField;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $TransferHandler = ::javax::swing::TransferHandler;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 $FieldInfo _bug8059739_FieldInfo_[] = {
 	{"passed", "Z", nullptr, $PRIVATE | $STATIC, $staticField(bug8059739, passed)},

@@ -11,7 +11,6 @@
 #include <java/lang/SecurityException.h>
 #include <java/security/AccessControlException.h>
 #include <java/security/AccessController.h>
-#include <java/security/GeneralSecurityException.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/util/Arrays.h>
 #include <java/util/Map.h>
@@ -42,14 +41,11 @@ using $File = ::java::io::File;
 using $FilePermission = ::java::io::FilePermission;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityException = ::java::lang::SecurityException;
 using $AccessControlException = ::java::security::AccessControlException;
 using $AccessController = ::java::security::AccessController;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Arrays = ::java::util::Arrays;
 using $Map = ::java::util::Map;

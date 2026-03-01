@@ -1,6 +1,5 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/TextImpl.h>
 
-#include <com/sun/org/apache/xerces/internal/impl/xs/opti/DefaultNode.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/DefaultText.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/NodeImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/SchemaDOM.h>
@@ -12,7 +11,6 @@
 #undef INDEX_SIZE_ERR
 #undef TEXT_NODE
 
-using $DefaultNode = ::com::sun::org::apache::xerces::internal::impl::xs::opti::DefaultNode;
 using $DefaultText = ::com::sun::org::apache::xerces::internal::impl::xs::opti::DefaultText;
 using $SchemaDOM = ::com::sun::org::apache::xerces::internal::impl::xs::opti::SchemaDOM;
 using $ClassInfo = ::java::lang::ClassInfo;

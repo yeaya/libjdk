@@ -10,9 +10,7 @@
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/border/Border.h>
-#include <javax/swing/plaf/basic/BasicLookAndFeel.h>
 #include <javax/swing/plaf/nimbus/NimbusLookAndFeel.h>
-#include <javax/swing/plaf/synth/SynthLookAndFeel.h>
 #include <jcpp.h>
 
 #undef HEIGHT
@@ -29,9 +27,7 @@ using $JTextField = ::javax::swing::JTextField;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
 using $NimbusLookAndFeel = ::javax::swing::plaf::nimbus::NimbusLookAndFeel;
-using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
 
 $FieldInfo _Test6741426_FieldInfo_[] = {
 	{"WIDTH", "I", nullptr, $STATIC | $FINAL, $constField(Test6741426, WIDTH)},

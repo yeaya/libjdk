@@ -9,8 +9,6 @@
 #include <java/io/FileInputStream.h>
 #include <java/io/FileNotFoundException.h>
 #include <java/io/FileOutputStream.h>
-#include <java/io/FilterInputStream.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
@@ -46,9 +44,6 @@
 #include <java/nio/file/Paths.h>
 #include <java/nio/file/StandardCopyOption.h>
 #include <java/text/MessageFormat.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSequentialList.h>
 #include <java/util/AbstractSet.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
@@ -85,8 +80,6 @@
 #include <java/util/stream/Collector.h>
 #include <java/util/stream/Collectors.h>
 #include <java/util/stream/Stream.h>
-#include <java/util/zip/DeflaterOutputStream.h>
-#include <java/util/zip/InflaterInputStream.h>
 #include <java/util/zip/ZipEntry.h>
 #include <java/util/zip/ZipFile.h>
 #include <java/util/zip/ZipInputStream.h>
@@ -146,8 +139,6 @@ using $FileDescriptor = ::java::io::FileDescriptor;
 using $FileInputStream = ::java::io::FileInputStream;
 using $FileNotFoundException = ::java::io::FileNotFoundException;
 using $FileOutputStream = ::java::io::FileOutputStream;
-using $FilterInputStream = ::java::io::FilterInputStream;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
@@ -168,7 +159,6 @@ using $Long = ::java::lang::Long;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityException = ::java::lang::SecurityException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $FindException = ::java::lang::module::FindException;
@@ -187,9 +177,6 @@ using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 using $StandardCopyOption = ::java::nio::file::StandardCopyOption;
 using $MessageFormat = ::java::text::MessageFormat;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSequentialList = ::java::util::AbstractSequentialList;
 using $AbstractSet = ::java::util::AbstractSet;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
@@ -224,8 +211,6 @@ using $JarOutputStream = ::java::util::jar::JarOutputStream;
 using $Manifest = ::java::util::jar::Manifest;
 using $Collectors = ::java::util::stream::Collectors;
 using $Stream = ::java::util::stream::Stream;
-using $DeflaterOutputStream = ::java::util::zip::DeflaterOutputStream;
-using $InflaterInputStream = ::java::util::zip::InflaterInputStream;
 using $ZipEntry = ::java::util::zip::ZipEntry;
 using $ZipFile = ::java::util::zip::ZipFile;
 using $ZipInputStream = ::java::util::zip::ZipInputStream;

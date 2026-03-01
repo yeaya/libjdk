@@ -26,7 +26,6 @@
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/JCheckBoxMenuItem.h>
 #include <javax/swing/JComponent.h>
-#include <javax/swing/JMenuItem.h>
 #include <jcpp.h>
 
 #undef BOLD
@@ -61,10 +60,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JCheckBoxMenuItem = ::javax::swing::JCheckBoxMenuItem;
-using $JComponent = ::javax::swing::JComponent;
-using $JMenuItem = ::javax::swing::JMenuItem;
 
 $MethodInfo _HeadlessJCheckBoxMenuItem_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJCheckBoxMenuItem, init$, void)},

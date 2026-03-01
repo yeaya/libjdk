@@ -5,7 +5,6 @@
 #include <java/awt/Window.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/RenderedImage.h>
-#include <java/awt/image/WritableRenderedImage.h>
 #include <java/io/File.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
@@ -24,7 +23,6 @@ using $Robot = ::java::awt::Robot;
 using $Window = ::java::awt::Window;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $RenderedImage = ::java::awt::image::RenderedImage;
-using $WritableRenderedImage = ::java::awt::image::WritableRenderedImage;
 using $File = ::java::io::File;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;

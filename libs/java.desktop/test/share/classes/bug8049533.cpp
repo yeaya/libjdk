@@ -1,7 +1,6 @@
 #include <bug8049533.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Frame.h>
 #include <java/awt/Panel.h>
 #include <java/awt/event/ComponentEvent.h>
@@ -13,7 +12,6 @@
 #undef PRECISE_WHEEL_ROTATION
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Frame = ::java::awt::Frame;
 using $Panel = ::java::awt::Panel;
 using $MouseEvent = ::java::awt::event::MouseEvent;

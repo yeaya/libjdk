@@ -15,7 +15,6 @@
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Insets.h>
 #include <javax/swing/JComponent.h>
@@ -56,7 +55,6 @@ using $AquaTableHeaderBorder$1 = ::com::apple::laf::AquaTableHeaderBorder$1;
 using $AquaUtils$RecyclableSingleton = ::com::apple::laf::AquaUtils$RecyclableSingleton;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -1,7 +1,6 @@
 #include <javax/swing/text/DefaultFormatter$DefaultNavigationFilter.h>
 
 #include <javax/swing/JFormattedTextField.h>
-#include <javax/swing/JTextField.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/TextUI.h>
 #include <javax/swing/text/DefaultFormatter.h>
@@ -16,7 +15,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JTextField = ::javax::swing::JTextField;
 using $TextUI = ::javax::swing::plaf::TextUI;
 using $DefaultFormatter = ::javax::swing::text::DefaultFormatter;
 using $JTextComponent = ::javax::swing::text::JTextComponent;

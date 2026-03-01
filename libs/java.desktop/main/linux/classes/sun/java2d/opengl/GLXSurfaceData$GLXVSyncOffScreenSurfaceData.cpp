@@ -7,7 +7,6 @@
 #include <sun/java2d/opengl/GLXGraphicsConfig.h>
 #include <sun/java2d/opengl/GLXSurfaceData$GLXOffScreenSurfaceData.h>
 #include <sun/java2d/opengl/GLXSurfaceData.h>
-#include <sun/java2d/opengl/OGLSurfaceData.h>
 #include <sun/java2d/pipe/hw/AccelSurface.h>
 #include <jcpp.h>
 
@@ -24,7 +23,6 @@ using $SurfaceData = ::sun::java2d::SurfaceData;
 using $GLXGraphicsConfig = ::sun::java2d::opengl::GLXGraphicsConfig;
 using $GLXSurfaceData = ::sun::java2d::opengl::GLXSurfaceData;
 using $GLXSurfaceData$GLXOffScreenSurfaceData = ::sun::java2d::opengl::GLXSurfaceData$GLXOffScreenSurfaceData;
-using $OGLSurfaceData = ::sun::java2d::opengl::OGLSurfaceData;
 using $AccelSurface = ::sun::java2d::pipe::hw::AccelSurface;
 
 namespace sun {

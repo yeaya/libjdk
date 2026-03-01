@@ -3,7 +3,6 @@
 #include <java/awt/Insets.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JTextField.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/plaf/basic/BasicComboBoxEditor.h>
 #include <javax/swing/plaf/metal/MetalComboBoxEditor$1.h>
@@ -16,7 +15,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JTextField = ::javax::swing::JTextField;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $BasicComboBoxEditor = ::javax::swing::plaf::basic::BasicComboBoxEditor;
 using $MetalComboBoxEditor$1 = ::javax::swing::plaf::metal::MetalComboBoxEditor$1;

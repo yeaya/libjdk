@@ -17,13 +17,10 @@
 #include <java/nio/file/OpenOption.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/Paths.h>
-#include <javax/swing/JComponent.h>
-#include <javax/swing/JEditorPane.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JTextPane.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/text/AttributeSet.h>
-#include <javax/swing/text/DefaultEditorKit.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/EditorKit.h>
 #include <javax/swing/text/Element.h>
@@ -32,7 +29,6 @@
 #include <javax/swing/text/SimpleAttributeSet.h>
 #include <javax/swing/text/StyleConstants.h>
 #include <javax/swing/text/StyledDocument.h>
-#include <javax/swing/text/StyledEditorKit.h>
 #include <javax/swing/text/rtf/RTFEditorKit.h>
 #include <jcpp.h>
 
@@ -56,22 +52,17 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Files = ::java::nio::file::Files;
 using $Paths = ::java::nio::file::Paths;
-using $JComponent = ::javax::swing::JComponent;
-using $JEditorPane = ::javax::swing::JEditorPane;
 using $JFrame = ::javax::swing::JFrame;
 using $JTextPane = ::javax::swing::JTextPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
-using $DefaultEditorKit = ::javax::swing::text::DefaultEditorKit;
 using $Document = ::javax::swing::text::Document;
 using $EditorKit = ::javax::swing::text::EditorKit;
 using $Element = ::javax::swing::text::Element;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $MutableAttributeSet = ::javax::swing::text::MutableAttributeSet;
 using $SimpleAttributeSet = ::javax::swing::text::SimpleAttributeSet;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
 using $StyledDocument = ::javax::swing::text::StyledDocument;
-using $StyledEditorKit = ::javax::swing::text::StyledEditorKit;
 using $RTFEditorKit = ::javax::swing::text::rtf::RTFEditorKit;
 
 class RTFReadBGColorTest$$Lambda$lambda$main$0 : public $Runnable {

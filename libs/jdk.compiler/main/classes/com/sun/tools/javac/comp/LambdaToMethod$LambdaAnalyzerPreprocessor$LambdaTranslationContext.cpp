@@ -21,7 +21,6 @@
 #include <com/sun/tools/javac/comp/LambdaToMethod$LambdaSymbolKind.h>
 #include <com/sun/tools/javac/comp/LambdaToMethod.h>
 #include <com/sun/tools/javac/tree/JCTree$JCAssign.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCFieldAccess.h>
 #include <com/sun/tools/javac/tree/JCTree$JCFunctionalExpression.h>
@@ -46,8 +45,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
 #include <java/util/EnumMap.h>
 #include <java/util/HashSet.h>
@@ -60,7 +57,6 @@
 #include <java/util/function/Predicate.h>
 #include <java/util/stream/Stream.h>
 #include <javax/lang/model/element/ElementKind.h>
-#include <javax/lang/model/element/Name.h>
 #include <jcpp.h>
 
 #undef CAPTURED_OUTER_THIS
@@ -94,7 +90,6 @@ using $LambdaToMethod$LambdaAnalyzerPreprocessor$TranslationContext = ::com::sun
 using $LambdaToMethod$LambdaSymbolKind = ::com::sun::tools::javac::comp::LambdaToMethod$LambdaSymbolKind;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCAssign = ::com::sun::tools::javac::tree::JCTree$JCAssign;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCFieldAccess = ::com::sun::tools::javac::tree::JCTree$JCFieldAccess;
 using $JCTree$JCFunctionalExpression = ::com::sun::tools::javac::tree::JCTree$JCFunctionalExpression;
@@ -119,8 +114,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
 using $EnumMap = ::java::util::EnumMap;
 using $HashSet = ::java::util::HashSet;
@@ -133,7 +126,6 @@ using $BinaryOperator = ::java::util::function::BinaryOperator;
 using $Predicate = ::java::util::function::Predicate;
 using $Stream = ::java::util::stream::Stream;
 using $ElementKind = ::javax::lang::model::element::ElementKind;
-using $1Name = ::javax::lang::model::element::Name;
 
 namespace com {
 	namespace sun {

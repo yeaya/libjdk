@@ -10,13 +10,10 @@
 #include <com/apple/laf/AquaTextFieldSearch.h>
 #include <com/apple/laf/AquaUtilControlSize$SizeDescriptor.h>
 #include <com/apple/laf/AquaUtilControlSize$SizeVariant.h>
-#include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
@@ -31,13 +28,10 @@ using $AquaTextFieldSearch = ::com::apple::laf::AquaTextFieldSearch;
 using $AquaTextFieldSearch$SearchFieldBorder$1 = ::com::apple::laf::AquaTextFieldSearch$SearchFieldBorder$1;
 using $AquaUtilControlSize$SizeDescriptor = ::com::apple::laf::AquaUtilControlSize$SizeDescriptor;
 using $AquaUtilControlSize$SizeVariant = ::com::apple::laf::AquaUtilControlSize$SizeVariant;
-using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

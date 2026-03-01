@@ -25,13 +25,11 @@
 #include <com/sun/tools/javac/comp/Check.h>
 #include <com/sun/tools/javac/comp/Env.h>
 #include <com/sun/tools/javac/comp/Todo.h>
-#include <com/sun/tools/javac/comp/TypeEnter$AbstractHeaderPhase.h>
 #include <com/sun/tools/javac/comp/TypeEnter$HierarchyPhase.h>
 #include <com/sun/tools/javac/comp/TypeEnter$Phase.h>
 #include <com/sun/tools/javac/comp/TypeEnter.h>
 #include <com/sun/tools/javac/resources/CompilerProperties$Errors.h>
 #include <com/sun/tools/javac/resources/CompilerProperties$Fragments.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCClassDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCCompilationUnit.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
@@ -103,16 +101,13 @@ using $Check = ::com::sun::tools::javac::comp::Check;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $Todo = ::com::sun::tools::javac::comp::Todo;
 using $TypeEnter = ::com::sun::tools::javac::comp::TypeEnter;
-using $TypeEnter$AbstractHeaderPhase = ::com::sun::tools::javac::comp::TypeEnter$AbstractHeaderPhase;
 using $TypeEnter$HierarchyPhase = ::com::sun::tools::javac::comp::TypeEnter$HierarchyPhase;
 using $TypeEnter$Phase = ::com::sun::tools::javac::comp::TypeEnter$Phase;
 using $CompilerProperties$Errors = ::com::sun::tools::javac::resources::CompilerProperties$Errors;
 using $CompilerProperties$Fragments = ::com::sun::tools::javac::resources::CompilerProperties$Fragments;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$JCCompilationUnit = ::com::sun::tools::javac::tree::JCTree$JCCompilationUnit;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCFieldAccess = ::com::sun::tools::javac::tree::JCTree$JCFieldAccess;
 using $JCTree$JCImport = ::com::sun::tools::javac::tree::JCTree$JCImport;
 using $JCTree$JCModuleDecl = ::com::sun::tools::javac::tree::JCTree$JCModuleDecl;

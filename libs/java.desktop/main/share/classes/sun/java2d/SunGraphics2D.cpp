@@ -29,13 +29,10 @@
 #include <java/awt/geom/Area.h>
 #include <java/awt/geom/GeneralPath.h>
 #include <java/awt/geom/NoninvertibleTransformException.h>
-#include <java/awt/geom/Path2D$Float.h>
-#include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/PathIterator.h>
 #include <java/awt/geom/Rectangle2D$Double.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/awt/image/AffineTransformOp.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/BufferedImageOp.h>
@@ -215,13 +212,10 @@ using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $Area = ::java::awt::geom::Area;
 using $GeneralPath = ::java::awt::geom::GeneralPath;
 using $NoninvertibleTransformException = ::java::awt::geom::NoninvertibleTransformException;
-using $Path2D = ::java::awt::geom::Path2D;
-using $Path2D$Float = ::java::awt::geom::Path2D$Float;
 using $PathIterator = ::java::awt::geom::PathIterator;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Double = ::java::awt::geom::Rectangle2D$Double;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $AffineTransformOp = ::java::awt::image::AffineTransformOp;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $BufferedImageOp = ::java::awt::image::BufferedImageOp;

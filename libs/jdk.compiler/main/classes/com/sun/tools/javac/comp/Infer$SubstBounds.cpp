@@ -28,7 +28,6 @@ using $Type$UndetVar$InferenceBound = ::com::sun::tools::javac::code::Type$Undet
 using $Types = ::com::sun::tools::javac::code::Types;
 using $Infer = ::com::sun::tools::javac::comp::Infer;
 using $Infer$BoundFilter = ::com::sun::tools::javac::comp::Infer$BoundFilter;
-using $Infer$CheckBounds = ::com::sun::tools::javac::comp::Infer$CheckBounds;
 using $Infer$CheckInst = ::com::sun::tools::javac::comp::Infer$CheckInst;
 using $Infer$IncorporationAction = ::com::sun::tools::javac::comp::Infer$IncorporationAction;
 using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;

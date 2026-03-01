@@ -31,7 +31,6 @@
 #include <javax/imageio/metadata/IIOMetadata.h>
 #include <javax/imageio/metadata/IIOMetadataFormatImpl.h>
 #include <javax/imageio/metadata/IIOMetadataNode.h>
-#include <org/w3c/dom/Element.h>
 #include <org/w3c/dom/NamedNodeMap.h>
 #include <org/w3c/dom/Node.h>
 #include <jcpp.h>
@@ -83,7 +82,6 @@ using $IIOInvalidTreeException = ::javax::imageio::metadata::IIOInvalidTreeExcep
 using $IIOMetadata = ::javax::imageio::metadata::IIOMetadata;
 using $IIOMetadataFormatImpl = ::javax::imageio::metadata::IIOMetadataFormatImpl;
 using $IIOMetadataNode = ::javax::imageio::metadata::IIOMetadataNode;
-using $Element = ::org::w3c::dom::Element;
 using $NamedNodeMap = ::org::w3c::dom::NamedNodeMap;
 using $Node = ::org::w3c::dom::Node;
 

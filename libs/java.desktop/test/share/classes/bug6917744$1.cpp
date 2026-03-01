@@ -6,11 +6,9 @@
 #include <java/awt/Window.h>
 #include <java/io/IOException.h>
 #include <java/net/URL.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JScrollPane.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 using $bug6917744 = ::bug6917744;
@@ -19,15 +17,12 @@ using $Container = ::java::awt::Container;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Exception = ::java::lang::Exception;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $JComponent = ::javax::swing::JComponent;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $JFrame = ::javax::swing::JFrame;
 using $JScrollPane = ::javax::swing::JScrollPane;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 $MethodInfo _bug6917744$1_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(bug6917744$1, init$, void)},

@@ -8,14 +8,12 @@
 #include <java/awt/Dimension.h>
 #include <java/awt/FlowLayout.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
 #include <java/awt/event/InputMethodListener.h>
 #include <java/awt/event/KeyEvent.h>
-#include <java/awt/event/WindowAdapter.h>
 #include <java/awt/event/WindowListener.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
@@ -26,9 +24,7 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/util/ArrayList.h>
 #include <java/util/concurrent/CountDownLatch.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JPanel.h>
@@ -36,7 +32,6 @@
 #include <javax/swing/JTextField.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/WindowConstants.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef CENTER
@@ -59,17 +54,14 @@ using $JapaneseReadingAttributes$1 = ::JapaneseReadingAttributes$1;
 using $JapaneseReadingAttributes$2 = ::JapaneseReadingAttributes$2;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $FlowLayout = ::java::awt::FlowLayout;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Robot = ::java::awt::Robot;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $InputMethodListener = ::java::awt::event::InputMethodListener;
 using $KeyEvent = ::java::awt::event::KeyEvent;
-using $WindowAdapter = ::java::awt::event::WindowAdapter;
 using $WindowListener = ::java::awt::event::WindowListener;
 using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
@@ -83,9 +75,7 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $ArrayList = ::java::util::ArrayList;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JLabel = ::javax::swing::JLabel;
 using $JPanel = ::javax::swing::JPanel;
@@ -93,7 +83,6 @@ using $JTextArea = ::javax::swing::JTextArea;
 using $JTextField = ::javax::swing::JTextField;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $WindowConstants = ::javax::swing::WindowConstants;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 class JapaneseReadingAttributes$$Lambda$lambda$main$0 : public $Runnable {
 	$class(JapaneseReadingAttributes$$Lambda$lambda$main$0, $NO_CLASS_INIT, $Runnable)

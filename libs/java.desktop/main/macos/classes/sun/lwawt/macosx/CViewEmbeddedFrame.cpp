@@ -3,7 +3,6 @@
 #include <java/awt/AWTKeyStroke.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
-#include <java/awt/Frame.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/Window.h>
 #include <java/awt/peer/ComponentPeer.h>
@@ -27,10 +26,7 @@
 
 using $AWTKeyStroke = ::java::awt::AWTKeyStroke;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
-using $Frame = ::java::awt::Frame;
 using $Toolkit = ::java::awt::Toolkit;
-using $Window = ::java::awt::Window;
 using $ComponentPeer = ::java::awt::peer::ComponentPeer;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;

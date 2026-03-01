@@ -4,7 +4,6 @@
 #include <java/beans/Expression.h>
 #include <java/beans/MetaData$java_util_Collections.h>
 #include <java/util/Collections.h>
-#include <java/util/NavigableSet.h>
 #include <java/util/SortedSet.h>
 #include <java/util/TreeSet.h>
 #include <jcpp.h>
@@ -16,7 +15,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Collections = ::java::util::Collections;
-using $NavigableSet = ::java::util::NavigableSet;
 using $SortedSet = ::java::util::SortedSet;
 using $TreeSet = ::java::util::TreeSet;
 

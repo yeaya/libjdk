@@ -22,12 +22,10 @@
 #include <java/lang/management/RuntimeMXBean.h>
 #include <java/lang/management/ThreadMXBean.h>
 #include <java/security/AccessController.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/security/PrivilegedActionException.h>
 #include <java/security/PrivilegedExceptionAction.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
@@ -44,7 +42,6 @@
 #include <java/util/stream/Stream.h>
 #include <javax/management/DynamicMBean.h>
 #include <javax/management/InstanceNotFoundException.h>
-#include <javax/management/JMException.h>
 #include <javax/management/JMX.h>
 #include <javax/management/MBeanServer.h>
 #include <javax/management/MBeanServerConnection.h>
@@ -78,7 +75,6 @@ using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -100,12 +96,10 @@ using $PlatformManagedObject = ::java::lang::management::PlatformManagedObject;
 using $RuntimeMXBean = ::java::lang::management::RuntimeMXBean;
 using $ThreadMXBean = ::java::lang::management::ThreadMXBean;
 using $AccessController = ::java::security::AccessController;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
@@ -121,7 +115,6 @@ using $Collectors = ::java::util::stream::Collectors;
 using $Stream = ::java::util::stream::Stream;
 using $DynamicMBean = ::javax::management::DynamicMBean;
 using $InstanceNotFoundException = ::javax::management::InstanceNotFoundException;
-using $JMException = ::javax::management::JMException;
 using $JMX = ::javax::management::JMX;
 using $MBeanServer = ::javax::management::MBeanServer;
 using $MBeanServerConnection = ::javax::management::MBeanServerConnection;

@@ -9,7 +9,6 @@
 #include <com/sun/tools/javac/util/Name.h>
 #include <com/sun/tools/sjavac/comp/PubapiVisitor.h>
 #include <com/sun/tools/sjavac/pubapi/PubApi.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Collection.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
@@ -29,7 +28,6 @@ using $PubApi = ::com::sun::tools::sjavac::pubapi::PubApi;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;

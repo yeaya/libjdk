@@ -9,7 +9,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/net/http/HttpRequest$BodyPublisher.h>
 #include <java/nio/ByteBuffer.h>
-#include <java/util/AbstractQueue.h>
 #include <java/util/Collection.h>
 #include <java/util/List.h>
 #include <java/util/Queue.h>
@@ -24,17 +23,14 @@
 
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $HttpRequest$BodyPublisher = ::java::net::http::HttpRequest$BodyPublisher;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $AbstractQueue = ::java::util::AbstractQueue;
 using $Collection = ::java::util::Collection;
 using $List = ::java::util::List;
 using $Queue = ::java::util::Queue;

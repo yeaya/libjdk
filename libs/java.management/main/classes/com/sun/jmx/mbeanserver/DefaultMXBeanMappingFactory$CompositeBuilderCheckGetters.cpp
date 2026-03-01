@@ -3,9 +3,7 @@
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory$CompositeBuilder.h>
 #include <com/sun/jmx/mbeanserver/DefaultMXBeanMappingFactory.h>
 #include <com/sun/jmx/mbeanserver/MXBeanMapping.h>
-#include <java/io/IOException.h>
 #include <java/io/InvalidObjectException.h>
-#include <java/io/ObjectStreamException.h>
 #include <java/lang/Error.h>
 #include <java/lang/reflect/Method.h>
 #include <javax/management/openmbean/CompositeData.h>
@@ -15,12 +13,9 @@ using $MXBeanMappingArray = $Array<::com::sun::jmx::mbeanserver::MXBeanMapping>;
 using $MethodArray = $Array<::java::lang::reflect::Method>;
 using $DefaultMXBeanMappingFactory$CompositeBuilder = ::com::sun::jmx::mbeanserver::DefaultMXBeanMappingFactory$CompositeBuilder;
 using $MXBeanMapping = ::com::sun::jmx::mbeanserver::MXBeanMapping;
-using $IOException = ::java::io::IOException;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
-using $ObjectStreamException = ::java::io::ObjectStreamException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Error = ::java::lang::Error;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

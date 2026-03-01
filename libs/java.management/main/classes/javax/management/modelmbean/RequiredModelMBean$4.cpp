@@ -1,7 +1,6 @@
 #include <javax/management/modelmbean/RequiredModelMBean$4.h>
 
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <java/lang/reflect/Method.h>
 #include <javax/management/modelmbean/RequiredModelMBean.h>
@@ -12,12 +11,10 @@
 using $ThrowableArray = $Array<::java::lang::Throwable>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $Method = ::java::lang::reflect::Method;
 using $RequiredModelMBean = ::javax::management::modelmbean::RequiredModelMBean;

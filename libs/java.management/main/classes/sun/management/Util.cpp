@@ -2,13 +2,10 @@
 
 #include <java/lang/SecurityManager.h>
 #include <java/lang/management/ManagementPermission.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/util/List.h>
-#include <javax/management/JMException.h>
 #include <javax/management/MalformedObjectNameException.h>
 #include <javax/management/ObjectName.h>
-#include <javax/management/OperationsException.h>
 #include <jcpp.h>
 
 #undef EMPTY_STRING_ARRAY
@@ -21,13 +18,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $ManagementPermission = ::java::lang::management::ManagementPermission;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $List = ::java::util::List;
-using $JMException = ::javax::management::JMException;
 using $MalformedObjectNameException = ::javax::management::MalformedObjectNameException;
 using $ObjectName = ::javax::management::ObjectName;
-using $OperationsException = ::javax::management::OperationsException;
 
 namespace sun {
 	namespace management {

@@ -2,9 +2,7 @@
 
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BorderLayout.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/awt/Cursor.h>
 #include <java/awt/Dimension.h>
@@ -13,7 +11,6 @@
 #include <java/awt/Graphics.h>
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/Window.h>
@@ -25,7 +22,6 @@
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/InternalFrameFocusTraversalPolicy.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JDesktopPane.h>
 #include <javax/swing/JInternalFrame$AccessibleJInternalFrame.h>
@@ -87,16 +83,13 @@ using $InternalFrameListenerArray = $Array<::javax::swing::event::InternalFrameL
 using $AWTEvent = ::java::awt::AWTEvent;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $Container = ::java::awt::Container;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Cursor = ::java::awt::Cursor;
 using $EventQueue = ::java::awt::EventQueue;
 using $FocusTraversalPolicy = ::java::awt::FocusTraversalPolicy;
 using $Graphics = ::java::awt::Graphics;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
 using $Window = ::java::awt::Window;
@@ -117,7 +110,6 @@ using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $Icon = ::javax::swing::Icon;
 using $InternalFrameFocusTraversalPolicy = ::javax::swing::InternalFrameFocusTraversalPolicy;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JDesktopPane = ::javax::swing::JDesktopPane;
 using $JInternalFrame$AccessibleJInternalFrame = ::javax::swing::JInternalFrame$AccessibleJInternalFrame;
 using $JInternalFrame$FocusPropertyChangeListener = ::javax::swing::JInternalFrame$FocusPropertyChangeListener;

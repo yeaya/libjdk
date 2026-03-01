@@ -8,7 +8,6 @@
 #include <java/io/Serializable.h>
 #include <java/lang/Cloneable.h>
 #include <java/lang/Math.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/BitSet.h>
 #include <java/util/Enumeration.h>
@@ -51,7 +50,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $BitSet = ::java::util::BitSet;
 using $Enumeration = ::java::util::Enumeration;

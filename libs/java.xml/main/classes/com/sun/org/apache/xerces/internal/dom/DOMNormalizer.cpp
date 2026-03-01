@@ -14,7 +14,6 @@
 #include <com/sun/org/apache/xerces/internal/dom/ElementImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/ElementNSImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/EntityReferenceImpl.h>
-#include <com/sun/org/apache/xerces/internal/dom/NamedNodeMapImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/NodeImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/PSVIAttrNSImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/PSVIElementNSImpl.h>
@@ -53,12 +52,10 @@
 #include <com/sun/org/apache/xerces/internal/xs/XSTypeDefinition.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSValue.h>
 #include <java/io/IOException.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <org/w3c/dom/Attr.h>
 #include <org/w3c/dom/CDATASection.h>
-#include <org/w3c/dom/CharacterData.h>
 #include <org/w3c/dom/Comment.h>
 #include <org/w3c/dom/DOMError.h>
 #include <org/w3c/dom/DOMErrorHandler.h>
@@ -132,7 +129,6 @@ using $DOMNormalizer$XMLAttributesProxy = ::com::sun::org::apache::xerces::inter
 using $ElementImpl = ::com::sun::org::apache::xerces::internal::dom::ElementImpl;
 using $ElementNSImpl = ::com::sun::org::apache::xerces::internal::dom::ElementNSImpl;
 using $EntityReferenceImpl = ::com::sun::org::apache::xerces::internal::dom::EntityReferenceImpl;
-using $NamedNodeMapImpl = ::com::sun::org::apache::xerces::internal::dom::NamedNodeMapImpl;
 using $NodeImpl = ::com::sun::org::apache::xerces::internal::dom::NodeImpl;
 using $PSVIAttrNSImpl = ::com::sun::org::apache::xerces::internal::dom::PSVIAttrNSImpl;
 using $PSVIElementNSImpl = ::com::sun::org::apache::xerces::internal::dom::PSVIElementNSImpl;
@@ -174,11 +170,9 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $Attr = ::org::w3c::dom::Attr;
-using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Comment = ::org::w3c::dom::Comment;
 using $DOMError = ::org::w3c::dom::DOMError;
 using $DOMErrorHandler = ::org::w3c::dom::DOMErrorHandler;

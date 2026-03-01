@@ -5,7 +5,6 @@
 #include <java/awt/Component.h>
 #include <java/awt/GraphicsDevice.h>
 #include <java/awt/Window.h>
-#include <java/awt/event/ComponentAdapter.h>
 #include <java/awt/event/ComponentListener.h>
 #include <java/util/concurrent/CountDownLatch.h>
 #include <javax/swing/JFrame.h>
@@ -15,7 +14,6 @@ using $GraphicsDeviceArray = $Array<::java::awt::GraphicsDevice>;
 using $bug8071705 = ::bug8071705;
 using $bug8071705$FrameListener = ::bug8071705$FrameListener;
 using $GraphicsDevice = ::java::awt::GraphicsDevice;
-using $ComponentAdapter = ::java::awt::event::ComponentAdapter;
 using $ComponentListener = ::java::awt::event::ComponentListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

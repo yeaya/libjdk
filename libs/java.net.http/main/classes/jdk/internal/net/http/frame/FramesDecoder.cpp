@@ -11,7 +11,6 @@
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayDeque.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
@@ -24,7 +23,6 @@
 #include <jdk/internal/net/http/frame/ErrorFrame.h>
 #include <jdk/internal/net/http/frame/FramesDecoder$FrameProcessor.h>
 #include <jdk/internal/net/http/frame/GoAwayFrame.h>
-#include <jdk/internal/net/http/frame/HeaderFrame.h>
 #include <jdk/internal/net/http/frame/HeadersFrame.h>
 #include <jdk/internal/net/http/frame/Http2Frame.h>
 #include <jdk/internal/net/http/frame/MalformedFrame.h>
@@ -60,7 +58,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayDeque = ::java::util::ArrayDeque;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
@@ -73,7 +70,6 @@ using $DataFrame = ::jdk::internal::net::http::frame::DataFrame;
 using $ErrorFrame = ::jdk::internal::net::http::frame::ErrorFrame;
 using $FramesDecoder$FrameProcessor = ::jdk::internal::net::http::frame::FramesDecoder$FrameProcessor;
 using $GoAwayFrame = ::jdk::internal::net::http::frame::GoAwayFrame;
-using $HeaderFrame = ::jdk::internal::net::http::frame::HeaderFrame;
 using $HeadersFrame = ::jdk::internal::net::http::frame::HeadersFrame;
 using $Http2Frame = ::jdk::internal::net::http::frame::Http2Frame;
 using $MalformedFrame = ::jdk::internal::net::http::frame::MalformedFrame;

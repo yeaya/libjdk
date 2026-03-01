@@ -1,18 +1,15 @@
 #include <javax/naming/spi/NamingManager$FactoryInitializationError.h>
 
 #include <java/lang/Error.h>
-#include <javax/naming/NamingException.h>
 #include <javax/naming/NoInitialContextException.h>
 #include <javax/naming/spi/NamingManager.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Error = ::java::lang::Error;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $NamingException = ::javax::naming::NamingException;
 using $NoInitialContextException = ::javax::naming::NoInitialContextException;
 
 namespace javax {

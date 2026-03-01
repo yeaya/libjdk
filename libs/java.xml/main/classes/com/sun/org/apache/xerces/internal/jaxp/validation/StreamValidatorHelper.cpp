@@ -1,7 +1,6 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/StreamValidatorHelper.h>
 
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
-#include <com/sun/org/apache/xerces/internal/impl/RevalidationHandler.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLErrorReporter.h>
 #include <com/sun/org/apache/xerces/internal/impl/msg/XMLMessageFormatter.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/XMLSchemaValidator.h>
@@ -18,11 +17,9 @@
 #include <com/sun/org/apache/xerces/internal/xni/XMLDocumentHandler.h>
 #include <com/sun/org/apache/xerces/internal/xni/XNIException.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager.h>
-#include <com/sun/org/apache/xerces/internal/xni/parser/XMLDocumentFilter.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLInputSource.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLParseException.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration.h>
-#include <com/sun/org/apache/xerces/internal/xni/parser/XMLPullParserConfiguration.h>
 #include <java/io/InputStream.h>
 #include <java/io/Reader.h>
 #include <java/lang/ref/SoftReference.h>
@@ -31,7 +28,6 @@
 #include <javax/xml/transform/Result.h>
 #include <javax/xml/transform/Source.h>
 #include <javax/xml/transform/TransformerConfigurationException.h>
-#include <javax/xml/transform/TransformerException.h>
 #include <javax/xml/transform/TransformerFactoryConfigurationError.h>
 #include <javax/xml/transform/sax/SAXTransformerFactory.h>
 #include <javax/xml/transform/sax/TransformerHandler.h>
@@ -69,7 +65,6 @@
 #undef XML_SECURITY_PROPERTY_MANAGER
 
 using $Constants = ::com::sun::org::apache::xerces::internal::impl::Constants;
-using $RevalidationHandler = ::com::sun::org::apache::xerces::internal::impl::RevalidationHandler;
 using $XMLErrorReporter = ::com::sun::org::apache::xerces::internal::impl::XMLErrorReporter;
 using $XMLMessageFormatter = ::com::sun::org::apache::xerces::internal::impl::msg::XMLMessageFormatter;
 using $XMLSchemaValidator = ::com::sun::org::apache::xerces::internal::impl::xs::XMLSchemaValidator;
@@ -86,11 +81,9 @@ using $XMLDTDHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDTDHan
 using $XMLDocumentHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDocumentHandler;
 using $XNIException = ::com::sun::org::apache::xerces::internal::xni::XNIException;
 using $XMLComponentManager = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager;
-using $XMLDocumentFilter = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDocumentFilter;
 using $XMLInputSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLInputSource;
 using $XMLParseException = ::com::sun::org::apache::xerces::internal::xni::parser::XMLParseException;
 using $XMLParserConfiguration = ::com::sun::org::apache::xerces::internal::xni::parser::XMLParserConfiguration;
-using $XMLPullParserConfiguration = ::com::sun::org::apache::xerces::internal::xni::parser::XMLPullParserConfiguration;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -102,7 +95,6 @@ using $XMLConstants = ::javax::xml::XMLConstants;
 using $Result = ::javax::xml::transform::Result;
 using $Source = ::javax::xml::transform::Source;
 using $TransformerConfigurationException = ::javax::xml::transform::TransformerConfigurationException;
-using $TransformerException = ::javax::xml::transform::TransformerException;
 using $TransformerFactoryConfigurationError = ::javax::xml::transform::TransformerFactoryConfigurationError;
 using $SAXTransformerFactory = ::javax::xml::transform::sax::SAXTransformerFactory;
 using $TransformerHandler = ::javax::xml::transform::sax::TransformerHandler;

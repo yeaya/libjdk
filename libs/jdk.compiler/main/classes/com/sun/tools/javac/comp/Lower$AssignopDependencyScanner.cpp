@@ -3,7 +3,6 @@
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/comp/Lower.h>
 #include <com/sun/tools/javac/tree/JCTree$JCAssignOp.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCUnary.h>
 #include <com/sun/tools/javac/tree/JCTree$Visitor.h>
@@ -15,7 +14,6 @@
 using $Lower = ::com::sun::tools::javac::comp::Lower;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCAssignOp = ::com::sun::tools::javac::tree::JCTree$JCAssignOp;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCUnary = ::com::sun::tools::javac::tree::JCTree$JCUnary;
 using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;

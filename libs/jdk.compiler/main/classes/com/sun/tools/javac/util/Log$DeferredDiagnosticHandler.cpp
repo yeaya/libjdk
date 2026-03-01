@@ -11,7 +11,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractQueue.h>
 #include <java/util/Queue.h>
 #include <java/util/function/Predicate.h>
 #include <jcpp.h>
@@ -29,7 +28,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractQueue = ::java::util::AbstractQueue;
 using $Queue = ::java::util::Queue;
 using $Predicate = ::java::util::function::Predicate;
 

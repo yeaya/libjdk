@@ -4,7 +4,6 @@
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/io/File.h>
@@ -45,7 +44,6 @@ using $MotifFileChooserUI = ::com::sun::java::swing::plaf::motif::MotifFileChoos
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Container = ::java::awt::Container;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $File = ::java::io::File;
 using $IOException = ::java::io::IOException;

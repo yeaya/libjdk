@@ -13,7 +13,6 @@
 #include <java/nio/channels/SelectableChannel.h>
 #include <java/nio/channels/SelectionKey.h>
 #include <java/nio/channels/SocketChannel.h>
-#include <java/nio/channels/spi/AbstractSelectableChannel.h>
 #include <java/util/concurrent/CompletableFuture.h>
 #include <java/util/concurrent/Executor.h>
 #include <java/util/function/Supplier.h>
@@ -37,7 +36,6 @@ using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -46,7 +44,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $SelectableChannel = ::java::nio::channels::SelectableChannel;
 using $SelectionKey = ::java::nio::channels::SelectionKey;
 using $SocketChannel = ::java::nio::channels::SocketChannel;
-using $AbstractSelectableChannel = ::java::nio::channels::spi::AbstractSelectableChannel;
 using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $Executor = ::java::util::concurrent::Executor;
 using $Supplier = ::java::util::function::Supplier;

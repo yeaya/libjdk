@@ -2,9 +2,7 @@
 
 #include <bug6938583.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/event/MouseEvent.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JTextArea.h>
 #include <javax/swing/text/Caret.h>
 #include <javax/swing/text/DefaultCaret.h>
@@ -14,13 +12,11 @@
 #undef MOUSE_CLICKED
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JTextArea = ::javax::swing::JTextArea;
 using $Caret = ::javax::swing::text::Caret;
 using $DefaultCaret = ::javax::swing::text::DefaultCaret;

@@ -4,7 +4,6 @@
 #include <java/util/Vector.h>
 #include <javax/swing/event/UndoableEditEvent.h>
 #include <javax/swing/event/UndoableEditListener.h>
-#include <javax/swing/undo/AbstractUndoableEdit.h>
 #include <javax/swing/undo/CompoundEdit.h>
 #include <javax/swing/undo/UndoableEdit.h>
 #include <jcpp.h>
@@ -17,7 +16,6 @@ using $Enumeration = ::java::util::Enumeration;
 using $Vector = ::java::util::Vector;
 using $UndoableEditEvent = ::javax::swing::event::UndoableEditEvent;
 using $UndoableEditListener = ::javax::swing::event::UndoableEditListener;
-using $AbstractUndoableEdit = ::javax::swing::undo::AbstractUndoableEdit;
 using $CompoundEdit = ::javax::swing::undo::CompoundEdit;
 using $UndoableEdit = ::javax::swing::undo::UndoableEdit;
 

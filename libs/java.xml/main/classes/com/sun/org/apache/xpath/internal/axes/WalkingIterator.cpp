@@ -10,11 +10,9 @@
 #include <com/sun/org/apache/xpath/internal/XPathVisitor.h>
 #include <com/sun/org/apache/xpath/internal/axes/AxesWalker.h>
 #include <com/sun/org/apache/xpath/internal/axes/LocPathIterator.h>
-#include <com/sun/org/apache/xpath/internal/axes/PredicatedNodeTest.h>
 #include <com/sun/org/apache/xpath/internal/axes/WalkerFactory.h>
 #include <com/sun/org/apache/xpath/internal/compiler/Compiler.h>
 #include <com/sun/org/apache/xpath/internal/compiler/OpMap.h>
-#include <com/sun/org/apache/xpath/internal/patterns/NodeTest.h>
 #include <java/util/List.h>
 #include <jcpp.h>
 
@@ -30,11 +28,9 @@ using $XPathContext = ::com::sun::org::apache::xpath::internal::XPathContext;
 using $XPathVisitor = ::com::sun::org::apache::xpath::internal::XPathVisitor;
 using $AxesWalker = ::com::sun::org::apache::xpath::internal::axes::AxesWalker;
 using $LocPathIterator = ::com::sun::org::apache::xpath::internal::axes::LocPathIterator;
-using $PredicatedNodeTest = ::com::sun::org::apache::xpath::internal::axes::PredicatedNodeTest;
 using $WalkerFactory = ::com::sun::org::apache::xpath::internal::axes::WalkerFactory;
 using $Compiler = ::com::sun::org::apache::xpath::internal::compiler::Compiler;
 using $OpMap = ::com::sun::org::apache::xpath::internal::compiler::OpMap;
-using $NodeTest = ::com::sun::org::apache::xpath::internal::patterns::NodeTest;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

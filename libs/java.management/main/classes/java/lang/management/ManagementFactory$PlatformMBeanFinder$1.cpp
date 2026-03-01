@@ -2,7 +2,6 @@
 
 #include <java/lang/management/DefaultPlatformMBeanProvider.h>
 #include <java/lang/management/ManagementFactory$PlatformMBeanFinder.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -15,7 +14,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DefaultPlatformMBeanProvider = ::java::lang::management::DefaultPlatformMBeanProvider;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;

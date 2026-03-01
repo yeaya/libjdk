@@ -9,7 +9,6 @@
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JMenu.h>
 #include <javax/swing/JMenuBar.h>
-#include <javax/swing/JMenuItem.h>
 #include <javax/swing/JPopupMenu.h>
 #include <javax/swing/MenuElement.h>
 #include <javax/swing/MenuSelectionManager.h>
@@ -31,7 +30,6 @@ using $JComponent = ::javax::swing::JComponent;
 using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JMenu = ::javax::swing::JMenu;
 using $JMenuBar = ::javax::swing::JMenuBar;
-using $JMenuItem = ::javax::swing::JMenuItem;
 using $MenuElement = ::javax::swing::MenuElement;
 using $MenuSelectionManager = ::javax::swing::MenuSelectionManager;
 using $SingleSelectionModel = ::javax::swing::SingleSelectionModel;

@@ -28,7 +28,6 @@
 #include <com/sun/media/sound/SoftVoice$4.h>
 #include <java/io/IOException.h>
 #include <java/lang/Math.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Arrays.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
@@ -90,7 +89,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Arrays = ::java::util::Arrays;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;

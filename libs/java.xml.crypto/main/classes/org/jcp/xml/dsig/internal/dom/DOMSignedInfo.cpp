@@ -8,7 +8,6 @@
 #include <com/sun/org/slf4j/internal/LoggerFactory.h>
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/ByteArrayOutputStream.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
@@ -17,7 +16,6 @@
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <java/security/spec/MGF1ParameterSpec.h>
 #include <java/security/spec/PSSParameterSpec.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
@@ -25,7 +23,6 @@
 #include <java/util/List.h>
 #include <javax/xml/crypto/Data.h>
 #include <javax/xml/crypto/MarshalException.h>
-#include <javax/xml/crypto/NodeSetData.h>
 #include <javax/xml/crypto/XMLCryptoContext.h>
 #include <javax/xml/crypto/dom/DOMCryptoContext.h>
 #include <javax/xml/crypto/dsig/CanonicalizationMethod.h>
@@ -61,13 +58,11 @@ using $Logger = ::com::sun::org::slf4j::internal::Logger;
 using $LoggerFactory = ::com::sun::org::slf4j::internal::LoggerFactory;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -76,7 +71,6 @@ using $Provider = ::java::security::Provider;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $MGF1ParameterSpec = ::java::security::spec::MGF1ParameterSpec;
 using $PSSParameterSpec = ::java::security::spec::PSSParameterSpec;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
@@ -84,7 +78,6 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Data = ::javax::xml::crypto::Data;
 using $MarshalException = ::javax::xml::crypto::MarshalException;
-using $NodeSetData = ::javax::xml::crypto::NodeSetData;
 using $XMLCryptoContext = ::javax::xml::crypto::XMLCryptoContext;
 using $DOMCryptoContext = ::javax::xml::crypto::dom::DOMCryptoContext;
 using $CanonicalizationMethod = ::javax::xml::crypto::dsig::CanonicalizationMethod;

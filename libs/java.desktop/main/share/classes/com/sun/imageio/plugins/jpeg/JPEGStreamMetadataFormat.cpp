@@ -16,7 +16,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ImageTypeSpecifier = ::javax::imageio::ImageTypeSpecifier;
 using $IIOMetadataFormat = ::javax::imageio::metadata::IIOMetadataFormat;
-using $IIOMetadataFormatImpl = ::javax::imageio::metadata::IIOMetadataFormatImpl;
 
 namespace com {
 	namespace sun {

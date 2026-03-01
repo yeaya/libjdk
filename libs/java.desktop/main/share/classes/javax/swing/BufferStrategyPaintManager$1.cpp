@@ -1,7 +1,6 @@
 #include <javax/swing/BufferStrategyPaintManager$1.h>
 
 #include <java/lang/InterruptedException.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <javax/swing/BufferStrategyPaintManager.h>
@@ -13,7 +12,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $List = ::java::util::List;
 using $BufferStrategyPaintManager = ::javax::swing::BufferStrategyPaintManager;
 

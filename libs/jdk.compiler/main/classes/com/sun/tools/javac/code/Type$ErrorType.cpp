@@ -2,7 +2,6 @@
 
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/Scope$ErrorScope.h>
-#include <com/sun/tools/javac/code/Scope$ScopeImpl.h>
 #include <com/sun/tools/javac/code/Scope$WriteableScope.h>
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
@@ -26,7 +25,6 @@
 
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Scope$ErrorScope = ::com::sun::tools::javac::code::Scope$ErrorScope;
-using $Scope$ScopeImpl = ::com::sun::tools::javac::code::Scope$ScopeImpl;
 using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;

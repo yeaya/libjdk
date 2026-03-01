@@ -3,7 +3,6 @@
 #include <java/lang/Record.h>
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
-#include <java/lang/invoke/MethodHandles.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/runtime/ObjectMethods.h>
 #include <java/nio/file/attribute/GroupPrincipal.h>
@@ -11,15 +10,10 @@
 #include <java/util/Objects.h>
 #include <jcpp.h>
 
-using $MethodHandleArray = $Array<::java::lang::invoke::MethodHandle>;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Record = ::java::lang::Record;
-using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $MethodHandles = ::java::lang::invoke::MethodHandles;
-using $MethodType = ::java::lang::invoke::MethodType;
-using $ObjectMethods = ::java::lang::runtime::ObjectMethods;
 using $GroupPrincipal = ::java::nio::file::attribute::GroupPrincipal;
 using $UserPrincipal = ::java::nio::file::attribute::UserPrincipal;
 using $Objects = ::java::util::Objects;
@@ -73,18 +67,15 @@ $GroupPrincipal* UnixDomainPrincipal::group() {
 }
 
 $String* UnixDomainPrincipal::toString() {
-	$useLocalCurrentObjectStackCache();
-	return $cast($String, $cast($MethodHandle, $($ObjectMethods::bootstrap($($MethodHandles::lookup()), "toString"_s, $($MethodType::methodType(nullptr)), UnixDomainPrincipal::class$, "user;group"_s, $$new($MethodHandleArray, {nullptr, nullptr}))))->invoke($$new($ObjectArray, {$of(this)})));
+	return UnixDomainPrincipal::class$->bootstrapToString(this);
 }
 
 int32_t UnixDomainPrincipal::hashCode() {
-	$useLocalCurrentObjectStackCache();
-	return $intValue($cast($MethodHandle, $($ObjectMethods::bootstrap($($MethodHandles::lookup()), "hashCode"_s, $($MethodType::methodType(nullptr)), UnixDomainPrincipal::class$, "user;group"_s, $$new($MethodHandleArray, {nullptr, nullptr}))))->invoke($$new($ObjectArray, {$of(this)})));
+	return UnixDomainPrincipal::class$->bootstrapHashCode(this);
 }
 
 bool UnixDomainPrincipal::equals(Object$* o) {
-	$useLocalCurrentObjectStackCache();
-	return $booleanValue($cast($MethodHandle, $($ObjectMethods::bootstrap($($MethodHandles::lookup()), "equals"_s, $($MethodType::methodType(nullptr)), UnixDomainPrincipal::class$, "user;group"_s, $$new($MethodHandleArray, {nullptr, nullptr}))))->invoke($$new($ObjectArray, {$of(this), o})));
+	return UnixDomainPrincipal::class$->bootstrapEquals(this, o);
 }
 
 UnixDomainPrincipal::UnixDomainPrincipal() {

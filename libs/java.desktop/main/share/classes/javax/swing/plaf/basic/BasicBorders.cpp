@@ -4,11 +4,8 @@
 #include <javax/swing/BorderFactory.h>
 #include <javax/swing/UIDefaults.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/BevelBorder.h>
 #include <javax/swing/border/Border.h>
-#include <javax/swing/border/CompoundBorder.h>
-#include <javax/swing/border/LineBorder.h>
 #include <javax/swing/plaf/BorderUIResource$CompoundBorderUIResource.h>
 #include <javax/swing/plaf/BorderUIResource$LineBorderUIResource.h>
 #include <javax/swing/plaf/basic/BasicBorders$ButtonBorder.h>
@@ -30,11 +27,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $BorderFactory = ::javax::swing::BorderFactory;
 using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIManager = ::javax::swing::UIManager;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $BevelBorder = ::javax::swing::border::BevelBorder;
 using $Border = ::javax::swing::border::Border;
-using $CompoundBorder = ::javax::swing::border::CompoundBorder;
-using $LineBorder = ::javax::swing::border::LineBorder;
 using $BorderUIResource$CompoundBorderUIResource = ::javax::swing::plaf::BorderUIResource$CompoundBorderUIResource;
 using $BorderUIResource$LineBorderUIResource = ::javax::swing::plaf::BorderUIResource$LineBorderUIResource;
 using $BasicBorders$ButtonBorder = ::javax::swing::plaf::basic::BasicBorders$ButtonBorder;

@@ -6,7 +6,6 @@
 #include <java/awt/event/ActionListener.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/beans/PropertyChangeListener.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ButtonModel.h>
 #include <javax/swing/InputMap.h>
@@ -24,9 +23,7 @@
 #include <javax/swing/event/MenuKeyListener.h>
 #include <javax/swing/event/MenuListener.h>
 #include <javax/swing/event/MouseInputListener.h>
-#include <javax/swing/plaf/ButtonUI.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/MenuItemUI.h>
 #include <javax/swing/plaf/UIResource.h>
 #include <javax/swing/plaf/basic/BasicMenuItemUI$Handler.h>
 #include <javax/swing/plaf/basic/BasicMenuItemUI.h>
@@ -34,7 +31,6 @@
 #include <javax/swing/plaf/basic/BasicMenuUI$Handler.h>
 #include <javax/swing/plaf/basic/LazyActionMap.h>
 #include <sun/swing/DefaultLookup.h>
-#include <sun/swing/UIAction.h>
 #include <jcpp.h>
 
 #undef ALT_GRAPH_MASK
@@ -56,7 +52,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Short = ::java::lang::Short;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $Action = ::javax::swing::Action;
 using $ButtonModel = ::javax::swing::ButtonModel;
 using $InputMap = ::javax::swing::InputMap;
@@ -74,9 +69,7 @@ using $MenuDragMouseListener = ::javax::swing::event::MenuDragMouseListener;
 using $MenuKeyListener = ::javax::swing::event::MenuKeyListener;
 using $MenuListener = ::javax::swing::event::MenuListener;
 using $MouseInputListener = ::javax::swing::event::MouseInputListener;
-using $ButtonUI = ::javax::swing::plaf::ButtonUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $MenuItemUI = ::javax::swing::plaf::MenuItemUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $BasicMenuItemUI = ::javax::swing::plaf::basic::BasicMenuItemUI;
 using $BasicMenuItemUI$Handler = ::javax::swing::plaf::basic::BasicMenuItemUI$Handler;
@@ -84,7 +77,6 @@ using $BasicMenuUI$Actions = ::javax::swing::plaf::basic::BasicMenuUI$Actions;
 using $BasicMenuUI$Handler = ::javax::swing::plaf::basic::BasicMenuUI$Handler;
 using $LazyActionMap = ::javax::swing::plaf::basic::LazyActionMap;
 using $DefaultLookup = ::sun::swing::DefaultLookup;
-using $UIAction = ::sun::swing::UIAction;
 
 namespace javax {
 	namespace swing {

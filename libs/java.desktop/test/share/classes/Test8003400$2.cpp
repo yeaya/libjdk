@@ -2,11 +2,9 @@
 
 #include <Test8003400.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Window.h>
 #include <java/lang/Error.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JScrollBar.h>
 #include <javax/swing/JScrollPane.h>
@@ -17,14 +15,12 @@
 
 using $Test8003400 = ::Test8003400;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Rectangle = ::java::awt::Rectangle;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $Error = ::java::lang::Error;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JScrollBar = ::javax::swing::JScrollBar;
 using $JScrollPane = ::javax::swing::JScrollPane;

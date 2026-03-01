@@ -47,7 +47,6 @@
 #include <sun/awt/AWTAccessor$KeyEventAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <sun/awt/CGraphicsDevice.h>
-#include <sun/awt/KeyboardFocusManagerPeerImpl.h>
 #include <sun/awt/PaintEventDispatcher.h>
 #include <sun/awt/RepaintArea.h>
 #include <sun/awt/SunToolkit.h>
@@ -58,7 +57,6 @@
 #include <sun/java2d/opengl/OGLRenderQueue.h>
 #include <sun/java2d/pipe/Region.h>
 #include <sun/java2d/pipe/RenderQueue.h>
-#include <sun/lwawt/LWCanvasPeer.h>
 #include <sun/lwawt/LWComponentPeer$1.h>
 #include <sun/lwawt/LWComponentPeer$2.h>
 #include <sun/lwawt/LWComponentPeer$3.h>
@@ -150,7 +148,6 @@ using $AWTAccessor = ::sun::awt::AWTAccessor;
 using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $AWTAccessor$KeyEventAccessor = ::sun::awt::AWTAccessor$KeyEventAccessor;
 using $CGraphicsDevice = ::sun::awt::CGraphicsDevice;
-using $KeyboardFocusManagerPeerImpl = ::sun::awt::KeyboardFocusManagerPeerImpl;
 using $PaintEventDispatcher = ::sun::awt::PaintEventDispatcher;
 using $RepaintArea = ::sun::awt::RepaintArea;
 using $SunToolkit = ::sun::awt::SunToolkit;
@@ -161,7 +158,6 @@ using $MTLRenderQueue = ::sun::java2d::metal::MTLRenderQueue;
 using $OGLRenderQueue = ::sun::java2d::opengl::OGLRenderQueue;
 using $Region = ::sun::java2d::pipe::Region;
 using $RenderQueue = ::sun::java2d::pipe::RenderQueue;
-using $LWCanvasPeer = ::sun::lwawt::LWCanvasPeer;
 using $LWComponentPeer$1 = ::sun::lwawt::LWComponentPeer$1;
 using $LWComponentPeer$2 = ::sun::lwawt::LWComponentPeer$2;
 using $LWComponentPeer$3 = ::sun::lwawt::LWComponentPeer$3;

@@ -6,7 +6,6 @@
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$ModuleSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$PackageSymbol.h>
-#include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Symtab.h>
 #include <com/sun/tools/javac/code/Type$ClassType.h>
@@ -18,12 +17,10 @@
 #include <com/sun/tools/javac/comp/Check.h>
 #include <com/sun/tools/javac/comp/Env.h>
 #include <com/sun/tools/javac/comp/TypeEnter$AbstractHeaderPhase.h>
-#include <com/sun/tools/javac/comp/TypeEnter$AbstractMembersPhase.h>
 #include <com/sun/tools/javac/comp/TypeEnter$Phase.h>
 #include <com/sun/tools/javac/comp/TypeEnter$RecordPhase.h>
 #include <com/sun/tools/javac/comp/TypeEnter.h>
 #include <com/sun/tools/javac/resources/CompilerProperties$Errors.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCClassDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCCompilationUnit.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
@@ -37,7 +34,6 @@
 #include <com/sun/tools/javac/util/List.h>
 #include <com/sun/tools/javac/util/Log.h>
 #include <com/sun/tools/javac/util/Name.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
 #include <java/util/Set.h>
@@ -54,7 +50,6 @@ using $Kinds = ::com::sun::tools::javac::code::Kinds;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
@@ -66,12 +61,10 @@ using $Check = ::com::sun::tools::javac::comp::Check;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $TypeEnter = ::com::sun::tools::javac::comp::TypeEnter;
 using $TypeEnter$AbstractHeaderPhase = ::com::sun::tools::javac::comp::TypeEnter$AbstractHeaderPhase;
-using $TypeEnter$AbstractMembersPhase = ::com::sun::tools::javac::comp::TypeEnter$AbstractMembersPhase;
 using $TypeEnter$Phase = ::com::sun::tools::javac::comp::TypeEnter$Phase;
 using $TypeEnter$RecordPhase = ::com::sun::tools::javac::comp::TypeEnter$RecordPhase;
 using $CompilerProperties$Errors = ::com::sun::tools::javac::resources::CompilerProperties$Errors;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCTypeParameter = ::com::sun::tools::javac::tree::JCTree$JCTypeParameter;
@@ -84,7 +77,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractSet = ::java::util::AbstractSet;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $Set = ::java::util::Set;

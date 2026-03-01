@@ -23,7 +23,6 @@
 #include <java/awt/im/spi/InputMethodContext.h>
 #include <java/awt/im/spi/InputMethodDescriptor.h>
 #include <java/lang/Character$Subset.h>
-#include <java/lang/Error.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/LinkageError.h>
 #include <java/lang/Runnable.h>
@@ -81,7 +80,6 @@ using $1InputMethodContext = ::java::awt::im::spi::InputMethodContext;
 using $InputMethodDescriptor = ::java::awt::im::spi::InputMethodDescriptor;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Error = ::java::lang::Error;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;

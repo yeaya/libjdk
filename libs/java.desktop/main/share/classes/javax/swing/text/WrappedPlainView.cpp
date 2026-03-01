@@ -11,7 +11,6 @@
 #include <java/awt/Shape.h>
 #include <java/awt/font/FontRenderContext.h>
 #include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/lang/Math.h>
 #include <javax/swing/event/DocumentEvent$ElementChange.h>
 #include <javax/swing/event/DocumentEvent.h>
@@ -53,7 +52,6 @@ using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
 using $FontRenderContext = ::java::awt::font::FontRenderContext;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -68,7 +66,6 @@ using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $BoxView = ::javax::swing::text::BoxView;
 using $Caret = ::javax::swing::text::Caret;
-using $CompositeView = ::javax::swing::text::CompositeView;
 using $Document = ::javax::swing::text::Document;
 using $Element = ::javax::swing::text::Element;
 using $JTextComponent = ::javax::swing::text::JTextComponent;

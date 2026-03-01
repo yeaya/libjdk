@@ -1,7 +1,6 @@
 #include <javax/swing/TransferHandler$SwingDragGestureRecognizer.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Point.h>
 #include <java/awt/dnd/DragGestureListener.h>
 #include <java/awt/dnd/DragGestureRecognizer.h>
@@ -13,7 +12,6 @@
 #include <jcpp.h>
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $DragGestureListener = ::java::awt::dnd::DragGestureListener;
 using $DragGestureRecognizer = ::java::awt::dnd::DragGestureRecognizer;
 using $DragSource = ::java::awt::dnd::DragSource;

@@ -2,7 +2,6 @@
 
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Toolkit$DesktopPropertyChangeSupport$1.h>
-#include <java/awt/event/InvocationEvent.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/beans/PropertyChangeSupport.h>
@@ -20,7 +19,6 @@
 using $PropertyChangeListenerArray = $Array<::java::beans::PropertyChangeListener>;
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Toolkit$DesktopPropertyChangeSupport$1 = ::java::awt::Toolkit$DesktopPropertyChangeSupport$1;
-using $InvocationEvent = ::java::awt::event::InvocationEvent;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $PropertyChangeSupport = ::java::beans::PropertyChangeSupport;

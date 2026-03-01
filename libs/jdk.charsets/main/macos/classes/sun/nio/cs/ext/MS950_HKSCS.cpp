@@ -3,10 +3,6 @@
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
-#include <sun/nio/cs/DoubleByte$Decoder.h>
-#include <sun/nio/cs/DoubleByte$Encoder.h>
-#include <sun/nio/cs/HKSCS$Decoder.h>
-#include <sun/nio/cs/HKSCS$Encoder.h>
 #include <sun/nio/cs/ext/ExtendedCharsets.h>
 #include <sun/nio/cs/ext/MS950.h>
 #include <sun/nio/cs/ext/MS950_HKSCS$Decoder.h>
@@ -21,10 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
 using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
-using $DoubleByte$Decoder = ::sun::nio::cs::DoubleByte$Decoder;
-using $DoubleByte$Encoder = ::sun::nio::cs::DoubleByte$Encoder;
-using $HKSCS$Decoder = ::sun::nio::cs::HKSCS$Decoder;
-using $HKSCS$Encoder = ::sun::nio::cs::HKSCS$Encoder;
 using $ExtendedCharsets = ::sun::nio::cs::ext::ExtendedCharsets;
 using $MS950 = ::sun::nio::cs::ext::MS950;
 using $MS950_HKSCS$Decoder = ::sun::nio::cs::ext::MS950_HKSCS$Decoder;

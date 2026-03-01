@@ -10,8 +10,6 @@
 #include <java/awt/GraphicsDevice.h>
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
-#include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
@@ -20,12 +18,10 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/BorderFactory.h>
 #include <javax/swing/JApplet.h>
 #include <javax/swing/JComboBox.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JMenuItem.h>
 #include <javax/swing/JPanel.h>
@@ -50,8 +46,6 @@ using $GraphicsDevice = ::java::awt::GraphicsDevice;
 using $GraphicsDevice$WindowTranslucency = ::java::awt::GraphicsDevice$WindowTranslucency;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
-using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -60,12 +54,10 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractAction = ::javax::swing::AbstractAction;
 using $Action = ::javax::swing::Action;
 using $BorderFactory = ::javax::swing::BorderFactory;
 using $JApplet = ::javax::swing::JApplet;
 using $JComboBox = ::javax::swing::JComboBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
 using $JMenuItem = ::javax::swing::JMenuItem;
 using $JPanel = ::javax::swing::JPanel;

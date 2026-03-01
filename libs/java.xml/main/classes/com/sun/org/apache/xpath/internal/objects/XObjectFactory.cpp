@@ -7,10 +7,6 @@
 #include <com/sun/org/apache/xml/internal/dtm/DTMManager.h>
 #include <com/sun/org/apache/xml/internal/utils/WrappedRuntimeException.h>
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
-#include <com/sun/org/apache/xpath/internal/axes/BasicTestIterator.h>
-#include <com/sun/org/apache/xpath/internal/axes/ChildTestIterator.h>
-#include <com/sun/org/apache/xpath/internal/axes/LocPathIterator.h>
-#include <com/sun/org/apache/xpath/internal/axes/NodeSequence.h>
 #include <com/sun/org/apache/xpath/internal/axes/OneStepIterator.h>
 #include <com/sun/org/apache/xpath/internal/objects/XBoolean.h>
 #include <com/sun/org/apache/xpath/internal/objects/XNodeSet.h>
@@ -33,10 +29,6 @@ using $DTMIterator = ::com::sun::org::apache::xml::internal::dtm::DTMIterator;
 using $DTMManager = ::com::sun::org::apache::xml::internal::dtm::DTMManager;
 using $WrappedRuntimeException = ::com::sun::org::apache::xml::internal::utils::WrappedRuntimeException;
 using $XPathContext = ::com::sun::org::apache::xpath::internal::XPathContext;
-using $BasicTestIterator = ::com::sun::org::apache::xpath::internal::axes::BasicTestIterator;
-using $ChildTestIterator = ::com::sun::org::apache::xpath::internal::axes::ChildTestIterator;
-using $LocPathIterator = ::com::sun::org::apache::xpath::internal::axes::LocPathIterator;
-using $NodeSequence = ::com::sun::org::apache::xpath::internal::axes::NodeSequence;
 using $OneStepIterator = ::com::sun::org::apache::xpath::internal::axes::OneStepIterator;
 using $XBoolean = ::com::sun::org::apache::xpath::internal::objects::XBoolean;
 using $XNodeSet = ::com::sun::org::apache::xpath::internal::objects::XNodeSet;

@@ -19,7 +19,6 @@
 #include <java/awt/image/DataBuffer.h>
 #include <java/awt/image/DirectColorModel.h>
 #include <java/awt/image/ImageObserver.h>
-#include <java/awt/image/PackedColorModel.h>
 #include <java/awt/image/VolatileImage.h>
 #include <java/awt/image/WritableRaster.h>
 #include <java/io/File.h>
@@ -85,7 +84,6 @@ using $ColorModel = ::java::awt::image::ColorModel;
 using $DataBuffer = ::java::awt::image::DataBuffer;
 using $DirectColorModel = ::java::awt::image::DirectColorModel;
 using $ImageObserver = ::java::awt::image::ImageObserver;
-using $PackedColorModel = ::java::awt::image::PackedColorModel;
 using $VolatileImage = ::java::awt::image::VolatileImage;
 using $WritableRaster = ::java::awt::image::WritableRaster;
 using $File = ::java::io::File;

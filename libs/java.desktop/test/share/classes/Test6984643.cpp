@@ -6,7 +6,6 @@
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/plaf/basic/BasicLookAndFeel.h>
 #include <jcpp.h>
 
 using $Test6984643$1 = ::Test6984643$1;
@@ -18,7 +17,6 @@ using $Runnable = ::java::lang::Runnable;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
 
 $MethodInfo _Test6984643_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(Test6984643, init$, void)},

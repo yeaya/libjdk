@@ -13,7 +13,6 @@
 #include <sun/java2d/x11/X11SurfaceData.h>
 #include <sun/java2d/x11/X11SurfaceDataProxy$Bitmask.h>
 #include <sun/java2d/x11/X11SurfaceDataProxy$Opaque.h>
-#include <sun/java2d/x11/XSurfaceData.h>
 #include <jcpp.h>
 
 #undef BITMASK
@@ -36,7 +35,6 @@ using $SurfaceDataProxy = ::sun::java2d::SurfaceDataProxy;
 using $X11SurfaceData = ::sun::java2d::x11::X11SurfaceData;
 using $X11SurfaceDataProxy$Bitmask = ::sun::java2d::x11::X11SurfaceDataProxy$Bitmask;
 using $X11SurfaceDataProxy$Opaque = ::sun::java2d::x11::X11SurfaceDataProxy$Opaque;
-using $XSurfaceData = ::sun::java2d::x11::XSurfaceData;
 
 namespace sun {
 	namespace java2d {

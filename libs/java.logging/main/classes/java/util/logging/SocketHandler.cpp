@@ -1,7 +1,6 @@
 #include <java/util/logging/SocketHandler.h>
 
 #include <java/io/BufferedOutputStream.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/net/Socket.h>
@@ -16,7 +15,6 @@
 #undef ALL
 
 using $BufferedOutputStream = ::java::io::BufferedOutputStream;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $PrintStream = ::java::io::PrintStream;

@@ -1,7 +1,6 @@
 #include <javax/swing/JPasswordField$AccessibleJPasswordField.h>
 
 #include <java/util/Arrays.h>
-#include <javax/accessibility/AccessibleEditableText.h>
 #include <javax/accessibility/AccessibleRole.h>
 #include <javax/accessibility/AccessibleText.h>
 #include <javax/accessibility/AccessibleTextSequence.h>
@@ -20,7 +19,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
-using $AccessibleEditableText = ::javax::accessibility::AccessibleEditableText;
 using $AccessibleRole = ::javax::accessibility::AccessibleRole;
 using $AccessibleText = ::javax::accessibility::AccessibleText;
 using $AccessibleTextSequence = ::javax::accessibility::AccessibleTextSequence;
@@ -28,7 +26,6 @@ using $JPasswordField = ::javax::swing::JPasswordField;
 using $JTextField = ::javax::swing::JTextField;
 using $JTextField$AccessibleJTextField = ::javax::swing::JTextField$AccessibleJTextField;
 using $Document = ::javax::swing::text::Document;
-using $JTextComponent$AccessibleJTextComponent = ::javax::swing::text::JTextComponent$AccessibleJTextComponent;
 
 namespace javax {
 	namespace swing {

@@ -7,7 +7,6 @@
 #include <java/security/PrivilegedAction.h>
 #include <java/text/MessageFormat.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/filechooser/FileSystemView$FileSystemRoot.h>
 #include <javax/swing/filechooser/FileSystemView.h>
 #include <javax/swing/filechooser/WindowsFileSystemView$1.h>
 #include <javax/swing/filechooser/WindowsFileSystemView$2.h>
@@ -30,7 +29,6 @@ using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $MessageFormat = ::java::text::MessageFormat;
 using $UIManager = ::javax::swing::UIManager;
 using $FileSystemView = ::javax::swing::filechooser::FileSystemView;
-using $FileSystemView$FileSystemRoot = ::javax::swing::filechooser::FileSystemView$FileSystemRoot;
 using $WindowsFileSystemView$1 = ::javax::swing::filechooser::WindowsFileSystemView$1;
 using $WindowsFileSystemView$2 = ::javax::swing::filechooser::WindowsFileSystemView$2;
 using $ShellFolder = ::sun::awt::shell::ShellFolder;

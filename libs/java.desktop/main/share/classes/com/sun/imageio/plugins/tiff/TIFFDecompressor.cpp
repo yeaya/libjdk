@@ -25,7 +25,6 @@
 #include <java/awt/image/SampleModel.h>
 #include <java/awt/image/SinglePixelPackedSampleModel.h>
 #include <java/awt/image/WritableRaster.h>
-#include <java/awt/image/WritableRenderedImage.h>
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/InputStream.h>
 #include <java/nio/ByteOrder.h>
@@ -35,7 +34,6 @@
 #include <javax/imageio/metadata/IIOMetadata.h>
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet.h>
 #include <javax/imageio/stream/ImageInputStream.h>
-#include <javax/imageio/stream/ImageInputStreamImpl.h>
 #include <javax/imageio/stream/MemoryCacheImageInputStream.h>
 #include <jcpp.h>
 
@@ -88,7 +86,6 @@ using $RenderedImage = ::java::awt::image::RenderedImage;
 using $SampleModel = ::java::awt::image::SampleModel;
 using $SinglePixelPackedSampleModel = ::java::awt::image::SinglePixelPackedSampleModel;
 using $WritableRaster = ::java::awt::image::WritableRaster;
-using $WritableRenderedImage = ::java::awt::image::WritableRenderedImage;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -106,7 +103,6 @@ using $ImageTypeSpecifier = ::javax::imageio::ImageTypeSpecifier;
 using $IIOMetadata = ::javax::imageio::metadata::IIOMetadata;
 using $BaselineTIFFTagSet = ::javax::imageio::plugins::tiff::BaselineTIFFTagSet;
 using $ImageInputStream = ::javax::imageio::stream::ImageInputStream;
-using $ImageInputStreamImpl = ::javax::imageio::stream::ImageInputStreamImpl;
 using $MemoryCacheImageInputStream = ::javax::imageio::stream::MemoryCacheImageInputStream;
 
 namespace com {

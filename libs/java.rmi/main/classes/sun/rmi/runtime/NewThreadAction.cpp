@@ -6,7 +6,6 @@
 #include <java/lang/SecurityManager.h>
 #include <java/lang/ThreadGroup.h>
 #include <java/security/AccessController.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/security/PrivilegedAction.h>
 #include <sun/rmi/runtime/NewThreadAction$1.h>
@@ -25,7 +24,6 @@ using $Runnable = ::java::lang::Runnable;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $ThreadGroup = ::java::lang::ThreadGroup;
 using $AccessController = ::java::security::AccessController;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $NewThreadAction$1 = ::sun::rmi::runtime::NewThreadAction$1;

@@ -10,7 +10,6 @@
 #include <com/sun/tools/javac/util/Log.h>
 #include <java/io/FileWriter.h>
 #include <java/io/IOException.h>
-#include <java/io/OutputStreamWriter.h>
 #include <java/io/PrintWriter.h>
 #include <java/io/Writer.h>
 #include <jcpp.h>
@@ -23,7 +22,6 @@ using $CompilerProperties$Errors = ::com::sun::tools::javac::resources::Compiler
 using $Log = ::com::sun::tools::javac::util::Log;
 using $FileWriter = ::java::io::FileWriter;
 using $IOException = ::java::io::IOException;
-using $OutputStreamWriter = ::java::io::OutputStreamWriter;
 using $PrintWriter = ::java::io::PrintWriter;
 using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -13,7 +13,6 @@
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisTraverser.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMManager.h>
-#include <com/sun/org/apache/xml/internal/dtm/ref/DTMAxisIteratorBase.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMManagerDefault.h>
 #include <com/sun/org/apache/xml/internal/serializer/EmptySerializer.h>
 #include <com/sun/org/apache/xml/internal/serializer/SerializationHandler.h>
@@ -64,7 +63,6 @@ using $DTM = ::com::sun::org::apache::xml::internal::dtm::DTM;
 using $DTMAxisIterator = ::com::sun::org::apache::xml::internal::dtm::DTMAxisIterator;
 using $DTMAxisTraverser = ::com::sun::org::apache::xml::internal::dtm::DTMAxisTraverser;
 using $DTMManager = ::com::sun::org::apache::xml::internal::dtm::DTMManager;
-using $DTMAxisIteratorBase = ::com::sun::org::apache::xml::internal::dtm::ref::DTMAxisIteratorBase;
 using $DTMManagerDefault = ::com::sun::org::apache::xml::internal::dtm::ref::DTMManagerDefault;
 using $EmptySerializer = ::com::sun::org::apache::xml::internal::serializer::EmptySerializer;
 using $SerializationHandler = ::com::sun::org::apache::xml::internal::serializer::SerializationHandler;

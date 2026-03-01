@@ -9,17 +9,14 @@
 #include <java/awt/event/ContainerListener.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
-#include <javax/swing/DefaultDesktopManager.h>
 #include <javax/swing/DesktopManager.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JDesktopPane.h>
 #include <javax/swing/JInternalFrame$JDesktopIcon.h>
 #include <javax/swing/JInternalFrame.h>
 #include <javax/swing/JLayeredPane.h>
-#include <javax/swing/JPanel.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/DesktopPaneUI.h>
 #include <javax/swing/plaf/UIResource.h>
 #include <javax/swing/plaf/basic/BasicDesktopPaneUI.h>
 #include <javax/swing/plaf/synth/SynthConstants.h>
@@ -37,7 +34,6 @@
 
 using $ComponentArray = $Array<::java::awt::Component>;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $ComponentListener = ::java::awt::event::ComponentListener;
@@ -49,17 +45,14 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DefaultDesktopManager = ::javax::swing::DefaultDesktopManager;
 using $DesktopManager = ::javax::swing::DesktopManager;
 using $JComponent = ::javax::swing::JComponent;
 using $JDesktopPane = ::javax::swing::JDesktopPane;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $JInternalFrame$JDesktopIcon = ::javax::swing::JInternalFrame$JDesktopIcon;
 using $JLayeredPane = ::javax::swing::JLayeredPane;
-using $JPanel = ::javax::swing::JPanel;
 using $UIManager = ::javax::swing::UIManager;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $DesktopPaneUI = ::javax::swing::plaf::DesktopPaneUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $BasicDesktopPaneUI = ::javax::swing::plaf::basic::BasicDesktopPaneUI;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;

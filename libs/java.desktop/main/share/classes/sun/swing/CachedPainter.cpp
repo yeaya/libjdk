@@ -6,12 +6,10 @@
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/Image.h>
 #include <java/awt/geom/AffineTransform.h>
-#include <java/awt/image/AbstractMultiResolutionImage.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/ImageObserver.h>
 #include <java/awt/image/VolatileImage.h>
 #include <java/lang/Math.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <sun/awt/image/SurfaceManager.h>
@@ -30,7 +28,6 @@ using $Graphics2D = ::java::awt::Graphics2D;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $Image = ::java::awt::Image;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
-using $AbstractMultiResolutionImage = ::java::awt::image::AbstractMultiResolutionImage;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ImageObserver = ::java::awt::image::ImageObserver;
 using $VolatileImage = ::java::awt::image::VolatileImage;
@@ -40,7 +37,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $SurfaceManager = ::sun::awt::image::SurfaceManager;

@@ -12,14 +12,11 @@
 #include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Collection.h>
 #include <java/util/HashMap.h>
 #include <java/util/Hashtable.h>
 #include <java/util/Iterator.h>
 #include <java/util/Map.h>
-#include <java/util/NavigableMap.h>
-#include <java/util/NavigableSet.h>
 #include <java/util/Set.h>
 #include <java/util/SortedMap.h>
 #include <java/util/SortedSet.h>
@@ -67,14 +64,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Method = ::java::lang::reflect::Method;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Hashtable = ::java::util::Hashtable;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
-using $NavigableMap = ::java::util::NavigableMap;
-using $NavigableSet = ::java::util::NavigableSet;
 using $Set = ::java::util::Set;
 using $SortedMap = ::java::util::SortedMap;
 using $SortedSet = ::java::util::SortedSet;

@@ -21,8 +21,6 @@
 #include <com/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverSpi.h>
 #include <com/sun/org/slf4j/internal/Logger.h>
 #include <com/sun/org/slf4j/internal/LoggerFactory.h>
-#include <java/io/ByteArrayOutputStream.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/security/Key.h>
@@ -32,7 +30,6 @@
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <javax/crypto/SecretKey.h>
 #include <org/w3c/dom/Attr.h>
-#include <org/w3c/dom/CharacterData.h>
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/Element.h>
 #include <org/w3c/dom/Node.h>
@@ -98,8 +95,6 @@ using $XMLUtils = ::com::sun::org::apache::xml::internal::security::utils::XMLUt
 using $ResourceResolverSpi = ::com::sun::org::apache::xml::internal::security::utils::resolver::ResourceResolverSpi;
 using $Logger = ::com::sun::org::slf4j::internal::Logger;
 using $LoggerFactory = ::com::sun::org::slf4j::internal::LoggerFactory;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -114,7 +109,6 @@ using $X509Certificate = ::java::security::cert::X509Certificate;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $SecretKey = ::javax::crypto::SecretKey;
 using $Attr = ::org::w3c::dom::Attr;
-using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;

@@ -14,7 +14,6 @@
 #include <com/sun/tools/javac/code/Types.h>
 #include <com/sun/tools/javac/comp/TypeEnter$BasicConstructorHelper.h>
 #include <com/sun/tools/javac/comp/TypeEnter.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCMethodDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCModifiers.h>
@@ -53,7 +52,6 @@ using $Types = ::com::sun::tools::javac::code::Types;
 using $TypeEnter = ::com::sun::tools::javac::comp::TypeEnter;
 using $TypeEnter$BasicConstructorHelper = ::com::sun::tools::javac::comp::TypeEnter$BasicConstructorHelper;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCMethodDecl = ::com::sun::tools::javac::tree::JCTree$JCMethodDecl;
 using $JCTree$JCVariableDecl = ::com::sun::tools::javac::tree::JCTree$JCVariableDecl;

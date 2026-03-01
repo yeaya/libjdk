@@ -4,12 +4,10 @@
 #include <com/sun/org/apache/xml/internal/dtm/DTMDOMException.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMChildIterNodeList.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMNamedNodeMap.h>
-#include <com/sun/org/apache/xml/internal/dtm/ref/DTMNodeListBase.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMNodeProxy$DTMNodeProxyImplementation.h>
 #include <com/sun/org/apache/xml/internal/utils/XMLString.h>
 #include <com/sun/org/apache/xpath/internal/NodeSet.h>
 #include <java/lang/ClassCastException.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <java/util/Objects.h>
@@ -51,7 +49,6 @@ using $DTM = ::com::sun::org::apache::xml::internal::dtm::DTM;
 using $DTMDOMException = ::com::sun::org::apache::xml::internal::dtm::DTMDOMException;
 using $DTMChildIterNodeList = ::com::sun::org::apache::xml::internal::dtm::ref::DTMChildIterNodeList;
 using $DTMNamedNodeMap = ::com::sun::org::apache::xml::internal::dtm::ref::DTMNamedNodeMap;
-using $DTMNodeListBase = ::com::sun::org::apache::xml::internal::dtm::ref::DTMNodeListBase;
 using $DTMNodeProxy$DTMNodeProxyImplementation = ::com::sun::org::apache::xml::internal::dtm::ref::DTMNodeProxy$DTMNodeProxyImplementation;
 using $XMLString = ::com::sun::org::apache::xml::internal::utils::XMLString;
 using $NodeSet = ::com::sun::org::apache::xpath::internal::NodeSet;
@@ -60,7 +57,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $Objects = ::java::util::Objects;

@@ -16,7 +16,6 @@
 #include <java/rmi/server/ObjID.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <java/util/logging/Level.h>
@@ -52,7 +51,6 @@ using $ExportException = ::java::rmi::server::ExportException;
 using $ObjID = ::java::rmi::server::ObjID;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $Log = ::sun::rmi::runtime::Log;

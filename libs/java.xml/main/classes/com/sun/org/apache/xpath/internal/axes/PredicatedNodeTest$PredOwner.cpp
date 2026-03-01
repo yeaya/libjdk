@@ -3,13 +3,11 @@
 #include <com/sun/org/apache/xpath/internal/Expression.h>
 #include <com/sun/org/apache/xpath/internal/ExpressionNode.h>
 #include <com/sun/org/apache/xpath/internal/axes/PredicatedNodeTest.h>
-#include <com/sun/org/apache/xpath/internal/patterns/NodeTest.h>
 #include <jcpp.h>
 
 using $Expression = ::com::sun::org::apache::xpath::internal::Expression;
 using $ExpressionNode = ::com::sun::org::apache::xpath::internal::ExpressionNode;
 using $PredicatedNodeTest = ::com::sun::org::apache::xpath::internal::axes::PredicatedNodeTest;
-using $NodeTest = ::com::sun::org::apache::xpath::internal::patterns::NodeTest;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

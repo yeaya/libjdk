@@ -4,7 +4,6 @@
 #include <com/sun/imageio/plugins/bmp/BMPConstants.h>
 #include <com/sun/imageio/plugins/bmp/BMPImageWriter$1.h>
 #include <com/sun/imageio/plugins/bmp/BMPImageWriter$2.h>
-#include <com/sun/imageio/plugins/bmp/BMPImageWriter$IIOWriteProgressAdapter.h>
 #include <com/sun/imageio/plugins/bmp/BMPMetadata.h>
 #include <com/sun/imageio/plugins/common/I18N.h>
 #include <com/sun/imageio/plugins/common/ImageUtil.h>
@@ -67,7 +66,6 @@ using $BMPCompressionTypes = ::com::sun::imageio::plugins::bmp::BMPCompressionTy
 using $BMPConstants = ::com::sun::imageio::plugins::bmp::BMPConstants;
 using $BMPImageWriter$1 = ::com::sun::imageio::plugins::bmp::BMPImageWriter$1;
 using $BMPImageWriter$2 = ::com::sun::imageio::plugins::bmp::BMPImageWriter$2;
-using $BMPImageWriter$IIOWriteProgressAdapter = ::com::sun::imageio::plugins::bmp::BMPImageWriter$IIOWriteProgressAdapter;
 using $BMPMetadata = ::com::sun::imageio::plugins::bmp::BMPMetadata;
 using $I18N = ::com::sun::imageio::plugins::common::I18N;
 using $ImageUtil = ::com::sun::imageio::plugins::common::ImageUtil;

@@ -1,7 +1,6 @@
 #include <com/sun/tools/sjavac/Log.h>
 
 #include <com/sun/tools/sjavac/Log$Level.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/PrintWriter.h>
 #include <java/io/StringWriter.h>
@@ -18,7 +17,6 @@
 #undef WARN
 
 using $Log$Level = ::com::sun::tools::sjavac::Log$Level;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $PrintWriter = ::java::io::PrintWriter;
 using $StringWriter = ::java::io::StringWriter;

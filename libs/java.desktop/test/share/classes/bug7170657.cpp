@@ -1,9 +1,7 @@
 #include <bug7170657.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Frame.h>
-#include <java/awt/Window.h>
 #include <java/awt/event/InputEvent.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/awt/event/MouseWheelEvent.h>
@@ -20,9 +18,7 @@
 
 using $MenuElementArray = $Array<::javax::swing::MenuElement>;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Frame = ::java::awt::Frame;
-using $Window = ::java::awt::Window;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $MouseWheelEvent = ::java::awt::event::MouseWheelEvent;

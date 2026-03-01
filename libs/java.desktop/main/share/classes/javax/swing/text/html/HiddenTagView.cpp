@@ -7,12 +7,10 @@
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Shape.h>
 #include <java/awt/Toolkit.h>
 #include <java/lang/Math.h>
 #include <java/lang/Runnable.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/JTextField.h>
 #include <javax/swing/SwingUtilities.h>
@@ -25,7 +23,6 @@
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/Element.h>
 #include <javax/swing/text/JTextComponent.h>
-#include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/SimpleAttributeSet.h>
 #include <javax/swing/text/StyleConstants.h>
 #include <javax/swing/text/StyledDocument.h>
@@ -51,7 +48,6 @@ using $Container = ::java::awt::Container;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Shape = ::java::awt::Shape;
 using $Toolkit = ::java::awt::Toolkit;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -61,7 +57,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $JComponent = ::javax::swing::JComponent;
 using $JPanel = ::javax::swing::JPanel;
 using $JTextField = ::javax::swing::JTextField;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
@@ -70,11 +65,9 @@ using $DocumentEvent = ::javax::swing::event::DocumentEvent;
 using $DocumentListener = ::javax::swing::event::DocumentListener;
 using $AbstractDocument = ::javax::swing::text::AbstractDocument;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
-using $ComponentView = ::javax::swing::text::ComponentView;
 using $Document = ::javax::swing::text::Document;
 using $Element = ::javax::swing::text::Element;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
-using $MutableAttributeSet = ::javax::swing::text::MutableAttributeSet;
 using $SimpleAttributeSet = ::javax::swing::text::SimpleAttributeSet;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
 using $StyledDocument = ::javax::swing::text::StyledDocument;

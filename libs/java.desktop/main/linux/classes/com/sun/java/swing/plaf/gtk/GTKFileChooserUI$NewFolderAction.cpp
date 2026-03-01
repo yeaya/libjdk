@@ -2,12 +2,10 @@
 
 #include <com/sun/java/swing/plaf/gtk/GTKFileChooserUI.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/io/File.h>
 #include <java/text/MessageFormat.h>
 #include <javax/swing/AbstractAction.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFileChooser.h>
 #include <javax/swing/JOptionPane.h>
 #include <javax/swing/filechooser/FileSystemView.h>
@@ -21,7 +19,6 @@
 
 using $GTKFileChooserUI = ::com::sun::java::swing::plaf::gtk::GTKFileChooserUI;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $File = ::java::io::File;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -30,7 +27,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MessageFormat = ::java::text::MessageFormat;
 using $AbstractAction = ::javax::swing::AbstractAction;
-using $JComponent = ::javax::swing::JComponent;
 using $JFileChooser = ::javax::swing::JFileChooser;
 using $JOptionPane = ::javax::swing::JOptionPane;
 using $FileSystemView = ::javax::swing::filechooser::FileSystemView;

@@ -9,7 +9,6 @@
 #include <com/sun/tools/javac/code/Type$ArrayType.h>
 #include <com/sun/tools/javac/code/Type$JCNoType.h>
 #include <com/sun/tools/javac/code/Type$MethodType.h>
-#include <com/sun/tools/javac/code/Type$StructuralTypeMapping.h>
 #include <com/sun/tools/javac/code/Type$Visitor.h>
 #include <com/sun/tools/javac/code/TypeMetadata$Annotations.h>
 #include <com/sun/tools/javac/code/TypeMetadata$Entry$Kind.h>
@@ -17,7 +16,6 @@
 #include <com/sun/tools/javac/code/TypeMetadata.h>
 #include <com/sun/tools/javac/code/TypeTag.h>
 #include <com/sun/tools/javac/code/Types$DefaultTypeVisitor.h>
-#include <com/sun/tools/javac/code/Types$MapVisitor.h>
 #include <com/sun/tools/javac/code/Types$TypeMapping.h>
 #include <com/sun/tools/javac/code/Types$UniqueType.h>
 #include <com/sun/tools/javac/code/Types.h>
@@ -51,7 +49,6 @@ using $Type$4 = ::com::sun::tools::javac::code::Type$4;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
 using $Type$JCNoType = ::com::sun::tools::javac::code::Type$JCNoType;
 using $Type$MethodType = ::com::sun::tools::javac::code::Type$MethodType;
-using $Type$StructuralTypeMapping = ::com::sun::tools::javac::code::Type$StructuralTypeMapping;
 using $Type$Visitor = ::com::sun::tools::javac::code::Type$Visitor;
 using $TypeMetadata = ::com::sun::tools::javac::code::TypeMetadata;
 using $TypeMetadata$Annotations = ::com::sun::tools::javac::code::TypeMetadata$Annotations;
@@ -59,8 +56,6 @@ using $TypeMetadata$Entry = ::com::sun::tools::javac::code::TypeMetadata$Entry;
 using $TypeMetadata$Entry$Kind = ::com::sun::tools::javac::code::TypeMetadata$Entry$Kind;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types = ::com::sun::tools::javac::code::Types;
-using $Types$DefaultTypeVisitor = ::com::sun::tools::javac::code::Types$DefaultTypeVisitor;
-using $Types$MapVisitor = ::com::sun::tools::javac::code::Types$MapVisitor;
 using $Types$TypeMapping = ::com::sun::tools::javac::code::Types$TypeMapping;
 using $Types$UniqueType = ::com::sun::tools::javac::code::Types$UniqueType;
 using $Assert = ::com::sun::tools::javac::util::Assert;

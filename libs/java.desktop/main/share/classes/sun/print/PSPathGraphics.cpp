@@ -14,13 +14,11 @@
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/Area.h>
 #include <java/awt/geom/Line2D$Float.h>
-#include <java/awt/geom/Line2D.h>
 #include <java/awt/geom/PathIterator.h>
 #include <java/awt/geom/Point2D$Float.h>
 #include <java/awt/geom/Point2D.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/ImageObserver.h>
 #include <java/awt/image/WritableRaster.h>
@@ -34,7 +32,6 @@
 #include <sun/print/PSPrinterJob.h>
 #include <sun/print/PathGraphics.h>
 #include <sun/print/ProxyGraphics2D.h>
-#include <sun/print/RasterPrinterJob.h>
 #include <jcpp.h>
 
 #undef DEFAULT_USER_RES
@@ -56,14 +53,12 @@ using $FontRenderContext = ::java::awt::font::FontRenderContext;
 using $TextLayout = ::java::awt::font::TextLayout;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $Area = ::java::awt::geom::Area;
-using $Line2D = ::java::awt::geom::Line2D;
 using $Line2D$Float = ::java::awt::geom::Line2D$Float;
 using $PathIterator = ::java::awt::geom::PathIterator;
 using $Point2D = ::java::awt::geom::Point2D;
 using $Point2D$Float = ::java::awt::geom::Point2D$Float;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ImageObserver = ::java::awt::image::ImageObserver;
 using $PageFormat = ::java::awt::print::PageFormat;
@@ -81,7 +76,6 @@ using $ByteComponentRaster = ::sun::awt::image::ByteComponentRaster;
 using $PSPrinterJob = ::sun::print::PSPrinterJob;
 using $PathGraphics = ::sun::print::PathGraphics;
 using $ProxyGraphics2D = ::sun::print::ProxyGraphics2D;
-using $RasterPrinterJob = ::sun::print::RasterPrinterJob;
 
 namespace sun {
 	namespace print {

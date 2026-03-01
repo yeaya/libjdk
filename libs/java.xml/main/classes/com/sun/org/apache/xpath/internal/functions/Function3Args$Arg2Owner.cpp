@@ -2,18 +2,12 @@
 
 #include <com/sun/org/apache/xpath/internal/Expression.h>
 #include <com/sun/org/apache/xpath/internal/ExpressionNode.h>
-#include <com/sun/org/apache/xpath/internal/functions/Function.h>
-#include <com/sun/org/apache/xpath/internal/functions/Function2Args.h>
 #include <com/sun/org/apache/xpath/internal/functions/Function3Args.h>
-#include <com/sun/org/apache/xpath/internal/functions/FunctionOneArg.h>
 #include <jcpp.h>
 
 using $Expression = ::com::sun::org::apache::xpath::internal::Expression;
 using $ExpressionNode = ::com::sun::org::apache::xpath::internal::ExpressionNode;
-using $Function = ::com::sun::org::apache::xpath::internal::functions::Function;
-using $Function2Args = ::com::sun::org::apache::xpath::internal::functions::Function2Args;
 using $Function3Args = ::com::sun::org::apache::xpath::internal::functions::Function3Args;
-using $FunctionOneArg = ::com::sun::org::apache::xpath::internal::functions::FunctionOneArg;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

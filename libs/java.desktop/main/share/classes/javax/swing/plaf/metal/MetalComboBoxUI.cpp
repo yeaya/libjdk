@@ -18,17 +18,12 @@
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JList.h>
 #include <javax/swing/plaf/ColorUIResource.h>
-#include <javax/swing/plaf/ComboBoxUI.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/basic/BasicComboBoxEditor.h>
-#include <javax/swing/plaf/basic/BasicComboBoxUI$ComboBoxLayoutManager.h>
-#include <javax/swing/plaf/basic/BasicComboBoxUI$PropertyChangeHandler.h>
 #include <javax/swing/plaf/basic/BasicComboBoxUI.h>
 #include <javax/swing/plaf/basic/ComboPopup.h>
 #include <javax/swing/plaf/metal/MetalBorders.h>
 #include <javax/swing/plaf/metal/MetalComboBoxButton.h>
 #include <javax/swing/plaf/metal/MetalComboBoxEditor$UIResource.h>
-#include <javax/swing/plaf/metal/MetalComboBoxEditor.h>
 #include <javax/swing/plaf/metal/MetalComboBoxIcon.h>
 #include <javax/swing/plaf/metal/MetalComboBoxUI$MetalComboBoxLayoutManager.h>
 #include <javax/swing/plaf/metal/MetalComboBoxUI$MetalPropertyChangeListener.h>
@@ -61,16 +56,11 @@ using $JButton = ::javax::swing::JButton;
 using $JComboBox = ::javax::swing::JComboBox;
 using $JComponent = ::javax::swing::JComponent;
 using $JList = ::javax::swing::JList;
-using $ComboBoxUI = ::javax::swing::plaf::ComboBoxUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $BasicComboBoxEditor = ::javax::swing::plaf::basic::BasicComboBoxEditor;
 using $BasicComboBoxUI = ::javax::swing::plaf::basic::BasicComboBoxUI;
-using $BasicComboBoxUI$ComboBoxLayoutManager = ::javax::swing::plaf::basic::BasicComboBoxUI$ComboBoxLayoutManager;
-using $BasicComboBoxUI$PropertyChangeHandler = ::javax::swing::plaf::basic::BasicComboBoxUI$PropertyChangeHandler;
 using $ComboPopup = ::javax::swing::plaf::basic::ComboPopup;
 using $MetalBorders = ::javax::swing::plaf::metal::MetalBorders;
 using $MetalComboBoxButton = ::javax::swing::plaf::metal::MetalComboBoxButton;
-using $MetalComboBoxEditor = ::javax::swing::plaf::metal::MetalComboBoxEditor;
 using $MetalComboBoxEditor$UIResource = ::javax::swing::plaf::metal::MetalComboBoxEditor$UIResource;
 using $MetalComboBoxIcon = ::javax::swing::plaf::metal::MetalComboBoxIcon;
 using $MetalComboBoxUI$MetalComboBoxLayoutManager = ::javax::swing::plaf::metal::MetalComboBoxUI$MetalComboBoxLayoutManager;

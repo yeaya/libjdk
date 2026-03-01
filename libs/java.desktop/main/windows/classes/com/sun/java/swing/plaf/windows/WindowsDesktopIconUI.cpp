@@ -4,19 +4,15 @@
 #include <com/sun/java/swing/plaf/windows/XPStyle.h>
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JInternalFrame$JDesktopIcon.h>
 #include <javax/swing/JInternalFrame.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/DesktopIconUI.h>
 #include <javax/swing/plaf/basic/BasicDesktopIconUI.h>
-#include <javax/swing/plaf/basic/BasicInternalFrameTitlePane.h>
 #include <jcpp.h>
 
 #undef CENTER
@@ -25,10 +21,8 @@ using $WindowsInternalFrameTitlePane = ::com::sun::java::swing::plaf::windows::W
 using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -37,9 +31,7 @@ using $JInternalFrame$JDesktopIcon = ::javax::swing::JInternalFrame$JDesktopIcon
 using $UIManager = ::javax::swing::UIManager;
 using $Border = ::javax::swing::border::Border;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $DesktopIconUI = ::javax::swing::plaf::DesktopIconUI;
 using $BasicDesktopIconUI = ::javax::swing::plaf::basic::BasicDesktopIconUI;
-using $BasicInternalFrameTitlePane = ::javax::swing::plaf::basic::BasicInternalFrameTitlePane;
 
 namespace com {
 	namespace sun {

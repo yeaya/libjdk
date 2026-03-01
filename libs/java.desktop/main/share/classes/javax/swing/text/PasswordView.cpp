@@ -10,7 +10,6 @@
 #include <java/awt/Shape.h>
 #include <java/awt/font/FontRenderContext.h>
 #include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JPasswordField.h>
 #include <javax/swing/text/Document.h>
@@ -40,7 +39,6 @@ using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
 using $FontRenderContext = ::java::awt::font::FontRenderContext;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -51,7 +49,6 @@ using $JPasswordField = ::javax::swing::JPasswordField;
 using $Document = ::javax::swing::text::Document;
 using $Element = ::javax::swing::text::Element;
 using $FieldView = ::javax::swing::text::FieldView;
-using $PlainView = ::javax::swing::text::PlainView;
 using $PlainView$FPMethodArgs = ::javax::swing::text::PlainView$FPMethodArgs;
 using $Position$Bias = ::javax::swing::text::Position$Bias;
 using $Utilities = ::javax::swing::text::Utilities;

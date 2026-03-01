@@ -5,7 +5,6 @@
 #include <com/sun/org/apache/xml/internal/dtm/DTMManager.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMNodeIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMNodeList.h>
-#include <com/sun/org/apache/xml/internal/dtm/ref/DTMNodeListBase.h>
 #include <com/sun/org/apache/xml/internal/utils/FastStringBuffer.h>
 #include <com/sun/org/apache/xml/internal/utils/WrappedRuntimeException.h>
 #include <com/sun/org/apache/xml/internal/utils/XMLString.h>
@@ -32,7 +31,6 @@ using $DTM = ::com::sun::org::apache::xml::internal::dtm::DTM;
 using $DTMIterator = ::com::sun::org::apache::xml::internal::dtm::DTMIterator;
 using $DTMNodeIterator = ::com::sun::org::apache::xml::internal::dtm::ref::DTMNodeIterator;
 using $DTMNodeList = ::com::sun::org::apache::xml::internal::dtm::ref::DTMNodeList;
-using $DTMNodeListBase = ::com::sun::org::apache::xml::internal::dtm::ref::DTMNodeListBase;
 using $FastStringBuffer = ::com::sun::org::apache::xml::internal::utils::FastStringBuffer;
 using $WrappedRuntimeException = ::com::sun::org::apache::xml::internal::utils::WrappedRuntimeException;
 using $XMLString = ::com::sun::org::apache::xml::internal::utils::XMLString;

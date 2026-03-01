@@ -14,18 +14,15 @@
 #include <com/sun/org/apache/bcel/internal/classfile/SourceFile.h>
 #include <com/sun/org/apache/bcel/internal/generic/AnnotationEntryGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/BasicType.h>
-#include <com/sun/org/apache/bcel/internal/generic/CPInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ClassGen$1.h>
 #include <com/sun/org/apache/bcel/internal/generic/ClassGenException.h>
 #include <com/sun/org/apache/bcel/internal/generic/ClassObserver.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
-#include <com/sun/org/apache/bcel/internal/generic/FieldOrMethod.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKESPECIAL.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionConst.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionList.h>
-#include <com/sun/org/apache/bcel/internal/generic/InvokeInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/LocalVariableInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/MethodGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/ReturnInstruction.h>
@@ -33,7 +30,6 @@
 #include <com/sun/org/apache/bcel/internal/util/BCELComparator.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/Error.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -64,17 +60,14 @@ using $RuntimeInvisibleAnnotations = ::com::sun::org::apache::bcel::internal::cl
 using $RuntimeVisibleAnnotations = ::com::sun::org::apache::bcel::internal::classfile::RuntimeVisibleAnnotations;
 using $SourceFile = ::com::sun::org::apache::bcel::internal::classfile::SourceFile;
 using $AnnotationEntryGen = ::com::sun::org::apache::bcel::internal::generic::AnnotationEntryGen;
-using $CPInstruction = ::com::sun::org::apache::bcel::internal::generic::CPInstruction;
 using $ClassGen$1 = ::com::sun::org::apache::bcel::internal::generic::ClassGen$1;
 using $ClassGenException = ::com::sun::org::apache::bcel::internal::generic::ClassGenException;
 using $ClassObserver = ::com::sun::org::apache::bcel::internal::generic::ClassObserver;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
-using $FieldOrMethod = ::com::sun::org::apache::bcel::internal::generic::FieldOrMethod;
 using $INVOKESPECIAL = ::com::sun::org::apache::bcel::internal::generic::INVOKESPECIAL;
 using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionConst = ::com::sun::org::apache::bcel::internal::generic::InstructionConst;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
-using $InvokeInstruction = ::com::sun::org::apache::bcel::internal::generic::InvokeInstruction;
 using $MethodGen = ::com::sun::org::apache::bcel::internal::generic::MethodGen;
 using $Type = ::com::sun::org::apache::bcel::internal::generic::Type;
 using $BCELComparator = ::com::sun::org::apache::bcel::internal::util::BCELComparator;
@@ -84,7 +77,6 @@ using $Error = ::java::lang::Error;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;

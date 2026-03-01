@@ -1,11 +1,9 @@
 #include <sun/swing/plaf/synth/SynthFileChooserUIImpl$DirectoryComboBoxRenderer.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/io/File.h>
 #include <java/lang/AssertionError.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFileChooser.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JList.h>
@@ -17,7 +15,6 @@
 #include <jcpp.h>
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $File = ::java::io::File;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -25,7 +22,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Icon = ::javax::swing::Icon;
-using $JComponent = ::javax::swing::JComponent;
 using $JFileChooser = ::javax::swing::JFileChooser;
 using $JLabel = ::javax::swing::JLabel;
 using $JList = ::javax::swing::JList;

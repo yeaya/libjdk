@@ -1,6 +1,5 @@
 #include <com/sun/media/sound/WaveFileWriter.h>
 
-#include <com/sun/media/sound/StandardFileFormat.h>
 #include <com/sun/media/sound/SunFileWriter$NoCloseInputStream.h>
 #include <com/sun/media/sound/SunFileWriter.h>
 #include <com/sun/media/sound/WaveFileFormat.h>
@@ -10,7 +9,6 @@
 #include <java/io/DataOutputStream.h>
 #include <java/io/File.h>
 #include <java/io/FileOutputStream.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
@@ -41,7 +39,6 @@
 #undef WAVE_MAGIC
 
 using $AudioFileFormat$TypeArray = $Array<::javax::sound::sampled::AudioFileFormat$Type>;
-using $StandardFileFormat = ::com::sun::media::sound::StandardFileFormat;
 using $SunFileWriter = ::com::sun::media::sound::SunFileWriter;
 using $SunFileWriter$NoCloseInputStream = ::com::sun::media::sound::SunFileWriter$NoCloseInputStream;
 using $WaveFileFormat = ::com::sun::media::sound::WaveFileFormat;
@@ -51,7 +48,6 @@ using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $DataOutputStream = ::java::io::DataOutputStream;
 using $File = ::java::io::File;
 using $FileOutputStream = ::java::io::FileOutputStream;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;

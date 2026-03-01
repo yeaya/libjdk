@@ -1,7 +1,6 @@
 #include <com/sun/org/apache/xerces/internal/dom/DOMErrorImpl.h>
 
 #include <com/sun/org/apache/xerces/internal/dom/DOMLocatorImpl.h>
-#include <com/sun/org/apache/xerces/internal/xni/XNIException.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLParseException.h>
 #include <org/w3c/dom/DOMError.h>
 #include <org/w3c/dom/DOMLocator.h>
@@ -10,13 +9,11 @@
 #undef SEVERITY_WARNING
 
 using $DOMLocatorImpl = ::com::sun::org::apache::xerces::internal::dom::DOMLocatorImpl;
-using $XNIException = ::com::sun::org::apache::xerces::internal::xni::XNIException;
 using $XMLParseException = ::com::sun::org::apache::xerces::internal::xni::parser::XMLParseException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $DOMError = ::org::w3c::dom::DOMError;
 using $DOMLocator = ::org::w3c::dom::DOMLocator;
 

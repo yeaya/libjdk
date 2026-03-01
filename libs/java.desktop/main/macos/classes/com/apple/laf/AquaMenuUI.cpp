@@ -21,12 +21,9 @@
 #include <javax/swing/event/ChangeListener.h>
 #include <javax/swing/event/MenuDragMouseListener.h>
 #include <javax/swing/event/MouseInputListener.h>
-#include <javax/swing/plaf/ButtonUI.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/MenuItemUI.h>
 #include <javax/swing/plaf/basic/BasicMenuItemUI.h>
 #include <javax/swing/plaf/basic/BasicMenuUI$ChangeHandler.h>
-#include <javax/swing/plaf/basic/BasicMenuUI$MouseInputHandler.h>
 #include <javax/swing/plaf/basic/BasicMenuUI.h>
 #include <jcpp.h>
 
@@ -54,13 +51,9 @@ using $MenuSelectionManager = ::javax::swing::MenuSelectionManager;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
 using $MenuDragMouseListener = ::javax::swing::event::MenuDragMouseListener;
 using $MouseInputListener = ::javax::swing::event::MouseInputListener;
-using $ButtonUI = ::javax::swing::plaf::ButtonUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $MenuItemUI = ::javax::swing::plaf::MenuItemUI;
-using $BasicMenuItemUI = ::javax::swing::plaf::basic::BasicMenuItemUI;
 using $BasicMenuUI = ::javax::swing::plaf::basic::BasicMenuUI;
 using $BasicMenuUI$ChangeHandler = ::javax::swing::plaf::basic::BasicMenuUI$ChangeHandler;
-using $BasicMenuUI$MouseInputHandler = ::javax::swing::plaf::basic::BasicMenuUI$MouseInputHandler;
 
 namespace com {
 	namespace apple {

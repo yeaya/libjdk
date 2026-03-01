@@ -11,11 +11,9 @@
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/ButtonGroup.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/JRadioButton.h>
-#include <javax/swing/JToggleButton.h>
 #include <sun/print/ServiceDialog$IconRadioButton$1.h>
 #include <sun/print/ServiceDialog.h>
 #include <jcpp.h>
@@ -37,11 +35,9 @@ using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AbstractButton = ::javax::swing::AbstractButton;
 using $ButtonGroup = ::javax::swing::ButtonGroup;
 using $Icon = ::javax::swing::Icon;
-using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
 using $JPanel = ::javax::swing::JPanel;
 using $JRadioButton = ::javax::swing::JRadioButton;
-using $JToggleButton = ::javax::swing::JToggleButton;
 using $ServiceDialog = ::sun::print::ServiceDialog;
 using $ServiceDialog$IconRadioButton$1 = ::sun::print::ServiceDialog$IconRadioButton$1;
 

@@ -13,7 +13,6 @@
 #include <java/awt/print/PageFormat.h>
 #include <java/lang/InternalError.h>
 #include <java/nio/ByteBuffer.h>
-#include <sun/awt/image/BufImgSurfaceData.h>
 #include <sun/java2d/OSXSurfaceData.h>
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/SurfaceData.h>
@@ -37,7 +36,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $BufImgSurfaceData = ::sun::awt::image::BufImgSurfaceData;
 using $OSXSurfaceData = ::sun::java2d::OSXSurfaceData;
 using $SunGraphics2D = ::sun::java2d::SunGraphics2D;
 using $SurfaceData = ::sun::java2d::SurfaceData;

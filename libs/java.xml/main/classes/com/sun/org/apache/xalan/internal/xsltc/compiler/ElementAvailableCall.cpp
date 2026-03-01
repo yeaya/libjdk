@@ -29,7 +29,6 @@ using $CompoundInstruction = ::com::sun::org::apache::bcel::internal::generic::C
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $PUSH = ::com::sun::org::apache::bcel::internal::generic::PUSH;
-using $Expression = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression;
 using $FunctionCall = ::com::sun::org::apache::xalan::internal::xsltc::compiler::FunctionCall;
 using $LiteralExpr = ::com::sun::org::apache::xalan::internal::xsltc::compiler::LiteralExpr;
 using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;

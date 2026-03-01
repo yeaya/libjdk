@@ -14,7 +14,6 @@
 #include <java/lang/management/LockInfo.h>
 #include <java/lang/management/MonitorInfo.h>
 #include <java/lang/management/ThreadInfo.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Arrays.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
@@ -78,7 +77,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $LockInfo = ::java::lang::management::LockInfo;
 using $MonitorInfo = ::java::lang::management::MonitorInfo;
 using $ThreadInfo = ::java::lang::management::ThreadInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Arrays = ::java::util::Arrays;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;

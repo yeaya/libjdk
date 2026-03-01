@@ -15,7 +15,6 @@
 #include <java/security/PermissionCollection.h>
 #include <java/security/Principal.h>
 #include <java/security/ProtectionDomain.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
@@ -45,7 +44,6 @@ using $Path = ::java::nio::file::Path;
 using $CodeSource = ::java::security::CodeSource;
 using $PermissionCollection = ::java::security::PermissionCollection;
 using $ProtectionDomain = ::java::security::ProtectionDomain;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;

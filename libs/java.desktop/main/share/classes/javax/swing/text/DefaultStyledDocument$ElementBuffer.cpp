@@ -16,7 +16,6 @@
 #include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/SimpleAttributeSet.h>
 #include <javax/swing/text/StateInvariantError.h>
-#include <javax/swing/undo/AbstractUndoableEdit.h>
 #include <javax/swing/undo/UndoableEdit.h>
 #include <jcpp.h>
 
@@ -45,7 +44,6 @@ using $Element = ::javax::swing::text::Element;
 using $MutableAttributeSet = ::javax::swing::text::MutableAttributeSet;
 using $SimpleAttributeSet = ::javax::swing::text::SimpleAttributeSet;
 using $StateInvariantError = ::javax::swing::text::StateInvariantError;
-using $AbstractUndoableEdit = ::javax::swing::undo::AbstractUndoableEdit;
 using $UndoableEdit = ::javax::swing::undo::UndoableEdit;
 
 namespace javax {

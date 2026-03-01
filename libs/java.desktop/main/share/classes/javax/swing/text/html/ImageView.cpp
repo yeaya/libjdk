@@ -9,8 +9,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <java/awt/Toolkit.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/awt/image/ImageObserver.h>
 #include <java/lang/Math.h>
 #include <java/lang/NumberFormatException.h>
@@ -29,10 +27,8 @@
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/Element.h>
-#include <javax/swing/text/GlyphView.h>
 #include <javax/swing/text/Highlighter.h>
 #include <javax/swing/text/JTextComponent.h>
-#include <javax/swing/text/LabelView.h>
 #include <javax/swing/text/LayeredHighlighter.h>
 #include <javax/swing/text/Position$Bias.h>
 #include <javax/swing/text/StyledDocument.h>
@@ -44,7 +40,6 @@
 #include <javax/swing/text/html/ImageView$1.h>
 #include <javax/swing/text/html/ImageView$ImageHandler.h>
 #include <javax/swing/text/html/ImageView$ImageLabelView.h>
-#include <javax/swing/text/html/InlineView.h>
 #include <javax/swing/text/html/StyleSheet.h>
 #include <jcpp.h>
 
@@ -84,8 +79,6 @@ using $Image = ::java::awt::Image;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
 using $Toolkit = ::java::awt::Toolkit;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $ImageObserver = ::java::awt::image::ImageObserver;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
@@ -112,10 +105,8 @@ using $AbstractDocument = ::javax::swing::text::AbstractDocument;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $Document = ::javax::swing::text::Document;
 using $Element = ::javax::swing::text::Element;
-using $GlyphView = ::javax::swing::text::GlyphView;
 using $Highlighter = ::javax::swing::text::Highlighter;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
-using $LabelView = ::javax::swing::text::LabelView;
 using $LayeredHighlighter = ::javax::swing::text::LayeredHighlighter;
 using $Position$Bias = ::javax::swing::text::Position$Bias;
 using $StyledDocument = ::javax::swing::text::StyledDocument;
@@ -127,7 +118,6 @@ using $HTMLDocument = ::javax::swing::text::html::HTMLDocument;
 using $ImageView$1 = ::javax::swing::text::html::ImageView$1;
 using $ImageView$ImageHandler = ::javax::swing::text::html::ImageView$ImageHandler;
 using $ImageView$ImageLabelView = ::javax::swing::text::html::ImageView$ImageLabelView;
-using $InlineView = ::javax::swing::text::html::InlineView;
 using $StyleSheet = ::javax::swing::text::html::StyleSheet;
 
 namespace javax {

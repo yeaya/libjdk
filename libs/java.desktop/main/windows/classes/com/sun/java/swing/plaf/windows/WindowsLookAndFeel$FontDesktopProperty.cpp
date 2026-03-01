@@ -2,7 +2,6 @@
 
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel$TriggerDesktopProperty.h>
 #include <com/sun/java/swing/plaf/windows/WindowsLookAndFeel.h>
-#include <java/util/Hashtable.h>
 #include <java/util/Map.h>
 #include <javax/swing/UIDefaults.h>
 #include <javax/swing/UIManager.h>
@@ -15,7 +14,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Hashtable = ::java::util::Hashtable;
 using $Map = ::java::util::Map;
 using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIManager = ::javax::swing::UIManager;

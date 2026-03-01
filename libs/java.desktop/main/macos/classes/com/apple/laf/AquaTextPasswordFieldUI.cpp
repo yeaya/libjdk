@@ -6,23 +6,16 @@
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
 #include <com/apple/laf/AquaUtils$RecyclableSingletonFromDefaultConstructor.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Toolkit.h>
-#include <java/awt/event/KeyAdapter.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/event/KeyListener.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/TextUI.h>
-#include <javax/swing/plaf/basic/BasicTextFieldUI.h>
 #include <javax/swing/plaf/basic/BasicTextUI.h>
 #include <javax/swing/text/Element.h>
-#include <javax/swing/text/FieldView.h>
 #include <javax/swing/text/JTextComponent.h>
-#include <javax/swing/text/PasswordView.h>
-#include <javax/swing/text/PlainView.h>
 #include <javax/swing/text/View.h>
 #include <jcpp.h>
 
@@ -34,11 +27,9 @@ using $AquaTextPasswordFieldUI$CapsLockSymbolPainter = ::com::apple::laf::AquaTe
 using $AquaUtils$RecyclableSingleton = ::com::apple::laf::AquaUtils$RecyclableSingleton;
 using $AquaUtils$RecyclableSingletonFromDefaultConstructor = ::com::apple::laf::AquaUtils$RecyclableSingletonFromDefaultConstructor;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
-using $KeyAdapter = ::java::awt::event::KeyAdapter;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $KeyListener = ::java::awt::event::KeyListener;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -47,14 +38,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $TextUI = ::javax::swing::plaf::TextUI;
-using $BasicTextFieldUI = ::javax::swing::plaf::basic::BasicTextFieldUI;
-using $BasicTextUI = ::javax::swing::plaf::basic::BasicTextUI;
 using $Element = ::javax::swing::text::Element;
-using $FieldView = ::javax::swing::text::FieldView;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
-using $PasswordView = ::javax::swing::text::PasswordView;
-using $PlainView = ::javax::swing::text::PlainView;
 using $View = ::javax::swing::text::View;
 
 namespace com {

@@ -11,13 +11,10 @@
 #include <java/awt/Shape.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/Window.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/awt/image/FilteredImageSource.h>
 #include <java/awt/image/ImageFilter.h>
 #include <java/awt/image/ImageObserver.h>
 #include <java/awt/image/ImageProducer.h>
-#include <java/awt/image/RGBImageFilter.h>
 #include <java/text/AttributedCharacterIterator.h>
 #include <java/util/Hashtable.h>
 #include <javax/swing/DebugGraphicsFilter.h>
@@ -45,13 +42,10 @@ using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
 using $Toolkit = ::java::awt::Toolkit;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $FilteredImageSource = ::java::awt::image::FilteredImageSource;
 using $ImageFilter = ::java::awt::image::ImageFilter;
 using $ImageObserver = ::java::awt::image::ImageObserver;
 using $ImageProducer = ::java::awt::image::ImageProducer;
-using $RGBImageFilter = ::java::awt::image::RGBImageFilter;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;

@@ -18,11 +18,9 @@
 #include <java/awt/image/Raster.h>
 #include <java/awt/image/SampleModel.h>
 #include <java/awt/image/SinglePixelPackedSampleModel.h>
-#include <java/awt/image/WritableRaster.h>
 #include <java/lang/Runnable.h>
 #include <sun/awt/SunHints.h>
 #include <sun/awt/SunToolkit.h>
-#include <sun/awt/image/DataBufferNative.h>
 #include <sun/awt/image/PixelConverter$ArgbPre.h>
 #include <sun/awt/image/PixelConverter.h>
 #include <sun/awt/image/SunVolatileImage.h>
@@ -57,16 +55,11 @@
 #include <sun/java2d/loops/MaskFill.h>
 #include <sun/java2d/loops/SurfaceType.h>
 #include <sun/java2d/pipe/BufferedContext.h>
-#include <sun/java2d/pipe/BufferedRenderPipe.h>
-#include <sun/java2d/pipe/BufferedTextPipe.h>
-#include <sun/java2d/pipe/DrawImage.h>
 #include <sun/java2d/pipe/DrawImagePipe.h>
-#include <sun/java2d/pipe/GlyphListPipe.h>
 #include <sun/java2d/pipe/ParallelogramPipe.h>
 #include <sun/java2d/pipe/PixelDrawPipe.h>
 #include <sun/java2d/pipe/PixelFillPipe.h>
 #include <sun/java2d/pipe/PixelToParallelogramConverter.h>
-#include <sun/java2d/pipe/PixelToShapeConverter.h>
 #include <sun/java2d/pipe/Region.h>
 #include <sun/java2d/pipe/RenderBuffer.h>
 #include <sun/java2d/pipe/RenderQueue.h>
@@ -132,7 +125,6 @@ using $DirectColorModel = ::java::awt::image::DirectColorModel;
 using $Raster = ::java::awt::image::Raster;
 using $SampleModel = ::java::awt::image::SampleModel;
 using $SinglePixelPackedSampleModel = ::java::awt::image::SinglePixelPackedSampleModel;
-using $WritableRaster = ::java::awt::image::WritableRaster;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -141,7 +133,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $SunHints = ::sun::awt::SunHints;
 using $SunToolkit = ::sun::awt::SunToolkit;
-using $DataBufferNative = ::sun::awt::image::DataBufferNative;
 using $PixelConverter$ArgbPre = ::sun::awt::image::PixelConverter$ArgbPre;
 using $SunVolatileImage = ::sun::awt::image::SunVolatileImage;
 using $SurfaceManager = ::sun::awt::image::SurfaceManager;
@@ -174,16 +165,11 @@ using $GraphicsPrimitive = ::sun::java2d::loops::GraphicsPrimitive;
 using $MaskFill = ::sun::java2d::loops::MaskFill;
 using $SurfaceType = ::sun::java2d::loops::SurfaceType;
 using $BufferedContext = ::sun::java2d::pipe::BufferedContext;
-using $BufferedRenderPipe = ::sun::java2d::pipe::BufferedRenderPipe;
-using $BufferedTextPipe = ::sun::java2d::pipe::BufferedTextPipe;
-using $DrawImage = ::sun::java2d::pipe::DrawImage;
 using $DrawImagePipe = ::sun::java2d::pipe::DrawImagePipe;
-using $GlyphListPipe = ::sun::java2d::pipe::GlyphListPipe;
 using $ParallelogramPipe = ::sun::java2d::pipe::ParallelogramPipe;
 using $PixelDrawPipe = ::sun::java2d::pipe::PixelDrawPipe;
 using $PixelFillPipe = ::sun::java2d::pipe::PixelFillPipe;
 using $PixelToParallelogramConverter = ::sun::java2d::pipe::PixelToParallelogramConverter;
-using $PixelToShapeConverter = ::sun::java2d::pipe::PixelToShapeConverter;
 using $Region = ::sun::java2d::pipe::Region;
 using $RenderBuffer = ::sun::java2d::pipe::RenderBuffer;
 using $RenderQueue = ::sun::java2d::pipe::RenderQueue;

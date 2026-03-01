@@ -1,14 +1,12 @@
 #include <com/sun/org/apache/bcel/internal/util/ByteSequence.h>
 
 #include <com/sun/org/apache/bcel/internal/util/ByteSequence$ByteArrayStream.h>
-#include <java/io/ByteArrayInputStream.h>
 #include <java/io/DataInputStream.h>
 #include <java/io/FilterInputStream.h>
 #include <java/io/InputStream.h>
 #include <jcpp.h>
 
 using $ByteSequence$ByteArrayStream = ::com::sun::org::apache::bcel::internal::util::ByteSequence$ByteArrayStream;
-using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $DataInputStream = ::java::io::DataInputStream;
 using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;

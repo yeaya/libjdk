@@ -14,12 +14,10 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
 #include <java/util/function/Consumer.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JScrollPane.h>
@@ -27,13 +25,11 @@
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/TextUI.h>
 #include <javax/swing/text/AbstractDocument$AbstractElement.h>
-#include <javax/swing/text/DefaultEditorKit.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/EditorKit.h>
 #include <javax/swing/text/Element.h>
 #include <javax/swing/text/GlyphView.h>
 #include <javax/swing/text/JTextComponent.h>
-#include <javax/swing/text/StyledEditorKit.h>
 #include <javax/swing/text/View.h>
 #include <javax/swing/text/html/HTMLEditorKit.h>
 #include <javax/swing/text/html/StyleSheet.h>
@@ -47,7 +43,6 @@
 
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Font = ::java::awt::Font;
 using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
@@ -59,24 +54,20 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $List = ::java::util::List;
 using $Consumer = ::java::util::function::Consumer;
-using $JComponent = ::javax::swing::JComponent;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $JFrame = ::javax::swing::JFrame;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $TextUI = ::javax::swing::plaf::TextUI;
 using $AbstractDocument$AbstractElement = ::javax::swing::text::AbstractDocument$AbstractElement;
-using $DefaultEditorKit = ::javax::swing::text::DefaultEditorKit;
 using $Document = ::javax::swing::text::Document;
 using $EditorKit = ::javax::swing::text::EditorKit;
 using $GlyphView = ::javax::swing::text::GlyphView;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
-using $StyledEditorKit = ::javax::swing::text::StyledEditorKit;
 using $View = ::javax::swing::text::View;
 using $HTMLEditorKit = ::javax::swing::text::html::HTMLEditorKit;
 using $StyleSheet = ::javax::swing::text::html::StyleSheet;

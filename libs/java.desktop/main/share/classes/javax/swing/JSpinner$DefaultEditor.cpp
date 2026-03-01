@@ -11,11 +11,9 @@
 #include <java/beans/PropertyChangeListener.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFormattedTextField.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/JSpinner.h>
-#include <javax/swing/JTextField.h>
 #include <javax/swing/event/ChangeEvent.h>
 #include <javax/swing/event/ChangeListener.h>
 #include <javax/swing/plaf/FontUIResource.h>
@@ -39,16 +37,13 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ActionMap = ::javax::swing::ActionMap;
-using $JComponent = ::javax::swing::JComponent;
 using $JFormattedTextField = ::javax::swing::JFormattedTextField;
 using $JPanel = ::javax::swing::JPanel;
 using $JSpinner = ::javax::swing::JSpinner;
-using $JTextField = ::javax::swing::JTextField;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
 using $FontUIResource = ::javax::swing::plaf::FontUIResource;
 using $UIResource = ::javax::swing::plaf::UIResource;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 namespace javax {
 	namespace swing {

@@ -18,18 +18,14 @@
 #include <java/awt/geom/Arc2D$Float.h>
 #include <java/awt/geom/Arc2D.h>
 #include <java/awt/geom/Ellipse2D$Float.h>
-#include <java/awt/geom/Ellipse2D.h>
 #include <java/awt/geom/Line2D$Float.h>
-#include <java/awt/geom/Line2D.h>
 #include <java/awt/geom/Path2D$Float.h>
 #include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/PathIterator.h>
 #include <java/awt/geom/Point2D.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/awt/geom/RoundRectangle2D$Float.h>
-#include <java/awt/geom/RoundRectangle2D.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/BufferedImageOp.h>
 #include <java/awt/image/ColorModel.h>
@@ -102,9 +98,7 @@ using $TextLayout = ::java::awt::font::TextLayout;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $Arc2D = ::java::awt::geom::Arc2D;
 using $Arc2D$Float = ::java::awt::geom::Arc2D$Float;
-using $Ellipse2D = ::java::awt::geom::Ellipse2D;
 using $Ellipse2D$Float = ::java::awt::geom::Ellipse2D$Float;
-using $Line2D = ::java::awt::geom::Line2D;
 using $Line2D$Float = ::java::awt::geom::Line2D$Float;
 using $Path2D = ::java::awt::geom::Path2D;
 using $Path2D$Float = ::java::awt::geom::Path2D$Float;
@@ -112,8 +106,6 @@ using $PathIterator = ::java::awt::geom::PathIterator;
 using $Point2D = ::java::awt::geom::Point2D;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
-using $RoundRectangle2D = ::java::awt::geom::RoundRectangle2D;
 using $RoundRectangle2D$Float = ::java::awt::geom::RoundRectangle2D$Float;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $BufferedImageOp = ::java::awt::image::BufferedImageOp;

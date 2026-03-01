@@ -7,11 +7,9 @@
 #include <java/awt/Container.h>
 #include <java/awt/Dialog.h>
 #include <java/awt/EventQueue.h>
-#include <java/awt/Frame.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/Toolkit.h>
-#include <java/awt/Window.h>
 #include <java/awt/event/InvocationEvent.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/WritableRaster.h>
@@ -46,14 +44,11 @@ using $AWTEvent = ::java::awt::AWTEvent;
 using $AWTKeyStroke = ::java::awt::AWTKeyStroke;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dialog = ::java::awt::Dialog;
 using $EventQueue = ::java::awt::EventQueue;
-using $Frame = ::java::awt::Frame;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Toolkit = ::java::awt::Toolkit;
-using $Window = ::java::awt::Window;
 using $InvocationEvent = ::java::awt::event::InvocationEvent;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ComponentPeer = ::java::awt::peer::ComponentPeer;

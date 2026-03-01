@@ -97,7 +97,6 @@
 #include <com/sun/org/apache/bcel/internal/generic/LSUB.h>
 #include <com/sun/org/apache/bcel/internal/generic/LUSHR.h>
 #include <com/sun/org/apache/bcel/internal/generic/LXOR.h>
-#include <com/sun/org/apache/bcel/internal/generic/LoadInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/LocalVariableInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/MONITORENTER.h>
 #include <com/sun/org/apache/bcel/internal/generic/MONITOREXIT.h>
@@ -110,7 +109,6 @@
 #include <com/sun/org/apache/bcel/internal/generic/SASTORE.h>
 #include <com/sun/org/apache/bcel/internal/generic/SWAP.h>
 #include <com/sun/org/apache/bcel/internal/generic/StackInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/StoreInstruction.h>
 #include <jcpp.h>
 
 #undef AALOAD
@@ -333,7 +331,6 @@ using $LSHR = ::com::sun::org::apache::bcel::internal::generic::LSHR;
 using $LSUB = ::com::sun::org::apache::bcel::internal::generic::LSUB;
 using $LUSHR = ::com::sun::org::apache::bcel::internal::generic::LUSHR;
 using $LXOR = ::com::sun::org::apache::bcel::internal::generic::LXOR;
-using $LoadInstruction = ::com::sun::org::apache::bcel::internal::generic::LoadInstruction;
 using $LocalVariableInstruction = ::com::sun::org::apache::bcel::internal::generic::LocalVariableInstruction;
 using $MONITORENTER = ::com::sun::org::apache::bcel::internal::generic::MONITORENTER;
 using $MONITOREXIT = ::com::sun::org::apache::bcel::internal::generic::MONITOREXIT;
@@ -346,7 +343,6 @@ using $SALOAD = ::com::sun::org::apache::bcel::internal::generic::SALOAD;
 using $SASTORE = ::com::sun::org::apache::bcel::internal::generic::SASTORE;
 using $SWAP = ::com::sun::org::apache::bcel::internal::generic::SWAP;
 using $StackInstruction = ::com::sun::org::apache::bcel::internal::generic::StackInstruction;
-using $StoreInstruction = ::com::sun::org::apache::bcel::internal::generic::StoreInstruction;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

@@ -6,7 +6,6 @@
 #include <com/sun/imageio/plugins/bmp/BMPImageReader$3.h>
 #include <com/sun/imageio/plugins/bmp/BMPImageReader$4.h>
 #include <com/sun/imageio/plugins/bmp/BMPImageReader$5.h>
-#include <com/sun/imageio/plugins/bmp/BMPImageReader$EmbeddedProgressAdapter.h>
 #include <com/sun/imageio/plugins/bmp/BMPMetadata.h>
 #include <com/sun/imageio/plugins/common/I18N.h>
 #include <com/sun/imageio/plugins/common/ImageUtil.h>
@@ -25,7 +24,6 @@
 #include <java/awt/image/DirectColorModel.h>
 #include <java/awt/image/IndexColorModel.h>
 #include <java/awt/image/MultiPixelPackedSampleModel.h>
-#include <java/awt/image/PackedColorModel.h>
 #include <java/awt/image/PixelInterleavedSampleModel.h>
 #include <java/awt/image/Raster.h>
 #include <java/awt/image/SampleModel.h>
@@ -107,7 +105,6 @@ using $BMPImageReader$2 = ::com::sun::imageio::plugins::bmp::BMPImageReader$2;
 using $BMPImageReader$3 = ::com::sun::imageio::plugins::bmp::BMPImageReader$3;
 using $BMPImageReader$4 = ::com::sun::imageio::plugins::bmp::BMPImageReader$4;
 using $BMPImageReader$5 = ::com::sun::imageio::plugins::bmp::BMPImageReader$5;
-using $BMPImageReader$EmbeddedProgressAdapter = ::com::sun::imageio::plugins::bmp::BMPImageReader$EmbeddedProgressAdapter;
 using $BMPMetadata = ::com::sun::imageio::plugins::bmp::BMPMetadata;
 using $I18N = ::com::sun::imageio::plugins::common::I18N;
 using $ImageUtil = ::com::sun::imageio::plugins::common::ImageUtil;
@@ -126,7 +123,6 @@ using $DataBufferUShort = ::java::awt::image::DataBufferUShort;
 using $DirectColorModel = ::java::awt::image::DirectColorModel;
 using $IndexColorModel = ::java::awt::image::IndexColorModel;
 using $MultiPixelPackedSampleModel = ::java::awt::image::MultiPixelPackedSampleModel;
-using $PackedColorModel = ::java::awt::image::PackedColorModel;
 using $PixelInterleavedSampleModel = ::java::awt::image::PixelInterleavedSampleModel;
 using $Raster = ::java::awt::image::Raster;
 using $SampleModel = ::java::awt::image::SampleModel;

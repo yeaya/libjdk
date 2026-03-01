@@ -5,9 +5,7 @@
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/plaf/basic/BasicLookAndFeel.h>
 #include <javax/swing/plaf/nimbus/NimbusLookAndFeel.h>
-#include <javax/swing/plaf/synth/SynthLookAndFeel.h>
 #include <jcpp.h>
 
 using $Test7048204$1 = ::Test7048204$1;
@@ -18,9 +16,7 @@ using $Runnable = ::java::lang::Runnable;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
 using $NimbusLookAndFeel = ::javax::swing::plaf::nimbus::NimbusLookAndFeel;
-using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
 
 $MethodInfo _Test7048204_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(Test7048204, init$, void)},

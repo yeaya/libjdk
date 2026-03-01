@@ -2,7 +2,6 @@
 
 #include <com/sun/tools/javac/code/Type$5.h>
 #include <com/sun/tools/javac/code/Type$DelegatedType.h>
-#include <com/sun/tools/javac/code/Type$StructuralTypeMapping.h>
 #include <com/sun/tools/javac/code/Type$TypeVar.h>
 #include <com/sun/tools/javac/code/Type$UndetVar$1.h>
 #include <com/sun/tools/javac/code/Type$UndetVar$InferenceBound.h>
@@ -27,7 +26,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/ArrayDeque.h>
 #include <java/util/EnumMap.h>
 #include <java/util/Iterator.h>
@@ -49,7 +47,6 @@ using $Type$UndetVar$InferenceBoundArray = $Array<::com::sun::tools::javac::code
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$5 = ::com::sun::tools::javac::code::Type$5;
 using $Type$DelegatedType = ::com::sun::tools::javac::code::Type$DelegatedType;
-using $Type$StructuralTypeMapping = ::com::sun::tools::javac::code::Type$StructuralTypeMapping;
 using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $Type$UndetVar$1 = ::com::sun::tools::javac::code::Type$UndetVar$1;
 using $Type$UndetVar$InferenceBound = ::com::sun::tools::javac::code::Type$UndetVar$InferenceBound;
@@ -73,7 +70,6 @@ using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayDeque = ::java::util::ArrayDeque;
 using $EnumMap = ::java::util::EnumMap;
 using $Iterator = ::java::util::Iterator;

@@ -21,12 +21,10 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/util/XInt.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/util/XSObjectListImpl.h>
 #include <com/sun/org/apache/xerces/internal/util/DOMUtil.h>
-#include <com/sun/org/apache/xerces/internal/util/NamespaceSupport.h>
 #include <com/sun/org/apache/xerces/internal/util/SymbolTable.h>
 #include <com/sun/org/apache/xerces/internal/util/XMLSymbols.h>
 #include <com/sun/org/apache/xerces/internal/xni/NamespaceContext.h>
 #include <com/sun/org/apache/xerces/internal/xni/QName.h>
-#include <com/sun/org/apache/xerces/internal/xs/XSAnnotation.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSConstants.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSObject.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSObjectList.h>
@@ -85,16 +83,13 @@ using $XSDocumentInfo = ::com::sun::org::apache::xerces::internal::impl::xs::tra
 using $XInt = ::com::sun::org::apache::xerces::internal::impl::xs::util::XInt;
 using $XSObjectListImpl = ::com::sun::org::apache::xerces::internal::impl::xs::util::XSObjectListImpl;
 using $DOMUtil = ::com::sun::org::apache::xerces::internal::util::DOMUtil;
-using $NamespaceSupport = ::com::sun::org::apache::xerces::internal::util::NamespaceSupport;
 using $SymbolTable = ::com::sun::org::apache::xerces::internal::util::SymbolTable;
 using $XMLSymbols = ::com::sun::org::apache::xerces::internal::util::XMLSymbols;
 using $NamespaceContext = ::com::sun::org::apache::xerces::internal::xni::NamespaceContext;
 using $QName = ::com::sun::org::apache::xerces::internal::xni::QName;
-using $XSAnnotation = ::com::sun::org::apache::xerces::internal::xs::XSAnnotation;
 using $XSConstants = ::com::sun::org::apache::xerces::internal::xs::XSConstants;
 using $XSObject = ::com::sun::org::apache::xerces::internal::xs::XSObject;
 using $XSObjectList = ::com::sun::org::apache::xerces::internal::xs::XSObjectList;
-using $XSSimpleTypeDefinition = ::com::sun::org::apache::xerces::internal::xs::XSSimpleTypeDefinition;
 using $XSTypeDefinition = ::com::sun::org::apache::xerces::internal::xs::XSTypeDefinition;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

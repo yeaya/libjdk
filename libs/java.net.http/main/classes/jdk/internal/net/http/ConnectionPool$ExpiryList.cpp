@@ -4,7 +4,6 @@
 #include <java/time/temporal/ChronoUnit.h>
 #include <java/time/temporal/TemporalUnit.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
@@ -28,7 +27,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Instant = ::java::time::Instant;
 using $ChronoUnit = ::java::time::temporal::ChronoUnit;
 using $TemporalUnit = ::java::time::temporal::TemporalUnit;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;

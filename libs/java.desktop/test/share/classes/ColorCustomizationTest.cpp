@@ -3,12 +3,10 @@
 #include <ColorCustomizationTest$1.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/lang/Error.h>
 #include <java/lang/Runnable.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/SwingUtilities.h>
@@ -16,10 +14,8 @@
 #include <javax/swing/UIManager.h>
 #include <javax/swing/UnsupportedLookAndFeelException.h>
 #include <javax/swing/plaf/ColorUIResource.h>
-#include <javax/swing/plaf/basic/BasicLookAndFeel.h>
 #include <javax/swing/plaf/nimbus/NimbusLookAndFeel.h>
 #include <javax/swing/plaf/synth/Region.h>
-#include <javax/swing/plaf/synth/SynthLookAndFeel.h>
 #include <jcpp.h>
 
 #undef BLUE
@@ -33,7 +29,6 @@
 using $ColorCustomizationTest$1 = ::ColorCustomizationTest$1;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $PrintStream = ::java::io::PrintStream;
 using $Boolean = ::java::lang::Boolean;
@@ -44,7 +39,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
@@ -52,10 +46,8 @@ using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIManager = ::javax::swing::UIManager;
 using $UnsupportedLookAndFeelException = ::javax::swing::UnsupportedLookAndFeelException;
 using $ColorUIResource = ::javax::swing::plaf::ColorUIResource;
-using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
 using $NimbusLookAndFeel = ::javax::swing::plaf::nimbus::NimbusLookAndFeel;
 using $Region = ::javax::swing::plaf::synth::Region;
-using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
 
 $FieldInfo _ColorCustomizationTest_FieldInfo_[] = {
 	{"WIDTH", "I", nullptr, $STATIC | $FINAL, $constField(ColorCustomizationTest, WIDTH)},

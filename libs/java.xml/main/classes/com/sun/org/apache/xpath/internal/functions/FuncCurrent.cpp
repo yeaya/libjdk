@@ -6,7 +6,6 @@
 #include <com/sun/org/apache/xml/internal/dtm/DTMManager.h>
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
 #include <com/sun/org/apache/xpath/internal/axes/LocPathIterator.h>
-#include <com/sun/org/apache/xpath/internal/axes/NodeSequence.h>
 #include <com/sun/org/apache/xpath/internal/axes/PredicatedNodeTest.h>
 #include <com/sun/org/apache/xpath/internal/axes/SubContextList.h>
 #include <com/sun/org/apache/xpath/internal/functions/Function.h>
@@ -24,7 +23,6 @@ using $XSLTErrorResources = ::com::sun::org::apache::xalan::internal::res::XSLTE
 using $DTM = ::com::sun::org::apache::xml::internal::dtm::DTM;
 using $XPathContext = ::com::sun::org::apache::xpath::internal::XPathContext;
 using $LocPathIterator = ::com::sun::org::apache::xpath::internal::axes::LocPathIterator;
-using $NodeSequence = ::com::sun::org::apache::xpath::internal::axes::NodeSequence;
 using $PredicatedNodeTest = ::com::sun::org::apache::xpath::internal::axes::PredicatedNodeTest;
 using $SubContextList = ::com::sun::org::apache::xpath::internal::axes::SubContextList;
 using $Function = ::com::sun::org::apache::xpath::internal::functions::Function;

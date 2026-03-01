@@ -28,7 +28,6 @@ using $ModelPerformer = ::com::sun::media::sound::ModelPerformer;
 using $SimpleInstrument = ::com::sun::media::sound::SimpleInstrument;
 using $SimpleSoundbank = ::com::sun::media::sound::SimpleSoundbank;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;

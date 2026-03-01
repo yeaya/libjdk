@@ -1,9 +1,7 @@
 #include <javax/swing/JTabbedPane.h>
 
 #include <java/awt/Color.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/MouseEvent.h>
@@ -11,7 +9,6 @@
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/EventListener.h>
 #include <java/util/List.h>
@@ -20,7 +17,6 @@
 #include <javax/accessibility/AccessibleState.h>
 #include <javax/swing/DefaultSingleSelectionModel.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JTabbedPane$AccessibleJTabbedPane.h>
 #include <javax/swing/JTabbedPane$ModelListener.h>
@@ -55,8 +51,6 @@ using $ComponentArray = $Array<::java::awt::Component>;
 using $ChangeListenerArray = $Array<::javax::swing::event::ChangeListener>;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Rectangle = ::java::awt::Rectangle;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
@@ -72,7 +66,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $EventListener = ::java::util::EventListener;
 using $List = ::java::util::List;
@@ -82,7 +75,6 @@ using $AccessibleState = ::javax::accessibility::AccessibleState;
 using $DefaultSingleSelectionModel = ::javax::swing::DefaultSingleSelectionModel;
 using $Icon = ::javax::swing::Icon;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JTabbedPane$AccessibleJTabbedPane = ::javax::swing::JTabbedPane$AccessibleJTabbedPane;
 using $JTabbedPane$ModelListener = ::javax::swing::JTabbedPane$ModelListener;
 using $JTabbedPane$Page = ::javax::swing::JTabbedPane$Page;

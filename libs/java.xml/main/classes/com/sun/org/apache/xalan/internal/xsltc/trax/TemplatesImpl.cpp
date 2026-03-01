@@ -21,7 +21,6 @@
 #include <java/lang/AssertionError.h>
 #include <java/lang/ClassFormatError.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/Error.h>
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/InstantiationException.h>
 #include <java/lang/LinkageError.h>
@@ -50,7 +49,6 @@
 #include <java/net/URL.h>
 #include <java/nio/file/Path.h>
 #include <java/security/AccessController.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/CodeSigner.h>
 #include <java/security/CodeSource.h>
 #include <java/security/Permission.h>
@@ -58,7 +56,6 @@
 #include <java/security/Principal.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/security/ProtectionDomain.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
 #include <java/util/HashMap.h>
@@ -119,8 +116,6 @@ using $AssertionError = ::java::lang::AssertionError;
 using $ClassFormatError = ::java::lang::ClassFormatError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
-using $Error = ::java::lang::Error;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -148,13 +143,11 @@ using $InvocationTargetException = ::java::lang::reflect::InvocationTargetExcept
 using $URI = ::java::net::URI;
 using $URL = ::java::net::URL;
 using $AccessController = ::java::security::AccessController;
-using $BasicPermission = ::java::security::BasicPermission;
 using $CodeSource = ::java::security::CodeSource;
 using $Permission = ::java::security::Permission;
 using $PermissionCollection = ::java::security::PermissionCollection;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ProtectionDomain = ::java::security::ProtectionDomain;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;

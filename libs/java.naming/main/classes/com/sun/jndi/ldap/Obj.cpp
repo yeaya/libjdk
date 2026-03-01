@@ -15,7 +15,6 @@
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/ReflectiveOperationException.h>
 #include <java/util/Base64$Decoder.h>
 #include <java/util/Base64$Encoder.h>
 #include <java/util/Base64.h>
@@ -74,14 +73,12 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $Base64 = ::java::util::Base64;
 using $Base64$Decoder = ::java::util::Base64$Decoder;
 using $Base64$Encoder = ::java::util::Base64$Encoder;

@@ -2,20 +2,16 @@
 
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Toolkit.h>
-#include <sun/awt/SunToolkit.h>
 #include <sun/awt/Win32GraphicsEnvironment.h>
 #include <sun/awt/windows/WToolkit.h>
-#include <sun/java2d/SunGraphicsEnvironment.h>
 #include <jcpp.h>
 
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $Toolkit = ::java::awt::Toolkit;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $SunToolkit = ::sun::awt::SunToolkit;
 using $Win32GraphicsEnvironment = ::sun::awt::Win32GraphicsEnvironment;
 using $WToolkit = ::sun::awt::windows::WToolkit;
-using $SunGraphicsEnvironment = ::sun::java2d::SunGraphicsEnvironment;
 
 namespace sun {
 	namespace awt {

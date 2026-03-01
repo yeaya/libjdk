@@ -7,7 +7,6 @@
 #include <javax/swing/JToolBar$Separator.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/SeparatorUI.h>
 #include <javax/swing/plaf/UIResource.h>
 #include <javax/swing/plaf/basic/BasicSeparatorUI.h>
 #include <jcpp.h>
@@ -23,7 +22,6 @@ using $JSeparator = ::javax::swing::JSeparator;
 using $JToolBar$Separator = ::javax::swing::JToolBar$Separator;
 using $UIManager = ::javax::swing::UIManager;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $SeparatorUI = ::javax::swing::plaf::SeparatorUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $BasicSeparatorUI = ::javax::swing::plaf::basic::BasicSeparatorUI;
 

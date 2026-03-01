@@ -2,10 +2,8 @@
 
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Color.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
@@ -18,17 +16,14 @@
 #include <java/io/ObjectOutputStream.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/Math.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collections.h>
 #include <java/util/EventListener.h>
 #include <java/util/List.h>
 #include <java/util/Vector.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/AbstractListModel.h>
 #include <javax/swing/DefaultListSelectionModel.h>
 #include <javax/swing/DropMode.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JList$1.h>
 #include <javax/swing/JList$2.h>
@@ -73,10 +68,8 @@ using $ListSelectionListenerArray = $Array<::javax::swing::event::ListSelectionL
 using $intArray2 = $Array<int32_t, 2>;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Container = ::java::awt::Container;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
@@ -96,18 +89,15 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collections = ::java::util::Collections;
 using $EventListener = ::java::util::EventListener;
 using $List = ::java::util::List;
 using $Vector = ::java::util::Vector;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $AbstractListModel = ::javax::swing::AbstractListModel;
 using $DefaultListSelectionModel = ::javax::swing::DefaultListSelectionModel;
 using $DropMode = ::javax::swing::DropMode;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JList$1 = ::javax::swing::JList$1;
 using $JList$2 = ::javax::swing::JList$2;
 using $JList$3 = ::javax::swing::JList$3;

@@ -5,7 +5,6 @@
 #include <com/sun/org/apache/xml/internal/security/keys/storage/implementations/KeyStoreResolver$KeyStoreIterator.h>
 #include <com/sun/org/slf4j/internal/Logger.h>
 #include <com/sun/org/slf4j/internal/LoggerFactory.h>
-#include <java/security/GeneralSecurityException.h>
 #include <java/security/KeyStore.h>
 #include <java/security/KeyStoreException.h>
 #include <java/util/Enumeration.h>
@@ -24,7 +23,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $KeyStore = ::java::security::KeyStore;
 using $KeyStoreException = ::java::security::KeyStoreException;
 using $Iterator = ::java::util::Iterator;

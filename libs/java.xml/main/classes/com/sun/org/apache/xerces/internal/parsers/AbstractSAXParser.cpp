@@ -53,11 +53,9 @@
 #include <org/xml/sax/SAXNotRecognizedException.h>
 #include <org/xml/sax/SAXNotSupportedException.h>
 #include <org/xml/sax/SAXParseException.h>
-#include <org/xml/sax/ext/Attributes2.h>
 #include <org/xml/sax/ext/DeclHandler.h>
 #include <org/xml/sax/ext/EntityResolver2.h>
 #include <org/xml/sax/ext/LexicalHandler.h>
-#include <org/xml/sax/ext/Locator2.h>
 #include <org/xml/sax/helpers/LocatorImpl.h>
 #include <jcpp.h>
 
@@ -160,11 +158,9 @@ using $SAXException = ::org::xml::sax::SAXException;
 using $SAXNotRecognizedException = ::org::xml::sax::SAXNotRecognizedException;
 using $SAXNotSupportedException = ::org::xml::sax::SAXNotSupportedException;
 using $SAXParseException = ::org::xml::sax::SAXParseException;
-using $Attributes2 = ::org::xml::sax::ext::Attributes2;
 using $DeclHandler = ::org::xml::sax::ext::DeclHandler;
 using $EntityResolver2 = ::org::xml::sax::ext::EntityResolver2;
 using $LexicalHandler = ::org::xml::sax::ext::LexicalHandler;
-using $Locator2 = ::org::xml::sax::ext::Locator2;
 using $LocatorImpl = ::org::xml::sax::helpers::LocatorImpl;
 
 namespace com {

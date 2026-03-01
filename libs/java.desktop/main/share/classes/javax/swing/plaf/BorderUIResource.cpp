@@ -4,11 +4,8 @@
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Insets.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/BevelBorder.h>
 #include <javax/swing/border/Border.h>
-#include <javax/swing/border/EtchedBorder.h>
-#include <javax/swing/border/LineBorder.h>
 #include <javax/swing/plaf/BorderUIResource$BevelBorderUIResource.h>
 #include <javax/swing/plaf/BorderUIResource$EtchedBorderUIResource.h>
 #include <javax/swing/plaf/BorderUIResource$LineBorderUIResource.h>
@@ -26,11 +23,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $BevelBorder = ::javax::swing::border::BevelBorder;
 using $Border = ::javax::swing::border::Border;
-using $EtchedBorder = ::javax::swing::border::EtchedBorder;
-using $LineBorder = ::javax::swing::border::LineBorder;
 using $BorderUIResource$BevelBorderUIResource = ::javax::swing::plaf::BorderUIResource$BevelBorderUIResource;
 using $BorderUIResource$EtchedBorderUIResource = ::javax::swing::plaf::BorderUIResource$EtchedBorderUIResource;
 using $BorderUIResource$LineBorderUIResource = ::javax::swing::plaf::BorderUIResource$LineBorderUIResource;

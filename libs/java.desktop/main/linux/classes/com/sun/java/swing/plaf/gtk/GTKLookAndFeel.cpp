@@ -38,7 +38,6 @@
 #include <java/lang/ref/ReferenceQueue.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <javax/swing/JComponent.h>
@@ -65,7 +64,6 @@
 #include <sun/awt/UNIXToolkit$GtkVersions.h>
 #include <sun/awt/UNIXToolkit.h>
 #include <sun/security/action/GetPropertyAction.h>
-#include <sun/swing/DefaultLayoutStyle.h>
 #include <sun/swing/SwingAccessor$UIDefaultsAccessor.h>
 #include <sun/swing/SwingAccessor.h>
 #include <sun/swing/SwingUtilities2.h>
@@ -185,7 +183,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $ReferenceQueue = ::java::lang::ref::ReferenceQueue;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $JComponent = ::javax::swing::JComponent;
@@ -209,7 +206,6 @@ using $SunToolkit = ::sun::awt::SunToolkit;
 using $UNIXToolkit = ::sun::awt::UNIXToolkit;
 using $UNIXToolkit$GtkVersions = ::sun::awt::UNIXToolkit$GtkVersions;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
-using $DefaultLayoutStyle = ::sun::swing::DefaultLayoutStyle;
 using $SwingAccessor = ::sun::swing::SwingAccessor;
 using $SwingAccessor$UIDefaultsAccessor = ::sun::swing::SwingAccessor$UIDefaultsAccessor;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;

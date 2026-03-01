@@ -1,7 +1,6 @@
 #include <bug6432565$1.h>
 
 #include <bug6432565.h>
-#include <java/lang/AbstractStringBuilder.h>
 #include <java/lang/CharSequence.h>
 #include <java/util/concurrent/atomic/AtomicBoolean.h>
 #include <javax/swing/SwingWorker.h>
@@ -9,7 +8,6 @@
 
 using $CharSequenceArray = $Array<::java::lang::CharSequence>;
 using $bug6432565 = ::bug6432565;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

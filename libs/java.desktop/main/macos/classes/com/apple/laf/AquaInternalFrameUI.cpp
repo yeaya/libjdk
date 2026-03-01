@@ -30,19 +30,15 @@
 #include <javax/swing/Icon.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JInternalFrame.h>
-#include <javax/swing/JLabel.h>
 #include <javax/swing/JLayeredPane.h>
 #include <javax/swing/JMenu.h>
 #include <javax/swing/JRootPane.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
-#include <javax/swing/border/CompoundBorder.h>
 #include <javax/swing/event/MouseInputAdapter.h>
 #include <javax/swing/plaf/ActionMapUIResource.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/InternalFrameUI.h>
 #include <javax/swing/plaf/UIResource.h>
 #include <javax/swing/plaf/basic/BasicInternalFrameUI.h>
 #include <jcpp.h>
@@ -93,17 +89,13 @@ using $DesktopManager = ::javax::swing::DesktopManager;
 using $Icon = ::javax::swing::Icon;
 using $JComponent = ::javax::swing::JComponent;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
-using $JLabel = ::javax::swing::JLabel;
 using $JLayeredPane = ::javax::swing::JLayeredPane;
 using $JMenu = ::javax::swing::JMenu;
 using $UIManager = ::javax::swing::UIManager;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
-using $CompoundBorder = ::javax::swing::border::CompoundBorder;
 using $MouseInputAdapter = ::javax::swing::event::MouseInputAdapter;
 using $ActionMapUIResource = ::javax::swing::plaf::ActionMapUIResource;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $InternalFrameUI = ::javax::swing::plaf::InternalFrameUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $BasicInternalFrameUI = ::javax::swing::plaf::basic::BasicInternalFrameUI;
 

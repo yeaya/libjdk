@@ -1,8 +1,6 @@
 #include <javax/swing/JSlider.h>
 
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
@@ -18,7 +16,6 @@
 #include <javax/swing/BoundedRangeModel.h>
 #include <javax/swing/DefaultBoundedRangeModel.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JSlider$1SmartHashtable.h>
@@ -42,8 +39,6 @@
 
 using $ChangeListenerArray = $Array<::javax::swing::event::ChangeListener>;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Font = ::java::awt::Font;
 using $Image = ::java::awt::Image;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
@@ -66,7 +61,6 @@ using $AccessibleState = ::javax::accessibility::AccessibleState;
 using $BoundedRangeModel = ::javax::swing::BoundedRangeModel;
 using $DefaultBoundedRangeModel = ::javax::swing::DefaultBoundedRangeModel;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JLabel = ::javax::swing::JLabel;
 using $JSlider$1SmartHashtable = ::javax::swing::JSlider$1SmartHashtable;
 using $JSlider$AccessibleJSlider = ::javax::swing::JSlider$AccessibleJSlider;

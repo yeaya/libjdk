@@ -9,7 +9,6 @@
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/ButtonModel.h>
-#include <javax/swing/ComponentInputMap.h>
 #include <javax/swing/InputMap.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComponent.h>
@@ -17,7 +16,6 @@
 #include <javax/swing/KeyStroke.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/event/ChangeEvent.h>
-#include <javax/swing/plaf/ButtonUI.h>
 #include <javax/swing/plaf/ComponentInputMapUIResource.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/basic/BasicButtonListener$Actions.h>
@@ -27,7 +25,6 @@
 #include <javax/swing/plaf/basic/LazyActionMap.h>
 #include <sun/swing/DefaultLookup.h>
 #include <sun/swing/SwingUtilities2.h>
-#include <sun/swing/UIAction.h>
 #include <jcpp.h>
 
 #undef CONTENT_AREA_FILLED_CHANGED_PROPERTY
@@ -50,7 +47,6 @@ using $AbstractButton = ::javax::swing::AbstractButton;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $ButtonModel = ::javax::swing::ButtonModel;
-using $ComponentInputMap = ::javax::swing::ComponentInputMap;
 using $InputMap = ::javax::swing::InputMap;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
@@ -58,7 +54,6 @@ using $JRootPane = ::javax::swing::JRootPane;
 using $KeyStroke = ::javax::swing::KeyStroke;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
-using $ButtonUI = ::javax::swing::plaf::ButtonUI;
 using $ComponentInputMapUIResource = ::javax::swing::plaf::ComponentInputMapUIResource;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $BasicButtonListener$Actions = ::javax::swing::plaf::basic::BasicButtonListener$Actions;
@@ -68,7 +63,6 @@ using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
 using $LazyActionMap = ::javax::swing::plaf::basic::LazyActionMap;
 using $DefaultLookup = ::sun::swing::DefaultLookup;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
-using $UIAction = ::sun::swing::UIAction;
 
 namespace javax {
 	namespace swing {

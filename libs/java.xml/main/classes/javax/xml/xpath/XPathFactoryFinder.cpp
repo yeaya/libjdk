@@ -8,7 +8,6 @@
 #include <java/lang/AssertionError.h>
 #include <java/lang/ClassCastException.h>
 #include <java/lang/ClassLoader.h>
-#include <java/lang/Error.h>
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/InstantiationException.h>
 #include <java/lang/NoSuchMethodException.h>
@@ -48,7 +47,6 @@ using $Boolean = ::java::lang::Boolean;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
-using $Error = ::java::lang::Error;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;

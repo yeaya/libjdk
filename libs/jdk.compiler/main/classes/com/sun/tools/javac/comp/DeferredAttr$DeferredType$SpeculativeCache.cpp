@@ -9,7 +9,6 @@
 #include <com/sun/tools/javac/comp/Resolve$MethodResolutionPhase.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <com/sun/tools/javac/util/List.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Iterator.h>
 #include <java/util/Map.h>
 #include <java/util/WeakHashMap.h>
@@ -27,7 +26,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
 using $WeakHashMap = ::java::util::WeakHashMap;

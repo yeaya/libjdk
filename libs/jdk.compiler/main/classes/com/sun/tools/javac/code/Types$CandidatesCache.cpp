@@ -3,7 +3,6 @@
 #include <com/sun/tools/javac/code/Types$CandidatesCache$Entry.h>
 #include <com/sun/tools/javac/code/Types.h>
 #include <com/sun/tools/javac/util/List.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Map.h>
 #include <java/util/WeakHashMap.h>
 #include <jcpp.h>
@@ -15,7 +14,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Map = ::java::util::Map;
 using $WeakHashMap = ::java::util::WeakHashMap;
 

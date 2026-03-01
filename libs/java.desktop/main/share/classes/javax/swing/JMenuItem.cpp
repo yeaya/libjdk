@@ -1,9 +1,7 @@
 #include <javax/swing/JMenuItem.h>
 
 #include <java/awt/AWTEvent.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/awt/event/ComponentEvent.h>
 #include <java/awt/event/FocusListener.h>
@@ -13,14 +11,12 @@
 #include <java/io/ObjectOutputStream.h>
 #include <java/util/EventListener.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/AbstractButton$AccessibleAbstractButton.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ButtonModel.h>
 #include <javax/swing/DefaultButtonModel.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JInternalFrame.h>
 #include <javax/swing/JMenuItem$AccessibleJMenuItem.h>
@@ -60,9 +56,6 @@ using $MenuElementArray = $Array<::javax::swing::MenuElement>;
 using $MenuDragMouseListenerArray = $Array<::javax::swing::event::MenuDragMouseListener>;
 using $MenuKeyListenerArray = $Array<::javax::swing::event::MenuKeyListener>;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
-using $Container = ::java::awt::Container;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $FocusListener = ::java::awt::event::FocusListener;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
@@ -78,14 +71,12 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 using $EventListener = ::java::util::EventListener;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AbstractButton = ::javax::swing::AbstractButton;
-using $AbstractButton$AccessibleAbstractButton = ::javax::swing::AbstractButton$AccessibleAbstractButton;
 using $Action = ::javax::swing::Action;
 using $ButtonModel = ::javax::swing::ButtonModel;
 using $DefaultButtonModel = ::javax::swing::DefaultButtonModel;
 using $Icon = ::javax::swing::Icon;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $JMenuItem$AccessibleJMenuItem = ::javax::swing::JMenuItem$AccessibleJMenuItem;
 using $JMenuItem$MenuItemFocusListener = ::javax::swing::JMenuItem$MenuItemFocusListener;

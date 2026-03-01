@@ -2,13 +2,10 @@
 
 #include <com/sun/org/apache/xerces/internal/impl/dv/DatatypeValidator.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/dtd/DTDDVFactoryImpl.h>
-#include <com/sun/org/apache/xerces/internal/impl/dv/dtd/IDREFDatatypeValidator.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/dtd/ListDatatypeValidator.h>
-#include <com/sun/org/apache/xerces/internal/impl/dv/dtd/NMTOKENDatatypeValidator.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/dtd/XML11IDDatatypeValidator.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/dtd/XML11IDREFDatatypeValidator.h>
 #include <com/sun/org/apache/xerces/internal/impl/dv/dtd/XML11NMTOKENDatatypeValidator.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
@@ -18,16 +15,13 @@
 
 using $DatatypeValidator = ::com::sun::org::apache::xerces::internal::impl::dv::DatatypeValidator;
 using $DTDDVFactoryImpl = ::com::sun::org::apache::xerces::internal::impl::dv::dtd::DTDDVFactoryImpl;
-using $IDREFDatatypeValidator = ::com::sun::org::apache::xerces::internal::impl::dv::dtd::IDREFDatatypeValidator;
 using $ListDatatypeValidator = ::com::sun::org::apache::xerces::internal::impl::dv::dtd::ListDatatypeValidator;
-using $NMTOKENDatatypeValidator = ::com::sun::org::apache::xerces::internal::impl::dv::dtd::NMTOKENDatatypeValidator;
 using $XML11IDDatatypeValidator = ::com::sun::org::apache::xerces::internal::impl::dv::dtd::XML11IDDatatypeValidator;
 using $XML11IDREFDatatypeValidator = ::com::sun::org::apache::xerces::internal::impl::dv::dtd::XML11IDREFDatatypeValidator;
 using $XML11NMTOKENDatatypeValidator = ::com::sun::org::apache::xerces::internal::impl::dv::dtd::XML11NMTOKENDatatypeValidator;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;

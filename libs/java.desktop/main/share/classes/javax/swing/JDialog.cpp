@@ -3,18 +3,14 @@
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Color.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
-#include <java/awt/Dialog$AccessibleAWTDialog.h>
 #include <java/awt/Dialog$ModalityType.h>
 #include <java/awt/Dialog.h>
 #include <java/awt/Frame.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/Window$AccessibleAWTWindow.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/WindowEvent.h>
 #include <java/awt/event/WindowListener.h>
@@ -51,18 +47,14 @@
 using $AWTEvent = ::java::awt::AWTEvent;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $Container = ::java::awt::Container;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Dialog = ::java::awt::Dialog;
-using $Dialog$AccessibleAWTDialog = ::java::awt::Dialog$AccessibleAWTDialog;
 using $Dialog$ModalityType = ::java::awt::Dialog$ModalityType;
 using $Frame = ::java::awt::Frame;
 using $Graphics = ::java::awt::Graphics;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $Window = ::java::awt::Window;
-using $Window$AccessibleAWTWindow = ::java::awt::Window$AccessibleAWTWindow;
 using $WindowEvent = ::java::awt::event::WindowEvent;
 using $WindowListener = ::java::awt::event::WindowListener;
 using $Attribute = ::java::lang::Attribute;

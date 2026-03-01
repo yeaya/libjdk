@@ -6,7 +6,6 @@
 #include <javax/swing/Icon.h>
 #include <javax/swing/plaf/basic/BasicFileChooserUI$BasicFileView.h>
 #include <javax/swing/plaf/basic/BasicFileChooserUI.h>
-#include <sun/swing/plaf/synth/SynthFileChooserUI.h>
 #include <jcpp.h>
 
 using $GTKFileChooserUI = ::com::sun::java::swing::plaf::gtk::GTKFileChooserUI;
@@ -18,7 +17,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Icon = ::javax::swing::Icon;
 using $BasicFileChooserUI = ::javax::swing::plaf::basic::BasicFileChooserUI;
 using $BasicFileChooserUI$BasicFileView = ::javax::swing::plaf::basic::BasicFileChooserUI$BasicFileView;
-using $SynthFileChooserUI = ::sun::swing::plaf::synth::SynthFileChooserUI;
 
 namespace com {
 	namespace sun {

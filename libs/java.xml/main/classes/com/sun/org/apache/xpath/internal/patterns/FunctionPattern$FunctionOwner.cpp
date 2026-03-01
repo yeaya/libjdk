@@ -3,15 +3,11 @@
 #include <com/sun/org/apache/xpath/internal/Expression.h>
 #include <com/sun/org/apache/xpath/internal/ExpressionNode.h>
 #include <com/sun/org/apache/xpath/internal/patterns/FunctionPattern.h>
-#include <com/sun/org/apache/xpath/internal/patterns/NodeTest.h>
-#include <com/sun/org/apache/xpath/internal/patterns/StepPattern.h>
 #include <jcpp.h>
 
 using $Expression = ::com::sun::org::apache::xpath::internal::Expression;
 using $ExpressionNode = ::com::sun::org::apache::xpath::internal::ExpressionNode;
 using $FunctionPattern = ::com::sun::org::apache::xpath::internal::patterns::FunctionPattern;
-using $NodeTest = ::com::sun::org::apache::xpath::internal::patterns::NodeTest;
-using $StepPattern = ::com::sun::org::apache::xpath::internal::patterns::StepPattern;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

@@ -1,6 +1,5 @@
 #include <sun/awt/X11/XTextFieldPeer$XAWTTextField.h>
 
-#include <com/sun/java/swing/plaf/motif/MotifPasswordFieldUI.h>
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
@@ -21,10 +20,6 @@
 #include <javax/swing/TransferHandler.h>
 #include <javax/swing/event/DocumentEvent.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/TextUI.h>
-#include <javax/swing/plaf/basic/BasicPasswordFieldUI.h>
-#include <javax/swing/plaf/basic/BasicTextFieldUI.h>
-#include <javax/swing/plaf/basic/BasicTextUI.h>
 #include <javax/swing/text/JTextComponent.h>
 #include <sun/awt/AWTAccessor$ClientPropertyKeyAccessor.h>
 #include <sun/awt/AWTAccessor$ComponentAccessor.h>
@@ -37,7 +32,6 @@
 #undef ACTION_PERFORMED
 #undef TEXT_VALUE_CHANGED
 
-using $MotifPasswordFieldUI = ::com::sun::java::swing::plaf::motif::MotifPasswordFieldUI;
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
@@ -52,17 +46,10 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JPasswordField = ::javax::swing::JPasswordField;
-using $JTextField = ::javax::swing::JTextField;
 using $TransferHandler = ::javax::swing::TransferHandler;
 using $DocumentEvent = ::javax::swing::event::DocumentEvent;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $TextUI = ::javax::swing::plaf::TextUI;
-using $BasicPasswordFieldUI = ::javax::swing::plaf::basic::BasicPasswordFieldUI;
-using $BasicTextFieldUI = ::javax::swing::plaf::basic::BasicTextFieldUI;
-using $BasicTextUI = ::javax::swing::plaf::basic::BasicTextUI;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
 using $AWTAccessor$ClientPropertyKeyAccessor = ::sun::awt::AWTAccessor$ClientPropertyKeyAccessor;
 using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;

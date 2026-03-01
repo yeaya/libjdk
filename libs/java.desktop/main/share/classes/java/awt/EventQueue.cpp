@@ -24,7 +24,6 @@
 #include <java/awt/TrayIcon.h>
 #include <java/awt/WaitDispatchSupport.h>
 #include <java/awt/event/ActionEvent.h>
-#include <java/awt/event/ComponentEvent.h>
 #include <java/awt/event/FocusEvent.h>
 #include <java/awt/event/InputEvent.h>
 #include <java/awt/event/InputMethodEvent.h>
@@ -115,7 +114,6 @@ using $Toolkit = ::java::awt::Toolkit;
 using $TrayIcon = ::java::awt::TrayIcon;
 using $WaitDispatchSupport = ::java::awt::WaitDispatchSupport;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ComponentEvent = ::java::awt::event::ComponentEvent;
 using $FocusEvent = ::java::awt::event::FocusEvent;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $InputMethodEvent = ::java::awt::event::InputMethodEvent;
@@ -127,7 +125,6 @@ using $WindowEvent = ::java::awt::event::WindowEvent;
 using $ComponentPeer = ::java::awt::peer::ComponentPeer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Error = ::java::lang::Error;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;

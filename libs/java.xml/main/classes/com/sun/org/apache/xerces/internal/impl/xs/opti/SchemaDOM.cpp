@@ -2,7 +2,6 @@
 
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/AttrImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/DefaultDocument.h>
-#include <com/sun/org/apache/xerces/internal/impl/xs/opti/DefaultElement.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/ElementImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/NodeImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/opti/SchemaDOMImplementation.h>
@@ -12,7 +11,6 @@
 #include <com/sun/org/apache/xerces/internal/xni/XMLAttributes.h>
 #include <com/sun/org/apache/xerces/internal/xni/XMLString.h>
 #include <java/lang/StringBuffer.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Enumeration.h>
 #include <java/util/List.h>
@@ -31,7 +29,6 @@ using $AttrArray = $Array<::org::w3c::dom::Attr>;
 using $NodeImplArray2 = $Array<::com::sun::org::apache::xerces::internal::impl::xs::opti::NodeImpl, 2>;
 using $AttrImpl = ::com::sun::org::apache::xerces::internal::impl::xs::opti::AttrImpl;
 using $DefaultDocument = ::com::sun::org::apache::xerces::internal::impl::xs::opti::DefaultDocument;
-using $DefaultElement = ::com::sun::org::apache::xerces::internal::impl::xs::opti::DefaultElement;
 using $ElementImpl = ::com::sun::org::apache::xerces::internal::impl::xs::opti::ElementImpl;
 using $NodeImpl = ::com::sun::org::apache::xerces::internal::impl::xs::opti::NodeImpl;
 using $SchemaDOMImplementation = ::com::sun::org::apache::xerces::internal::impl::xs::opti::SchemaDOMImplementation;
@@ -45,7 +42,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Enumeration = ::java::util::Enumeration;
 using $List = ::java::util::List;

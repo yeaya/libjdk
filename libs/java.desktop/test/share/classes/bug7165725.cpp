@@ -7,7 +7,6 @@
 #include <java/awt/Robot.h>
 #include <java/io/File.h>
 #include <java/io/FileReader.h>
-#include <java/io/InputStreamReader.h>
 #include <java/io/Reader.h>
 #include <java/lang/Runnable.h>
 #include <java/net/URL.h>
@@ -26,7 +25,6 @@ using $bug7165725$SBParserCallback = ::bug7165725$SBParserCallback;
 using $Robot = ::java::awt::Robot;
 using $File = ::java::io::File;
 using $FileReader = ::java::io::FileReader;
-using $InputStreamReader = ::java::io::InputStreamReader;
 using $PrintStream = ::java::io::PrintStream;
 using $Reader = ::java::io::Reader;
 using $ClassInfo = ::java::lang::ClassInfo;

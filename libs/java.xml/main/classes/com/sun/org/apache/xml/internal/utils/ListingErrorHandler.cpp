@@ -6,7 +6,6 @@
 #include <com/sun/org/apache/xml/internal/utils/SystemIDResolver.h>
 #include <com/sun/org/apache/xml/internal/utils/WrappedRuntimeException.h>
 #include <java/io/BufferedReader.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
 #include <java/io/OutputStream.h>
@@ -31,7 +30,6 @@ using $SAXSourceLocator = ::com::sun::org::apache::xml::internal::utils::SAXSour
 using $SystemIDResolver = ::com::sun::org::apache::xml::internal::utils::SystemIDResolver;
 using $WrappedRuntimeException = ::com::sun::org::apache::xml::internal::utils::WrappedRuntimeException;
 using $BufferedReader = ::java::io::BufferedReader;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
 using $OutputStream = ::java::io::OutputStream;

@@ -7,15 +7,12 @@
 #include <javax/swing/UIDefaults.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/TextUI.h>
 #include <javax/swing/plaf/basic/BasicTextFieldUI.h>
 #include <javax/swing/plaf/basic/BasicTextUI.h>
 #include <javax/swing/text/DefaultEditorKit.h>
 #include <javax/swing/text/Element.h>
-#include <javax/swing/text/FieldView.h>
 #include <javax/swing/text/JTextComponent.h>
 #include <javax/swing/text/PasswordView.h>
-#include <javax/swing/text/PlainView.h>
 #include <javax/swing/text/View.h>
 #include <jcpp.h>
 
@@ -29,14 +26,10 @@ using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIManager = ::javax::swing::UIManager;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $TextUI = ::javax::swing::plaf::TextUI;
 using $BasicTextFieldUI = ::javax::swing::plaf::basic::BasicTextFieldUI;
-using $BasicTextUI = ::javax::swing::plaf::basic::BasicTextUI;
 using $DefaultEditorKit = ::javax::swing::text::DefaultEditorKit;
 using $Element = ::javax::swing::text::Element;
-using $FieldView = ::javax::swing::text::FieldView;
 using $PasswordView = ::javax::swing::text::PasswordView;
-using $PlainView = ::javax::swing::text::PlainView;
 using $View = ::javax::swing::text::View;
 
 namespace javax {

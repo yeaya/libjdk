@@ -1,19 +1,16 @@
 #include <javax/swing/plaf/basic/BasicTabbedPaneUI$ScrollableTabSupport.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Insets.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComponent.h>
-#include <javax/swing/JPanel.h>
 #include <javax/swing/JTabbedPane.h>
 #include <javax/swing/event/ChangeEvent.h>
 #include <javax/swing/event/ChangeListener.h>
@@ -26,7 +23,6 @@
 #undef ACTION_PERFORMED
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Insets = ::java::awt::Insets;
 using $Point = ::java::awt::Point;
@@ -37,12 +33,9 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
-using $JPanel = ::javax::swing::JPanel;
 using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
 using $ChangeListener = ::javax::swing::event::ChangeListener;

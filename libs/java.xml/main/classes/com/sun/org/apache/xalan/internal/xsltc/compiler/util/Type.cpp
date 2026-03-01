@@ -15,7 +15,6 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/MethodGenerator.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/NodeSetType.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/NodeType.h>
-#include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/NumberType.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/ObjectType.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/RealType.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/ReferenceType.h>
@@ -25,7 +24,6 @@
 #include <java/lang/RuntimePermission.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <jcpp.h>
 
@@ -70,7 +68,6 @@ using $IntType = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util
 using $MethodGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::MethodGenerator;
 using $NodeSetType = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::NodeSetType;
 using $NodeType = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::NodeType;
-using $NumberType = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::NumberType;
 using $ObjectType = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ObjectType;
 using $RealType = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::RealType;
 using $ReferenceType = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ReferenceType;
@@ -84,7 +81,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimePermission = ::java::lang::RuntimePermission;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 
 namespace com {

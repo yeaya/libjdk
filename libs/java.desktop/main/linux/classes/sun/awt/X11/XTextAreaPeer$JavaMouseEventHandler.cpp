@@ -2,23 +2,16 @@
 
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Cursor.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
-#include <java/awt/event/ComponentEvent.h>
-#include <java/awt/event/InputEvent.h>
 #include <java/awt/event/MouseEvent.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JScrollBar.h>
 #include <javax/swing/JScrollPane.h>
-#include <javax/swing/JTextArea.h>
 #include <javax/swing/JViewport.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/ScrollBarUI.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <sun/awt/AWTAccessor$ComponentAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <sun/awt/SunToolkit.h>
@@ -42,24 +35,17 @@
 
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
-using $ComponentEvent = ::java::awt::event::ComponentEvent;
-using $InputEvent = ::java::awt::event::InputEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JScrollBar = ::javax::swing::JScrollBar;
-using $JTextArea = ::javax::swing::JTextArea;
 using $JViewport = ::javax::swing::JViewport;
 using $ScrollBarUI = ::javax::swing::plaf::ScrollBarUI;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
 using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $SunToolkit = ::sun::awt::SunToolkit;

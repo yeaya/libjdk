@@ -6,7 +6,6 @@
 #include <sun/nio/cs/ext/ExtendedCharsets.h>
 #include <sun/nio/cs/ext/IBM964$Decoder.h>
 #include <sun/nio/cs/ext/IBM964$Encoder.h>
-#include <sun/nio/cs/ext/SimpleEUCEncoder.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -18,7 +17,6 @@ using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $ExtendedCharsets = ::sun::nio::cs::ext::ExtendedCharsets;
 using $IBM964$Decoder = ::sun::nio::cs::ext::IBM964$Decoder;
 using $IBM964$Encoder = ::sun::nio::cs::ext::IBM964$Encoder;
-using $SimpleEUCEncoder = ::sun::nio::cs::ext::SimpleEUCEncoder;
 
 namespace sun {
 	namespace nio {

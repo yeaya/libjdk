@@ -1,6 +1,5 @@
 #include <javax/swing/plaf/basic/BasicSplitPaneUI.h>
 
-#include <java/awt/Canvas.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
@@ -9,7 +8,6 @@
 #include <java/awt/Insets.h>
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/ActionListener.h>
@@ -20,7 +18,6 @@
 #include <java/awt/peer/LightweightPeer.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/lang/Math.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/HashSet.h>
 #include <java/util/Set.h>
 #include <javax/swing/Action.h>
@@ -50,7 +47,6 @@
 #include <sun/awt/AWTAccessor$ComponentAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <sun/swing/DefaultLookup.h>
-#include <sun/swing/UIAction.h>
 #include <jcpp.h>
 
 #undef BACKWARD_TRAVERSAL_KEYS
@@ -73,7 +69,6 @@
 #undef VK_TAB
 #undef WHEN_ANCESTOR_OF_FOCUSED_COMPONENT
 
-using $Canvas = ::java::awt::Canvas;
 using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
@@ -81,7 +76,6 @@ using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Rectangle = ::java::awt::Rectangle;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $FocusListener = ::java::awt::event::FocusListener;
@@ -98,7 +92,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractSet = ::java::util::AbstractSet;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
 using $Action = ::javax::swing::Action;
@@ -128,7 +121,6 @@ using $LazyActionMap = ::javax::swing::plaf::basic::LazyActionMap;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
 using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $DefaultLookup = ::sun::swing::DefaultLookup;
-using $UIAction = ::sun::swing::UIAction;
 
 namespace javax {
 	namespace swing {

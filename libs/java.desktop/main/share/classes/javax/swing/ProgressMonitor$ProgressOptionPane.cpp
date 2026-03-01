@@ -6,14 +6,11 @@
 #include <java/awt/Dialog.h>
 #include <java/awt/Frame.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Window.h>
-#include <java/awt/event/WindowAdapter.h>
 #include <java/awt/event/WindowListener.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JDialog.h>
 #include <javax/swing/JOptionPane.h>
 #include <javax/swing/ProgressMonitor$ProgressOptionPane$1.h>
@@ -33,9 +30,7 @@ using $Container = ::java::awt::Container;
 using $Dialog = ::java::awt::Dialog;
 using $Frame = ::java::awt::Frame;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Window = ::java::awt::Window;
-using $WindowAdapter = ::java::awt::event::WindowAdapter;
 using $WindowListener = ::java::awt::event::WindowListener;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -44,7 +39,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $Icon = ::javax::swing::Icon;
-using $JComponent = ::javax::swing::JComponent;
 using $JDialog = ::javax::swing::JDialog;
 using $JOptionPane = ::javax::swing::JOptionPane;
 using $ProgressMonitor = ::javax::swing::ProgressMonitor;

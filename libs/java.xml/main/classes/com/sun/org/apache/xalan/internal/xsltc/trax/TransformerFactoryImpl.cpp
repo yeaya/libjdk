@@ -36,7 +36,6 @@
 #include <java/net/MalformedURLException.h>
 #include <java/net/URI.h>
 #include <java/net/URL.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Enumeration.h>
 #include <java/util/List.h>
@@ -84,8 +83,6 @@
 #include <org/xml/sax/SAXException.h>
 #include <org/xml/sax/XMLFilter.h>
 #include <org/xml/sax/XMLReader.h>
-#include <org/xml/sax/helpers/DefaultHandler.h>
-#include <org/xml/sax/helpers/XMLFilterImpl.h>
 #include <jcpp.h>
 
 #undef ACCESS_EXTERNAL_DTD
@@ -197,7 +194,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $NumberFormatException = ::java::lang::NumberFormatException;
 using $MalformedURLException = ::java::net::MalformedURLException;
 using $URL = ::java::net::URL;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Enumeration = ::java::util::Enumeration;
 using $List = ::java::util::List;
@@ -245,8 +241,6 @@ using $InputSource = ::org::xml::sax::InputSource;
 using $SAXException = ::org::xml::sax::SAXException;
 using $XMLFilter = ::org::xml::sax::XMLFilter;
 using $XMLReader = ::org::xml::sax::XMLReader;
-using $DefaultHandler = ::org::xml::sax::helpers::DefaultHandler;
-using $XMLFilterImpl = ::org::xml::sax::helpers::XMLFilterImpl;
 
 namespace com {
 	namespace sun {

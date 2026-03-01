@@ -24,10 +24,8 @@
 #include <java/awt/image/ColorModel.h>
 #include <java/util/Locale.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JTree.h>
 #include <javax/swing/tree/DefaultMutableTreeNode.h>
-#include <javax/swing/tree/DefaultTreeCellRenderer.h>
 #include <javax/swing/tree/DefaultTreeModel.h>
 #include <javax/swing/tree/MutableTreeNode.h>
 #include <javax/swing/tree/TreeCellRenderer.h>
@@ -68,10 +66,8 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
-using $JComponent = ::javax::swing::JComponent;
 using $JTree = ::javax::swing::JTree;
 using $DefaultMutableTreeNode = ::javax::swing::tree::DefaultMutableTreeNode;
-using $DefaultTreeCellRenderer = ::javax::swing::tree::DefaultTreeCellRenderer;
 using $DefaultTreeModel = ::javax::swing::tree::DefaultTreeModel;
 using $MutableTreeNode = ::javax::swing::tree::MutableTreeNode;
 using $TreeCellRenderer = ::javax::swing::tree::TreeCellRenderer;

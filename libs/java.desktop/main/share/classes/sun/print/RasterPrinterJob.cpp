@@ -19,7 +19,6 @@
 #include <java/awt/geom/Point2D.h>
 #include <java/awt/geom/Rectangle2D$Double.h>
 #include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/WritableRaster.h>
 #include <java/awt/print/Book.h>
@@ -173,7 +172,6 @@ using $Point2D = ::java::awt::geom::Point2D;
 using $Point2D$Double = ::java::awt::geom::Point2D$Double;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Double = ::java::awt::geom::Rectangle2D$Double;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $Book = ::java::awt::print::Book;
 using $PageFormat = ::java::awt::print::PageFormat;

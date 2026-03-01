@@ -66,7 +66,6 @@
 #include <com/sun/org/apache/xerces/internal/xni/grammars/Grammar.h>
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription.h>
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarPool.h>
-#include <com/sun/org/apache/xerces/internal/xni/grammars/XMLSchemaDescription.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLComponent.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLConfigurationException.h>
@@ -78,18 +77,15 @@
 #include <com/sun/org/apache/xerces/internal/xs/ShortList.h>
 #include <com/sun/org/apache/xerces/internal/xs/StringList.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSAttributeDeclaration.h>
-#include <com/sun/org/apache/xerces/internal/xs/XSComplexTypeDefinition.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSConstants.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSElementDeclaration.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSModel.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSNotationDeclaration.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSObject.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSObjectList.h>
-#include <com/sun/org/apache/xerces/internal/xs/XSSimpleTypeDefinition.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSTypeDefinition.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSValue.h>
 #include <java/io/IOException.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
@@ -311,7 +307,6 @@ using $XMLResourceIdentifier = ::com::sun::org::apache::xerces::internal::xni::X
 using $XMLString = ::com::sun::org::apache::xerces::internal::xni::XMLString;
 using $XMLGrammarDescription = ::com::sun::org::apache::xerces::internal::xni::grammars::XMLGrammarDescription;
 using $XMLGrammarPool = ::com::sun::org::apache::xerces::internal::xni::grammars::XMLGrammarPool;
-using $XMLSchemaDescription = ::com::sun::org::apache::xerces::internal::xni::grammars::XMLSchemaDescription;
 using $XMLComponent = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponent;
 using $XMLComponentManager = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager;
 using $XMLConfigurationException = ::com::sun::org::apache::xerces::internal::xni::parser::XMLConfigurationException;
@@ -322,12 +317,10 @@ using $AttributePSVI = ::com::sun::org::apache::xerces::internal::xs::AttributeP
 using $ElementPSVI = ::com::sun::org::apache::xerces::internal::xs::ElementPSVI;
 using $StringList = ::com::sun::org::apache::xerces::internal::xs::StringList;
 using $XSAttributeDeclaration = ::com::sun::org::apache::xerces::internal::xs::XSAttributeDeclaration;
-using $XSComplexTypeDefinition = ::com::sun::org::apache::xerces::internal::xs::XSComplexTypeDefinition;
 using $XSConstants = ::com::sun::org::apache::xerces::internal::xs::XSConstants;
 using $XSElementDeclaration = ::com::sun::org::apache::xerces::internal::xs::XSElementDeclaration;
 using $XSNotationDeclaration = ::com::sun::org::apache::xerces::internal::xs::XSNotationDeclaration;
 using $XSObjectList = ::com::sun::org::apache::xerces::internal::xs::XSObjectList;
-using $XSSimpleTypeDefinition = ::com::sun::org::apache::xerces::internal::xs::XSSimpleTypeDefinition;
 using $XSTypeDefinition = ::com::sun::org::apache::xerces::internal::xs::XSTypeDefinition;
 using $XSValue = ::com::sun::org::apache::xerces::internal::xs::XSValue;
 using $IOException = ::java::io::IOException;
@@ -338,7 +331,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;

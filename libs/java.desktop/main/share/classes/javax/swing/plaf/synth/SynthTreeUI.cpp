@@ -20,7 +20,6 @@
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/TransferHandler.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/TreeUI.h>
 #include <javax/swing/plaf/UIResource.h>
 #include <javax/swing/plaf/basic/BasicTreeUI.h>
 #include <javax/swing/plaf/synth/ColorType.h>
@@ -28,7 +27,6 @@
 #include <javax/swing/plaf/synth/SynthConstants.h>
 #include <javax/swing/plaf/synth/SynthContext.h>
 #include <javax/swing/plaf/synth/SynthGraphicsUtils.h>
-#include <javax/swing/plaf/synth/SynthIcon.h>
 #include <javax/swing/plaf/synth/SynthLookAndFeel.h>
 #include <javax/swing/plaf/synth/SynthPainter.h>
 #include <javax/swing/plaf/synth/SynthStyle.h>
@@ -83,7 +81,6 @@ using $JTree$DropLocation = ::javax::swing::JTree$DropLocation;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $TransferHandler = ::javax::swing::TransferHandler;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $TreeUI = ::javax::swing::plaf::TreeUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $BasicTreeUI = ::javax::swing::plaf::basic::BasicTreeUI;
 using $ColorType = ::javax::swing::plaf::synth::ColorType;
@@ -91,7 +88,6 @@ using $Region = ::javax::swing::plaf::synth::Region;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $SynthGraphicsUtils = ::javax::swing::plaf::synth::SynthGraphicsUtils;
-using $SynthIcon = ::javax::swing::plaf::synth::SynthIcon;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
 using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;
 using $SynthStyle = ::javax::swing::plaf::synth::SynthStyle;

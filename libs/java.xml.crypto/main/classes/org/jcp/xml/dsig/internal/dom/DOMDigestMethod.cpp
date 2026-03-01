@@ -1,6 +1,5 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMDigestMethod.h>
 
-#include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <javax/xml/crypto/AlgorithmMethod.h>
@@ -33,11 +32,9 @@
 #undef XMLNS
 
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $InvalidAlgorithmParameterException = ::java::security::InvalidAlgorithmParameterException;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $MarshalException = ::javax::xml::crypto::MarshalException;

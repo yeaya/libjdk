@@ -37,7 +37,6 @@
 #include <java/util/Locale.h>
 #include <java/util/Map$Entry.h>
 #include <java/util/Set.h>
-#include <javax/print/CancelablePrintJob.h>
 #include <javax/print/DocFlavor$BYTE_ARRAY.h>
 #include <javax/print/DocFlavor$CHAR_ARRAY.h>
 #include <javax/print/DocFlavor$INPUT_STREAM.h>
@@ -254,7 +253,6 @@ using $Iterator = ::java::util::Iterator;
 using $Locale = ::java::util::Locale;
 using $Map$Entry = ::java::util::Map$Entry;
 using $Set = ::java::util::Set;
-using $CancelablePrintJob = ::javax::print::CancelablePrintJob;
 using $DocFlavor = ::javax::print::DocFlavor;
 using $DocFlavor$BYTE_ARRAY = ::javax::print::DocFlavor$BYTE_ARRAY;
 using $DocFlavor$CHAR_ARRAY = ::javax::print::DocFlavor$CHAR_ARRAY;

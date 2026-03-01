@@ -23,7 +23,6 @@
 #include <java/util/ArrayList.h>
 #include <java/util/Map.h>
 #include <java/util/Vector.h>
-#include <javax/sql/RowSet.h>
 #include <javax/sql/RowSetInternal.h>
 #include <javax/sql/RowSetMetaData.h>
 #include <javax/sql/rowset/CachedRowSet.h>
@@ -81,7 +80,6 @@ using $Types = ::java::sql::Types;
 using $ArrayList = ::java::util::ArrayList;
 using $Map = ::java::util::Map;
 using $Vector = ::java::util::Vector;
-using $RowSet = ::javax::sql::RowSet;
 using $RowSetInternal = ::javax::sql::RowSetInternal;
 using $RowSetMetaData = ::javax::sql::RowSetMetaData;
 using $CachedRowSet = ::javax::sql::rowset::CachedRowSet;

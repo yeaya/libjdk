@@ -17,7 +17,6 @@
 #include <com/sun/xml/internal/stream/dtd/DTDGrammarUtil.h>
 #include <java/io/CharConversionException.h>
 #include <java/io/EOFException.h>
-#include <java/io/IOException.h>
 #include <javax/xml/stream/events/XMLEvent.h>
 #include <jcpp.h>
 
@@ -50,7 +49,6 @@ using $XMLEntityStorage = ::com::sun::xml::internal::stream::XMLEntityStorage;
 using $DTDGrammarUtil = ::com::sun::xml::internal::stream::dtd::DTDGrammarUtil;
 using $CharConversionException = ::java::io::CharConversionException;
 using $EOFException = ::java::io::EOFException;
-using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;

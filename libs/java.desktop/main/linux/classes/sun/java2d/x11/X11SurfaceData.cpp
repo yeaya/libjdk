@@ -38,14 +38,12 @@
 #include <sun/java2d/loops/SurfaceType.h>
 #include <sun/java2d/loops/XORComposite.h>
 #include <sun/java2d/pipe/DrawImagePipe.h>
-#include <sun/java2d/pipe/GlyphListPipe.h>
 #include <sun/java2d/pipe/PixelDrawPipe.h>
 #include <sun/java2d/pipe/PixelFillPipe.h>
 #include <sun/java2d/pipe/PixelToShapeConverter.h>
 #include <sun/java2d/pipe/Region.h>
 #include <sun/java2d/pipe/ShapeDrawPipe.h>
 #include <sun/java2d/pipe/TextPipe.h>
-#include <sun/java2d/pipe/ValidatePipe.h>
 #include <sun/java2d/x11/X11PMBlitBgLoops.h>
 #include <sun/java2d/x11/X11PMBlitLoops.h>
 #include <sun/java2d/x11/X11Renderer.h>
@@ -133,14 +131,12 @@ using $RenderLoops = ::sun::java2d::loops::RenderLoops;
 using $SurfaceType = ::sun::java2d::loops::SurfaceType;
 using $XORComposite = ::sun::java2d::loops::XORComposite;
 using $DrawImagePipe = ::sun::java2d::pipe::DrawImagePipe;
-using $GlyphListPipe = ::sun::java2d::pipe::GlyphListPipe;
 using $PixelDrawPipe = ::sun::java2d::pipe::PixelDrawPipe;
 using $PixelFillPipe = ::sun::java2d::pipe::PixelFillPipe;
 using $PixelToShapeConverter = ::sun::java2d::pipe::PixelToShapeConverter;
 using $Region = ::sun::java2d::pipe::Region;
 using $ShapeDrawPipe = ::sun::java2d::pipe::ShapeDrawPipe;
 using $TextPipe = ::sun::java2d::pipe::TextPipe;
-using $ValidatePipe = ::sun::java2d::pipe::ValidatePipe;
 using $X11PMBlitBgLoops = ::sun::java2d::x11::X11PMBlitBgLoops;
 using $X11PMBlitLoops = ::sun::java2d::x11::X11PMBlitLoops;
 using $X11Renderer = ::sun::java2d::x11::X11Renderer;

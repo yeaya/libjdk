@@ -6,18 +6,14 @@
 #include <javax/swing/JComponent.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/TextUI.h>
-#include <javax/swing/plaf/basic/BasicTextFieldUI.h>
 #include <javax/swing/plaf/basic/BasicTextUI.h>
 #include <javax/swing/plaf/synth/SynthContext.h>
 #include <javax/swing/plaf/synth/SynthPainter.h>
 #include <javax/swing/plaf/synth/SynthTextFieldUI.h>
 #include <javax/swing/text/DefaultEditorKit.h>
 #include <javax/swing/text/Element.h>
-#include <javax/swing/text/FieldView.h>
 #include <javax/swing/text/JTextComponent.h>
 #include <javax/swing/text/PasswordView.h>
-#include <javax/swing/text/PlainView.h>
 #include <javax/swing/text/View.h>
 #include <jcpp.h>
 
@@ -29,17 +25,12 @@ using $ActionMap = ::javax::swing::ActionMap;
 using $JComponent = ::javax::swing::JComponent;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $TextUI = ::javax::swing::plaf::TextUI;
-using $BasicTextFieldUI = ::javax::swing::plaf::basic::BasicTextFieldUI;
-using $BasicTextUI = ::javax::swing::plaf::basic::BasicTextUI;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;
 using $SynthTextFieldUI = ::javax::swing::plaf::synth::SynthTextFieldUI;
 using $DefaultEditorKit = ::javax::swing::text::DefaultEditorKit;
 using $Element = ::javax::swing::text::Element;
-using $FieldView = ::javax::swing::text::FieldView;
 using $PasswordView = ::javax::swing::text::PasswordView;
-using $PlainView = ::javax::swing::text::PlainView;
 using $View = ::javax::swing::text::View;
 
 namespace javax {

@@ -26,7 +26,6 @@
 #include <java/util/function/Supplier.h>
 #include <java/util/stream/Stream.h>
 #include <javax/net/ssl/SSLParameters.h>
-#include <jdk/internal/net/http/AbstractAsyncSSLConnection.h>
 #include <jdk/internal/net/http/AsyncSSLConnection.h>
 #include <jdk/internal/net/http/AsyncSSLTunnelConnection.h>
 #include <jdk/internal/net/http/ConnectionPool$CacheKey.h>
@@ -79,7 +78,6 @@ using $Predicate = ::java::util::function::Predicate;
 using $Supplier = ::java::util::function::Supplier;
 using $Stream = ::java::util::stream::Stream;
 using $SSLParameters = ::javax::net::ssl::SSLParameters;
-using $AbstractAsyncSSLConnection = ::jdk::internal::net::http::AbstractAsyncSSLConnection;
 using $AsyncSSLConnection = ::jdk::internal::net::http::AsyncSSLConnection;
 using $AsyncSSLTunnelConnection = ::jdk::internal::net::http::AsyncSSLTunnelConnection;
 using $ConnectionPool = ::jdk::internal::net::http::ConnectionPool;

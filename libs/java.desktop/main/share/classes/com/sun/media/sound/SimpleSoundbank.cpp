@@ -2,7 +2,6 @@
 
 #include <com/sun/media/sound/ModelInstrumentComparator.h>
 #include <com/sun/media/sound/ModelPatch.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/Comparator.h>
@@ -21,7 +20,6 @@ using $ModelPatch = ::com::sun::media::sound::ModelPatch;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $Comparator = ::java::util::Comparator;

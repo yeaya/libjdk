@@ -5,7 +5,6 @@
 #include <javax/swing/DefaultButtonModel.h>
 #include <javax/swing/JToggleButton$ToggleButtonModel.h>
 #include <javax/swing/ListSelectionModel.h>
-#include <javax/swing/text/AbstractDocument.h>
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/BadLocationException.h>
 #include <javax/swing/text/Document.h>
@@ -48,7 +47,6 @@ using $ButtonGroup = ::javax::swing::ButtonGroup;
 using $DefaultButtonModel = ::javax::swing::DefaultButtonModel;
 using $JToggleButton$ToggleButtonModel = ::javax::swing::JToggleButton$ToggleButtonModel;
 using $ListSelectionModel = ::javax::swing::ListSelectionModel;
-using $AbstractDocument = ::javax::swing::text::AbstractDocument;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $Document = ::javax::swing::text::Document;

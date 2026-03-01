@@ -18,10 +18,8 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/util/function/Predicate.h>
 #include <javax/swing/JColorChooser.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFormattedTextField.h>
 #include <javax/swing/JFrame.h>
-#include <javax/swing/JPanel.h>
 #include <javax/swing/JTabbedPane.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/colorchooser/AbstractColorChooserPanel.h>
@@ -53,10 +51,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Predicate = ::java::util::function::Predicate;
 using $JColorChooser = ::javax::swing::JColorChooser;
-using $JComponent = ::javax::swing::JComponent;
 using $JFormattedTextField = ::javax::swing::JFormattedTextField;
 using $JFrame = ::javax::swing::JFrame;
-using $JPanel = ::javax::swing::JPanel;
 using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $AbstractColorChooserPanel = ::javax::swing::colorchooser::AbstractColorChooserPanel;

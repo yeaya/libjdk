@@ -16,13 +16,10 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <java/awt/event/MouseListener.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JTabbedPane.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/TabbedPaneUI.h>
 #include <javax/swing/plaf/UIResource.h>
 #include <javax/swing/text/View.h>
 #include <sun/swing/SwingUtilities2.h>
@@ -38,7 +35,6 @@
 using $JRSUIConstants$SegmentLeadingSeparator = ::apple::laf::JRSUIConstants$SegmentLeadingSeparator;
 using $JRSUIConstants$SegmentTrailingSeparator = ::apple::laf::JRSUIConstants$SegmentTrailingSeparator;
 using $JRSUIConstants$State = ::apple::laf::JRSUIConstants$State;
-using $AquaTabbedPaneCopyFromBasicUI = ::com::apple::laf::AquaTabbedPaneCopyFromBasicUI;
 using $AquaTabbedPaneUI = ::com::apple::laf::AquaTabbedPaneUI;
 using $AquaTabbedPaneUI$MouseHandler = ::com::apple::laf::AquaTabbedPaneUI$MouseHandler;
 using $AquaUtils = ::com::apple::laf::AquaUtils;
@@ -49,15 +45,12 @@ using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $UIManager = ::javax::swing::UIManager;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $TabbedPaneUI = ::javax::swing::plaf::TabbedPaneUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $View = ::javax::swing::text::View;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;

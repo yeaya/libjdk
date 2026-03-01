@@ -19,7 +19,6 @@
 #include <sun/font/NativeGlyphMapper.h>
 #include <sun/font/NativeStrike.h>
 #include <sun/font/PhysicalFont.h>
-#include <sun/font/PhysicalStrike.h>
 #include <sun/font/StrikeMetrics.h>
 #include <sun/font/SunFontManager.h>
 #include <jcpp.h>
@@ -55,7 +54,6 @@ using $FontStrikeDesc = ::sun::font::FontStrikeDesc;
 using $NativeGlyphMapper = ::sun::font::NativeGlyphMapper;
 using $NativeStrike = ::sun::font::NativeStrike;
 using $PhysicalFont = ::sun::font::PhysicalFont;
-using $PhysicalStrike = ::sun::font::PhysicalStrike;
 using $StrikeMetrics = ::sun::font::StrikeMetrics;
 using $SunFontManager = ::sun::font::SunFontManager;
 

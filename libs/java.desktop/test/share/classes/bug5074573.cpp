@@ -13,7 +13,6 @@
 #include <java/util/Arrays.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/JFormattedTextField.h>
 #include <javax/swing/JFrame.h>
@@ -41,7 +40,6 @@ using $bug5074573$2 = ::bug5074573$2;
 using $bug5074573$3 = ::bug5074573$3;
 using $bug5074573$4 = ::bug5074573$4;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Robot = ::java::awt::Robot;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $PrintStream = ::java::io::PrintStream;
@@ -55,7 +53,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Arrays = ::java::util::Arrays;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $JComponent = ::javax::swing::JComponent;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $JFormattedTextField = ::javax::swing::JFormattedTextField;
 using $JFrame = ::javax::swing::JFrame;

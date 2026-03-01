@@ -10,7 +10,6 @@
 #include <com/sun/tools/javac/code/Symbol$OperatorSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$PackageSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$RecordComponent.h>
-#include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/comp/Modules.h>
@@ -61,7 +60,6 @@ using $Symbol$Completer = ::com::sun::tools::javac::code::Symbol$Completer;
 using $Symbol$ModuleSymbol = ::com::sun::tools::javac::code::Symbol$ModuleSymbol;
 using $Symbol$PackageSymbol = ::com::sun::tools::javac::code::Symbol$PackageSymbol;
 using $Symbol$RecordComponent = ::com::sun::tools::javac::code::Symbol$RecordComponent;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Modules = ::com::sun::tools::javac::comp::Modules;
 using $JavacProcessingEnvironment = ::com::sun::tools::javac::processing::JavacProcessingEnvironment;
 using $JavacProcessingEnvironment$ImplicitCompleter = ::com::sun::tools::javac::processing::JavacProcessingEnvironment$ImplicitCompleter;

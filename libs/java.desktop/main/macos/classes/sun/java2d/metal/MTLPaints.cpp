@@ -1,6 +1,5 @@
 #include <sun/java2d/metal/MTLPaints.h>
 
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <sun/java2d/SunGraphics2D.h>
@@ -21,7 +20,6 @@ using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $SunGraphics2D = ::sun::java2d::SunGraphics2D;

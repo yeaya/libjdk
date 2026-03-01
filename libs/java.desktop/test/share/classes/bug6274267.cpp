@@ -8,7 +8,6 @@
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/lang/Runnable.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/JScrollPane.h>
@@ -22,7 +21,6 @@
 using $bug6274267$1 = ::bug6274267$1;
 using $bug6274267$2 = ::bug6274267$2;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Robot = ::java::awt::Robot;
 using $PrintStream = ::java::io::PrintStream;
@@ -32,7 +30,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JPanel = ::javax::swing::JPanel;
 using $JScrollPane = ::javax::swing::JScrollPane;

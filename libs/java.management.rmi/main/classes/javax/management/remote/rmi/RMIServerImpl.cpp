@@ -15,7 +15,6 @@
 #include <java/rmi/server/RemoteServer.h>
 #include <java/rmi/server/ServerNotActiveException.h>
 #include <java/security/Principal.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
@@ -41,7 +40,6 @@ using $IOException = ::java::io::IOException;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -52,7 +50,6 @@ using $Remote = ::java::rmi::Remote;
 using $RemoteServer = ::java::rmi::server::RemoteServer;
 using $ServerNotActiveException = ::java::rmi::server::ServerNotActiveException;
 using $Principal = ::java::security::Principal;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;

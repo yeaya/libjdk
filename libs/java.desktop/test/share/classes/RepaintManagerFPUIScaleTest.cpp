@@ -5,7 +5,6 @@
 #include <RepaintManagerFPUIScaleTest$TestListCellRenderer.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/GraphicsDevice.h>
@@ -14,14 +13,11 @@
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/Image.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
-#include <java/awt/event/WindowAdapter.h>
 #include <java/awt/event/WindowListener.h>
 #include <java/awt/geom/AffineTransform.h>
-#include <java/awt/image/AbstractMultiResolutionImage.h>
 #include <java/awt/image/BaseMultiResolutionImage.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/io/Serializable.h>
@@ -34,8 +30,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/util/concurrent/CountDownLatch.h>
 #include <java/util/concurrent/TimeUnit.h>
-#include <javax/swing/AbstractButton.h>
-#include <javax/swing/DefaultListCellRenderer.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
@@ -45,7 +39,6 @@
 #include <javax/swing/JTextArea.h>
 #include <javax/swing/ListCellRenderer.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef BLUE
@@ -68,7 +61,6 @@ using $ColorArray = $Array<::java::awt::Color>;
 using $ImageArray = $Array<::java::awt::Image>;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $GraphicsDevice = ::java::awt::GraphicsDevice;
@@ -77,13 +69,10 @@ using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $Image = ::java::awt::Image;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $WindowAdapter = ::java::awt::event::WindowAdapter;
 using $WindowListener = ::java::awt::event::WindowListener;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
-using $AbstractMultiResolutionImage = ::java::awt::image::AbstractMultiResolutionImage;
 using $BaseMultiResolutionImage = ::java::awt::image::BaseMultiResolutionImage;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $Serializable = ::java::io::Serializable;
@@ -97,8 +86,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
-using $AbstractButton = ::javax::swing::AbstractButton;
-using $DefaultListCellRenderer = ::javax::swing::DefaultListCellRenderer;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
@@ -108,7 +95,6 @@ using $JScrollPane = ::javax::swing::JScrollPane;
 using $JTextArea = ::javax::swing::JTextArea;
 using $ListCellRenderer = ::javax::swing::ListCellRenderer;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 class RepaintManagerFPUIScaleTest$$Lambda$createUI : public $Runnable {
 	$class(RepaintManagerFPUIScaleTest$$Lambda$createUI, $NO_CLASS_INIT, $Runnable)

@@ -18,7 +18,6 @@
 #include <javax/swing/plaf/TextUI.h>
 #include <javax/swing/plaf/basic/BasicTextUI$TextTransferHandler$TextTransferable.h>
 #include <javax/swing/plaf/basic/BasicTextUI.h>
-#include <javax/swing/plaf/basic/BasicTransferable.h>
 #include <javax/swing/text/BadLocationException.h>
 #include <javax/swing/text/Caret.h>
 #include <javax/swing/text/DefaultCaret.h>
@@ -56,7 +55,6 @@ using $TransferHandler = ::javax::swing::TransferHandler;
 using $TransferHandler$TransferSupport = ::javax::swing::TransferHandler$TransferSupport;
 using $TextUI = ::javax::swing::plaf::TextUI;
 using $BasicTextUI$TextTransferHandler$TextTransferable = ::javax::swing::plaf::basic::BasicTextUI$TextTransferHandler$TextTransferable;
-using $BasicTransferable = ::javax::swing::plaf::basic::BasicTransferable;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $Caret = ::javax::swing::text::Caret;
 using $DefaultCaret = ::javax::swing::text::DefaultCaret;

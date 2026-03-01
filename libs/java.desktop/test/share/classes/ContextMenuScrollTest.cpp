@@ -8,7 +8,6 @@
 #include <ContextMenuScrollTest$6.h>
 #include <ContextMenuScrollTest$7.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Point.h>
 #include <java/awt/Robot.h>
@@ -23,7 +22,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JMenu.h>
 #include <javax/swing/JMenuBar.h>
@@ -45,7 +43,6 @@ using $ContextMenuScrollTest$5 = ::ContextMenuScrollTest$5;
 using $ContextMenuScrollTest$6 = ::ContextMenuScrollTest$6;
 using $ContextMenuScrollTest$7 = ::ContextMenuScrollTest$7;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Point = ::java::awt::Point;
 using $Robot = ::java::awt::Robot;
@@ -61,7 +58,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JMenu = ::javax::swing::JMenu;
 using $JMenuBar = ::javax::swing::JMenuBar;

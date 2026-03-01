@@ -5,13 +5,10 @@
 #include <java/awt/Rectangle.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/TableHeaderUI.h>
 #include <javax/swing/plaf/UIResource.h>
 #include <javax/swing/plaf/basic/BasicTableHeaderUI.h>
-#include <javax/swing/table/DefaultTableCellRenderer.h>
 #include <javax/swing/table/JTableHeader.h>
 #include <javax/swing/table/TableCellRenderer.h>
-#include <sun/swing/table/DefaultTableCellHeaderRenderer.h>
 #include <jcpp.h>
 
 using $WindowsTableHeaderUI$XPDefaultRenderer = ::com::sun::java::swing::plaf::windows::WindowsTableHeaderUI$XPDefaultRenderer;
@@ -22,13 +19,10 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $TableHeaderUI = ::javax::swing::plaf::TableHeaderUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $BasicTableHeaderUI = ::javax::swing::plaf::basic::BasicTableHeaderUI;
-using $DefaultTableCellRenderer = ::javax::swing::table::DefaultTableCellRenderer;
 using $JTableHeader = ::javax::swing::table::JTableHeader;
 using $TableCellRenderer = ::javax::swing::table::TableCellRenderer;
-using $DefaultTableCellHeaderRenderer = ::sun::swing::table::DefaultTableCellHeaderRenderer;
 
 namespace com {
 	namespace sun {

@@ -8,7 +8,6 @@
 #include <javax/swing/JDialog.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/table/AbstractTableModel.h>
 #include <javax/swing/table/DefaultTableModel.h>
 #include <javax/swing/table/TableModel.h>
 #include <jcpp.h>
@@ -27,7 +26,6 @@ using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 using $JDialog = ::javax::swing::JDialog;
 using $JFrame = ::javax::swing::JFrame;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $AbstractTableModel = ::javax::swing::table::AbstractTableModel;
 using $DefaultTableModel = ::javax::swing::table::DefaultTableModel;
 using $TableModel = ::javax::swing::table::TableModel;
 

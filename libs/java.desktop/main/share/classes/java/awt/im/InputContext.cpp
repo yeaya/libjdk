@@ -4,7 +4,6 @@
 #include <java/awt/Component.h>
 #include <java/lang/Character$Subset.h>
 #include <java/util/Locale.h>
-#include <sun/awt/im/InputContext.h>
 #include <sun/awt/im/InputMethodContext.h>
 #include <jcpp.h>
 
@@ -15,7 +14,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Locale = ::java::util::Locale;
-using $InputContext = ::sun::awt::im::InputContext;
 using $InputMethodContext = ::sun::awt::im::InputMethodContext;
 
 namespace java {

@@ -5,7 +5,6 @@
 #include <com/sun/source/doctree/DocTree.h>
 #include <com/sun/source/doctree/IdentifierTree.h>
 #include <com/sun/source/doctree/InheritDocTree.h>
-#include <com/sun/source/doctree/InlineTagTree.h>
 #include <com/sun/source/doctree/ParamTree.h>
 #include <com/sun/source/doctree/ReturnTree.h>
 #include <com/sun/source/doctree/ThrowsTree.h>
@@ -25,9 +24,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
@@ -68,7 +64,6 @@ using $DocTree = ::com::sun::source::doctree::DocTree;
 using $DocTree$Kind = ::com::sun::source::doctree::DocTree$Kind;
 using $IdentifierTree = ::com::sun::source::doctree::IdentifierTree;
 using $InheritDocTree = ::com::sun::source::doctree::InheritDocTree;
-using $InlineTagTree = ::com::sun::source::doctree::InlineTagTree;
 using $ParamTree = ::com::sun::source::doctree::ParamTree;
 using $ReturnTree = ::com::sun::source::doctree::ReturnTree;
 using $ThrowsTree = ::com::sun::source::doctree::ThrowsTree;
@@ -92,9 +87,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Void = ::java::lang::Void;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSet = ::java::util::AbstractSet;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;

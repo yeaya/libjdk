@@ -8,7 +8,6 @@
 #include <com/sun/org/apache/xpath/internal/ExpressionNode.h>
 #include <com/sun/org/apache/xpath/internal/axes/AttributeIterator.h>
 #include <com/sun/org/apache/xpath/internal/axes/AxesWalker.h>
-#include <com/sun/org/apache/xpath/internal/axes/BasicTestIterator.h>
 #include <com/sun/org/apache/xpath/internal/axes/ChildIterator.h>
 #include <com/sun/org/apache/xpath/internal/axes/ChildTestIterator.h>
 #include <com/sun/org/apache/xpath/internal/axes/DescendantIterator.h>
@@ -17,7 +16,6 @@
 #include <com/sun/org/apache/xpath/internal/axes/MatchPatternIterator.h>
 #include <com/sun/org/apache/xpath/internal/axes/OneStepIterator.h>
 #include <com/sun/org/apache/xpath/internal/axes/OneStepIteratorForward.h>
-#include <com/sun/org/apache/xpath/internal/axes/PredicatedNodeTest.h>
 #include <com/sun/org/apache/xpath/internal/axes/ReverseAxesWalker.h>
 #include <com/sun/org/apache/xpath/internal/axes/SelfIteratorNoPredicate.h>
 #include <com/sun/org/apache/xpath/internal/axes/WalkingIterator.h>
@@ -138,7 +136,6 @@ using $Expression = ::com::sun::org::apache::xpath::internal::Expression;
 using $ExpressionNode = ::com::sun::org::apache::xpath::internal::ExpressionNode;
 using $AttributeIterator = ::com::sun::org::apache::xpath::internal::axes::AttributeIterator;
 using $AxesWalker = ::com::sun::org::apache::xpath::internal::axes::AxesWalker;
-using $BasicTestIterator = ::com::sun::org::apache::xpath::internal::axes::BasicTestIterator;
 using $ChildIterator = ::com::sun::org::apache::xpath::internal::axes::ChildIterator;
 using $ChildTestIterator = ::com::sun::org::apache::xpath::internal::axes::ChildTestIterator;
 using $DescendantIterator = ::com::sun::org::apache::xpath::internal::axes::DescendantIterator;
@@ -147,7 +144,6 @@ using $LocPathIterator = ::com::sun::org::apache::xpath::internal::axes::LocPath
 using $MatchPatternIterator = ::com::sun::org::apache::xpath::internal::axes::MatchPatternIterator;
 using $OneStepIterator = ::com::sun::org::apache::xpath::internal::axes::OneStepIterator;
 using $OneStepIteratorForward = ::com::sun::org::apache::xpath::internal::axes::OneStepIteratorForward;
-using $PredicatedNodeTest = ::com::sun::org::apache::xpath::internal::axes::PredicatedNodeTest;
 using $ReverseAxesWalker = ::com::sun::org::apache::xpath::internal::axes::ReverseAxesWalker;
 using $SelfIteratorNoPredicate = ::com::sun::org::apache::xpath::internal::axes::SelfIteratorNoPredicate;
 using $WalkingIterator = ::com::sun::org::apache::xpath::internal::axes::WalkingIterator;

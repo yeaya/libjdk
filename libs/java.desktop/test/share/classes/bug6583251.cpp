@@ -6,21 +6,16 @@
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/EventQueue.h>
-#include <java/awt/Frame.h>
 #include <java/awt/Image.h>
 #include <java/awt/Robot.h>
 #include <java/awt/SystemTray.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/TrayIcon.h>
 #include <java/awt/Window.h>
-#include <java/awt/event/ComponentEvent.h>
-#include <java/awt/event/InputEvent.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/lang/Runnable.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JMenuItem.h>
 #include <javax/swing/JPanel.h>
@@ -36,17 +31,12 @@ using $bug6583251$1 = ::bug6583251$1;
 using $bug6583251$2 = ::bug6583251$2;
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $EventQueue = ::java::awt::EventQueue;
-using $Frame = ::java::awt::Frame;
 using $Image = ::java::awt::Image;
 using $Robot = ::java::awt::Robot;
 using $SystemTray = ::java::awt::SystemTray;
 using $Toolkit = ::java::awt::Toolkit;
 using $TrayIcon = ::java::awt::TrayIcon;
-using $Window = ::java::awt::Window;
-using $ComponentEvent = ::java::awt::event::ComponentEvent;
-using $InputEvent = ::java::awt::event::InputEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $PrintStream = ::java::io::PrintStream;
@@ -55,9 +45,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JMenuItem = ::javax::swing::JMenuItem;
 using $JPanel = ::javax::swing::JPanel;

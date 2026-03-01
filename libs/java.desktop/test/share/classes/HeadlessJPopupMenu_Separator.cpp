@@ -25,7 +25,6 @@
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JPopupMenu$Separator.h>
-#include <javax/swing/JSeparator.h>
 #include <jcpp.h>
 
 #undef BOLD
@@ -60,9 +59,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
-using $JComponent = ::javax::swing::JComponent;
 using $JPopupMenu$Separator = ::javax::swing::JPopupMenu$Separator;
-using $JSeparator = ::javax::swing::JSeparator;
 
 $MethodInfo _HeadlessJPopupMenu_Separator_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJPopupMenu_Separator, init$, void)},

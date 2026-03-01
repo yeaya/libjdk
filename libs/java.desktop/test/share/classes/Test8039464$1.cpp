@@ -3,7 +3,6 @@
 #include <Test8039464.h>
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
-#include <java/awt/Frame.h>
 #include <java/awt/Window.h>
 #include <javax/swing/JFrame.h>
 #include <jcpp.h>
@@ -13,8 +12,6 @@
 using $Test8039464 = ::Test8039464;
 using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
-using $Frame = ::java::awt::Frame;
-using $Window = ::java::awt::Window;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

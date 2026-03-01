@@ -1,8 +1,6 @@
 #include <javax/swing/tree/VariableHeightLayoutCache$VisibleTreeStateNodeEnumeration.h>
 
 #include <java/util/NoSuchElementException.h>
-#include <javax/swing/tree/DefaultMutableTreeNode.h>
-#include <javax/swing/tree/MutableTreeNode.h>
 #include <javax/swing/tree/TreeNode.h>
 #include <javax/swing/tree/TreePath.h>
 #include <javax/swing/tree/VariableHeightLayoutCache$TreeStateNode.h>
@@ -14,8 +12,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
-using $DefaultMutableTreeNode = ::javax::swing::tree::DefaultMutableTreeNode;
-using $MutableTreeNode = ::javax::swing::tree::MutableTreeNode;
 using $TreeNode = ::javax::swing::tree::TreeNode;
 using $TreePath = ::javax::swing::tree::TreePath;
 using $VariableHeightLayoutCache = ::javax::swing::tree::VariableHeightLayoutCache;

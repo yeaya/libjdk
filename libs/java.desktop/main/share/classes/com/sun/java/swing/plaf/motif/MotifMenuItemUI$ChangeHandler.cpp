@@ -1,7 +1,6 @@
 #include <com/sun/java/swing/plaf/motif/MotifMenuItemUI$ChangeHandler.h>
 
 #include <com/sun/java/swing/plaf/motif/MotifMenuItemUI.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JMenuItem.h>
 #include <javax/swing/LookAndFeel.h>
@@ -14,7 +13,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JComponent = ::javax::swing::JComponent;
 using $JMenuItem = ::javax::swing::JMenuItem;
 using $LookAndFeel = ::javax::swing::LookAndFeel;

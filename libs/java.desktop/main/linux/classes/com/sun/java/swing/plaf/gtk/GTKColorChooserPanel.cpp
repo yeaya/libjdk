@@ -11,19 +11,16 @@
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/lang/Math.h>
 #include <java/lang/Number.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/util/Locale.h>
-#include <javax/swing/AbstractSpinnerModel.h>
 #include <javax/swing/Box.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/JColorChooser.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JFormattedTextField.h>
 #include <javax/swing/JLabel.h>
-#include <javax/swing/JPanel.h>
 #include <javax/swing/JSeparator.h>
 #include <javax/swing/JSpinner$DefaultEditor.h>
 #include <javax/swing/JSpinner.h>
@@ -36,7 +33,6 @@
 #include <javax/swing/colorchooser/ColorSelectionModel.h>
 #include <javax/swing/event/ChangeEvent.h>
 #include <javax/swing/event/ChangeListener.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef BLACK
@@ -66,7 +62,6 @@ using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $Insets = ::java::awt::Insets;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -75,14 +70,12 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Number = ::java::lang::Number;
 using $NumberFormatException = ::java::lang::NumberFormatException;
-using $AbstractSpinnerModel = ::javax::swing::AbstractSpinnerModel;
 using $Box = ::javax::swing::Box;
 using $Icon = ::javax::swing::Icon;
 using $JColorChooser = ::javax::swing::JColorChooser;
 using $JComponent = ::javax::swing::JComponent;
 using $JFormattedTextField = ::javax::swing::JFormattedTextField;
 using $JLabel = ::javax::swing::JLabel;
-using $JPanel = ::javax::swing::JPanel;
 using $JSeparator = ::javax::swing::JSeparator;
 using $JSpinner = ::javax::swing::JSpinner;
 using $JSpinner$DefaultEditor = ::javax::swing::JSpinner$DefaultEditor;
@@ -95,7 +88,6 @@ using $AbstractColorChooserPanel = ::javax::swing::colorchooser::AbstractColorCh
 using $ColorSelectionModel = ::javax::swing::colorchooser::ColorSelectionModel;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 namespace com {
 	namespace sun {

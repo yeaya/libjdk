@@ -62,7 +62,6 @@
 #include <sun/print/CustomMediaSizeName.h>
 #include <sun/print/PeekGraphics.h>
 #include <sun/print/PrintJob2D$MessageQ.h>
-#include <sun/print/ProxyGraphics.h>
 #include <sun/print/ProxyPrintGraphics.h>
 #include <sun/print/SunMinMaxPage.h>
 #include <sun/print/SunPageSelection.h>
@@ -256,7 +255,6 @@ using $Sides = ::javax::print::attribute::standard::Sides;
 using $CustomMediaSizeName = ::sun::print::CustomMediaSizeName;
 using $PeekGraphics = ::sun::print::PeekGraphics;
 using $PrintJob2D$MessageQ = ::sun::print::PrintJob2D$MessageQ;
-using $ProxyGraphics = ::sun::print::ProxyGraphics;
 using $ProxyPrintGraphics = ::sun::print::ProxyPrintGraphics;
 using $SunMinMaxPage = ::sun::print::SunMinMaxPage;
 using $SunPageSelection = ::sun::print::SunPageSelection;

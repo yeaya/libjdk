@@ -4,7 +4,6 @@
 #include <java/awt/Container.h>
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
@@ -23,16 +22,13 @@
 #include <javax/swing/BoxLayout.h>
 #include <javax/swing/ButtonGroup.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/JRadioButton.h>
 #include <javax/swing/JRootPane.h>
-#include <javax/swing/JToggleButton.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/TitledBorder.h>
 #include <jcpp.h>
@@ -50,7 +46,6 @@ using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Robot = ::java::awt::Robot;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
@@ -71,16 +66,13 @@ using $BorderFactory = ::javax::swing::BorderFactory;
 using $BoxLayout = ::javax::swing::BoxLayout;
 using $ButtonGroup = ::javax::swing::ButtonGroup;
 using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JPanel = ::javax::swing::JPanel;
 using $JRadioButton = ::javax::swing::JRadioButton;
 using $JRootPane = ::javax::swing::JRootPane;
-using $JToggleButton = ::javax::swing::JToggleButton;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 
 class bug8033699$$Lambda$lambda$main$0 : public $Runnable {

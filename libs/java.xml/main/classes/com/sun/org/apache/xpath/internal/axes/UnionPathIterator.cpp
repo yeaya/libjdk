@@ -11,8 +11,6 @@
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
 #include <com/sun/org/apache/xpath/internal/XPathVisitor.h>
 #include <com/sun/org/apache/xpath/internal/axes/AxesWalker.h>
-#include <com/sun/org/apache/xpath/internal/axes/BasicTestIterator.h>
-#include <com/sun/org/apache/xpath/internal/axes/ChildTestIterator.h>
 #include <com/sun/org/apache/xpath/internal/axes/FilterExprWalker.h>
 #include <com/sun/org/apache/xpath/internal/axes/HasPositionalPredChecker.h>
 #include <com/sun/org/apache/xpath/internal/axes/IteratorPool.h>
@@ -25,7 +23,6 @@
 #include <com/sun/org/apache/xpath/internal/compiler/Compiler.h>
 #include <com/sun/org/apache/xpath/internal/compiler/OpCodes.h>
 #include <com/sun/org/apache/xpath/internal/compiler/OpMap.h>
-#include <com/sun/org/apache/xpath/internal/patterns/NodeTest.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -49,8 +46,6 @@ using $ExpressionNode = ::com::sun::org::apache::xpath::internal::ExpressionNode
 using $ExpressionOwner = ::com::sun::org::apache::xpath::internal::ExpressionOwner;
 using $XPathVisitor = ::com::sun::org::apache::xpath::internal::XPathVisitor;
 using $AxesWalker = ::com::sun::org::apache::xpath::internal::axes::AxesWalker;
-using $BasicTestIterator = ::com::sun::org::apache::xpath::internal::axes::BasicTestIterator;
-using $ChildTestIterator = ::com::sun::org::apache::xpath::internal::axes::ChildTestIterator;
 using $FilterExprWalker = ::com::sun::org::apache::xpath::internal::axes::FilterExprWalker;
 using $HasPositionalPredChecker = ::com::sun::org::apache::xpath::internal::axes::HasPositionalPredChecker;
 using $IteratorPool = ::com::sun::org::apache::xpath::internal::axes::IteratorPool;
@@ -63,7 +58,6 @@ using $WalkingIterator = ::com::sun::org::apache::xpath::internal::axes::Walking
 using $Compiler = ::com::sun::org::apache::xpath::internal::compiler::Compiler;
 using $OpCodes = ::com::sun::org::apache::xpath::internal::compiler::OpCodes;
 using $OpMap = ::com::sun::org::apache::xpath::internal::compiler::OpMap;
-using $NodeTest = ::com::sun::org::apache::xpath::internal::patterns::NodeTest;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;

@@ -1,6 +1,5 @@
 #include <sun/management/counter/perf/PerfDataType.h>
 
-#include <java/io/IOException.h>
 #include <java/io/UnsupportedEncodingException.h>
 #include <java/lang/InternalError.h>
 #include <jcpp.h>
@@ -16,10 +15,8 @@
 #undef SHORT
 
 using $PerfDataTypeArray = $Array<::sun::management::counter::perf::PerfDataType>;
-using $IOException = ::java::io::IOException;
 using $UnsupportedEncodingException = ::java::io::UnsupportedEncodingException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;

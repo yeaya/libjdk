@@ -32,7 +32,6 @@
 #include <javax/imageio/metadata/IIOMetadata.h>
 #include <javax/imageio/spi/ImageWriterSpi.h>
 #include <javax/imageio/stream/ImageOutputStream.h>
-#include <javax/imageio/stream/ImageOutputStreamImpl.h>
 #include <jcpp.h>
 
 #undef DEFAULT_COMPRESSION_LEVEL
@@ -68,7 +67,6 @@ using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -89,7 +87,6 @@ using $ImageWriter = ::javax::imageio::ImageWriter;
 using $IIOMetadata = ::javax::imageio::metadata::IIOMetadata;
 using $ImageWriterSpi = ::javax::imageio::spi::ImageWriterSpi;
 using $ImageOutputStream = ::javax::imageio::stream::ImageOutputStream;
-using $ImageOutputStreamImpl = ::javax::imageio::stream::ImageOutputStreamImpl;
 
 namespace com {
 	namespace sun {

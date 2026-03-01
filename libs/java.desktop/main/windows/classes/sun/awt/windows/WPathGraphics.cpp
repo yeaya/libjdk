@@ -16,7 +16,6 @@
 #include <java/awt/font/TextLayout.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/Line2D$Float.h>
-#include <java/awt/geom/Line2D.h>
 #include <java/awt/geom/NoninvertibleTransformException.h>
 #include <java/awt/geom/PathIterator.h>
 #include <java/awt/geom/Point2D$Double.h>
@@ -24,7 +23,6 @@
 #include <java/awt/geom/Point2D.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/ComponentSampleModel.h>
@@ -49,14 +47,12 @@
 #include <sun/awt/windows/WPrinterJob.h>
 #include <sun/font/CharToGlyphMapper.h>
 #include <sun/font/CompositeFont.h>
-#include <sun/font/FileFont.h>
 #include <sun/font/Font2D.h>
 #include <sun/font/FontUtilities.h>
 #include <sun/font/PhysicalFont.h>
 #include <sun/font/TrueTypeFont.h>
 #include <sun/print/PathGraphics.h>
 #include <sun/print/ProxyGraphics2D.h>
-#include <sun/print/RasterPrinterJob.h>
 #include <sun/security/action/GetPropertyAction.h>
 #include <jcpp.h>
 
@@ -101,7 +97,6 @@ using $FontRenderContext = ::java::awt::font::FontRenderContext;
 using $GlyphVector = ::java::awt::font::GlyphVector;
 using $TextLayout = ::java::awt::font::TextLayout;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
-using $Line2D = ::java::awt::geom::Line2D;
 using $Line2D$Float = ::java::awt::geom::Line2D$Float;
 using $NoninvertibleTransformException = ::java::awt::geom::NoninvertibleTransformException;
 using $PathIterator = ::java::awt::geom::PathIterator;
@@ -110,7 +105,6 @@ using $Point2D$Double = ::java::awt::geom::Point2D$Double;
 using $Point2D$Float = ::java::awt::geom::Point2D$Float;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $ComponentSampleModel = ::java::awt::image::ComponentSampleModel;
@@ -140,14 +134,12 @@ using $BytePackedRaster = ::sun::awt::image::BytePackedRaster;
 using $WPrinterJob = ::sun::awt::windows::WPrinterJob;
 using $CharToGlyphMapper = ::sun::font::CharToGlyphMapper;
 using $CompositeFont = ::sun::font::CompositeFont;
-using $FileFont = ::sun::font::FileFont;
 using $Font2D = ::sun::font::Font2D;
 using $FontUtilities = ::sun::font::FontUtilities;
 using $PhysicalFont = ::sun::font::PhysicalFont;
 using $TrueTypeFont = ::sun::font::TrueTypeFont;
 using $PathGraphics = ::sun::print::PathGraphics;
 using $ProxyGraphics2D = ::sun::print::ProxyGraphics2D;
-using $RasterPrinterJob = ::sun::print::RasterPrinterJob;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
 
 namespace sun {

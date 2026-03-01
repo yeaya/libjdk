@@ -1,6 +1,5 @@
 #include <org/xml/sax/helpers/XMLReaderFactory.h>
 
-#include <com/sun/org/apache/xerces/internal/parsers/AbstractSAXParser.h>
 #include <com/sun/org/apache/xerces/internal/parsers/SAXParser.h>
 #include <java/io/BufferedReader.h>
 #include <java/io/IOException.h>
@@ -11,10 +10,8 @@
 #include <java/lang/ClassCastException.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/Error.h>
 #include <java/lang/IllegalAccessException.h>
 #include <java/lang/InstantiationException.h>
-#include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
 #include <java/lang/invoke/MethodHandle.h>
@@ -32,7 +29,6 @@
 #include <org/xml/sax/helpers/NewInstance.h>
 #include <jcpp.h>
 
-using $AbstractSAXParser = ::com::sun::org::apache::xerces::internal::parsers::AbstractSAXParser;
 using $SAXParser = ::com::sun::org::apache::xerces::internal::parsers::SAXParser;
 using $BufferedReader = ::java::io::BufferedReader;
 using $IOException = ::java::io::IOException;
@@ -45,14 +41,12 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
-using $Error = ::java::lang::Error;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InstantiationException = ::java::lang::InstantiationException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;

@@ -1,17 +1,14 @@
 #include <com/sun/media/sound/SoftProvider.h>
 
-#include <com/sun/media/sound/AudioSynthesizer.h>
 #include <com/sun/media/sound/MidiUtils.h>
 #include <com/sun/media/sound/SoftSynthesizer.h>
 #include <java/util/Objects.h>
 #include <javax/sound/midi/MidiDevice$Info.h>
 #include <javax/sound/midi/MidiDevice.h>
-#include <javax/sound/midi/Synthesizer.h>
 #include <javax/sound/midi/spi/MidiDeviceProvider.h>
 #include <jcpp.h>
 
 using $MidiDevice$InfoArray = $Array<::javax::sound::midi::MidiDevice$Info>;
-using $AudioSynthesizer = ::com::sun::media::sound::AudioSynthesizer;
 using $MidiUtils = ::com::sun::media::sound::MidiUtils;
 using $SoftSynthesizer = ::com::sun::media::sound::SoftSynthesizer;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -19,7 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Objects = ::java::util::Objects;
 using $MidiDevice = ::javax::sound::midi::MidiDevice;
 using $MidiDevice$Info = ::javax::sound::midi::MidiDevice$Info;
-using $Synthesizer = ::javax::sound::midi::Synthesizer;
 using $MidiDeviceProvider = ::javax::sound::midi::spi::MidiDeviceProvider;
 
 namespace com {

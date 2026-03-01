@@ -1,7 +1,6 @@
 #include <GetSelectedValueTest$1.h>
 
 #include <GetSelectedValueTest.h>
-#include <javax/swing/AbstractListModel.h>
 #include <javax/swing/DefaultListModel.h>
 #include <javax/swing/JList.h>
 #include <javax/swing/ListModel.h>
@@ -15,7 +14,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractListModel = ::javax::swing::AbstractListModel;
 using $DefaultListModel = ::javax::swing::DefaultListModel;
 using $JList = ::javax::swing::JList;
 using $ListModel = ::javax::swing::ListModel;

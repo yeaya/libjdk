@@ -4,7 +4,6 @@
 #include <com/apple/laf/AquaFocusHandler$1.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/FocusEvent.h>
 #include <java/awt/event/FocusListener.h>
@@ -28,7 +27,6 @@ using $AquaBorder = ::com::apple::laf::AquaBorder;
 using $AquaFocusHandler$1 = ::com::apple::laf::AquaFocusHandler$1;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Window = ::java::awt::Window;
 using $FocusEvent = ::java::awt::event::FocusEvent;
 using $FocusListener = ::java::awt::event::FocusListener;

@@ -4,7 +4,6 @@
 #include <com/sun/org/apache/xerces/internal/impl/PropertyManager.h>
 #include <com/sun/xml/internal/stream/writers/XMLDOMWriterImpl.h>
 #include <com/sun/xml/internal/stream/writers/XMLEventWriterImpl.h>
-#include <com/sun/xml/internal/stream/writers/XMLStreamWriterBase.h>
 #include <com/sun/xml/internal/stream/writers/XMLStreamWriterImpl.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
@@ -28,14 +27,12 @@ using $Constants = ::com::sun::org::apache::xerces::internal::impl::Constants;
 using $PropertyManager = ::com::sun::org::apache::xerces::internal::impl::PropertyManager;
 using $XMLDOMWriterImpl = ::com::sun::xml::internal::stream::writers::XMLDOMWriterImpl;
 using $XMLEventWriterImpl = ::com::sun::xml::internal::stream::writers::XMLEventWriterImpl;
-using $XMLStreamWriterBase = ::com::sun::xml::internal::stream::writers::XMLStreamWriterBase;
 using $XMLStreamWriterImpl = ::com::sun::xml::internal::stream::writers::XMLStreamWriterImpl;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $Writer = ::java::io::Writer;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;

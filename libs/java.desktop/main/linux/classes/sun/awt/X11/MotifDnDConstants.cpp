@@ -14,7 +14,6 @@
 #include <sun/awt/X11/XErrorEvent.h>
 #include <sun/awt/X11/XErrorHandler$IgnoreBadWindowHandler.h>
 #include <sun/awt/X11/XErrorHandler$VerifyChangePropertyHandler.h>
-#include <sun/awt/X11/XErrorHandler$XBaseErrorHandler.h>
 #include <sun/awt/X11/XErrorHandler.h>
 #include <sun/awt/X11/XErrorHandlerUtil.h>
 #include <sun/awt/X11/XException.h>
@@ -91,7 +90,6 @@ using $XErrorEvent = ::sun::awt::X11::XErrorEvent;
 using $XErrorHandler = ::sun::awt::X11::XErrorHandler;
 using $XErrorHandler$IgnoreBadWindowHandler = ::sun::awt::X11::XErrorHandler$IgnoreBadWindowHandler;
 using $XErrorHandler$VerifyChangePropertyHandler = ::sun::awt::X11::XErrorHandler$VerifyChangePropertyHandler;
-using $XErrorHandler$XBaseErrorHandler = ::sun::awt::X11::XErrorHandler$XBaseErrorHandler;
 using $XErrorHandlerUtil = ::sun::awt::X11::XErrorHandlerUtil;
 using $XException = ::sun::awt::X11::XException;
 using $XSelection = ::sun::awt::X11::XSelection;

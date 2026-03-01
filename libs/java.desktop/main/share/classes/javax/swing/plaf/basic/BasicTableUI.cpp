@@ -50,7 +50,6 @@
 #include <javax/swing/table/TableColumnModel.h>
 #include <sun/swing/DefaultLookup.h>
 #include <sun/swing/SwingUtilities2.h>
-#include <sun/swing/UIAction.h>
 #include <jcpp.h>
 
 #undef ADD_TO_SELECTION
@@ -158,7 +157,6 @@ using $TableColumn = ::javax::swing::table::TableColumn;
 using $TableColumnModel = ::javax::swing::table::TableColumnModel;
 using $DefaultLookup = ::sun::swing::DefaultLookup;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
-using $UIAction = ::sun::swing::UIAction;
 
 namespace javax {
 	namespace swing {

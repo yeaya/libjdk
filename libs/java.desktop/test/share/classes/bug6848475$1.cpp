@@ -7,7 +7,6 @@
 #include <java/awt/Window.h>
 #include <javax/swing/BoundedRangeModel.h>
 #include <javax/swing/DefaultBoundedRangeModel.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JSlider.h>
 #include <jcpp.h>
@@ -22,7 +21,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BoundedRangeModel = ::javax::swing::BoundedRangeModel;
 using $DefaultBoundedRangeModel = ::javax::swing::DefaultBoundedRangeModel;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JSlider = ::javax::swing::JSlider;
 

@@ -1,33 +1,26 @@
 #include <com/apple/laf/AquaInternalFramePaneUI.h>
 
-#include <com/apple/laf/AquaInternalFrameManager.h>
 #include <com/apple/laf/AquaInternalFramePaneUI$AquaDockingDesktopManager.h>
 #include <com/apple/laf/AquaInternalFramePaneUI$Dock.h>
 #include <com/apple/laf/AquaInternalFramePaneUI$DockLayoutManager.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/beans/PropertyVetoException.h>
-#include <javax/swing/DefaultDesktopManager.h>
 #include <javax/swing/DesktopManager.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JDesktopPane.h>
 #include <javax/swing/JInternalFrame.h>
-#include <javax/swing/JLayeredPane.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/DesktopPaneUI.h>
 #include <javax/swing/plaf/basic/BasicDesktopPaneUI.h>
 #include <jcpp.h>
 
-using $AquaInternalFrameManager = ::com::apple::laf::AquaInternalFrameManager;
 using $AquaInternalFramePaneUI$AquaDockingDesktopManager = ::com::apple::laf::AquaInternalFramePaneUI$AquaDockingDesktopManager;
 using $AquaInternalFramePaneUI$Dock = ::com::apple::laf::AquaInternalFramePaneUI$Dock;
 using $AquaInternalFramePaneUI$DockLayoutManager = ::com::apple::laf::AquaInternalFramePaneUI$DockLayoutManager;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $MouseEvent = ::java::awt::event::MouseEvent;
@@ -38,14 +31,11 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DefaultDesktopManager = ::javax::swing::DefaultDesktopManager;
 using $DesktopManager = ::javax::swing::DesktopManager;
 using $JComponent = ::javax::swing::JComponent;
 using $JDesktopPane = ::javax::swing::JDesktopPane;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
-using $JLayeredPane = ::javax::swing::JLayeredPane;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $DesktopPaneUI = ::javax::swing::plaf::DesktopPaneUI;
 using $BasicDesktopPaneUI = ::javax::swing::plaf::basic::BasicDesktopPaneUI;
 
 namespace com {

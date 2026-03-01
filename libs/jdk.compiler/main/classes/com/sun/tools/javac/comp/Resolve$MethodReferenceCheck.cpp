@@ -7,7 +7,6 @@
 #include <com/sun/tools/javac/comp/InferenceContext.h>
 #include <com/sun/tools/javac/comp/Resolve$AbstractMethodCheck.h>
 #include <com/sun/tools/javac/comp/Resolve$MethodCheck.h>
-#include <com/sun/tools/javac/comp/Resolve$MethodCheckContext.h>
 #include <com/sun/tools/javac/comp/Resolve$MethodReferenceCheck$1.h>
 #include <com/sun/tools/javac/comp/Resolve$MethodResolutionPhase.h>
 #include <com/sun/tools/javac/comp/Resolve$MethodResultInfo.h>
@@ -26,7 +25,6 @@ using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $Resolve$AbstractMethodCheck = ::com::sun::tools::javac::comp::Resolve$AbstractMethodCheck;
 using $Resolve$MethodCheck = ::com::sun::tools::javac::comp::Resolve$MethodCheck;
-using $Resolve$MethodCheckContext = ::com::sun::tools::javac::comp::Resolve$MethodCheckContext;
 using $Resolve$MethodReferenceCheck$1 = ::com::sun::tools::javac::comp::Resolve$MethodReferenceCheck$1;
 using $Resolve$MethodResolutionPhase = ::com::sun::tools::javac::comp::Resolve$MethodResolutionPhase;
 using $Resolve$MethodResultInfo = ::com::sun::tools::javac::comp::Resolve$MethodResultInfo;

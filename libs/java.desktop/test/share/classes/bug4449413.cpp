@@ -8,13 +8,11 @@
 #include <java/awt/GridLayout.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
 #include <java/awt/event/ItemEvent.h>
 #include <java/awt/event/ItemListener.h>
-#include <java/awt/event/WindowAdapter.h>
 #include <java/awt/event/WindowListener.h>
 #include <java/io/Serializable.h>
 #include <java/lang/Runnable.h>
@@ -31,14 +29,11 @@
 #include <javax/swing/JButton.h>
 #include <javax/swing/JCheckBox.h>
 #include <javax/swing/JCheckBoxMenuItem.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
-#include <javax/swing/JMenuItem.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/JRadioButton.h>
 #include <javax/swing/JRadioButtonMenuItem.h>
 #include <javax/swing/JTextArea.h>
-#include <javax/swing/JToggleButton.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
@@ -46,7 +41,6 @@
 #include <javax/swing/plaf/metal/MetalLookAndFeel.h>
 #include <javax/swing/plaf/metal/MetalTheme.h>
 #include <javax/swing/plaf/metal/OceanTheme.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef INSTRUCTIONS
@@ -58,16 +52,13 @@
 using $bug4449413$1 = ::bug4449413$1;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $GridLayout = ::java::awt::GridLayout;
 using $Insets = ::java::awt::Insets;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $ItemEvent = ::java::awt::event::ItemEvent;
 using $ItemListener = ::java::awt::event::ItemListener;
-using $WindowAdapter = ::java::awt::event::WindowAdapter;
 using $WindowListener = ::java::awt::event::WindowListener;
 using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
@@ -86,14 +77,11 @@ using $BoxLayout = ::javax::swing::BoxLayout;
 using $JButton = ::javax::swing::JButton;
 using $JCheckBox = ::javax::swing::JCheckBox;
 using $JCheckBoxMenuItem = ::javax::swing::JCheckBoxMenuItem;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
-using $JMenuItem = ::javax::swing::JMenuItem;
 using $JPanel = ::javax::swing::JPanel;
 using $JRadioButton = ::javax::swing::JRadioButton;
 using $JRadioButtonMenuItem = ::javax::swing::JRadioButtonMenuItem;
 using $JTextArea = ::javax::swing::JTextArea;
-using $JToggleButton = ::javax::swing::JToggleButton;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
@@ -101,7 +89,6 @@ using $DefaultMetalTheme = ::javax::swing::plaf::metal::DefaultMetalTheme;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
 using $MetalTheme = ::javax::swing::plaf::metal::MetalTheme;
 using $OceanTheme = ::javax::swing::plaf::metal::OceanTheme;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 class bug4449413$$Lambda$lambda$main$0 : public $Runnable {
 	$class(bug4449413$$Lambda$lambda$main$0, $NO_CLASS_INIT, $Runnable)

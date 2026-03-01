@@ -10,7 +10,6 @@
 #include <java/awt/Window.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/lang/Runnable.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/JTextArea.h>
@@ -18,8 +17,6 @@
 #include <javax/swing/event/UndoableEditListener.h>
 #include <javax/swing/text/BadLocationException.h>
 #include <javax/swing/text/Document.h>
-#include <javax/swing/text/JTextComponent.h>
-#include <javax/swing/undo/UndoManager.h>
 #include <jcpp.h>
 
 #undef HORIZONTAL_SCROLLBAR_ALWAYS
@@ -39,7 +36,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JTextArea = ::javax::swing::JTextArea;
@@ -47,8 +43,6 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UndoableEditListener = ::javax::swing::event::UndoableEditListener;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $Document = ::javax::swing::text::Document;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
-using $UndoManager = ::javax::swing::undo::UndoManager;
 
 $FieldInfo _TestCCEOnEditEvent_FieldInfo_[] = {
 	{"contentPane", "Ljava/awt/Container;", nullptr, $PRIVATE, $field(TestCCEOnEditEvent, contentPane)},

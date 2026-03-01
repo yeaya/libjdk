@@ -1,18 +1,15 @@
 #include <org/jcp/xml/dsig/internal/SignerOutputStream.h>
 
 #include <java/io/ByteArrayOutputStream.h>
-#include <java/security/GeneralSecurityException.h>
 #include <java/security/Signature.h>
 #include <java/security/SignatureException.h>
 #include <jcpp.h>
 
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $Signature = ::java::security::Signature;
 using $SignatureException = ::java::security::SignatureException;
 

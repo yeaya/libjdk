@@ -3,7 +3,6 @@
 #include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <com/sun/org/apache/xml/internal/security/utils/ElementProxy.h>
 #include <com/sun/org/apache/xml/internal/security/utils/SignatureElementProxy.h>
-#include <org/w3c/dom/CharacterData.h>
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/Element.h>
 #include <org/w3c/dom/Node.h>
@@ -16,7 +15,6 @@ using $Constants = ::com::sun::org::apache::xml::internal::security::utils::Cons
 using $SignatureElementProxy = ::com::sun::org::apache::xml::internal::security::utils::SignatureElementProxy;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;

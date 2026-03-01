@@ -43,7 +43,6 @@
 #include <com/sun/org/apache/bcel/internal/generic/NOP.h>
 #include <com/sun/org/apache/bcel/internal/generic/ObjectType.h>
 #include <com/sun/org/apache/bcel/internal/generic/RET.h>
-#include <com/sun/org/apache/bcel/internal/generic/ReferenceType.h>
 #include <com/sun/org/apache/bcel/internal/generic/Select.h>
 #include <com/sun/org/apache/bcel/internal/generic/TargetLostException.h>
 #include <com/sun/org/apache/bcel/internal/generic/Type.h>
@@ -56,7 +55,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
@@ -130,7 +128,6 @@ using $MethodObserver = ::com::sun::org::apache::bcel::internal::generic::Method
 using $NOP = ::com::sun::org::apache::bcel::internal::generic::NOP;
 using $ObjectType = ::com::sun::org::apache::bcel::internal::generic::ObjectType;
 using $RET = ::com::sun::org::apache::bcel::internal::generic::RET;
-using $ReferenceType = ::com::sun::org::apache::bcel::internal::generic::ReferenceType;
 using $Select = ::com::sun::org::apache::bcel::internal::generic::Select;
 using $TargetLostException = ::com::sun::org::apache::bcel::internal::generic::TargetLostException;
 using $Type = ::com::sun::org::apache::bcel::internal::generic::Type;
@@ -144,7 +141,6 @@ using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;

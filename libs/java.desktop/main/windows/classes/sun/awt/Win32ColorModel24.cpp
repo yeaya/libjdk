@@ -4,7 +4,6 @@
 #include <java/awt/Transparency.h>
 #include <java/awt/color/ColorSpace.h>
 #include <java/awt/image/ComponentColorModel.h>
-#include <java/awt/image/ComponentSampleModel.h>
 #include <java/awt/image/DataBuffer.h>
 #include <java/awt/image/PixelInterleavedSampleModel.h>
 #include <java/awt/image/Raster.h>
@@ -19,7 +18,6 @@ using $Point = ::java::awt::Point;
 using $Transparency = ::java::awt::Transparency;
 using $ColorSpace = ::java::awt::color::ColorSpace;
 using $ComponentColorModel = ::java::awt::image::ComponentColorModel;
-using $ComponentSampleModel = ::java::awt::image::ComponentSampleModel;
 using $DataBuffer = ::java::awt::image::DataBuffer;
 using $PixelInterleavedSampleModel = ::java::awt::image::PixelInterleavedSampleModel;
 using $Raster = ::java::awt::image::Raster;

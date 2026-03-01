@@ -26,7 +26,6 @@
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JRadioButton.h>
-#include <javax/swing/JToggleButton.h>
 #include <jcpp.h>
 
 #undef BOLD
@@ -61,10 +60,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
-using $AbstractButton = ::javax::swing::AbstractButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JRadioButton = ::javax::swing::JRadioButton;
-using $JToggleButton = ::javax::swing::JToggleButton;
 
 $MethodInfo _HeadlessJRadioButton_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(HeadlessJRadioButton, init$, void)},

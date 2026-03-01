@@ -7,8 +7,6 @@
 #include <sun/nio/cs/ext/ExtendedCharsets.h>
 #include <sun/nio/cs/ext/MS932_0213$Decoder.h>
 #include <sun/nio/cs/ext/MS932_0213$Encoder.h>
-#include <sun/nio/cs/ext/SJIS_0213$Decoder.h>
-#include <sun/nio/cs/ext/SJIS_0213$Encoder.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -21,8 +19,6 @@ using $MS932 = ::sun::nio::cs::MS932;
 using $ExtendedCharsets = ::sun::nio::cs::ext::ExtendedCharsets;
 using $MS932_0213$Decoder = ::sun::nio::cs::ext::MS932_0213$Decoder;
 using $MS932_0213$Encoder = ::sun::nio::cs::ext::MS932_0213$Encoder;
-using $SJIS_0213$Decoder = ::sun::nio::cs::ext::SJIS_0213$Decoder;
-using $SJIS_0213$Encoder = ::sun::nio::cs::ext::SJIS_0213$Encoder;
 
 namespace sun {
 	namespace nio {

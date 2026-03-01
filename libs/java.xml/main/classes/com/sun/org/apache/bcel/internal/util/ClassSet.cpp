@@ -1,7 +1,6 @@
 #include <com/sun/org/apache/bcel/internal/util/ClassSet.h>
 
 #include <com/sun/org/apache/bcel/internal/classfile/JavaClass.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Collection.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
@@ -13,7 +12,6 @@ using $JavaClass = ::com::sun::org::apache::bcel::internal::classfile::JavaClass
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;

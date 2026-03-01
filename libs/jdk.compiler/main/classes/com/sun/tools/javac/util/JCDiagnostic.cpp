@@ -3,7 +3,6 @@
 #include <com/sun/tools/javac/api/DiagnosticFormatter.h>
 #include <com/sun/tools/javac/code/Lint$LintCategory.h>
 #include <com/sun/tools/javac/tree/EndPosTable.h>
-#include <com/sun/tools/javac/util/AbstractDiagnosticFormatter.h>
 #include <com/sun/tools/javac/util/BasicDiagnosticFormatter.h>
 #include <com/sun/tools/javac/util/DiagnosticSource.h>
 #include <com/sun/tools/javac/util/JCDiagnostic$1.h>
@@ -15,7 +14,6 @@
 #include <com/sun/tools/javac/util/JavacMessages.h>
 #include <com/sun/tools/javac/util/List.h>
 #include <com/sun/tools/javac/util/Position.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/EnumSet.h>
 #include <java/util/Locale.h>
 #include <java/util/Set.h>
@@ -36,7 +34,6 @@
 
 using $DiagnosticFormatter = ::com::sun::tools::javac::api::DiagnosticFormatter;
 using $Lint$LintCategory = ::com::sun::tools::javac::code::Lint$LintCategory;
-using $AbstractDiagnosticFormatter = ::com::sun::tools::javac::util::AbstractDiagnosticFormatter;
 using $BasicDiagnosticFormatter = ::com::sun::tools::javac::util::BasicDiagnosticFormatter;
 using $DiagnosticSource = ::com::sun::tools::javac::util::DiagnosticSource;
 using $JCDiagnostic$1 = ::com::sun::tools::javac::util::JCDiagnostic$1;
@@ -54,7 +51,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractSet = ::java::util::AbstractSet;
 using $EnumSet = ::java::util::EnumSet;
 using $Locale = ::java::util::Locale;
 using $Set = ::java::util::Set;

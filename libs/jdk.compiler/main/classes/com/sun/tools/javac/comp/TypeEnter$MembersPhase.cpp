@@ -31,7 +31,6 @@
 #include <com/sun/tools/javac/comp/TypeEnter$RecordConstructorHelper.h>
 #include <com/sun/tools/javac/comp/TypeEnter.h>
 #include <com/sun/tools/javac/tree/JCTree$JCBlock.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCClassDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCMethodDecl.h>
@@ -105,7 +104,6 @@ using $TypeEnter$Phase = ::com::sun::tools::javac::comp::TypeEnter$Phase;
 using $TypeEnter$RecordConstructorHelper = ::com::sun::tools::javac::comp::TypeEnter$RecordConstructorHelper;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCBlock = ::com::sun::tools::javac::tree::JCTree$JCBlock;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCMethodDecl = ::com::sun::tools::javac::tree::JCTree$JCMethodDecl;

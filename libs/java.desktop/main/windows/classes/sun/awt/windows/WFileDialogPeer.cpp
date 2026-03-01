@@ -5,7 +5,6 @@
 #include <java/awt/BufferCapabilities.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dialog.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Event.h>
@@ -59,7 +58,6 @@ using $BufferCapabilities = ::java::awt::BufferCapabilities;
 using $BufferCapabilities$FlipContents = ::java::awt::BufferCapabilities$FlipContents;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dialog = ::java::awt::Dialog;
 using $Dimension = ::java::awt::Dimension;
 using $Event = ::java::awt::Event;

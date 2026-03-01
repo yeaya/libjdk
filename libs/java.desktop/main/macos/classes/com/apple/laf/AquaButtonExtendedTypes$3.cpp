@@ -1,13 +1,11 @@
 #include <com/apple/laf/AquaButtonExtendedTypes$3.h>
 
-#include <com/apple/laf/AquaBorder.h>
 #include <com/apple/laf/AquaButtonBorder.h>
 #include <com/apple/laf/AquaButtonExtendedTypes$TypeSpecifier.h>
 #include <com/apple/laf/AquaButtonExtendedTypes.h>
 #include <javax/swing/border/Border.h>
 #include <jcpp.h>
 
-using $AquaBorder = ::com::apple::laf::AquaBorder;
 using $AquaButtonBorder = ::com::apple::laf::AquaButtonBorder;
 using $AquaButtonExtendedTypes$TypeSpecifier = ::com::apple::laf::AquaButtonExtendedTypes$TypeSpecifier;
 using $ClassInfo = ::java::lang::ClassInfo;

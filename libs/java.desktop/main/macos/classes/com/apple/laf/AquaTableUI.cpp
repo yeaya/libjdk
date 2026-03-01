@@ -11,9 +11,6 @@
 #include <javax/swing/JTable.h>
 #include <javax/swing/event/MouseInputListener.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/TableUI.h>
-#include <javax/swing/plaf/basic/BasicTableUI$FocusHandler.h>
-#include <javax/swing/plaf/basic/BasicTableUI$MouseInputHandler.h>
 #include <javax/swing/plaf/basic/BasicTableUI.h>
 #include <jcpp.h>
 
@@ -31,10 +28,7 @@ using $JComponent = ::javax::swing::JComponent;
 using $JTable = ::javax::swing::JTable;
 using $MouseInputListener = ::javax::swing::event::MouseInputListener;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $TableUI = ::javax::swing::plaf::TableUI;
 using $BasicTableUI = ::javax::swing::plaf::basic::BasicTableUI;
-using $BasicTableUI$FocusHandler = ::javax::swing::plaf::basic::BasicTableUI$FocusHandler;
-using $BasicTableUI$MouseInputHandler = ::javax::swing::plaf::basic::BasicTableUI$MouseInputHandler;
 
 namespace com {
 	namespace apple {

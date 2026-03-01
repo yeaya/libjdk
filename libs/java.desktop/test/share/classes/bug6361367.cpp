@@ -3,7 +3,6 @@
 #include <bug6361367$1.h>
 #include <bug6361367$2.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/KeyEvent.h>
@@ -13,7 +12,6 @@
 #include <java/util/List.h>
 #include <java/util/concurrent/Callable.h>
 #include <java/util/concurrent/FutureTask.h>
-#include <java/util/concurrent/RunnableFuture.h>
 #include <java/util/concurrent/atomic/AtomicReference.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane.h>
@@ -39,7 +37,6 @@ using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAnd
 using $bug6361367$1 = ::bug6361367$1;
 using $bug6361367$2 = ::bug6361367$2;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Robot = ::java::awt::Robot;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $PrintStream = ::java::io::PrintStream;
@@ -54,7 +51,6 @@ using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Callable = ::java::util::concurrent::Callable;
 using $FutureTask = ::java::util::concurrent::FutureTask;
-using $RunnableFuture = ::java::util::concurrent::RunnableFuture;
 using $AtomicReference = ::java::util::concurrent::atomic::AtomicReference;
 using $JComponent = ::javax::swing::JComponent;
 using $JEditorPane = ::javax::swing::JEditorPane;

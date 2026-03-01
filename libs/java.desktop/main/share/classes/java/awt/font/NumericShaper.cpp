@@ -8,7 +8,6 @@
 #include <java/lang/ClassCastException.h>
 #include <java/lang/Enum.h>
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
 #include <java/util/Comparator.h>
@@ -79,7 +78,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
 using $Comparator = ::java::util::Comparator;

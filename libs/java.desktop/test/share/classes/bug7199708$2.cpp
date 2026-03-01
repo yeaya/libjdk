@@ -5,9 +5,7 @@
 #include <bug7199708$ComponentAction.h>
 #include <bug7199708.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/util/Locale.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFileChooser.h>
 #include <javax/swing/UIManager.h>
 #include <jcpp.h>
@@ -17,12 +15,10 @@ using $bug7199708$2$1 = ::bug7199708$2$1;
 using $bug7199708$2$2 = ::bug7199708$2$2;
 using $bug7199708$ComponentAction = ::bug7199708$ComponentAction;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JFileChooser = ::javax::swing::JFileChooser;
 using $UIManager = ::javax::swing::UIManager;
 

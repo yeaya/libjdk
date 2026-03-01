@@ -25,7 +25,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/JPasswordField.h>
@@ -34,12 +33,7 @@
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/plaf/TextUI.h>
-#include <javax/swing/plaf/basic/BasicLookAndFeel.h>
-#include <javax/swing/plaf/basic/BasicTextFieldUI.h>
-#include <javax/swing/plaf/basic/BasicTextUI.h>
 #include <javax/swing/plaf/metal/MetalLookAndFeel.h>
-#include <javax/swing/plaf/metal/MetalTextFieldUI.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef EXIT_ON_CLOSE
@@ -72,7 +66,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JPanel = ::javax::swing::JPanel;
 using $JPasswordField = ::javax::swing::JPasswordField;
@@ -81,12 +74,7 @@ using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $TextUI = ::javax::swing::plaf::TextUI;
-using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
-using $BasicTextFieldUI = ::javax::swing::plaf::basic::BasicTextFieldUI;
-using $BasicTextUI = ::javax::swing::plaf::basic::BasicTextUI;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
-using $MetalTextFieldUI = ::javax::swing::plaf::metal::MetalTextFieldUI;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 class FPMethodCalledTest$$Lambda$lambda$test$0 : public $Runnable {
 	$class(FPMethodCalledTest$$Lambda$lambda$test$0, $NO_CLASS_INIT, $Runnable)

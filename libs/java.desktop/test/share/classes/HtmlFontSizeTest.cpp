@@ -12,10 +12,8 @@
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/text/DefaultEditorKit.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/EditorKit.h>
-#include <javax/swing/text/StyledEditorKit.h>
 #include <javax/swing/text/html/HTMLEditorKit.h>
 #include <jcpp.h>
 
@@ -37,10 +35,8 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Locale = ::java::util::Locale;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $DefaultEditorKit = ::javax::swing::text::DefaultEditorKit;
 using $Document = ::javax::swing::text::Document;
 using $EditorKit = ::javax::swing::text::EditorKit;
-using $StyledEditorKit = ::javax::swing::text::StyledEditorKit;
 using $HTMLEditorKit = ::javax::swing::text::html::HTMLEditorKit;
 
 class HtmlFontSizeTest$$Lambda$lambda$main$0 : public $Runnable {

@@ -7,7 +7,6 @@
 #include <javax/swing/JLabel.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/LabelUI.h>
 #include <javax/swing/plaf/basic/BasicLabelUI.h>
 #include <sun/awt/AppContext.h>
 #include <sun/swing/SwingUtilities2.h>
@@ -23,7 +22,6 @@ using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
 using $UIManager = ::javax::swing::UIManager;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $LabelUI = ::javax::swing::plaf::LabelUI;
 using $BasicLabelUI = ::javax::swing::plaf::basic::BasicLabelUI;
 using $AppContext = ::sun::awt::AppContext;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;

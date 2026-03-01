@@ -1,7 +1,6 @@
 #include <javax/swing/plaf/basic/BasicScrollBarUI$ModelListener.h>
 
 #include <java/awt/Container.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JScrollBar.h>
 #include <javax/swing/event/ChangeEvent.h>
 #include <javax/swing/plaf/basic/BasicScrollBarUI.h>
@@ -12,7 +11,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JScrollBar = ::javax::swing::JScrollBar;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
 using $BasicScrollBarUI = ::javax::swing::plaf::basic::BasicScrollBarUI;

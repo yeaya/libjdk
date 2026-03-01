@@ -4,7 +4,6 @@
 #include <com/apple/laf/AquaComboBoxUI.h>
 #include <com/apple/laf/AquaUtils.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/GraphicsDevice.h>
@@ -40,7 +39,6 @@ using $AquaComboBoxPopup$1 = ::com::apple::laf::AquaComboBoxPopup$1;
 using $AquaComboBoxUI = ::com::apple::laf::AquaComboBoxUI;
 using $AquaUtils = ::com::apple::laf::AquaUtils;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $GraphicsDevice = ::java::awt::GraphicsDevice;

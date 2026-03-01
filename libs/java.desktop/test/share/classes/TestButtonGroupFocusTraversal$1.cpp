@@ -10,17 +10,14 @@
 #include <java/awt/FlowLayout.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/Window.h>
-#include <javax/swing/AbstractAction.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ButtonGroup.h>
 #include <javax/swing/JCheckBox.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JRadioButton.h>
 #include <javax/swing/JTextField.h>
 #include <javax/swing/JToggleButton.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef EXIT_ON_CLOSE
@@ -38,17 +35,14 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractAction = ::javax::swing::AbstractAction;
 using $AbstractButton = ::javax::swing::AbstractButton;
 using $Action = ::javax::swing::Action;
 using $ButtonGroup = ::javax::swing::ButtonGroup;
 using $JCheckBox = ::javax::swing::JCheckBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JRadioButton = ::javax::swing::JRadioButton;
 using $JTextField = ::javax::swing::JTextField;
 using $JToggleButton = ::javax::swing::JToggleButton;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 $MethodInfo _TestButtonGroupFocusTraversal$1_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(TestButtonGroupFocusTraversal$1, init$, void)},

@@ -5,7 +5,6 @@
 #include <java/util/EventObject.h>
 #include <javax/swing/JMenu.h>
 #include <javax/swing/JMenuBar.h>
-#include <javax/swing/JMenuItem.h>
 #include <javax/swing/JPopupMenu.h>
 #include <javax/swing/MenuElement.h>
 #include <javax/swing/MenuSelectionManager.h>
@@ -25,7 +24,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JMenu = ::javax::swing::JMenu;
 using $JMenuBar = ::javax::swing::JMenuBar;
-using $JMenuItem = ::javax::swing::JMenuItem;
 using $JPopupMenu = ::javax::swing::JPopupMenu;
 using $MenuElement = ::javax::swing::MenuElement;
 using $MenuSelectionManager = ::javax::swing::MenuSelectionManager;

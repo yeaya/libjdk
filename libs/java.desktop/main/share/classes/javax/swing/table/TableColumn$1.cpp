@@ -2,9 +2,7 @@
 
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Font.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/UIManager.h>
@@ -15,14 +13,11 @@
 #include <jcpp.h>
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
-using $JLabel = ::javax::swing::JLabel;
 using $JTable = ::javax::swing::JTable;
 using $UIManager = ::javax::swing::UIManager;
 using $DefaultTableCellRenderer = ::javax::swing::table::DefaultTableCellRenderer;

@@ -9,7 +9,6 @@
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/InvalidKeyException.h>
 #include <java/security/Key.h>
@@ -37,7 +36,6 @@
 #include <org/jcp/xml/dsig/internal/dom/AbstractDOMSignatureMethod.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMSignedInfo.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMUtils.h>
-#include <org/w3c/dom/CharacterData.h>
 #include <org/w3c/dom/DOMException.h>
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/Element.h>
@@ -74,7 +72,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $NumberFormatException = ::java::lang::NumberFormatException;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $InvalidAlgorithmParameterException = ::java::security::InvalidAlgorithmParameterException;
 using $InvalidKeyException = ::java::security::InvalidKeyException;
 using $Key = ::java::security::Key;
@@ -102,7 +99,6 @@ using $SignerOutputStream = ::org::jcp::xml::dsig::internal::SignerOutputStream;
 using $AbstractDOMSignatureMethod = ::org::jcp::xml::dsig::internal::dom::AbstractDOMSignatureMethod;
 using $DOMSignedInfo = ::org::jcp::xml::dsig::internal::dom::DOMSignedInfo;
 using $DOMUtils = ::org::jcp::xml::dsig::internal::dom::DOMUtils;
-using $CharacterData = ::org::w3c::dom::CharacterData;
 using $DOMException = ::org::w3c::dom::DOMException;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;

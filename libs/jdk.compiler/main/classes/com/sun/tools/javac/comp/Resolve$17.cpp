@@ -2,12 +2,9 @@
 
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/comp/Resolve$BadMethodReferenceError.h>
-#include <com/sun/tools/javac/comp/Resolve$InvalidSymbolError.h>
 #include <com/sun/tools/javac/comp/Resolve$ReferenceChooser.h>
 #include <com/sun/tools/javac/comp/Resolve$ReferenceLookupResult$StaticKind.h>
 #include <com/sun/tools/javac/comp/Resolve$ReferenceLookupResult.h>
-#include <com/sun/tools/javac/comp/Resolve$ResolveError.h>
-#include <com/sun/tools/javac/comp/Resolve$StaticError.h>
 #include <com/sun/tools/javac/comp/Resolve.h>
 #include <jcpp.h>
 
@@ -17,12 +14,9 @@
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $Resolve$BadMethodReferenceError = ::com::sun::tools::javac::comp::Resolve$BadMethodReferenceError;
-using $Resolve$InvalidSymbolError = ::com::sun::tools::javac::comp::Resolve$InvalidSymbolError;
 using $Resolve$ReferenceChooser = ::com::sun::tools::javac::comp::Resolve$ReferenceChooser;
 using $Resolve$ReferenceLookupResult = ::com::sun::tools::javac::comp::Resolve$ReferenceLookupResult;
 using $Resolve$ReferenceLookupResult$StaticKind = ::com::sun::tools::javac::comp::Resolve$ReferenceLookupResult$StaticKind;
-using $Resolve$ResolveError = ::com::sun::tools::javac::comp::Resolve$ResolveError;
-using $Resolve$StaticError = ::com::sun::tools::javac::comp::Resolve$StaticError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

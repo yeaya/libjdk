@@ -3,9 +3,7 @@
 #include <Test4319113$1.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/EventQueue.h>
-#include <java/awt/Frame.h>
 #include <java/awt/GridLayout.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/Window.h>
@@ -20,12 +18,10 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/util/EventObject.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JApplet.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JColorChooser.h>
 #include <javax/swing/JComboBox.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JDialog.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/SwingUtilities.h>
@@ -39,9 +35,7 @@ using $Test4319113$1 = ::Test4319113$1;
 using $WindowArray = $Array<::java::awt::Window>;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $EventQueue = ::java::awt::EventQueue;
-using $Frame = ::java::awt::Frame;
 using $GridLayout = ::java::awt::GridLayout;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $Window = ::java::awt::Window;
@@ -56,12 +50,10 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JApplet = ::javax::swing::JApplet;
 using $JButton = ::javax::swing::JButton;
 using $JColorChooser = ::javax::swing::JColorChooser;
 using $JComboBox = ::javax::swing::JComboBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JDialog = ::javax::swing::JDialog;
 using $JFrame = ::javax::swing::JFrame;
 using $SwingUtilities = ::javax::swing::SwingUtilities;

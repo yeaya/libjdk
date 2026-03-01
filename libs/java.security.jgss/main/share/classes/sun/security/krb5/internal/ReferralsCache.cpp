@@ -1,8 +1,5 @@
 #include <sun/security/krb5/internal/ReferralsCache.h>
 
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSequentialList.h>
 #include <java/util/Date.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
@@ -21,9 +18,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSequentialList = ::java::util::AbstractSequentialList;
 using $Date = ::java::util::Date;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;

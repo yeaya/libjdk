@@ -15,7 +15,6 @@
 #include <java/lang/Math.h>
 #include <java/lang/NoSuchMethodException.h>
 #include <java/lang/NumberFormatException.h>
-#include <java/lang/ReflectiveOperationException.h>
 #include <java/util/Locale.h>
 #include <javax/xml/transform/TransformerException.h>
 #include <org/xml/sax/ContentHandler.h>
@@ -48,7 +47,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $NumberFormatException = ::java::lang::NumberFormatException;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $Locale = ::java::util::Locale;
 using $TransformerException = ::javax::xml::transform::TransformerException;
 using $ContentHandler = ::org::xml::sax::ContentHandler;

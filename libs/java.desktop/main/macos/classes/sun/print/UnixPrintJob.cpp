@@ -11,7 +11,6 @@
 #include <java/io/BufferedReader.h>
 #include <java/io/BufferedWriter.h>
 #include <java/io/File.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
@@ -28,7 +27,6 @@
 #include <java/security/PrivilegedAction.h>
 #include <java/util/Locale.h>
 #include <java/util/Vector.h>
-#include <javax/print/CancelablePrintJob.h>
 #include <javax/print/Doc.h>
 #include <javax/print/DocFlavor$BYTE_ARRAY.h>
 #include <javax/print/DocFlavor$CHAR_ARRAY.h>
@@ -80,7 +78,6 @@
 #include <sun/print/PrintJobAttributeException.h>
 #include <sun/print/PrintJobFlavorException.h>
 #include <sun/print/PrintServiceLookupProvider.h>
-#include <sun/print/RasterPrinterJob.h>
 #include <sun/print/UnixPrintJob$PrinterOpener.h>
 #include <sun/print/UnixPrintJob$PrinterSpooler.h>
 #include <sun/print/UnixPrintService.h>
@@ -125,7 +122,6 @@ using $BufferedOutputStream = ::java::io::BufferedOutputStream;
 using $BufferedReader = ::java::io::BufferedReader;
 using $BufferedWriter = ::java::io::BufferedWriter;
 using $File = ::java::io::File;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
@@ -141,7 +137,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $URI = ::java::net::URI;
@@ -150,7 +145,6 @@ using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Locale = ::java::util::Locale;
 using $Vector = ::java::util::Vector;
-using $CancelablePrintJob = ::javax::print::CancelablePrintJob;
 using $Doc = ::javax::print::Doc;
 using $DocFlavor = ::javax::print::DocFlavor;
 using $DocFlavor$BYTE_ARRAY = ::javax::print::DocFlavor$BYTE_ARRAY;
@@ -201,7 +195,6 @@ using $PSPrinterJob = ::sun::print::PSPrinterJob;
 using $PrintJobAttributeException = ::sun::print::PrintJobAttributeException;
 using $PrintJobFlavorException = ::sun::print::PrintJobFlavorException;
 using $PrintServiceLookupProvider = ::sun::print::PrintServiceLookupProvider;
-using $RasterPrinterJob = ::sun::print::RasterPrinterJob;
 using $UnixPrintJob$PrinterOpener = ::sun::print::UnixPrintJob$PrinterOpener;
 using $UnixPrintJob$PrinterSpooler = ::sun::print::UnixPrintJob$PrinterSpooler;
 using $UnixPrintService = ::sun::print::UnixPrintService;

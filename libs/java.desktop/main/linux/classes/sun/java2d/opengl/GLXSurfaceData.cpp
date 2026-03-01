@@ -7,7 +7,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/image/ColorModel.h>
 #include <sun/awt/X11ComponentPeer.h>
-#include <sun/awt/X11GraphicsConfig.h>
 #include <sun/java2d/opengl/GLXGraphicsConfig.h>
 #include <sun/java2d/opengl/GLXSurfaceData$GLXOffScreenSurfaceData.h>
 #include <sun/java2d/opengl/GLXSurfaceData$GLXVSyncOffScreenSurfaceData.h>
@@ -30,7 +29,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $X11ComponentPeer = ::sun::awt::X11ComponentPeer;
-using $X11GraphicsConfig = ::sun::awt::X11GraphicsConfig;
 using $GLXGraphicsConfig = ::sun::java2d::opengl::GLXGraphicsConfig;
 using $GLXSurfaceData$GLXOffScreenSurfaceData = ::sun::java2d::opengl::GLXSurfaceData$GLXOffScreenSurfaceData;
 using $GLXSurfaceData$GLXVSyncOffScreenSurfaceData = ::sun::java2d::opengl::GLXSurfaceData$GLXVSyncOffScreenSurfaceData;

@@ -19,7 +19,6 @@
 #include <java/security/PrivilegedAction.h>
 #include <java/security/PrivilegedActionException.h>
 #include <java/security/PrivilegedExceptionAction.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
 #include <java/util/Locale.h>
@@ -90,7 +89,6 @@ using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
 using $Locale = ::java::util::Locale;
@@ -104,7 +102,6 @@ using $FontManagerFactory = ::sun::font::FontManagerFactory;
 using $FontScaler = ::sun::font::FontScaler;
 using $FontScalerException = ::sun::font::FontScalerException;
 using $FontUtilities = ::sun::font::FontUtilities;
-using $PhysicalFont = ::sun::font::PhysicalFont;
 using $SunFontManager = ::sun::font::SunFontManager;
 using $TrueTypeFont$1 = ::sun::font::TrueTypeFont$1;
 using $TrueTypeFont$DirectoryEntry = ::sun::font::TrueTypeFont$DirectoryEntry;

@@ -8,7 +8,6 @@
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/lang/ClassNotFoundException.h>
-#include <java/lang/ReflectiveOperationException.h>
 #include <java/util/Map.h>
 #include <sun/awt/datatransfer/ClassLoaderObjectInputStream.h>
 #include <sun/awt/datatransfer/ClassLoaderObjectOutputStream.h>
@@ -24,10 +23,8 @@ using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $ClassLoaderObjectInputStream = ::sun::awt::datatransfer::ClassLoaderObjectInputStream;
 using $ClassLoaderObjectOutputStream = ::sun::awt::datatransfer::ClassLoaderObjectOutputStream;
 

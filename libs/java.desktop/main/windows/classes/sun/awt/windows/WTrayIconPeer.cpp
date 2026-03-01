@@ -2,20 +2,16 @@
 
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Frame.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/GraphicsDevice.h>
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Image.h>
-#include <java/awt/Menu.h>
 #include <java/awt/MenuComponent.h>
-#include <java/awt/MenuItem.h>
 #include <java/awt/Point.h>
 #include <java/awt/PopupMenu.h>
 #include <java/awt/TrayIcon.h>
-#include <java/awt/Window.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/DataBuffer.h>
@@ -50,20 +46,16 @@
 
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Frame = ::java::awt::Frame;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $GraphicsDevice = ::java::awt::GraphicsDevice;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $Image = ::java::awt::Image;
-using $Menu = ::java::awt::Menu;
 using $MenuComponent = ::java::awt::MenuComponent;
-using $MenuItem = ::java::awt::MenuItem;
 using $Point = ::java::awt::Point;
 using $PopupMenu = ::java::awt::PopupMenu;
 using $TrayIcon = ::java::awt::TrayIcon;
-using $Window = ::java::awt::Window;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $DataBufferInt = ::java::awt::image::DataBufferInt;

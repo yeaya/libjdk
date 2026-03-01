@@ -8,7 +8,6 @@
 #include <java/awt/image/BufferedImage.h>
 #include <java/lang/Error.h>
 #include <java/lang/Runnable.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane.h>
@@ -18,9 +17,7 @@
 #include <javax/swing/UIManager.h>
 #include <javax/swing/UnsupportedLookAndFeelException.h>
 #include <javax/swing/border/Border.h>
-#include <javax/swing/plaf/basic/BasicLookAndFeel.h>
 #include <javax/swing/plaf/metal/MetalLookAndFeel.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef TEST_COLOR
@@ -39,7 +36,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
 using $JEditorPane = ::javax::swing::JEditorPane;
@@ -49,9 +45,7 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $UnsupportedLookAndFeelException = ::javax::swing::UnsupportedLookAndFeelException;
 using $Border = ::javax::swing::border::Border;
-using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 $FieldInfo _Test4783068_FieldInfo_[] = {
 	{"TEST_COLOR", "Ljava/awt/Color;", nullptr, $STATIC | $FINAL, $staticField(Test4783068, TEST_COLOR)},

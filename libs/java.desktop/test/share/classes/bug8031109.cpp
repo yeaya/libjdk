@@ -4,7 +4,6 @@
 #include <java/io/BufferedWriter.h>
 #include <java/io/File.h>
 #include <java/io/FileWriter.h>
-#include <java/io/OutputStreamWriter.h>
 #include <java/io/Writer.h>
 #include <java/lang/Runnable.h>
 #include <java/net/URI.h>
@@ -18,7 +17,6 @@ using $bug8031109$1 = ::bug8031109$1;
 using $BufferedWriter = ::java::io::BufferedWriter;
 using $File = ::java::io::File;
 using $FileWriter = ::java::io::FileWriter;
-using $OutputStreamWriter = ::java::io::OutputStreamWriter;
 using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;

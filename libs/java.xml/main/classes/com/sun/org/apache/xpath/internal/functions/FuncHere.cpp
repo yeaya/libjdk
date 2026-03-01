@@ -4,7 +4,6 @@
 #include <com/sun/org/apache/xml/internal/dtm/DTMManager.h>
 #include <com/sun/org/apache/xpath/internal/NodeSetDTM.h>
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
-#include <com/sun/org/apache/xpath/internal/axes/NodeSequence.h>
 #include <com/sun/org/apache/xpath/internal/functions/Function.h>
 #include <com/sun/org/apache/xpath/internal/objects/XNodeSet.h>
 #include <com/sun/org/apache/xpath/internal/objects/XObject.h>
@@ -25,7 +24,6 @@
 using $DTM = ::com::sun::org::apache::xml::internal::dtm::DTM;
 using $NodeSetDTM = ::com::sun::org::apache::xpath::internal::NodeSetDTM;
 using $XPathContext = ::com::sun::org::apache::xpath::internal::XPathContext;
-using $NodeSequence = ::com::sun::org::apache::xpath::internal::axes::NodeSequence;
 using $Function = ::com::sun::org::apache::xpath::internal::functions::Function;
 using $XNodeSet = ::com::sun::org::apache::xpath::internal::objects::XNodeSet;
 using $XObject = ::com::sun::org::apache::xpath::internal::objects::XObject;

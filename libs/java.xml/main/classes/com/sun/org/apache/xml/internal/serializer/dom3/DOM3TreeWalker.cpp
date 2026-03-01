@@ -2,7 +2,6 @@
 
 #include <com/sun/org/apache/xerces/internal/util/XML11Char.h>
 #include <com/sun/org/apache/xerces/internal/util/XMLChar.h>
-#include <com/sun/org/apache/xml/internal/serializer/ExtendedLexicalHandler.h>
 #include <com/sun/org/apache/xml/internal/serializer/OutputPropertiesFactory.h>
 #include <com/sun/org/apache/xml/internal/serializer/SerializationHandler.h>
 #include <com/sun/org/apache/xml/internal/serializer/dom3/DOMConstants.h>
@@ -14,7 +13,6 @@
 #include <com/sun/org/apache/xml/internal/serializer/utils/Utils.h>
 #include <java/io/IOException.h>
 #include <java/io/Writer.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
@@ -25,7 +23,6 @@
 #include <jdk/xml/internal/JdkXmlUtils.h>
 #include <org/w3c/dom/Attr.h>
 #include <org/w3c/dom/CDATASection.h>
-#include <org/w3c/dom/CharacterData.h>
 #include <org/w3c/dom/Comment.h>
 #include <org/w3c/dom/DOMError.h>
 #include <org/w3c/dom/DOMErrorHandler.h>
@@ -133,7 +130,6 @@
 
 using $XML11Char = ::com::sun::org::apache::xerces::internal::util::XML11Char;
 using $XMLChar = ::com::sun::org::apache::xerces::internal::util::XMLChar;
-using $ExtendedLexicalHandler = ::com::sun::org::apache::xml::internal::serializer::ExtendedLexicalHandler;
 using $OutputPropertiesFactory = ::com::sun::org::apache::xml::internal::serializer::OutputPropertiesFactory;
 using $SerializationHandler = ::com::sun::org::apache::xml::internal::serializer::SerializationHandler;
 using $DOMConstants = ::com::sun::org::apache::xml::internal::serializer::dom3::DOMConstants;
@@ -151,7 +147,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
@@ -162,7 +157,6 @@ using $Result = ::javax::xml::transform::Result;
 using $JdkXmlUtils = ::jdk::xml::internal::JdkXmlUtils;
 using $Attr = ::org::w3c::dom::Attr;
 using $CDATASection = ::org::w3c::dom::CDATASection;
-using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Comment = ::org::w3c::dom::Comment;
 using $DOMError = ::org::w3c::dom::DOMError;
 using $DOMErrorHandler = ::org::w3c::dom::DOMErrorHandler;

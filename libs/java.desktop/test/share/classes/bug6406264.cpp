@@ -11,7 +11,6 @@
 #include <javax/swing/JFrame.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/plaf/ComboBoxUI.h>
-#include <javax/swing/plaf/basic/BasicComboBoxUI.h>
 #include <jcpp.h>
 
 using $bug6406264$1 = ::bug6406264$1;
@@ -28,7 +27,6 @@ using $JComboBox = ::javax::swing::JComboBox;
 using $JFrame = ::javax::swing::JFrame;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $ComboBoxUI = ::javax::swing::plaf::ComboBoxUI;
-using $BasicComboBoxUI = ::javax::swing::plaf::basic::BasicComboBoxUI;
 
 $FieldInfo _bug6406264_FieldInfo_[] = {
 	{"frame", "Ljavax/swing/JFrame;", nullptr, $STATIC, $staticField(bug6406264, frame)},

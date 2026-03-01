@@ -1,6 +1,5 @@
 #include <javax/script/SimpleScriptContext.h>
 
-#include <java/io/FilterOutputStream.h>
 #include <java/io/InputStream.h>
 #include <java/io/InputStreamReader.h>
 #include <java/io/OutputStream.h>
@@ -17,7 +16,6 @@
 #undef ENGINE_SCOPE
 #undef GLOBAL_SCOPE
 
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $InputStreamReader = ::java::io::InputStreamReader;
 using $OutputStream = ::java::io::OutputStream;
 using $PrintWriter = ::java::io::PrintWriter;

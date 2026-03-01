@@ -3,7 +3,6 @@
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
 #include <java/awt/Frame.h>
@@ -20,7 +19,6 @@
 #include <java/lang/AssertionError.h>
 #include <java/lang/Math.h>
 #include <java/lang/Runnable.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
 #include <java/util/List.h>
@@ -33,7 +31,6 @@
 #include <sun/awt/X11/XAtom.h>
 #include <sun/awt/X11/XAtomList.h>
 #include <sun/awt/X11/XBaseWindow.h>
-#include <sun/awt/X11/XCanvasPeer.h>
 #include <sun/awt/X11/XClientMessageEvent.h>
 #include <sun/awt/X11/XComponentPeer.h>
 #include <sun/awt/X11/XConfigureEvent.h>
@@ -46,7 +43,6 @@
 #include <sun/awt/X11/XFocusProxyWindow.h>
 #include <sun/awt/X11/XIconWindow.h>
 #include <sun/awt/X11/XKeyboardFocusManagerPeer.h>
-#include <sun/awt/X11/XPanelPeer.h>
 #include <sun/awt/X11/XPropertyEvent.h>
 #include <sun/awt/X11/XReparentEvent.h>
 #include <sun/awt/X11/XSizeHints.h>
@@ -100,7 +96,6 @@
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Frame = ::java::awt::Frame;
 using $Graphics = ::java::awt::Graphics;
@@ -124,7 +119,6 @@ using $Long = ::java::lang::Long;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $List = ::java::util::List;
@@ -137,9 +131,7 @@ using $WindowDimensions = ::sun::awt::X11::WindowDimensions;
 using $XAtom = ::sun::awt::X11::XAtom;
 using $XAtomList = ::sun::awt::X11::XAtomList;
 using $XBaseWindow = ::sun::awt::X11::XBaseWindow;
-using $XCanvasPeer = ::sun::awt::X11::XCanvasPeer;
 using $XClientMessageEvent = ::sun::awt::X11::XClientMessageEvent;
-using $XComponentPeer = ::sun::awt::X11::XComponentPeer;
 using $XConfigureEvent = ::sun::awt::X11::XConfigureEvent;
 using $XConstants = ::sun::awt::X11::XConstants;
 using $XContentWindow = ::sun::awt::X11::XContentWindow;
@@ -150,7 +142,6 @@ using $XFocusChangeEvent = ::sun::awt::X11::XFocusChangeEvent;
 using $XFocusProxyWindow = ::sun::awt::X11::XFocusProxyWindow;
 using $XIconWindow = ::sun::awt::X11::XIconWindow;
 using $XKeyboardFocusManagerPeer = ::sun::awt::X11::XKeyboardFocusManagerPeer;
-using $XPanelPeer = ::sun::awt::X11::XPanelPeer;
 using $XPropertyEvent = ::sun::awt::X11::XPropertyEvent;
 using $XReparentEvent = ::sun::awt::X11::XReparentEvent;
 using $XSizeHints = ::sun::awt::X11::XSizeHints;

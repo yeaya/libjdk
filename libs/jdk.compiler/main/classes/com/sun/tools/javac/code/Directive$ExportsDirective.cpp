@@ -4,7 +4,6 @@
 #include <com/sun/tools/javac/code/Directive.h>
 #include <com/sun/tools/javac/code/Symbol$PackageSymbol.h>
 #include <com/sun/tools/javac/util/List.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collections.h>
 #include <java/util/EnumSet.h>
 #include <java/util/List.h>
@@ -25,7 +24,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Collections = ::java::util::Collections;
 using $EnumSet = ::java::util::EnumSet;
 using $1List = ::java::util::List;

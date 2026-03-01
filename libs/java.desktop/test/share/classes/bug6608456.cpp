@@ -13,7 +13,6 @@
 #include <java/lang/reflect/Method.h>
 #include <java/util/concurrent/Callable.h>
 #include <java/util/concurrent/FutureTask.h>
-#include <java/util/concurrent/RunnableFuture.h>
 #include <java/util/concurrent/TimeUnit.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
@@ -27,7 +26,6 @@ using $bug6608456$1 = ::bug6608456$1;
 using $bug6608456$2 = ::bug6608456$2;
 using $bug6608456$TestFuture = ::bug6608456$TestFuture;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Point = ::java::awt::Point;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -42,7 +40,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $Method = ::java::lang::reflect::Method;
 using $Callable = ::java::util::concurrent::Callable;
 using $FutureTask = ::java::util::concurrent::FutureTask;
-using $RunnableFuture = ::java::util::concurrent::RunnableFuture;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
 using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;

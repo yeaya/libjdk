@@ -1,7 +1,6 @@
 #include <sun/awt/X11/XMouseInfoPeer.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/GraphicsDevice.h>
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Point.h>
@@ -21,7 +20,6 @@
 
 using $GraphicsDeviceArray = $Array<::java::awt::GraphicsDevice>;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $GraphicsDevice = ::java::awt::GraphicsDevice;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $Point = ::java::awt::Point;

@@ -2,10 +2,8 @@
 
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Color.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/GraphicsEnvironment.h>
@@ -14,8 +12,6 @@
 #include <java/awt/LayoutManager.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
-#include <java/awt/event/ComponentEvent.h>
-#include <java/awt/event/InputEvent.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/awt/print/Printable.h>
@@ -51,11 +47,9 @@
 #include <javax/print/attribute/HashPrintRequestAttributeSet.h>
 #include <javax/print/attribute/PrintRequestAttributeSet.h>
 #include <javax/swing/DefaultListSelectionModel.h>
-#include <javax/swing/DefaultRowSorter.h>
 #include <javax/swing/DropMode.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/ImageIcon.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/JTable$1.h>
@@ -108,7 +102,6 @@
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/TableUI.h>
 #include <javax/swing/plaf/UIResource.h>
-#include <javax/swing/table/AbstractTableModel.h>
 #include <javax/swing/table/DefaultTableCellRenderer$UIResource.h>
 #include <javax/swing/table/DefaultTableColumnModel.h>
 #include <javax/swing/table/DefaultTableModel.h>
@@ -164,13 +157,10 @@
 
 using $intArray2 = $Array<int32_t, 2>;
 using $ObjectArray2 = $Array<::java::lang::Object, 2>;
-using $AWTEvent = ::java::awt::AWTEvent;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Container = ::java::awt::Container;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Dimension = ::java::awt::Dimension;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $HeadlessException = ::java::awt::HeadlessException;
@@ -178,8 +168,6 @@ using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
-using $ComponentEvent = ::java::awt::event::ComponentEvent;
-using $InputEvent = ::java::awt::event::InputEvent;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $Printable = ::java::awt::print::Printable;
@@ -224,12 +212,10 @@ using $PrintService = ::javax::print::PrintService;
 using $HashPrintRequestAttributeSet = ::javax::print::attribute::HashPrintRequestAttributeSet;
 using $PrintRequestAttributeSet = ::javax::print::attribute::PrintRequestAttributeSet;
 using $DefaultListSelectionModel = ::javax::swing::DefaultListSelectionModel;
-using $DefaultRowSorter = ::javax::swing::DefaultRowSorter;
 using $DropMode = ::javax::swing::DropMode;
 using $Icon = ::javax::swing::Icon;
 using $ImageIcon = ::javax::swing::ImageIcon;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JTable$1 = ::javax::swing::JTable$1;
 using $JTable$2 = ::javax::swing::JTable$2;
@@ -281,7 +267,6 @@ using $TableModelListener = ::javax::swing::event::TableModelListener;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $TableUI = ::javax::swing::plaf::TableUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
-using $AbstractTableModel = ::javax::swing::table::AbstractTableModel;
 using $DefaultTableCellRenderer$UIResource = ::javax::swing::table::DefaultTableCellRenderer$UIResource;
 using $DefaultTableColumnModel = ::javax::swing::table::DefaultTableColumnModel;
 using $DefaultTableModel = ::javax::swing::table::DefaultTableModel;

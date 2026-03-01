@@ -8,7 +8,6 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/DOMAdapter.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/MultiDOM.h>
-#include <com/sun/org/apache/xalan/internal/xsltc/dom/MultiValuedNodeHeapIterator.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/SingletonIterator.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/UnionIterator.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/dom/XSLTCDTMManager.h>
@@ -18,12 +17,10 @@
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMManager.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMWSFilter.h>
-#include <com/sun/org/apache/xml/internal/dtm/ref/DTMAxisIteratorBase.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/EmptyIterator.h>
 #include <com/sun/org/apache/xml/internal/serializer/SerializationHandler.h>
 #include <com/sun/org/apache/xml/internal/utils/SystemIDResolver.h>
 #include <java/io/FileNotFoundException.h>
-#include <java/io/IOException.h>
 #include <javax/xml/transform/Source.h>
 #include <javax/xml/transform/Templates.h>
 #include <javax/xml/transform/stream/StreamSource.h>
@@ -45,7 +42,6 @@ using $TransletException = ::com::sun::org::apache::xalan::internal::xsltc::Tran
 using $ErrorMsg = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ErrorMsg;
 using $DOMAdapter = ::com::sun::org::apache::xalan::internal::xsltc::dom::DOMAdapter;
 using $MultiDOM = ::com::sun::org::apache::xalan::internal::xsltc::dom::MultiDOM;
-using $MultiValuedNodeHeapIterator = ::com::sun::org::apache::xalan::internal::xsltc::dom::MultiValuedNodeHeapIterator;
 using $SingletonIterator = ::com::sun::org::apache::xalan::internal::xsltc::dom::SingletonIterator;
 using $UnionIterator = ::com::sun::org::apache::xalan::internal::xsltc::dom::UnionIterator;
 using $XSLTCDTMManager = ::com::sun::org::apache::xalan::internal::xsltc::dom::XSLTCDTMManager;
@@ -55,12 +51,10 @@ using $DTM = ::com::sun::org::apache::xml::internal::dtm::DTM;
 using $DTMAxisIterator = ::com::sun::org::apache::xml::internal::dtm::DTMAxisIterator;
 using $DTMManager = ::com::sun::org::apache::xml::internal::dtm::DTMManager;
 using $DTMWSFilter = ::com::sun::org::apache::xml::internal::dtm::DTMWSFilter;
-using $DTMAxisIteratorBase = ::com::sun::org::apache::xml::internal::dtm::ref::DTMAxisIteratorBase;
 using $EmptyIterator = ::com::sun::org::apache::xml::internal::dtm::ref::EmptyIterator;
 using $SerializationHandler = ::com::sun::org::apache::xml::internal::serializer::SerializationHandler;
 using $SystemIDResolver = ::com::sun::org::apache::xml::internal::utils::SystemIDResolver;
 using $FileNotFoundException = ::java::io::FileNotFoundException;
-using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;

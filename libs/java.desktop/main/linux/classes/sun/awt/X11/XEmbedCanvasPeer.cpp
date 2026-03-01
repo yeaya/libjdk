@@ -25,8 +25,6 @@
 #include <java/lang/Runnable.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
 #include <java/util/Map.h>
@@ -66,7 +64,6 @@
 #include <sun/awt/X11/XEmbeddedFramePeer.h>
 #include <sun/awt/X11/XErrorEvent.h>
 #include <sun/awt/X11/XErrorHandler$IgnoreBadWindowHandler.h>
-#include <sun/awt/X11/XErrorHandler$XBaseErrorHandler.h>
 #include <sun/awt/X11/XErrorHandler.h>
 #include <sun/awt/X11/XErrorHandlerUtil.h>
 #include <sun/awt/X11/XEvent.h>
@@ -128,8 +125,6 @@ using $NumberFormatException = ::java::lang::NumberFormatException;
 using $Runnable = ::java::lang::Runnable;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSet = ::java::util::AbstractSet;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
 using $Map = ::java::util::Map;
@@ -169,7 +164,6 @@ using $XEmbeddedFramePeer = ::sun::awt::X11::XEmbeddedFramePeer;
 using $XErrorEvent = ::sun::awt::X11::XErrorEvent;
 using $XErrorHandler = ::sun::awt::X11::XErrorHandler;
 using $XErrorHandler$IgnoreBadWindowHandler = ::sun::awt::X11::XErrorHandler$IgnoreBadWindowHandler;
-using $XErrorHandler$XBaseErrorHandler = ::sun::awt::X11::XErrorHandler$XBaseErrorHandler;
 using $XErrorHandlerUtil = ::sun::awt::X11::XErrorHandlerUtil;
 using $XEvent = ::sun::awt::X11::XEvent;
 using $XEventDispatcher = ::sun::awt::X11::XEventDispatcher;

@@ -8,10 +8,6 @@
 #include <com/sun/org/apache/xml/internal/dtm/DTMIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMManager.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMWSFilter.h>
-#include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBase.h>
-#include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators.h>
-#include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseTraversers.h>
-#include <com/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2DTM.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2RTFDTM.h>
 #include <com/sun/org/apache/xml/internal/utils/DefaultErrorHandler.h>
 #include <com/sun/org/apache/xml/internal/utils/IntStack.h>
@@ -21,9 +17,6 @@
 #include <com/sun/org/apache/xml/internal/utils/XMLStringFactory.h>
 #include <com/sun/org/apache/xpath/internal/VariableStack.h>
 #include <com/sun/org/apache/xpath/internal/XPathContext$XPathExpressionContext.h>
-#include <com/sun/org/apache/xpath/internal/axes/BasicTestIterator.h>
-#include <com/sun/org/apache/xpath/internal/axes/ChildTestIterator.h>
-#include <com/sun/org/apache/xpath/internal/axes/LocPathIterator.h>
 #include <com/sun/org/apache/xpath/internal/axes/OneStepIteratorForward.h>
 #include <com/sun/org/apache/xpath/internal/axes/SubContextList.h>
 #include <com/sun/org/apache/xpath/internal/objects/DTMXRTreeFrag.h>
@@ -32,8 +25,6 @@
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/NoSuchMethodException.h>
 #include <java/lang/reflect/Method.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/HashMap.h>
@@ -62,10 +53,6 @@ using $DTMFilter = ::com::sun::org::apache::xml::internal::dtm::DTMFilter;
 using $DTMIterator = ::com::sun::org::apache::xml::internal::dtm::DTMIterator;
 using $DTMManager = ::com::sun::org::apache::xml::internal::dtm::DTMManager;
 using $DTMWSFilter = ::com::sun::org::apache::xml::internal::dtm::DTMWSFilter;
-using $DTMDefaultBase = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBase;
-using $DTMDefaultBaseIterators = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators;
-using $DTMDefaultBaseTraversers = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseTraversers;
-using $SAX2DTM = ::com::sun::org::apache::xml::internal::dtm::ref::sax2dtm::SAX2DTM;
 using $SAX2RTFDTM = ::com::sun::org::apache::xml::internal::dtm::ref::sax2dtm::SAX2RTFDTM;
 using $DefaultErrorHandler = ::com::sun::org::apache::xml::internal::utils::DefaultErrorHandler;
 using $IntStack = ::com::sun::org::apache::xml::internal::utils::IntStack;
@@ -74,9 +61,6 @@ using $ObjectStack = ::com::sun::org::apache::xml::internal::utils::ObjectStack;
 using $PrefixResolver = ::com::sun::org::apache::xml::internal::utils::PrefixResolver;
 using $VariableStack = ::com::sun::org::apache::xpath::internal::VariableStack;
 using $XPathContext$XPathExpressionContext = ::com::sun::org::apache::xpath::internal::XPathContext$XPathExpressionContext;
-using $BasicTestIterator = ::com::sun::org::apache::xpath::internal::axes::BasicTestIterator;
-using $ChildTestIterator = ::com::sun::org::apache::xpath::internal::axes::ChildTestIterator;
-using $LocPathIterator = ::com::sun::org::apache::xpath::internal::axes::LocPathIterator;
 using $OneStepIteratorForward = ::com::sun::org::apache::xpath::internal::axes::OneStepIteratorForward;
 using $SubContextList = ::com::sun::org::apache::xpath::internal::axes::SubContextList;
 using $DTMXRTreeFrag = ::com::sun::org::apache::xpath::internal::objects::DTMXRTreeFrag;
@@ -93,8 +77,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $Method = ::java::lang::reflect::Method;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;

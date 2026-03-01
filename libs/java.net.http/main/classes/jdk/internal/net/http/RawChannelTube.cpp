@@ -17,7 +17,6 @@
 #include <java/lang/ref/Cleaner.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/channels/SelectionKey.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <java/util/concurrent/ConcurrentLinkedQueue.h>
@@ -54,7 +53,6 @@ using $IOException = ::java::io::IOException;
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -67,7 +65,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Cleaner = ::java::lang::ref::Cleaner;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $SelectionKey = ::java::nio::channels::SelectionKey;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $ConcurrentLinkedQueue = ::java::util::concurrent::ConcurrentLinkedQueue;

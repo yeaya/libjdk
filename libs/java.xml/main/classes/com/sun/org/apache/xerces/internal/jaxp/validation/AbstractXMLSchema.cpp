@@ -3,7 +3,6 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/ValidatorHandlerImpl.h>
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/ValidatorImpl.h>
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/XSGrammarPoolContainer.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <javax/xml/validation/Schema.h>
@@ -21,7 +20,6 @@ using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $Schema = ::javax::xml::validation::Schema;

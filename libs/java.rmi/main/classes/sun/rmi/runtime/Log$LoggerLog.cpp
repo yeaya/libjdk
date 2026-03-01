@@ -7,7 +7,6 @@
 #include <java/util/logging/Handler.h>
 #include <java/util/logging/Level.h>
 #include <java/util/logging/Logger.h>
-#include <java/util/logging/StreamHandler.h>
 #include <sun/rmi/runtime/Log$InternalStreamHandler.h>
 #include <sun/rmi/runtime/Log$LoggerLog$1.h>
 #include <sun/rmi/runtime/Log$LoggerLog$2.h>
@@ -29,7 +28,6 @@ using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Handler = ::java::util::logging::Handler;
 using $Level = ::java::util::logging::Level;
 using $Logger = ::java::util::logging::Logger;
-using $StreamHandler = ::java::util::logging::StreamHandler;
 using $Log = ::sun::rmi::runtime::Log;
 using $Log$InternalStreamHandler = ::sun::rmi::runtime::Log$InternalStreamHandler;
 using $Log$LoggerLog$1 = ::sun::rmi::runtime::Log$LoggerLog$1;

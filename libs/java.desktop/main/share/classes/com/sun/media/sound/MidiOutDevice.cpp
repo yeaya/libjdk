@@ -1,24 +1,20 @@
 #include <com/sun/media/sound/MidiOutDevice.h>
 
-#include <com/sun/media/sound/AbstractMidiDevice$AbstractReceiver.h>
 #include <com/sun/media/sound/AbstractMidiDevice.h>
 #include <com/sun/media/sound/AbstractMidiDeviceProvider$Info.h>
 #include <com/sun/media/sound/MidiOutDevice$MidiOutReceiver.h>
 #include <javax/sound/midi/MidiDevice$Info.h>
-#include <javax/sound/midi/MidiDeviceReceiver.h>
 #include <javax/sound/midi/MidiUnavailableException.h>
 #include <javax/sound/midi/Receiver.h>
 #include <jcpp.h>
 
 using $AbstractMidiDevice = ::com::sun::media::sound::AbstractMidiDevice;
-using $AbstractMidiDevice$AbstractReceiver = ::com::sun::media::sound::AbstractMidiDevice$AbstractReceiver;
 using $AbstractMidiDeviceProvider$Info = ::com::sun::media::sound::AbstractMidiDeviceProvider$Info;
 using $MidiOutDevice$MidiOutReceiver = ::com::sun::media::sound::MidiOutDevice$MidiOutReceiver;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MidiDevice$Info = ::javax::sound::midi::MidiDevice$Info;
-using $MidiDeviceReceiver = ::javax::sound::midi::MidiDeviceReceiver;
 using $MidiUnavailableException = ::javax::sound::midi::MidiUnavailableException;
 using $Receiver = ::javax::sound::midi::Receiver;
 

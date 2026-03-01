@@ -7,16 +7,13 @@
 #include <java/util/concurrent/CompletableFuture.h>
 #include <javax/naming/CommunicationException.h>
 #include <javax/net/ssl/HandshakeCompletedEvent.h>
-#include <javax/net/ssl/SSLException.h>
 #include <javax/net/ssl/SSLPeerUnverifiedException.h>
 #include <javax/net/ssl/SSLSocket.h>
 #include <jcpp.h>
 
 using $CertificateArray = $Array<::java::security::cert::Certificate>;
 using $Connection = ::com::sun::jndi::ldap::Connection;
-using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -24,7 +21,6 @@ using $X509Certificate = ::java::security::cert::X509Certificate;
 using $CompletableFuture = ::java::util::concurrent::CompletableFuture;
 using $CommunicationException = ::javax::naming::CommunicationException;
 using $HandshakeCompletedEvent = ::javax::net::ssl::HandshakeCompletedEvent;
-using $SSLException = ::javax::net::ssl::SSLException;
 using $SSLPeerUnverifiedException = ::javax::net::ssl::SSLPeerUnverifiedException;
 using $SSLSocket = ::javax::net::ssl::SSLSocket;
 

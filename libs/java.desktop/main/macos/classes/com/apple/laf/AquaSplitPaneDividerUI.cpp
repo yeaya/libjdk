@@ -18,16 +18,13 @@
 #include <java/awt/Image.h>
 #include <java/awt/LayoutManager.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/BorderFactory.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/ImageIcon.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JSplitPane.h>
 #include <javax/swing/SwingConstants.h>
 #include <javax/swing/border/Border.h>
-#include <javax/swing/plaf/basic/BasicSplitPaneDivider$DividerLayout.h>
 #include <javax/swing/plaf/basic/BasicSplitPaneDivider.h>
 #include <javax/swing/plaf/basic/BasicSplitPaneUI.h>
 #include <jcpp.h>
@@ -54,7 +51,6 @@ using $AquaSplitPaneDividerUI$HorizontalSplitDividerGradientPainter = ::com::app
 using $AquaSplitPaneUI = ::com::apple::laf::AquaSplitPaneUI;
 using $AquaUtils$LazyKeyedSingleton = ::com::apple::laf::AquaUtils$LazyKeyedSingleton;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Cursor = ::java::awt::Cursor;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
@@ -66,17 +62,14 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $BorderFactory = ::javax::swing::BorderFactory;
 using $Icon = ::javax::swing::Icon;
 using $ImageIcon = ::javax::swing::ImageIcon;
 using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JSplitPane = ::javax::swing::JSplitPane;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $Border = ::javax::swing::border::Border;
 using $BasicSplitPaneDivider = ::javax::swing::plaf::basic::BasicSplitPaneDivider;
-using $BasicSplitPaneDivider$DividerLayout = ::javax::swing::plaf::basic::BasicSplitPaneDivider$DividerLayout;
 using $BasicSplitPaneUI = ::javax::swing::plaf::basic::BasicSplitPaneUI;
 
 namespace com {

@@ -5,8 +5,6 @@
 #include <java/awt/Color.h>
 #include <javax/swing/plaf/basic/BasicTextUI.h>
 #include <javax/swing/text/Caret.h>
-#include <javax/swing/text/DefaultCaret.h>
-#include <javax/swing/text/DefaultHighlighter$DefaultHighlightPainter.h>
 #include <javax/swing/text/LayeredHighlighter$LayerPainter.h>
 #include <jcpp.h>
 
@@ -19,8 +17,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BasicTextUI = ::javax::swing::plaf::basic::BasicTextUI;
 using $Caret = ::javax::swing::text::Caret;
-using $DefaultCaret = ::javax::swing::text::DefaultCaret;
-using $DefaultHighlighter$DefaultHighlightPainter = ::javax::swing::text::DefaultHighlighter$DefaultHighlightPainter;
 using $LayeredHighlighter$LayerPainter = ::javax::swing::text::LayeredHighlighter$LayerPainter;
 
 namespace com {

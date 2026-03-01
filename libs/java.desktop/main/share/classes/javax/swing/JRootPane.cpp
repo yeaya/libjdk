@@ -1,23 +1,16 @@
 #include <javax/swing/JRootPane.h>
 
 #include <java/awt/AWTEvent.h>
-#include <java/awt/BorderLayout.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/awt/IllegalComponentStateException.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JLayeredPane.h>
 #include <javax/swing/JMenuBar.h>
@@ -47,18 +40,12 @@
 #undef WARNING_DIALOG
 
 using $AWTEvent = ::java::awt::AWTEvent;
-using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $Container = ::java::awt::Container;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $IllegalComponentStateException = ::java::awt::IllegalComponentStateException;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $PrintStream = ::java::io::PrintStream;
 using $Attribute = ::java::lang::Attribute;
 using $Boolean = ::java::lang::Boolean;
@@ -75,7 +62,6 @@ using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JLayeredPane = ::javax::swing::JLayeredPane;
 using $JMenuBar = ::javax::swing::JMenuBar;
 using $JPanel = ::javax::swing::JPanel;

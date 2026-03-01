@@ -25,20 +25,16 @@
 #include <sun/awt/X11/XAtom.h>
 #include <sun/awt/X11/XAtomList.h>
 #include <sun/awt/X11/XBaseWindow.h>
-#include <sun/awt/X11/XCanvasPeer.h>
 #include <sun/awt/X11/XClientMessageEvent.h>
-#include <sun/awt/X11/XComponentPeer.h>
 #include <sun/awt/X11/XConstants.h>
 #include <sun/awt/X11/XDecoratedPeer.h>
 #include <sun/awt/X11/XErrorEvent.h>
 #include <sun/awt/X11/XErrorHandler$IgnoreBadWindowHandler.h>
 #include <sun/awt/X11/XErrorHandler$VerifyChangePropertyHandler.h>
-#include <sun/awt/X11/XErrorHandler$XBaseErrorHandler.h>
 #include <sun/awt/X11/XErrorHandler.h>
 #include <sun/awt/X11/XErrorHandlerUtil.h>
 #include <sun/awt/X11/XLayerProtocol.h>
 #include <sun/awt/X11/XNETProtocol.h>
-#include <sun/awt/X11/XPanelPeer.h>
 #include <sun/awt/X11/XPropertyEvent.h>
 #include <sun/awt/X11/XSetWindowAttributes.h>
 #include <sun/awt/X11/XSizeHints.h>
@@ -156,20 +152,16 @@ using $WindowPropertyGetter = ::sun::awt::X11::WindowPropertyGetter;
 using $XAtom = ::sun::awt::X11::XAtom;
 using $XAtomList = ::sun::awt::X11::XAtomList;
 using $XBaseWindow = ::sun::awt::X11::XBaseWindow;
-using $XCanvasPeer = ::sun::awt::X11::XCanvasPeer;
 using $XClientMessageEvent = ::sun::awt::X11::XClientMessageEvent;
-using $XComponentPeer = ::sun::awt::X11::XComponentPeer;
 using $XConstants = ::sun::awt::X11::XConstants;
 using $XDecoratedPeer = ::sun::awt::X11::XDecoratedPeer;
 using $XErrorEvent = ::sun::awt::X11::XErrorEvent;
 using $XErrorHandler = ::sun::awt::X11::XErrorHandler;
 using $XErrorHandler$IgnoreBadWindowHandler = ::sun::awt::X11::XErrorHandler$IgnoreBadWindowHandler;
 using $XErrorHandler$VerifyChangePropertyHandler = ::sun::awt::X11::XErrorHandler$VerifyChangePropertyHandler;
-using $XErrorHandler$XBaseErrorHandler = ::sun::awt::X11::XErrorHandler$XBaseErrorHandler;
 using $XErrorHandlerUtil = ::sun::awt::X11::XErrorHandlerUtil;
 using $XLayerProtocol = ::sun::awt::X11::XLayerProtocol;
 using $XNETProtocol = ::sun::awt::X11::XNETProtocol;
-using $XPanelPeer = ::sun::awt::X11::XPanelPeer;
 using $XPropertyEvent = ::sun::awt::X11::XPropertyEvent;
 using $XSetWindowAttributes = ::sun::awt::X11::XSetWindowAttributes;
 using $XSizeHints = ::sun::awt::X11::XSizeHints;

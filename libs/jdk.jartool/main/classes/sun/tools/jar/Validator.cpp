@@ -16,8 +16,6 @@
 #include <java/lang/module/ModuleDescriptor$Requires$Modifier.h>
 #include <java/lang/module/ModuleDescriptor$Requires.h>
 #include <java/lang/module/ModuleDescriptor.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
@@ -65,8 +63,6 @@ using $ModuleDescriptor$Opens = ::java::lang::module::ModuleDescriptor$Opens;
 using $ModuleDescriptor$Provides = ::java::lang::module::ModuleDescriptor$Provides;
 using $ModuleDescriptor$Requires = ::java::lang::module::ModuleDescriptor$Requires;
 using $ModuleDescriptor$Requires$Modifier = ::java::lang::module::ModuleDescriptor$Requires$Modifier;
-using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;

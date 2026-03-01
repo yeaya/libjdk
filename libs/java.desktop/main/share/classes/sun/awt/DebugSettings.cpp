@@ -10,8 +10,6 @@
 #include <java/io/StringBufferInputStream.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractSequentialList.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
 #include <java/util/LinkedList.h>
@@ -48,8 +46,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractSequentialList = ::java::util::AbstractSequentialList;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
 using $LinkedList = ::java::util::LinkedList;

@@ -1,7 +1,6 @@
 #include <javax/swing/plaf/metal/MetalRootPaneUI$MouseInputHandler.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Cursor.h>
 #include <java/awt/Dialog.h>
 #include <java/awt/Dimension.h>
@@ -33,7 +32,6 @@
 #undef W_RESIZE_CURSOR
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Cursor = ::java::awt::Cursor;
 using $Dialog = ::java::awt::Dialog;
 using $Dimension = ::java::awt::Dimension;

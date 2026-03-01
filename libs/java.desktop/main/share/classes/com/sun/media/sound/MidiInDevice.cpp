@@ -1,6 +1,5 @@
 #include <com/sun/media/sound/MidiInDevice.h>
 
-#include <com/sun/media/sound/AbstractMidiDevice$BasicTransmitter.h>
 #include <com/sun/media/sound/AbstractMidiDevice$TransmitterList.h>
 #include <com/sun/media/sound/AbstractMidiDevice.h>
 #include <com/sun/media/sound/AbstractMidiDeviceProvider$Info.h>
@@ -10,13 +9,11 @@
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Runnable.h>
 #include <javax/sound/midi/MidiDevice$Info.h>
-#include <javax/sound/midi/MidiDeviceTransmitter.h>
 #include <javax/sound/midi/MidiUnavailableException.h>
 #include <javax/sound/midi/Transmitter.h>
 #include <jcpp.h>
 
 using $AbstractMidiDevice = ::com::sun::media::sound::AbstractMidiDevice;
-using $AbstractMidiDevice$BasicTransmitter = ::com::sun::media::sound::AbstractMidiDevice$BasicTransmitter;
 using $AbstractMidiDevice$TransmitterList = ::com::sun::media::sound::AbstractMidiDevice$TransmitterList;
 using $AbstractMidiDeviceProvider$Info = ::com::sun::media::sound::AbstractMidiDeviceProvider$Info;
 using $JSSecurityManager = ::com::sun::media::sound::JSSecurityManager;
@@ -29,7 +26,6 @@ using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $MidiDevice$Info = ::javax::sound::midi::MidiDevice$Info;
-using $MidiDeviceTransmitter = ::javax::sound::midi::MidiDeviceTransmitter;
 using $MidiUnavailableException = ::javax::sound::midi::MidiUnavailableException;
 using $Transmitter = ::javax::sound::midi::Transmitter;
 

@@ -5,16 +5,13 @@
 #include <com/sun/java/swing/plaf/windows/WindowsRootPaneUI.h>
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ComponentEvent.h>
 #include <java/awt/event/KeyEvent.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JMenu.h>
 #include <javax/swing/JMenuBar.h>
-#include <javax/swing/JMenuItem.h>
 #include <javax/swing/JRootPane.h>
 #include <javax/swing/MenuElement.h>
 #include <javax/swing/MenuSelectionManager.h>
@@ -33,7 +30,6 @@ using $MenuElementArray = $Array<::javax::swing::MenuElement>;
 using $WindowsGraphicsUtils = ::com::sun::java::swing::plaf::windows::WindowsGraphicsUtils;
 using $WindowsLookAndFeel = ::com::sun::java::swing::plaf::windows::WindowsLookAndFeel;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Toolkit = ::java::awt::Toolkit;
 using $Window = ::java::awt::Window;
 using $KeyEvent = ::java::awt::event::KeyEvent;
@@ -41,11 +37,9 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JMenu = ::javax::swing::JMenu;
 using $JMenuBar = ::javax::swing::JMenuBar;
-using $JMenuItem = ::javax::swing::JMenuItem;
 using $JRootPane = ::javax::swing::JRootPane;
 using $MenuElement = ::javax::swing::MenuElement;
 using $MenuSelectionManager = ::javax::swing::MenuSelectionManager;

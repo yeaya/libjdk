@@ -10,7 +10,6 @@
 #include <javax/xml/catalog/Catalog.h>
 #include <javax/xml/catalog/CatalogImpl.h>
 #include <javax/xml/catalog/CatalogMessages.h>
-#include <javax/xml/catalog/CatalogResolver.h>
 #include <javax/xml/catalog/CatalogResolverImpl$1.h>
 #include <javax/xml/catalog/CatalogResolverImpl$LSInputImpl.h>
 #include <javax/xml/catalog/GroupEntry$ResolveType.h>
@@ -48,7 +47,6 @@ using $URL = ::java::net::URL;
 using $Catalog = ::javax::xml::catalog::Catalog;
 using $CatalogImpl = ::javax::xml::catalog::CatalogImpl;
 using $CatalogMessages = ::javax::xml::catalog::CatalogMessages;
-using $CatalogResolver = ::javax::xml::catalog::CatalogResolver;
 using $CatalogResolverImpl$1 = ::javax::xml::catalog::CatalogResolverImpl$1;
 using $CatalogResolverImpl$LSInputImpl = ::javax::xml::catalog::CatalogResolverImpl$LSInputImpl;
 using $GroupEntry$ResolveType = ::javax::xml::catalog::GroupEntry$ResolveType;

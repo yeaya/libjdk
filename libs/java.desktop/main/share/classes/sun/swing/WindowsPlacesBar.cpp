@@ -2,7 +2,6 @@
 
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Image.h>
 #include <java/awt/Insets.h>
@@ -20,7 +19,6 @@
 #include <javax/swing/JToggleButton.h>
 #include <javax/swing/JToolBar.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/BevelBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/EmptyBorder.h>
@@ -44,7 +42,6 @@
 using $JToggleButtonArray = $Array<::javax::swing::JToggleButton>;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Image = ::java::awt::Image;
 using $Insets = ::java::awt::Insets;
@@ -66,7 +63,6 @@ using $JFileChooser = ::javax::swing::JFileChooser;
 using $JToggleButton = ::javax::swing::JToggleButton;
 using $JToolBar = ::javax::swing::JToolBar;
 using $UIManager = ::javax::swing::UIManager;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $BevelBorder = ::javax::swing::border::BevelBorder;
 using $Border = ::javax::swing::border::Border;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;

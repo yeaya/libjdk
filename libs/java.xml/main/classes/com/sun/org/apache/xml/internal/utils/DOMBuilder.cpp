@@ -6,7 +6,6 @@
 #include <java/io/Writer.h>
 #include <java/util/Stack.h>
 #include <org/w3c/dom/CDATASection.h>
-#include <org/w3c/dom/CharacterData.h>
 #include <org/w3c/dom/Comment.h>
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/DocumentFragment.h>
@@ -37,7 +36,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Stack = ::java::util::Stack;
 using $CDATASection = ::org::w3c::dom::CDATASection;
-using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Document = ::org::w3c::dom::Document;
 using $DocumentFragment = ::org::w3c::dom::DocumentFragment;
 using $Element = ::org::w3c::dom::Element;

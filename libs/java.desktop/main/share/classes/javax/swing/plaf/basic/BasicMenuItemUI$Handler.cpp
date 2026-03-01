@@ -6,7 +6,6 @@
 #include <java/awt/event/MouseEvent.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/lang/Number.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JMenuItem.h>
 #include <javax/swing/MenuElement.h>
@@ -32,7 +31,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Number = ::java::lang::Number;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JComponent = ::javax::swing::JComponent;
 using $JMenuItem = ::javax::swing::JMenuItem;
 using $MenuSelectionManager = ::javax::swing::MenuSelectionManager;

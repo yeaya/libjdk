@@ -6,7 +6,6 @@
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
 #include <java/awt/event/FocusEvent.h>
@@ -31,18 +30,13 @@
 #include <javax/print/attribute/standard/MediaSizeName.h>
 #include <javax/print/attribute/standard/OrientationRequested.h>
 #include <javax/swing/BorderFactory.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFormattedTextField$AbstractFormatter.h>
 #include <javax/swing/JFormattedTextField.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JPanel.h>
-#include <javax/swing/JTextField.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/TitledBorder.h>
 #include <javax/swing/text/DefaultFormatter.h>
-#include <javax/swing/text/InternationalFormatter.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <javax/swing/text/NumberFormatter.h>
 #include <sun/print/ServiceDialog.h>
 #include <jcpp.h>
@@ -65,7 +59,6 @@ using $Container = ::java::awt::Container;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $FocusEvent = ::java::awt::event::FocusEvent;
@@ -94,17 +87,11 @@ using $MediaSize = ::javax::print::attribute::standard::MediaSize;
 using $MediaSizeName = ::javax::print::attribute::standard::MediaSizeName;
 using $OrientationRequested = ::javax::print::attribute::standard::OrientationRequested;
 using $BorderFactory = ::javax::swing::BorderFactory;
-using $JComponent = ::javax::swing::JComponent;
 using $JFormattedTextField = ::javax::swing::JFormattedTextField;
 using $JFormattedTextField$AbstractFormatter = ::javax::swing::JFormattedTextField$AbstractFormatter;
 using $JLabel = ::javax::swing::JLabel;
 using $JPanel = ::javax::swing::JPanel;
-using $JTextField = ::javax::swing::JTextField;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
-using $DefaultFormatter = ::javax::swing::text::DefaultFormatter;
-using $InternationalFormatter = ::javax::swing::text::InternationalFormatter;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $NumberFormatter = ::javax::swing::text::NumberFormatter;
 using $ServiceDialog = ::sun::print::ServiceDialog;
 

@@ -4,11 +4,9 @@
 #include <com/sun/tools/javac/code/Symbol$DynamicMethodSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$DynamicVarSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$MethodHandleSymbol.h>
-#include <com/sun/tools/javac/code/Symbol$MethodSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$ModuleSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$PackageSymbol.h>
 #include <com/sun/tools/javac/code/Symbol$TypeSymbol.h>
-#include <com/sun/tools/javac/code/Symbol$VarSymbol.h>
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Type$MethodType.h>
 #include <com/sun/tools/javac/code/Type.h>
@@ -24,7 +22,6 @@
 #include <com/sun/tools/javac/util/Name.h>
 #include <com/sun/tools/javac/util/Names.h>
 #include <java/lang/AssertionError.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/ArrayDeque.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
@@ -38,11 +35,9 @@ using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
 using $Symbol$DynamicMethodSymbol = ::com::sun::tools::javac::code::Symbol$DynamicMethodSymbol;
 using $Symbol$DynamicVarSymbol = ::com::sun::tools::javac::code::Symbol$DynamicVarSymbol;
 using $Symbol$MethodHandleSymbol = ::com::sun::tools::javac::code::Symbol$MethodHandleSymbol;
-using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
 using $Symbol$ModuleSymbol = ::com::sun::tools::javac::code::Symbol$ModuleSymbol;
 using $Symbol$PackageSymbol = ::com::sun::tools::javac::code::Symbol$PackageSymbol;
 using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
-using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$MethodType = ::com::sun::tools::javac::code::Type$MethodType;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
@@ -64,7 +59,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayDeque = ::java::util::ArrayDeque;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;

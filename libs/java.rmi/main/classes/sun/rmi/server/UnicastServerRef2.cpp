@@ -5,7 +5,6 @@
 #include <java/rmi/server/RMIClientSocketFactory.h>
 #include <java/rmi/server/RMIServerSocketFactory.h>
 #include <java/rmi/server/RemoteRef.h>
-#include <sun/rmi/server/UnicastRef.h>
 #include <sun/rmi/server/UnicastRef2.h>
 #include <sun/rmi/server/UnicastServerRef.h>
 #include <sun/rmi/transport/LiveRef.h>
@@ -19,7 +18,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RMIClientSocketFactory = ::java::rmi::server::RMIClientSocketFactory;
 using $RMIServerSocketFactory = ::java::rmi::server::RMIServerSocketFactory;
 using $RemoteRef = ::java::rmi::server::RemoteRef;
-using $UnicastRef = ::sun::rmi::server::UnicastRef;
 using $UnicastRef2 = ::sun::rmi::server::UnicastRef2;
 using $UnicastServerRef = ::sun::rmi::server::UnicastServerRef;
 using $LiveRef = ::sun::rmi::transport::LiveRef;

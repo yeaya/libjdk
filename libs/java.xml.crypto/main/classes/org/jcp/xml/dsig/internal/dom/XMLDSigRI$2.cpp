@@ -2,7 +2,6 @@
 
 #include <java/security/Provider$Service.h>
 #include <java/security/Provider.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <javax/xml/crypto/dsig/CanonicalizationMethod.h>
@@ -29,7 +28,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Provider = ::java::security::Provider;
 using $Provider$Service = ::java::security::Provider$Service;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $CanonicalizationMethod = ::javax::xml::crypto::dsig::CanonicalizationMethod;

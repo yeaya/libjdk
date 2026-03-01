@@ -2,20 +2,16 @@
 
 #include <bug6348946.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JSlider.h>
 #include <javax/swing/JTable.h>
 #include <jcpp.h>
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JSlider = ::javax::swing::JSlider;
 using $JTable = ::javax::swing::JTable;
 

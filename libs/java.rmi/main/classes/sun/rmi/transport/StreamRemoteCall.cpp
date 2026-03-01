@@ -26,8 +26,6 @@
 #include <java/security/PrivilegedAction.h>
 #include <java/util/logging/Level.h>
 #include <sun/rmi/runtime/Log.h>
-#include <sun/rmi/server/MarshalInputStream.h>
-#include <sun/rmi/server/MarshalOutputStream.h>
 #include <sun/rmi/server/UnicastRef.h>
 #include <sun/rmi/transport/Channel.h>
 #include <sun/rmi/transport/Connection.h>
@@ -49,9 +47,7 @@ using $DataOutputStream = ::java::io::DataOutputStream;
 using $IOException = ::java::io::IOException;
 using $ObjectInput = ::java::io::ObjectInput;
 using $ObjectInputFilter = ::java::io::ObjectInputFilter;
-using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutput = ::java::io::ObjectOutput;
-using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $Serializable = ::java::io::Serializable;
 using $StreamCorruptedException = ::java::io::StreamCorruptedException;
@@ -69,8 +65,6 @@ using $ObjID = ::java::rmi::server::ObjID;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Log = ::sun::rmi::runtime::Log;
-using $MarshalInputStream = ::sun::rmi::server::MarshalInputStream;
-using $MarshalOutputStream = ::sun::rmi::server::MarshalOutputStream;
 using $UnicastRef = ::sun::rmi::server::UnicastRef;
 using $Channel = ::sun::rmi::transport::Channel;
 using $Connection = ::sun::rmi::transport::Connection;

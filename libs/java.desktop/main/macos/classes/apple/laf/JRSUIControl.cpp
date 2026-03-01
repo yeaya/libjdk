@@ -10,7 +10,6 @@
 #include <java/lang/ThreadLocal.h>
 #include <java/nio/BufferOverflowException.h>
 #include <java/nio/ByteBuffer.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
 #include <java/util/HashMap.h>
@@ -48,7 +47,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $ThreadLocal = ::java::lang::ThreadLocal;
 using $BufferOverflowException = ::java::nio::BufferOverflowException;
 using $ByteBuffer = ::java::nio::ByteBuffer;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
 using $HashMap = ::java::util::HashMap;

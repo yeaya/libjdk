@@ -4,14 +4,12 @@
 #include <TestDialog4bug4666224$RemarksDialog.h>
 #include <java/awt/Button.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dialog.h>
 #include <java/awt/FlowLayout.h>
 #include <java/awt/Frame.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/Panel.h>
 #include <java/awt/TextArea.h>
-#include <java/awt/TextComponent.h>
 #include <java/awt/event/ActionListener.h>
 #include <jcpp.h>
 
@@ -21,14 +19,12 @@ using $TestDialog4bug4666224$HandleAssert = ::TestDialog4bug4666224$HandleAssert
 using $StringArray2 = $Array<::java::lang::String, 2>;
 using $Button = ::java::awt::Button;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dialog = ::java::awt::Dialog;
 using $FlowLayout = ::java::awt::FlowLayout;
 using $Frame = ::java::awt::Frame;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $Panel = ::java::awt::Panel;
 using $TextArea = ::java::awt::TextArea;
-using $TextComponent = ::java::awt::TextComponent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

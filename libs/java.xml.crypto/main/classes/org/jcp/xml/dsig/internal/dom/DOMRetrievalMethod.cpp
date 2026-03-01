@@ -8,7 +8,6 @@
 #include <java/net/URI.h>
 #include <java/net/URISyntaxException.h>
 #include <java/security/Provider.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
@@ -57,7 +56,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $URI = ::java::net::URI;
 using $URISyntaxException = ::java::net::URISyntaxException;
 using $Provider = ::java::security::Provider;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;

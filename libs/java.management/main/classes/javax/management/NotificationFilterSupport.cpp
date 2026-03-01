@@ -1,6 +1,5 @@
 #include <javax/management/NotificationFilterSupport.h>
 
-#include <java/util/AbstractList.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <java/util/Vector.h>
@@ -12,7 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $AbstractList = ::java::util::AbstractList;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 using $Vector = ::java::util::Vector;

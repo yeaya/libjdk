@@ -1,7 +1,5 @@
 #include <com/sun/media/sound/RealTimeSequencer.h>
 
-#include <com/sun/media/sound/AbstractMidiDevice$AbstractReceiver.h>
-#include <com/sun/media/sound/AbstractMidiDevice$BasicTransmitter.h>
 #include <com/sun/media/sound/AbstractMidiDevice.h>
 #include <com/sun/media/sound/EventDispatcher.h>
 #include <com/sun/media/sound/MidiUtils$TempoCache.h>
@@ -18,8 +16,6 @@
 #include <java/io/InputStream.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/ThreadGroup.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <java/util/Map.h>
@@ -27,8 +23,6 @@
 #include <javax/sound/midi/ControllerEventListener.h>
 #include <javax/sound/midi/MetaEventListener.h>
 #include <javax/sound/midi/MidiDevice$Info.h>
-#include <javax/sound/midi/MidiDeviceReceiver.h>
-#include <javax/sound/midi/MidiDeviceTransmitter.h>
 #include <javax/sound/midi/MidiMessage.h>
 #include <javax/sound/midi/MidiSystem.h>
 #include <javax/sound/midi/Receiver.h>
@@ -49,8 +43,6 @@
 using $Sequencer$SyncModeArray = $Array<::javax::sound::midi::Sequencer$SyncMode>;
 using $TrackArray = $Array<::javax::sound::midi::Track>;
 using $AbstractMidiDevice = ::com::sun::media::sound::AbstractMidiDevice;
-using $AbstractMidiDevice$AbstractReceiver = ::com::sun::media::sound::AbstractMidiDevice$AbstractReceiver;
-using $AbstractMidiDevice$BasicTransmitter = ::com::sun::media::sound::AbstractMidiDevice$BasicTransmitter;
 using $EventDispatcher = ::com::sun::media::sound::EventDispatcher;
 using $MidiUtils = ::com::sun::media::sound::MidiUtils;
 using $MidiUtils$TempoCache = ::com::sun::media::sound::MidiUtils$TempoCache;
@@ -73,8 +65,6 @@ using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ThreadGroup = ::java::lang::ThreadGroup;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;
@@ -82,8 +72,6 @@ using $WeakHashMap = ::java::util::WeakHashMap;
 using $ControllerEventListener = ::javax::sound::midi::ControllerEventListener;
 using $MetaEventListener = ::javax::sound::midi::MetaEventListener;
 using $MidiDevice$Info = ::javax::sound::midi::MidiDevice$Info;
-using $MidiDeviceReceiver = ::javax::sound::midi::MidiDeviceReceiver;
-using $MidiDeviceTransmitter = ::javax::sound::midi::MidiDeviceTransmitter;
 using $MidiMessage = ::javax::sound::midi::MidiMessage;
 using $MidiSystem = ::javax::sound::midi::MidiSystem;
 using $Receiver = ::javax::sound::midi::Receiver;

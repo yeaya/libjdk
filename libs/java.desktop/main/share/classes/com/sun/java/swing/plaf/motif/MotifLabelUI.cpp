@@ -2,7 +2,6 @@
 
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/LabelUI.h>
 #include <javax/swing/plaf/basic/BasicLabelUI.h>
 #include <sun/awt/AppContext.h>
 #include <jcpp.h>
@@ -14,7 +13,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $LabelUI = ::javax::swing::plaf::LabelUI;
 using $BasicLabelUI = ::javax::swing::plaf::basic::BasicLabelUI;
 using $AppContext = ::sun::awt::AppContext;
 

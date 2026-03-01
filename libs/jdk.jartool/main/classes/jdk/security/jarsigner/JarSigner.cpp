@@ -36,7 +36,6 @@
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/PrivateKey.h>
 #include <java/security/Provider.h>
-#include <java/security/SecureClassLoader.h>
 #include <java/security/Signature.h>
 #include <java/security/SignatureException.h>
 #include <java/security/cert/CertificateException.h>
@@ -58,7 +57,6 @@
 #include <java/util/jar/Attributes.h>
 #include <java/util/jar/JarFile.h>
 #include <java/util/jar/Manifest.h>
-#include <java/util/zip/DeflaterOutputStream.h>
 #include <java/util/zip/ZipEntry.h>
 #include <java/util/zip/ZipFile.h>
 #include <java/util/zip/ZipOutputStream.h>
@@ -101,7 +99,6 @@ using $ContentSigner = ::com::sun::jarsigner::ContentSigner;
 using $ContentSignerParameters = ::com::sun::jarsigner::ContentSignerParameters;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
@@ -131,13 +128,11 @@ using $InvocationTargetException = ::java::lang::reflect::InvocationTargetExcept
 using $SocketTimeoutException = ::java::net::SocketTimeoutException;
 using $URI = ::java::net::URI;
 using $URLClassLoader = ::java::net::URLClassLoader;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $InvalidKeyException = ::java::security::InvalidKeyException;
 using $Key = ::java::security::Key;
 using $MessageDigest = ::java::security::MessageDigest;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $PrivateKey = ::java::security::PrivateKey;
-using $SecureClassLoader = ::java::security::SecureClassLoader;
 using $Signature = ::java::security::Signature;
 using $SignatureException = ::java::security::SignatureException;
 using $CertificateException = ::java::security::cert::CertificateException;
@@ -158,7 +153,6 @@ using $Attributes = ::java::util::jar::Attributes;
 using $Attributes$Name = ::java::util::jar::Attributes$Name;
 using $JarFile = ::java::util::jar::JarFile;
 using $Manifest = ::java::util::jar::Manifest;
-using $DeflaterOutputStream = ::java::util::zip::DeflaterOutputStream;
 using $ZipEntry = ::java::util::zip::ZipEntry;
 using $ZipFile = ::java::util::zip::ZipFile;
 using $ZipOutputStream = ::java::util::zip::ZipOutputStream;

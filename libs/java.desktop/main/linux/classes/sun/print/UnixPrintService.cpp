@@ -16,7 +16,6 @@
 #include <java/security/PrivilegedAction.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Locale.h>
-#include <javax/print/CancelablePrintJob.h>
 #include <javax/print/DocFlavor$BYTE_ARRAY.h>
 #include <javax/print/DocFlavor$CHAR_ARRAY.h>
 #include <javax/print/DocFlavor$INPUT_STREAM.h>
@@ -160,7 +159,6 @@ using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;
 using $Locale = ::java::util::Locale;
-using $CancelablePrintJob = ::javax::print::CancelablePrintJob;
 using $DocFlavor = ::javax::print::DocFlavor;
 using $DocFlavor$BYTE_ARRAY = ::javax::print::DocFlavor$BYTE_ARRAY;
 using $DocFlavor$CHAR_ARRAY = ::javax::print::DocFlavor$CHAR_ARRAY;

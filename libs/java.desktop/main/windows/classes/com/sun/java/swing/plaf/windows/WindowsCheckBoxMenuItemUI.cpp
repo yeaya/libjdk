@@ -11,11 +11,8 @@
 #include <javax/swing/ButtonModel.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JMenuItem.h>
-#include <javax/swing/plaf/ButtonUI.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/MenuItemUI.h>
 #include <javax/swing/plaf/basic/BasicCheckBoxMenuItemUI.h>
-#include <javax/swing/plaf/basic/BasicMenuItemUI.h>
 #include <jcpp.h>
 
 using $WindowsCheckBoxMenuItemUI$1 = ::com::sun::java::swing::plaf::windows::WindowsCheckBoxMenuItemUI$1;
@@ -33,11 +30,8 @@ using $AbstractButton = ::javax::swing::AbstractButton;
 using $ButtonModel = ::javax::swing::ButtonModel;
 using $JComponent = ::javax::swing::JComponent;
 using $JMenuItem = ::javax::swing::JMenuItem;
-using $ButtonUI = ::javax::swing::plaf::ButtonUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $MenuItemUI = ::javax::swing::plaf::MenuItemUI;
 using $BasicCheckBoxMenuItemUI = ::javax::swing::plaf::basic::BasicCheckBoxMenuItemUI;
-using $BasicMenuItemUI = ::javax::swing::plaf::basic::BasicMenuItemUI;
 
 namespace com {
 	namespace sun {

@@ -2,7 +2,6 @@
 
 #include <java/lang/ref/Reference.h>
 #include <java/lang/ref/WeakReference.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Map.h>
 #include <java/util/WeakHashMap.h>
 #include <jcpp.h>
@@ -12,7 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Reference = ::java::lang::ref::Reference;
 using $WeakReference = ::java::lang::ref::WeakReference;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Map = ::java::util::Map;
 using $WeakHashMap = ::java::util::WeakHashMap;
 

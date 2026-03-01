@@ -14,7 +14,6 @@
 #include <sun/font/CStrike.h>
 #include <sun/font/CharToGlyphMapper.h>
 #include <sun/font/CompositeFont.h>
-#include <sun/font/CompositeGlyphMapper.h>
 #include <sun/font/Font2D.h>
 #include <sun/font/Font2DHandle.h>
 #include <sun/font/FontManager.h>
@@ -23,7 +22,6 @@
 #include <sun/font/FontStrikeDesc.h>
 #include <sun/font/FontUtilities.h>
 #include <sun/font/PhysicalFont.h>
-#include <sun/font/PhysicalStrike.h>
 #include <sun/font/StrikeMetrics.h>
 #include <jcpp.h>
 
@@ -54,7 +52,6 @@ using $CCompositeGlyphMapper = ::sun::font::CCompositeGlyphMapper;
 using $CStrike = ::sun::font::CStrike;
 using $CharToGlyphMapper = ::sun::font::CharToGlyphMapper;
 using $CompositeFont = ::sun::font::CompositeFont;
-using $CompositeGlyphMapper = ::sun::font::CompositeGlyphMapper;
 using $Font2D = ::sun::font::Font2D;
 using $Font2DHandle = ::sun::font::Font2DHandle;
 using $FontManager = ::sun::font::FontManager;
@@ -63,7 +60,6 @@ using $FontStrike = ::sun::font::FontStrike;
 using $FontStrikeDesc = ::sun::font::FontStrikeDesc;
 using $FontUtilities = ::sun::font::FontUtilities;
 using $PhysicalFont = ::sun::font::PhysicalFont;
-using $PhysicalStrike = ::sun::font::PhysicalStrike;
 using $StrikeMetrics = ::sun::font::StrikeMetrics;
 
 namespace sun {

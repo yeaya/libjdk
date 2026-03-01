@@ -15,13 +15,10 @@
 #include <java/awt/geom/GeneralPath.h>
 #include <java/awt/geom/Line2D$Float.h>
 #include <java/awt/geom/Line2D.h>
-#include <java/awt/geom/Path2D$Float.h>
-#include <java/awt/geom/Path2D.h>
 #include <java/awt/geom/PathIterator.h>
 #include <java/awt/geom/Point2D.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/awt/geom/RoundRectangle2D$Float.h>
 #include <java/awt/geom/RoundRectangle2D.h>
 #include <java/awt/image/BufferedImage.h>
@@ -29,7 +26,6 @@
 #include <java/awt/image/ImageObserver.h>
 #include <java/nio/FloatBuffer.h>
 #include <java/nio/IntBuffer.h>
-#include <sun/awt/image/BufImgSurfaceData.h>
 #include <sun/awt/image/ImageRepresentation.h>
 #include <sun/awt/image/ToolkitImage.h>
 #include <sun/java2d/CRenderer$Tracer.h>
@@ -51,7 +47,6 @@
 
 using $Color = ::java::awt::Color;
 using $Graphics = ::java::awt::Graphics;
-using $Graphics2D = ::java::awt::Graphics2D;
 using $Image = ::java::awt::Image;
 using $Shape = ::java::awt::Shape;
 using $Stroke = ::java::awt::Stroke;
@@ -63,13 +58,10 @@ using $Ellipse2D$Float = ::java::awt::geom::Ellipse2D$Float;
 using $GeneralPath = ::java::awt::geom::GeneralPath;
 using $Line2D = ::java::awt::geom::Line2D;
 using $Line2D$Float = ::java::awt::geom::Line2D$Float;
-using $Path2D = ::java::awt::geom::Path2D;
-using $Path2D$Float = ::java::awt::geom::Path2D$Float;
 using $PathIterator = ::java::awt::geom::PathIterator;
 using $Point2D = ::java::awt::geom::Point2D;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $RoundRectangle2D = ::java::awt::geom::RoundRectangle2D;
 using $RoundRectangle2D$Float = ::java::awt::geom::RoundRectangle2D$Float;
 using $BufferedImage = ::java::awt::image::BufferedImage;
@@ -82,7 +74,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $FloatBuffer = ::java::nio::FloatBuffer;
 using $IntBuffer = ::java::nio::IntBuffer;
-using $BufImgSurfaceData = ::sun::awt::image::BufImgSurfaceData;
 using $ImageRepresentation = ::sun::awt::image::ImageRepresentation;
 using $ToolkitImage = ::sun::awt::image::ToolkitImage;
 using $CRenderer$Tracer = ::sun::java2d::CRenderer$Tracer;

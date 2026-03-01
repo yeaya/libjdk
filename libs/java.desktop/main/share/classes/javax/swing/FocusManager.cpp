@@ -1,17 +1,14 @@
 #include <javax/swing/FocusManager.h>
 
-#include <java/awt/ContainerOrderFocusTraversalPolicy.h>
 #include <java/awt/DefaultFocusTraversalPolicy.h>
 #include <java/awt/DefaultKeyboardFocusManager.h>
 #include <java/awt/FocusTraversalPolicy.h>
 #include <java/awt/KeyboardFocusManager.h>
-#include <javax/swing/DefaultFocusManager.h>
 #include <javax/swing/DelegatingDefaultFocusManager.h>
 #include <jcpp.h>
 
 #undef FOCUS_MANAGER_CLASS_PROPERTY
 
-using $ContainerOrderFocusTraversalPolicy = ::java::awt::ContainerOrderFocusTraversalPolicy;
 using $DefaultFocusTraversalPolicy = ::java::awt::DefaultFocusTraversalPolicy;
 using $DefaultKeyboardFocusManager = ::java::awt::DefaultKeyboardFocusManager;
 using $FocusTraversalPolicy = ::java::awt::FocusTraversalPolicy;
@@ -20,7 +17,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DefaultFocusManager = ::javax::swing::DefaultFocusManager;
 using $DelegatingDefaultFocusManager = ::javax::swing::DelegatingDefaultFocusManager;
 
 namespace javax {

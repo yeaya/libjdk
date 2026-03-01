@@ -8,7 +8,6 @@
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
 #include <java/lang/NumberFormatException.h>
@@ -23,8 +22,6 @@
 #include <javax/swing/JSlider.h>
 #include <javax/swing/JSpinner$DefaultEditor.h>
 #include <javax/swing/JSpinner.h>
-#include <javax/swing/JToggleButton.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/EmptyBorder.h>
 #include <javax/swing/colorchooser/ColorChooserPanel.h>
@@ -42,7 +39,6 @@ using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $Insets = ::java::awt::Insets;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -63,8 +59,6 @@ using $JRadioButton = ::javax::swing::JRadioButton;
 using $JSlider = ::javax::swing::JSlider;
 using $JSpinner = ::javax::swing::JSpinner;
 using $JSpinner$DefaultEditor = ::javax::swing::JSpinner$DefaultEditor;
-using $JToggleButton = ::javax::swing::JToggleButton;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 using $ColorChooserPanel = ::javax::swing::colorchooser::ColorChooserPanel;

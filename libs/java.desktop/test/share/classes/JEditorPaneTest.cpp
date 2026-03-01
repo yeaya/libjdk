@@ -6,7 +6,6 @@
 #include <java/io/File.h>
 #include <java/io/FileWriter.h>
 #include <java/io/IOException.h>
-#include <java/io/OutputStreamWriter.h>
 #include <java/io/Writer.h>
 #include <java/lang/Runnable.h>
 #include <javax/swing/SwingUtilities.h>
@@ -18,7 +17,6 @@ using $BufferedWriter = ::java::io::BufferedWriter;
 using $File = ::java::io::File;
 using $FileWriter = ::java::io::FileWriter;
 using $IOException = ::java::io::IOException;
-using $OutputStreamWriter = ::java::io::OutputStreamWriter;
 using $Writer = ::java::io::Writer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

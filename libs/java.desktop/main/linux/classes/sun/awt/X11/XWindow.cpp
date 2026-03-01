@@ -10,7 +10,6 @@
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
 #include <java/awt/Graphics.h>
-#include <java/awt/Graphics2D.h>
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
@@ -20,7 +19,6 @@
 #include <java/awt/event/ComponentEvent.h>
 #include <java/awt/event/FocusEvent.h>
 #include <java/awt/event/InputEvent.h>
-#include <java/awt/event/InvocationEvent.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/awt/event/MouseWheelEvent.h>
@@ -161,7 +159,6 @@ using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
-using $Graphics2D = ::java::awt::Graphics2D;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
@@ -171,7 +168,6 @@ using $Window = ::java::awt::Window;
 using $ComponentEvent = ::java::awt::event::ComponentEvent;
 using $FocusEvent = ::java::awt::event::FocusEvent;
 using $InputEvent = ::java::awt::event::InputEvent;
-using $InvocationEvent = ::java::awt::event::InvocationEvent;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $MouseWheelEvent = ::java::awt::event::MouseWheelEvent;

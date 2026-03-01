@@ -29,8 +29,6 @@
 #include <com/sun/tools/javac/util/Log.h>
 #include <com/sun/tools/javac/util/Options.h>
 #include <java/lang/Iterable.h>
-#include <java/util/AbstractSet.h>
-#include <java/util/Collection.h>
 #include <java/util/HashSet.h>
 #include <java/util/List.h>
 #include <java/util/Map.h>
@@ -74,8 +72,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractSet = ::java::util::AbstractSet;
-using $Collection = ::java::util::Collection;
 using $HashSet = ::java::util::HashSet;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;

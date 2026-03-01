@@ -27,7 +27,6 @@
 using $MenuElementArray = $Array<::javax::swing::MenuElement>;
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Point = ::java::awt::Point;
 using $Toolkit = ::java::awt::Toolkit;
 using $Window = ::java::awt::Window;

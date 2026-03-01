@@ -4,7 +4,6 @@
 #include <java/awt/Container.h>
 #include <java/awt/Cursor.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/awt/event/MouseMotionListener.h>
@@ -16,7 +15,6 @@
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/event/MouseInputListener.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/RootPaneUI.h>
 #include <javax/swing/plaf/basic/BasicRootPaneUI.h>
 #include <javax/swing/plaf/metal/MetalRootPaneUI$MetalRootLayout.h>
 #include <javax/swing/plaf/metal/MetalRootPaneUI$MouseInputHandler.h>
@@ -38,10 +36,8 @@
 #undef W_RESIZE_CURSOR
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Cursor = ::java::awt::Cursor;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Window = ::java::awt::Window;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
@@ -57,7 +53,6 @@ using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $MouseInputListener = ::javax::swing::event::MouseInputListener;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $RootPaneUI = ::javax::swing::plaf::RootPaneUI;
 using $BasicRootPaneUI = ::javax::swing::plaf::basic::BasicRootPaneUI;
 using $MetalRootPaneUI$MetalRootLayout = ::javax::swing::plaf::metal::MetalRootPaneUI$MetalRootLayout;
 using $MetalRootPaneUI$MouseInputHandler = ::javax::swing::plaf::metal::MetalRootPaneUI$MouseInputHandler;

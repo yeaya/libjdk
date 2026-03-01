@@ -1,7 +1,6 @@
 #include <javax/swing/plaf/synth/SynthColorChooserUI.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
@@ -9,7 +8,6 @@
 #include <javax/swing/JComponent.h>
 #include <javax/swing/colorchooser/AbstractColorChooserPanel.h>
 #include <javax/swing/colorchooser/ColorChooserComponentFactory.h>
-#include <javax/swing/plaf/ColorChooserUI.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/basic/BasicColorChooserUI.h>
 #include <javax/swing/plaf/synth/SynthConstants.h>
@@ -24,7 +22,6 @@
 
 using $AbstractColorChooserPanelArray = $Array<::javax::swing::colorchooser::AbstractColorChooserPanel>;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
@@ -34,7 +31,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JColorChooser = ::javax::swing::JColorChooser;
 using $JComponent = ::javax::swing::JComponent;
 using $ColorChooserComponentFactory = ::javax::swing::colorchooser::ColorChooserComponentFactory;
-using $ColorChooserUI = ::javax::swing::plaf::ColorChooserUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $BasicColorChooserUI = ::javax::swing::plaf::basic::BasicColorChooserUI;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;

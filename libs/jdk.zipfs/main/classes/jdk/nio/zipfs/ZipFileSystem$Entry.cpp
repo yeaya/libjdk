@@ -1,14 +1,12 @@
 #include <jdk/nio/zipfs/ZipFileSystem$Entry.h>
 
 #include <java/io/OutputStream.h>
-#include <java/lang/AbstractStringBuilder.h>
 #include <java/lang/Appendable.h>
 #include <java/lang/Math.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/attribute/FileAttribute.h>
 #include <java/nio/file/attribute/FileTime.h>
 #include <java/nio/file/attribute/PosixFilePermission.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Arrays.h>
 #include <java/util/Formatter.h>
 #include <java/util/HashSet.h>
@@ -30,7 +28,6 @@
 using $FileAttributeArray = $Array<::java::nio::file::attribute::FileAttribute>;
 using $PosixFilePermissionArray = $Array<::java::nio::file::attribute::PosixFilePermission>;
 using $OutputStream = ::java::io::OutputStream;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $Appendable = ::java::lang::Appendable;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -44,7 +41,6 @@ using $Path = ::java::nio::file::Path;
 using $FileAttribute = ::java::nio::file::attribute::FileAttribute;
 using $FileTime = ::java::nio::file::attribute::FileTime;
 using $PosixFilePermission = ::java::nio::file::attribute::PosixFilePermission;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Arrays = ::java::util::Arrays;
 using $Formatter = ::java::util::Formatter;
 using $HashSet = ::java::util::HashSet;

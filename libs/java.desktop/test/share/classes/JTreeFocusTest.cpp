@@ -13,7 +13,6 @@
 #include <java/awt/Point.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
-#include <java/awt/event/FocusAdapter.h>
 #include <java/awt/event/FocusListener.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/io/Serializable.h>
@@ -33,13 +32,11 @@
 #include <javax/swing/JTree.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/BevelBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/CompoundBorder.h>
 #include <javax/swing/border/LineBorder.h>
 #include <javax/swing/event/TreeSelectionListener.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <javax/swing/tree/DefaultMutableTreeNode.h>
 #include <javax/swing/tree/DefaultTreeCellEditor.h>
 #include <javax/swing/tree/DefaultTreeCellRenderer.h>
@@ -66,7 +63,6 @@ using $Container = ::java::awt::Container;
 using $GridLayout = ::java::awt::GridLayout;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $Robot = ::java::awt::Robot;
-using $FocusAdapter = ::java::awt::event::FocusAdapter;
 using $FocusListener = ::java::awt::event::FocusListener;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $Serializable = ::java::io::Serializable;
@@ -87,13 +83,11 @@ using $JTextField = ::javax::swing::JTextField;
 using $JTree = ::javax::swing::JTree;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $BevelBorder = ::javax::swing::border::BevelBorder;
 using $Border = ::javax::swing::border::Border;
 using $CompoundBorder = ::javax::swing::border::CompoundBorder;
 using $LineBorder = ::javax::swing::border::LineBorder;
 using $TreeSelectionListener = ::javax::swing::event::TreeSelectionListener;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $DefaultMutableTreeNode = ::javax::swing::tree::DefaultMutableTreeNode;
 using $DefaultTreeCellEditor = ::javax::swing::tree::DefaultTreeCellEditor;
 using $DefaultTreeCellRenderer = ::javax::swing::tree::DefaultTreeCellRenderer;

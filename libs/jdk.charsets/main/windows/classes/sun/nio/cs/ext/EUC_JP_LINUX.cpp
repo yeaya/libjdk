@@ -4,8 +4,6 @@
 #include <java/nio/charset/CharsetDecoder.h>
 #include <java/nio/charset/CharsetEncoder.h>
 #include <sun/nio/cs/JIS_X_0201.h>
-#include <sun/nio/cs/ext/EUC_JP$Decoder.h>
-#include <sun/nio/cs/ext/EUC_JP$Encoder.h>
 #include <sun/nio/cs/ext/EUC_JP_LINUX$Decoder.h>
 #include <sun/nio/cs/ext/EUC_JP_LINUX$Encoder.h>
 #include <sun/nio/cs/ext/ExtendedCharsets.h>
@@ -20,8 +18,6 @@ using $Charset = ::java::nio::charset::Charset;
 using $CharsetDecoder = ::java::nio::charset::CharsetDecoder;
 using $CharsetEncoder = ::java::nio::charset::CharsetEncoder;
 using $JIS_X_0201 = ::sun::nio::cs::JIS_X_0201;
-using $EUC_JP$Decoder = ::sun::nio::cs::ext::EUC_JP$Decoder;
-using $EUC_JP$Encoder = ::sun::nio::cs::ext::EUC_JP$Encoder;
 using $EUC_JP_LINUX$Decoder = ::sun::nio::cs::ext::EUC_JP_LINUX$Decoder;
 using $EUC_JP_LINUX$Encoder = ::sun::nio::cs::ext::EUC_JP_LINUX$Encoder;
 using $ExtendedCharsets = ::sun::nio::cs::ext::ExtendedCharsets;

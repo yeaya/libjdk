@@ -7,8 +7,6 @@
 #include <com/sun/tools/sjavac/comp/SjavacImpl.h>
 #include <com/sun/tools/sjavac/options/Options.h>
 #include <com/sun/tools/sjavac/server/Sjavac.h>
-#include <java/io/FilterOutputStream.h>
-#include <java/io/FilterWriter.h>
 #include <java/io/OutputStream.h>
 #include <java/io/OutputStreamWriter.h>
 #include <java/io/Writer.h>
@@ -23,8 +21,6 @@ using $SjavacClient = ::com::sun::tools::sjavac::client::SjavacClient;
 using $SjavacImpl = ::com::sun::tools::sjavac::comp::SjavacImpl;
 using $Options = ::com::sun::tools::sjavac::options::Options;
 using $Sjavac = ::com::sun::tools::sjavac::server::Sjavac;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
-using $FilterWriter = ::java::io::FilterWriter;
 using $OutputStream = ::java::io::OutputStream;
 using $OutputStreamWriter = ::java::io::OutputStreamWriter;
 using $Writer = ::java::io::Writer;

@@ -17,7 +17,6 @@
 #include <java/awt/image/ImageObserver.h>
 #include <java/awt/image/ImageProducer.h>
 #include <java/awt/image/IndexColorModel.h>
-#include <java/awt/image/PackedColorModel.h>
 #include <java/awt/image/Raster.h>
 #include <java/awt/image/WritableRaster.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
@@ -69,7 +68,6 @@ using $ImageConsumer = ::java::awt::image::ImageConsumer;
 using $ImageObserver = ::java::awt::image::ImageObserver;
 using $ImageProducer = ::java::awt::image::ImageProducer;
 using $IndexColorModel = ::java::awt::image::IndexColorModel;
-using $PackedColorModel = ::java::awt::image::PackedColorModel;
 using $Raster = ::java::awt::image::Raster;
 using $WritableRaster = ::java::awt::image::WritableRaster;
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;

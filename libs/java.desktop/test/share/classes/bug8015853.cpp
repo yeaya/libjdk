@@ -10,15 +10,11 @@
 #include <java/net/URI.h>
 #include <java/net/URL.h>
 #include <java/util/Scanner.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/text/DefaultEditorKit.h>
 #include <javax/swing/text/EditorKit.h>
-#include <javax/swing/text/JTextComponent.h>
-#include <javax/swing/text/StyledEditorKit.h>
 #include <javax/swing/text/html/HTMLEditorKit.h>
 #include <jcpp.h>
 
@@ -26,7 +22,6 @@
 
 using $bug8015853$1 = ::bug8015853$1;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $File = ::java::io::File;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
@@ -38,15 +33,11 @@ using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $URL = ::java::net::URL;
 using $Scanner = ::java::util::Scanner;
-using $JComponent = ::javax::swing::JComponent;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $JFrame = ::javax::swing::JFrame;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $DefaultEditorKit = ::javax::swing::text::DefaultEditorKit;
 using $EditorKit = ::javax::swing::text::EditorKit;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
-using $StyledEditorKit = ::javax::swing::text::StyledEditorKit;
 using $HTMLEditorKit = ::javax::swing::text::html::HTMLEditorKit;
 
 $FieldInfo _bug8015853_FieldInfo_[] = {

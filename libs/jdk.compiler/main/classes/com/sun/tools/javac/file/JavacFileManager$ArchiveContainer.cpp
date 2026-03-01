@@ -19,10 +19,7 @@
 #include <java/nio/file/Files.h>
 #include <java/nio/file/LinkOption.h>
 #include <java/nio/file/Path.h>
-#include <java/nio/file/SimpleFileVisitor.h>
 #include <java/nio/file/spi/FileSystemProvider.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
@@ -60,10 +57,7 @@ using $FileSystems = ::java::nio::file::FileSystems;
 using $FileVisitor = ::java::nio::file::FileVisitor;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
-using $SimpleFileVisitor = ::java::nio::file::SimpleFileVisitor;
 using $FileSystemProvider = ::java::nio::file::spi::FileSystemProvider;
-using $AbstractMap = ::java::util::AbstractMap;
-using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;

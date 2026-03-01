@@ -12,7 +12,6 @@
 #include <com/sun/org/apache/xpath/internal/XPath.h>
 #include <com/sun/org/apache/xpath/internal/XPathContext$XPathExpressionContext.h>
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
-#include <com/sun/org/apache/xpath/internal/axes/NodeSequence.h>
 #include <com/sun/org/apache/xpath/internal/objects/XBoolean.h>
 #include <com/sun/org/apache/xpath/internal/objects/XNodeSet.h>
 #include <com/sun/org/apache/xpath/internal/objects/XNumber.h>
@@ -20,7 +19,6 @@
 #include <javax/xml/transform/SourceLocator.h>
 #include <javax/xml/transform/TransformerException.h>
 #include <jdk/xml/internal/JdkXmlUtils.h>
-#include <org/w3c/dom/CharacterData.h>
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/Element.h>
 #include <org/w3c/dom/Node.h>
@@ -44,7 +42,6 @@ using $NodeSetDTM = ::com::sun::org::apache::xpath::internal::NodeSetDTM;
 using $XPath = ::com::sun::org::apache::xpath::internal::XPath;
 using $XPathContext = ::com::sun::org::apache::xpath::internal::XPathContext;
 using $XPathContext$XPathExpressionContext = ::com::sun::org::apache::xpath::internal::XPathContext$XPathExpressionContext;
-using $NodeSequence = ::com::sun::org::apache::xpath::internal::axes::NodeSequence;
 using $XBoolean = ::com::sun::org::apache::xpath::internal::objects::XBoolean;
 using $XNodeSet = ::com::sun::org::apache::xpath::internal::objects::XNodeSet;
 using $XNumber = ::com::sun::org::apache::xpath::internal::objects::XNumber;
@@ -57,7 +54,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SourceLocator = ::javax::xml::transform::SourceLocator;
 using $TransformerException = ::javax::xml::transform::TransformerException;
 using $JdkXmlUtils = ::jdk::xml::internal::JdkXmlUtils;
-using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;

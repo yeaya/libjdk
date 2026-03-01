@@ -10,7 +10,6 @@
 #include <com/sun/source/tree/BindingPatternTree.h>
 #include <com/sun/source/tree/BlockTree.h>
 #include <com/sun/source/tree/BreakTree.h>
-#include <com/sun/source/tree/CaseLabelTree.h>
 #include <com/sun/source/tree/CaseTree$CaseKind.h>
 #include <com/sun/source/tree/CaseTree.h>
 #include <com/sun/source/tree/CatchTree.h>
@@ -73,7 +72,6 @@
 #include <com/sun/source/tree/WildcardTree.h>
 #include <com/sun/source/tree/YieldTree.h>
 #include <java/lang/Iterable.h>
-#include <java/util/Collection.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -90,7 +88,6 @@ using $BinaryTree = ::com::sun::source::tree::BinaryTree;
 using $BindingPatternTree = ::com::sun::source::tree::BindingPatternTree;
 using $BlockTree = ::com::sun::source::tree::BlockTree;
 using $BreakTree = ::com::sun::source::tree::BreakTree;
-using $CaseLabelTree = ::com::sun::source::tree::CaseLabelTree;
 using $CaseTree = ::com::sun::source::tree::CaseTree;
 using $CaseTree$CaseKind = ::com::sun::source::tree::CaseTree$CaseKind;
 using $CatchTree = ::com::sun::source::tree::CatchTree;
@@ -133,7 +130,6 @@ using $PrimitiveTypeTree = ::com::sun::source::tree::PrimitiveTypeTree;
 using $ProvidesTree = ::com::sun::source::tree::ProvidesTree;
 using $RequiresTree = ::com::sun::source::tree::RequiresTree;
 using $ReturnTree = ::com::sun::source::tree::ReturnTree;
-using $StatementTree = ::com::sun::source::tree::StatementTree;
 using $SwitchExpressionTree = ::com::sun::source::tree::SwitchExpressionTree;
 using $SwitchTree = ::com::sun::source::tree::SwitchTree;
 using $SynchronizedTree = ::com::sun::source::tree::SynchronizedTree;
@@ -154,7 +150,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
 

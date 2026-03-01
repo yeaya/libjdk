@@ -9,8 +9,6 @@
 #include <java/lang/reflect/Constructor.h>
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
@@ -23,7 +21,6 @@
 #include <javax/management/Descriptor.h>
 #include <javax/management/DescriptorRead.h>
 #include <javax/management/ImmutableDescriptor.h>
-#include <javax/management/JMException.h>
 #include <javax/management/MBeanAttributeInfo.h>
 #include <javax/management/MBeanFeatureInfo.h>
 #include <javax/management/openmbean/ArrayType.h>
@@ -48,13 +45,10 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoClassDefFoundError = ::java::lang::NoClassDefFoundError;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $1Array = ::java::lang::reflect::Array;
 using $Constructor = ::java::lang::reflect::Constructor;
 using $Method = ::java::lang::reflect::Method;
 using $Modifier = ::java::lang::reflect::Modifier;
-using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
@@ -66,7 +60,6 @@ using $Set = ::java::util::Set;
 using $Descriptor = ::javax::management::Descriptor;
 using $DescriptorRead = ::javax::management::DescriptorRead;
 using $ImmutableDescriptor = ::javax::management::ImmutableDescriptor;
-using $JMException = ::javax::management::JMException;
 using $MBeanAttributeInfo = ::javax::management::MBeanAttributeInfo;
 using $ArrayType = ::javax::management::openmbean::ArrayType;
 using $OpenDataException = ::javax::management::openmbean::OpenDataException;

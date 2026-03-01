@@ -7,7 +7,6 @@
 #include <sun/awt/X11GraphicsEnvironment.h>
 #include <sun/java2d/SurfaceData.h>
 #include <sun/java2d/loops/SurfaceType.h>
-#include <sun/java2d/x11/XSurfaceData.h>
 #include <sun/java2d/xr/XRSurfaceData$XRWindowSurfaceData.h>
 #include <sun/java2d/xr/XRSurfaceData.h>
 #include <jcpp.h>
@@ -23,7 +22,6 @@ using $X11GraphicsDevice = ::sun::awt::X11GraphicsDevice;
 using $X11GraphicsEnvironment = ::sun::awt::X11GraphicsEnvironment;
 using $SurfaceData = ::sun::java2d::SurfaceData;
 using $SurfaceType = ::sun::java2d::loops::SurfaceType;
-using $XSurfaceData = ::sun::java2d::x11::XSurfaceData;
 using $XRSurfaceData = ::sun::java2d::xr::XRSurfaceData;
 
 namespace sun {

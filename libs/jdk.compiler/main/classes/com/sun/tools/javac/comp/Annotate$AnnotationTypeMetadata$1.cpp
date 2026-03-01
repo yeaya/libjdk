@@ -4,8 +4,6 @@
 #include <com/sun/tools/javac/code/Symbol$ClassSymbol.h>
 #include <com/sun/tools/javac/comp/Annotate$AnnotationTypeCompleter.h>
 #include <com/sun/tools/javac/comp/Annotate$AnnotationTypeMetadata.h>
-#include <java/util/AbstractSet.h>
-#include <java/util/HashSet.h>
 #include <java/util/LinkedHashSet.h>
 #include <java/util/Set.h>
 #include <jcpp.h>
@@ -18,8 +16,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractSet = ::java::util::AbstractSet;
-using $HashSet = ::java::util::HashSet;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
 using $Set = ::java::util::Set;
 

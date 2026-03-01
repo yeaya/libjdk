@@ -1,9 +1,7 @@
 #include <javax/swing/plaf/PopupMenuUI.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/event/MouseEvent.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JPopupMenu.h>
 #include <javax/swing/Popup.h>
 #include <javax/swing/PopupFactory.h>
@@ -11,11 +9,9 @@
 #include <jcpp.h>
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JPopupMenu = ::javax::swing::JPopupMenu;
 using $Popup = ::javax::swing::Popup;
 using $PopupFactory = ::javax::swing::PopupFactory;

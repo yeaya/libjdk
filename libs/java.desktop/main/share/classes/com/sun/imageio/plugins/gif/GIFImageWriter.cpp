@@ -57,11 +57,9 @@
 
 using $LZWCompressor = ::com::sun::imageio::plugins::common::LZWCompressor;
 using $PaletteBuilder = ::com::sun::imageio::plugins::common::PaletteBuilder;
-using $GIFImageMetadata = ::com::sun::imageio::plugins::gif::GIFImageMetadata;
 using $GIFImageWriteParam = ::com::sun::imageio::plugins::gif::GIFImageWriteParam;
 using $GIFImageWriterSpi = ::com::sun::imageio::plugins::gif::GIFImageWriterSpi;
 using $GIFMetadata = ::com::sun::imageio::plugins::gif::GIFMetadata;
-using $GIFStreamMetadata = ::com::sun::imageio::plugins::gif::GIFStreamMetadata;
 using $GIFWritableImageMetadata = ::com::sun::imageio::plugins::gif::GIFWritableImageMetadata;
 using $GIFWritableStreamMetadata = ::com::sun::imageio::plugins::gif::GIFWritableStreamMetadata;
 using $Dimension = ::java::awt::Dimension;
@@ -75,7 +73,6 @@ using $RenderedImage = ::java::awt::image::RenderedImage;
 using $SampleModel = ::java::awt::image::SampleModel;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;

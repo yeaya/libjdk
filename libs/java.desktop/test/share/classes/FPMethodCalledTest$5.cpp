@@ -3,11 +3,8 @@
 #include <FPMethodCalledTest$Resultable.h>
 #include <FPMethodCalledTest$Test.h>
 #include <FPMethodCalledTest$WrappedPlainViewINTAPI.h>
-#include <javax/swing/text/BoxView.h>
-#include <javax/swing/text/CompositeView.h>
 #include <javax/swing/text/Element.h>
 #include <javax/swing/text/View.h>
-#include <javax/swing/text/WrappedPlainView.h>
 #include <jcpp.h>
 
 using $FPMethodCalledTest$Resultable = ::FPMethodCalledTest$Resultable;
@@ -17,11 +14,8 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $BoxView = ::javax::swing::text::BoxView;
-using $CompositeView = ::javax::swing::text::CompositeView;
 using $Element = ::javax::swing::text::Element;
 using $View = ::javax::swing::text::View;
-using $WrappedPlainView = ::javax::swing::text::WrappedPlainView;
 
 $MethodInfo _FPMethodCalledTest$5_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(FPMethodCalledTest$5, init$, void)},

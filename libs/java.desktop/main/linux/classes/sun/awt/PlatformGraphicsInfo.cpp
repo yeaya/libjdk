@@ -10,11 +10,8 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
-#include <sun/awt/SunToolkit.h>
-#include <sun/awt/UNIXToolkit.h>
 #include <sun/awt/X11/XToolkit.h>
 #include <sun/awt/X11GraphicsEnvironment.h>
-#include <sun/java2d/SunGraphicsEnvironment.h>
 #include <jcpp.h>
 
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
@@ -26,11 +23,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $SunToolkit = ::sun::awt::SunToolkit;
-using $UNIXToolkit = ::sun::awt::UNIXToolkit;
 using $XToolkit = ::sun::awt::X11::XToolkit;
 using $X11GraphicsEnvironment = ::sun::awt::X11GraphicsEnvironment;
-using $SunGraphicsEnvironment = ::sun::java2d::SunGraphicsEnvironment;
 
 namespace sun {
 	namespace awt {

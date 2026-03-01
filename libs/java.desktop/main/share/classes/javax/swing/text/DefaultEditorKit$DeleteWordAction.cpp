@@ -1,14 +1,12 @@
 #include <javax/swing/text/DefaultEditorKit$DeleteWordAction.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/Math.h>
 #include <java/text/BreakIterator.h>
 #include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/text/BadLocationException.h>
@@ -24,7 +22,6 @@
 #undef NAME
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -34,7 +31,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BreakIterator = ::java::text::BreakIterator;
 using $Action = ::javax::swing::Action;
-using $JComponent = ::javax::swing::JComponent;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
 using $BadLocationException = ::javax::swing::text::BadLocationException;

@@ -27,7 +27,6 @@ using $UIManager$LookAndFeelInfoArray = $Array<::javax::swing::UIManager$LookAnd
 using $Robot = ::java::awt::Robot;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

@@ -21,7 +21,6 @@
 #include <java/io/FileReader.h>
 #include <java/io/FileWriter.h>
 #include <java/io/IOException.h>
-#include <java/io/InputStreamReader.h>
 #include <java/io/Reader.h>
 #include <java/io/Serializable.h>
 #include <java/lang/CharSequence.h>
@@ -35,8 +34,6 @@
 #include <java/nio/file/NoSuchFileException.h>
 #include <java/nio/file/Path.h>
 #include <java/text/SimpleDateFormat.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/Date.h>
@@ -76,7 +73,6 @@ using $FileNotFoundException = ::java::io::FileNotFoundException;
 using $FileReader = ::java::io::FileReader;
 using $FileWriter = ::java::io::FileWriter;
 using $IOException = ::java::io::IOException;
-using $InputStreamReader = ::java::io::InputStreamReader;
 using $Reader = ::java::io::Reader;
 using $Serializable = ::java::io::Serializable;
 using $CharSequence = ::java::lang::CharSequence;
@@ -90,8 +86,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $URI = ::java::net::URI;
 using $NoSuchFileException = ::java::nio::file::NoSuchFileException;
 using $SimpleDateFormat = ::java::text::SimpleDateFormat;
-using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Date = ::java::util::Date;

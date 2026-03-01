@@ -2,8 +2,6 @@
 
 #include <com/sun/org/apache/bcel/internal/generic/ALOAD.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/LoadInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/LocalVariableInstruction.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/ClassGenerator.h>
 #include <jcpp.h>
@@ -12,8 +10,6 @@
 
 using $ALOAD = ::com::sun::org::apache::bcel::internal::generic::ALOAD;
 using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
-using $LoadInstruction = ::com::sun::org::apache::bcel::internal::generic::LoadInstruction;
-using $LocalVariableInstruction = ::com::sun::org::apache::bcel::internal::generic::LocalVariableInstruction;
 using $Stylesheet = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Stylesheet;
 using $ClassGenerator = ::com::sun::org::apache::xalan::internal::xsltc::compiler::util::ClassGenerator;
 using $ClassInfo = ::java::lang::ClassInfo;

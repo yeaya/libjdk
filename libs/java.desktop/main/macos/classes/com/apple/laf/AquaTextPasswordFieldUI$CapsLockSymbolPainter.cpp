@@ -13,9 +13,7 @@
 #include <java/awt/event/KeyAdapter.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/geom/GeneralPath.h>
-#include <java/awt/geom/Path2D$Float.h>
 #include <java/awt/geom/Path2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/awt/geom/RoundRectangle2D$Double.h>
 #include <java/awt/geom/RoundRectangle2D.h>
 #include <javax/swing/UIManager.h>
@@ -36,8 +34,6 @@ using $KeyAdapter = ::java::awt::event::KeyAdapter;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $GeneralPath = ::java::awt::geom::GeneralPath;
 using $Path2D = ::java::awt::geom::Path2D;
-using $Path2D$Float = ::java::awt::geom::Path2D$Float;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $RoundRectangle2D = ::java::awt::geom::RoundRectangle2D;
 using $RoundRectangle2D$Double = ::java::awt::geom::RoundRectangle2D$Double;
 using $ClassInfo = ::java::lang::ClassInfo;

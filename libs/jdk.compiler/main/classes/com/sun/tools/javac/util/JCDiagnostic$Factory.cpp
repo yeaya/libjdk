@@ -2,7 +2,6 @@
 
 #include <com/sun/tools/javac/api/DiagnosticFormatter.h>
 #include <com/sun/tools/javac/code/Lint$LintCategory.h>
-#include <com/sun/tools/javac/util/AbstractDiagnosticFormatter.h>
 #include <com/sun/tools/javac/util/BasicDiagnosticFormatter.h>
 #include <com/sun/tools/javac/util/Context$Key.h>
 #include <com/sun/tools/javac/util/Context.h>
@@ -26,7 +25,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
 #include <java/util/EnumSet.h>
 #include <java/util/Set.h>
@@ -43,7 +41,6 @@
 
 using $DiagnosticFormatter = ::com::sun::tools::javac::api::DiagnosticFormatter;
 using $Lint$LintCategory = ::com::sun::tools::javac::code::Lint$LintCategory;
-using $AbstractDiagnosticFormatter = ::com::sun::tools::javac::util::AbstractDiagnosticFormatter;
 using $BasicDiagnosticFormatter = ::com::sun::tools::javac::util::BasicDiagnosticFormatter;
 using $Context = ::com::sun::tools::javac::util::Context;
 using $Context$Key = ::com::sun::tools::javac::util::Context$Key;
@@ -67,7 +64,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
 using $EnumSet = ::java::util::EnumSet;
 using $Set = ::java::util::Set;

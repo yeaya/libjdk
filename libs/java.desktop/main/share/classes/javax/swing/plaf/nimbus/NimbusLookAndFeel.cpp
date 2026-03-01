@@ -15,7 +15,6 @@
 #include <java/lang/Math.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
 #include <java/util/Map$Entry.h>
@@ -23,7 +22,6 @@
 #include <java/util/Set.h>
 #include <javax/swing/GrayFilter.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/ImageIcon.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JToolBar.h>
 #include <javax/swing/LookAndFeel.h>
@@ -82,7 +80,6 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
@@ -90,7 +87,6 @@ using $Map$Entry = ::java::util::Map$Entry;
 using $Set = ::java::util::Set;
 using $GrayFilter = ::javax::swing::GrayFilter;
 using $Icon = ::javax::swing::Icon;
-using $ImageIcon = ::javax::swing::ImageIcon;
 using $JComponent = ::javax::swing::JComponent;
 using $JToolBar = ::javax::swing::JToolBar;
 using $UIDefaults = ::javax::swing::UIDefaults;

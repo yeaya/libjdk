@@ -4,7 +4,6 @@
 #include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JDesktopPane.h>
-#include <javax/swing/JLayeredPane.h>
 #include <jcpp.h>
 
 #undef DESKTOP_PANE
@@ -17,7 +16,6 @@ using $AccessibleRole = ::javax::accessibility::AccessibleRole;
 using $JComponent = ::javax::swing::JComponent;
 using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JDesktopPane = ::javax::swing::JDesktopPane;
-using $JLayeredPane = ::javax::swing::JLayeredPane;
 
 namespace javax {
 	namespace swing {

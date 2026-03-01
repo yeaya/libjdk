@@ -22,7 +22,6 @@
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef BUTTON1_DOWN_MASK
@@ -50,7 +49,6 @@ using $JEditorPane = ::javax::swing::JEditorPane;
 using $JFrame = ::javax::swing::JFrame;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 class bug6917744$$Lambda$lambda$blockTillDisplayed$0 : public $Runnable {
 	$class(bug6917744$$Lambda$lambda$blockTillDisplayed$0, $NO_CLASS_INIT, $Runnable)

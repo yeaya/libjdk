@@ -26,7 +26,6 @@
 #include <com/sun/tools/javac/jvm/ClassReader$CompoundAnnotationProxy.h>
 #include <com/sun/tools/javac/jvm/ClassReader$EnumAttributeProxy.h>
 #include <com/sun/tools/javac/jvm/ClassReader$ProxyType.h>
-#include <com/sun/tools/javac/jvm/ClassReader$ProxyVisitor.h>
 #include <com/sun/tools/javac/jvm/ClassReader.h>
 #include <com/sun/tools/javac/resources/CompilerProperties$Warnings.h>
 #include <com/sun/tools/javac/util/AbstractLog.h>
@@ -75,7 +74,6 @@ using $ClassReader$ClassAttributeProxy = ::com::sun::tools::javac::jvm::ClassRea
 using $ClassReader$CompoundAnnotationProxy = ::com::sun::tools::javac::jvm::ClassReader$CompoundAnnotationProxy;
 using $ClassReader$EnumAttributeProxy = ::com::sun::tools::javac::jvm::ClassReader$EnumAttributeProxy;
 using $ClassReader$ProxyType = ::com::sun::tools::javac::jvm::ClassReader$ProxyType;
-using $ClassReader$ProxyVisitor = ::com::sun::tools::javac::jvm::ClassReader$ProxyVisitor;
 using $CompilerProperties$Warnings = ::com::sun::tools::javac::resources::CompilerProperties$Warnings;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $List = ::com::sun::tools::javac::util::List;

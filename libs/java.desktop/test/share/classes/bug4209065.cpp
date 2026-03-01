@@ -13,7 +13,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/reflect/InvocationTargetException.h>
 #include <javax/swing/JApplet.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JTabbedPane.h>
 #include <jcpp.h>
@@ -32,7 +31,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
 using $JApplet = ::javax::swing::JApplet;
-using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
 using $JTabbedPane = ::javax::swing::JTabbedPane;
 

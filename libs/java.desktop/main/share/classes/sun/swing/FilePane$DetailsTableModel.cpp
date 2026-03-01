@@ -1,7 +1,6 @@
 #include <sun/swing/FilePane$DetailsTableModel.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/io/File.h>
 #include <java/io/FileNotFoundException.h>
 #include <java/lang/Runnable.h>
@@ -10,7 +9,6 @@
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
 #include <javax/swing/DefaultRowSorter.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFileChooser.h>
 #include <javax/swing/JOptionPane.h>
 #include <javax/swing/RowSorter$SortKey.h>
@@ -32,7 +30,6 @@
 
 using $ShellFolderColumnInfoArray = $Array<::sun::awt::shell::ShellFolderColumnInfo>;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $File = ::java::io::File;
 using $FileNotFoundException = ::java::io::FileNotFoundException;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -44,7 +41,6 @@ using $MessageFormat = ::java::text::MessageFormat;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $List = ::java::util::List;
-using $JComponent = ::javax::swing::JComponent;
 using $JFileChooser = ::javax::swing::JFileChooser;
 using $JOptionPane = ::javax::swing::JOptionPane;
 using $RowSorter$SortKey = ::javax::swing::RowSorter$SortKey;

@@ -2,7 +2,6 @@
 
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
@@ -14,7 +13,6 @@
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/LabelUI.h>
 #include <javax/swing/plaf/basic/BasicHTML.h>
 #include <javax/swing/plaf/basic/BasicLabelUI.h>
 #include <javax/swing/plaf/synth/ColorType.h>
@@ -32,7 +30,6 @@
 #undef TEXT_FOREGROUND
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
@@ -49,7 +46,6 @@ using $Icon = ::javax::swing::Icon;
 using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $LabelUI = ::javax::swing::plaf::LabelUI;
 using $BasicHTML = ::javax::swing::plaf::basic::BasicHTML;
 using $BasicLabelUI = ::javax::swing::plaf::basic::BasicLabelUI;
 using $ColorType = ::javax::swing::plaf::synth::ColorType;

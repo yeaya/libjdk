@@ -5,7 +5,6 @@
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/lang/ClassCastException.h>
-#include <java/security/GeneralSecurityException.h>
 #include <java/security/cert/CRL.h>
 #include <java/security/cert/CRLException.h>
 #include <java/security/cert/Certificate.h>
@@ -14,7 +13,6 @@
 #include <java/security/cert/CertificateFactory.h>
 #include <java/security/cert/X509CRL.h>
 #include <java/security/cert/X509Certificate.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
@@ -31,7 +29,6 @@
 #include <org/jcp/xml/dsig/internal/dom/DOMStructure.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMUtils.h>
 #include <org/jcp/xml/dsig/internal/dom/DOMX509IssuerSerial.h>
-#include <org/w3c/dom/CharacterData.h>
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/Element.h>
 #include <org/w3c/dom/Node.h>
@@ -47,19 +44,16 @@ using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $CRLException = ::java::security::cert::CRLException;
 using $CertificateEncodingException = ::java::security::cert::CertificateEncodingException;
 using $CertificateException = ::java::security::cert::CertificateException;
 using $CertificateFactory = ::java::security::cert::CertificateFactory;
 using $X509CRL = ::java::security::cert::X509CRL;
 using $X509Certificate = ::java::security::cert::X509Certificate;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
@@ -76,7 +70,6 @@ using $X509IssuerSerial = ::javax::xml::crypto::dsig::keyinfo::X509IssuerSerial;
 using $DOMStructure = ::org::jcp::xml::dsig::internal::dom::DOMStructure;
 using $DOMUtils = ::org::jcp::xml::dsig::internal::dom::DOMUtils;
 using $DOMX509IssuerSerial = ::org::jcp::xml::dsig::internal::dom::DOMX509IssuerSerial;
-using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;

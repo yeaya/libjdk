@@ -11,7 +11,6 @@
 #include <javax/swing/plaf/basic/BasicFileChooserUI$ApproveSelectionAction.h>
 #include <javax/swing/plaf/basic/BasicFileChooserUI.h>
 #include <sun/awt/shell/ShellFolder.h>
-#include <sun/swing/plaf/synth/SynthFileChooserUI.h>
 #include <jcpp.h>
 
 using $GTKFileChooserUI = ::com::sun::java::swing::plaf::gtk::GTKFileChooserUI;
@@ -29,7 +28,6 @@ using $ListSelectionModel = ::javax::swing::ListSelectionModel;
 using $BasicFileChooserUI = ::javax::swing::plaf::basic::BasicFileChooserUI;
 using $BasicFileChooserUI$ApproveSelectionAction = ::javax::swing::plaf::basic::BasicFileChooserUI$ApproveSelectionAction;
 using $ShellFolder = ::sun::awt::shell::ShellFolder;
-using $SynthFileChooserUI = ::sun::swing::plaf::synth::SynthFileChooserUI;
 
 namespace com {
 	namespace sun {

@@ -5,7 +5,6 @@
 #include <com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/DOMMessageFormatter.h>
 #include <com/sun/org/apache/xerces/internal/dom/NodeImpl.h>
-#include <org/w3c/dom/CharacterData.h>
 #include <org/w3c/dom/DOMException.h>
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/NamedNodeMap.h>
@@ -30,7 +29,6 @@ using $NodeImpl = ::com::sun::org::apache::xerces::internal::dom::NodeImpl;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CharacterData = ::org::w3c::dom::CharacterData;
 using $DOMException = ::org::w3c::dom::DOMException;
 using $Document = ::org::w3c::dom::Document;
 using $NamedNodeMap = ::org::w3c::dom::NamedNodeMap;

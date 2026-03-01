@@ -5,7 +5,6 @@
 #include <java/util/Vector.h>
 #include <javax/accessibility/Accessible.h>
 #include <javax/swing/JComponent.h>
-#include <javax/swing/plaf/ButtonUI.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/MenuItemUI.h>
 #include <javax/swing/plaf/multi/MultiLookAndFeel.h>
@@ -20,7 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Vector = ::java::util::Vector;
 using $Accessible = ::javax::accessibility::Accessible;
 using $JComponent = ::javax::swing::JComponent;
-using $ButtonUI = ::javax::swing::plaf::ButtonUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $MenuItemUI = ::javax::swing::plaf::MenuItemUI;
 using $MultiLookAndFeel = ::javax::swing::plaf::multi::MultiLookAndFeel;

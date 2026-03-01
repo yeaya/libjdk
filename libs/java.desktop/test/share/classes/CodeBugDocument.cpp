@@ -6,7 +6,6 @@
 #include <javax/swing/text/BadLocationException.h>
 #include <javax/swing/text/DefaultStyledDocument$ElementSpec.h>
 #include <javax/swing/text/DefaultStyledDocument.h>
-#include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/SimpleAttributeSet.h>
 #include <jcpp.h>
 
@@ -24,7 +23,6 @@ using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $DefaultStyledDocument = ::javax::swing::text::DefaultStyledDocument;
 using $DefaultStyledDocument$ElementSpec = ::javax::swing::text::DefaultStyledDocument$ElementSpec;
-using $MutableAttributeSet = ::javax::swing::text::MutableAttributeSet;
 using $SimpleAttributeSet = ::javax::swing::text::SimpleAttributeSet;
 
 $FieldInfo _CodeBugDocument_FieldInfo_[] = {

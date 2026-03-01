@@ -3,7 +3,6 @@
 #include <apple/laf/JRSUIConstants$Widget.h>
 #include <com/apple/laf/AquaBorder.h>
 #include <com/apple/laf/AquaButtonBorder$Named.h>
-#include <com/apple/laf/AquaButtonBorder.h>
 #include <com/apple/laf/AquaButtonExtendedTypes$BorderDefinedTypeSpecifier$1.h>
 #include <com/apple/laf/AquaButtonExtendedTypes$TypeSpecifier.h>
 #include <com/apple/laf/AquaButtonExtendedTypes.h>
@@ -14,7 +13,6 @@
 
 using $JRSUIConstants$Widget = ::apple::laf::JRSUIConstants$Widget;
 using $AquaBorder = ::com::apple::laf::AquaBorder;
-using $AquaButtonBorder = ::com::apple::laf::AquaButtonBorder;
 using $AquaButtonBorder$Named = ::com::apple::laf::AquaButtonBorder$Named;
 using $AquaButtonExtendedTypes$BorderDefinedTypeSpecifier$1 = ::com::apple::laf::AquaButtonExtendedTypes$BorderDefinedTypeSpecifier$1;
 using $AquaButtonExtendedTypes$TypeSpecifier = ::com::apple::laf::AquaButtonExtendedTypes$TypeSpecifier;

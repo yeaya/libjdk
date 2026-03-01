@@ -1,13 +1,9 @@
 #include <com/sun/org/apache/xerces/internal/dom/PSVIDocumentImpl.h>
 
-#include <com/sun/org/apache/xerces/internal/dom/AttrImpl.h>
-#include <com/sun/org/apache/xerces/internal/dom/AttrNSImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/ChildNode.h>
 #include <com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/DOMConfigurationImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/DocumentImpl.h>
-#include <com/sun/org/apache/xerces/internal/dom/ElementImpl.h>
-#include <com/sun/org/apache/xerces/internal/dom/ElementNSImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/NodeImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/PSVIAttrNSImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/PSVIDOMImplementationImpl.h>
@@ -27,13 +23,9 @@
 
 #undef NODE_CLONED
 
-using $AttrImpl = ::com::sun::org::apache::xerces::internal::dom::AttrImpl;
-using $AttrNSImpl = ::com::sun::org::apache::xerces::internal::dom::AttrNSImpl;
 using $ChildNode = ::com::sun::org::apache::xerces::internal::dom::ChildNode;
 using $CoreDocumentImpl = ::com::sun::org::apache::xerces::internal::dom::CoreDocumentImpl;
 using $DocumentImpl = ::com::sun::org::apache::xerces::internal::dom::DocumentImpl;
-using $ElementImpl = ::com::sun::org::apache::xerces::internal::dom::ElementImpl;
-using $ElementNSImpl = ::com::sun::org::apache::xerces::internal::dom::ElementNSImpl;
 using $NodeImpl = ::com::sun::org::apache::xerces::internal::dom::NodeImpl;
 using $PSVIAttrNSImpl = ::com::sun::org::apache::xerces::internal::dom::PSVIAttrNSImpl;
 using $PSVIDOMImplementationImpl = ::com::sun::org::apache::xerces::internal::dom::PSVIDOMImplementationImpl;

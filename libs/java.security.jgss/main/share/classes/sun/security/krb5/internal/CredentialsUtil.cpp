@@ -1,7 +1,5 @@
 #include <sun/security/krb5/internal/CredentialsUtil.h>
 
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractSequentialList.h>
 #include <java/util/LinkedList.h>
 #include <java/util/List.h>
 #include <sun/security/krb5/Config.h>
@@ -48,8 +46,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractSequentialList = ::java::util::AbstractSequentialList;
 using $LinkedList = ::java::util::LinkedList;
 using $List = ::java::util::List;
 using $Config = ::sun::security::krb5::Config;

@@ -1,9 +1,7 @@
 #include <javax/swing/JScrollPane.h>
 
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Insets.h>
@@ -13,7 +11,6 @@
 #include <java/io/ObjectOutputStream.h>
 #include <java/lang/ClassCastException.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JScrollBar.h>
 #include <javax/swing/JScrollPane$AccessibleJScrollPane.h>
@@ -53,10 +50,7 @@
 #undef VIEWPORT
 
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Container = ::java::awt::Container;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Insets = ::java::awt::Insets;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
@@ -75,7 +69,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JScrollBar = ::javax::swing::JScrollBar;
 using $JScrollPane$AccessibleJScrollPane = ::javax::swing::JScrollPane$AccessibleJScrollPane;
 using $JScrollPane$ScrollBar = ::javax::swing::JScrollPane$ScrollBar;

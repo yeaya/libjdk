@@ -13,7 +13,6 @@
 #include <com/apple/eawt/_AppMenuBarHandler.h>
 #include <com/apple/eawt/_AppMiscHandlers.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Image.h>
 #include <java/awt/PopupMenu.h>
 #include <java/awt/Toolkit.h>
@@ -30,7 +29,6 @@
 #include <java/beans/Beans.h>
 #include <java/lang/RuntimePermission.h>
 #include <java/lang/SecurityManager.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <javax/swing/JMenuBar.h>
 #include <sun/awt/AWTAccessor$ComponentAccessor.h>
@@ -51,7 +49,6 @@ using $_AppEventHandler$_QuitDispatcher = ::com::apple::eawt::_AppEventHandler$_
 using $_AppMenuBarHandler = ::com::apple::eawt::_AppMenuBarHandler;
 using $_AppMiscHandlers = ::com::apple::eawt::_AppMiscHandlers;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Image = ::java::awt::Image;
 using $PopupMenu = ::java::awt::PopupMenu;
 using $Toolkit = ::java::awt::Toolkit;
@@ -71,7 +68,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimePermission = ::java::lang::RuntimePermission;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $JMenuBar = ::javax::swing::JMenuBar;
 using $AWTAccessor = ::sun::awt::AWTAccessor;

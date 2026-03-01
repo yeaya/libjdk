@@ -4,10 +4,8 @@
 #include <com/sun/org/apache/xerces/internal/dom/DOMLocatorImpl.h>
 #include <com/sun/org/apache/xerces/internal/util/DOMErrorHandlerWrapper$DOMErrorTypeMap.h>
 #include <com/sun/org/apache/xerces/internal/util/XMLErrorCode.h>
-#include <com/sun/org/apache/xerces/internal/xni/XNIException.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLErrorHandler.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLParseException.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/PrintWriter.h>
 #include <org/w3c/dom/DOMError.h>
@@ -24,10 +22,8 @@ using $DOMErrorImpl = ::com::sun::org::apache::xerces::internal::dom::DOMErrorIm
 using $DOMLocatorImpl = ::com::sun::org::apache::xerces::internal::dom::DOMLocatorImpl;
 using $DOMErrorHandlerWrapper$DOMErrorTypeMap = ::com::sun::org::apache::xerces::internal::util::DOMErrorHandlerWrapper$DOMErrorTypeMap;
 using $XMLErrorCode = ::com::sun::org::apache::xerces::internal::util::XMLErrorCode;
-using $XNIException = ::com::sun::org::apache::xerces::internal::xni::XNIException;
 using $XMLErrorHandler = ::com::sun::org::apache::xerces::internal::xni::parser::XMLErrorHandler;
 using $XMLParseException = ::com::sun::org::apache::xerces::internal::xni::parser::XMLParseException;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $PrintWriter = ::java::io::PrintWriter;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -35,7 +31,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $DOMError = ::org::w3c::dom::DOMError;
 using $DOMErrorHandler = ::org::w3c::dom::DOMErrorHandler;
 using $DOMLocator = ::org::w3c::dom::DOMLocator;

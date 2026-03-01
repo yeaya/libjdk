@@ -18,7 +18,6 @@
 #include <com/sun/xml/internal/stream/Entity$ScannedEntity.h>
 #include <java/io/CharConversionException.h>
 #include <java/io/EOFException.h>
-#include <java/io/IOException.h>
 #include <jcpp.h>
 
 #undef ENTITY_MANAGER
@@ -51,7 +50,6 @@ using $XMLInputSource = ::com::sun::org::apache::xerces::internal::xni::parser::
 using $Entity$ScannedEntity = ::com::sun::xml::internal::stream::Entity$ScannedEntity;
 using $CharConversionException = ::java::io::CharConversionException;
 using $EOFException = ::java::io::EOFException;
-using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -11,15 +11,12 @@
 #include <javax/swing/JTextArea.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIDefaults.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
-#include <javax/swing/border/CompoundBorder.h>
 #include <javax/swing/border/EmptyBorder.h>
 #include <javax/swing/plaf/BorderUIResource$CompoundBorderUIResource.h>
 #include <javax/swing/plaf/UIResource.h>
 #include <javax/swing/plaf/basic/BasicTextUI.h>
 #include <javax/swing/text/Caret.h>
-#include <javax/swing/text/DefaultCaret.h>
 #include <javax/swing/text/JTextComponent.h>
 #include <sun/awt/X11/XTextAreaPeer$BevelBorder.h>
 #include <sun/awt/X11/XTextAreaPeer$XAWTCaret.h>
@@ -43,14 +40,11 @@ using $JComponent = ::javax::swing::JComponent;
 using $JTextArea = ::javax::swing::JTextArea;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIDefaults = ::javax::swing::UIDefaults;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
-using $CompoundBorder = ::javax::swing::border::CompoundBorder;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 using $BorderUIResource$CompoundBorderUIResource = ::javax::swing::plaf::BorderUIResource$CompoundBorderUIResource;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $Caret = ::javax::swing::text::Caret;
-using $DefaultCaret = ::javax::swing::text::DefaultCaret;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $XTextAreaPeer = ::sun::awt::X11::XTextAreaPeer;
 using $XTextAreaPeer$BevelBorder = ::sun::awt::X11::XTextAreaPeer$BevelBorder;

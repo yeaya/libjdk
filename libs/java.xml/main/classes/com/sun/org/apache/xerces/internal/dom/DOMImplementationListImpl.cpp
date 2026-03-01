@@ -1,7 +1,6 @@
 #include <com/sun/org/apache/xerces/internal/dom/DOMImplementationListImpl.h>
 
 #include <java/lang/IndexOutOfBoundsException.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <org/w3c/dom/DOMImplementation.h>
@@ -11,7 +10,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IndexOutOfBoundsException = ::java::lang::IndexOutOfBoundsException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $DOMImplementation = ::org::w3c::dom::DOMImplementation;

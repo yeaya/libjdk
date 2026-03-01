@@ -28,7 +28,6 @@
 #include <sun/font/FontFamily.h>
 #include <sun/font/FontUtilities.h>
 #include <sun/font/NativeFont.h>
-#include <sun/font/PhysicalFont.h>
 #include <sun/font/SunFontManager.h>
 #include <sun/lwawt/macosx/LWCToolkit.h>
 #include <jcpp.h>
@@ -68,7 +67,6 @@ using $Font2D = ::sun::font::Font2D;
 using $FontFamily = ::sun::font::FontFamily;
 using $FontUtilities = ::sun::font::FontUtilities;
 using $NativeFont = ::sun::font::NativeFont;
-using $PhysicalFont = ::sun::font::PhysicalFont;
 using $SunFontManager = ::sun::font::SunFontManager;
 using $LWCToolkit = ::sun::lwawt::macosx::LWCToolkit;
 

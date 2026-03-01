@@ -1,12 +1,8 @@
 #include <com/sun/tools/javac/comp/Resolve$9.h>
 
 #include <com/sun/tools/javac/code/Symbol.h>
-#include <com/sun/tools/javac/code/Type$StructuralTypeMapping.h>
 #include <com/sun/tools/javac/code/Type.h>
-#include <com/sun/tools/javac/code/Types$TypeMapping.h>
 #include <com/sun/tools/javac/comp/DeferredAttr$AttrMode.h>
-#include <com/sun/tools/javac/comp/DeferredAttr$DeferredTypeMap.h>
-#include <com/sun/tools/javac/comp/DeferredAttr$RecoveryDeferredTypeMap.h>
 #include <com/sun/tools/javac/comp/Resolve$MethodResolutionContext.h>
 #include <com/sun/tools/javac/comp/Resolve$MethodResolutionPhase.h>
 #include <com/sun/tools/javac/comp/Resolve$ResolveDeferredRecoveryMap.h>
@@ -21,11 +17,7 @@
 
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Type$StructuralTypeMapping = ::com::sun::tools::javac::code::Type$StructuralTypeMapping;
-using $Types$TypeMapping = ::com::sun::tools::javac::code::Types$TypeMapping;
 using $DeferredAttr$AttrMode = ::com::sun::tools::javac::comp::DeferredAttr$AttrMode;
-using $DeferredAttr$DeferredTypeMap = ::com::sun::tools::javac::comp::DeferredAttr$DeferredTypeMap;
-using $DeferredAttr$RecoveryDeferredTypeMap = ::com::sun::tools::javac::comp::DeferredAttr$RecoveryDeferredTypeMap;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $Resolve$ResolveDeferredRecoveryMap = ::com::sun::tools::javac::comp::Resolve$ResolveDeferredRecoveryMap;
 using $Resolve$ResolveError = ::com::sun::tools::javac::comp::Resolve$ResolveError;

@@ -13,7 +13,6 @@
 #include <java/awt/image/DataBuffer.h>
 #include <java/awt/image/DataBufferInt.h>
 #include <java/awt/image/DirectColorModel.h>
-#include <java/awt/image/PackedColorModel.h>
 #include <java/awt/image/Raster.h>
 #include <java/awt/image/SampleModel.h>
 #include <java/awt/image/SinglePixelPackedSampleModel.h>
@@ -44,7 +43,6 @@ using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $DataBufferInt = ::java::awt::image::DataBufferInt;
 using $DirectColorModel = ::java::awt::image::DirectColorModel;
-using $PackedColorModel = ::java::awt::image::PackedColorModel;
 using $Raster = ::java::awt::image::Raster;
 using $SinglePixelPackedSampleModel = ::java::awt::image::SinglePixelPackedSampleModel;
 using $ClassInfo = ::java::lang::ClassInfo;

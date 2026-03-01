@@ -1,6 +1,5 @@
 #include <java/beans/NameGenerator.h>
 
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/IdentityHashMap.h>
 #include <java/util/Locale.h>
@@ -13,7 +12,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $IdentityHashMap = ::java::util::IdentityHashMap;
 using $Locale = ::java::util::Locale;

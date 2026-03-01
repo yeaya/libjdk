@@ -1,6 +1,5 @@
 #include <com/sun/media/sound/MidiOutDeviceProvider.h>
 
-#include <com/sun/media/sound/AbstractMidiDevice.h>
 #include <com/sun/media/sound/AbstractMidiDeviceProvider$Info.h>
 #include <com/sun/media/sound/AbstractMidiDeviceProvider.h>
 #include <com/sun/media/sound/MidiOutDevice.h>
@@ -11,7 +10,6 @@
 
 using $AbstractMidiDeviceProvider$InfoArray = $Array<::com::sun::media::sound::AbstractMidiDeviceProvider$Info>;
 using $MidiDeviceArray = $Array<::javax::sound::midi::MidiDevice>;
-using $AbstractMidiDevice = ::com::sun::media::sound::AbstractMidiDevice;
 using $AbstractMidiDeviceProvider = ::com::sun::media::sound::AbstractMidiDeviceProvider;
 using $AbstractMidiDeviceProvider$Info = ::com::sun::media::sound::AbstractMidiDeviceProvider$Info;
 using $MidiOutDevice = ::com::sun::media::sound::MidiOutDevice;

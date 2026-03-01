@@ -4,7 +4,6 @@
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/net/URL.h>
 #include <java/util/Dictionary.h>
 #include <java/util/Hashtable.h>
@@ -14,17 +13,13 @@
 #include <javax/swing/Icon.h>
 #include <javax/swing/ImageIcon.h>
 #include <javax/swing/JApplet.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JPanel.h>
-#include <javax/swing/JRadioButton.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/JSlider.h>
-#include <javax/swing/JToggleButton.h>
 #include <javax/swing/SwingConstants.h>
 #include <javax/swing/UIManager$LookAndFeelInfo.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/TitledBorder.h>
 #include <jcpp.h>
@@ -39,7 +34,6 @@ using $bug4987336$LafRadioButton = ::bug4987336$LafRadioButton;
 using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -53,17 +47,13 @@ using $ButtonGroup = ::javax::swing::ButtonGroup;
 using $Icon = ::javax::swing::Icon;
 using $ImageIcon = ::javax::swing::ImageIcon;
 using $JApplet = ::javax::swing::JApplet;
-using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
 using $JPanel = ::javax::swing::JPanel;
-using $JRadioButton = ::javax::swing::JRadioButton;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JSlider = ::javax::swing::JSlider;
-using $JToggleButton = ::javax::swing::JToggleButton;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $UIManager = ::javax::swing::UIManager;
 using $UIManager$LookAndFeelInfo = ::javax::swing::UIManager$LookAndFeelInfo;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $TitledBorder = ::javax::swing::border::TitledBorder;
 

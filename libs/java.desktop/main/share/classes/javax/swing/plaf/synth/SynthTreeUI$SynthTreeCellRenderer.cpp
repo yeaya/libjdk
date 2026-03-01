@@ -11,7 +11,6 @@
 #include <javax/swing/JTree.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/LabelUI.h>
-#include <javax/swing/plaf/basic/BasicLabelUI.h>
 #include <javax/swing/plaf/synth/Region.h>
 #include <javax/swing/plaf/synth/SynthContext.h>
 #include <javax/swing/plaf/synth/SynthLabelUI.h>
@@ -37,8 +36,6 @@ using $Icon = ::javax::swing::Icon;
 using $JComponent = ::javax::swing::JComponent;
 using $JTree = ::javax::swing::JTree;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $LabelUI = ::javax::swing::plaf::LabelUI;
-using $BasicLabelUI = ::javax::swing::plaf::basic::BasicLabelUI;
 using $Region = ::javax::swing::plaf::synth::Region;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $SynthLabelUI = ::javax::swing::plaf::synth::SynthLabelUI;

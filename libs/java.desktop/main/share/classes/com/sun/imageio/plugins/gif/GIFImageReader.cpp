@@ -2,13 +2,11 @@
 
 #include <com/sun/imageio/plugins/common/ReaderUtil.h>
 #include <com/sun/imageio/plugins/gif/GIFImageMetadata.h>
-#include <com/sun/imageio/plugins/gif/GIFMetadata.h>
 #include <com/sun/imageio/plugins/gif/GIFStreamMetadata.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/ColorModel.h>
-#include <java/awt/image/ComponentSampleModel.h>
 #include <java/awt/image/DataBuffer.h>
 #include <java/awt/image/IndexColorModel.h>
 #include <java/awt/image/MultiPixelPackedSampleModel.h>
@@ -21,7 +19,6 @@
 #include <java/lang/IndexOutOfBoundsException.h>
 #include <java/lang/Math.h>
 #include <java/nio/ByteOrder.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -41,13 +38,11 @@
 
 using $ReaderUtil = ::com::sun::imageio::plugins::common::ReaderUtil;
 using $GIFImageMetadata = ::com::sun::imageio::plugins::gif::GIFImageMetadata;
-using $GIFMetadata = ::com::sun::imageio::plugins::gif::GIFMetadata;
 using $GIFStreamMetadata = ::com::sun::imageio::plugins::gif::GIFStreamMetadata;
 using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ColorModel = ::java::awt::image::ColorModel;
-using $ComponentSampleModel = ::java::awt::image::ComponentSampleModel;
 using $DataBuffer = ::java::awt::image::DataBuffer;
 using $IndexColorModel = ::java::awt::image::IndexColorModel;
 using $MultiPixelPackedSampleModel = ::java::awt::image::MultiPixelPackedSampleModel;
@@ -57,7 +52,6 @@ using $WritableRaster = ::java::awt::image::WritableRaster;
 using $EOFException = ::java::io::EOFException;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -68,7 +62,6 @@ using $Long = ::java::lang::Long;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $ByteOrder = ::java::nio::ByteOrder;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;

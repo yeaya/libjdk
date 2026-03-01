@@ -4,7 +4,6 @@
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/DataBuffer.h>
 #include <java/awt/image/DirectColorModel.h>
-#include <java/awt/image/PackedColorModel.h>
 #include <java/awt/image/SampleModel.h>
 #include <javax/imageio/ImageTypeSpecifier.h>
 #include <jcpp.h>
@@ -18,7 +17,6 @@ using $ColorSpace = ::java::awt::color::ColorSpace;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $DataBuffer = ::java::awt::image::DataBuffer;
 using $DirectColorModel = ::java::awt::image::DirectColorModel;
-using $PackedColorModel = ::java::awt::image::PackedColorModel;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;

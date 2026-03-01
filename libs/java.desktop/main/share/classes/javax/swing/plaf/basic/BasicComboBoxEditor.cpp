@@ -1,7 +1,6 @@
 #include <javax/swing/plaf/basic/BasicComboBoxEditor.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/event/ActionListener.h>
 #include <java/awt/event/FocusEvent.h>
 #include <java/lang/reflect/Method.h>
@@ -10,12 +9,10 @@
 #include <javax/swing/JTextField.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/plaf/basic/BasicComboBoxEditor$BorderlessTextField.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <sun/reflect/misc/MethodUtil.h>
 #include <jcpp.h>
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $FocusEvent = ::java::awt::event::FocusEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -25,11 +22,9 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Method = ::java::lang::reflect::Method;
 using $ComboBoxEditor = ::javax::swing::ComboBoxEditor;
-using $JComponent = ::javax::swing::JComponent;
 using $JTextField = ::javax::swing::JTextField;
 using $Border = ::javax::swing::border::Border;
 using $BasicComboBoxEditor$BorderlessTextField = ::javax::swing::plaf::basic::BasicComboBoxEditor$BorderlessTextField;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $MethodUtil = ::sun::reflect::misc::MethodUtil;
 
 namespace javax {

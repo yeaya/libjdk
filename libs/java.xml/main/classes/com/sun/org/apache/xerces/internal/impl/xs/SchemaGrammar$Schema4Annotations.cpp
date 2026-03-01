@@ -23,11 +23,7 @@
 #include <com/sun/org/apache/xerces/internal/util/SymbolHash.h>
 #include <com/sun/org/apache/xerces/internal/xni/NamespaceContext.h>
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription.h>
-#include <com/sun/org/apache/xerces/internal/xni/grammars/XMLSchemaDescription.h>
-#include <com/sun/org/apache/xerces/internal/xs/XSComplexTypeDefinition.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSConstants.h>
-#include <com/sun/org/apache/xerces/internal/xs/XSElementDeclaration.h>
-#include <com/sun/org/apache/xerces/internal/xs/XSModelGroup.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSObjectList.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSTerm.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSTypeDefinition.h>
@@ -90,11 +86,7 @@ using $SAXParser = ::com::sun::org::apache::xerces::internal::parsers::SAXParser
 using $SymbolHash = ::com::sun::org::apache::xerces::internal::util::SymbolHash;
 using $NamespaceContext = ::com::sun::org::apache::xerces::internal::xni::NamespaceContext;
 using $XMLGrammarDescription = ::com::sun::org::apache::xerces::internal::xni::grammars::XMLGrammarDescription;
-using $XMLSchemaDescription = ::com::sun::org::apache::xerces::internal::xni::grammars::XMLSchemaDescription;
-using $XSComplexTypeDefinition = ::com::sun::org::apache::xerces::internal::xs::XSComplexTypeDefinition;
 using $XSConstants = ::com::sun::org::apache::xerces::internal::xs::XSConstants;
-using $XSElementDeclaration = ::com::sun::org::apache::xerces::internal::xs::XSElementDeclaration;
-using $XSModelGroup = ::com::sun::org::apache::xerces::internal::xs::XSModelGroup;
 using $XSObjectList = ::com::sun::org::apache::xerces::internal::xs::XSObjectList;
 using $XSTerm = ::com::sun::org::apache::xerces::internal::xs::XSTerm;
 using $XSTypeDefinition = ::com::sun::org::apache::xerces::internal::xs::XSTypeDefinition;

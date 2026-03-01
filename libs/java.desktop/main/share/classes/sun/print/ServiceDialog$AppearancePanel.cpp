@@ -6,8 +6,6 @@
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JPanel.h>
 #include <sun/print/ServiceDialog$ChromaticityPanel.h>
 #include <sun/print/ServiceDialog$JobAttributesPanel.h>
@@ -25,13 +23,11 @@ using $Container = ::java::awt::Container;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JPanel = ::javax::swing::JPanel;
 using $ServiceDialog = ::sun::print::ServiceDialog;
 using $ServiceDialog$ChromaticityPanel = ::sun::print::ServiceDialog$ChromaticityPanel;

@@ -5,7 +5,6 @@
 #include <com/sun/tools/javac/code/Kinds$Kind.h>
 #include <com/sun/tools/javac/code/MissingInfoHandler.h>
 #include <com/sun/tools/javac/code/Scope$ErrorScope.h>
-#include <com/sun/tools/javac/code/Scope$ScopeImpl.h>
 #include <com/sun/tools/javac/code/Scope$WriteableScope.h>
 #include <com/sun/tools/javac/code/Source$Feature.h>
 #include <com/sun/tools/javac/code/Source.h>
@@ -56,7 +55,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
@@ -95,7 +93,6 @@ using $Directive$RequiresDirective = ::com::sun::tools::javac::code::Directive$R
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $MissingInfoHandler = ::com::sun::tools::javac::code::MissingInfoHandler;
 using $Scope$ErrorScope = ::com::sun::tools::javac::code::Scope$ErrorScope;
-using $Scope$ScopeImpl = ::com::sun::tools::javac::code::Scope$ScopeImpl;
 using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Source = ::com::sun::tools::javac::code::Source;
 using $Source$Feature = ::com::sun::tools::javac::code::Source$Feature;
@@ -145,7 +142,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;

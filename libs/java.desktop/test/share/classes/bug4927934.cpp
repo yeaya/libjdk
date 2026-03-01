@@ -22,7 +22,6 @@
 #include <javax/swing/event/TreeExpansionEvent.h>
 #include <javax/swing/event/TreeSelectionEvent.h>
 #include <javax/swing/event/TreeSelectionListener.h>
-#include <javax/swing/plaf/basic/BasicLookAndFeel.h>
 #include <javax/swing/plaf/metal/MetalLookAndFeel.h>
 #include <javax/swing/tree/DefaultMutableTreeNode.h>
 #include <javax/swing/tree/MutableTreeNode.h>
@@ -55,7 +54,6 @@ using $UIManager = ::javax::swing::UIManager;
 using $TreeExpansionEvent = ::javax::swing::event::TreeExpansionEvent;
 using $TreeSelectionEvent = ::javax::swing::event::TreeSelectionEvent;
 using $TreeSelectionListener = ::javax::swing::event::TreeSelectionListener;
-using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
 using $DefaultMutableTreeNode = ::javax::swing::tree::DefaultMutableTreeNode;
 using $MutableTreeNode = ::javax::swing::tree::MutableTreeNode;

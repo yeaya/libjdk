@@ -1,18 +1,14 @@
 #include <com/sun/org/apache/xerces/internal/dom/PSVIDOMImplementationImpl.h>
 
-#include <com/sun/org/apache/xerces/internal/dom/CoreDOMImplementationImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/DOMImplementationImpl.h>
-#include <com/sun/org/apache/xerces/internal/dom/DocumentImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/PSVIDocumentImpl.h>
 #include <org/w3c/dom/DOMImplementation.h>
 #include <org/w3c/dom/DocumentType.h>
 #include <jcpp.h>
 
-using $CoreDOMImplementationImpl = ::com::sun::org::apache::xerces::internal::dom::CoreDOMImplementationImpl;
 using $CoreDocumentImpl = ::com::sun::org::apache::xerces::internal::dom::CoreDocumentImpl;
 using $DOMImplementationImpl = ::com::sun::org::apache::xerces::internal::dom::DOMImplementationImpl;
-using $DocumentImpl = ::com::sun::org::apache::xerces::internal::dom::DocumentImpl;
 using $PSVIDocumentImpl = ::com::sun::org::apache::xerces::internal::dom::PSVIDocumentImpl;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

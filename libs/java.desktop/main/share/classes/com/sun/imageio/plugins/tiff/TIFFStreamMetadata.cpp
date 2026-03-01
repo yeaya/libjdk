@@ -4,7 +4,6 @@
 #include <javax/imageio/metadata/IIOInvalidTreeException.h>
 #include <javax/imageio/metadata/IIOMetadata.h>
 #include <javax/imageio/metadata/IIOMetadataNode.h>
-#include <org/w3c/dom/Element.h>
 #include <org/w3c/dom/NamedNodeMap.h>
 #include <org/w3c/dom/Node.h>
 #include <jcpp.h>
@@ -23,7 +22,6 @@ using $ByteOrder = ::java::nio::ByteOrder;
 using $IIOInvalidTreeException = ::javax::imageio::metadata::IIOInvalidTreeException;
 using $IIOMetadata = ::javax::imageio::metadata::IIOMetadata;
 using $IIOMetadataNode = ::javax::imageio::metadata::IIOMetadataNode;
-using $Element = ::org::w3c::dom::Element;
 using $NamedNodeMap = ::org::w3c::dom::NamedNodeMap;
 using $Node = ::org::w3c::dom::Node;
 

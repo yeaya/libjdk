@@ -11,7 +11,6 @@
 #include <javax/swing/JComponent.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/plaf/ButtonUI.h>
-#include <javax/swing/plaf/basic/BasicButtonUI.h>
 #include <jcpp.h>
 
 #undef TYPE_INT_ARGB
@@ -27,7 +26,6 @@ using $Runnable = ::java::lang::Runnable;
 using $JButton = ::javax::swing::JButton;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $ButtonUI = ::javax::swing::plaf::ButtonUI;
-using $BasicButtonUI = ::javax::swing::plaf::basic::BasicButtonUI;
 
 $MethodInfo _bug6797139_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, $PUBLIC, $method(bug6797139, init$, void)},

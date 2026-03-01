@@ -1,7 +1,6 @@
 #include <sun/security/jgss/GSSCredentialImpl.h>
 
 #include <java/lang/IllegalStateException.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Enumeration.h>
 #include <java/util/HashSet.h>
 #include <java/util/Hashtable.h>
@@ -40,7 +39,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Enumeration = ::java::util::Enumeration;
 using $HashSet = ::java::util::HashSet;
 using $Hashtable = ::java::util::Hashtable;

@@ -21,7 +21,6 @@
 #include <java/awt/SystemColor.h>
 #include <java/awt/Window.h>
 #include <java/awt/dnd/DropTarget.h>
-#include <java/awt/event/ComponentEvent.h>
 #include <java/awt/event/FocusEvent$Cause.h>
 #include <java/awt/event/FocusEvent.h>
 #include <java/awt/event/InputEvent.h>
@@ -127,7 +126,6 @@ using $Rectangle = ::java::awt::Rectangle;
 using $SystemColor = ::java::awt::SystemColor;
 using $Window = ::java::awt::Window;
 using $DropTarget = ::java::awt::dnd::DropTarget;
-using $ComponentEvent = ::java::awt::event::ComponentEvent;
 using $FocusEvent = ::java::awt::event::FocusEvent;
 using $FocusEvent$Cause = ::java::awt::event::FocusEvent$Cause;
 using $InputEvent = ::java::awt::event::InputEvent;

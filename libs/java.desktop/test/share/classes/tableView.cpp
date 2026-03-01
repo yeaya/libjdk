@@ -5,9 +5,7 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <javax/swing/text/BoxView.h>
-#include <javax/swing/text/CompositeView.h>
 #include <javax/swing/text/Element.h>
-#include <javax/swing/text/TableView$TableRow.h>
 #include <javax/swing/text/TableView.h>
 #include <javax/swing/text/View.h>
 #include <javax/swing/text/ViewFactory.h>
@@ -27,10 +25,8 @@ using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $BoxView = ::javax::swing::text::BoxView;
-using $CompositeView = ::javax::swing::text::CompositeView;
 using $Element = ::javax::swing::text::Element;
 using $TableView = ::javax::swing::text::TableView;
-using $TableView$TableRow = ::javax::swing::text::TableView$TableRow;
 using $View = ::javax::swing::text::View;
 using $ViewFactory = ::javax::swing::text::ViewFactory;
 using $tableView$trView = ::tableView$trView;

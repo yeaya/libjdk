@@ -8,7 +8,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/lang/Math.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JTabbedPane.h>
 #include <javax/swing/JViewport.h>
 #include <javax/swing/SwingUtilities.h>
@@ -33,7 +32,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $JViewport = ::javax::swing::JViewport;
 using $SwingUtilities = ::javax::swing::SwingUtilities;

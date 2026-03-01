@@ -3,7 +3,6 @@
 #include <ListSelectionModelTest$1.h>
 #include <java/lang/Runnable.h>
 #include <java/util/Arrays.h>
-#include <javax/swing/AbstractListModel.h>
 #include <javax/swing/DefaultListModel.h>
 #include <javax/swing/JList.h>
 #include <javax/swing/ListModel.h>
@@ -26,7 +25,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Arrays = ::java::util::Arrays;
-using $AbstractListModel = ::javax::swing::AbstractListModel;
 using $DefaultListModel = ::javax::swing::DefaultListModel;
 using $JList = ::javax::swing::JList;
 using $ListModel = ::javax::swing::ListModel;

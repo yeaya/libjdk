@@ -2,7 +2,6 @@
 
 #include <java/awt/Image.h>
 #include <java/awt/geom/Dimension2D.h>
-#include <java/awt/image/AbstractMultiResolutionImage.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/DataBuffer.h>
 #include <java/awt/image/DataBufferInt.h>
@@ -29,7 +28,6 @@ using $Dimension2DArray = $Array<::java::awt::geom::Dimension2D>;
 using $intArray2 = $Array<int32_t, 2>;
 using $Image = ::java::awt::Image;
 using $Dimension2D = ::java::awt::geom::Dimension2D;
-using $AbstractMultiResolutionImage = ::java::awt::image::AbstractMultiResolutionImage;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $DataBuffer = ::java::awt::image::DataBuffer;
 using $DataBufferInt = ::java::awt::image::DataBufferInt;

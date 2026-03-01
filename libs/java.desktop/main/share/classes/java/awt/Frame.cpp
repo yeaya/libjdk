@@ -1,9 +1,6 @@
 #include <java/awt/Frame.h>
 
 #include <java/awt/Color.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
-#include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/awt/Cursor.h>
 #include <java/awt/Frame$1.h>
@@ -18,18 +15,14 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <java/awt/Toolkit.h>
-#include <java/awt/Window$AccessibleAWTWindow.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/peer/ComponentPeer.h>
-#include <java/awt/peer/ContainerPeer.h>
 #include <java/awt/peer/FramePeer.h>
-#include <java/awt/peer/WindowPeer.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/OptionalDataException.h>
 #include <java/io/Serializable.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <java/util/Vector.h>
@@ -63,10 +56,7 @@
 using $FrameArray = $Array<::java::awt::Frame>;
 using $WindowArray = $Array<::java::awt::Window>;
 using $Color = ::java::awt::Color;
-using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $Container = ::java::awt::Container;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Cursor = ::java::awt::Cursor;
 using $Frame$1 = ::java::awt::Frame$1;
 using $Frame$AccessibleAWTFrame = ::java::awt::Frame$AccessibleAWTFrame;
@@ -81,12 +71,9 @@ using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
 using $Toolkit = ::java::awt::Toolkit;
 using $Window = ::java::awt::Window;
-using $Window$AccessibleAWTWindow = ::java::awt::Window$AccessibleAWTWindow;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $ComponentPeer = ::java::awt::peer::ComponentPeer;
-using $ContainerPeer = ::java::awt::peer::ContainerPeer;
 using $FramePeer = ::java::awt::peer::FramePeer;
-using $WindowPeer = ::java::awt::peer::WindowPeer;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $OptionalDataException = ::java::io::OptionalDataException;
@@ -98,7 +85,6 @@ using $Float = ::java::lang::Float;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $Vector = ::java::util::Vector;

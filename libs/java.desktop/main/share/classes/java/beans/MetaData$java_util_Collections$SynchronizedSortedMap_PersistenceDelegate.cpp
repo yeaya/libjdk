@@ -4,7 +4,6 @@
 #include <java/beans/Expression.h>
 #include <java/beans/MetaData$java_util_Collections.h>
 #include <java/util/Collections.h>
-#include <java/util/NavigableMap.h>
 #include <java/util/SortedMap.h>
 #include <java/util/TreeMap.h>
 #include <jcpp.h>
@@ -16,7 +15,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Collections = ::java::util::Collections;
-using $NavigableMap = ::java::util::NavigableMap;
 using $SortedMap = ::java::util::SortedMap;
 using $TreeMap = ::java::util::TreeMap;
 

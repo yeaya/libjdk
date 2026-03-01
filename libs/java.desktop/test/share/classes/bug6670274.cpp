@@ -3,33 +3,27 @@
 #include <bug6670274$1.h>
 #include <bug6670274$TestTabbedPaneUI.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/lang/Runnable.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/JTabbedPane.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/plaf/TabbedPaneUI.h>
-#include <javax/swing/plaf/basic/BasicTabbedPaneUI.h>
 #include <javax/swing/text/View.h>
 #include <jcpp.h>
 
 using $bug6670274$1 = ::bug6670274$1;
 using $bug6670274$TestTabbedPaneUI = ::bug6670274$TestTabbedPaneUI;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $JComponent = ::javax::swing::JComponent;
 using $JPanel = ::javax::swing::JPanel;
 using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $TabbedPaneUI = ::javax::swing::plaf::TabbedPaneUI;
-using $BasicTabbedPaneUI = ::javax::swing::plaf::basic::BasicTabbedPaneUI;
 using $View = ::javax::swing::text::View;
 
 $MethodInfo _bug6670274_MethodInfo_[] = {

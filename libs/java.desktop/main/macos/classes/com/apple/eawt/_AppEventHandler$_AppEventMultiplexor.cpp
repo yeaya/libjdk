@@ -4,7 +4,6 @@
 #include <com/apple/eawt/_AppEventHandler$_NativeEvent.h>
 #include <com/apple/eawt/_AppEventHandler.h>
 #include <java/lang/Runnable.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/IdentityHashMap.h>
@@ -25,7 +24,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $IdentityHashMap = ::java::util::IdentityHashMap;

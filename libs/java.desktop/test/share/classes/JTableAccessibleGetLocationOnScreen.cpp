@@ -11,7 +11,6 @@
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/accessibility/AccessibleTable.h>
 #include <javax/swing/JComponent$AccessibleJComponent.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/SwingUtilities.h>
@@ -22,7 +21,6 @@
 using $JTableAccessibleGetLocationOnScreen$1 = ::JTableAccessibleGetLocationOnScreen$1;
 using $ObjectArray2 = $Array<::java::lang::Object, 2>;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -31,7 +29,6 @@ using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $AccessibleComponent = ::javax::accessibility::AccessibleComponent;
 using $AccessibleTable = ::javax::accessibility::AccessibleTable;
-using $JComponent = ::javax::swing::JComponent;
 using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JTable = ::javax::swing::JTable;

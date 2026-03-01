@@ -31,7 +31,6 @@
 #include <java/util/regex/Pattern.h>
 #include <jdk/internal/net/http/ResponseBodyHandlers.h>
 #include <jdk/internal/net/http/ResponseSubscribers$PathSubscriber.h>
-#include <jdk/internal/net/http/ResponseSubscribers$TrustedSubscriber.h>
 #include <jcpp.h>
 
 #undef DISPOSITION_TYPE
@@ -48,13 +47,11 @@ using $UncheckedIOException = ::java::io::UncheckedIOException;
 using $AssertionError = ::java::lang::AssertionError;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
@@ -74,7 +71,6 @@ using $Matcher = ::java::util::regex::Matcher;
 using $Pattern = ::java::util::regex::Pattern;
 using $ResponseBodyHandlers = ::jdk::internal::net::http::ResponseBodyHandlers;
 using $ResponseSubscribers$PathSubscriber = ::jdk::internal::net::http::ResponseSubscribers$PathSubscriber;
-using $ResponseSubscribers$TrustedSubscriber = ::jdk::internal::net::http::ResponseSubscribers$TrustedSubscriber;
 
 namespace jdk {
 	namespace internal {

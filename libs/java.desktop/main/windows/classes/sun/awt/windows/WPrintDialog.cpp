@@ -7,7 +7,6 @@
 #include <java/awt/LayoutManager.h>
 #include <java/awt/PrintJob.h>
 #include <java/awt/Toolkit.h>
-#include <java/awt/Window.h>
 #include <java/awt/peer/ComponentPeer.h>
 #include <java/awt/print/PrinterJob.h>
 #include <sun/awt/AWTAccessor$ComponentAccessor.h>
@@ -26,7 +25,6 @@ using $Dialog = ::java::awt::Dialog;
 using $Frame = ::java::awt::Frame;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $Toolkit = ::java::awt::Toolkit;
-using $Window = ::java::awt::Window;
 using $ComponentPeer = ::java::awt::peer::ComponentPeer;
 using $PrinterJob = ::java::awt::print::PrinterJob;
 using $ClassInfo = ::java::lang::ClassInfo;

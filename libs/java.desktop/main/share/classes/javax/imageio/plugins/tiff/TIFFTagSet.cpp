@@ -4,8 +4,6 @@
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
-#include <java/util/NavigableMap.h>
-#include <java/util/NavigableSet.h>
 #include <java/util/Set.h>
 #include <java/util/SortedMap.h>
 #include <java/util/SortedSet.h>
@@ -23,8 +21,6 @@ using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;
-using $NavigableMap = ::java::util::NavigableMap;
-using $NavigableSet = ::java::util::NavigableSet;
 using $Set = ::java::util::Set;
 using $SortedMap = ::java::util::SortedMap;
 using $SortedSet = ::java::util::SortedSet;

@@ -5,14 +5,11 @@
 #include <java/io/EOFException.h>
 #include <java/io/IOException.h>
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
-#include <java/lang/Error.h>
 #include <java/lang/OutOfMemoryError.h>
-#include <java/lang/VirtualMachineError.h>
 #include <javax/sound/midi/InvalidMidiDataException.h>
 #include <javax/sound/midi/MetaMessage.h>
 #include <javax/sound/midi/MidiEvent.h>
 #include <javax/sound/midi/MidiMessage.h>
-#include <javax/sound/midi/ShortMessage.h>
 #include <javax/sound/midi/SysexMessage.h>
 #include <javax/sound/midi/Track.h>
 #include <jcpp.h>
@@ -26,16 +23,13 @@ using $EOFException = ::java::io::EOFException;
 using $IOException = ::java::io::IOException;
 using $ArrayIndexOutOfBoundsException = ::java::lang::ArrayIndexOutOfBoundsException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Error = ::java::lang::Error;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $OutOfMemoryError = ::java::lang::OutOfMemoryError;
-using $VirtualMachineError = ::java::lang::VirtualMachineError;
 using $InvalidMidiDataException = ::javax::sound::midi::InvalidMidiDataException;
 using $MetaMessage = ::javax::sound::midi::MetaMessage;
 using $MidiEvent = ::javax::sound::midi::MidiEvent;
 using $MidiMessage = ::javax::sound::midi::MidiMessage;
-using $ShortMessage = ::javax::sound::midi::ShortMessage;
 using $SysexMessage = ::javax::sound::midi::SysexMessage;
 using $Track = ::javax::sound::midi::Track;
 

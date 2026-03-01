@@ -7,9 +7,7 @@
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionListener.h>
-#include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseListener.h>
-#include <java/awt/event/WindowAdapter.h>
 #include <java/awt/event/WindowListener.h>
 #include <java/io/Serializable.h>
 #include <java/lang/InterruptedException.h>
@@ -30,9 +28,7 @@ using $bug4760494$PassedListener = ::bug4760494$PassedListener;
 using $bug4760494$TestStateListener = ::bug4760494$TestStateListener;
 using $Robot = ::java::awt::Robot;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseListener = ::java::awt::event::MouseListener;
-using $WindowAdapter = ::java::awt::event::WindowAdapter;
 using $WindowListener = ::java::awt::event::WindowListener;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;

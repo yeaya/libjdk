@@ -3,7 +3,6 @@
 #include <java/lang/AssertionError.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
@@ -24,7 +23,6 @@
 #include <sun/awt/X11/XEmbeddedFramePeer.h>
 #include <sun/awt/X11/XErrorEvent.h>
 #include <sun/awt/X11/XErrorHandler$IgnoreBadWindowHandler.h>
-#include <sun/awt/X11/XErrorHandler$XBaseErrorHandler.h>
 #include <sun/awt/X11/XErrorHandler.h>
 #include <sun/awt/X11/XErrorHandlerUtil.h>
 #include <sun/awt/X11/XException.h>
@@ -54,7 +52,6 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
@@ -75,7 +72,6 @@ using $XEmbeddedFramePeer = ::sun::awt::X11::XEmbeddedFramePeer;
 using $XErrorEvent = ::sun::awt::X11::XErrorEvent;
 using $XErrorHandler = ::sun::awt::X11::XErrorHandler;
 using $XErrorHandler$IgnoreBadWindowHandler = ::sun::awt::X11::XErrorHandler$IgnoreBadWindowHandler;
-using $XErrorHandler$XBaseErrorHandler = ::sun::awt::X11::XErrorHandler$XBaseErrorHandler;
 using $XErrorHandlerUtil = ::sun::awt::X11::XErrorHandlerUtil;
 using $XException = ::sun::awt::X11::XException;
 using $XRootWindow = ::sun::awt::X11::XRootWindow;

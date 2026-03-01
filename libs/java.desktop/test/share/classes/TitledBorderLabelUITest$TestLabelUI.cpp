@@ -4,7 +4,6 @@
 #include <java/awt/Graphics.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/LabelUI.h>
 #include <javax/swing/plaf/basic/BasicLabelUI.h>
 #include <javax/swing/plaf/metal/MetalLabelUI.h>
 #include <jcpp.h>
@@ -16,8 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $JComponent = ::javax::swing::JComponent;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $LabelUI = ::javax::swing::plaf::LabelUI;
-using $BasicLabelUI = ::javax::swing::plaf::basic::BasicLabelUI;
 using $MetalLabelUI = ::javax::swing::plaf::metal::MetalLabelUI;
 
 $MethodInfo _TitledBorderLabelUITest$TestLabelUI_MethodInfo_[] = {

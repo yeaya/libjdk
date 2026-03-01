@@ -5,7 +5,6 @@
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Window.h>
 #include <javax/swing/GroupLayout$Alignment.h>
 #include <javax/swing/GroupLayout$Group.h>
@@ -13,7 +12,6 @@
 #include <javax/swing/GroupLayout$SequentialGroup.h>
 #include <javax/swing/GroupLayout.h>
 #include <javax/swing/JComboBox.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JPanel.h>
@@ -29,7 +27,6 @@ using $IntegerArray = $Array<::java::lang::Integer>;
 using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
@@ -41,7 +38,6 @@ using $GroupLayout$Group = ::javax::swing::GroupLayout$Group;
 using $GroupLayout$ParallelGroup = ::javax::swing::GroupLayout$ParallelGroup;
 using $GroupLayout$SequentialGroup = ::javax::swing::GroupLayout$SequentialGroup;
 using $JComboBox = ::javax::swing::JComboBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JLabel = ::javax::swing::JLabel;
 using $JPanel = ::javax::swing::JPanel;

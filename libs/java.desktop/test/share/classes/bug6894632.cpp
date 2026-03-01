@@ -7,15 +7,12 @@
 #include <java/awt/Window.h>
 #include <java/lang/Runnable.h>
 #include <java/util/List.h>
-#include <javax/swing/DefaultRowSorter.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/RowSorter$SortKey.h>
 #include <javax/swing/RowSorter.h>
 #include <javax/swing/SortOrder.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/table/AbstractTableModel.h>
 #include <javax/swing/table/DefaultTableModel.h>
 #include <javax/swing/table/TableModel.h>
 #include <javax/swing/table/TableRowSorter.h>
@@ -37,15 +34,12 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $List = ::java::util::List;
-using $DefaultRowSorter = ::javax::swing::DefaultRowSorter;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JTable = ::javax::swing::JTable;
 using $RowSorter = ::javax::swing::RowSorter;
 using $RowSorter$SortKey = ::javax::swing::RowSorter$SortKey;
 using $SortOrder = ::javax::swing::SortOrder;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $AbstractTableModel = ::javax::swing::table::AbstractTableModel;
 using $DefaultTableModel = ::javax::swing::table::DefaultTableModel;
 using $TableModel = ::javax::swing::table::TableModel;
 using $TableRowSorter = ::javax::swing::table::TableRowSorter;

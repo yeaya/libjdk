@@ -4,7 +4,6 @@
 #include <java/awt/Window.h>
 #include <javax/swing/JFormattedTextField.h>
 #include <javax/swing/JFrame.h>
-#include <javax/swing/JTextField.h>
 #include <javax/swing/SwingConstants.h>
 #include <javax/swing/text/BadLocationException.h>
 #include <javax/swing/text/JTextComponent.h>
@@ -27,7 +26,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $JFrame = ::javax::swing::JFrame;
-using $JTextField = ::javax::swing::JTextField;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $JTextComponent = ::javax::swing::text::JTextComponent;

@@ -6,7 +6,6 @@
 #include <com/sun/org/apache/xerces/internal/impl/io/MalformedByteSequenceException.h>
 #include <com/sun/org/apache/xerces/internal/impl/msg/XMLMessageFormatter.h>
 #include <com/sun/org/apache/xerces/internal/parsers/XIncludeParserConfiguration.h>
-#include <com/sun/org/apache/xerces/internal/parsers/XML11Configuration.h>
 #include <com/sun/org/apache/xerces/internal/parsers/XPointerParserConfiguration.h>
 #include <com/sun/org/apache/xerces/internal/util/AugmentationsImpl.h>
 #include <com/sun/org/apache/xerces/internal/util/HTTPInputSource.h>
@@ -48,7 +47,6 @@
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLEntityResolver.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLInputSource.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration.h>
-#include <com/sun/org/apache/xerces/internal/xni/parser/XMLPullParserConfiguration.h>
 #include <com/sun/org/apache/xerces/internal/xpointer/XPointerHandler.h>
 #include <com/sun/org/apache/xerces/internal/xpointer/XPointerProcessor.h>
 #include <java/io/CharConversionException.h>
@@ -57,7 +55,6 @@
 #include <java/io/Reader.h>
 #include <java/io/UnsupportedEncodingException.h>
 #include <java/net/URI.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Enumeration.h>
 #include <java/util/List.h>
@@ -165,7 +162,6 @@ using $XMLErrorReporter = ::com::sun::org::apache::xerces::internal::impl::XMLEr
 using $MalformedByteSequenceException = ::com::sun::org::apache::xerces::internal::impl::io::MalformedByteSequenceException;
 using $XMLMessageFormatter = ::com::sun::org::apache::xerces::internal::impl::msg::XMLMessageFormatter;
 using $XIncludeParserConfiguration = ::com::sun::org::apache::xerces::internal::parsers::XIncludeParserConfiguration;
-using $XML11Configuration = ::com::sun::org::apache::xerces::internal::parsers::XML11Configuration;
 using $XPointerParserConfiguration = ::com::sun::org::apache::xerces::internal::parsers::XPointerParserConfiguration;
 using $AugmentationsImpl = ::com::sun::org::apache::xerces::internal::util::AugmentationsImpl;
 using $HTTPInputSource = ::com::sun::org::apache::xerces::internal::util::HTTPInputSource;
@@ -206,7 +202,6 @@ using $XMLDocumentSource = ::com::sun::org::apache::xerces::internal::xni::parse
 using $XMLEntityResolver = ::com::sun::org::apache::xerces::internal::xni::parser::XMLEntityResolver;
 using $XMLInputSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLInputSource;
 using $XMLParserConfiguration = ::com::sun::org::apache::xerces::internal::xni::parser::XMLParserConfiguration;
-using $XMLPullParserConfiguration = ::com::sun::org::apache::xerces::internal::xni::parser::XMLPullParserConfiguration;
 using $XPointerHandler = ::com::sun::org::apache::xerces::internal::xpointer::XPointerHandler;
 using $XPointerProcessor = ::com::sun::org::apache::xerces::internal::xpointer::XPointerProcessor;
 using $CharConversionException = ::java::io::CharConversionException;
@@ -219,7 +214,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Enumeration = ::java::util::Enumeration;
 using $List = ::java::util::List;

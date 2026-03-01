@@ -5,8 +5,6 @@
 #include <java/io/File.h>
 #include <javax/swing/JFileChooser.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/FileChooserUI.h>
-#include <javax/swing/plaf/basic/BasicFileChooserUI.h>
 #include <javax/swing/plaf/metal/MetalFileChooserUI.h>
 #include <jcpp.h>
 
@@ -19,8 +17,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JFileChooser = ::javax::swing::JFileChooser;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $FileChooserUI = ::javax::swing::plaf::FileChooserUI;
-using $BasicFileChooserUI = ::javax::swing::plaf::basic::BasicFileChooserUI;
 using $MetalFileChooserUI = ::javax::swing::plaf::metal::MetalFileChooserUI;
 
 $MethodInfo _bug6342301$1_MethodInfo_[] = {

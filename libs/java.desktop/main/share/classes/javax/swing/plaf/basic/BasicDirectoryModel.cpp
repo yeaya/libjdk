@@ -5,7 +5,6 @@
 #include <java/beans/PropertyChangeSupport.h>
 #include <java/io/File.h>
 #include <java/lang/Runnable.h>
-#include <java/util/AbstractList.h>
 #include <java/util/List.h>
 #include <java/util/Vector.h>
 #include <java/util/concurrent/atomic/AtomicInteger.h>
@@ -38,7 +37,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $Runnable = ::java::lang::Runnable;
-using $AbstractList = ::java::util::AbstractList;
 using $List = ::java::util::List;
 using $Vector = ::java::util::Vector;
 using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;

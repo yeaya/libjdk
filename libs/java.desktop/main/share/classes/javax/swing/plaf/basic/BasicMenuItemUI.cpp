@@ -13,14 +13,10 @@
 #include <java/awt/event/InputEvent.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/awt/event/MouseMotionListener.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/beans/PropertyChangeListener.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/ButtonModel.h>
-#include <javax/swing/ComponentInputMap.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/InputMap.h>
 #include <javax/swing/JCheckBoxMenuItem.h>
@@ -37,8 +33,6 @@
 #include <javax/swing/event/MenuDragMouseListener.h>
 #include <javax/swing/event/MenuKeyListener.h>
 #include <javax/swing/event/MouseInputListener.h>
-#include <javax/swing/plaf/ActionMapUIResource.h>
-#include <javax/swing/plaf/ButtonUI.h>
 #include <javax/swing/plaf/ComponentInputMapUIResource.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/MenuItemUI.h>
@@ -55,7 +49,6 @@
 #include <sun/swing/MenuItemLayoutHelper$RectSize.h>
 #include <sun/swing/MenuItemLayoutHelper.h>
 #include <sun/swing/SwingUtilities2.h>
-#include <sun/swing/UIAction.h>
 #include <jcpp.h>
 
 #undef ALT_DOWN_MASK
@@ -72,7 +65,6 @@
 using $MenuElementArray = $Array<::javax::swing::MenuElement>;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
@@ -83,8 +75,6 @@ using $Shape = ::java::awt::Shape;
 using $InputEvent = ::java::awt::event::InputEvent;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $PrintStream = ::java::io::PrintStream;
 using $Boolean = ::java::lang::Boolean;
@@ -93,11 +83,9 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $ButtonModel = ::javax::swing::ButtonModel;
-using $ComponentInputMap = ::javax::swing::ComponentInputMap;
 using $Icon = ::javax::swing::Icon;
 using $InputMap = ::javax::swing::InputMap;
 using $JCheckBoxMenuItem = ::javax::swing::JCheckBoxMenuItem;
@@ -114,8 +102,6 @@ using $UIManager = ::javax::swing::UIManager;
 using $MenuDragMouseListener = ::javax::swing::event::MenuDragMouseListener;
 using $MenuKeyListener = ::javax::swing::event::MenuKeyListener;
 using $MouseInputListener = ::javax::swing::event::MouseInputListener;
-using $ActionMapUIResource = ::javax::swing::plaf::ActionMapUIResource;
-using $ButtonUI = ::javax::swing::plaf::ButtonUI;
 using $ComponentInputMapUIResource = ::javax::swing::plaf::ComponentInputMapUIResource;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $MenuItemUI = ::javax::swing::plaf::MenuItemUI;
@@ -132,7 +118,6 @@ using $MenuItemLayoutHelper = ::sun::swing::MenuItemLayoutHelper;
 using $MenuItemLayoutHelper$LayoutResult = ::sun::swing::MenuItemLayoutHelper$LayoutResult;
 using $MenuItemLayoutHelper$RectSize = ::sun::swing::MenuItemLayoutHelper$RectSize;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
-using $UIAction = ::sun::swing::UIAction;
 
 namespace javax {
 	namespace swing {

@@ -50,8 +50,6 @@
 #include <javax/swing/text/StyleConstants.h>
 #include <javax/swing/text/StyleContext.h>
 #include <javax/swing/text/Utilities.h>
-#include <javax/swing/undo/AbstractUndoableEdit.h>
-#include <javax/swing/undo/CompoundEdit.h>
 #include <javax/swing/undo/UndoableEdit.h>
 #include <jcpp.h>
 
@@ -73,7 +71,6 @@ using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectInputStream$GetField = ::java::io::ObjectInputStream$GetField;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $IllegalStateException = ::java::lang::IllegalStateException;
@@ -122,8 +119,6 @@ using $Style = ::javax::swing::text::Style;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
 using $StyleContext = ::javax::swing::text::StyleContext;
 using $Utilities = ::javax::swing::text::Utilities;
-using $AbstractUndoableEdit = ::javax::swing::undo::AbstractUndoableEdit;
-using $CompoundEdit = ::javax::swing::undo::CompoundEdit;
 using $UndoableEdit = ::javax::swing::undo::UndoableEdit;
 
 namespace javax {

@@ -6,7 +6,6 @@
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
 #include <java/awt/event/FocusEvent.h>
@@ -24,7 +23,6 @@
 #include <javax/print/attribute/standard/JobSheets.h>
 #include <javax/print/attribute/standard/RequestingUserName.h>
 #include <javax/swing/AbstractButton.h>
-#include <javax/swing/AbstractSpinnerModel.h>
 #include <javax/swing/BorderFactory.h>
 #include <javax/swing/JCheckBox.h>
 #include <javax/swing/JComponent.h>
@@ -34,15 +32,12 @@
 #include <javax/swing/JSpinner$NumberEditor.h>
 #include <javax/swing/JSpinner.h>
 #include <javax/swing/JTextField.h>
-#include <javax/swing/JToggleButton.h>
 #include <javax/swing/SpinnerModel.h>
 #include <javax/swing/SpinnerNumberModel.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/TitledBorder.h>
 #include <javax/swing/event/ChangeEvent.h>
 #include <javax/swing/event/ChangeListener.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <sun/print/ServiceDialog.h>
 #include <jcpp.h>
 
@@ -60,7 +55,6 @@ using $Container = ::java::awt::Container;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $FocusEvent = ::java::awt::event::FocusEvent;
@@ -82,25 +76,19 @@ using $JobName = ::javax::print::attribute::standard::JobName;
 using $JobPriority = ::javax::print::attribute::standard::JobPriority;
 using $JobSheets = ::javax::print::attribute::standard::JobSheets;
 using $RequestingUserName = ::javax::print::attribute::standard::RequestingUserName;
-using $AbstractButton = ::javax::swing::AbstractButton;
-using $AbstractSpinnerModel = ::javax::swing::AbstractSpinnerModel;
 using $BorderFactory = ::javax::swing::BorderFactory;
 using $JCheckBox = ::javax::swing::JCheckBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JFormattedTextField = ::javax::swing::JFormattedTextField;
 using $JLabel = ::javax::swing::JLabel;
 using $JPanel = ::javax::swing::JPanel;
 using $JSpinner = ::javax::swing::JSpinner;
 using $JSpinner$NumberEditor = ::javax::swing::JSpinner$NumberEditor;
 using $JTextField = ::javax::swing::JTextField;
-using $JToggleButton = ::javax::swing::JToggleButton;
 using $SpinnerModel = ::javax::swing::SpinnerModel;
 using $SpinnerNumberModel = ::javax::swing::SpinnerNumberModel;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $ChangeEvent = ::javax::swing::event::ChangeEvent;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $ServiceDialog = ::sun::print::ServiceDialog;
 
 namespace sun {

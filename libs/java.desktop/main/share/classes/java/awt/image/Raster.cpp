@@ -4,7 +4,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/image/BandedSampleModel.h>
 #include <java/awt/image/ColorModel.h>
-#include <java/awt/image/ComponentSampleModel.h>
 #include <java/awt/image/DataBuffer.h>
 #include <java/awt/image/DataBufferByte.h>
 #include <java/awt/image/DataBufferInt.h>
@@ -18,13 +17,10 @@
 #include <java/lang/ArrayIndexOutOfBoundsException.h>
 #include <java/lang/Math.h>
 #include <sun/awt/image/ByteBandedRaster.h>
-#include <sun/awt/image/ByteComponentRaster.h>
 #include <sun/awt/image/ByteInterleavedRaster.h>
 #include <sun/awt/image/BytePackedRaster.h>
-#include <sun/awt/image/IntegerComponentRaster.h>
 #include <sun/awt/image/IntegerInterleavedRaster.h>
 #include <sun/awt/image/ShortBandedRaster.h>
-#include <sun/awt/image/ShortComponentRaster.h>
 #include <sun/awt/image/ShortInterleavedRaster.h>
 #include <sun/awt/image/SunWritableRaster.h>
 #include <jcpp.h>
@@ -38,7 +34,6 @@ using $Point = ::java::awt::Point;
 using $Rectangle = ::java::awt::Rectangle;
 using $BandedSampleModel = ::java::awt::image::BandedSampleModel;
 using $ColorModel = ::java::awt::image::ColorModel;
-using $ComponentSampleModel = ::java::awt::image::ComponentSampleModel;
 using $DataBuffer = ::java::awt::image::DataBuffer;
 using $DataBufferByte = ::java::awt::image::DataBufferByte;
 using $DataBufferInt = ::java::awt::image::DataBufferInt;
@@ -58,13 +53,10 @@ using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $ByteBandedRaster = ::sun::awt::image::ByteBandedRaster;
-using $ByteComponentRaster = ::sun::awt::image::ByteComponentRaster;
 using $ByteInterleavedRaster = ::sun::awt::image::ByteInterleavedRaster;
 using $BytePackedRaster = ::sun::awt::image::BytePackedRaster;
-using $IntegerComponentRaster = ::sun::awt::image::IntegerComponentRaster;
 using $IntegerInterleavedRaster = ::sun::awt::image::IntegerInterleavedRaster;
 using $ShortBandedRaster = ::sun::awt::image::ShortBandedRaster;
-using $ShortComponentRaster = ::sun::awt::image::ShortComponentRaster;
 using $ShortInterleavedRaster = ::sun::awt::image::ShortInterleavedRaster;
 using $SunWritableRaster = ::sun::awt::image::SunWritableRaster;
 

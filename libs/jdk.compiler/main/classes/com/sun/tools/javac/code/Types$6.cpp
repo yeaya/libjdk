@@ -1,6 +1,5 @@
 #include <com/sun/tools/javac/code/Types$6.h>
 
-#include <com/sun/tools/javac/code/Type$DelegatedType.h>
 #include <com/sun/tools/javac/code/Type$ErrorType.h>
 #include <com/sun/tools/javac/code/Type$UndetVar.h>
 #include <com/sun/tools/javac/code/Type$WildcardType.h>
@@ -13,7 +12,6 @@
 #undef WILDCARD
 
 using $Type = ::com::sun::tools::javac::code::Type;
-using $Type$DelegatedType = ::com::sun::tools::javac::code::Type$DelegatedType;
 using $Type$ErrorType = ::com::sun::tools::javac::code::Type$ErrorType;
 using $Type$UndetVar = ::com::sun::tools::javac::code::Type$UndetVar;
 using $Type$WildcardType = ::com::sun::tools::javac::code::Type$WildcardType;

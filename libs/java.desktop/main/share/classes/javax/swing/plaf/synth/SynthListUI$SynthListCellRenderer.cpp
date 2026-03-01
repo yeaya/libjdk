@@ -1,17 +1,14 @@
 #include <javax/swing/plaf/synth/SynthListUI$SynthListCellRenderer.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <javax/swing/DefaultListCellRenderer$UIResource.h>
 #include <javax/swing/DefaultListCellRenderer.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JList.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/LabelUI.h>
-#include <javax/swing/plaf/basic/BasicLabelUI.h>
 #include <javax/swing/plaf/synth/SynthBorder.h>
 #include <javax/swing/plaf/synth/SynthLabelUI.h>
 #include <javax/swing/plaf/synth/SynthListUI.h>
@@ -19,21 +16,15 @@
 #include <jcpp.h>
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DefaultListCellRenderer = ::javax::swing::DefaultListCellRenderer;
 using $DefaultListCellRenderer$UIResource = ::javax::swing::DefaultListCellRenderer$UIResource;
-using $JComponent = ::javax::swing::JComponent;
-using $JLabel = ::javax::swing::JLabel;
 using $JList = ::javax::swing::JList;
 using $Border = ::javax::swing::border::Border;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $LabelUI = ::javax::swing::plaf::LabelUI;
-using $BasicLabelUI = ::javax::swing::plaf::basic::BasicLabelUI;
 using $SynthBorder = ::javax::swing::plaf::synth::SynthBorder;
 using $SynthLabelUI = ::javax::swing::plaf::synth::SynthLabelUI;
 using $SynthListUI = ::javax::swing::plaf::synth::SynthListUI;

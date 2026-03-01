@@ -3,7 +3,6 @@
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
@@ -21,7 +20,6 @@
 #include <javax/swing/JProgressBar.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/ProgressBarUI.h>
 #include <javax/swing/plaf/basic/BasicProgressBarUI.h>
 #include <javax/swing/plaf/synth/ColorType.h>
 #include <javax/swing/plaf/synth/SynthConstants.h>
@@ -42,7 +40,6 @@
 
 using $Component = ::java::awt::Component;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
@@ -65,7 +62,6 @@ using $JComponent = ::javax::swing::JComponent;
 using $JProgressBar = ::javax::swing::JProgressBar;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $ProgressBarUI = ::javax::swing::plaf::ProgressBarUI;
 using $BasicProgressBarUI = ::javax::swing::plaf::basic::BasicProgressBarUI;
 using $ColorType = ::javax::swing::plaf::synth::ColorType;
 using $SynthConstants = ::javax::swing::plaf::synth::SynthConstants;

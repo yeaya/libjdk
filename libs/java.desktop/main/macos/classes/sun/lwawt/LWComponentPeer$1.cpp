@@ -1,7 +1,6 @@
 #include <sun/lwawt/LWComponentPeer$1.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Rectangle.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/RepaintManager.h>
@@ -10,7 +9,6 @@
 #include <jcpp.h>
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Rectangle = ::java::awt::Rectangle;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

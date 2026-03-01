@@ -6,7 +6,6 @@
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JFileChooser.h>
 #include <javax/swing/JTextField.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef DIRECTORIES_ONLY
@@ -20,7 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
 using $JFileChooser = ::javax::swing::JFileChooser;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 namespace com {
 	namespace apple {

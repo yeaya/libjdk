@@ -17,15 +17,11 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/net/URI.h>
 #include <java/net/URL.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/text/DefaultEditorKit.h>
 #include <javax/swing/text/EditorKit.h>
-#include <javax/swing/text/JTextComponent.h>
-#include <javax/swing/text/StyledEditorKit.h>
 #include <javax/swing/text/html/HTMLEditorKit.h>
 #include <jcpp.h>
 
@@ -47,15 +43,11 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $URI = ::java::net::URI;
 using $URL = ::java::net::URL;
-using $JComponent = ::javax::swing::JComponent;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $JFrame = ::javax::swing::JFrame;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $DefaultEditorKit = ::javax::swing::text::DefaultEditorKit;
 using $EditorKit = ::javax::swing::text::EditorKit;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
-using $StyledEditorKit = ::javax::swing::text::StyledEditorKit;
 using $HTMLEditorKit = ::javax::swing::text::html::HTMLEditorKit;
 
 class bug4492274$$Lambda$lambda$main$0 : public $Runnable {

@@ -3,8 +3,6 @@
 #include <bug6544309$1.h>
 #include <bug6544309$2.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
-#include <java/awt/Dialog.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionListener.h>
@@ -23,10 +21,7 @@
 using $bug6544309$1 = ::bug6544309$1;
 using $bug6544309$2 = ::bug6544309$2;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
-using $Dialog = ::java::awt::Dialog;
 using $Robot = ::java::awt::Robot;
-using $Window = ::java::awt::Window;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $PrintStream = ::java::io::PrintStream;

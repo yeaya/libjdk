@@ -7,7 +7,6 @@
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/PathIterator.h>
 #include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/pipe/LoopPipe.h>
 #include <sun/java2d/pipe/Region.h>
@@ -23,7 +22,6 @@ using $Shape = ::java::awt::Shape;
 using $Stroke = ::java::awt::Stroke;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

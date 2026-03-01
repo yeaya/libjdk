@@ -8,15 +8,10 @@
 #include <java/awt/Window.h>
 #include <java/io/IOException.h>
 #include <java/net/URL.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/JViewport.h>
-#include <javax/swing/text/DefaultEditorKit.h>
 #include <javax/swing/text/EditorKit.h>
-#include <javax/swing/text/JTextComponent.h>
-#include <javax/swing/text/StyledEditorKit.h>
-#include <javax/swing/text/html/HTMLEditorKit.h>
 #include <jcpp.h>
 
 #undef CENTER
@@ -25,25 +20,18 @@ using $bug7165725 = ::bug7165725;
 using $bug7165725$1$1 = ::bug7165725$1$1;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $URL = ::java::net::URL;
-using $JComponent = ::javax::swing::JComponent;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JViewport = ::javax::swing::JViewport;
-using $DefaultEditorKit = ::javax::swing::text::DefaultEditorKit;
 using $EditorKit = ::javax::swing::text::EditorKit;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
-using $StyledEditorKit = ::javax::swing::text::StyledEditorKit;
-using $HTMLEditorKit = ::javax::swing::text::html::HTMLEditorKit;
 
 $FieldInfo _bug7165725$1_FieldInfo_[] = {
 	{"this$0", "Lbug7165725;", nullptr, $FINAL | $SYNTHETIC, $field(bug7165725$1, this$0)},

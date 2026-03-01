@@ -1,7 +1,6 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/ValidatorHandlerImpl.h>
 
 #include <com/sun/org/apache/xerces/internal/impl/Constants.h>
-#include <com/sun/org/apache/xerces/internal/impl/RevalidationHandler.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLErrorReporter.h>
 #include <com/sun/org/apache/xerces/internal/impl/validation/EntityState.h>
 #include <com/sun/org/apache/xerces/internal/impl/validation/ValidationManager.h>
@@ -15,7 +14,6 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/XSGrammarPoolContainer.h>
 #include <com/sun/org/apache/xerces/internal/parsers/SAXParser.h>
 #include <com/sun/org/apache/xerces/internal/util/AttributesProxy.h>
-#include <com/sun/org/apache/xerces/internal/util/ParserConfigurationSettings.h>
 #include <com/sun/org/apache/xerces/internal/util/SAXLocatorWrapper.h>
 #include <com/sun/org/apache/xerces/internal/util/SAXMessageFormatter.h>
 #include <com/sun/org/apache/xerces/internal/util/Status.h>
@@ -36,12 +34,10 @@
 #include <com/sun/org/apache/xerces/internal/xni/XNIException.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLConfigurationException.h>
-#include <com/sun/org/apache/xerces/internal/xni/parser/XMLDocumentFilter.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDocumentSource.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLParseException.h>
 #include <com/sun/org/apache/xerces/internal/xs/AttributePSVI.h>
 #include <com/sun/org/apache/xerces/internal/xs/ElementPSVI.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Locale.h>
 #include <java/util/Map.h>
@@ -69,7 +65,6 @@
 #include <org/xml/sax/SAXParseException.h>
 #include <org/xml/sax/XMLReader.h>
 #include <org/xml/sax/ext/Attributes2.h>
-#include <org/xml/sax/ext/EntityResolver2.h>
 #include <jcpp.h>
 
 #undef ACCESS_EXTERNAL_DTD
@@ -101,7 +96,6 @@
 #undef XML_SECURITY_PROPERTY_MANAGER
 
 using $Constants = ::com::sun::org::apache::xerces::internal::impl::Constants;
-using $RevalidationHandler = ::com::sun::org::apache::xerces::internal::impl::RevalidationHandler;
 using $XMLErrorReporter = ::com::sun::org::apache::xerces::internal::impl::XMLErrorReporter;
 using $EntityState = ::com::sun::org::apache::xerces::internal::impl::validation::EntityState;
 using $ValidationManager = ::com::sun::org::apache::xerces::internal::impl::validation::ValidationManager;
@@ -115,7 +109,6 @@ using $XMLSchemaValidatorComponentManager = ::com::sun::org::apache::xerces::int
 using $XSGrammarPoolContainer = ::com::sun::org::apache::xerces::internal::jaxp::validation::XSGrammarPoolContainer;
 using $SAXParser = ::com::sun::org::apache::xerces::internal::parsers::SAXParser;
 using $AttributesProxy = ::com::sun::org::apache::xerces::internal::util::AttributesProxy;
-using $ParserConfigurationSettings = ::com::sun::org::apache::xerces::internal::util::ParserConfigurationSettings;
 using $SAXLocatorWrapper = ::com::sun::org::apache::xerces::internal::util::SAXLocatorWrapper;
 using $SAXMessageFormatter = ::com::sun::org::apache::xerces::internal::util::SAXMessageFormatter;
 using $Status = ::com::sun::org::apache::xerces::internal::util::Status;
@@ -136,7 +129,6 @@ using $XMLString = ::com::sun::org::apache::xerces::internal::xni::XMLString;
 using $XNIException = ::com::sun::org::apache::xerces::internal::xni::XNIException;
 using $XMLComponentManager = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager;
 using $XMLConfigurationException = ::com::sun::org::apache::xerces::internal::xni::parser::XMLConfigurationException;
-using $XMLDocumentFilter = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDocumentFilter;
 using $XMLDocumentSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDocumentSource;
 using $XMLParseException = ::com::sun::org::apache::xerces::internal::xni::parser::XMLParseException;
 using $AttributePSVI = ::com::sun::org::apache::xerces::internal::xs::AttributePSVI;
@@ -149,7 +141,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
@@ -176,7 +167,6 @@ using $SAXNotRecognizedException = ::org::xml::sax::SAXNotRecognizedException;
 using $SAXNotSupportedException = ::org::xml::sax::SAXNotSupportedException;
 using $XMLReader = ::org::xml::sax::XMLReader;
 using $Attributes2 = ::org::xml::sax::ext::Attributes2;
-using $EntityResolver2 = ::org::xml::sax::ext::EntityResolver2;
 
 namespace com {
 	namespace sun {

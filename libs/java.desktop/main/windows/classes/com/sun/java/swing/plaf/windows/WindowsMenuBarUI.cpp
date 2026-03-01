@@ -14,9 +14,7 @@
 #include <java/awt/Graphics.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/HierarchyListener.h>
-#include <java/awt/event/WindowAdapter.h>
 #include <java/awt/event/WindowListener.h>
-#include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/JComponent.h>
@@ -25,7 +23,6 @@
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/plaf/ActionMapUIResource.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/MenuBarUI.h>
 #include <javax/swing/plaf/basic/BasicMenuBarUI.h>
 #include <jcpp.h>
 
@@ -43,17 +40,14 @@ using $WindowsMenuItemUI = ::com::sun::java::swing::plaf::windows::WindowsMenuIt
 using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $Window = ::java::awt::Window;
 using $HierarchyListener = ::java::awt::event::HierarchyListener;
-using $WindowAdapter = ::java::awt::event::WindowAdapter;
 using $WindowListener = ::java::awt::event::WindowListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractAction = ::javax::swing::AbstractAction;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $JComponent = ::javax::swing::JComponent;
@@ -62,7 +56,6 @@ using $JRootPane = ::javax::swing::JRootPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $ActionMapUIResource = ::javax::swing::plaf::ActionMapUIResource;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $MenuBarUI = ::javax::swing::plaf::MenuBarUI;
 using $BasicMenuBarUI = ::javax::swing::plaf::basic::BasicMenuBarUI;
 
 namespace com {

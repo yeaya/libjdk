@@ -3,7 +3,6 @@
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Button.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Frame.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
@@ -12,19 +11,14 @@
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Image.h>
 #include <java/awt/MediaTracker.h>
-#include <java/awt/Menu.h>
 #include <java/awt/MenuComponent.h>
-#include <java/awt/MenuItem.h>
 #include <java/awt/PopupMenu.h>
 #include <java/awt/RenderingHints$Key.h>
 #include <java/awt/RenderingHints.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/Transparency.h>
 #include <java/awt/TrayIcon.h>
-#include <java/awt/Window.h>
 #include <java/awt/event/ActionEvent.h>
-#include <java/awt/event/ComponentEvent.h>
-#include <java/awt/event/InputEvent.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/awt/geom/Point2D.h>
 #include <java/awt/image/BufferedImage.h>
@@ -70,7 +64,6 @@
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Button = ::java::awt::Button;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Frame = ::java::awt::Frame;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
@@ -79,18 +72,13 @@ using $GraphicsDevice = ::java::awt::GraphicsDevice;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $Image = ::java::awt::Image;
 using $MediaTracker = ::java::awt::MediaTracker;
-using $Menu = ::java::awt::Menu;
 using $MenuComponent = ::java::awt::MenuComponent;
-using $MenuItem = ::java::awt::MenuItem;
 using $PopupMenu = ::java::awt::PopupMenu;
 using $RenderingHints = ::java::awt::RenderingHints;
 using $Toolkit = ::java::awt::Toolkit;
 using $Transparency = ::java::awt::Transparency;
 using $TrayIcon = ::java::awt::TrayIcon;
-using $Window = ::java::awt::Window;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ComponentEvent = ::java::awt::event::ComponentEvent;
-using $InputEvent = ::java::awt::event::InputEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $Point2D = ::java::awt::geom::Point2D;
 using $BufferedImage = ::java::awt::image::BufferedImage;

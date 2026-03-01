@@ -3,17 +3,13 @@
 #include <java/awt/AWTEvent.h>
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Color.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
-#include <java/awt/Frame$AccessibleAWTFrame.h>
 #include <java/awt/Frame.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/Image.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/Window$AccessibleAWTWindow.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/WindowEvent.h>
 #include <java/lang/SecurityManager.h>
@@ -50,17 +46,13 @@
 using $AWTEvent = ::java::awt::AWTEvent;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $Container = ::java::awt::Container;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Frame = ::java::awt::Frame;
-using $Frame$AccessibleAWTFrame = ::java::awt::Frame$AccessibleAWTFrame;
 using $Graphics = ::java::awt::Graphics;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $Image = ::java::awt::Image;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $Window = ::java::awt::Window;
-using $Window$AccessibleAWTWindow = ::java::awt::Window$AccessibleAWTWindow;
 using $WindowEvent = ::java::awt::event::WindowEvent;
 using $Attribute = ::java::lang::Attribute;
 using $Boolean = ::java::lang::Boolean;

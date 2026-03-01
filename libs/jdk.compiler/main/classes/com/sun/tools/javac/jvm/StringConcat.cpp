@@ -12,14 +12,12 @@
 #include <com/sun/tools/javac/comp/Resolve.h>
 #include <com/sun/tools/javac/jvm/Gen.h>
 #include <com/sun/tools/javac/jvm/Items$Item.h>
-#include <com/sun/tools/javac/jvm/StringConcat$Indy.h>
 #include <com/sun/tools/javac/jvm/StringConcat$IndyConstants.h>
 #include <com/sun/tools/javac/jvm/StringConcat$IndyPlain.h>
 #include <com/sun/tools/javac/jvm/StringConcat$Inline.h>
 #include <com/sun/tools/javac/jvm/Target.h>
 #include <com/sun/tools/javac/tree/JCTree$JCAssignOp.h>
 #include <com/sun/tools/javac/tree/JCTree$JCBinary.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$Tag.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
@@ -32,7 +30,6 @@
 #include <com/sun/tools/javac/util/Names.h>
 #include <com/sun/tools/javac/util/Options.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <jcpp.h>
@@ -53,7 +50,6 @@ using $Env = ::com::sun::tools::javac::comp::Env;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $Gen = ::com::sun::tools::javac::jvm::Gen;
 using $Items$Item = ::com::sun::tools::javac::jvm::Items$Item;
-using $StringConcat$Indy = ::com::sun::tools::javac::jvm::StringConcat$Indy;
 using $StringConcat$IndyConstants = ::com::sun::tools::javac::jvm::StringConcat$IndyConstants;
 using $StringConcat$IndyPlain = ::com::sun::tools::javac::jvm::StringConcat$IndyPlain;
 using $StringConcat$Inline = ::com::sun::tools::javac::jvm::StringConcat$Inline;
@@ -61,7 +57,6 @@ using $Target = ::com::sun::tools::javac::jvm::Target;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
 using $JCTree$JCAssignOp = ::com::sun::tools::javac::tree::JCTree$JCAssignOp;
 using $JCTree$JCBinary = ::com::sun::tools::javac::tree::JCTree$JCBinary;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
@@ -77,7 +72,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 

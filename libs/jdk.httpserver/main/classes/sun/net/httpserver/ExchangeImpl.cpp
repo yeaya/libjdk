@@ -4,8 +4,6 @@
 #include <com/sun/net/httpserver/HttpExchange.h>
 #include <com/sun/net/httpserver/HttpPrincipal.h>
 #include <java/io/BufferedOutputStream.h>
-#include <java/io/FilterInputStream.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
@@ -26,7 +24,6 @@
 #include <java/time/Instant.h>
 #include <java/time/ZoneId.h>
 #include <java/time/format/DateTimeFormatter.h>
-#include <java/time/temporal/Temporal.h>
 #include <java/time/temporal/TemporalAccessor.h>
 #include <java/util/Collection.h>
 #include <java/util/Iterator.h>
@@ -71,8 +68,6 @@ using $Headers = ::com::sun::net::httpserver::Headers;
 using $HttpExchange = ::com::sun::net::httpserver::HttpExchange;
 using $HttpPrincipal = ::com::sun::net::httpserver::HttpPrincipal;
 using $BufferedOutputStream = ::java::io::BufferedOutputStream;
-using $FilterInputStream = ::java::io::FilterInputStream;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
@@ -94,7 +89,6 @@ using $SocketChannel = ::java::nio::channels::SocketChannel;
 using $Instant = ::java::time::Instant;
 using $ZoneId = ::java::time::ZoneId;
 using $DateTimeFormatter = ::java::time::format::DateTimeFormatter;
-using $Temporal = ::java::time::temporal::Temporal;
 using $TemporalAccessor = ::java::time::temporal::TemporalAccessor;
 using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;

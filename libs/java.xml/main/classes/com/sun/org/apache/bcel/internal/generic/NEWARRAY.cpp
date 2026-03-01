@@ -8,7 +8,6 @@
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/ExceptionThrower.h>
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/ReferenceType.h>
 #include <com/sun/org/apache/bcel/internal/generic/StackProducer.h>
 #include <com/sun/org/apache/bcel/internal/generic/Type.h>
 #include <com/sun/org/apache/bcel/internal/generic/Visitor.h>
@@ -27,7 +26,6 @@ using $BasicType = ::com::sun::org::apache::bcel::internal::generic::BasicType;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $ExceptionThrower = ::com::sun::org::apache::bcel::internal::generic::ExceptionThrower;
 using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
-using $ReferenceType = ::com::sun::org::apache::bcel::internal::generic::ReferenceType;
 using $StackProducer = ::com::sun::org::apache::bcel::internal::generic::StackProducer;
 using $Type = ::com::sun::org::apache::bcel::internal::generic::Type;
 using $Visitor = ::com::sun::org::apache::bcel::internal::generic::Visitor;

@@ -2,17 +2,13 @@
 
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
-#include <javax/swing/DefaultListCellRenderer$UIResource.h>
-#include <javax/swing/DefaultListCellRenderer.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JList.h>
 #include <javax/swing/ListCellRenderer.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/ListUI.h>
 #include <javax/swing/plaf/UIResource.h>
 #include <javax/swing/plaf/basic/BasicListUI.h>
 #include <javax/swing/plaf/synth/ColorType.h>
@@ -32,7 +28,6 @@
 
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
@@ -40,13 +35,10 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DefaultListCellRenderer = ::javax::swing::DefaultListCellRenderer;
-using $DefaultListCellRenderer$UIResource = ::javax::swing::DefaultListCellRenderer$UIResource;
 using $JComponent = ::javax::swing::JComponent;
 using $JList = ::javax::swing::JList;
 using $ListCellRenderer = ::javax::swing::ListCellRenderer;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $ListUI = ::javax::swing::plaf::ListUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $BasicListUI = ::javax::swing::plaf::basic::BasicListUI;
 using $ColorType = ::javax::swing::plaf::synth::ColorType;

@@ -1,8 +1,6 @@
 #include <javax/swing/JMenuBar.h>
 
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Insets.h>
@@ -15,13 +13,10 @@
 #include <java/lang/Error.h>
 #include <java/util/Vector.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/DefaultSingleSelectionModel.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JMenu.h>
 #include <javax/swing/JMenuBar$AccessibleJMenuBar.h>
-#include <javax/swing/JMenuItem.h>
 #include <javax/swing/JPopupMenu.h>
 #include <javax/swing/KeyStroke.h>
 #include <javax/swing/KeyboardManager.h>
@@ -41,9 +36,6 @@
 using $ComponentArray = $Array<::java::awt::Component>;
 using $MenuElementArray = $Array<::javax::swing::MenuElement>;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
-using $Container = ::java::awt::Container;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $Toolkit = ::java::awt::Toolkit;
@@ -61,13 +53,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $Vector = ::java::util::Vector;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $DefaultSingleSelectionModel = ::javax::swing::DefaultSingleSelectionModel;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JMenu = ::javax::swing::JMenu;
 using $JMenuBar$AccessibleJMenuBar = ::javax::swing::JMenuBar$AccessibleJMenuBar;
-using $JMenuItem = ::javax::swing::JMenuItem;
 using $JPopupMenu = ::javax::swing::JPopupMenu;
 using $KeyStroke = ::javax::swing::KeyStroke;
 using $KeyboardManager = ::javax::swing::KeyboardManager;

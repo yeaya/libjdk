@@ -7,7 +7,6 @@
 #include <java/beans/PropertyChangeEvent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/TextUI.h>
 #include <javax/swing/plaf/basic/BasicEditorPaneUI.h>
 #include <javax/swing/plaf/basic/BasicTextUI.h>
 #include <javax/swing/plaf/synth/SynthContext.h>
@@ -32,9 +31,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $TextUI = ::javax::swing::plaf::TextUI;
-using $BasicEditorPaneUI = ::javax::swing::plaf::basic::BasicEditorPaneUI;
-using $BasicTextUI = ::javax::swing::plaf::basic::BasicTextUI;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $SynthEditorPaneUI = ::javax::swing::plaf::synth::SynthEditorPaneUI;
 using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;

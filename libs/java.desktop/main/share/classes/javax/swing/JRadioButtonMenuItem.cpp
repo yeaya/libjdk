@@ -1,27 +1,19 @@
 #include <javax/swing/JRadioButtonMenuItem.h>
 
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/io/ObjectOutputStream.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/AbstractButton$AccessibleAbstractButton.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ButtonModel.h>
-#include <javax/swing/DefaultButtonModel.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
-#include <javax/swing/JMenuItem$AccessibleJMenuItem.h>
 #include <javax/swing/JMenuItem.h>
 #include <javax/swing/JRadioButtonMenuItem$AccessibleJRadioButtonMenuItem.h>
 #include <javax/swing/JToggleButton$ToggleButtonModel.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <jcpp.h>
 
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
@@ -30,16 +22,11 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $AbstractButton = ::javax::swing::AbstractButton;
-using $AbstractButton$AccessibleAbstractButton = ::javax::swing::AbstractButton$AccessibleAbstractButton;
 using $Action = ::javax::swing::Action;
 using $ButtonModel = ::javax::swing::ButtonModel;
-using $DefaultButtonModel = ::javax::swing::DefaultButtonModel;
 using $Icon = ::javax::swing::Icon;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JMenuItem = ::javax::swing::JMenuItem;
-using $JMenuItem$AccessibleJMenuItem = ::javax::swing::JMenuItem$AccessibleJMenuItem;
 using $JRadioButtonMenuItem$AccessibleJRadioButtonMenuItem = ::javax::swing::JRadioButtonMenuItem$AccessibleJRadioButtonMenuItem;
 using $JToggleButton$ToggleButtonModel = ::javax::swing::JToggleButton$ToggleButtonModel;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;

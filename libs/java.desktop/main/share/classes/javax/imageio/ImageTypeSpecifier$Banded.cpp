@@ -3,7 +3,6 @@
 #include <java/awt/color/ColorSpace.h>
 #include <java/awt/image/BandedSampleModel.h>
 #include <java/awt/image/ColorModel.h>
-#include <java/awt/image/ComponentSampleModel.h>
 #include <java/awt/image/DataBuffer.h>
 #include <java/awt/image/SampleModel.h>
 #include <javax/imageio/ImageTypeSpecifier.h>
@@ -18,7 +17,6 @@
 
 using $ColorSpace = ::java::awt::color::ColorSpace;
 using $BandedSampleModel = ::java::awt::image::BandedSampleModel;
-using $ComponentSampleModel = ::java::awt::image::ComponentSampleModel;
 using $DataBuffer = ::java::awt::image::DataBuffer;
 using $SampleModel = ::java::awt::image::SampleModel;
 using $ClassInfo = ::java::lang::ClassInfo;

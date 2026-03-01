@@ -3,7 +3,6 @@
 #include <bug8038113$1.h>
 #include <java/awt/BasicStroke.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/Stroke.h>
@@ -16,7 +15,6 @@
 using $bug8038113$1 = ::bug8038113$1;
 using $BasicStroke = ::java::awt::BasicStroke;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $Stroke = ::java::awt::Stroke;
@@ -27,7 +25,6 @@ using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Icon = ::javax::swing::Icon;
-using $JComponent = ::javax::swing::JComponent;
 using $JPanel = ::javax::swing::JPanel;
 using $BasicTreeUI = ::javax::swing::plaf::basic::BasicTreeUI;
 

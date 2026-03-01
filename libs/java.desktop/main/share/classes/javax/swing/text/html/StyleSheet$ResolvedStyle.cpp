@@ -4,7 +4,6 @@
 #include <java/util/Enumeration.h>
 #include <javax/swing/event/ChangeListener.h>
 #include <javax/swing/text/AttributeSet.h>
-#include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/Style.h>
 #include <javax/swing/text/html/MuxingAttributeSet.h>
 #include <javax/swing/text/html/StyleSheet.h>
@@ -20,7 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Enumeration = ::java::util::Enumeration;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
-using $MutableAttributeSet = ::javax::swing::text::MutableAttributeSet;
 using $Style = ::javax::swing::text::Style;
 using $MuxingAttributeSet = ::javax::swing::text::html::MuxingAttributeSet;
 using $StyleSheet = ::javax::swing::text::html::StyleSheet;

@@ -33,7 +33,6 @@
 #include <sun/java2d/loops/XorPixelWriter$FloatData.h>
 #include <sun/java2d/loops/XorPixelWriter$IntData.h>
 #include <sun/java2d/loops/XorPixelWriter$ShortData.h>
-#include <sun/java2d/loops/XorPixelWriter.h>
 #include <sun/java2d/pipe/Region.h>
 #include <jcpp.h>
 
@@ -78,7 +77,6 @@ using $PixelWriter = ::sun::java2d::loops::PixelWriter;
 using $SolidPixelWriter = ::sun::java2d::loops::SolidPixelWriter;
 using $SurfaceType = ::sun::java2d::loops::SurfaceType;
 using $XORComposite = ::sun::java2d::loops::XORComposite;
-using $XorPixelWriter = ::sun::java2d::loops::XorPixelWriter;
 using $XorPixelWriter$ByteData = ::sun::java2d::loops::XorPixelWriter$ByteData;
 using $XorPixelWriter$DoubleData = ::sun::java2d::loops::XorPixelWriter$DoubleData;
 using $XorPixelWriter$FloatData = ::sun::java2d::loops::XorPixelWriter$FloatData;

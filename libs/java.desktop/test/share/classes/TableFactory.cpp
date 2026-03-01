@@ -4,15 +4,11 @@
 #include <javax/swing/text/AbstractDocument.h>
 #include <javax/swing/text/BoxView.h>
 #include <javax/swing/text/ComponentView.h>
-#include <javax/swing/text/CompositeView.h>
 #include <javax/swing/text/Element.h>
-#include <javax/swing/text/FlowView.h>
-#include <javax/swing/text/GlyphView.h>
 #include <javax/swing/text/IconView.h>
 #include <javax/swing/text/LabelView.h>
 #include <javax/swing/text/ParagraphView.h>
 #include <javax/swing/text/StyleConstants.h>
-#include <javax/swing/text/TableView.h>
 #include <javax/swing/text/View.h>
 #include <tableView.h>
 #include <jcpp.h>
@@ -26,15 +22,11 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractDocument = ::javax::swing::text::AbstractDocument;
 using $BoxView = ::javax::swing::text::BoxView;
 using $ComponentView = ::javax::swing::text::ComponentView;
-using $CompositeView = ::javax::swing::text::CompositeView;
 using $Element = ::javax::swing::text::Element;
-using $FlowView = ::javax::swing::text::FlowView;
-using $GlyphView = ::javax::swing::text::GlyphView;
 using $IconView = ::javax::swing::text::IconView;
 using $LabelView = ::javax::swing::text::LabelView;
 using $ParagraphView = ::javax::swing::text::ParagraphView;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
-using $TableView = ::javax::swing::text::TableView;
 using $View = ::javax::swing::text::View;
 using $tableView = ::tableView;
 

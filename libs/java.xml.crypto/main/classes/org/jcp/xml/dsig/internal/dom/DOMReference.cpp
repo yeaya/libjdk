@@ -6,7 +6,6 @@
 #include <com/sun/org/apache/xml/internal/security/utils/XMLUtils.h>
 #include <com/sun/org/slf4j/internal/Logger.h>
 #include <com/sun/org/slf4j/internal/LoggerFactory.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
@@ -20,12 +19,10 @@
 #include <java/net/URI.h>
 #include <java/net/URISyntaxException.h>
 #include <java/security/AccessController.h>
-#include <java/security/GeneralSecurityException.h>
 #include <java/security/MessageDigest.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/security/Provider.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
@@ -64,7 +61,6 @@
 #include <org/jcp/xml/dsig/internal/dom/Policy.h>
 #include <org/jcp/xml/dsig/internal/dom/Utils.h>
 #include <org/w3c/dom/Attr.h>
-#include <org/w3c/dom/CharacterData.h>
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/Element.h>
 #include <org/w3c/dom/Node.h>
@@ -83,7 +79,6 @@ using $UnsyncBufferedOutputStream = ::com::sun::org::apache::xml::internal::secu
 using $XMLUtils = ::com::sun::org::apache::xml::internal::security::utils::XMLUtils;
 using $Logger = ::com::sun::org::slf4j::internal::Logger;
 using $LoggerFactory = ::com::sun::org::slf4j::internal::LoggerFactory;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
@@ -101,12 +96,10 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $URI = ::java::net::URI;
 using $URISyntaxException = ::java::net::URISyntaxException;
 using $AccessController = ::java::security::AccessController;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $MessageDigest = ::java::security::MessageDigest;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Provider = ::java::security::Provider;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
@@ -145,7 +138,6 @@ using $DOMUtils = ::org::jcp::xml::dsig::internal::dom::DOMUtils;
 using $Policy = ::org::jcp::xml::dsig::internal::dom::Policy;
 using $Utils = ::org::jcp::xml::dsig::internal::dom::Utils;
 using $Attr = ::org::w3c::dom::Attr;
-using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;

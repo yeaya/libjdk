@@ -5,7 +5,6 @@
 #include <java/awt/BufferCapabilities.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Cursor.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
@@ -28,7 +27,6 @@
 #include <java/awt/peer/ContainerPeer.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JScrollBar.h>
-#include <javax/swing/JScrollPane.h>
 #include <javax/swing/JTextArea.h>
 #include <javax/swing/JViewport.h>
 #include <javax/swing/ScrollPaneConstants.h>
@@ -58,7 +56,6 @@ using $BufferCapabilities = ::java::awt::BufferCapabilities;
 using $BufferCapabilities$FlipContents = ::java::awt::BufferCapabilities$FlipContents;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Cursor = ::java::awt::Cursor;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
@@ -85,7 +82,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $JScrollBar = ::javax::swing::JScrollBar;
-using $JScrollPane = ::javax::swing::JScrollPane;
 using $JTextArea = ::javax::swing::JTextArea;
 using $JViewport = ::javax::swing::JViewport;
 using $ScrollPaneConstants = ::javax::swing::ScrollPaneConstants;

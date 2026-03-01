@@ -2,7 +2,6 @@
 
 #include <com/sun/org/apache/xerces/internal/utils/XMLSecurityManager$Limit.h>
 #include <com/sun/org/apache/xerces/internal/utils/XMLSecurityManager.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Formatter.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
@@ -28,7 +27,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Formatter = ::java::util::Formatter;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;

@@ -3,7 +3,6 @@
 #include <com/apple/laf/ClientPropertyApplicator$Property.h>
 #include <com/apple/laf/ClientPropertyApplicator.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/peer/ComponentPeer.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JRootPane.h>
@@ -18,7 +17,6 @@
 using $ClientPropertyApplicator$PropertyArray = $Array<::com::apple::laf::ClientPropertyApplicator$Property>;
 using $ClientPropertyApplicator = ::com::apple::laf::ClientPropertyApplicator;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

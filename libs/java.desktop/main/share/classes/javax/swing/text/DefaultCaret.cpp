@@ -3,7 +3,6 @@
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/HeadlessException.h>
 #include <java/awt/Point.h>
@@ -15,11 +14,9 @@
 #include <java/awt/datatransfer/Transferable.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
-#include <java/awt/event/ComponentEvent.h>
 #include <java/awt/event/FocusEvent$Cause.h>
 #include <java/awt/event/FocusEvent.h>
 #include <java/awt/event/FocusListener.h>
-#include <java/awt/event/InputEvent.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/awt/event/MouseMotionListener.h>
@@ -34,7 +31,6 @@
 #include <java/lang/Runnable.h>
 #include <java/lang/SecurityException.h>
 #include <java/util/EventListener.h>
-#include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/JComponent.h>
@@ -72,7 +68,6 @@
 #include <javax/swing/text/Position$Bias.h>
 #include <javax/swing/text/Segment.h>
 #include <javax/swing/text/StateInvariantError.h>
-#include <javax/swing/text/TextAction.h>
 #include <sun/swing/SwingUtilities2.h>
 #include <jcpp.h>
 
@@ -93,7 +88,6 @@ using $ChangeListenerArray = $Array<::javax::swing::event::ChangeListener>;
 using $Position$BiasArray = $Array<::javax::swing::text::Position$Bias>;
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $HeadlessException = ::java::awt::HeadlessException;
 using $Point = ::java::awt::Point;
@@ -105,11 +99,9 @@ using $StringSelection = ::java::awt::datatransfer::StringSelection;
 using $Transferable = ::java::awt::datatransfer::Transferable;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $ComponentEvent = ::java::awt::event::ComponentEvent;
 using $FocusEvent = ::java::awt::event::FocusEvent;
 using $FocusEvent$Cause = ::java::awt::event::FocusEvent$Cause;
 using $FocusListener = ::java::awt::event::FocusListener;
-using $InputEvent = ::java::awt::event::InputEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
@@ -132,7 +124,6 @@ using $Number = ::java::lang::Number;
 using $Runnable = ::java::lang::Runnable;
 using $SecurityException = ::java::lang::SecurityException;
 using $EventListener = ::java::util::EventListener;
-using $AbstractAction = ::javax::swing::AbstractAction;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $JComponent = ::javax::swing::JComponent;
@@ -168,7 +159,6 @@ using $NavigationFilter$FilterBypass = ::javax::swing::text::NavigationFilter$Fi
 using $Position$Bias = ::javax::swing::text::Position$Bias;
 using $Segment = ::javax::swing::text::Segment;
 using $StateInvariantError = ::javax::swing::text::StateInvariantError;
-using $TextAction = ::javax::swing::text::TextAction;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 
 namespace javax {

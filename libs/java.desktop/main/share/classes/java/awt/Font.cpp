@@ -41,7 +41,6 @@
 #include <java/security/PrivilegedExceptionAction.h>
 #include <java/text/AttributedCharacterIterator$Attribute.h>
 #include <java/text/CharacterIterator.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Hashtable.h>
 #include <java/util/Locale.h>
 #include <java/util/Map.h>
@@ -196,7 +195,6 @@ using $Permission = ::java::security::Permission;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
 using $AttributedCharacterIterator$Attribute = ::java::text::AttributedCharacterIterator$Attribute;
 using $CharacterIterator = ::java::text::CharacterIterator;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
 using $ComponentFactory = ::sun::awt::ComponentFactory;

@@ -10,9 +10,7 @@
 #include <javax/swing/JComponent.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/plaf/ButtonUI.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/basic/BasicButtonUI.h>
 #include <javax/swing/plaf/basic/BasicGraphicsUtils.h>
 #include <javax/swing/plaf/basic/BasicRadioButtonUI.h>
 #include <javax/swing/plaf/basic/BasicToggleButtonUI.h>
@@ -37,12 +35,9 @@ using $AbstractButton = ::javax::swing::AbstractButton;
 using $JComponent = ::javax::swing::JComponent;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
-using $ButtonUI = ::javax::swing::plaf::ButtonUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $BasicButtonUI = ::javax::swing::plaf::basic::BasicButtonUI;
 using $BasicGraphicsUtils = ::javax::swing::plaf::basic::BasicGraphicsUtils;
 using $BasicRadioButtonUI = ::javax::swing::plaf::basic::BasicRadioButtonUI;
-using $BasicToggleButtonUI = ::javax::swing::plaf::basic::BasicToggleButtonUI;
 using $AppContext = ::sun::awt::AppContext;
 
 namespace com {

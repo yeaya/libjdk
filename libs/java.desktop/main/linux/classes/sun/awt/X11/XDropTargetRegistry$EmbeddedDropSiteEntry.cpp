@@ -2,7 +2,6 @@
 
 #include <java/awt/Point.h>
 #include <java/lang/AssertionError.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
@@ -13,7 +12,6 @@
 #include <sun/awt/X11/XDropTargetRegistry.h>
 #include <sun/awt/X11/XErrorEvent.h>
 #include <sun/awt/X11/XErrorHandler$IgnoreBadWindowHandler.h>
-#include <sun/awt/X11/XErrorHandler$XBaseErrorHandler.h>
 #include <sun/awt/X11/XErrorHandler.h>
 #include <sun/awt/X11/XErrorHandlerUtil.h>
 #include <sun/awt/X11/XToolkit.h>
@@ -29,7 +27,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
@@ -40,7 +37,6 @@ using $XDropTargetRegistry = ::sun::awt::X11::XDropTargetRegistry;
 using $XErrorEvent = ::sun::awt::X11::XErrorEvent;
 using $XErrorHandler = ::sun::awt::X11::XErrorHandler;
 using $XErrorHandler$IgnoreBadWindowHandler = ::sun::awt::X11::XErrorHandler$IgnoreBadWindowHandler;
-using $XErrorHandler$XBaseErrorHandler = ::sun::awt::X11::XErrorHandler$XBaseErrorHandler;
 using $XErrorHandlerUtil = ::sun::awt::X11::XErrorHandlerUtil;
 using $XToolkit = ::sun::awt::X11::XToolkit;
 using $XWindowAttributes = ::sun::awt::X11::XWindowAttributes;

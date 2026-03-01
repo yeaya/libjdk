@@ -1,6 +1,5 @@
 #include <com/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolverSpi.h>
 
-#include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
 #include <com/sun/org/apache/xml/internal/security/keys/keyresolver/KeyResolverException.h>
 #include <com/sun/org/apache/xml/internal/security/keys/storage/StorageResolver.h>
 #include <com/sun/org/apache/xml/internal/security/parser/XMLParserException.h>
@@ -16,7 +15,6 @@
 #include <org/w3c/dom/Element.h>
 #include <jcpp.h>
 
-using $XMLSecurityException = ::com::sun::org::apache::xml::internal::security::exceptions::XMLSecurityException;
 using $KeyResolverException = ::com::sun::org::apache::xml::internal::security::keys::keyresolver::KeyResolverException;
 using $StorageResolver = ::com::sun::org::apache::xml::internal::security::keys::storage::StorageResolver;
 using $XMLParserException = ::com::sun::org::apache::xml::internal::security::parser::XMLParserException;

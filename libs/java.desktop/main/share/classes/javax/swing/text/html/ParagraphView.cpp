@@ -8,7 +8,6 @@
 #include <javax/swing/SizeRequirements.h>
 #include <javax/swing/SwingConstants.h>
 #include <javax/swing/text/AttributeSet.h>
-#include <javax/swing/text/BoxView.h>
 #include <javax/swing/text/CompositeView.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/Element.h>
@@ -48,11 +47,8 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SizeRequirements = ::javax::swing::SizeRequirements;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
-using $BoxView = ::javax::swing::text::BoxView;
-using $CompositeView = ::javax::swing::text::CompositeView;
 using $Document = ::javax::swing::text::Document;
 using $Element = ::javax::swing::text::Element;
-using $FlowView = ::javax::swing::text::FlowView;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $ParagraphView = ::javax::swing::text::ParagraphView;
 using $StyleConstants = ::javax::swing::text::StyleConstants;

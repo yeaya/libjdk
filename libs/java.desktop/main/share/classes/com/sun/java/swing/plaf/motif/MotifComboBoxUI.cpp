@@ -23,12 +23,8 @@
 #include <javax/swing/ListCellRenderer.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/border/Border.h>
-#include <javax/swing/plaf/ComboBoxUI.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/basic/BasicComboBoxUI$ComboBoxLayoutManager.h>
-#include <javax/swing/plaf/basic/BasicComboBoxUI$PropertyChangeHandler.h>
 #include <javax/swing/plaf/basic/BasicComboBoxUI.h>
-#include <javax/swing/plaf/basic/BasicComboPopup.h>
 #include <javax/swing/plaf/basic/ComboPopup.h>
 #include <jcpp.h>
 
@@ -59,12 +55,8 @@ using $JComponent = ::javax::swing::JComponent;
 using $ListCellRenderer = ::javax::swing::ListCellRenderer;
 using $UIManager = ::javax::swing::UIManager;
 using $Border = ::javax::swing::border::Border;
-using $ComboBoxUI = ::javax::swing::plaf::ComboBoxUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $BasicComboBoxUI = ::javax::swing::plaf::basic::BasicComboBoxUI;
-using $BasicComboBoxUI$ComboBoxLayoutManager = ::javax::swing::plaf::basic::BasicComboBoxUI$ComboBoxLayoutManager;
-using $BasicComboBoxUI$PropertyChangeHandler = ::javax::swing::plaf::basic::BasicComboBoxUI$PropertyChangeHandler;
-using $BasicComboPopup = ::javax::swing::plaf::basic::BasicComboPopup;
 using $ComboPopup = ::javax::swing::plaf::basic::ComboPopup;
 
 namespace com {

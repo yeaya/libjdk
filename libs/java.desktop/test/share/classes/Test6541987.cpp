@@ -2,8 +2,6 @@
 
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
-#include <java/awt/Frame.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/KeyEvent.h>
@@ -31,8 +29,6 @@
 using $WindowArray = $Array<::java::awt::Window>;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
-using $Frame = ::java::awt::Frame;
 using $Robot = ::java::awt::Robot;
 using $Window = ::java::awt::Window;
 using $KeyEvent = ::java::awt::event::KeyEvent;

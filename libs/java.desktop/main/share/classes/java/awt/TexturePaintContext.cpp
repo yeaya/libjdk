@@ -14,7 +14,6 @@
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/DirectColorModel.h>
 #include <java/awt/image/IndexColorModel.h>
-#include <java/awt/image/PackedColorModel.h>
 #include <java/awt/image/Raster.h>
 #include <java/awt/image/WritableRaster.h>
 #include <java/lang/Math.h>
@@ -45,7 +44,6 @@ using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $DirectColorModel = ::java::awt::image::DirectColorModel;
 using $IndexColorModel = ::java::awt::image::IndexColorModel;
-using $PackedColorModel = ::java::awt::image::PackedColorModel;
 using $Raster = ::java::awt::image::Raster;
 using $WritableRaster = ::java::awt::image::WritableRaster;
 using $ClassInfo = ::java::lang::ClassInfo;

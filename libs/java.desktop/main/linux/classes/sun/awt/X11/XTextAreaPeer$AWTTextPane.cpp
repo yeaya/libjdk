@@ -9,17 +9,11 @@
 #include <java/awt/Window.h>
 #include <java/awt/event/FocusEvent.h>
 #include <java/awt/event/FocusListener.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JScrollBar.h>
-#include <javax/swing/JScrollPane$ScrollBar.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/JTextArea.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/ScrollPaneUI.h>
-#include <javax/swing/plaf/basic/BasicScrollPaneUI.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <sun/awt/AWTAccessor$ComponentAccessor.h>
 #include <sun/awt/AWTAccessor.h>
 #include <sun/awt/X11/XTextAreaPeer$AWTTextPane$XAWTScrollBar.h>
@@ -45,17 +39,11 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JScrollBar = ::javax::swing::JScrollBar;
 using $JScrollPane = ::javax::swing::JScrollPane;
-using $JScrollPane$ScrollBar = ::javax::swing::JScrollPane$ScrollBar;
 using $JTextArea = ::javax::swing::JTextArea;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $ScrollPaneUI = ::javax::swing::plaf::ScrollPaneUI;
-using $BasicScrollPaneUI = ::javax::swing::plaf::basic::BasicScrollPaneUI;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $AWTAccessor = ::sun::awt::AWTAccessor;
 using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor;
 using $XTextAreaPeer = ::sun::awt::X11::XTextAreaPeer;

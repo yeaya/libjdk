@@ -17,7 +17,6 @@
 #include <java/awt/event/FocusListener.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/awt/event/MouseMotionListener.h>
-#include <java/awt/event/WindowAdapter.h>
 #include <java/awt/event/WindowListener.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/util/HashMap.h>
@@ -39,10 +38,8 @@
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIDefaults.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/CompoundBorder.h>
-#include <javax/swing/border/EmptyBorder.h>
 #include <javax/swing/event/MouseInputListener.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/ToolBarUI.h>
@@ -60,7 +57,6 @@
 #include <javax/swing/plaf/basic/BasicToolBarUI$Handler.h>
 #include <javax/swing/plaf/basic/LazyActionMap.h>
 #include <sun/swing/DefaultLookup.h>
-#include <sun/swing/UIAction.h>
 #include <jcpp.h>
 
 #undef CENTER
@@ -98,7 +94,6 @@ using $ContainerListener = ::java::awt::event::ContainerListener;
 using $FocusListener = ::java::awt::event::FocusListener;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
-using $WindowAdapter = ::java::awt::event::WindowAdapter;
 using $WindowListener = ::java::awt::event::WindowListener;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
@@ -127,10 +122,8 @@ using $SwingConstants = ::javax::swing::SwingConstants;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIManager = ::javax::swing::UIManager;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $CompoundBorder = ::javax::swing::border::CompoundBorder;
-using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 using $MouseInputListener = ::javax::swing::event::MouseInputListener;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $ToolBarUI = ::javax::swing::plaf::ToolBarUI;
@@ -148,7 +141,6 @@ using $BasicToolBarUI$FrameListener = ::javax::swing::plaf::basic::BasicToolBarU
 using $BasicToolBarUI$Handler = ::javax::swing::plaf::basic::BasicToolBarUI$Handler;
 using $LazyActionMap = ::javax::swing::plaf::basic::LazyActionMap;
 using $DefaultLookup = ::sun::swing::DefaultLookup;
-using $UIAction = ::sun::swing::UIAction;
 
 namespace javax {
 	namespace swing {

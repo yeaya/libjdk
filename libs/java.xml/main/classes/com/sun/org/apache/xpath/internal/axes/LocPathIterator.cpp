@@ -12,7 +12,6 @@
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
 #include <com/sun/org/apache/xpath/internal/XPathVisitor.h>
 #include <com/sun/org/apache/xpath/internal/axes/IteratorPool.h>
-#include <com/sun/org/apache/xpath/internal/axes/NodeSequence.h>
 #include <com/sun/org/apache/xpath/internal/axes/PredicatedNodeTest.h>
 #include <com/sun/org/apache/xpath/internal/axes/SubContextList.h>
 #include <com/sun/org/apache/xpath/internal/axes/WalkerFactory.h>
@@ -42,7 +41,6 @@ using $VariableStack = ::com::sun::org::apache::xpath::internal::VariableStack;
 using $XPathContext = ::com::sun::org::apache::xpath::internal::XPathContext;
 using $XPathVisitor = ::com::sun::org::apache::xpath::internal::XPathVisitor;
 using $IteratorPool = ::com::sun::org::apache::xpath::internal::axes::IteratorPool;
-using $NodeSequence = ::com::sun::org::apache::xpath::internal::axes::NodeSequence;
 using $PredicatedNodeTest = ::com::sun::org::apache::xpath::internal::axes::PredicatedNodeTest;
 using $WalkerFactory = ::com::sun::org::apache::xpath::internal::axes::WalkerFactory;
 using $Compiler = ::com::sun::org::apache::xpath::internal::compiler::Compiler;

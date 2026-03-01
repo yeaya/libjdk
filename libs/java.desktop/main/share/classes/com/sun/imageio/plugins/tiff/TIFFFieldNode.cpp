@@ -8,7 +8,6 @@
 #include <javax/imageio/plugins/tiff/TIFFField.h>
 #include <javax/imageio/plugins/tiff/TIFFTag.h>
 #include <javax/imageio/plugins/tiff/TIFFTagSet.h>
-#include <org/w3c/dom/Element.h>
 #include <org/w3c/dom/Node.h>
 #include <jcpp.h>
 
@@ -34,7 +33,6 @@ using $TIFFDirectory = ::javax::imageio::plugins::tiff::TIFFDirectory;
 using $TIFFField = ::javax::imageio::plugins::tiff::TIFFField;
 using $TIFFTag = ::javax::imageio::plugins::tiff::TIFFTag;
 using $TIFFTagSet = ::javax::imageio::plugins::tiff::TIFFTagSet;
-using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;
 
 namespace com {

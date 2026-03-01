@@ -1,8 +1,6 @@
 #include <javax/swing/plaf/synth/SynthSplitPaneUI.h>
 
-#include <java/awt/Canvas.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/awt/Shape.h>
@@ -11,7 +9,6 @@
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/lang/Number.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/HashSet.h>
 #include <java/util/Set.h>
 #include <javax/swing/JComponent.h>
@@ -19,7 +16,6 @@
 #include <javax/swing/KeyStroke.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/SplitPaneUI.h>
 #include <javax/swing/plaf/basic/BasicSplitPaneDivider.h>
 #include <javax/swing/plaf/basic/BasicSplitPaneUI.h>
 #include <javax/swing/plaf/synth/Region.h>
@@ -44,9 +40,7 @@
 #undef SPLIT_PANE_DIVIDER
 #undef VK_TAB
 
-using $Canvas = ::java::awt::Canvas;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $Shape = ::java::awt::Shape;
@@ -60,7 +54,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Number = ::java::lang::Number;
-using $AbstractSet = ::java::util::AbstractSet;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
 using $JComponent = ::javax::swing::JComponent;
@@ -68,7 +61,6 @@ using $JSplitPane = ::javax::swing::JSplitPane;
 using $KeyStroke = ::javax::swing::KeyStroke;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $SplitPaneUI = ::javax::swing::plaf::SplitPaneUI;
 using $BasicSplitPaneDivider = ::javax::swing::plaf::basic::BasicSplitPaneDivider;
 using $BasicSplitPaneUI = ::javax::swing::plaf::basic::BasicSplitPaneUI;
 using $Region = ::javax::swing::plaf::synth::Region;

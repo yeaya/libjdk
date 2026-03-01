@@ -26,7 +26,6 @@
 #include <sun/font/FontStrikeDesc.h>
 #include <sun/font/NativeFont.h>
 #include <sun/font/PhysicalFont.h>
-#include <sun/font/PhysicalStrike.h>
 #include <sun/font/StrikeMetrics.h>
 #include <sun/font/SunFontManager.h>
 #include <sun/java2d/Disposer.h>
@@ -66,7 +65,6 @@ using $FontScalerException = ::sun::font::FontScalerException;
 using $FontStrike = ::sun::font::FontStrike;
 using $FontStrikeDesc = ::sun::font::FontStrikeDesc;
 using $PhysicalFont = ::sun::font::PhysicalFont;
-using $PhysicalStrike = ::sun::font::PhysicalStrike;
 using $StrikeMetrics = ::sun::font::StrikeMetrics;
 using $SunFontManager = ::sun::font::SunFontManager;
 using $Disposer = ::sun::java2d::Disposer;

@@ -15,7 +15,6 @@
 #include <org/xml/sax/ContentHandler.h>
 #include <org/xml/sax/Locator.h>
 #include <org/xml/sax/ext/LexicalHandler.h>
-#include <org/xml/sax/helpers/AttributesImpl.h>
 #include <jcpp.h>
 
 #undef EMPTYSTRING
@@ -38,7 +37,6 @@ using $Attributes = ::org::xml::sax::Attributes;
 using $ContentHandler = ::org::xml::sax::ContentHandler;
 using $Locator = ::org::xml::sax::Locator;
 using $LexicalHandler = ::org::xml::sax::ext::LexicalHandler;
-using $AttributesImpl = ::org::xml::sax::helpers::AttributesImpl;
 
 namespace com {
 	namespace sun {

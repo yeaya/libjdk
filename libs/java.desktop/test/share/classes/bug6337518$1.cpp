@@ -3,7 +3,6 @@
 #include <bug6337518.h>
 #include <javax/swing/JComboBox.h>
 #include <javax/swing/plaf/ComboBoxUI.h>
-#include <javax/swing/plaf/basic/BasicComboBoxUI.h>
 #include <jcpp.h>
 
 using $bug6337518 = ::bug6337518;
@@ -13,7 +12,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComboBox = ::javax::swing::JComboBox;
 using $ComboBoxUI = ::javax::swing::plaf::ComboBoxUI;
-using $BasicComboBoxUI = ::javax::swing::plaf::basic::BasicComboBoxUI;
 
 $MethodInfo _bug6337518$1_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(bug6337518$1, init$, void)},

@@ -4,10 +4,8 @@
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Window.h>
 #include <java/lang/Runnable.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/GroupLayout$Group.h>
 #include <javax/swing/GroupLayout$ParallelGroup.h>
 #include <javax/swing/GroupLayout$SequentialGroup.h>
@@ -26,14 +24,12 @@ using $bug8013566$1 = ::bug8013566$1;
 using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $GroupLayout = ::javax::swing::GroupLayout;
 using $GroupLayout$Group = ::javax::swing::GroupLayout$Group;
 using $GroupLayout$ParallelGroup = ::javax::swing::GroupLayout$ParallelGroup;

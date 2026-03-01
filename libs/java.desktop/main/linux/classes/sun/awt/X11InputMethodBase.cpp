@@ -18,7 +18,6 @@
 #include <java/lang/ref/WeakReference.h>
 #include <java/text/AttributedCharacterIterator.h>
 #include <java/text/AttributedString.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
 #include <java/util/Locale.h>
@@ -72,7 +71,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $AttributedCharacterIterator = ::java::text::AttributedCharacterIterator;
 using $AttributedString = ::java::text::AttributedString;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;
 using $Locale = ::java::util::Locale;

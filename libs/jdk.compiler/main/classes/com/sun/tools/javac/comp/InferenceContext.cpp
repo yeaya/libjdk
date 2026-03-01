@@ -6,13 +6,11 @@
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/Types$TypeMapping.h>
 #include <com/sun/tools/javac/code/Types.h>
-#include <com/sun/tools/javac/comp/Infer$BestLeafSolver.h>
 #include <com/sun/tools/javac/comp/Infer$FreeTypeListener.h>
 #include <com/sun/tools/javac/comp/Infer$GraphSolver.h>
 #include <com/sun/tools/javac/comp/Infer$GraphStrategy.h>
 #include <com/sun/tools/javac/comp/Infer$InferenceException.h>
 #include <com/sun/tools/javac/comp/Infer$InferenceStep.h>
-#include <com/sun/tools/javac/comp/Infer$LeafSolver.h>
 #include <com/sun/tools/javac/comp/Infer.h>
 #include <com/sun/tools/javac/comp/InferenceContext$1.h>
 #include <com/sun/tools/javac/comp/InferenceContext$2.h>
@@ -30,9 +28,7 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/ArrayDeque.h>
-#include <java/util/Collection.h>
 #include <java/util/EnumSet.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
@@ -58,13 +54,11 @@ using $Type$UndetVar$InferenceBound = ::com::sun::tools::javac::code::Type$Undet
 using $Types = ::com::sun::tools::javac::code::Types;
 using $Types$TypeMapping = ::com::sun::tools::javac::code::Types$TypeMapping;
 using $Infer = ::com::sun::tools::javac::comp::Infer;
-using $Infer$BestLeafSolver = ::com::sun::tools::javac::comp::Infer$BestLeafSolver;
 using $Infer$FreeTypeListener = ::com::sun::tools::javac::comp::Infer$FreeTypeListener;
 using $Infer$GraphSolver = ::com::sun::tools::javac::comp::Infer$GraphSolver;
 using $Infer$GraphStrategy = ::com::sun::tools::javac::comp::Infer$GraphStrategy;
 using $Infer$InferenceException = ::com::sun::tools::javac::comp::Infer$InferenceException;
 using $Infer$InferenceStep = ::com::sun::tools::javac::comp::Infer$InferenceStep;
-using $Infer$LeafSolver = ::com::sun::tools::javac::comp::Infer$LeafSolver;
 using $InferenceContext$1 = ::com::sun::tools::javac::comp::InferenceContext$1;
 using $InferenceContext$2 = ::com::sun::tools::javac::comp::InferenceContext$2;
 using $InferenceContext$3 = ::com::sun::tools::javac::comp::InferenceContext$3;
@@ -81,9 +75,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayDeque = ::java::util::ArrayDeque;
-using $Collection = ::java::util::Collection;
 using $EnumSet = ::java::util::EnumSet;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;

@@ -2,7 +2,6 @@
 
 #include <java/awt/AWTPermission.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/DisplayMode.h>
 #include <java/awt/EventQueue.h>
 #include <java/awt/GraphicsConfiguration.h>
@@ -10,7 +9,6 @@
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Window.h>
-#include <java/awt/event/WindowAdapter.h>
 #include <java/awt/event/WindowListener.h>
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/peer/ComponentPeer.h>
@@ -20,7 +18,6 @@
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
 #include <java/security/AccessController.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/util/ArrayList.h>
@@ -47,7 +44,6 @@ using $DisplayModeArray = $Array<::java::awt::DisplayMode>;
 using $GraphicsConfigurationArray = $Array<::java::awt::GraphicsConfiguration>;
 using $AWTPermission = ::java::awt::AWTPermission;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $DisplayMode = ::java::awt::DisplayMode;
 using $EventQueue = ::java::awt::EventQueue;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
@@ -55,7 +51,6 @@ using $GraphicsDevice = ::java::awt::GraphicsDevice;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $Rectangle = ::java::awt::Rectangle;
 using $Window = ::java::awt::Window;
-using $WindowAdapter = ::java::awt::event::WindowAdapter;
 using $WindowListener = ::java::awt::event::WindowListener;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $WindowPeer = ::java::awt::peer::WindowPeer;
@@ -70,7 +65,6 @@ using $Runnable = ::java::lang::Runnable;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $AccessController = ::java::security::AccessController;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;

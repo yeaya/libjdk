@@ -19,9 +19,7 @@
 #include <javax/swing/JTextField.h>
 #include <javax/swing/SpinnerModel.h>
 #include <javax/swing/SpinnerNumberModel.h>
-#include <javax/swing/text/DefaultFormatter.h>
 #include <javax/swing/text/DefaultFormatterFactory.h>
-#include <javax/swing/text/InternationalFormatter.h>
 #include <javax/swing/text/NumberFormatter.h>
 #include <sun/util/locale/provider/LocaleProviderAdapter.h>
 #include <sun/util/locale/provider/LocaleResources.h>
@@ -49,9 +47,7 @@ using $JSpinner$DefaultEditor = ::javax::swing::JSpinner$DefaultEditor;
 using $JSpinner$NumberEditorFormatter = ::javax::swing::JSpinner$NumberEditorFormatter;
 using $JTextField = ::javax::swing::JTextField;
 using $SpinnerNumberModel = ::javax::swing::SpinnerNumberModel;
-using $DefaultFormatter = ::javax::swing::text::DefaultFormatter;
 using $DefaultFormatterFactory = ::javax::swing::text::DefaultFormatterFactory;
-using $InternationalFormatter = ::javax::swing::text::InternationalFormatter;
 using $NumberFormatter = ::javax::swing::text::NumberFormatter;
 using $LocaleProviderAdapter = ::sun::util::locale::provider::LocaleProviderAdapter;
 using $LocaleResources = ::sun::util::locale::provider::LocaleResources;

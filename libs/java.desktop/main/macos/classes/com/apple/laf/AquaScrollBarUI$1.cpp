@@ -3,7 +3,6 @@
 #include <apple/laf/JRSUIConstants$ScrollBarHit.h>
 #include <apple/laf/JRSUIConstants$ScrollBarPart.h>
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <jcpp.h>
@@ -23,7 +22,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 

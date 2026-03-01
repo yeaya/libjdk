@@ -11,7 +11,6 @@
 #include <java/awt/LayoutManager.h>
 #include <java/awt/Panel.h>
 #include <java/awt/Rectangle.h>
-#include <java/awt/TextComponent.h>
 #include <java/awt/TextField.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/beans/PropertyChangeSupport.h>
@@ -22,14 +21,12 @@ using $Canvas = ::java::awt::Canvas;
 using $Choice = ::java::awt::Choice;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Event = ::java::awt::Event;
 using $Graphics = ::java::awt::Graphics;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $Panel = ::java::awt::Panel;
 using $Rectangle = ::java::awt::Rectangle;
-using $TextComponent = ::java::awt::TextComponent;
 using $TextField = ::java::awt::TextField;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $PropertyChangeSupport = ::java::beans::PropertyChangeSupport;

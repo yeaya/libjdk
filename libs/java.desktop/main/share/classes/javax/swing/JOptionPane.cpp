@@ -1,20 +1,16 @@
 #include <javax/swing/JOptionPane.h>
 
 #include <java/awt/BorderLayout.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dialog.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Frame.h>
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Point.h>
 #include <java/awt/Window.h>
-#include <java/awt/event/ComponentAdapter.h>
 #include <java/awt/event/ComponentListener.h>
 #include <java/awt/event/WindowAdapter.h>
 #include <java/awt/event/WindowFocusListener.h>
@@ -31,7 +27,6 @@
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/swing/ClientPropertyKey.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JDesktopPane.h>
 #include <javax/swing/JDialog.h>
@@ -48,7 +43,6 @@
 #include <javax/swing/SwingUtilities$SharedOwnerFrame.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/event/InternalFrameAdapter.h>
 #include <javax/swing/event/InternalFrameListener.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/OptionPaneUI.h>
@@ -94,18 +88,14 @@
 
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $Container = ::java::awt::Container;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Dialog = ::java::awt::Dialog;
 using $Dimension = ::java::awt::Dimension;
 using $Frame = ::java::awt::Frame;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Point = ::java::awt::Point;
 using $Window = ::java::awt::Window;
-using $ComponentAdapter = ::java::awt::event::ComponentAdapter;
 using $ComponentListener = ::java::awt::event::ComponentListener;
 using $WindowAdapter = ::java::awt::event::WindowAdapter;
 using $WindowFocusListener = ::java::awt::event::WindowFocusListener;
@@ -132,7 +122,6 @@ using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $ClientPropertyKey = ::javax::swing::ClientPropertyKey;
 using $Icon = ::javax::swing::Icon;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JDesktopPane = ::javax::swing::JDesktopPane;
 using $JDialog = ::javax::swing::JDialog;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
@@ -148,7 +137,6 @@ using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $SwingUtilities$SharedOwnerFrame = ::javax::swing::SwingUtilities$SharedOwnerFrame;
 using $UIManager = ::javax::swing::UIManager;
-using $InternalFrameAdapter = ::javax::swing::event::InternalFrameAdapter;
 using $InternalFrameListener = ::javax::swing::event::InternalFrameListener;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $OptionPaneUI = ::javax::swing::plaf::OptionPaneUI;

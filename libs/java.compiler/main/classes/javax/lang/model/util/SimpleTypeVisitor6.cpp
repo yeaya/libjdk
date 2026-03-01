@@ -7,7 +7,6 @@
 #include <javax/lang/model/type/NoType.h>
 #include <javax/lang/model/type/NullType.h>
 #include <javax/lang/model/type/PrimitiveType.h>
-#include <javax/lang/model/type/ReferenceType.h>
 #include <javax/lang/model/type/TypeMirror.h>
 #include <javax/lang/model/type/TypeVariable.h>
 #include <javax/lang/model/type/WildcardType.h>
@@ -28,7 +27,6 @@ using $ExecutableType = ::javax::lang::model::type::ExecutableType;
 using $NoType = ::javax::lang::model::type::NoType;
 using $NullType = ::javax::lang::model::type::NullType;
 using $PrimitiveType = ::javax::lang::model::type::PrimitiveType;
-using $ReferenceType = ::javax::lang::model::type::ReferenceType;
 using $TypeMirror = ::javax::lang::model::type::TypeMirror;
 using $TypeVariable = ::javax::lang::model::type::TypeVariable;
 using $WildcardType = ::javax::lang::model::type::WildcardType;

@@ -4,7 +4,6 @@
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Point.h>
 #include <java/awt/Rectangle.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collections.h>
 #include <java/util/HashSet.h>
 #include <java/util/Set.h>
@@ -18,7 +17,6 @@
 #include <sun/awt/X11/XEmbeddedFramePeer.h>
 #include <sun/awt/X11/XErrorEvent.h>
 #include <sun/awt/X11/XErrorHandler$IgnoreBadWindowHandler.h>
-#include <sun/awt/X11/XErrorHandler$XBaseErrorHandler.h>
 #include <sun/awt/X11/XErrorHandler.h>
 #include <sun/awt/X11/XErrorHandlerUtil.h>
 #include <sun/awt/X11/XQueryTree.h>
@@ -43,7 +41,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Collections = ::java::util::Collections;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
@@ -57,7 +54,6 @@ using $XEmbeddedFramePeer = ::sun::awt::X11::XEmbeddedFramePeer;
 using $XErrorEvent = ::sun::awt::X11::XErrorEvent;
 using $XErrorHandler = ::sun::awt::X11::XErrorHandler;
 using $XErrorHandler$IgnoreBadWindowHandler = ::sun::awt::X11::XErrorHandler$IgnoreBadWindowHandler;
-using $XErrorHandler$XBaseErrorHandler = ::sun::awt::X11::XErrorHandler$XBaseErrorHandler;
 using $XErrorHandlerUtil = ::sun::awt::X11::XErrorHandlerUtil;
 using $XQueryTree = ::sun::awt::X11::XQueryTree;
 using $XToolkit = ::sun::awt::X11::XToolkit;

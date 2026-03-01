@@ -7,7 +7,6 @@
 #include <com/sun/tools/javac/comp/Resolve$MethodReferenceLookupHelper.h>
 #include <com/sun/tools/javac/comp/Resolve$MethodResolutionPhase.h>
 #include <com/sun/tools/javac/comp/Resolve$ReferenceLookupHelper.h>
-#include <com/sun/tools/javac/comp/Resolve$ResolveError.h>
 #include <com/sun/tools/javac/comp/Resolve$SymbolNotFoundError.h>
 #include <com/sun/tools/javac/comp/Resolve.h>
 #include <com/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind.h>
@@ -24,7 +23,6 @@ using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;
 using $Resolve$MethodReferenceLookupHelper = ::com::sun::tools::javac::comp::Resolve$MethodReferenceLookupHelper;
 using $Resolve$MethodResolutionPhase = ::com::sun::tools::javac::comp::Resolve$MethodResolutionPhase;
 using $Resolve$ReferenceLookupHelper = ::com::sun::tools::javac::comp::Resolve$ReferenceLookupHelper;
-using $Resolve$ResolveError = ::com::sun::tools::javac::comp::Resolve$ResolveError;
 using $JCTree$JCMemberReference = ::com::sun::tools::javac::tree::JCTree$JCMemberReference;
 using $JCTree$JCMemberReference$ReferenceKind = ::com::sun::tools::javac::tree::JCTree$JCMemberReference$ReferenceKind;
 using $Assert = ::com::sun::tools::javac::util::Assert;

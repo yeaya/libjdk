@@ -5,7 +5,6 @@
 #include <com/sun/org/apache/xpath/internal/ExpressionNode.h>
 #include <com/sun/org/apache/xpath/internal/ExpressionOwner.h>
 #include <com/sun/org/apache/xpath/internal/XPathVisitor.h>
-#include <com/sun/org/apache/xpath/internal/functions/Function.h>
 #include <com/sun/org/apache/xpath/internal/functions/Function2Args$Arg1Owner.h>
 #include <com/sun/org/apache/xpath/internal/functions/FunctionOneArg.h>
 #include <com/sun/org/apache/xpath/internal/functions/WrongNumberArgsException.h>
@@ -17,7 +16,6 @@ using $Expression = ::com::sun::org::apache::xpath::internal::Expression;
 using $ExpressionNode = ::com::sun::org::apache::xpath::internal::ExpressionNode;
 using $ExpressionOwner = ::com::sun::org::apache::xpath::internal::ExpressionOwner;
 using $XPathVisitor = ::com::sun::org::apache::xpath::internal::XPathVisitor;
-using $Function = ::com::sun::org::apache::xpath::internal::functions::Function;
 using $Function2Args$Arg1Owner = ::com::sun::org::apache::xpath::internal::functions::Function2Args$Arg1Owner;
 using $FunctionOneArg = ::com::sun::org::apache::xpath::internal::functions::FunctionOneArg;
 using $WrongNumberArgsException = ::com::sun::org::apache::xpath::internal::functions::WrongNumberArgsException;

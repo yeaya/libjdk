@@ -8,7 +8,6 @@
 #include <javax/imageio/metadata/IIOMetadata.h>
 #include <javax/imageio/metadata/IIOMetadataFormatImpl.h>
 #include <javax/imageio/metadata/IIOMetadataNode.h>
-#include <org/w3c/dom/Element.h>
 #include <org/w3c/dom/Node.h>
 #include <jcpp.h>
 
@@ -30,7 +29,6 @@ using $Short = ::java::lang::Short;
 using $IIOMetadata = ::javax::imageio::metadata::IIOMetadata;
 using $IIOMetadataFormatImpl = ::javax::imageio::metadata::IIOMetadataFormatImpl;
 using $IIOMetadataNode = ::javax::imageio::metadata::IIOMetadataNode;
-using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;
 
 namespace com {

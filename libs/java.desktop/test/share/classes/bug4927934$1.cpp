@@ -5,14 +5,12 @@
 #include <java/awt/Container.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/FocusListener.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/JTree.h>
 #include <javax/swing/event/TreeExpansionListener.h>
 #include <javax/swing/event/TreeSelectionListener.h>
 #include <javax/swing/tree/DefaultMutableTreeNode.h>
-#include <javax/swing/tree/MutableTreeNode.h>
 #include <javax/swing/tree/TreeNode.h>
 #include <jcpp.h>
 
@@ -24,14 +22,12 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JTree = ::javax::swing::JTree;
 using $TreeExpansionListener = ::javax::swing::event::TreeExpansionListener;
 using $TreeSelectionListener = ::javax::swing::event::TreeSelectionListener;
 using $DefaultMutableTreeNode = ::javax::swing::tree::DefaultMutableTreeNode;
-using $MutableTreeNode = ::javax::swing::tree::MutableTreeNode;
 using $TreeNode = ::javax::swing::tree::TreeNode;
 
 $MethodInfo _bug4927934$1_MethodInfo_[] = {

@@ -6,20 +6,16 @@
 #include <java/applet/AppletStub.h>
 #include <java/applet/AudioClip.h>
 #include <java/awt/AWTPermission.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/HeadlessException.h>
 #include <java/awt/Image.h>
-#include <java/awt/Panel$AccessibleAWTPanel.h>
 #include <java/awt/Panel.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/lang/SecurityManager.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URL.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/util/Locale.h>
 #include <javax/accessibility/AccessibleContext.h>
@@ -32,14 +28,11 @@ using $AppletContext = ::java::applet::AppletContext;
 using $AppletStub = ::java::applet::AppletStub;
 using $AudioClip = ::java::applet::AudioClip;
 using $AWTPermission = ::java::awt::AWTPermission;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Dimension = ::java::awt::Dimension;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $HeadlessException = ::java::awt::HeadlessException;
 using $Image = ::java::awt::Image;
 using $Panel = ::java::awt::Panel;
-using $Panel$AccessibleAWTPanel = ::java::awt::Panel$AccessibleAWTPanel;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
@@ -50,7 +43,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $MalformedURLException = ::java::net::MalformedURLException;
 using $URL = ::java::net::URL;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $Locale = ::java::util::Locale;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;

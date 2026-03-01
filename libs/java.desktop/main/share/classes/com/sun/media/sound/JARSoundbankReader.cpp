@@ -12,7 +12,6 @@
 #include <java/net/URI.h>
 #include <java/net/URL.h>
 #include <java/net/URLClassLoader.h>
-#include <java/security/SecureClassLoader.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Iterator.h>
 #include <java/util/Objects.h>
@@ -36,7 +35,6 @@ using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException
 using $URI = ::java::net::URI;
 using $URL = ::java::net::URL;
 using $URLClassLoader = ::java::net::URLClassLoader;
-using $SecureClassLoader = ::java::security::SecureClassLoader;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 using $Objects = ::java::util::Objects;

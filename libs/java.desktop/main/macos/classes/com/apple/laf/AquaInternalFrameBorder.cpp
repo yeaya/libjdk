@@ -9,7 +9,6 @@
 #include <apple/laf/JRSUIConstants$WindowTitleBarSeparator.h>
 #include <apple/laf/JRSUIConstants$WindowType.h>
 #include <apple/laf/JRSUIState$TitleBarHeightState.h>
-#include <apple/laf/JRSUIState$ValueState.h>
 #include <apple/laf/JRSUIState.h>
 #include <apple/laf/JRSUIStateFactory.h>
 #include <com/apple/laf/AquaInternalFrameBorder$1.h>
@@ -21,7 +20,6 @@
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
 #include <java/awt/Graphics.h>
@@ -67,7 +65,6 @@ using $JRSUIConstants$WindowTitleBarSeparator = ::apple::laf::JRSUIConstants$Win
 using $JRSUIConstants$WindowType = ::apple::laf::JRSUIConstants$WindowType;
 using $JRSUIState = ::apple::laf::JRSUIState;
 using $JRSUIState$TitleBarHeightState = ::apple::laf::JRSUIState$TitleBarHeightState;
-using $JRSUIState$ValueState = ::apple::laf::JRSUIState$ValueState;
 using $JRSUIStateFactory = ::apple::laf::JRSUIStateFactory;
 using $AquaInternalFrameBorder$1 = ::com::apple::laf::AquaInternalFrameBorder$1;
 using $AquaInternalFrameBorder$2 = ::com::apple::laf::AquaInternalFrameBorder$2;
@@ -78,7 +75,6 @@ using $AquaPainter = ::com::apple::laf::AquaPainter;
 using $AquaUtils$RecyclableSingleton = ::com::apple::laf::AquaUtils$RecyclableSingleton;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;

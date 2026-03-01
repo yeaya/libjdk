@@ -7,15 +7,12 @@
 #include <com/sun/org/apache/xpath/internal/ExtensionsProvider.h>
 #include <com/sun/org/apache/xpath/internal/XPathContext.h>
 #include <com/sun/org/apache/xpath/internal/XPathVisitor.h>
-#include <com/sun/org/apache/xpath/internal/axes/NodeSequence.h>
 #include <com/sun/org/apache/xpath/internal/functions/FuncExtFunction$ArgExtOwner.h>
 #include <com/sun/org/apache/xpath/internal/functions/Function.h>
-#include <com/sun/org/apache/xpath/internal/objects/XNodeSet.h>
 #include <com/sun/org/apache/xpath/internal/objects/XNull.h>
 #include <com/sun/org/apache/xpath/internal/objects/XObject.h>
 #include <com/sun/org/apache/xpath/internal/res/XPATHErrorResources.h>
 #include <com/sun/org/apache/xpath/internal/res/XPATHMessages.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <javax/xml/transform/TransformerException.h>
@@ -31,10 +28,8 @@ using $ExpressionOwner = ::com::sun::org::apache::xpath::internal::ExpressionOwn
 using $ExtensionsProvider = ::com::sun::org::apache::xpath::internal::ExtensionsProvider;
 using $XPathContext = ::com::sun::org::apache::xpath::internal::XPathContext;
 using $XPathVisitor = ::com::sun::org::apache::xpath::internal::XPathVisitor;
-using $NodeSequence = ::com::sun::org::apache::xpath::internal::axes::NodeSequence;
 using $FuncExtFunction$ArgExtOwner = ::com::sun::org::apache::xpath::internal::functions::FuncExtFunction$ArgExtOwner;
 using $Function = ::com::sun::org::apache::xpath::internal::functions::Function;
-using $XNodeSet = ::com::sun::org::apache::xpath::internal::objects::XNodeSet;
 using $XNull = ::com::sun::org::apache::xpath::internal::objects::XNull;
 using $XObject = ::com::sun::org::apache::xpath::internal::objects::XObject;
 using $XPATHErrorResources = ::com::sun::org::apache::xpath::internal::res::XPATHErrorResources;
@@ -44,7 +39,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $TransformerException = ::javax::xml::transform::TransformerException;

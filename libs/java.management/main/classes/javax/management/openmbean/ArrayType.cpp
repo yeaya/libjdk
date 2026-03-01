@@ -1,7 +1,6 @@
 #include <javax/management/openmbean/ArrayType.h>
 
 #include <java/lang/reflect/Array.h>
-#include <javax/management/JMException.h>
 #include <javax/management/openmbean/CompositeData.h>
 #include <javax/management/openmbean/OpenDataException.h>
 #include <javax/management/openmbean/OpenType.h>
@@ -30,7 +29,6 @@ using $Byte = ::java::lang::Byte;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
@@ -39,7 +37,6 @@ using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Short = ::java::lang::Short;
 using $1Array = ::java::lang::reflect::Array;
-using $JMException = ::javax::management::JMException;
 using $CompositeData = ::javax::management::openmbean::CompositeData;
 using $OpenDataException = ::javax::management::openmbean::OpenDataException;
 using $OpenType = ::javax::management::openmbean::OpenType;

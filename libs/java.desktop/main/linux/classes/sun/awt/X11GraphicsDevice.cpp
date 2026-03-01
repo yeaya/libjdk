@@ -2,7 +2,6 @@
 
 #include <java/awt/AWTPermission.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/DisplayMode.h>
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/GraphicsDevice.h>
@@ -25,7 +24,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/security/AccessController.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/util/ArrayList.h>
@@ -54,7 +52,6 @@ using $DisplayModeArray = $Array<::java::awt::DisplayMode>;
 using $GraphicsConfigurationArray = $Array<::java::awt::GraphicsConfiguration>;
 using $AWTPermission = ::java::awt::AWTPermission;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $DisplayMode = ::java::awt::DisplayMode;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $GraphicsDevice = ::java::awt::GraphicsDevice;
@@ -79,7 +76,6 @@ using $SecurityManager = ::java::lang::SecurityManager;
 using $Void = ::java::lang::Void;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $ArrayList = ::java::util::ArrayList;

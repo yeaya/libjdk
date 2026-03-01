@@ -6,7 +6,6 @@
 #include <java/io/OutputStream.h>
 #include <java/lang/CharSequence.h>
 #include <javax/swing/JComponent.h>
-#include <javax/swing/JLabel.h>
 #include <javax/swing/UIDefaults.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -24,7 +23,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $JComponent = ::javax::swing::JComponent;
-using $JLabel = ::javax::swing::JLabel;
 using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIManager = ::javax::swing::UIManager;
 

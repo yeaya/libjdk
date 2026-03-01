@@ -9,7 +9,6 @@
 #include <java/beans/PropertyChangeListener.h>
 #include <java/io/File.h>
 #include <java/util/Vector.h>
-#include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/Icon.h>
@@ -17,12 +16,10 @@
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JFileChooser.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/event/ListDataListener.h>
 #include <javax/swing/filechooser/FileFilter.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/FileChooserUI.h>
 #include <javax/swing/plaf/UIResource.h>
 #include <javax/swing/plaf/basic/BasicDirectoryModel.h>
 #include <javax/swing/plaf/basic/BasicFileChooserUI.h>
@@ -60,19 +57,16 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Vector = ::java::util::Vector;
-using $AbstractAction = ::javax::swing::AbstractAction;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
 using $JFileChooser = ::javax::swing::JFileChooser;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $ListDataListener = ::javax::swing::event::ListDataListener;
 using $FileFilter = ::javax::swing::filechooser::FileFilter;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $FileChooserUI = ::javax::swing::plaf::FileChooserUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $BasicDirectoryModel = ::javax::swing::plaf::basic::BasicDirectoryModel;
 using $BasicFileChooserUI = ::javax::swing::plaf::basic::BasicFileChooserUI;

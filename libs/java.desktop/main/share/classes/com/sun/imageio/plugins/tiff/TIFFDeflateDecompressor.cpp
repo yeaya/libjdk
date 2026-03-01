@@ -13,7 +13,6 @@
 
 using $TIFFDecompressor = ::com::sun::imageio::plugins::tiff::TIFFDecompressor;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DataFormatException = ::java::util::zip::DataFormatException;

@@ -3,7 +3,6 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/DOM.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/Translet.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMAxisIterator.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <jcpp.h>
@@ -21,7 +20,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 

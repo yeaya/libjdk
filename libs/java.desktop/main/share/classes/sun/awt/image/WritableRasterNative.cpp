@@ -2,7 +2,6 @@
 
 #include <java/awt/Point.h>
 #include <java/awt/image/ColorModel.h>
-#include <java/awt/image/ComponentSampleModel.h>
 #include <java/awt/image/DataBuffer.h>
 #include <java/awt/image/DirectColorModel.h>
 #include <java/awt/image/PixelInterleavedSampleModel.h>
@@ -20,7 +19,6 @@
 
 using $Point = ::java::awt::Point;
 using $ColorModel = ::java::awt::image::ColorModel;
-using $ComponentSampleModel = ::java::awt::image::ComponentSampleModel;
 using $DataBuffer = ::java::awt::image::DataBuffer;
 using $DirectColorModel = ::java::awt::image::DirectColorModel;
 using $PixelInterleavedSampleModel = ::java::awt::image::PixelInterleavedSampleModel;

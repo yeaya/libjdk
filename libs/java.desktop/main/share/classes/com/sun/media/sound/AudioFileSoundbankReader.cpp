@@ -2,7 +2,6 @@
 
 #include <com/sun/media/sound/ModelByteBuffer.h>
 #include <com/sun/media/sound/ModelByteBufferWavetable.h>
-#include <com/sun/media/sound/ModelInstrument.h>
 #include <com/sun/media/sound/ModelPerformer.h>
 #include <com/sun/media/sound/SimpleInstrument.h>
 #include <com/sun/media/sound/SimpleSoundbank.h>
@@ -24,7 +23,6 @@
 
 using $ModelByteBuffer = ::com::sun::media::sound::ModelByteBuffer;
 using $ModelByteBufferWavetable = ::com::sun::media::sound::ModelByteBufferWavetable;
-using $ModelInstrument = ::com::sun::media::sound::ModelInstrument;
 using $ModelPerformer = ::com::sun::media::sound::ModelPerformer;
 using $SimpleInstrument = ::com::sun::media::sound::SimpleInstrument;
 using $SimpleSoundbank = ::com::sun::media::sound::SimpleSoundbank;

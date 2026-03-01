@@ -1,7 +1,6 @@
 #include <sun/awt/shell/Win32ShellFolder2.h>
 
 #include <java/awt/Image.h>
-#include <java/awt/image/AbstractMultiResolutionImage.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/ImageObserver.h>
 #include <java/io/File.h>
@@ -17,7 +16,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -137,7 +135,6 @@ using $FileArray = $Array<::java::io::File>;
 using $ShellFolderColumnInfoArray = $Array<::sun::awt::shell::ShellFolderColumnInfo>;
 using $Win32ShellFolder2$KnownFolderDefinitionArray = $Array<::sun::awt::shell::Win32ShellFolder2$KnownFolderDefinition>;
 using $Image = ::java::awt::Image;
-using $AbstractMultiResolutionImage = ::java::awt::image::AbstractMultiResolutionImage;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ImageObserver = ::java::awt::image::ImageObserver;
 using $File = ::java::io::File;
@@ -157,7 +154,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;

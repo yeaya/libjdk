@@ -1,10 +1,8 @@
 #include <com/sun/org/apache/xml/internal/security/algorithms/SignatureAlgorithmSpi.h>
 
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureException.h>
-#include <java/security/GeneralSecurityException.h>
 #include <java/security/InvalidKeyException.h>
 #include <java/security/Key.h>
-#include <java/security/KeyException.h>
 #include <java/security/PrivateKey.h>
 #include <java/security/PublicKey.h>
 #include <java/security/SecureRandom.h>
@@ -17,10 +15,8 @@ using $XMLSignatureException = ::com::sun::org::apache::xml::internal::security:
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $InvalidKeyException = ::java::security::InvalidKeyException;
 using $Key = ::java::security::Key;
-using $KeyException = ::java::security::KeyException;
 using $PrivateKey = ::java::security::PrivateKey;
 using $PublicKey = ::java::security::PublicKey;
 using $SecureRandom = ::java::security::SecureRandom;

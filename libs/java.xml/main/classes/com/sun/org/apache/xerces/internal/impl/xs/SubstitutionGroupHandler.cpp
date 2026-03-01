@@ -6,14 +6,11 @@
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSElementDecl.h>
 #include <com/sun/org/apache/xerces/internal/impl/xs/XSElementDeclHelper.h>
 #include <com/sun/org/apache/xerces/internal/xni/QName.h>
-#include <com/sun/org/apache/xerces/internal/xs/XSComplexTypeDefinition.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSConstants.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSObject.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSObjectList.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSSimpleTypeDefinition.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSTypeDefinition.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
 #include <java/util/HashMap.h>
 #include <java/util/List.h>
@@ -38,7 +35,6 @@ using $XSComplexTypeDecl = ::com::sun::org::apache::xerces::internal::impl::xs::
 using $XSElementDecl = ::com::sun::org::apache::xerces::internal::impl::xs::XSElementDecl;
 using $XSElementDeclHelper = ::com::sun::org::apache::xerces::internal::impl::xs::XSElementDeclHelper;
 using $QName = ::com::sun::org::apache::xerces::internal::xni::QName;
-using $XSComplexTypeDefinition = ::com::sun::org::apache::xerces::internal::xs::XSComplexTypeDefinition;
 using $XSConstants = ::com::sun::org::apache::xerces::internal::xs::XSConstants;
 using $XSObjectList = ::com::sun::org::apache::xerces::internal::xs::XSObjectList;
 using $XSSimpleTypeDefinition = ::com::sun::org::apache::xerces::internal::xs::XSSimpleTypeDefinition;
@@ -47,8 +43,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $List = ::java::util::List;

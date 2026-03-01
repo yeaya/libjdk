@@ -5,8 +5,6 @@
 #include <java/lang/NoSuchMethodException.h>
 #include <java/lang/System$Logger$Level.h>
 #include <java/lang/System$Logger.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/Date.h>
@@ -29,7 +27,6 @@
 #include <javax/management/Notification.h>
 #include <javax/management/NotificationBroadcasterSupport.h>
 #include <javax/management/NotificationFilter.h>
-#include <javax/management/NotificationFilterSupport.h>
 #include <javax/management/NotificationListener.h>
 #include <javax/management/ObjectName.h>
 #include <javax/management/ReflectionException.h>
@@ -89,8 +86,6 @@ using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $Date = ::java::util::Date;
@@ -113,7 +108,6 @@ using $MBeanServerNotification = ::javax::management::MBeanServerNotification;
 using $Notification = ::javax::management::Notification;
 using $NotificationBroadcasterSupport = ::javax::management::NotificationBroadcasterSupport;
 using $NotificationFilter = ::javax::management::NotificationFilter;
-using $NotificationFilterSupport = ::javax::management::NotificationFilterSupport;
 using $NotificationListener = ::javax::management::NotificationListener;
 using $ObjectName = ::javax::management::ObjectName;
 using $ReflectionException = ::javax::management::ReflectionException;

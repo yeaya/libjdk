@@ -9,13 +9,10 @@
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/lang/Runnable.h>
 #include <javax/swing/BoxLayout.h>
-#include <javax/swing/DefaultRowSorter.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/JScrollPane.h>
@@ -25,7 +22,6 @@
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/WindowConstants.h>
-#include <javax/swing/table/AbstractTableModel.h>
 #include <javax/swing/table/TableModel.h>
 #include <javax/swing/table/TableRowSorter.h>
 #include <jcpp.h>
@@ -43,7 +39,6 @@ using $Component = ::java::awt::Component;
 using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Robot = ::java::awt::Robot;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
@@ -53,8 +48,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $BoxLayout = ::javax::swing::BoxLayout;
-using $DefaultRowSorter = ::javax::swing::DefaultRowSorter;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JPanel = ::javax::swing::JPanel;
 using $JScrollPane = ::javax::swing::JScrollPane;
@@ -64,7 +57,6 @@ using $RowSorter = ::javax::swing::RowSorter;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
 using $WindowConstants = ::javax::swing::WindowConstants;
-using $AbstractTableModel = ::javax::swing::table::AbstractTableModel;
 using $TableModel = ::javax::swing::table::TableModel;
 using $TableRowSorter = ::javax::swing::table::TableRowSorter;
 

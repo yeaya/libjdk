@@ -2,14 +2,12 @@
 
 #include <com/sun/org/apache/xpath/internal/Expression.h>
 #include <com/sun/org/apache/xpath/internal/ExpressionNode.h>
-#include <com/sun/org/apache/xpath/internal/patterns/NodeTest.h>
 #include <com/sun/org/apache/xpath/internal/patterns/StepPattern.h>
 #include <com/sun/org/apache/xpath/internal/patterns/UnionPattern.h>
 #include <jcpp.h>
 
 using $Expression = ::com::sun::org::apache::xpath::internal::Expression;
 using $ExpressionNode = ::com::sun::org::apache::xpath::internal::ExpressionNode;
-using $NodeTest = ::com::sun::org::apache::xpath::internal::patterns::NodeTest;
 using $StepPattern = ::com::sun::org::apache::xpath::internal::patterns::StepPattern;
 using $UnionPattern = ::com::sun::org::apache::xpath::internal::patterns::UnionPattern;
 using $ClassInfo = ::java::lang::ClassInfo;

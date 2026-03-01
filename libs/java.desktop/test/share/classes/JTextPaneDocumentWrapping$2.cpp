@@ -6,7 +6,6 @@
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/BadLocationException.h>
 #include <javax/swing/text/JTextComponent.h>
-#include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/SimpleAttributeSet.h>
 #include <javax/swing/text/StyledDocument.h>
 #include <javax/swing/text/html/CSS$Attribute.h>
@@ -22,7 +21,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JTextPane = ::javax::swing::JTextPane;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
-using $MutableAttributeSet = ::javax::swing::text::MutableAttributeSet;
 using $SimpleAttributeSet = ::javax::swing::text::SimpleAttributeSet;
 using $StyledDocument = ::javax::swing::text::StyledDocument;
 using $CSS$Attribute = ::javax::swing::text::html::CSS$Attribute;

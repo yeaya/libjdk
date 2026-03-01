@@ -20,7 +20,6 @@
 #include <com/sun/org/apache/xerces/internal/util/SAXMessageFormatter.h>
 #include <com/sun/org/apache/xerces/internal/util/StAXInputSource.h>
 #include <com/sun/org/apache/xerces/internal/util/Status.h>
-#include <com/sun/org/apache/xerces/internal/util/XMLGrammarPoolImpl.h>
 #include <com/sun/org/apache/xerces/internal/utils/XMLSecurityManager.h>
 #include <com/sun/org/apache/xerces/internal/utils/XMLSecurityPropertyManager$Property.h>
 #include <com/sun/org/apache/xerces/internal/utils/XMLSecurityPropertyManager$State.h>
@@ -122,7 +121,6 @@ using $SAXInputSource = ::com::sun::org::apache::xerces::internal::util::SAXInpu
 using $SAXMessageFormatter = ::com::sun::org::apache::xerces::internal::util::SAXMessageFormatter;
 using $StAXInputSource = ::com::sun::org::apache::xerces::internal::util::StAXInputSource;
 using $Status = ::com::sun::org::apache::xerces::internal::util::Status;
-using $XMLGrammarPoolImpl = ::com::sun::org::apache::xerces::internal::util::XMLGrammarPoolImpl;
 using $XMLSecurityManager = ::com::sun::org::apache::xerces::internal::utils::XMLSecurityManager;
 using $XMLSecurityPropertyManager = ::com::sun::org::apache::xerces::internal::utils::XMLSecurityPropertyManager;
 using $XMLSecurityPropertyManager$Property = ::com::sun::org::apache::xerces::internal::utils::XMLSecurityPropertyManager$Property;

@@ -6,14 +6,12 @@
 #include <java/lang/reflect/InvocationHandler.h>
 #include <java/lang/reflect/Modifier.h>
 #include <java/lang/reflect/Proxy.h>
-#include <javax/management/JMException.h>
 #include <javax/management/MBeanServerConnection.h>
 #include <javax/management/MBeanServerInvocationHandler.h>
 #include <javax/management/MXBean.h>
 #include <javax/management/NotCompliantMBeanException.h>
 #include <javax/management/NotificationEmitter.h>
 #include <javax/management/ObjectName.h>
-#include <javax/management/OperationsException.h>
 #include <jcpp.h>
 
 #undef ALLOW_NONPUBLIC_MBEAN
@@ -30,21 +28,18 @@
 
 using $Introspector = ::com::sun::jmx::mbeanserver::Introspector;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InvocationHandler = ::java::lang::reflect::InvocationHandler;
 using $Modifier = ::java::lang::reflect::Modifier;
 using $Proxy = ::java::lang::reflect::Proxy;
-using $JMException = ::javax::management::JMException;
 using $MBeanServerConnection = ::javax::management::MBeanServerConnection;
 using $MBeanServerInvocationHandler = ::javax::management::MBeanServerInvocationHandler;
 using $MXBean = ::javax::management::MXBean;
 using $NotCompliantMBeanException = ::javax::management::NotCompliantMBeanException;
 using $NotificationEmitter = ::javax::management::NotificationEmitter;
 using $ObjectName = ::javax::management::ObjectName;
-using $OperationsException = ::javax::management::OperationsException;
 
 namespace javax {
 	namespace management {

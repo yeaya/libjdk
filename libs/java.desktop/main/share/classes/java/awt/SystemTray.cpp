@@ -13,7 +13,6 @@
 #include <java/beans/PropertyChangeSupport.h>
 #include <java/lang/SecurityManager.h>
 #include <java/lang/UnsupportedOperationException.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/util/Vector.h>
 #include <sun/awt/AWTAccessor$SystemTrayAccessor.h>
@@ -47,7 +46,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $Vector = ::java::util::Vector;
 using $AWTAccessor = ::sun::awt::AWTAccessor;

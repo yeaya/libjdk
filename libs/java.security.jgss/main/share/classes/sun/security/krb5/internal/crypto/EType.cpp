@@ -1,6 +1,5 @@
 #include <sun/security/krb5/internal/crypto/EType.h>
 
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
@@ -18,7 +17,6 @@
 #include <sun/security/krb5/internal/crypto/ArcFourHmacEType.h>
 #include <sun/security/krb5/internal/crypto/Des3CbcHmacSha1KdEType.h>
 #include <sun/security/krb5/internal/crypto/DesCbcCrcEType.h>
-#include <sun/security/krb5/internal/crypto/DesCbcEType.h>
 #include <sun/security/krb5/internal/crypto/DesCbcMd5EType.h>
 #include <sun/security/krb5/internal/crypto/NullEType.h>
 #include <jcpp.h>
@@ -44,7 +42,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $List = ::java::util::List;
@@ -62,7 +59,6 @@ using $Aes256CtsHmacSha2EType = ::sun::security::krb5::internal::crypto::Aes256C
 using $ArcFourHmacEType = ::sun::security::krb5::internal::crypto::ArcFourHmacEType;
 using $Des3CbcHmacSha1KdEType = ::sun::security::krb5::internal::crypto::Des3CbcHmacSha1KdEType;
 using $DesCbcCrcEType = ::sun::security::krb5::internal::crypto::DesCbcCrcEType;
-using $DesCbcEType = ::sun::security::krb5::internal::crypto::DesCbcEType;
 using $DesCbcMd5EType = ::sun::security::krb5::internal::crypto::DesCbcMd5EType;
 using $NullEType = ::sun::security::krb5::internal::crypto::NullEType;
 

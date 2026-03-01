@@ -28,9 +28,7 @@
 #include <java/awt/SystemColor.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/Window.h>
-#include <java/awt/event/ComponentEvent.h>
 #include <java/awt/event/FocusEvent$Cause.h>
-#include <java/awt/event/InputEvent.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/awt/event/MouseWheelEvent.h>
@@ -57,7 +55,6 @@
 #include <sun/awt/CGraphicsDevice.h>
 #include <sun/awt/DisplayChangedListener.h>
 #include <sun/awt/ExtendedKeyCodes.h>
-#include <sun/awt/KeyboardFocusManagerPeerImpl.h>
 #include <sun/awt/SunToolkit.h>
 #include <sun/awt/TimedWindowEvent.h>
 #include <sun/awt/UngrabEvent.h>
@@ -69,7 +66,6 @@
 #include <sun/java2d/loops/CompositeType.h>
 #include <sun/java2d/loops/SurfaceType.h>
 #include <sun/java2d/pipe/Region.h>
-#include <sun/lwawt/LWCanvasPeer.h>
 #include <sun/lwawt/LWComponentPeer.h>
 #include <sun/lwawt/LWContainerPeer.h>
 #include <sun/lwawt/LWCursorManager.h>
@@ -147,9 +143,7 @@ using $Shape = ::java::awt::Shape;
 using $SystemColor = ::java::awt::SystemColor;
 using $Toolkit = ::java::awt::Toolkit;
 using $Window = ::java::awt::Window;
-using $ComponentEvent = ::java::awt::event::ComponentEvent;
 using $FocusEvent$Cause = ::java::awt::event::FocusEvent$Cause;
-using $InputEvent = ::java::awt::event::InputEvent;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $MouseWheelEvent = ::java::awt::event::MouseWheelEvent;
@@ -182,7 +176,6 @@ using $AppContext = ::sun::awt::AppContext;
 using $CGraphicsDevice = ::sun::awt::CGraphicsDevice;
 using $DisplayChangedListener = ::sun::awt::DisplayChangedListener;
 using $ExtendedKeyCodes = ::sun::awt::ExtendedKeyCodes;
-using $KeyboardFocusManagerPeerImpl = ::sun::awt::KeyboardFocusManagerPeerImpl;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $TimedWindowEvent = ::sun::awt::TimedWindowEvent;
 using $UngrabEvent = ::sun::awt::UngrabEvent;
@@ -194,7 +187,6 @@ using $Blit = ::sun::java2d::loops::Blit;
 using $CompositeType = ::sun::java2d::loops::CompositeType;
 using $SurfaceType = ::sun::java2d::loops::SurfaceType;
 using $Region = ::sun::java2d::pipe::Region;
-using $LWCanvasPeer = ::sun::lwawt::LWCanvasPeer;
 using $LWComponentPeer = ::sun::lwawt::LWComponentPeer;
 using $LWContainerPeer = ::sun::lwawt::LWContainerPeer;
 using $LWCursorManager = ::sun::lwawt::LWCursorManager;

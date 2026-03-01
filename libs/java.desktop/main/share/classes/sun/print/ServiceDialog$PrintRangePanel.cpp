@@ -7,7 +7,6 @@
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
 #include <java/awt/event/FocusEvent.h>
@@ -26,24 +25,18 @@
 #include <javax/print/attribute/DocAttribute.h>
 #include <javax/print/attribute/HashAttributeSet.h>
 #include <javax/print/attribute/HashPrintRequestAttributeSet.h>
-#include <javax/print/attribute/PrintRequestAttribute.h>
 #include <javax/print/attribute/standard/PageRanges.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/BorderFactory.h>
 #include <javax/swing/ButtonGroup.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFormattedTextField$AbstractFormatter.h>
 #include <javax/swing/JFormattedTextField.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/JRadioButton.h>
-#include <javax/swing/JTextField.h>
-#include <javax/swing/JToggleButton.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/TitledBorder.h>
 #include <javax/swing/text/DefaultFormatter.h>
-#include <javax/swing/text/InternationalFormatter.h>
 #include <javax/swing/text/JTextComponent.h>
 #include <javax/swing/text/NumberFormatter.h>
 #include <sun/print/ServiceDialog.h>
@@ -66,7 +59,6 @@ using $FlowLayout = ::java::awt::FlowLayout;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $FocusEvent = ::java::awt::event::FocusEvent;
@@ -88,24 +80,16 @@ using $AttributeSet = ::javax::print::attribute::AttributeSet;
 using $DocAttribute = ::javax::print::attribute::DocAttribute;
 using $HashAttributeSet = ::javax::print::attribute::HashAttributeSet;
 using $HashPrintRequestAttributeSet = ::javax::print::attribute::HashPrintRequestAttributeSet;
-using $PrintRequestAttribute = ::javax::print::attribute::PrintRequestAttribute;
 using $PageRanges = ::javax::print::attribute::standard::PageRanges;
 using $AbstractButton = ::javax::swing::AbstractButton;
 using $BorderFactory = ::javax::swing::BorderFactory;
 using $ButtonGroup = ::javax::swing::ButtonGroup;
-using $JComponent = ::javax::swing::JComponent;
 using $JFormattedTextField = ::javax::swing::JFormattedTextField;
 using $JFormattedTextField$AbstractFormatter = ::javax::swing::JFormattedTextField$AbstractFormatter;
 using $JLabel = ::javax::swing::JLabel;
 using $JPanel = ::javax::swing::JPanel;
 using $JRadioButton = ::javax::swing::JRadioButton;
-using $JTextField = ::javax::swing::JTextField;
-using $JToggleButton = ::javax::swing::JToggleButton;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
-using $DefaultFormatter = ::javax::swing::text::DefaultFormatter;
-using $InternationalFormatter = ::javax::swing::text::InternationalFormatter;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $NumberFormatter = ::javax::swing::text::NumberFormatter;
 using $ServiceDialog = ::sun::print::ServiceDialog;
 using $SunPageSelection = ::sun::print::SunPageSelection;

@@ -6,7 +6,6 @@
 #include <javax/swing/text/Element.h>
 #include <javax/swing/text/StyleConstants.h>
 #include <javax/swing/text/html/AccessibleHTML$ElementInfo.h>
-#include <javax/swing/text/html/AccessibleHTML$HTMLAccessibleContext.h>
 #include <javax/swing/text/html/AccessibleHTML$TableElementInfo$TableAccessibleContext.h>
 #include <javax/swing/text/html/AccessibleHTML$TableElementInfo$TableCellElementInfo.h>
 #include <javax/swing/text/html/AccessibleHTML$TableElementInfo$TableRowElementInfo.h>
@@ -30,7 +29,6 @@ using $Element = ::javax::swing::text::Element;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
 using $AccessibleHTML = ::javax::swing::text::html::AccessibleHTML;
 using $AccessibleHTML$ElementInfo = ::javax::swing::text::html::AccessibleHTML$ElementInfo;
-using $AccessibleHTML$HTMLAccessibleContext = ::javax::swing::text::html::AccessibleHTML$HTMLAccessibleContext;
 using $AccessibleHTML$TableElementInfo$TableAccessibleContext = ::javax::swing::text::html::AccessibleHTML$TableElementInfo$TableAccessibleContext;
 using $AccessibleHTML$TableElementInfo$TableCellElementInfo = ::javax::swing::text::html::AccessibleHTML$TableElementInfo$TableCellElementInfo;
 using $AccessibleHTML$TableElementInfo$TableRowElementInfo = ::javax::swing::text::html::AccessibleHTML$TableElementInfo$TableRowElementInfo;

@@ -15,7 +15,6 @@
 #include <javax/imageio/plugins/tiff/BaselineTIFFTagSet.h>
 #include <javax/imageio/plugins/tiff/TIFFField.h>
 #include <javax/imageio/stream/ImageInputStream.h>
-#include <javax/imageio/stream/ImageInputStreamImpl.h>
 #include <javax/imageio/stream/MemoryCacheImageInputStream.h>
 #include <jcpp.h>
 
@@ -52,7 +51,6 @@ using $ImageReader = ::javax::imageio::ImageReader;
 using $BaselineTIFFTagSet = ::javax::imageio::plugins::tiff::BaselineTIFFTagSet;
 using $TIFFField = ::javax::imageio::plugins::tiff::TIFFField;
 using $ImageInputStream = ::javax::imageio::stream::ImageInputStream;
-using $ImageInputStreamImpl = ::javax::imageio::stream::ImageInputStreamImpl;
 using $MemoryCacheImageInputStream = ::javax::imageio::stream::MemoryCacheImageInputStream;
 
 namespace com {

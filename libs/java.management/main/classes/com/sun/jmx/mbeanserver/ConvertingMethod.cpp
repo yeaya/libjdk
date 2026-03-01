@@ -5,16 +5,13 @@
 #include <com/sun/jmx/mbeanserver/MXBeanLookup.h>
 #include <com/sun/jmx/mbeanserver/MXBeanMapping.h>
 #include <com/sun/jmx/mbeanserver/MXBeanMappingFactory.h>
-#include <java/io/IOException.h>
 #include <java/io/InvalidObjectException.h>
-#include <java/io/ObjectStreamException.h>
 #include <java/lang/reflect/AccessibleObject.h>
 #include <java/lang/reflect/AnnotatedElement.h>
 #include <java/lang/reflect/Executable.h>
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Type.h>
 #include <javax/management/Descriptor.h>
-#include <javax/management/JMException.h>
 #include <javax/management/MBeanException.h>
 #include <javax/management/openmbean/OpenDataException.h>
 #include <javax/management/openmbean/OpenType.h>
@@ -31,9 +28,7 @@ using $Introspector = ::com::sun::jmx::mbeanserver::Introspector;
 using $MXBeanLookup = ::com::sun::jmx::mbeanserver::MXBeanLookup;
 using $MXBeanMapping = ::com::sun::jmx::mbeanserver::MXBeanMapping;
 using $MXBeanMappingFactory = ::com::sun::jmx::mbeanserver::MXBeanMappingFactory;
-using $IOException = ::java::io::IOException;
 using $InvalidObjectException = ::java::io::InvalidObjectException;
-using $ObjectStreamException = ::java::io::ObjectStreamException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -45,7 +40,6 @@ using $Executable = ::java::lang::reflect::Executable;
 using $Method = ::java::lang::reflect::Method;
 using $Type = ::java::lang::reflect::Type;
 using $Descriptor = ::javax::management::Descriptor;
-using $JMException = ::javax::management::JMException;
 using $MBeanException = ::javax::management::MBeanException;
 using $OpenDataException = ::javax::management::openmbean::OpenDataException;
 using $OpenType = ::javax::management::openmbean::OpenType;

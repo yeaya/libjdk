@@ -1,7 +1,6 @@
 #include <javax/swing/Box$Filler.h>
 
 #include <java/awt/Color.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
@@ -12,7 +11,6 @@
 #include <javax/swing/plaf/ComponentUI.h>
 #include <jcpp.h>
 
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Attribute = ::java::lang::Attribute;

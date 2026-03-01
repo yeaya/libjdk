@@ -5,16 +5,13 @@
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Menu$1.h>
 #include <java/awt/Menu$AccessibleAWTMenu.h>
-#include <java/awt/MenuComponent$AccessibleAWTMenuComponent.h>
 #include <java/awt/MenuComponent.h>
 #include <java/awt/MenuContainer.h>
-#include <java/awt/MenuItem$AccessibleAWTMenuItem.h>
 #include <java/awt/MenuItem.h>
 #include <java/awt/MenuShortcut.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/peer/MenuComponentPeer.h>
-#include <java/awt/peer/MenuItemPeer.h>
 #include <java/awt/peer/MenuPeer.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
@@ -32,15 +29,12 @@ using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $Menu$1 = ::java::awt::Menu$1;
 using $Menu$AccessibleAWTMenu = ::java::awt::Menu$AccessibleAWTMenu;
 using $MenuComponent = ::java::awt::MenuComponent;
-using $MenuComponent$AccessibleAWTMenuComponent = ::java::awt::MenuComponent$AccessibleAWTMenuComponent;
 using $MenuContainer = ::java::awt::MenuContainer;
 using $MenuItem = ::java::awt::MenuItem;
-using $MenuItem$AccessibleAWTMenuItem = ::java::awt::MenuItem$AccessibleAWTMenuItem;
 using $MenuShortcut = ::java::awt::MenuShortcut;
 using $Toolkit = ::java::awt::Toolkit;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $MenuComponentPeer = ::java::awt::peer::MenuComponentPeer;
-using $MenuItemPeer = ::java::awt::peer::MenuItemPeer;
 using $MenuPeer = ::java::awt::peer::MenuPeer;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;

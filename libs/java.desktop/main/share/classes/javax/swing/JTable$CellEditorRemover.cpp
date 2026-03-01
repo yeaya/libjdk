@@ -6,7 +6,6 @@
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/awt/Window.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/table/TableCellEditor.h>
@@ -16,7 +15,6 @@
 
 using $Applet = ::java::applet::Applet;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $Window = ::java::awt::Window;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
@@ -25,7 +23,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JTable = ::javax::swing::JTable;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $TableCellEditor = ::javax::swing::table::TableCellEditor;

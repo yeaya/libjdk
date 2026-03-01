@@ -13,7 +13,6 @@
 #include <com/sun/org/apache/xml/internal/security/utils/XMLUtils.h>
 #include <com/sun/org/slf4j/internal/Logger.h>
 #include <com/sun/org/slf4j/internal/LoggerFactory.h>
-#include <java/security/GeneralSecurityException.h>
 #include <java/security/Key.h>
 #include <java/security/KeyStore.h>
 #include <java/security/KeyStoreException.h>
@@ -21,7 +20,6 @@
 #include <java/security/PublicKey.h>
 #include <java/security/cert/Certificate.h>
 #include <java/security/cert/CertificateEncodingException.h>
-#include <java/security/cert/CertificateException.h>
 #include <java/security/cert/X509Certificate.h>
 #include <java/util/Arrays.h>
 #include <java/util/Enumeration.h>
@@ -51,7 +49,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $Key = ::java::security::Key;
 using $KeyStore = ::java::security::KeyStore;
 using $KeyStoreException = ::java::security::KeyStoreException;
@@ -59,7 +56,6 @@ using $PrivateKey = ::java::security::PrivateKey;
 using $PublicKey = ::java::security::PublicKey;
 using $Certificate = ::java::security::cert::Certificate;
 using $CertificateEncodingException = ::java::security::cert::CertificateEncodingException;
-using $CertificateException = ::java::security::cert::CertificateException;
 using $X509Certificate = ::java::security::cert::X509Certificate;
 using $Arrays = ::java::util::Arrays;
 using $Enumeration = ::java::util::Enumeration;

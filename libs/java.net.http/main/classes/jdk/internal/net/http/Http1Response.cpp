@@ -46,7 +46,6 @@
 #include <jdk/internal/net/http/Response.h>
 #include <jdk/internal/net/http/ResponseContent$BodyParser.h>
 #include <jdk/internal/net/http/ResponseContent.h>
-#include <jdk/internal/net/http/ResponseSubscribers$TrustedSubscriber.h>
 #include <jdk/internal/net/http/ResponseSubscribers.h>
 #include <jdk/internal/net/http/common/FlowTube.h>
 #include <jdk/internal/net/http/common/Log.h>
@@ -109,7 +108,6 @@ using $HttpRequestImpl = ::jdk::internal::net::http::HttpRequestImpl;
 using $Response = ::jdk::internal::net::http::Response;
 using $ResponseContent = ::jdk::internal::net::http::ResponseContent;
 using $ResponseSubscribers = ::jdk::internal::net::http::ResponseSubscribers;
-using $ResponseSubscribers$TrustedSubscriber = ::jdk::internal::net::http::ResponseSubscribers$TrustedSubscriber;
 using $Log = ::jdk::internal::net::http::common::Log;
 using $Logger = ::jdk::internal::net::http::common::Logger;
 using $MinimalFuture = ::jdk::internal::net::http::common::MinimalFuture;

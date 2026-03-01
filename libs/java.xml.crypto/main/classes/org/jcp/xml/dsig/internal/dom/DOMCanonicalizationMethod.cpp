@@ -4,7 +4,6 @@
 #include <java/security/InvalidAlgorithmParameterException.h>
 #include <java/security/Provider.h>
 #include <java/security/spec/AlgorithmParameterSpec.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collections.h>
 #include <java/util/HashSet.h>
 #include <java/util/Set.h>
@@ -34,7 +33,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $InvalidAlgorithmParameterException = ::java::security::InvalidAlgorithmParameterException;
 using $Provider = ::java::security::Provider;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Collections = ::java::util::Collections;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;

@@ -4,14 +4,12 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/DocumentBuilderFactoryImpl.h>
 #include <com/sun/org/apache/xerces/internal/util/XMLSymbols.h>
 #include <java/lang/ClassCastException.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <java/util/Stack.h>
 #include <javax/xml/parsers/DocumentBuilder.h>
 #include <javax/xml/parsers/DocumentBuilderFactory.h>
 #include <jdk/xml/internal/JdkXmlUtils.h>
-#include <org/w3c/dom/CharacterData.h>
 #include <org/w3c/dom/Comment.h>
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/Element.h>
@@ -37,14 +35,12 @@ using $ClassCastException = ::java::lang::ClassCastException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $Stack = ::java::util::Stack;
 using $DocumentBuilder = ::javax::xml::parsers::DocumentBuilder;
 using $DocumentBuilderFactory = ::javax::xml::parsers::DocumentBuilderFactory;
 using $JdkXmlUtils = ::jdk::xml::internal::JdkXmlUtils;
-using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Comment = ::org::w3c::dom::Comment;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;

@@ -18,7 +18,6 @@
 #include <javax/swing/text/AbstractDocument$Content.h>
 #include <javax/swing/text/AbstractDocument$DefaultDocumentEvent.h>
 #include <javax/swing/text/AbstractDocument$ElementEdit.h>
-#include <javax/swing/text/AbstractDocument$LeafElement.h>
 #include <javax/swing/text/AbstractDocument.h>
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/BadLocationException.h>
@@ -47,8 +46,6 @@
 #include <javax/swing/text/html/HTMLFrameHyperlinkEvent.h>
 #include <javax/swing/text/html/Map.h>
 #include <javax/swing/text/html/StyleSheet.h>
-#include <javax/swing/undo/AbstractUndoableEdit.h>
-#include <javax/swing/undo/CompoundEdit.h>
 #include <javax/swing/undo/UndoableEdit.h>
 #include <jcpp.h>
 
@@ -93,7 +90,6 @@ using $AbstractDocument$BranchElement = ::javax::swing::text::AbstractDocument$B
 using $AbstractDocument$Content = ::javax::swing::text::AbstractDocument$Content;
 using $AbstractDocument$DefaultDocumentEvent = ::javax::swing::text::AbstractDocument$DefaultDocumentEvent;
 using $AbstractDocument$ElementEdit = ::javax::swing::text::AbstractDocument$ElementEdit;
-using $AbstractDocument$LeafElement = ::javax::swing::text::AbstractDocument$LeafElement;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $DefaultStyledDocument = ::javax::swing::text::DefaultStyledDocument;
@@ -120,8 +116,6 @@ using $HTMLEditorKit$ParserCallback = ::javax::swing::text::html::HTMLEditorKit$
 using $HTMLFrameHyperlinkEvent = ::javax::swing::text::html::HTMLFrameHyperlinkEvent;
 using $Map = ::javax::swing::text::html::Map;
 using $StyleSheet = ::javax::swing::text::html::StyleSheet;
-using $AbstractUndoableEdit = ::javax::swing::undo::AbstractUndoableEdit;
-using $CompoundEdit = ::javax::swing::undo::CompoundEdit;
 using $UndoableEdit = ::javax::swing::undo::UndoableEdit;
 
 namespace javax {

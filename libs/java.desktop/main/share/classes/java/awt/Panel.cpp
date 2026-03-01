@@ -1,27 +1,21 @@
 #include <java/awt/Panel.h>
 
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/awt/FlowLayout.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/Panel$AccessibleAWTPanel.h>
 #include <java/awt/peer/ComponentPeer.h>
-#include <java/awt/peer/ContainerPeer.h>
 #include <java/awt/peer/PanelPeer.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <sun/awt/ComponentFactory.h>
 #include <jcpp.h>
 
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $Container = ::java::awt::Container;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $FlowLayout = ::java::awt::FlowLayout;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $Panel$AccessibleAWTPanel = ::java::awt::Panel$AccessibleAWTPanel;
 using $ComponentPeer = ::java::awt::peer::ComponentPeer;
-using $ContainerPeer = ::java::awt::peer::ContainerPeer;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

@@ -15,7 +15,6 @@
 #include <org/ietf/jgss/GSSException.h>
 #include <org/ietf/jgss/Oid.h>
 #include <sun/security/jgss/GSSCaller.h>
-#include <sun/security/jgss/krb5/Krb5CredElement.h>
 #include <sun/security/jgss/krb5/Krb5InitCredential$1.h>
 #include <sun/security/jgss/krb5/Krb5MechFactory.h>
 #include <sun/security/jgss/krb5/Krb5NameElement.h>
@@ -43,7 +42,6 @@
 using $InetAddressArray = $Array<::java::net::InetAddress>;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
@@ -60,7 +58,6 @@ using $KerberosTicket = ::javax::security::auth::kerberos::KerberosTicket;
 using $GSSException = ::org::ietf::jgss::GSSException;
 using $Oid = ::org::ietf::jgss::Oid;
 using $GSSCaller = ::sun::security::jgss::GSSCaller;
-using $Krb5CredElement = ::sun::security::jgss::krb5::Krb5CredElement;
 using $Krb5InitCredential$1 = ::sun::security::jgss::krb5::Krb5InitCredential$1;
 using $Krb5MechFactory = ::sun::security::jgss::krb5::Krb5MechFactory;
 using $Krb5NameElement = ::sun::security::jgss::krb5::Krb5NameElement;

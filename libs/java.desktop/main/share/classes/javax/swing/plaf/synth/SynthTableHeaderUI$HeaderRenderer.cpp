@@ -1,10 +1,8 @@
 #include <javax/swing/plaf/synth/SynthTableHeaderUI$HeaderRenderer.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/lang/AssertionError.h>
 #include <java/util/List.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JTable.h>
 #include <javax/swing/RowSorter$SortKey.h>
@@ -13,27 +11,23 @@
 #include <javax/swing/border/Border.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/LabelUI.h>
-#include <javax/swing/plaf/basic/BasicLabelUI.h>
 #include <javax/swing/plaf/synth/SynthBorder.h>
 #include <javax/swing/plaf/synth/SynthLabelUI.h>
 #include <javax/swing/plaf/synth/SynthLookAndFeel.h>
 #include <javax/swing/plaf/synth/SynthTableHeaderUI$1.h>
 #include <javax/swing/plaf/synth/SynthTableHeaderUI.h>
-#include <javax/swing/table/DefaultTableCellRenderer.h>
 #include <sun/swing/table/DefaultTableCellHeaderRenderer.h>
 #include <jcpp.h>
 
 #undef LEADING
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $AssertionError = ::java::lang::AssertionError;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $List = ::java::util::List;
-using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
 using $JTable = ::javax::swing::JTable;
 using $RowSorter = ::javax::swing::RowSorter;
@@ -41,14 +35,11 @@ using $RowSorter$SortKey = ::javax::swing::RowSorter$SortKey;
 using $SortOrder = ::javax::swing::SortOrder;
 using $Border = ::javax::swing::border::Border;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $LabelUI = ::javax::swing::plaf::LabelUI;
-using $BasicLabelUI = ::javax::swing::plaf::basic::BasicLabelUI;
 using $SynthBorder = ::javax::swing::plaf::synth::SynthBorder;
 using $SynthLabelUI = ::javax::swing::plaf::synth::SynthLabelUI;
 using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
 using $SynthTableHeaderUI = ::javax::swing::plaf::synth::SynthTableHeaderUI;
 using $SynthTableHeaderUI$1 = ::javax::swing::plaf::synth::SynthTableHeaderUI$1;
-using $DefaultTableCellRenderer = ::javax::swing::table::DefaultTableCellRenderer;
 using $DefaultTableCellHeaderRenderer = ::sun::swing::table::DefaultTableCellHeaderRenderer;
 
 namespace javax {

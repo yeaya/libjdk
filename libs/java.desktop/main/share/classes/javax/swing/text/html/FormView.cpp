@@ -6,14 +6,12 @@
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/ActionListener.h>
 #include <java/awt/event/ItemListener.h>
-#include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/lang/Runnable.h>
 #include <java/net/MalformedURLException.h>
 #include <java/net/URL.h>
 #include <java/net/URLEncoder.h>
 #include <java/util/BitSet.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/AbstractListModel.h>
 #include <javax/swing/Box.h>
 #include <javax/swing/ButtonModel.h>
@@ -33,7 +31,6 @@
 #include <javax/swing/JTextArea.h>
 #include <javax/swing/JTextField.h>
 #include <javax/swing/JToggleButton$ToggleButtonModel.h>
-#include <javax/swing/JToggleButton.h>
 #include <javax/swing/ListModel.h>
 #include <javax/swing/ListSelectionModel.h>
 #include <javax/swing/SwingUtilities.h>
@@ -51,7 +48,6 @@
 #include <javax/swing/text/EditorKit.h>
 #include <javax/swing/text/Element.h>
 #include <javax/swing/text/ElementIterator.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <javax/swing/text/PlainDocument.h>
 #include <javax/swing/text/StyleConstants.h>
 #include <javax/swing/text/View.h>
@@ -104,12 +100,10 @@ using $ChangeListenerArray = $Array<::javax::swing::event::ChangeListener>;
 using $DocumentListenerArray = $Array<::javax::swing::event::DocumentListener>;
 using $ListDataListenerArray = $Array<::javax::swing::event::ListDataListener>;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Point = ::java::awt::Point;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $ItemListener = ::java::awt::event::ItemListener;
-using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
@@ -122,7 +116,6 @@ using $MalformedURLException = ::java::net::MalformedURLException;
 using $URL = ::java::net::URL;
 using $URLEncoder = ::java::net::URLEncoder;
 using $BitSet = ::java::util::BitSet;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $AbstractListModel = ::javax::swing::AbstractListModel;
 using $Box = ::javax::swing::Box;
 using $ButtonModel = ::javax::swing::ButtonModel;
@@ -141,7 +134,6 @@ using $JRadioButton = ::javax::swing::JRadioButton;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JTextArea = ::javax::swing::JTextArea;
 using $JTextField = ::javax::swing::JTextField;
-using $JToggleButton = ::javax::swing::JToggleButton;
 using $JToggleButton$ToggleButtonModel = ::javax::swing::JToggleButton$ToggleButtonModel;
 using $ListModel = ::javax::swing::ListModel;
 using $ListSelectionModel = ::javax::swing::ListSelectionModel;
@@ -159,7 +151,6 @@ using $DefaultStyledDocument = ::javax::swing::text::DefaultStyledDocument;
 using $Document = ::javax::swing::text::Document;
 using $Element = ::javax::swing::text::Element;
 using $ElementIterator = ::javax::swing::text::ElementIterator;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $PlainDocument = ::javax::swing::text::PlainDocument;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
 using $View = ::javax::swing::text::View;

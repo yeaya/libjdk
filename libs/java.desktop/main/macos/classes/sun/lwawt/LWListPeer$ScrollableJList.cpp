@@ -2,14 +2,12 @@
 
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Font.h>
 #include <java/awt/ItemSelectable.h>
 #include <java/awt/List.h>
 #include <java/awt/event/ItemEvent.h>
 #include <java/util/Arrays.h>
 #include <javax/swing/DefaultListModel.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JList.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/JViewport.h>
@@ -28,7 +26,6 @@
 
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Font = ::java::awt::Font;
 using $ItemSelectable = ::java::awt::ItemSelectable;
 using $List = ::java::awt::List;
@@ -40,7 +37,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Arrays = ::java::util::Arrays;
 using $DefaultListModel = ::javax::swing::DefaultListModel;
-using $JComponent = ::javax::swing::JComponent;
 using $JList = ::javax::swing::JList;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JViewport = ::javax::swing::JViewport;

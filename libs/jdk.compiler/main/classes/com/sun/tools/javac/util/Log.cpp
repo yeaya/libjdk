@@ -5,7 +5,6 @@
 #include <com/sun/tools/javac/main/Main.h>
 #include <com/sun/tools/javac/main/Option.h>
 #include <com/sun/tools/javac/tree/EndPosTable.h>
-#include <com/sun/tools/javac/util/AbstractDiagnosticFormatter.h>
 #include <com/sun/tools/javac/util/AbstractLog.h>
 #include <com/sun/tools/javac/util/Assert.h>
 #include <com/sun/tools/javac/util/BasicDiagnosticFormatter.h>
@@ -31,7 +30,6 @@
 #include <com/sun/tools/javac/util/Pair.h>
 #include <com/sun/tools/javac/util/Position.h>
 #include <com/sun/tools/javac/util/RawDiagnosticFormatter.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
@@ -46,8 +44,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
 #include <java/util/EnumMap.h>
@@ -83,7 +79,6 @@ using $Lint$LintCategory = ::com::sun::tools::javac::code::Lint$LintCategory;
 using $Main = ::com::sun::tools::javac::main::Main;
 using $Option = ::com::sun::tools::javac::main::Option;
 using $EndPosTable = ::com::sun::tools::javac::tree::EndPosTable;
-using $AbstractDiagnosticFormatter = ::com::sun::tools::javac::util::AbstractDiagnosticFormatter;
 using $AbstractLog = ::com::sun::tools::javac::util::AbstractLog;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $BasicDiagnosticFormatter = ::com::sun::tools::javac::util::BasicDiagnosticFormatter;
@@ -109,7 +104,6 @@ using $Options = ::com::sun::tools::javac::util::Options;
 using $Pair = ::com::sun::tools::javac::util::Pair;
 using $Position = ::com::sun::tools::javac::util::Position;
 using $RawDiagnosticFormatter = ::com::sun::tools::javac::util::RawDiagnosticFormatter;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
@@ -128,8 +122,6 @@ using $NumberFormatException = ::java::lang::NumberFormatException;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
 using $EnumMap = ::java::util::EnumMap;

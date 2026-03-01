@@ -21,18 +21,12 @@
 #include <com/sun/org/apache/xml/internal/dtm/DTMManager.h>
 #include <com/sun/org/apache/xml/internal/dtm/DTMWSFilter.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMAxisIterNodeList.h>
-#include <com/sun/org/apache/xml/internal/dtm/ref/DTMAxisIteratorBase.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBase.h>
-#include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators$DescendantIterator.h>
-#include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators$InternalAxisIteratorBase.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators$NamespaceIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators$NthDescendantIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators$RootIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators$SingletonIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseIterators.h>
-#include <com/sun/org/apache/xml/internal/dtm/ref/DTMDefaultBaseTraversers.h>
-#include <com/sun/org/apache/xml/internal/dtm/ref/DTMManagerDefault.h>
-#include <com/sun/org/apache/xml/internal/dtm/ref/DTMNodeListBase.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMNodeProxy.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/EmptyIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/ExpandedNameTable.h>
@@ -57,15 +51,11 @@
 #include <com/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2DTM2$TypedRootIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2DTM2$TypedSingletonIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/sax2dtm/SAX2DTM2.h>
-#include <com/sun/org/apache/xml/internal/serializer/ExtendedContentHandler.h>
 #include <com/sun/org/apache/xml/internal/serializer/SerializationHandler.h>
-#include <com/sun/org/apache/xml/internal/serializer/SerializerBase.h>
-#include <com/sun/org/apache/xml/internal/serializer/ToSAXHandler.h>
 #include <com/sun/org/apache/xml/internal/serializer/ToXMLSAXHandler.h>
 #include <com/sun/org/apache/xml/internal/utils/IntStack.h>
 #include <com/sun/org/apache/xml/internal/utils/SystemIDResolver.h>
 #include <com/sun/org/apache/xml/internal/utils/XMLStringFactory.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <javax/xml/transform/Source.h>
@@ -146,18 +136,11 @@ using $DTMAxisIterator = ::com::sun::org::apache::xml::internal::dtm::DTMAxisIte
 using $DTMManager = ::com::sun::org::apache::xml::internal::dtm::DTMManager;
 using $DTMWSFilter = ::com::sun::org::apache::xml::internal::dtm::DTMWSFilter;
 using $DTMAxisIterNodeList = ::com::sun::org::apache::xml::internal::dtm::ref::DTMAxisIterNodeList;
-using $DTMAxisIteratorBase = ::com::sun::org::apache::xml::internal::dtm::ref::DTMAxisIteratorBase;
 using $DTMDefaultBase = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBase;
-using $DTMDefaultBaseIterators = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators;
-using $DTMDefaultBaseIterators$DescendantIterator = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators$DescendantIterator;
-using $DTMDefaultBaseIterators$InternalAxisIteratorBase = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators$InternalAxisIteratorBase;
 using $DTMDefaultBaseIterators$NamespaceIterator = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators$NamespaceIterator;
 using $DTMDefaultBaseIterators$NthDescendantIterator = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators$NthDescendantIterator;
 using $DTMDefaultBaseIterators$RootIterator = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators$RootIterator;
 using $DTMDefaultBaseIterators$SingletonIterator = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseIterators$SingletonIterator;
-using $DTMDefaultBaseTraversers = ::com::sun::org::apache::xml::internal::dtm::ref::DTMDefaultBaseTraversers;
-using $DTMManagerDefault = ::com::sun::org::apache::xml::internal::dtm::ref::DTMManagerDefault;
-using $DTMNodeListBase = ::com::sun::org::apache::xml::internal::dtm::ref::DTMNodeListBase;
 using $DTMNodeProxy = ::com::sun::org::apache::xml::internal::dtm::ref::DTMNodeProxy;
 using $EmptyIterator = ::com::sun::org::apache::xml::internal::dtm::ref::EmptyIterator;
 using $ExpandedNameTable = ::com::sun::org::apache::xml::internal::dtm::ref::ExpandedNameTable;
@@ -182,10 +165,7 @@ using $SAX2DTM2$TypedPrecedingIterator = ::com::sun::org::apache::xml::internal:
 using $SAX2DTM2$TypedPrecedingSiblingIterator = ::com::sun::org::apache::xml::internal::dtm::ref::sax2dtm::SAX2DTM2$TypedPrecedingSiblingIterator;
 using $SAX2DTM2$TypedRootIterator = ::com::sun::org::apache::xml::internal::dtm::ref::sax2dtm::SAX2DTM2$TypedRootIterator;
 using $SAX2DTM2$TypedSingletonIterator = ::com::sun::org::apache::xml::internal::dtm::ref::sax2dtm::SAX2DTM2$TypedSingletonIterator;
-using $ExtendedContentHandler = ::com::sun::org::apache::xml::internal::serializer::ExtendedContentHandler;
 using $SerializationHandler = ::com::sun::org::apache::xml::internal::serializer::SerializationHandler;
-using $SerializerBase = ::com::sun::org::apache::xml::internal::serializer::SerializerBase;
-using $ToSAXHandler = ::com::sun::org::apache::xml::internal::serializer::ToSAXHandler;
 using $ToXMLSAXHandler = ::com::sun::org::apache::xml::internal::serializer::ToXMLSAXHandler;
 using $IntStack = ::com::sun::org::apache::xml::internal::utils::IntStack;
 using $SystemIDResolver = ::com::sun::org::apache::xml::internal::utils::SystemIDResolver;
@@ -197,7 +177,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $Source = ::javax::xml::transform::Source;

@@ -23,9 +23,7 @@
 #include <javax/swing/MenuSelectionManager.h>
 #include <javax/swing/event/MenuDragMouseListener.h>
 #include <javax/swing/event/MouseInputListener.h>
-#include <javax/swing/plaf/ButtonUI.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/MenuItemUI.h>
 #include <javax/swing/plaf/basic/BasicMenuItemUI.h>
 #include <jcpp.h>
 
@@ -54,9 +52,7 @@ using $JMenuBar = ::javax::swing::JMenuBar;
 using $JMenuItem = ::javax::swing::JMenuItem;
 using $JRadioButtonMenuItem = ::javax::swing::JRadioButtonMenuItem;
 using $MenuSelectionManager = ::javax::swing::MenuSelectionManager;
-using $ButtonUI = ::javax::swing::plaf::ButtonUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $MenuItemUI = ::javax::swing::plaf::MenuItemUI;
 using $BasicMenuItemUI = ::javax::swing::plaf::basic::BasicMenuItemUI;
 
 namespace com {

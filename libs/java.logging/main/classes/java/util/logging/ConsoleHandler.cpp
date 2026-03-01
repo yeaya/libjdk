@@ -1,6 +1,5 @@
 #include <java/util/logging/ConsoleHandler.h>
 
-#include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/util/logging/Formatter.h>
 #include <java/util/logging/Level.h>
@@ -11,7 +10,6 @@
 
 #undef INFO
 
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;

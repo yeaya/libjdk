@@ -10,7 +10,6 @@
 #include <java/nio/file/LinkOption.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/spi/FileSystemProvider.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
@@ -28,7 +27,6 @@ using $LinkOptionArray = $Array<::java::nio::file::LinkOption>;
 using $Context = ::com::sun::tools::javac::util::Context;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URI = ::java::net::URI;
@@ -37,7 +35,6 @@ using $URL = ::java::net::URL;
 using $Files = ::java::nio::file::Files;
 using $Path = ::java::nio::file::Path;
 using $FileSystemProvider = ::java::nio::file::spi::FileSystemProvider;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;

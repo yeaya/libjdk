@@ -4,7 +4,6 @@
 #include <java/awt/MultipleGradientPaint$ColorSpaceType.h>
 #include <java/awt/MultipleGradientPaint$CycleMethod.h>
 #include <java/awt/MultipleGradientPaint.h>
-#include <java/awt/MultipleGradientPaintContext.h>
 #include <java/awt/PaintContext.h>
 #include <java/awt/RadialGradientPaintContext.h>
 #include <java/awt/Rectangle.h>
@@ -24,7 +23,6 @@ using $ColorArray = $Array<::java::awt::Color>;
 using $MultipleGradientPaint = ::java::awt::MultipleGradientPaint;
 using $MultipleGradientPaint$ColorSpaceType = ::java::awt::MultipleGradientPaint$ColorSpaceType;
 using $MultipleGradientPaint$CycleMethod = ::java::awt::MultipleGradientPaint$CycleMethod;
-using $MultipleGradientPaintContext = ::java::awt::MultipleGradientPaintContext;
 using $PaintContext = ::java::awt::PaintContext;
 using $RadialGradientPaintContext = ::java::awt::RadialGradientPaintContext;
 using $Rectangle = ::java::awt::Rectangle;

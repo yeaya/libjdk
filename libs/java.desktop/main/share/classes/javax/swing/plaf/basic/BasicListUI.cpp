@@ -48,7 +48,6 @@
 #include <javax/swing/plaf/basic/BasicListUI$ListTransferHandler.h>
 #include <javax/swing/plaf/basic/LazyActionMap.h>
 #include <sun/swing/DefaultLookup.h>
-#include <sun/swing/UIAction.h>
 #include <jcpp.h>
 
 #undef ADD_TO_SELECTION
@@ -151,7 +150,6 @@ using $BasicListUI$Handler = ::javax::swing::plaf::basic::BasicListUI$Handler;
 using $BasicListUI$ListTransferHandler = ::javax::swing::plaf::basic::BasicListUI$ListTransferHandler;
 using $LazyActionMap = ::javax::swing::plaf::basic::LazyActionMap;
 using $DefaultLookup = ::sun::swing::DefaultLookup;
-using $UIAction = ::sun::swing::UIAction;
 
 namespace javax {
 	namespace swing {

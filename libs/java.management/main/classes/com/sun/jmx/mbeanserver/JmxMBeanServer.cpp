@@ -2,7 +2,6 @@
 
 #include <com/sun/jmx/defaults/JmxProperties.h>
 #include <com/sun/jmx/interceptor/DefaultMBeanServerInterceptor.h>
-#include <com/sun/jmx/interceptor/MBeanServerInterceptor.h>
 #include <com/sun/jmx/mbeanserver/ClassLoaderRepositorySupport.h>
 #include <com/sun/jmx/mbeanserver/JmxMBeanServer$1.h>
 #include <com/sun/jmx/mbeanserver/JmxMBeanServer$2.h>
@@ -12,19 +11,16 @@
 #include <com/sun/jmx/mbeanserver/ModifiableClassLoaderRepository.h>
 #include <com/sun/jmx/mbeanserver/Repository.h>
 #include <com/sun/jmx/mbeanserver/SecureClassLoaderRepository.h>
-#include <com/sun/jmx/mbeanserver/SunJmxMBeanServer.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/lang/ClassLoader.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/SecurityManager.h>
 #include <java/lang/System$Logger$Level.h>
 #include <java/lang/System$Logger.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/security/AccessController.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/security/PrivilegedExceptionAction.h>
@@ -54,7 +50,6 @@
 
 using $JmxProperties = ::com::sun::jmx::defaults::JmxProperties;
 using $DefaultMBeanServerInterceptor = ::com::sun::jmx::interceptor::DefaultMBeanServerInterceptor;
-using $MBeanServerInterceptor = ::com::sun::jmx::interceptor::MBeanServerInterceptor;
 using $ClassLoaderRepositorySupport = ::com::sun::jmx::mbeanserver::ClassLoaderRepositorySupport;
 using $JmxMBeanServer$1 = ::com::sun::jmx::mbeanserver::JmxMBeanServer$1;
 using $JmxMBeanServer$2 = ::com::sun::jmx::mbeanserver::JmxMBeanServer$2;
@@ -64,7 +59,6 @@ using $MBeanServerDelegateImpl = ::com::sun::jmx::mbeanserver::MBeanServerDelega
 using $ModifiableClassLoaderRepository = ::com::sun::jmx::mbeanserver::ModifiableClassLoaderRepository;
 using $Repository = ::com::sun::jmx::mbeanserver::Repository;
 using $SecureClassLoaderRepository = ::com::sun::jmx::mbeanserver::SecureClassLoaderRepository;
-using $SunJmxMBeanServer = ::com::sun::jmx::mbeanserver::SunJmxMBeanServer;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassLoader = ::java::lang::ClassLoader;
@@ -77,7 +71,6 @@ using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
@@ -85,7 +78,6 @@ using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $AccessController = ::java::security::AccessController;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;

@@ -6,7 +6,6 @@
 #include <java/awt/Insets.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/lang/InterruptedException.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <javax/swing/JComponent.h>
@@ -41,7 +40,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $JComponent = ::javax::swing::JComponent;

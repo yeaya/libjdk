@@ -4,8 +4,6 @@
 #include <com/sun/tools/javac/processing/JavacFiler$FilerOutputStream.h>
 #include <com/sun/tools/javac/processing/JavacFiler$FilerWriter.h>
 #include <com/sun/tools/javac/processing/JavacFiler.h>
-#include <java/io/FilterOutputStream.h>
-#include <java/io/FilterWriter.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
@@ -21,8 +19,6 @@ using $Symbol$ModuleSymbol = ::com::sun::tools::javac::code::Symbol$ModuleSymbol
 using $JavacFiler = ::com::sun::tools::javac::processing::JavacFiler;
 using $JavacFiler$FilerOutputStream = ::com::sun::tools::javac::processing::JavacFiler$FilerOutputStream;
 using $JavacFiler$FilerWriter = ::com::sun::tools::javac::processing::JavacFiler$FilerWriter;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
-using $FilterWriter = ::java::io::FilterWriter;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;

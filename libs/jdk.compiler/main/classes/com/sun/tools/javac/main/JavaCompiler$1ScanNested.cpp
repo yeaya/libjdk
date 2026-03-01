@@ -13,8 +13,6 @@
 #include <com/sun/tools/javac/tree/JCTree$JCMemberReference.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <com/sun/tools/javac/tree/TreeScanner.h>
-#include <java/util/AbstractSet.h>
-#include <java/util/HashSet.h>
 #include <java/util/LinkedHashSet.h>
 #include <java/util/Set.h>
 #include <jcpp.h>
@@ -38,8 +36,6 @@ using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractSet = ::java::util::AbstractSet;
-using $HashSet = ::java::util::HashSet;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
 using $Set = ::java::util::Set;
 

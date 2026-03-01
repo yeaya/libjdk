@@ -3,7 +3,6 @@
 #include <java/awt/font/JavaAWTFontAccessImpl.h>
 #include <java/io/InvalidObjectException.h>
 #include <java/text/AttributedCharacterIterator$Attribute.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <jdk/internal/access/JavaAWTFontAccess.h>
@@ -82,7 +81,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AttributedCharacterIterator$Attribute = ::java::text::AttributedCharacterIterator$Attribute;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $JavaAWTFontAccess = ::jdk::internal::access::JavaAWTFontAccess;

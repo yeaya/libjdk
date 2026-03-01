@@ -5,7 +5,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <java/lang/Error.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/event/DocumentEvent.h>
 #include <javax/swing/plaf/basic/BasicTextUI.h>
 #include <javax/swing/text/AttributeSet.h>
@@ -32,7 +31,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $DocumentEvent = ::javax::swing::event::DocumentEvent;
 using $BasicTextUI = ::javax::swing::plaf::basic::BasicTextUI;
 using $AttributeSet = ::javax::swing::text::AttributeSet;

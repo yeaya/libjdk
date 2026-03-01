@@ -11,17 +11,14 @@
 #include <com/sun/media/sound/SoftMixingDataLine$ReverbSend.h>
 #include <com/sun/media/sound/SoftMixingMixer.h>
 #include <java/lang/Math.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
 #include <javax/sound/sampled/AudioFormat.h>
-#include <javax/sound/sampled/BooleanControl.h>
 #include <javax/sound/sampled/Control$Type.h>
 #include <javax/sound/sampled/Control.h>
 #include <javax/sound/sampled/DataLine$Info.h>
 #include <javax/sound/sampled/FloatControl$Type.h>
-#include <javax/sound/sampled/FloatControl.h>
 #include <javax/sound/sampled/Line$Info.h>
 #include <javax/sound/sampled/LineEvent.h>
 #include <javax/sound/sampled/LineListener.h>
@@ -48,16 +45,13 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $List = ::java::util::List;
 using $AudioFormat = ::javax::sound::sampled::AudioFormat;
-using $BooleanControl = ::javax::sound::sampled::BooleanControl;
 using $Control = ::javax::sound::sampled::Control;
 using $Control$Type = ::javax::sound::sampled::Control$Type;
 using $DataLine$Info = ::javax::sound::sampled::DataLine$Info;
-using $FloatControl = ::javax::sound::sampled::FloatControl;
 using $FloatControl$Type = ::javax::sound::sampled::FloatControl$Type;
 using $Line$Info = ::javax::sound::sampled::Line$Info;
 using $LineEvent = ::javax::sound::sampled::LineEvent;

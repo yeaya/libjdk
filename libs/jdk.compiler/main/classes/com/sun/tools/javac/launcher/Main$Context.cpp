@@ -5,10 +5,8 @@
 #include <com/sun/tools/javac/launcher/Main.h>
 #include <java/lang/ClassLoader.h>
 #include <java/nio/file/Path.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
-#include <javax/tools/ForwardingJavaFileManager.h>
 #include <javax/tools/JavaFileManager.h>
 #include <javax/tools/StandardJavaFileManager.h>
 #include <jcpp.h>
@@ -21,10 +19,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Path = ::java::nio::file::Path;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
-using $ForwardingJavaFileManager = ::javax::tools::ForwardingJavaFileManager;
 using $JavaFileManager = ::javax::tools::JavaFileManager;
 using $StandardJavaFileManager = ::javax::tools::StandardJavaFileManager;
 

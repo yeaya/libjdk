@@ -10,7 +10,6 @@
 #include <java/lang/SecurityManager.h>
 #include <java/security/AccessController.h>
 #include <java/security/AllPermission.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/util/Iterator.h>
@@ -44,7 +43,6 @@ using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $AccessController = ::java::security::AccessController;
 using $AllPermission = ::java::security::AllPermission;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Iterator = ::java::util::Iterator;

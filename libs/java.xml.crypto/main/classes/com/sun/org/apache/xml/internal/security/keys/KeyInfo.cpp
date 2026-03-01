@@ -17,7 +17,6 @@
 #include <com/sun/org/apache/xml/internal/security/transforms/Transforms.h>
 #include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <com/sun/org/apache/xml/internal/security/utils/ElementProxy.h>
-#include <com/sun/org/apache/xml/internal/security/utils/Signature11ElementProxy.h>
 #include <com/sun/org/apache/xml/internal/security/utils/SignatureElementProxy.h>
 #include <com/sun/org/apache/xml/internal/security/utils/XMLUtils.h>
 #include <com/sun/org/slf4j/internal/Logger.h>
@@ -25,7 +24,6 @@
 #include <java/security/PrivateKey.h>
 #include <java/security/PublicKey.h>
 #include <java/security/cert/X509Certificate.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
@@ -69,7 +67,6 @@ using $StorageResolver = ::com::sun::org::apache::xml::internal::security::keys:
 using $Transforms = ::com::sun::org::apache::xml::internal::security::transforms::Transforms;
 using $Constants = ::com::sun::org::apache::xml::internal::security::utils::Constants;
 using $ElementProxy = ::com::sun::org::apache::xml::internal::security::utils::ElementProxy;
-using $Signature11ElementProxy = ::com::sun::org::apache::xml::internal::security::utils::Signature11ElementProxy;
 using $SignatureElementProxy = ::com::sun::org::apache::xml::internal::security::utils::SignatureElementProxy;
 using $XMLUtils = ::com::sun::org::apache::xml::internal::security::utils::XMLUtils;
 using $Logger = ::com::sun::org::slf4j::internal::Logger;
@@ -81,7 +78,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $PrivateKey = ::java::security::PrivateKey;
 using $PublicKey = ::java::security::PublicKey;
 using $X509Certificate = ::java::security::cert::X509Certificate;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;

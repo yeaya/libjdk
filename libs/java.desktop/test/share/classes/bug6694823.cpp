@@ -15,7 +15,6 @@
 #include <java/awt/Window.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/SecurityManager.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JMenuItem.h>
 #include <javax/swing/JPanel.h>
@@ -31,7 +30,6 @@ using $bug6694823$3 = ::bug6694823$3;
 using $bug6694823$4 = ::bug6694823$4;
 using $bug6694823$5 = ::bug6694823$5;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Insets = ::java::awt::Insets;
 using $Point = ::java::awt::Point;
 using $Robot = ::java::awt::Robot;
@@ -42,7 +40,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JMenuItem = ::javax::swing::JMenuItem;
 using $JPanel = ::javax::swing::JPanel;

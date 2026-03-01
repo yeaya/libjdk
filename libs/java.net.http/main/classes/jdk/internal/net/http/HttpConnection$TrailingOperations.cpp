@@ -6,7 +6,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/IdentityHashMap.h>
 #include <java/util/Map.h>
 #include <java/util/concurrent/CompletionStage.h>
@@ -23,7 +22,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractMap = ::java::util::AbstractMap;
 using $IdentityHashMap = ::java::util::IdentityHashMap;
 using $Map = ::java::util::Map;
 using $CompletionStage = ::java::util::concurrent::CompletionStage;

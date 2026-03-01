@@ -3,7 +3,6 @@
 #include <javax/swing/text/AbstractDocument$AbstractElement.h>
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/DefaultStyledDocument.h>
-#include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/Style.h>
 #include <javax/swing/undo/AbstractUndoableEdit.h>
 #include <jcpp.h>
@@ -14,7 +13,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractDocument$AbstractElement = ::javax::swing::text::AbstractDocument$AbstractElement;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
-using $MutableAttributeSet = ::javax::swing::text::MutableAttributeSet;
 using $Style = ::javax::swing::text::Style;
 using $AbstractUndoableEdit = ::javax::swing::undo::AbstractUndoableEdit;
 

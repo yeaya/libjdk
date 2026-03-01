@@ -21,7 +21,6 @@
 #include <java/lang/Number.h>
 #include <java/text/Annotation.h>
 #include <java/text/AttributedCharacterIterator$Attribute.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Hashtable.h>
 #include <java/util/Iterator.h>
@@ -97,7 +96,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Number = ::java::lang::Number;
 using $Annotation = ::java::text::Annotation;
 using $AttributedCharacterIterator$Attribute = ::java::text::AttributedCharacterIterator$Attribute;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Hashtable = ::java::util::Hashtable;
 using $Iterator = ::java::util::Iterator;

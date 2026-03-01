@@ -23,7 +23,6 @@
 #include <java/rmi/server/ServerNotActiveException.h>
 #include <java/security/AccessControlContext.h>
 #include <java/security/AccessController.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/CodeSource.h>
 #include <java/security/Permission.h>
 #include <java/security/PermissionCollection.h>
@@ -74,7 +73,6 @@ using $RemoteServer = ::java::rmi::server::RemoteServer;
 using $ServerNotActiveException = ::java::rmi::server::ServerNotActiveException;
 using $AccessControlContext = ::java::security::AccessControlContext;
 using $AccessController = ::java::security::AccessController;
-using $BasicPermission = ::java::security::BasicPermission;
 using $CodeSource = ::java::security::CodeSource;
 using $Permission = ::java::security::Permission;
 using $PermissionCollection = ::java::security::PermissionCollection;

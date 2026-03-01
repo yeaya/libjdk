@@ -12,7 +12,6 @@
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/Image.h>
 #include <java/awt/Rectangle.h>
-#include <java/awt/image/AbstractMultiResolutionImage.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/DataBuffer.h>
 #include <java/awt/image/DataBufferInt.h>
@@ -47,7 +46,6 @@ using $Graphics2D = ::java::awt::Graphics2D;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $Image = ::java::awt::Image;
 using $Rectangle = ::java::awt::Rectangle;
-using $AbstractMultiResolutionImage = ::java::awt::image::AbstractMultiResolutionImage;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $DataBuffer = ::java::awt::image::DataBuffer;
 using $DataBufferInt = ::java::awt::image::DataBufferInt;

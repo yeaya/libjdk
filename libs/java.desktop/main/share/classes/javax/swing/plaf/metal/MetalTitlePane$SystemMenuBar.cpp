@@ -2,21 +2,18 @@
 
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Image.h>
 #include <java/awt/image/ImageObserver.h>
 #include <java/lang/Math.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JMenuBar.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/plaf/metal/MetalTitlePane.h>
 #include <jcpp.h>
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $ImageObserver = ::java::awt::image::ImageObserver;
@@ -26,7 +23,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Icon = ::javax::swing::Icon;
-using $JComponent = ::javax::swing::JComponent;
 using $JMenuBar = ::javax::swing::JMenuBar;
 using $UIManager = ::javax::swing::UIManager;
 using $MetalTitlePane = ::javax::swing::plaf::metal::MetalTitlePane;

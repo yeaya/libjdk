@@ -4,7 +4,6 @@
 #include <java/awt/Container.h>
 #include <java/awt/Event.h>
 #include <java/awt/Font.h>
-#include <java/awt/Menu.h>
 #include <java/awt/MenuComponent.h>
 #include <java/awt/MenuContainer.h>
 #include <java/awt/MenuItem.h>
@@ -25,7 +24,6 @@
 using $Component = ::java::awt::Component;
 using $Event = ::java::awt::Event;
 using $Font = ::java::awt::Font;
-using $Menu = ::java::awt::Menu;
 using $MenuComponent = ::java::awt::MenuComponent;
 using $MenuContainer = ::java::awt::MenuContainer;
 using $MenuItem = ::java::awt::MenuItem;
@@ -38,7 +36,6 @@ using $AWTAccessor = ::sun::awt::AWTAccessor;
 using $AWTAccessor$MenuComponentAccessor = ::sun::awt::AWTAccessor$MenuComponentAccessor;
 using $AWTAccessor$PopupMenuAccessor = ::sun::awt::AWTAccessor$PopupMenuAccessor;
 using $WComponentPeer = ::sun::awt::windows::WComponentPeer;
-using $WMenuItemPeer = ::sun::awt::windows::WMenuItemPeer;
 using $WMenuPeer = ::sun::awt::windows::WMenuPeer;
 using $WObjectPeer = ::sun::awt::windows::WObjectPeer;
 using $WToolkit = ::sun::awt::windows::WToolkit;

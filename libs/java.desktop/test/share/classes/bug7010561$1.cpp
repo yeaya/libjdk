@@ -4,7 +4,6 @@
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/lang/reflect/Method.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JTabbedPane.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -19,7 +18,6 @@
 
 using $bug7010561 = ::bug7010561;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $PrintStream = ::java::io::PrintStream;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -30,7 +28,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Method = ::java::lang::reflect::Method;
-using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
 using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $TabbedPaneUI = ::javax::swing::plaf::TabbedPaneUI;

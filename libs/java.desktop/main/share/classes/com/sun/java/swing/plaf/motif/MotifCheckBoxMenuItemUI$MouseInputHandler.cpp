@@ -5,7 +5,6 @@
 #include <java/awt/Point.h>
 #include <java/awt/event/ComponentEvent.h>
 #include <java/awt/event/MouseEvent.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JMenuItem.h>
 #include <javax/swing/MenuElement.h>
@@ -21,7 +20,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JComponent = ::javax::swing::JComponent;
 using $JMenuItem = ::javax::swing::JMenuItem;
 using $MenuSelectionManager = ::javax::swing::MenuSelectionManager;

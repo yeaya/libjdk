@@ -14,7 +14,6 @@
 #include <com/sun/tools/javac/comp/DeferredAttr.h>
 #include <com/sun/tools/javac/comp/Infer$FreeTypeListener.h>
 #include <com/sun/tools/javac/comp/InferenceContext.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCLambda$ParameterKind.h>
 #include <com/sun/tools/javac/tree/JCTree$JCLambda.h>
@@ -26,9 +25,7 @@
 #include <com/sun/tools/javac/util/List.h>
 #include <java/lang/Iterable.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collection.h>
-#include <java/util/HashSet.h>
 #include <java/util/LinkedHashSet.h>
 #include <java/util/Set.h>
 #include <jcpp.h>
@@ -52,7 +49,6 @@ using $DeferredAttr$SwitchExpressionScanner = ::com::sun::tools::javac::comp::De
 using $Infer$FreeTypeListener = ::com::sun::tools::javac::comp::Infer$FreeTypeListener;
 using $InferenceContext = ::com::sun::tools::javac::comp::InferenceContext;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCLambda = ::com::sun::tools::javac::tree::JCTree$JCLambda;
 using $JCTree$JCLambda$ParameterKind = ::com::sun::tools::javac::tree::JCTree$JCLambda$ParameterKind;
 using $JCTree$JCMemberReference = ::com::sun::tools::javac::tree::JCTree$JCMemberReference;
@@ -65,9 +61,7 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Collection = ::java::util::Collection;
-using $HashSet = ::java::util::HashSet;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
 using $Set = ::java::util::Set;
 

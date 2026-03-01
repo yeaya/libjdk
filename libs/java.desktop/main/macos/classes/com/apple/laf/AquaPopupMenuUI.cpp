@@ -20,7 +20,6 @@
 #include <javax/swing/JPopupMenu.h>
 #include <javax/swing/PopupFactory.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/PopupMenuUI.h>
 #include <javax/swing/plaf/basic/BasicPopupMenuUI.h>
 #include <jcpp.h>
 
@@ -49,7 +48,6 @@ using $JMenu = ::javax::swing::JMenu;
 using $JPopupMenu = ::javax::swing::JPopupMenu;
 using $PopupFactory = ::javax::swing::PopupFactory;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $PopupMenuUI = ::javax::swing::plaf::PopupMenuUI;
 using $BasicPopupMenuUI = ::javax::swing::plaf::basic::BasicPopupMenuUI;
 
 namespace com {

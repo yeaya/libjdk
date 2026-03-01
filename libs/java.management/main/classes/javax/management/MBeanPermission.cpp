@@ -2,10 +2,8 @@
 
 #include <java/io/ObjectInputStream.h>
 #include <java/security/Permission.h>
-#include <javax/management/JMException.h>
 #include <javax/management/MalformedObjectNameException.h>
 #include <javax/management/ObjectName.h>
-#include <javax/management/OperationsException.h>
 #include <jcpp.h>
 
 #undef ALL
@@ -14,15 +12,12 @@
 
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Permission = ::java::security::Permission;
-using $JMException = ::javax::management::JMException;
 using $MalformedObjectNameException = ::javax::management::MalformedObjectNameException;
 using $ObjectName = ::javax::management::ObjectName;
-using $OperationsException = ::javax::management::OperationsException;
 
 namespace javax {
 	namespace management {

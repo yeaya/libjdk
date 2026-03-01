@@ -1,7 +1,6 @@
 #include <javax/print/MimeType$ParameterMap.h>
 
 #include <java/util/AbstractMap.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Set.h>
 #include <javax/print/MimeType$ParameterMapEntrySet.h>
 #include <javax/print/MimeType.h>
@@ -12,7 +11,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Set = ::java::util::Set;
 using $MimeType = ::javax::print::MimeType;
 using $MimeType$ParameterMapEntrySet = ::javax::print::MimeType$ParameterMapEntrySet;

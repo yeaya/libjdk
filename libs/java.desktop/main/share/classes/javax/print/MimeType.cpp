@@ -1,7 +1,6 @@
 #include <javax/print/MimeType.h>
 
 #include <java/io/Serializable.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Map.h>
 #include <java/util/Vector.h>
 #include <javax/print/MimeType$LexicalAnalyzer.h>
@@ -23,7 +22,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Map = ::java::util::Map;
 using $Vector = ::java::util::Vector;
 using $MimeType$LexicalAnalyzer = ::javax::print::MimeType$LexicalAnalyzer;

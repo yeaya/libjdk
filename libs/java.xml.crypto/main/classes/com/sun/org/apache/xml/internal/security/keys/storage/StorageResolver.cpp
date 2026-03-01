@@ -1,6 +1,5 @@
 #include <com/sun/org/apache/xml/internal/security/keys/storage/StorageResolver.h>
 
-#include <com/sun/org/apache/xml/internal/security/exceptions/XMLSecurityException.h>
 #include <com/sun/org/apache/xml/internal/security/keys/storage/StorageResolver$StorageResolverIterator.h>
 #include <com/sun/org/apache/xml/internal/security/keys/storage/StorageResolverException.h>
 #include <com/sun/org/apache/xml/internal/security/keys/storage/StorageResolverSpi.h>
@@ -10,7 +9,6 @@
 #include <com/sun/org/slf4j/internal/LoggerFactory.h>
 #include <java/security/KeyStore.h>
 #include <java/security/cert/X509Certificate.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -18,7 +16,6 @@
 
 #undef LOG
 
-using $XMLSecurityException = ::com::sun::org::apache::xml::internal::security::exceptions::XMLSecurityException;
 using $StorageResolver$StorageResolverIterator = ::com::sun::org::apache::xml::internal::security::keys::storage::StorageResolver$StorageResolverIterator;
 using $StorageResolverException = ::com::sun::org::apache::xml::internal::security::keys::storage::StorageResolverException;
 using $StorageResolverSpi = ::com::sun::org::apache::xml::internal::security::keys::storage::StorageResolverSpi;
@@ -27,13 +24,11 @@ using $SingleCertificateResolver = ::com::sun::org::apache::xml::internal::secur
 using $Logger = ::com::sun::org::slf4j::internal::Logger;
 using $LoggerFactory = ::com::sun::org::slf4j::internal::LoggerFactory;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $KeyStore = ::java::security::KeyStore;
 using $X509Certificate = ::java::security::cert::X509Certificate;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;

@@ -7,7 +7,6 @@
 #include <java/awt/Shape.h>
 #include <java/awt/font/TextAttribute.h>
 #include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/lang/Math.h>
 #include <javax/swing/SizeRequirements.h>
 #include <javax/swing/SwingConstants.h>
@@ -17,7 +16,6 @@
 #include <javax/swing/text/AbstractDocument.h>
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/BadLocationException.h>
-#include <javax/swing/text/BoxView.h>
 #include <javax/swing/text/Caret.h>
 #include <javax/swing/text/CompositeView.h>
 #include <javax/swing/text/Document.h>
@@ -58,7 +56,6 @@ using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
 using $TextAttribute = ::java::awt::font::TextAttribute;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -75,9 +72,7 @@ using $TextUI = ::javax::swing::plaf::TextUI;
 using $AbstractDocument = ::javax::swing::text::AbstractDocument;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
-using $BoxView = ::javax::swing::text::BoxView;
 using $Caret = ::javax::swing::text::Caret;
-using $CompositeView = ::javax::swing::text::CompositeView;
 using $Document = ::javax::swing::text::Document;
 using $Element = ::javax::swing::text::Element;
 using $FlowView = ::javax::swing::text::FlowView;

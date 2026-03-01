@@ -1,7 +1,6 @@
 #include <javax/swing/plaf/basic/BasicComboBoxUI$Actions.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/event/ActionEvent.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/util/EventObject.h>
@@ -41,7 +40,6 @@
 #undef WHEN_IN_FOCUSED_WINDOW
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ActionEvent = ::java::awt::event::ActionEvent;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -24,7 +24,6 @@
 #undef VARIABLE_UNDEF_ERR
 
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
-using $Expression = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression;
 using $Param = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Param;
 using $ParameterRef = ::com::sun::org::apache::xalan::internal::xsltc::compiler::ParameterRef;
 using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;

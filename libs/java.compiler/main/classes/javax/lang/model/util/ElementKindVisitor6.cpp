@@ -6,7 +6,6 @@
 #include <javax/lang/model/element/ExecutableElement.h>
 #include <javax/lang/model/element/PackageElement.h>
 #include <javax/lang/model/element/Parameterizable.h>
-#include <javax/lang/model/element/QualifiedNameable.h>
 #include <javax/lang/model/element/TypeElement.h>
 #include <javax/lang/model/element/TypeParameterElement.h>
 #include <javax/lang/model/element/VariableElement.h>
@@ -30,7 +29,6 @@ using $ElementKind = ::javax::lang::model::element::ElementKind;
 using $ExecutableElement = ::javax::lang::model::element::ExecutableElement;
 using $PackageElement = ::javax::lang::model::element::PackageElement;
 using $Parameterizable = ::javax::lang::model::element::Parameterizable;
-using $QualifiedNameable = ::javax::lang::model::element::QualifiedNameable;
 using $TypeElement = ::javax::lang::model::element::TypeElement;
 using $TypeParameterElement = ::javax::lang::model::element::TypeParameterElement;
 using $VariableElement = ::javax::lang::model::element::VariableElement;

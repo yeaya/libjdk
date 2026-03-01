@@ -5,9 +5,7 @@
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ButtonUI.h>
-#include <javax/swing/plaf/basic/BasicButtonUI.h>
 #include <javax/swing/plaf/synth/SynthArrowButton$SynthArrowButtonUI.h>
-#include <javax/swing/plaf/synth/SynthButtonUI.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -17,9 +15,7 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JButton = ::javax::swing::JButton;
 using $ButtonUI = ::javax::swing::plaf::ButtonUI;
-using $BasicButtonUI = ::javax::swing::plaf::basic::BasicButtonUI;
 using $SynthArrowButton$SynthArrowButtonUI = ::javax::swing::plaf::synth::SynthArrowButton$SynthArrowButtonUI;
-using $SynthButtonUI = ::javax::swing::plaf::synth::SynthButtonUI;
 
 namespace javax {
 	namespace swing {

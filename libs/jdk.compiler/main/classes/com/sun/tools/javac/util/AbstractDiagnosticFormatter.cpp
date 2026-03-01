@@ -16,7 +16,6 @@
 #include <com/sun/tools/javac/jvm/Profile.h>
 #include <com/sun/tools/javac/jvm/Target.h>
 #include <com/sun/tools/javac/main/Option.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCParens.h>
 #include <com/sun/tools/javac/tree/JCTree$Tag.h>
@@ -70,7 +69,6 @@ using $Profile = ::com::sun::tools::javac::jvm::Profile;
 using $Target = ::com::sun::tools::javac::jvm::Target;
 using $Option = ::com::sun::tools::javac::main::Option;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCParens = ::com::sun::tools::javac::tree::JCTree$JCParens;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;

@@ -6,7 +6,6 @@
 #include <javax/imageio/spi/ImageOutputStreamSpi.h>
 #include <javax/imageio/stream/FileCacheImageOutputStream.h>
 #include <javax/imageio/stream/ImageOutputStream.h>
-#include <javax/imageio/stream/ImageOutputStreamImpl.h>
 #include <javax/imageio/stream/MemoryCacheImageOutputStream.h>
 #include <jcpp.h>
 
@@ -20,7 +19,6 @@ using $Locale = ::java::util::Locale;
 using $ImageOutputStreamSpi = ::javax::imageio::spi::ImageOutputStreamSpi;
 using $FileCacheImageOutputStream = ::javax::imageio::stream::FileCacheImageOutputStream;
 using $ImageOutputStream = ::javax::imageio::stream::ImageOutputStream;
-using $ImageOutputStreamImpl = ::javax::imageio::stream::ImageOutputStreamImpl;
 using $MemoryCacheImageOutputStream = ::javax::imageio::stream::MemoryCacheImageOutputStream;
 
 namespace com {

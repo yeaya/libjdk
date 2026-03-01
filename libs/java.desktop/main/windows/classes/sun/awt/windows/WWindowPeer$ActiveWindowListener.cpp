@@ -1,7 +1,6 @@
 #include <sun/awt/windows/WWindowPeer$ActiveWindowListener.h>
 
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Window.h>
 #include <java/awt/peer/ComponentPeer.h>
 #include <java/beans/PropertyChangeEvent.h>
@@ -17,7 +16,6 @@
 #undef ACTIVE_WINDOWS_KEY
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Window = ::java::awt::Window;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $ClassInfo = ::java::lang::ClassInfo;

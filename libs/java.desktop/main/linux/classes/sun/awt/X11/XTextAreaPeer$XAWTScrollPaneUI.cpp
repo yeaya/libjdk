@@ -3,7 +3,6 @@
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
 #include <java/beans/PropertyChangeListener.h>
@@ -11,7 +10,6 @@
 #include <javax/swing/JScrollBar.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/UIDefaults.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/CompoundBorder.h>
 #include <javax/swing/border/EmptyBorder.h>
@@ -23,7 +21,6 @@
 
 using $Component = ::java::awt::Component;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $Rectangle = ::java::awt::Rectangle;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
@@ -35,7 +32,6 @@ using $JComponent = ::javax::swing::JComponent;
 using $JScrollBar = ::javax::swing::JScrollBar;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $UIDefaults = ::javax::swing::UIDefaults;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $CompoundBorder = ::javax::swing::border::CompoundBorder;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;

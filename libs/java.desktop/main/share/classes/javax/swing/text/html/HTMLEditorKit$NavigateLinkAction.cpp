@@ -8,7 +8,6 @@
 #include <javax/swing/event/CaretEvent.h>
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/BadLocationException.h>
-#include <javax/swing/text/DefaultHighlighter$DefaultHighlightPainter.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/EditorKit.h>
 #include <javax/swing/text/Element.h>
@@ -16,7 +15,6 @@
 #include <javax/swing/text/Highlighter$HighlightPainter.h>
 #include <javax/swing/text/Highlighter.h>
 #include <javax/swing/text/JTextComponent.h>
-#include <javax/swing/text/LayeredHighlighter$LayerPainter.h>
 #include <javax/swing/text/TextAction.h>
 #include <javax/swing/text/html/HTML$Attribute.h>
 #include <javax/swing/text/html/HTML$Tag.h>
@@ -41,7 +39,6 @@ using $JEditorPane = ::javax::swing::JEditorPane;
 using $CaretEvent = ::javax::swing::event::CaretEvent;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
-using $DefaultHighlighter$DefaultHighlightPainter = ::javax::swing::text::DefaultHighlighter$DefaultHighlightPainter;
 using $Document = ::javax::swing::text::Document;
 using $EditorKit = ::javax::swing::text::EditorKit;
 using $Element = ::javax::swing::text::Element;
@@ -49,7 +46,6 @@ using $ElementIterator = ::javax::swing::text::ElementIterator;
 using $Highlighter = ::javax::swing::text::Highlighter;
 using $Highlighter$HighlightPainter = ::javax::swing::text::Highlighter$HighlightPainter;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
-using $LayeredHighlighter$LayerPainter = ::javax::swing::text::LayeredHighlighter$LayerPainter;
 using $TextAction = ::javax::swing::text::TextAction;
 using $HTML$Attribute = ::javax::swing::text::html::HTML$Attribute;
 using $HTML$Tag = ::javax::swing::text::html::HTML$Tag;

@@ -1,7 +1,6 @@
 #include <com/sun/tools/sjavac/server/CompilationSubResult.h>
 
 #include <com/sun/tools/javac/main/Main$Result.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <jcpp.h>
@@ -10,7 +9,6 @@ using $Main$Result = ::com::sun::tools::javac::main::Main$Result;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 

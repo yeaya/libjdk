@@ -4,8 +4,6 @@
 #include <bug6918861.h>
 #include <javax/swing/JSlider.h>
 #include <javax/swing/plaf/SliderUI.h>
-#include <javax/swing/plaf/basic/BasicSliderUI.h>
-#include <javax/swing/plaf/synth/SynthSliderUI.h>
 #include <jcpp.h>
 
 using $bug6918861$HackedSynthSliderUI = ::bug6918861$HackedSynthSliderUI;
@@ -16,8 +14,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $JSlider = ::javax::swing::JSlider;
 using $SliderUI = ::javax::swing::plaf::SliderUI;
-using $BasicSliderUI = ::javax::swing::plaf::basic::BasicSliderUI;
-using $SynthSliderUI = ::javax::swing::plaf::synth::SynthSliderUI;
 
 $MethodInfo _bug6918861$1_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(bug6918861$1, init$, void)},

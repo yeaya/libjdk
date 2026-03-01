@@ -6,13 +6,10 @@
 #include <com/sun/org/apache/xpath/internal/objects/XNodeSet.h>
 #include <com/sun/org/apache/xpath/internal/objects/XObject.h>
 #include <com/sun/org/apache/xpath/internal/res/XPATHErrorResources.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <javax/xml/namespace/QName.h>
 #include <javax/xml/transform/TransformerException.h>
-#include <javax/xml/xpath/XPathException.h>
-#include <javax/xml/xpath/XPathExpressionException.h>
 #include <javax/xml/xpath/XPathFunction.h>
 #include <javax/xml/xpath/XPathFunctionException.h>
 #include <javax/xml/xpath/XPathFunctionResolver.h>
@@ -36,13 +33,10 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NullPointerException = ::java::lang::NullPointerException;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $QName = ::javax::xml::namespace$::QName;
 using $TransformerException = ::javax::xml::transform::TransformerException;
-using $XPathException = ::javax::xml::xpath::XPathException;
-using $XPathExpressionException = ::javax::xml::xpath::XPathExpressionException;
 using $XPathFunction = ::javax::xml::xpath::XPathFunction;
 using $XPathFunctionException = ::javax::xml::xpath::XPathFunctionException;
 using $XPathFunctionResolver = ::javax::xml::xpath::XPathFunctionResolver;

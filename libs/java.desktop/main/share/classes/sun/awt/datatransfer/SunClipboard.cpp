@@ -12,7 +12,6 @@
 #include <java/awt/datatransfer/SystemFlavorMap.h>
 #include <java/awt/datatransfer/Transferable.h>
 #include <java/awt/datatransfer/UnsupportedFlavorException.h>
-#include <java/awt/event/InvocationEvent.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/io/Serializable.h>
@@ -24,7 +23,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Arrays.h>
 #include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
@@ -56,7 +54,6 @@ using $FlavorTable = ::java::awt::datatransfer::FlavorTable;
 using $SystemFlavorMap = ::java::awt::datatransfer::SystemFlavorMap;
 using $Transferable = ::java::awt::datatransfer::Transferable;
 using $UnsupportedFlavorException = ::java::awt::datatransfer::UnsupportedFlavorException;
-using $InvocationEvent = ::java::awt::event::InvocationEvent;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Serializable = ::java::io::Serializable;
@@ -70,7 +67,6 @@ using $NullPointerException = ::java::lang::NullPointerException;
 using $Runnable = ::java::lang::Runnable;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Arrays = ::java::util::Arrays;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;

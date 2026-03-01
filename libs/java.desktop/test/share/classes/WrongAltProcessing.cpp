@@ -15,11 +15,9 @@
 #include <java/awt/Robot.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/InputEvent.h>
-#include <java/awt/event/KeyAdapter.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/event/KeyListener.h>
 #include <java/lang/Runnable.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JMenu.h>
 #include <javax/swing/JMenuBar.h>
@@ -27,7 +25,6 @@
 #include <javax/swing/JTextField.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef BUTTON1_MASK
@@ -43,7 +40,6 @@ using $WrongAltProcessing$1 = ::WrongAltProcessing$1;
 using $WrongAltProcessing$2 = ::WrongAltProcessing$2;
 using $WrongAltProcessing$3 = ::WrongAltProcessing$3;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $DefaultKeyboardFocusManager = ::java::awt::DefaultKeyboardFocusManager;
 using $Dimension = ::java::awt::Dimension;
 using $FlowLayout = ::java::awt::FlowLayout;
@@ -52,7 +48,6 @@ using $LayoutManager = ::java::awt::LayoutManager;
 using $Point = ::java::awt::Point;
 using $Robot = ::java::awt::Robot;
 using $InputEvent = ::java::awt::event::InputEvent;
-using $KeyAdapter = ::java::awt::event::KeyAdapter;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $KeyListener = ::java::awt::event::KeyListener;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -62,7 +57,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JMenu = ::javax::swing::JMenu;
 using $JMenuBar = ::javax::swing::JMenuBar;
@@ -70,7 +64,6 @@ using $JMenuItem = ::javax::swing::JMenuItem;
 using $JTextField = ::javax::swing::JTextField;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 $FieldInfo _WrongAltProcessing_FieldInfo_[] = {
 	{"robot", "Ljava/awt/Robot;", nullptr, $PRIVATE | $STATIC, $staticField(WrongAltProcessing, robot)},

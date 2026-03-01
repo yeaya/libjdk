@@ -1,6 +1,5 @@
 #include <javax/swing/text/AbstractDocument$AbstractElement.h>
 
-#include <java/io/FilterOutputStream.h>
 #include <java/io/ObjectInputStream.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/io/OutputStream.h>
@@ -26,7 +25,6 @@
 
 #undef EMPTY
 
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $OutputStream = ::java::io::OutputStream;

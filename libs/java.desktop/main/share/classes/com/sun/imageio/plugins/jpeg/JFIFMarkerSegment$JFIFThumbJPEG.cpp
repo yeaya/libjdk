@@ -12,7 +12,6 @@
 #include <com/sun/imageio/plugins/jpeg/SOFMarkerSegment.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/RenderedImage.h>
-#include <java/awt/image/WritableRenderedImage.h>
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
@@ -31,7 +30,6 @@
 #include <javax/imageio/stream/ImageInputStream.h>
 #include <javax/imageio/stream/ImageOutputStream.h>
 #include <javax/imageio/stream/MemoryCacheImageOutputStream.h>
-#include <org/w3c/dom/Element.h>
 #include <org/w3c/dom/Node.h>
 #include <org/w3c/dom/NodeList.h>
 #include <jcpp.h>
@@ -52,7 +50,6 @@ using $MarkerSegment = ::com::sun::imageio::plugins::jpeg::MarkerSegment;
 using $SOFMarkerSegment = ::com::sun::imageio::plugins::jpeg::SOFMarkerSegment;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $RenderedImage = ::java::awt::image::RenderedImage;
-using $WritableRenderedImage = ::java::awt::image::WritableRenderedImage;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
@@ -77,7 +74,6 @@ using $ImageWriterSpi = ::javax::imageio::spi::ImageWriterSpi;
 using $ImageInputStream = ::javax::imageio::stream::ImageInputStream;
 using $ImageOutputStream = ::javax::imageio::stream::ImageOutputStream;
 using $MemoryCacheImageOutputStream = ::javax::imageio::stream::MemoryCacheImageOutputStream;
-using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;
 using $NodeList = ::org::w3c::dom::NodeList;
 

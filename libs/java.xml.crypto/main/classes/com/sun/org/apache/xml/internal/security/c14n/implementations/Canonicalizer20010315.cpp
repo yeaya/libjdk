@@ -13,7 +13,6 @@
 #include <java/util/Comparator.h>
 #include <java/util/Iterator.h>
 #include <java/util/Map.h>
-#include <java/util/NavigableSet.h>
 #include <java/util/Set.h>
 #include <java/util/SortedSet.h>
 #include <java/util/TreeSet.h>
@@ -45,7 +44,6 @@ using $Collection = ::java::util::Collection;
 using $Comparator = ::java::util::Comparator;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
-using $NavigableSet = ::java::util::NavigableSet;
 using $Set = ::java::util::Set;
 using $SortedSet = ::java::util::SortedSet;
 using $TreeSet = ::java::util::TreeSet;

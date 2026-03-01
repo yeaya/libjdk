@@ -5,7 +5,6 @@
 #include <javax/imageio/spi/ImageOutputStreamSpi.h>
 #include <javax/imageio/stream/FileImageOutputStream.h>
 #include <javax/imageio/stream/ImageOutputStream.h>
-#include <javax/imageio/stream/ImageOutputStreamImpl.h>
 #include <jcpp.h>
 
 using $File = ::java::io::File;
@@ -18,7 +17,6 @@ using $Locale = ::java::util::Locale;
 using $ImageOutputStreamSpi = ::javax::imageio::spi::ImageOutputStreamSpi;
 using $FileImageOutputStream = ::javax::imageio::stream::FileImageOutputStream;
 using $ImageOutputStream = ::javax::imageio::stream::ImageOutputStream;
-using $ImageOutputStreamImpl = ::javax::imageio::stream::ImageOutputStreamImpl;
 
 namespace com {
 	namespace sun {

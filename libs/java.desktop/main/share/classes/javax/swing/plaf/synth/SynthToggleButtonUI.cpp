@@ -3,9 +3,7 @@
 #include <java/awt/Graphics.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/JComponent.h>
-#include <javax/swing/plaf/ButtonUI.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/basic/BasicButtonUI.h>
 #include <javax/swing/plaf/synth/SynthButtonUI.h>
 #include <javax/swing/plaf/synth/SynthContext.h>
 #include <javax/swing/plaf/synth/SynthPainter.h>
@@ -16,9 +14,7 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractButton = ::javax::swing::AbstractButton;
 using $JComponent = ::javax::swing::JComponent;
-using $ButtonUI = ::javax::swing::plaf::ButtonUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $BasicButtonUI = ::javax::swing::plaf::basic::BasicButtonUI;
 using $SynthButtonUI = ::javax::swing::plaf::synth::SynthButtonUI;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;

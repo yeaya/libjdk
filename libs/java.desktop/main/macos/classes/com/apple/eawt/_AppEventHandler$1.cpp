@@ -5,7 +5,6 @@
 #include <java/awt/Component.h>
 #include <java/awt/Frame.h>
 #include <java/awt/Window.h>
-#include <java/awt/event/ComponentEvent.h>
 #include <java/awt/event/WindowEvent.h>
 #include <jcpp.h>
 
@@ -16,7 +15,6 @@ using $_AppEventHandler = ::com::apple::eawt::_AppEventHandler;
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Frame = ::java::awt::Frame;
 using $Window = ::java::awt::Window;
-using $ComponentEvent = ::java::awt::event::ComponentEvent;
 using $WindowEvent = ::java::awt::event::WindowEvent;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

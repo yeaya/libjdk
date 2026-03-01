@@ -13,7 +13,6 @@
 #include <java/text/MessageFormat.h>
 #include <javax/sql/RowSet.h>
 #include <javax/sql/RowSetInternal.h>
-#include <javax/sql/rowset/CachedRowSet.h>
 #include <javax/sql/rowset/WebRowSet.h>
 #include <javax/sql/rowset/spi/XmlReader.h>
 #include <javax/xml/parsers/SAXParser.h>
@@ -48,7 +47,6 @@ using $SQLException = ::java::sql::SQLException;
 using $MessageFormat = ::java::text::MessageFormat;
 using $RowSet = ::javax::sql::RowSet;
 using $RowSetInternal = ::javax::sql::RowSetInternal;
-using $CachedRowSet = ::javax::sql::rowset::CachedRowSet;
 using $WebRowSet = ::javax::sql::rowset::WebRowSet;
 using $XmlReader = ::javax::sql::rowset::spi::XmlReader;
 using $SAXParser = ::javax::xml::parsers::SAXParser;

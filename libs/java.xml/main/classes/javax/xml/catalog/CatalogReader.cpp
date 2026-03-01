@@ -3,7 +3,6 @@
 #include <java/io/Reader.h>
 #include <java/io/StringReader.h>
 #include <java/net/URL.h>
-#include <javax/xml/catalog/AltCatalog.h>
 #include <javax/xml/catalog/BaseEntry$CatalogEntryType.h>
 #include <javax/xml/catalog/BaseEntry.h>
 #include <javax/xml/catalog/Catalog.h>
@@ -52,7 +51,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $URL = ::java::net::URL;
-using $AltCatalog = ::javax::xml::catalog::AltCatalog;
 using $BaseEntry = ::javax::xml::catalog::BaseEntry;
 using $BaseEntry$CatalogEntryType = ::javax::xml::catalog::BaseEntry$CatalogEntryType;
 using $Catalog = ::javax::xml::catalog::Catalog;

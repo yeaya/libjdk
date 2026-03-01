@@ -35,7 +35,6 @@
 #include <java/rmi/server/SkeletonNotFoundException.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Collections.h>
 #include <java/util/Date.h>
 #include <java/util/Map.h>
@@ -77,7 +76,6 @@ using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $Void = ::java::lang::Void;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
@@ -100,7 +98,6 @@ using $Skeleton = ::java::rmi::server::Skeleton;
 using $SkeletonNotFoundException = ::java::rmi::server::SkeletonNotFoundException;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Collections = ::java::util::Collections;
 using $Date = ::java::util::Date;
 using $Map = ::java::util::Map;

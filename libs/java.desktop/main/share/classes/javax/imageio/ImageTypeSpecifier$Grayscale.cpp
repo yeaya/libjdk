@@ -4,7 +4,6 @@
 #include <java/awt/color/ColorSpace.h>
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/ComponentColorModel.h>
-#include <java/awt/image/ComponentSampleModel.h>
 #include <java/awt/image/DataBuffer.h>
 #include <java/awt/image/IndexColorModel.h>
 #include <java/awt/image/MultiPixelPackedSampleModel.h>
@@ -24,7 +23,6 @@ using $Transparency = ::java::awt::Transparency;
 using $ColorSpace = ::java::awt::color::ColorSpace;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $ComponentColorModel = ::java::awt::image::ComponentColorModel;
-using $ComponentSampleModel = ::java::awt::image::ComponentSampleModel;
 using $DataBuffer = ::java::awt::image::DataBuffer;
 using $IndexColorModel = ::java::awt::image::IndexColorModel;
 using $MultiPixelPackedSampleModel = ::java::awt::image::MultiPixelPackedSampleModel;

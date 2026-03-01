@@ -37,7 +37,6 @@
 #include <javax/swing/table/TableColumn.h>
 #include <javax/swing/table/TableColumnModel.h>
 #include <sun/swing/DefaultLookup.h>
-#include <sun/swing/UIAction.h>
 #include <jcpp.h>
 
 #undef AUTO_RESIZE_OFF
@@ -97,7 +96,6 @@ using $TableCellRenderer = ::javax::swing::table::TableCellRenderer;
 using $TableColumn = ::javax::swing::table::TableColumn;
 using $TableColumnModel = ::javax::swing::table::TableColumnModel;
 using $DefaultLookup = ::sun::swing::DefaultLookup;
-using $UIAction = ::sun::swing::UIAction;
 
 namespace javax {
 	namespace swing {

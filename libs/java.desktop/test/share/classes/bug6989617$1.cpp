@@ -5,11 +5,8 @@
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Window.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
-#include <javax/swing/JPanel.h>
 #include <jcpp.h>
 
 #undef EXIT_ON_CLOSE
@@ -17,16 +14,12 @@
 using $bug6989617 = ::bug6989617;
 using $bug6989617$MyPanel = ::bug6989617$MyPanel;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JButton = ::javax::swing::JButton;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
-using $JPanel = ::javax::swing::JPanel;
 
 $MethodInfo _bug6989617$1_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(bug6989617$1, init$, void)},

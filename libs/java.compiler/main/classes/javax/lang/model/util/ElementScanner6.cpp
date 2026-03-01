@@ -1,7 +1,6 @@
 #include <javax/lang/model/util/ElementScanner6.h>
 
 #include <java/lang/Iterable.h>
-#include <java/util/Collection.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
 #include <javax/lang/model/element/Element.h>
@@ -24,7 +23,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
-using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
 using $Element = ::javax::lang::model::element::Element;
 using $ElementKind = ::javax::lang::model::element::ElementKind;

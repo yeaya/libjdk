@@ -2,7 +2,6 @@
 
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/FontMetrics.h>
 #include <java/awt/Graphics.h>
@@ -16,9 +15,7 @@
 #include <javax/swing/UIManager.h>
 #include <javax/swing/plaf/ColorUIResource.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/TabbedPaneUI.h>
 #include <javax/swing/plaf/UIResource.h>
-#include <javax/swing/plaf/basic/BasicTabbedPaneUI$TabbedPaneLayout.h>
 #include <javax/swing/plaf/basic/BasicTabbedPaneUI.h>
 #include <javax/swing/plaf/metal/MetalLookAndFeel.h>
 #include <javax/swing/plaf/metal/MetalTabbedPaneUI$TabbedPaneLayout.h>
@@ -34,7 +31,6 @@
 using $RectangleArray = $Array<::java::awt::Rectangle>;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $FontMetrics = ::java::awt::FontMetrics;
 using $Graphics = ::java::awt::Graphics;
@@ -51,10 +47,8 @@ using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $UIManager = ::javax::swing::UIManager;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $TabbedPaneUI = ::javax::swing::plaf::TabbedPaneUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $BasicTabbedPaneUI = ::javax::swing::plaf::basic::BasicTabbedPaneUI;
-using $BasicTabbedPaneUI$TabbedPaneLayout = ::javax::swing::plaf::basic::BasicTabbedPaneUI$TabbedPaneLayout;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
 using $MetalTabbedPaneUI$TabbedPaneLayout = ::javax::swing::plaf::metal::MetalTabbedPaneUI$TabbedPaneLayout;
 using $MetalUtils = ::javax::swing::plaf::metal::MetalUtils;

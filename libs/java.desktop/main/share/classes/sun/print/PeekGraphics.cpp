@@ -19,17 +19,13 @@
 #include <java/awt/font/TextLayout.h>
 #include <java/awt/geom/AffineTransform.h>
 #include <java/awt/geom/Line2D$Float.h>
-#include <java/awt/geom/Line2D.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/awt/geom/RoundRectangle2D$Float.h>
-#include <java/awt/geom/RoundRectangle2D.h>
 #include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/BufferedImageOp.h>
 #include <java/awt/image/ImageObserver.h>
 #include <java/awt/image/RenderedImage.h>
-#include <java/awt/image/WritableRenderedImage.h>
 #include <java/awt/image/renderable/RenderableImage.h>
 #include <java/awt/print/PrinterJob.h>
 #include <java/lang/CloneNotSupportedException.h>
@@ -64,18 +60,14 @@ using $FontRenderContext = ::java::awt::font::FontRenderContext;
 using $GlyphVector = ::java::awt::font::GlyphVector;
 using $TextLayout = ::java::awt::font::TextLayout;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
-using $Line2D = ::java::awt::geom::Line2D;
 using $Line2D$Float = ::java::awt::geom::Line2D$Float;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
-using $RoundRectangle2D = ::java::awt::geom::RoundRectangle2D;
 using $RoundRectangle2D$Float = ::java::awt::geom::RoundRectangle2D$Float;
 using $BufferedImage = ::java::awt::image::BufferedImage;
 using $BufferedImageOp = ::java::awt::image::BufferedImageOp;
 using $ImageObserver = ::java::awt::image::ImageObserver;
 using $RenderedImage = ::java::awt::image::RenderedImage;
-using $WritableRenderedImage = ::java::awt::image::WritableRenderedImage;
 using $RenderableImage = ::java::awt::image::renderable::RenderableImage;
 using $PrinterJob = ::java::awt::print::PrinterJob;
 using $ClassInfo = ::java::lang::ClassInfo;

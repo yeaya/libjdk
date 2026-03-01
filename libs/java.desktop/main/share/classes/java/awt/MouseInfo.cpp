@@ -12,7 +12,6 @@
 #include <java/awt/peer/MouseInfoPeer.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/SecurityManager.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <sun/awt/AWTPermissions.h>
 #include <sun/awt/ComponentFactory.h>
@@ -36,7 +35,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $AWTPermissions = ::sun::awt::AWTPermissions;
 using $ComponentFactory = ::sun::awt::ComponentFactory;

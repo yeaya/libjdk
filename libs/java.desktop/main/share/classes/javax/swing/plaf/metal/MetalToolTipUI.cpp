@@ -10,8 +10,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
 #include <java/awt/event/KeyEvent.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/InputMap.h>
 #include <javax/swing/JComponent.h>
@@ -20,7 +18,6 @@
 #include <javax/swing/UIManager.h>
 #include <javax/swing/plaf/ColorUIResource.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/ToolTipUI.h>
 #include <javax/swing/plaf/basic/BasicHTML.h>
 #include <javax/swing/plaf/basic/BasicToolTipUI.h>
 #include <javax/swing/plaf/metal/MetalLookAndFeel.h>
@@ -40,8 +37,6 @@ using $Insets = ::java::awt::Insets;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
 using $KeyEvent = ::java::awt::event::KeyEvent;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -53,7 +48,6 @@ using $JToolTip = ::javax::swing::JToolTip;
 using $KeyStroke = ::javax::swing::KeyStroke;
 using $UIManager = ::javax::swing::UIManager;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $ToolTipUI = ::javax::swing::plaf::ToolTipUI;
 using $BasicHTML = ::javax::swing::plaf::basic::BasicHTML;
 using $BasicToolTipUI = ::javax::swing::plaf::basic::BasicToolTipUI;
 using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;

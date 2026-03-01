@@ -2,7 +2,6 @@
 
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/Rectangle.h>
@@ -12,7 +11,6 @@
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JToolBar.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/ToolBarUI.h>
 #include <javax/swing/plaf/basic/BasicToolBarUI$DragWindow.h>
 #include <javax/swing/plaf/basic/BasicToolBarUI.h>
 #include <javax/swing/plaf/synth/Region.h>
@@ -32,7 +30,6 @@
 
 using $Component = ::java::awt::Component;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $Rectangle = ::java::awt::Rectangle;
@@ -46,7 +43,6 @@ using $Icon = ::javax::swing::Icon;
 using $JComponent = ::javax::swing::JComponent;
 using $JToolBar = ::javax::swing::JToolBar;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $ToolBarUI = ::javax::swing::plaf::ToolBarUI;
 using $BasicToolBarUI = ::javax::swing::plaf::basic::BasicToolBarUI;
 using $BasicToolBarUI$DragWindow = ::javax::swing::plaf::basic::BasicToolBarUI$DragWindow;
 using $Region = ::javax::swing::plaf::synth::Region;

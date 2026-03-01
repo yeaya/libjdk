@@ -9,7 +9,6 @@
 #include <com/sun/tools/javac/code/Attribute.h>
 #include <com/sun/tools/javac/code/Symbol$MethodSymbol.h>
 #include <com/sun/tools/javac/model/JavacElements.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCNewArray.h>
 #include <com/sun/tools/javac/tree/JCTree$Tag.h>
@@ -32,7 +31,6 @@ using $Attribute$Error = ::com::sun::tools::javac::code::Attribute$Error;
 using $Symbol$MethodSymbol = ::com::sun::tools::javac::code::Symbol$MethodSymbol;
 using $JavacElements = ::com::sun::tools::javac::model::JavacElements;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCNewArray = ::com::sun::tools::javac::tree::JCTree$JCNewArray;
 using $JCTree$Tag = ::com::sun::tools::javac::tree::JCTree$Tag;

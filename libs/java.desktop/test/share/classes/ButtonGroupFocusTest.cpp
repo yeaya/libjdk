@@ -16,10 +16,8 @@
 #include <java/lang/invoke/MethodType.h>
 #include <javax/swing/AbstractButton.h>
 #include <javax/swing/ButtonGroup.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JRadioButton.h>
-#include <javax/swing/JToggleButton.h>
 #include <javax/swing/SwingUtilities.h>
 #include <jcpp.h>
 
@@ -41,10 +39,8 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AbstractButton = ::javax::swing::AbstractButton;
 using $ButtonGroup = ::javax::swing::ButtonGroup;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JRadioButton = ::javax::swing::JRadioButton;
-using $JToggleButton = ::javax::swing::JToggleButton;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 
 class ButtonGroupFocusTest$$Lambda$lambda$main$0 : public $Runnable {

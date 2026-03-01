@@ -11,7 +11,6 @@
 #include <com/sun/org/apache/bcel/internal/generic/BasicType.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/BranchInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/CPInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/CodeExceptionGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/DLOAD.h>
@@ -19,11 +18,8 @@
 #include <com/sun/org/apache/bcel/internal/generic/FLOAD.h>
 #include <com/sun/org/apache/bcel/internal/generic/FSTORE.h>
 #include <com/sun/org/apache/bcel/internal/generic/FieldGenOrMethodGen.h>
-#include <com/sun/org/apache/bcel/internal/generic/FieldInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/FieldOrMethod.h>
 #include <com/sun/org/apache/bcel/internal/generic/GETFIELD.h>
 #include <com/sun/org/apache/bcel/internal/generic/GOTO.h>
-#include <com/sun/org/apache/bcel/internal/generic/GotoInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ICONST.h>
 #include <com/sun/org/apache/bcel/internal/generic/ILOAD.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEINTERFACE.h>
@@ -38,10 +34,8 @@
 #include <com/sun/org/apache/bcel/internal/generic/InstructionHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionList.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionTargeter.h>
-#include <com/sun/org/apache/bcel/internal/generic/InvokeInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/LLOAD.h>
 #include <com/sun/org/apache/bcel/internal/generic/LSTORE.h>
-#include <com/sun/org/apache/bcel/internal/generic/LoadInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/LocalVariableGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/LocalVariableInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/MethodGen.h>
@@ -51,7 +45,6 @@
 #include <com/sun/org/apache/bcel/internal/generic/ReturnInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/Select.h>
 #include <com/sun/org/apache/bcel/internal/generic/StackInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/StoreInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/TargetLostException.h>
 #include <com/sun/org/apache/bcel/internal/generic/Type.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Constants.h>
@@ -70,8 +63,6 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/OutlineableChunkEnd.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/OutlineableChunkStart.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/SlotAllocator.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collections.h>
 #include <java/util/HashMap.h>
@@ -165,17 +156,13 @@ using $ALOAD = ::com::sun::org::apache::bcel::internal::generic::ALOAD;
 using $ASTORE = ::com::sun::org::apache::bcel::internal::generic::ASTORE;
 using $BranchHandle = ::com::sun::org::apache::bcel::internal::generic::BranchHandle;
 using $BranchInstruction = ::com::sun::org::apache::bcel::internal::generic::BranchInstruction;
-using $CPInstruction = ::com::sun::org::apache::bcel::internal::generic::CPInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $DLOAD = ::com::sun::org::apache::bcel::internal::generic::DLOAD;
 using $DSTORE = ::com::sun::org::apache::bcel::internal::generic::DSTORE;
 using $FLOAD = ::com::sun::org::apache::bcel::internal::generic::FLOAD;
 using $FSTORE = ::com::sun::org::apache::bcel::internal::generic::FSTORE;
-using $FieldInstruction = ::com::sun::org::apache::bcel::internal::generic::FieldInstruction;
-using $FieldOrMethod = ::com::sun::org::apache::bcel::internal::generic::FieldOrMethod;
 using $GETFIELD = ::com::sun::org::apache::bcel::internal::generic::GETFIELD;
 using $GOTO = ::com::sun::org::apache::bcel::internal::generic::GOTO;
-using $GotoInstruction = ::com::sun::org::apache::bcel::internal::generic::GotoInstruction;
 using $ICONST = ::com::sun::org::apache::bcel::internal::generic::ICONST;
 using $ILOAD = ::com::sun::org::apache::bcel::internal::generic::ILOAD;
 using $INVOKEINTERFACE = ::com::sun::org::apache::bcel::internal::generic::INVOKEINTERFACE;
@@ -190,10 +177,8 @@ using $InstructionConst = ::com::sun::org::apache::bcel::internal::generic::Inst
 using $InstructionHandle = ::com::sun::org::apache::bcel::internal::generic::InstructionHandle;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
 using $InstructionTargeter = ::com::sun::org::apache::bcel::internal::generic::InstructionTargeter;
-using $InvokeInstruction = ::com::sun::org::apache::bcel::internal::generic::InvokeInstruction;
 using $LLOAD = ::com::sun::org::apache::bcel::internal::generic::LLOAD;
 using $LSTORE = ::com::sun::org::apache::bcel::internal::generic::LSTORE;
-using $LoadInstruction = ::com::sun::org::apache::bcel::internal::generic::LoadInstruction;
 using $LocalVariableGen = ::com::sun::org::apache::bcel::internal::generic::LocalVariableGen;
 using $LocalVariableInstruction = ::com::sun::org::apache::bcel::internal::generic::LocalVariableInstruction;
 using $MethodGen = ::com::sun::org::apache::bcel::internal::generic::MethodGen;
@@ -201,7 +186,6 @@ using $NEW = ::com::sun::org::apache::bcel::internal::generic::NEW;
 using $PUTFIELD = ::com::sun::org::apache::bcel::internal::generic::PUTFIELD;
 using $RET = ::com::sun::org::apache::bcel::internal::generic::RET;
 using $Select = ::com::sun::org::apache::bcel::internal::generic::Select;
-using $StoreInstruction = ::com::sun::org::apache::bcel::internal::generic::StoreInstruction;
 using $TargetLostException = ::com::sun::org::apache::bcel::internal::generic::TargetLostException;
 using $Type = ::com::sun::org::apache::bcel::internal::generic::Type;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
@@ -223,8 +207,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $Collections = ::java::util::Collections;
 using $HashMap = ::java::util::HashMap;

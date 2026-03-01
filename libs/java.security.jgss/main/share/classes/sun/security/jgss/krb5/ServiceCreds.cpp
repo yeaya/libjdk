@@ -24,7 +24,6 @@ using $KerberosKeyArray = $Array<::javax::security::auth::kerberos::KerberosKey>
 using $EncryptionKeyArray = $Array<::sun::security::krb5::EncryptionKey>;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $Integer = ::java::lang::Integer;

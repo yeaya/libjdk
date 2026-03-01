@@ -3,7 +3,6 @@
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/FocusTraversalPolicy.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JInternalFrame.h>
 #include <jcpp.h>
 
@@ -12,7 +11,6 @@ using $Container = ::java::awt::Container;
 using $FocusTraversalPolicy = ::java::awt::FocusTraversalPolicy;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
 
 namespace javax {

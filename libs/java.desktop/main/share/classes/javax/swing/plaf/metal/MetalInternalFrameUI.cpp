@@ -7,15 +7,12 @@
 #include <javax/swing/JInternalFrame.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/SwingUtilities.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/EmptyBorder.h>
 #include <javax/swing/event/MouseInputAdapter.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/InternalFrameUI.h>
 #include <javax/swing/plaf/UIResource.h>
 #include <javax/swing/plaf/basic/BasicInternalFrameTitlePane.h>
-#include <javax/swing/plaf/basic/BasicInternalFrameUI$BorderListener.h>
 #include <javax/swing/plaf/basic/BasicInternalFrameUI.h>
 #include <javax/swing/plaf/metal/MetalInternalFrameTitlePane.h>
 #include <javax/swing/plaf/metal/MetalInternalFrameUI$BorderListener1.h>
@@ -41,16 +38,13 @@ using $JComponent = ::javax::swing::JComponent;
 using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 using $MouseInputAdapter = ::javax::swing::event::MouseInputAdapter;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $InternalFrameUI = ::javax::swing::plaf::InternalFrameUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $BasicInternalFrameTitlePane = ::javax::swing::plaf::basic::BasicInternalFrameTitlePane;
 using $BasicInternalFrameUI = ::javax::swing::plaf::basic::BasicInternalFrameUI;
-using $BasicInternalFrameUI$BorderListener = ::javax::swing::plaf::basic::BasicInternalFrameUI$BorderListener;
 using $MetalInternalFrameTitlePane = ::javax::swing::plaf::metal::MetalInternalFrameTitlePane;
 using $MetalInternalFrameUI$BorderListener1 = ::javax::swing::plaf::metal::MetalInternalFrameUI$BorderListener1;
 using $MetalInternalFrameUI$MetalPropertyChangeHandler = ::javax::swing::plaf::metal::MetalInternalFrameUI$MetalPropertyChangeHandler;

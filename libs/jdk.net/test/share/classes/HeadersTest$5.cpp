@@ -6,7 +6,6 @@
 #include <java/net/http/HttpRequest$BodyPublisher.h>
 #include <java/net/http/HttpRequest$BodyPublishers.h>
 #include <java/net/http/HttpRequest.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <java/util/Map.h>
@@ -26,7 +25,6 @@ using $URI = ::java::net::URI;
 using $HttpHeaders = ::java::net::http::HttpHeaders;
 using $HttpRequest = ::java::net::http::HttpRequest;
 using $HttpRequest$BodyPublishers = ::java::net::http::HttpRequest$BodyPublishers;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $Map = ::java::util::Map;

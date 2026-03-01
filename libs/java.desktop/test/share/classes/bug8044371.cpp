@@ -7,7 +7,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/AdjustmentEvent.h>
 #include <java/awt/event/AdjustmentListener.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JPanel.h>
 #include <javax/swing/JScrollBar.h>
@@ -35,7 +34,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JPanel = ::javax::swing::JPanel;
 using $JScrollBar = ::javax::swing::JScrollBar;

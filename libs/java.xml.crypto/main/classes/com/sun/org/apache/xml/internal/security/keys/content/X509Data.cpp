@@ -9,7 +9,6 @@
 #include <com/sun/org/apache/xml/internal/security/keys/content/x509/XMLX509SubjectName.h>
 #include <com/sun/org/apache/xml/internal/security/utils/Constants.h>
 #include <com/sun/org/apache/xml/internal/security/utils/ElementProxy.h>
-#include <com/sun/org/apache/xml/internal/security/utils/Signature11ElementProxy.h>
 #include <com/sun/org/apache/xml/internal/security/utils/SignatureElementProxy.h>
 #include <com/sun/org/apache/xml/internal/security/utils/XMLUtils.h>
 #include <com/sun/org/slf4j/internal/Logger.h>
@@ -40,7 +39,6 @@ using $XMLX509SKI = ::com::sun::org::apache::xml::internal::security::keys::cont
 using $XMLX509SubjectName = ::com::sun::org::apache::xml::internal::security::keys::content::x509::XMLX509SubjectName;
 using $Constants = ::com::sun::org::apache::xml::internal::security::utils::Constants;
 using $ElementProxy = ::com::sun::org::apache::xml::internal::security::utils::ElementProxy;
-using $Signature11ElementProxy = ::com::sun::org::apache::xml::internal::security::utils::Signature11ElementProxy;
 using $SignatureElementProxy = ::com::sun::org::apache::xml::internal::security::utils::SignatureElementProxy;
 using $XMLUtils = ::com::sun::org::apache::xml::internal::security::utils::XMLUtils;
 using $Logger = ::com::sun::org::slf4j::internal::Logger;

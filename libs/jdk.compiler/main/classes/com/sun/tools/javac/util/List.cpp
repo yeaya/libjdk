@@ -16,7 +16,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/lang/reflect/Array.h>
 #include <java/util/AbstractCollection.h>
-#include <java/util/AbstractList.h>
 #include <java/util/AbstractQueue.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
@@ -59,7 +58,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $1Array = ::java::lang::reflect::Array;
 using $AbstractCollection = ::java::util::AbstractCollection;
-using $AbstractList = ::java::util::AbstractList;
 using $AbstractQueue = ::java::util::AbstractQueue;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;

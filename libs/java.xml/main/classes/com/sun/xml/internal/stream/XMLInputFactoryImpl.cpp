@@ -17,7 +17,6 @@
 #include <javax/xml/stream/XMLReporter.h>
 #include <javax/xml/stream/XMLResolver.h>
 #include <javax/xml/stream/XMLStreamReader.h>
-#include <javax/xml/stream/util/EventReaderDelegate.h>
 #include <javax/xml/stream/util/XMLEventAllocator.h>
 #include <javax/xml/transform/Source.h>
 #include <javax/xml/transform/stream/StreamSource.h>
@@ -52,7 +51,6 @@ using $XMLInputFactory = ::javax::xml::stream::XMLInputFactory;
 using $XMLReporter = ::javax::xml::stream::XMLReporter;
 using $XMLResolver = ::javax::xml::stream::XMLResolver;
 using $XMLStreamReader = ::javax::xml::stream::XMLStreamReader;
-using $EventReaderDelegate = ::javax::xml::stream::util::EventReaderDelegate;
 using $XMLEventAllocator = ::javax::xml::stream::util::XMLEventAllocator;
 using $Source = ::javax::xml::transform::Source;
 using $StreamSource = ::javax::xml::transform::stream::StreamSource;

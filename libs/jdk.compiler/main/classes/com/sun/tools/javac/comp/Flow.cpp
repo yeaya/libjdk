@@ -17,11 +17,7 @@
 #include <com/sun/tools/javac/comp/Flow$SnippetAliveAnalyzer.h>
 #include <com/sun/tools/javac/comp/Flow$SnippetBreakAnalyzer.h>
 #include <com/sun/tools/javac/comp/Resolve.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
-#include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
-#include <com/sun/tools/javac/tree/JCTree$JCFunctionalExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCLambda.h>
-#include <com/sun/tools/javac/tree/JCTree$JCPolyExpression.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <com/sun/tools/javac/tree/TreeMaker.h>
 #include <com/sun/tools/javac/util/Context$Key.h>
@@ -54,11 +50,7 @@ using $Flow$SnippetAliveAnalyzer = ::com::sun::tools::javac::comp::Flow$SnippetA
 using $Flow$SnippetBreakAnalyzer = ::com::sun::tools::javac::comp::Flow$SnippetBreakAnalyzer;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
-using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
-using $JCTree$JCFunctionalExpression = ::com::sun::tools::javac::tree::JCTree$JCFunctionalExpression;
 using $JCTree$JCLambda = ::com::sun::tools::javac::tree::JCTree$JCLambda;
-using $JCTree$JCPolyExpression = ::com::sun::tools::javac::tree::JCTree$JCPolyExpression;
 using $TreeMaker = ::com::sun::tools::javac::tree::TreeMaker;
 using $Context = ::com::sun::tools::javac::util::Context;
 using $Context$Key = ::com::sun::tools::javac::util::Context$Key;

@@ -11,7 +11,6 @@
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureException.h>
 #include <com/sun/org/apache/xml/internal/security/signature/XMLSignatureInput.h>
 #include <com/sun/org/apache/xml/internal/security/signature/reference/ReferenceData.h>
-#include <com/sun/org/apache/xml/internal/security/signature/reference/ReferenceNodeSetData.h>
 #include <com/sun/org/apache/xml/internal/security/signature/reference/ReferenceOctetStreamData.h>
 #include <com/sun/org/apache/xml/internal/security/signature/reference/ReferenceSubTreeData.h>
 #include <com/sun/org/apache/xml/internal/security/transforms/Transform.h>
@@ -28,8 +27,6 @@
 #include <com/sun/org/apache/xml/internal/security/utils/resolver/ResourceResolverException.h>
 #include <com/sun/org/slf4j/internal/Logger.h>
 #include <com/sun/org/slf4j/internal/LoggerFactory.h>
-#include <java/io/ByteArrayOutputStream.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
@@ -41,7 +38,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/Collections.h>
 #include <java/util/HashSet.h>
 #include <java/util/List.h>
@@ -49,7 +45,6 @@
 #include <java/util/Set.h>
 #include <java/util/SortedSet.h>
 #include <org/w3c/dom/Attr.h>
-#include <org/w3c/dom/CharacterData.h>
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/Element.h>
 #include <org/w3c/dom/Node.h>
@@ -89,7 +84,6 @@ using $ReferenceNotInitializedException = ::com::sun::org::apache::xml::internal
 using $XMLSignatureException = ::com::sun::org::apache::xml::internal::security::signature::XMLSignatureException;
 using $XMLSignatureInput = ::com::sun::org::apache::xml::internal::security::signature::XMLSignatureInput;
 using $ReferenceData = ::com::sun::org::apache::xml::internal::security::signature::reference::ReferenceData;
-using $ReferenceNodeSetData = ::com::sun::org::apache::xml::internal::security::signature::reference::ReferenceNodeSetData;
 using $ReferenceOctetStreamData = ::com::sun::org::apache::xml::internal::security::signature::reference::ReferenceOctetStreamData;
 using $ReferenceSubTreeData = ::com::sun::org::apache::xml::internal::security::signature::reference::ReferenceSubTreeData;
 using $Transform = ::com::sun::org::apache::xml::internal::security::transforms::Transform;
@@ -106,8 +100,6 @@ using $ResourceResolverContext = ::com::sun::org::apache::xml::internal::securit
 using $ResourceResolverException = ::com::sun::org::apache::xml::internal::security::utils::resolver::ResourceResolverException;
 using $Logger = ::com::sun::org::slf4j::internal::Logger;
 using $LoggerFactory = ::com::sun::org::slf4j::internal::LoggerFactory;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
@@ -122,12 +114,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $AbstractSet = ::java::util::AbstractSet;
 using $Collections = ::java::util::Collections;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
 using $Attr = ::org::w3c::dom::Attr;
-using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;

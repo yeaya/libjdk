@@ -5,8 +5,6 @@
 #include <java/awt/Point.h>
 #include <java/awt/TrayIcon.h>
 #include <java/awt/event/ActionEvent.h>
-#include <java/awt/event/ComponentEvent.h>
-#include <java/awt/event/InputEvent.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/awt/event/MouseListener.h>
 #include <sun/awt/AppContext.h>
@@ -27,8 +25,6 @@ using $AWTEvent = ::java::awt::AWTEvent;
 using $Point = ::java::awt::Point;
 using $TrayIcon = ::java::awt::TrayIcon;
 using $ActionEvent = ::java::awt::event::ActionEvent;
-using $ComponentEvent = ::java::awt::event::ComponentEvent;
-using $InputEvent = ::java::awt::event::InputEvent;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $ClassInfo = ::java::lang::ClassInfo;

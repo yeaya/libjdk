@@ -3,7 +3,6 @@
 #include <com/apple/laf/AquaButtonBorder.h>
 #include <com/apple/laf/AquaButtonCheckBoxUI$1.h>
 #include <com/apple/laf/AquaButtonCheckBoxUI$CheckBoxButtonBorder.h>
-#include <com/apple/laf/AquaButtonLabeledUI$LabeledButtonBorder.h>
 #include <com/apple/laf/AquaButtonLabeledUI.h>
 #include <com/apple/laf/AquaUtils$RecyclableSingleton.h>
 #include <com/apple/laf/AquaUtils$RecyclableSingletonFromDefaultConstructor.h>
@@ -16,7 +15,6 @@ using $AquaButtonBorder = ::com::apple::laf::AquaButtonBorder;
 using $AquaButtonCheckBoxUI$1 = ::com::apple::laf::AquaButtonCheckBoxUI$1;
 using $AquaButtonCheckBoxUI$CheckBoxButtonBorder = ::com::apple::laf::AquaButtonCheckBoxUI$CheckBoxButtonBorder;
 using $AquaButtonLabeledUI = ::com::apple::laf::AquaButtonLabeledUI;
-using $AquaButtonLabeledUI$LabeledButtonBorder = ::com::apple::laf::AquaButtonLabeledUI$LabeledButtonBorder;
 using $AquaUtils$RecyclableSingleton = ::com::apple::laf::AquaUtils$RecyclableSingleton;
 using $AquaUtils$RecyclableSingletonFromDefaultConstructor = ::com::apple::laf::AquaUtils$RecyclableSingletonFromDefaultConstructor;
 using $ClassInfo = ::java::lang::ClassInfo;

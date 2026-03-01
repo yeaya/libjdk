@@ -1,6 +1,5 @@
 #include <com/sun/org/apache/xerces/internal/dom/DeferredDocumentTypeImpl.h>
 
-#include <com/sun/org/apache/xerces/internal/dom/ChildNode.h>
 #include <com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/DeferredDocumentImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/DeferredNode.h>
@@ -8,7 +7,6 @@
 #include <com/sun/org/apache/xerces/internal/dom/DocumentTypeImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/NamedNodeMapImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/NodeImpl.h>
-#include <com/sun/org/apache/xerces/internal/dom/ParentNode.h>
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/NamedNodeMap.h>
 #include <org/w3c/dom/Node.h>
@@ -21,7 +19,6 @@
 #undef ENTITY_NODE
 #undef NOTATION_NODE
 
-using $ChildNode = ::com::sun::org::apache::xerces::internal::dom::ChildNode;
 using $CoreDocumentImpl = ::com::sun::org::apache::xerces::internal::dom::CoreDocumentImpl;
 using $DeferredDocumentImpl = ::com::sun::org::apache::xerces::internal::dom::DeferredDocumentImpl;
 using $DeferredNode = ::com::sun::org::apache::xerces::internal::dom::DeferredNode;
@@ -29,7 +26,6 @@ using $DocumentImpl = ::com::sun::org::apache::xerces::internal::dom::DocumentIm
 using $DocumentTypeImpl = ::com::sun::org::apache::xerces::internal::dom::DocumentTypeImpl;
 using $NamedNodeMapImpl = ::com::sun::org::apache::xerces::internal::dom::NamedNodeMapImpl;
 using $NodeImpl = ::com::sun::org::apache::xerces::internal::dom::NodeImpl;
-using $ParentNode = ::com::sun::org::apache::xerces::internal::dom::ParentNode;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

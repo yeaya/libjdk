@@ -1,7 +1,6 @@
 #include <com/sun/tools/javac/processing/PrintingProcessor.h>
 
 #include <com/sun/tools/javac/processing/PrintingProcessor$PrintingElementVisitor.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/PrintWriter.h>
 #include <java/io/Writer.h>
@@ -16,7 +15,6 @@
 #include <jcpp.h>
 
 using $PrintingProcessor$PrintingElementVisitor = ::com::sun::tools::javac::processing::PrintingProcessor$PrintingElementVisitor;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $PrintWriter = ::java::io::PrintWriter;
 using $Writer = ::java::io::Writer;

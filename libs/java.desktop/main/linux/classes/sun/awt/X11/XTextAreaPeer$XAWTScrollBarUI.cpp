@@ -9,10 +9,8 @@
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JScrollBar.h>
 #include <javax/swing/UIDefaults.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/plaf/UIResource.h>
-#include <javax/swing/plaf/basic/BasicArrowButton.h>
 #include <javax/swing/plaf/basic/BasicScrollBarUI.h>
 #include <sun/awt/X11/XTextAreaPeer$BevelBorder.h>
 #include <sun/awt/X11/XTextAreaPeer$XAWTScrollBarButton.h>
@@ -32,10 +30,8 @@ using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
 using $JScrollBar = ::javax::swing::JScrollBar;
 using $UIDefaults = ::javax::swing::UIDefaults;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $UIResource = ::javax::swing::plaf::UIResource;
-using $BasicArrowButton = ::javax::swing::plaf::basic::BasicArrowButton;
 using $BasicScrollBarUI = ::javax::swing::plaf::basic::BasicScrollBarUI;
 using $XTextAreaPeer = ::sun::awt::X11::XTextAreaPeer;
 using $XTextAreaPeer$BevelBorder = ::sun::awt::X11::XTextAreaPeer$BevelBorder;

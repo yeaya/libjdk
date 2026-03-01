@@ -1,14 +1,11 @@
 #include <javax/swing/JLabel.h>
 
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Image.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/io/ObjectOutputStream.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel$AccessibleJLabel.h>
 #include <javax/swing/LookAndFeel.h>
@@ -32,8 +29,6 @@
 #undef VK_UNDEFINED
 
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Image = ::java::awt::Image;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
@@ -48,7 +43,6 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $Icon = ::javax::swing::Icon;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JLabel$AccessibleJLabel = ::javax::swing::JLabel$AccessibleJLabel;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingConstants = ::javax::swing::SwingConstants;

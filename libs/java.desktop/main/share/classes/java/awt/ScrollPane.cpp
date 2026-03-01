@@ -3,16 +3,13 @@
 #include <java/awt/AWTError.h>
 #include <java/awt/Adjustable.h>
 #include <java/awt/BorderLayout.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Panel.h>
 #include <java/awt/Point.h>
 #include <java/awt/ScrollPane$AccessibleAWTScrollPane.h>
@@ -23,7 +20,6 @@
 #include <java/awt/event/MouseEvent.h>
 #include <java/awt/event/MouseWheelEvent.h>
 #include <java/awt/peer/ComponentPeer.h>
-#include <java/awt/peer/ContainerPeer.h>
 #include <java/awt/peer/ScrollPanePeer.h>
 #include <java/io/ObjectInputStream$GetField.h>
 #include <java/io/ObjectInputStream.h>
@@ -45,15 +41,12 @@ using $AWTError = ::java::awt::AWTError;
 using $Adjustable = ::java::awt::Adjustable;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $Container = ::java::awt::Container;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $Insets = ::java::awt::Insets;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Panel = ::java::awt::Panel;
 using $Point = ::java::awt::Point;
 using $ScrollPane$AccessibleAWTScrollPane = ::java::awt::ScrollPane$AccessibleAWTScrollPane;
@@ -64,7 +57,6 @@ using $AdjustmentListener = ::java::awt::event::AdjustmentListener;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $MouseWheelEvent = ::java::awt::event::MouseWheelEvent;
 using $ComponentPeer = ::java::awt::peer::ComponentPeer;
-using $ContainerPeer = ::java::awt::peer::ContainerPeer;
 using $ScrollPanePeer = ::java::awt::peer::ScrollPanePeer;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ObjectInputStream$GetField = ::java::io::ObjectInputStream$GetField;

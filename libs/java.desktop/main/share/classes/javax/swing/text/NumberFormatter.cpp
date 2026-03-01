@@ -6,7 +6,6 @@
 #include <java/text/AttributedCharacterIterator.h>
 #include <java/text/DecimalFormat.h>
 #include <java/text/DecimalFormatSymbols.h>
-#include <java/text/Format$Field.h>
 #include <java/text/Format.h>
 #include <java/text/NumberFormat$Field.h>
 #include <java/text/NumberFormat.h>
@@ -53,7 +52,6 @@ using $AttributedCharacterIterator$Attribute = ::java::text::AttributedCharacter
 using $DecimalFormat = ::java::text::DecimalFormat;
 using $DecimalFormatSymbols = ::java::text::DecimalFormatSymbols;
 using $Format = ::java::text::Format;
-using $Format$Field = ::java::text::Format$Field;
 using $NumberFormat = ::java::text::NumberFormat;
 using $NumberFormat$Field = ::java::text::NumberFormat$Field;
 using $ParseException = ::java::text::ParseException;

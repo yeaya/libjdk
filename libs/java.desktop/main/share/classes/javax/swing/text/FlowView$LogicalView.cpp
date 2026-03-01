@@ -12,7 +12,6 @@
 #include <javax/swing/text/CompositeView.h>
 #include <javax/swing/text/Element.h>
 #include <javax/swing/text/FlowView.h>
-#include <javax/swing/text/GlyphView.h>
 #include <javax/swing/text/LabelView.h>
 #include <javax/swing/text/View.h>
 #include <javax/swing/text/ViewFactory.h>
@@ -37,7 +36,6 @@ using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $ComponentView = ::javax::swing::text::ComponentView;
 using $CompositeView = ::javax::swing::text::CompositeView;
 using $Element = ::javax::swing::text::Element;
-using $GlyphView = ::javax::swing::text::GlyphView;
 using $LabelView = ::javax::swing::text::LabelView;
 using $View = ::javax::swing::text::View;
 using $ViewFactory = ::javax::swing::text::ViewFactory;

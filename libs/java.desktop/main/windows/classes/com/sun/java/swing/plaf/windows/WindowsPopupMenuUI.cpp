@@ -8,7 +8,6 @@
 #include <com/sun/java/swing/plaf/windows/XPStyle.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Insets.h>
 #include <javax/swing/JComponent.h>
@@ -19,7 +18,6 @@
 #include <javax/swing/UIManager.h>
 #include <javax/swing/event/ChangeListener.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/PopupMenuUI.h>
 #include <javax/swing/plaf/basic/BasicPopupMenuUI.h>
 #include <sun/swing/StringUIClientPropertyKey.h>
 #include <sun/swing/SwingUtilities2.h>
@@ -39,7 +37,6 @@ using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
 using $Component = ::java::awt::Component;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -55,7 +52,6 @@ using $PopupFactory = ::javax::swing::PopupFactory;
 using $UIManager = ::javax::swing::UIManager;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $PopupMenuUI = ::javax::swing::plaf::PopupMenuUI;
 using $BasicPopupMenuUI = ::javax::swing::plaf::basic::BasicPopupMenuUI;
 using $StringUIClientPropertyKey = ::sun::swing::StringUIClientPropertyKey;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;

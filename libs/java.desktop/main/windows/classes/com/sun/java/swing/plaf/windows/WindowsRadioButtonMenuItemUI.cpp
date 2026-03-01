@@ -11,10 +11,7 @@
 #include <javax/swing/ButtonModel.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JMenuItem.h>
-#include <javax/swing/plaf/ButtonUI.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/MenuItemUI.h>
-#include <javax/swing/plaf/basic/BasicMenuItemUI.h>
 #include <javax/swing/plaf/basic/BasicRadioButtonMenuItemUI.h>
 #include <jcpp.h>
 
@@ -33,10 +30,7 @@ using $AbstractButton = ::javax::swing::AbstractButton;
 using $ButtonModel = ::javax::swing::ButtonModel;
 using $JComponent = ::javax::swing::JComponent;
 using $JMenuItem = ::javax::swing::JMenuItem;
-using $ButtonUI = ::javax::swing::plaf::ButtonUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $MenuItemUI = ::javax::swing::plaf::MenuItemUI;
-using $BasicMenuItemUI = ::javax::swing::plaf::basic::BasicMenuItemUI;
 using $BasicRadioButtonMenuItemUI = ::javax::swing::plaf::basic::BasicRadioButtonMenuItemUI;
 
 namespace com {

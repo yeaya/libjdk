@@ -14,12 +14,10 @@
 #include <java/awt/Transparency.h>
 #include <java/awt/color/ColorSpace.h>
 #include <java/awt/geom/AffineTransform.h>
-#include <java/awt/image/BufferedImage.h>
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/ComponentColorModel.h>
 #include <java/awt/image/DataBuffer.h>
 #include <java/awt/image/DirectColorModel.h>
-#include <java/awt/image/PackedColorModel.h>
 #include <java/awt/image/VolatileImage.h>
 #include <java/awt/image/WritableRaster.h>
 #include <java/lang/Math.h>
@@ -38,7 +36,6 @@
 #include <sun/java2d/pipe/Region.h>
 #include <sun/java2d/x11/X11SurfaceData$X11WindowSurfaceData.h>
 #include <sun/java2d/x11/X11SurfaceData.h>
-#include <sun/java2d/x11/XSurfaceData.h>
 #include <jcpp.h>
 
 #undef BACKGROUND
@@ -64,12 +61,10 @@ using $Toolkit = ::java::awt::Toolkit;
 using $Transparency = ::java::awt::Transparency;
 using $ColorSpace = ::java::awt::color::ColorSpace;
 using $AffineTransform = ::java::awt::geom::AffineTransform;
-using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $ComponentColorModel = ::java::awt::image::ComponentColorModel;
 using $DataBuffer = ::java::awt::image::DataBuffer;
 using $DirectColorModel = ::java::awt::image::DirectColorModel;
-using $PackedColorModel = ::java::awt::image::PackedColorModel;
 using $VolatileImage = ::java::awt::image::VolatileImage;
 using $WritableRaster = ::java::awt::image::WritableRaster;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -94,7 +89,6 @@ using $RenderLoops = ::sun::java2d::loops::RenderLoops;
 using $SurfaceType = ::sun::java2d::loops::SurfaceType;
 using $Region = ::sun::java2d::pipe::Region;
 using $X11SurfaceData = ::sun::java2d::x11::X11SurfaceData;
-using $XSurfaceData = ::sun::java2d::x11::XSurfaceData;
 
 namespace sun {
 	namespace awt {

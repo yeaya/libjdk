@@ -23,7 +23,6 @@
 #include <java/lang/SecurityManager.h>
 #include <java/nio/ByteBuffer.h>
 #include <java/nio/CharBuffer.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
@@ -68,7 +67,6 @@ using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $ByteBuffer = ::java::nio::ByteBuffer;
 using $CharBuffer = ::java::nio::CharBuffer;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;

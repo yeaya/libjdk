@@ -2,7 +2,6 @@
 
 #include <java/awt/Component.h>
 #include <java/lang/Comparable.h>
-#include <javax/swing/AbstractSpinnerModel.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JFormattedTextField.h>
 #include <javax/swing/JSlider.h>
@@ -21,7 +20,6 @@ using $Comparable = ::java::lang::Comparable;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractSpinnerModel = ::javax::swing::AbstractSpinnerModel;
 using $JComponent = ::javax::swing::JComponent;
 using $JSlider = ::javax::swing::JSlider;
 using $JSpinner = ::javax::swing::JSpinner;

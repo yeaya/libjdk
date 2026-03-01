@@ -3,7 +3,6 @@
 #include <com/sun/media/sound/AbstractMidiDevice$TransmitterList.h>
 #include <com/sun/media/sound/AbstractMidiDevice.h>
 #include <javax/sound/midi/MidiDevice.h>
-#include <javax/sound/midi/MidiDeviceTransmitter.h>
 #include <javax/sound/midi/Receiver.h>
 #include <javax/sound/midi/Transmitter.h>
 #include <jcpp.h>
@@ -15,7 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MidiDevice = ::javax::sound::midi::MidiDevice;
-using $MidiDeviceTransmitter = ::javax::sound::midi::MidiDeviceTransmitter;
 using $Receiver = ::javax::sound::midi::Receiver;
 using $Transmitter = ::javax::sound::midi::Transmitter;
 

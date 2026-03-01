@@ -8,8 +8,6 @@
 #include <java/awt/image/BufferedImage.h>
 #include <javax/swing/JSlider.h>
 #include <javax/swing/plaf/SliderUI.h>
-#include <javax/swing/plaf/basic/BasicSliderUI.h>
-#include <javax/swing/plaf/synth/SynthSliderUI.h>
 #include <jcpp.h>
 
 #undef TYPE_INT_ARGB
@@ -22,8 +20,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JSlider = ::javax::swing::JSlider;
 using $SliderUI = ::javax::swing::plaf::SliderUI;
-using $BasicSliderUI = ::javax::swing::plaf::basic::BasicSliderUI;
-using $SynthSliderUI = ::javax::swing::plaf::synth::SynthSliderUI;
 
 $MethodInfo _bug6923305$1_MethodInfo_[] = {
 	{"<init>", "()V", nullptr, 0, $method(bug6923305$1, init$, void)},

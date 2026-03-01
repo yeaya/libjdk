@@ -19,11 +19,9 @@
 #include <com/sun/org/apache/bcel/internal/generic/FieldGenOrMethodGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/FieldObserver.h>
 #include <com/sun/org/apache/bcel/internal/generic/ObjectType.h>
-#include <com/sun/org/apache/bcel/internal/generic/ReferenceType.h>
 #include <com/sun/org/apache/bcel/internal/generic/Type.h>
 #include <com/sun/org/apache/bcel/internal/util/BCELComparator.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Iterator.h>
 #include <java/util/List.h>
@@ -66,7 +64,6 @@ using $FieldGen$1 = ::com::sun::org::apache::bcel::internal::generic::FieldGen$1
 using $FieldGenOrMethodGen = ::com::sun::org::apache::bcel::internal::generic::FieldGenOrMethodGen;
 using $FieldObserver = ::com::sun::org::apache::bcel::internal::generic::FieldObserver;
 using $ObjectType = ::com::sun::org::apache::bcel::internal::generic::ObjectType;
-using $ReferenceType = ::com::sun::org::apache::bcel::internal::generic::ReferenceType;
 using $Type = ::com::sun::org::apache::bcel::internal::generic::Type;
 using $BCELComparator = ::com::sun::org::apache::bcel::internal::util::BCELComparator;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -78,7 +75,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Iterator = ::java::util::Iterator;
 using $List = ::java::util::List;

@@ -1,8 +1,6 @@
 #include <javax/swing/JTextArea.h>
 
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
@@ -12,7 +10,6 @@
 #include <java/lang/Math.h>
 #include <java/util/Set.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JTextArea$AccessibleJTextArea.h>
 #include <javax/swing/LookAndFeel.h>
@@ -23,7 +20,6 @@
 #include <javax/swing/text/BadLocationException.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/Element.h>
-#include <javax/swing/text/JTextComponent$AccessibleJTextComponent.h>
 #include <javax/swing/text/JTextComponent.h>
 #include <javax/swing/text/PlainDocument.h>
 #include <jcpp.h>
@@ -31,8 +27,6 @@
 #undef HORIZONTAL
 #undef VERTICAL
 
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
@@ -50,7 +44,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NamedAttribute = ::java::lang::NamedAttribute;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JTextArea$AccessibleJTextArea = ::javax::swing::JTextArea$AccessibleJTextArea;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingConstants = ::javax::swing::SwingConstants;
@@ -61,7 +54,6 @@ using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $Document = ::javax::swing::text::Document;
 using $Element = ::javax::swing::text::Element;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
-using $JTextComponent$AccessibleJTextComponent = ::javax::swing::text::JTextComponent$AccessibleJTextComponent;
 using $PlainDocument = ::javax::swing::text::PlainDocument;
 
 namespace javax {

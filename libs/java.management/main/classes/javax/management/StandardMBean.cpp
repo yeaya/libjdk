@@ -13,7 +13,6 @@
 #include <java/lang/reflect/Method.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <java/util/WeakHashMap.h>
@@ -22,7 +21,6 @@
 #include <javax/management/Descriptor.h>
 #include <javax/management/DynamicMBean.h>
 #include <javax/management/ImmutableDescriptor.h>
-#include <javax/management/JMException.h>
 #include <javax/management/JMX.h>
 #include <javax/management/MBeanAttributeInfo.h>
 #include <javax/management/MBeanConstructorInfo.h>
@@ -34,7 +32,6 @@
 #include <javax/management/MBeanServer.h>
 #include <javax/management/NotCompliantMBeanException.h>
 #include <javax/management/ObjectName.h>
-#include <javax/management/OperationsException.h>
 #include <javax/management/StandardEmitterMBean.h>
 #include <javax/management/StandardMBean$MBeanInfoSafeAction.h>
 #include <javax/management/openmbean/OpenMBeanAttributeInfo.h>
@@ -80,7 +77,6 @@ using $System$Logger = ::java::lang::System$Logger;
 using $System$Logger$Level = ::java::lang::System$Logger$Level;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $WeakHashMap = ::java::util::WeakHashMap;
@@ -89,7 +85,6 @@ using $AttributeList = ::javax::management::AttributeList;
 using $Descriptor = ::javax::management::Descriptor;
 using $DynamicMBean = ::javax::management::DynamicMBean;
 using $ImmutableDescriptor = ::javax::management::ImmutableDescriptor;
-using $JMException = ::javax::management::JMException;
 using $JMX = ::javax::management::JMX;
 using $MBeanAttributeInfo = ::javax::management::MBeanAttributeInfo;
 using $MBeanConstructorInfo = ::javax::management::MBeanConstructorInfo;
@@ -100,7 +95,6 @@ using $MBeanParameterInfo = ::javax::management::MBeanParameterInfo;
 using $MBeanServer = ::javax::management::MBeanServer;
 using $NotCompliantMBeanException = ::javax::management::NotCompliantMBeanException;
 using $ObjectName = ::javax::management::ObjectName;
-using $OperationsException = ::javax::management::OperationsException;
 using $StandardEmitterMBean = ::javax::management::StandardEmitterMBean;
 using $StandardMBean$MBeanInfoSafeAction = ::javax::management::StandardMBean$MBeanInfoSafeAction;
 using $OpenMBeanAttributeInfo = ::javax::management::openmbean::OpenMBeanAttributeInfo;

@@ -7,8 +7,6 @@
 #include <javax/swing/JEditorPane$PlainEditorKit.h>
 #include <javax/swing/JTextArea.h>
 #include <javax/swing/SizeRequirements.h>
-#include <javax/swing/text/BoxView.h>
-#include <javax/swing/text/CompositeView.h>
 #include <javax/swing/text/Element.h>
 #include <javax/swing/text/FlowView.h>
 #include <javax/swing/text/ParagraphView.h>
@@ -29,10 +27,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JEditorPane$PlainEditorKit$PlainParagraph$LogicalView = ::javax::swing::JEditorPane$PlainEditorKit$PlainParagraph$LogicalView;
 using $JTextArea = ::javax::swing::JTextArea;
 using $SizeRequirements = ::javax::swing::SizeRequirements;
-using $BoxView = ::javax::swing::text::BoxView;
-using $CompositeView = ::javax::swing::text::CompositeView;
 using $Element = ::javax::swing::text::Element;
-using $FlowView = ::javax::swing::text::FlowView;
 using $ParagraphView = ::javax::swing::text::ParagraphView;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
 using $View = ::javax::swing::text::View;

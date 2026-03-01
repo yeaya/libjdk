@@ -6,10 +6,8 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Constants.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/EqualityExpr.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Expression.h>
-#include <com/sun/org/apache/xalan/internal/xsltc/compiler/FunctionCall.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/IllegalCharException.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/LiteralExpr.h>
-#include <com/sun/org/apache/xalan/internal/xsltc/compiler/NameBase.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/NamespaceUriCall.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/NodeTest.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/ParentLocationPath.h>
@@ -21,7 +19,6 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/StepPattern.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/SymbolTable.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/SyntaxTreeNode.h>
-#include <com/sun/org/apache/xalan/internal/xsltc/compiler/TopLevelElement.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/VariableBase.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/VariableRef.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/XSLTC.h>
@@ -29,7 +26,6 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/util/ErrorMsg.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/runtime/Operators.h>
 #include <com/sun/org/apache/xml/internal/dtm/Axis.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <java/util/Stack.h>
@@ -54,10 +50,8 @@ using $lr_parser = ::com::sun::java_cup::internal::runtime::lr_parser;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
 using $EqualityExpr = ::com::sun::org::apache::xalan::internal::xsltc::compiler::EqualityExpr;
 using $Expression = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression;
-using $FunctionCall = ::com::sun::org::apache::xalan::internal::xsltc::compiler::FunctionCall;
 using $IllegalCharException = ::com::sun::org::apache::xalan::internal::xsltc::compiler::IllegalCharException;
 using $LiteralExpr = ::com::sun::org::apache::xalan::internal::xsltc::compiler::LiteralExpr;
-using $NameBase = ::com::sun::org::apache::xalan::internal::xsltc::compiler::NameBase;
 using $NamespaceUriCall = ::com::sun::org::apache::xalan::internal::xsltc::compiler::NamespaceUriCall;
 using $NodeTest = ::com::sun::org::apache::xalan::internal::xsltc::compiler::NodeTest;
 using $ParentLocationPath = ::com::sun::org::apache::xalan::internal::xsltc::compiler::ParentLocationPath;
@@ -69,7 +63,6 @@ using $Step = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Step;
 using $StepPattern = ::com::sun::org::apache::xalan::internal::xsltc::compiler::StepPattern;
 using $SymbolTable = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SymbolTable;
 using $SyntaxTreeNode = ::com::sun::org::apache::xalan::internal::xsltc::compiler::SyntaxTreeNode;
-using $TopLevelElement = ::com::sun::org::apache::xalan::internal::xsltc::compiler::TopLevelElement;
 using $VariableRef = ::com::sun::org::apache::xalan::internal::xsltc::compiler::VariableRef;
 using $XSLTC = ::com::sun::org::apache::xalan::internal::xsltc::compiler::XSLTC;
 using $parser_actions = ::com::sun::org::apache::xalan::internal::xsltc::compiler::parser_actions;
@@ -81,7 +74,6 @@ using $Double = ::java::lang::Double;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $Stack = ::java::util::Stack;

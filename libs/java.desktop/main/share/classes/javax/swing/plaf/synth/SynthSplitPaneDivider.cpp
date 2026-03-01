@@ -11,7 +11,6 @@
 #include <javax/swing/JSplitPane.h>
 #include <javax/swing/SwingConstants.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/SplitPaneUI.h>
 #include <javax/swing/plaf/basic/BasicSplitPaneDivider.h>
 #include <javax/swing/plaf/basic/BasicSplitPaneUI.h>
 #include <javax/swing/plaf/synth/Region.h>
@@ -46,7 +45,6 @@ using $JComponent = ::javax::swing::JComponent;
 using $JSplitPane = ::javax::swing::JSplitPane;
 using $SwingConstants = ::javax::swing::SwingConstants;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $SplitPaneUI = ::javax::swing::plaf::SplitPaneUI;
 using $BasicSplitPaneDivider = ::javax::swing::plaf::basic::BasicSplitPaneDivider;
 using $BasicSplitPaneUI = ::javax::swing::plaf::basic::BasicSplitPaneUI;
 using $Region = ::javax::swing::plaf::synth::Region;

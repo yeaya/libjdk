@@ -80,7 +80,6 @@
 #include <com/sun/tools/javac/tree/TreeInfo$PatternPrimaryType.h>
 #include <com/sun/tools/javac/tree/TreeInfo$PosKind.h>
 #include <com/sun/tools/javac/tree/TreeInfo$TypeAnnotationFinder.h>
-#include <com/sun/tools/javac/tree/TreeScanner.h>
 #include <com/sun/tools/javac/util/Assert.h>
 #include <com/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition.h>
 #include <com/sun/tools/javac/util/List.h>
@@ -190,7 +189,6 @@ using $TreePath = ::com::sun::source::util::TreePath;
 using $Flags = ::com::sun::tools::javac::code::Flags;
 using $Kinds$Kind = ::com::sun::tools::javac::code::Kinds$Kind;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Env = ::com::sun::tools::javac::comp::Env;
@@ -257,7 +255,6 @@ using $TreeInfo$DeclScanner = ::com::sun::tools::javac::tree::TreeInfo$DeclScann
 using $TreeInfo$PatternPrimaryType = ::com::sun::tools::javac::tree::TreeInfo$PatternPrimaryType;
 using $TreeInfo$PosKind = ::com::sun::tools::javac::tree::TreeInfo$PosKind;
 using $TreeInfo$TypeAnnotationFinder = ::com::sun::tools::javac::tree::TreeInfo$TypeAnnotationFinder;
-using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $JCDiagnostic$DiagnosticPosition = ::com::sun::tools::javac::util::JCDiagnostic$DiagnosticPosition;
 using $List = ::com::sun::tools::javac::util::List;

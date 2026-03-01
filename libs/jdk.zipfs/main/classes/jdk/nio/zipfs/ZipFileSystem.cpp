@@ -3,8 +3,6 @@
 #include <java/io/BufferedOutputStream.h>
 #include <java/io/ByteArrayInputStream.h>
 #include <java/io/ByteArrayOutputStream.h>
-#include <java/io/FilterInputStream.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
@@ -61,8 +59,6 @@
 #include <java/security/PrivilegedAction.h>
 #include <java/security/PrivilegedActionException.h>
 #include <java/security/PrivilegedExceptionAction.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
@@ -87,9 +83,7 @@
 #include <java/util/regex/Matcher.h>
 #include <java/util/regex/Pattern.h>
 #include <java/util/zip/Deflater.h>
-#include <java/util/zip/DeflaterOutputStream.h>
 #include <java/util/zip/Inflater.h>
-#include <java/util/zip/InflaterInputStream.h>
 #include <java/util/zip/ZipException.h>
 #include <jdk/nio/zipfs/ByteArrayChannel.h>
 #include <jdk/nio/zipfs/ZipCoder.h>
@@ -154,8 +148,6 @@ using $ZipFileSystem$IndexNodeArray = $Array<::jdk::nio::zipfs::ZipFileSystem$In
 using $BufferedOutputStream = ::java::io::BufferedOutputStream;
 using $ByteArrayInputStream = ::java::io::ByteArrayInputStream;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
-using $FilterInputStream = ::java::io::FilterInputStream;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
@@ -213,8 +205,6 @@ using $Principal = ::java::security::Principal;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $PrivilegedActionException = ::java::security::PrivilegedActionException;
 using $PrivilegedExceptionAction = ::java::security::PrivilegedExceptionAction;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractSet = ::java::util::AbstractSet;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
@@ -239,9 +229,7 @@ using $Manifest = ::java::util::jar::Manifest;
 using $Matcher = ::java::util::regex::Matcher;
 using $Pattern = ::java::util::regex::Pattern;
 using $Deflater = ::java::util::zip::Deflater;
-using $DeflaterOutputStream = ::java::util::zip::DeflaterOutputStream;
 using $Inflater = ::java::util::zip::Inflater;
-using $InflaterInputStream = ::java::util::zip::InflaterInputStream;
 using $ZipException = ::java::util::zip::ZipException;
 using $ByteArrayChannel = ::jdk::nio::zipfs::ByteArrayChannel;
 using $ZipCoder = ::jdk::nio::zipfs::ZipCoder;

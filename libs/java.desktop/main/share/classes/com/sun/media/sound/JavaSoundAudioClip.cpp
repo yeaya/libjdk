@@ -7,8 +7,6 @@
 #include <com/sun/media/sound/Toolkit.h>
 #include <java/applet/AudioClip.h>
 #include <java/io/BufferedInputStream.h>
-#include <java/io/ByteArrayOutputStream.h>
-#include <java/io/FilterInputStream.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/net/URL.h>
@@ -46,8 +44,6 @@ using $Printer = ::com::sun::media::sound::Printer;
 using $Toolkit = ::com::sun::media::sound::Toolkit;
 using $AudioClip = ::java::applet::AudioClip;
 using $BufferedInputStream = ::java::io::BufferedInputStream;
-using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
-using $FilterInputStream = ::java::io::FilterInputStream;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;

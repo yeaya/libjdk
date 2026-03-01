@@ -8,7 +8,6 @@
 #include <com/sun/org/apache/xerces/internal/impl/dtd/models/CMStateSet.h>
 #include <com/sun/org/apache/xerces/internal/impl/dtd/models/CMUniOp.h>
 #include <com/sun/org/apache/xerces/internal/xni/QName.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <jcpp.h>
@@ -43,7 +42,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 

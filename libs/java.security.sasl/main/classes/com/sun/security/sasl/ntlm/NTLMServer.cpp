@@ -4,7 +4,6 @@
 #include <com/sun/security/ntlm/Server.h>
 #include <com/sun/security/sasl/ntlm/NTLMServer$1.h>
 #include <java/lang/IllegalStateException.h>
-#include <java/security/GeneralSecurityException.h>
 #include <java/util/Map.h>
 #include <java/util/Random.h>
 #include <javax/security/auth/callback/CallbackHandler.h>
@@ -20,12 +19,10 @@ using $NTLMException = ::com::sun::security::ntlm::NTLMException;
 using $Server = ::com::sun::security::ntlm::Server;
 using $NTLMServer$1 = ::com::sun::security::sasl::ntlm::NTLMServer$1;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $Map = ::java::util::Map;
 using $Random = ::java::util::Random;
 using $CallbackHandler = ::javax::security::auth::callback::CallbackHandler;

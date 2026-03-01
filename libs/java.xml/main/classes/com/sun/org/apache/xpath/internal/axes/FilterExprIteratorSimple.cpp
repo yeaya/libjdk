@@ -17,7 +17,6 @@
 #include <com/sun/org/apache/xpath/internal/axes/WalkerFactory.h>
 #include <com/sun/org/apache/xpath/internal/objects/XNodeSet.h>
 #include <com/sun/org/apache/xpath/internal/objects/XObject.h>
-#include <com/sun/org/apache/xpath/internal/patterns/NodeTest.h>
 #include <java/util/List.h>
 #include <javax/xml/transform/TransformerException.h>
 #include <jcpp.h>
@@ -39,10 +38,8 @@ using $XPathVisitor = ::com::sun::org::apache::xpath::internal::XPathVisitor;
 using $FilterExprIteratorSimple$filterExprOwner = ::com::sun::org::apache::xpath::internal::axes::FilterExprIteratorSimple$filterExprOwner;
 using $LocPathIterator = ::com::sun::org::apache::xpath::internal::axes::LocPathIterator;
 using $PathComponent = ::com::sun::org::apache::xpath::internal::axes::PathComponent;
-using $PredicatedNodeTest = ::com::sun::org::apache::xpath::internal::axes::PredicatedNodeTest;
 using $WalkerFactory = ::com::sun::org::apache::xpath::internal::axes::WalkerFactory;
 using $XNodeSet = ::com::sun::org::apache::xpath::internal::objects::XNodeSet;
-using $NodeTest = ::com::sun::org::apache::xpath::internal::patterns::NodeTest;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;

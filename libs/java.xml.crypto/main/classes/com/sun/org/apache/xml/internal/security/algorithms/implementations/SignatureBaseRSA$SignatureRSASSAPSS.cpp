@@ -12,7 +12,6 @@
 #include <java/security/spec/AlgorithmParameterSpec.h>
 #include <java/security/spec/MGF1ParameterSpec.h>
 #include <java/security/spec/PSSParameterSpec.h>
-#include <org/w3c/dom/CharacterData.h>
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/Element.h>
 #include <org/w3c/dom/Node.h>
@@ -43,7 +42,6 @@ using $Provider = ::java::security::Provider;
 using $AlgorithmParameterSpec = ::java::security::spec::AlgorithmParameterSpec;
 using $MGF1ParameterSpec = ::java::security::spec::MGF1ParameterSpec;
 using $PSSParameterSpec = ::java::security::spec::PSSParameterSpec;
-using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Document = ::org::w3c::dom::Document;
 using $Element = ::org::w3c::dom::Element;
 using $Node = ::org::w3c::dom::Node;

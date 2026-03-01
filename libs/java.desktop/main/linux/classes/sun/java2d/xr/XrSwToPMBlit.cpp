@@ -7,7 +7,6 @@
 #include <sun/java2d/loops/CompositeType.h>
 #include <sun/java2d/loops/SurfaceType.h>
 #include <sun/java2d/pipe/Region.h>
-#include <sun/java2d/x11/XSurfaceData.h>
 #include <sun/java2d/xr/XRPMBlit.h>
 #include <sun/java2d/xr/XRPMBlitLoops.h>
 #include <sun/java2d/xr/XRSurfaceData.h>
@@ -23,7 +22,6 @@ using $Blit = ::sun::java2d::loops::Blit;
 using $CompositeType = ::sun::java2d::loops::CompositeType;
 using $SurfaceType = ::sun::java2d::loops::SurfaceType;
 using $Region = ::sun::java2d::pipe::Region;
-using $XSurfaceData = ::sun::java2d::x11::XSurfaceData;
 using $XRPMBlit = ::sun::java2d::xr::XRPMBlit;
 using $XRPMBlitLoops = ::sun::java2d::xr::XRPMBlitLoops;
 using $XRSurfaceData = ::sun::java2d::xr::XRSurfaceData;

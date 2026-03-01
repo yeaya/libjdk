@@ -9,8 +9,6 @@
 #include <java/net/ServerSocket.h>
 #include <java/net/Socket.h>
 #include <java/net/SocketAddress.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractSequentialList.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
 #include <java/util/LinkedList.h>
@@ -34,8 +32,6 @@ using $InetSocketAddress = ::java::net::InetSocketAddress;
 using $ServerSocket = ::java::net::ServerSocket;
 using $Socket = ::java::net::Socket;
 using $SocketAddress = ::java::net::SocketAddress;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractSequentialList = ::java::util::AbstractSequentialList;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
 using $LinkedList = ::java::util::LinkedList;

@@ -28,7 +28,6 @@
 #include <jdk/internal/net/http/ResponseSubscribers$NullSubscriber.h>
 #include <jdk/internal/net/http/ResponseSubscribers$PathSubscriber.h>
 #include <jdk/internal/net/http/ResponseSubscribers$SubscriberAdapter.h>
-#include <jdk/internal/net/http/ResponseSubscribers$TrustedSubscriber.h>
 #include <jdk/internal/net/http/ResponseSubscribers.h>
 #include <jcpp.h>
 
@@ -69,7 +68,6 @@ using $ResponseSubscribers$MappingSubscriber = ::jdk::internal::net::http::Respo
 using $ResponseSubscribers$NullSubscriber = ::jdk::internal::net::http::ResponseSubscribers$NullSubscriber;
 using $ResponseSubscribers$PathSubscriber = ::jdk::internal::net::http::ResponseSubscribers$PathSubscriber;
 using $ResponseSubscribers$SubscriberAdapter = ::jdk::internal::net::http::ResponseSubscribers$SubscriberAdapter;
-using $ResponseSubscribers$TrustedSubscriber = ::jdk::internal::net::http::ResponseSubscribers$TrustedSubscriber;
 
 namespace java {
 	namespace net {

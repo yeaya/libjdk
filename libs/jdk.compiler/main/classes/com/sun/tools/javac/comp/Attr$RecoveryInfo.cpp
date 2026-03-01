@@ -7,7 +7,6 @@
 #include <com/sun/tools/javac/comp/Attr$ResultInfo.h>
 #include <com/sun/tools/javac/comp/Attr.h>
 #include <com/sun/tools/javac/comp/Check$CheckContext.h>
-#include <com/sun/tools/javac/comp/Check$NestedCheckContext.h>
 #include <com/sun/tools/javac/comp/Check.h>
 #include <com/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext.h>
 #include <jcpp.h>
@@ -20,7 +19,6 @@ using $Attr = ::com::sun::tools::javac::comp::Attr;
 using $Attr$RecoveryInfo$1 = ::com::sun::tools::javac::comp::Attr$RecoveryInfo$1;
 using $Attr$ResultInfo = ::com::sun::tools::javac::comp::Attr$ResultInfo;
 using $Check$CheckContext = ::com::sun::tools::javac::comp::Check$CheckContext;
-using $Check$NestedCheckContext = ::com::sun::tools::javac::comp::Check$NestedCheckContext;
 using $DeferredAttr$DeferredAttrContext = ::com::sun::tools::javac::comp::DeferredAttr$DeferredAttrContext;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

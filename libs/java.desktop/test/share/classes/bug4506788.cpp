@@ -14,17 +14,14 @@
 #include <java/lang/InterruptedException.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/reflect/InvocationTargetException.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JEditorPane.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/event/CaretListener.h>
 #include <javax/swing/text/AttributeSet.h>
-#include <javax/swing/text/DefaultEditorKit.h>
 #include <javax/swing/text/DefaultStyledDocument.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/EditorKit.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <javax/swing/text/MutableAttributeSet.h>
 #include <javax/swing/text/SimpleAttributeSet.h>
 #include <javax/swing/text/StyleConstants.h>
@@ -56,16 +53,13 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;
-using $JComponent = ::javax::swing::JComponent;
 using $JEditorPane = ::javax::swing::JEditorPane;
 using $JFrame = ::javax::swing::JFrame;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $CaretListener = ::javax::swing::event::CaretListener;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
-using $DefaultEditorKit = ::javax::swing::text::DefaultEditorKit;
 using $DefaultStyledDocument = ::javax::swing::text::DefaultStyledDocument;
 using $EditorKit = ::javax::swing::text::EditorKit;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $MutableAttributeSet = ::javax::swing::text::MutableAttributeSet;
 using $SimpleAttributeSet = ::javax::swing::text::SimpleAttributeSet;
 using $StyleConstants = ::javax::swing::text::StyleConstants;

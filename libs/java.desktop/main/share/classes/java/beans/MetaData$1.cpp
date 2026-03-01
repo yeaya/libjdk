@@ -4,20 +4,17 @@
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/IllegalStateException.h>
 #include <java/lang/NoSuchFieldException.h>
-#include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/reflect/Field.h>
 #include <jcpp.h>
 
 using $ClassInfo = ::java::lang::ClassInfo;
 using $ClassNotFoundException = ::java::lang::ClassNotFoundException;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchFieldException = ::java::lang::NoSuchFieldException;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $Field = ::java::lang::reflect::Field;
 
 namespace java {

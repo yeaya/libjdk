@@ -5,7 +5,6 @@
 #include <java/awt/Font.h>
 #include <java/awt/Insets.h>
 #include <java/lang/Number.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <javax/swing/Icon.h>
@@ -17,7 +16,6 @@
 #include <javax/swing/UIDefaults$LazyInputMap.h>
 #include <javax/swing/UIDefaults$LazyValue.h>
 #include <javax/swing/UIDefaults.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/plaf/UIResource.h>
 #include <javax/swing/plaf/basic/BasicLookAndFeel.h>
@@ -53,7 +51,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Number = ::java::lang::Number;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $Icon = ::javax::swing::Icon;
@@ -65,7 +62,6 @@ using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIDefaults$LazyInputMap = ::javax::swing::UIDefaults$LazyInputMap;
 using $UIDefaults$LazyValue = ::javax::swing::UIDefaults$LazyValue;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;

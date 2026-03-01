@@ -13,9 +13,7 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/ArrayDeque.h>
-#include <java/util/Deque.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <java/util/Queue.h>
@@ -36,9 +34,7 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayDeque = ::java::util::ArrayDeque;
-using $Deque = ::java::util::Deque;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $Queue = ::java::util::Queue;

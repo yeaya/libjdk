@@ -1,6 +1,5 @@
 #include <sun/rmi/runtime/Log$LoggerLog$1.h>
 
-#include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/util/logging/Handler.h>
 #include <java/util/logging/Level.h>
@@ -9,7 +8,6 @@
 
 #undef ALL
 
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

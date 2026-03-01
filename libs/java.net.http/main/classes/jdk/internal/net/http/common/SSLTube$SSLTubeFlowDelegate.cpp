@@ -2,7 +2,6 @@
 
 #include <java/lang/AssertionError.h>
 #include <java/util/concurrent/Executor.h>
-#include <java/util/concurrent/Flow$Processor.h>
 #include <java/util/concurrent/Flow$Publisher.h>
 #include <java/util/concurrent/Flow$Subscriber.h>
 #include <java/util/concurrent/Flow$Subscription.h>
@@ -29,7 +28,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Executor = ::java::util::concurrent::Executor;
-using $Flow$Processor = ::java::util::concurrent::Flow$Processor;
 using $Flow$Publisher = ::java::util::concurrent::Flow$Publisher;
 using $Flow$Subscriber = ::java::util::concurrent::Flow$Subscriber;
 using $Flow$Subscription = ::java::util::concurrent::Flow$Subscription;
@@ -37,12 +35,10 @@ using $Consumer = ::java::util::function::Consumer;
 using $SSLEngine = ::javax::net::ssl::SSLEngine;
 using $FlowTube = ::jdk::internal::net::http::common::FlowTube;
 using $FlowTube$TubePublisher = ::jdk::internal::net::http::common::FlowTube$TubePublisher;
-using $FlowTube$TubeSubscriber = ::jdk::internal::net::http::common::FlowTube$TubeSubscriber;
 using $SSLFlowDelegate = ::jdk::internal::net::http::common::SSLFlowDelegate;
 using $SSLFlowDelegate$Reader = ::jdk::internal::net::http::common::SSLFlowDelegate$Reader;
 using $SSLTube = ::jdk::internal::net::http::common::SSLTube;
 using $SSLTube$SSLSubscriberWrapper = ::jdk::internal::net::http::common::SSLTube$SSLSubscriberWrapper;
-using $SubscriberWrapper = ::jdk::internal::net::http::common::SubscriberWrapper;
 using $SubscriberWrapper$SchedulingAction = ::jdk::internal::net::http::common::SubscriberWrapper$SchedulingAction;
 
 namespace jdk {

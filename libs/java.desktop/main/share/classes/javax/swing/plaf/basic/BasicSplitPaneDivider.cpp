@@ -9,19 +9,16 @@
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
 #include <java/awt/event/ActionListener.h>
-#include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/awt/event/MouseMotionListener.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JSplitPane.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/SplitPaneUI.h>
 #include <javax/swing/plaf/basic/BasicSplitPaneDivider$1.h>
 #include <javax/swing/plaf/basic/BasicSplitPaneDivider$2.h>
 #include <javax/swing/plaf/basic/BasicSplitPaneDivider$DividerLayout.h>
@@ -49,7 +46,6 @@ using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
@@ -58,14 +54,12 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
 using $JSplitPane = ::javax::swing::JSplitPane;
 using $UIManager = ::javax::swing::UIManager;
 using $Border = ::javax::swing::border::Border;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $SplitPaneUI = ::javax::swing::plaf::SplitPaneUI;
 using $BasicSplitPaneDivider$1 = ::javax::swing::plaf::basic::BasicSplitPaneDivider$1;
 using $BasicSplitPaneDivider$2 = ::javax::swing::plaf::basic::BasicSplitPaneDivider$2;
 using $BasicSplitPaneDivider$DividerLayout = ::javax::swing::plaf::basic::BasicSplitPaneDivider$DividerLayout;

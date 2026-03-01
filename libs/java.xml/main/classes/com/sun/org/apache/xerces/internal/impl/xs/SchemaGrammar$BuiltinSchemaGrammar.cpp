@@ -19,7 +19,6 @@
 #include <com/sun/org/apache/xerces/internal/parsers/SAXParser.h>
 #include <com/sun/org/apache/xerces/internal/util/SymbolHash.h>
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription.h>
-#include <com/sun/org/apache/xerces/internal/xni/grammars/XMLSchemaDescription.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSConstants.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSNamespaceItem.h>
 #include <com/sun/org/apache/xerces/internal/xs/XSObjectList.h>
@@ -61,7 +60,6 @@ using $DOMParser = ::com::sun::org::apache::xerces::internal::parsers::DOMParser
 using $SAXParser = ::com::sun::org::apache::xerces::internal::parsers::SAXParser;
 using $SymbolHash = ::com::sun::org::apache::xerces::internal::util::SymbolHash;
 using $XMLGrammarDescription = ::com::sun::org::apache::xerces::internal::xni::grammars::XMLGrammarDescription;
-using $XMLSchemaDescription = ::com::sun::org::apache::xerces::internal::xni::grammars::XMLSchemaDescription;
 using $XSConstants = ::com::sun::org::apache::xerces::internal::xs::XSConstants;
 using $XSNamespaceItem = ::com::sun::org::apache::xerces::internal::xs::XSNamespaceItem;
 using $XSObjectList = ::com::sun::org::apache::xerces::internal::xs::XSObjectList;

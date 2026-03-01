@@ -14,9 +14,7 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <javax/swing/AbstractListModel.h>
 #include <javax/swing/DefaultListModel.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JList.h>
 #include <javax/swing/JScrollPane.h>
@@ -30,7 +28,6 @@
 
 using $bug6510999$1 = ::bug6510999$1;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Point = ::java::awt::Point;
 using $Robot = ::java::awt::Robot;
 using $KeyEvent = ::java::awt::event::KeyEvent;
@@ -42,9 +39,7 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Runnable = ::java::lang::Runnable;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractListModel = ::javax::swing::AbstractListModel;
 using $DefaultListModel = ::javax::swing::DefaultListModel;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JList = ::javax::swing::JList;
 using $JScrollPane = ::javax::swing::JScrollPane;

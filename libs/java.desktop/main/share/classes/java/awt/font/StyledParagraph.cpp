@@ -9,7 +9,6 @@
 #include <java/lang/NoSuchMethodError.h>
 #include <java/text/Annotation.h>
 #include <java/text/AttributedCharacterIterator.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <java/util/Vector.h>
@@ -38,7 +37,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodError = ::java::lang::NoSuchMethodError;
 using $Annotation = ::java::text::Annotation;
 using $AttributedCharacterIterator = ::java::text::AttributedCharacterIterator;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $Vector = ::java::util::Vector;

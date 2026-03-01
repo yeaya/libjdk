@@ -9,7 +9,6 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Constants.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Expression.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Import.h>
-#include <com/sun/org/apache/xalan/internal/xsltc/compiler/Instruction.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/LiteralElement.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Output.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Param.h>
@@ -38,7 +37,6 @@
 #include <java/lang/ClassCastException.h>
 #include <java/lang/ClassNotFoundException.h>
 #include <java/lang/reflect/Constructor.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
@@ -160,7 +158,6 @@ using $CompilerException = ::com::sun::org::apache::xalan::internal::xsltc::comp
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
 using $Expression = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression;
 using $Import = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Import;
-using $Instruction = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Instruction;
 using $LiteralElement = ::com::sun::org::apache::xalan::internal::xsltc::compiler::LiteralElement;
 using $Output = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Output;
 using $Param = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Param;
@@ -194,7 +191,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Constructor = ::java::lang::reflect::Constructor;
-using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;

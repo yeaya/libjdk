@@ -6,7 +6,6 @@
 #include <java/awt/GridBagLayout.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/event/ItemEvent.h>
 #include <java/awt/event/ItemListener.h>
 #include <java/util/EventObject.h>
@@ -20,16 +19,13 @@
 #include <javax/print/attribute/DocAttribute.h>
 #include <javax/print/attribute/HashAttributeSet.h>
 #include <javax/print/attribute/HashPrintRequestAttributeSet.h>
-#include <javax/print/attribute/PrintRequestAttribute.h>
 #include <javax/print/attribute/standard/Media.h>
 #include <javax/print/attribute/standard/MediaSizeName.h>
 #include <javax/print/attribute/standard/MediaTray.h>
 #include <javax/swing/BorderFactory.h>
 #include <javax/swing/JComboBox.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JPanel.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/TitledBorder.h>
 #include <sun/print/ServiceDialog$MarginsPanel.h>
@@ -48,7 +44,6 @@ using $Container = ::java::awt::Container;
 using $GridBagConstraints = ::java::awt::GridBagConstraints;
 using $GridBagLayout = ::java::awt::GridBagLayout;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $ItemEvent = ::java::awt::event::ItemEvent;
 using $ItemListener = ::java::awt::event::ItemListener;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -65,16 +60,13 @@ using $AttributeSet = ::javax::print::attribute::AttributeSet;
 using $DocAttribute = ::javax::print::attribute::DocAttribute;
 using $HashAttributeSet = ::javax::print::attribute::HashAttributeSet;
 using $HashPrintRequestAttributeSet = ::javax::print::attribute::HashPrintRequestAttributeSet;
-using $PrintRequestAttribute = ::javax::print::attribute::PrintRequestAttribute;
 using $Media = ::javax::print::attribute::standard::Media;
 using $MediaSizeName = ::javax::print::attribute::standard::MediaSizeName;
 using $MediaTray = ::javax::print::attribute::standard::MediaTray;
 using $BorderFactory = ::javax::swing::BorderFactory;
 using $JComboBox = ::javax::swing::JComboBox;
-using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
 using $JPanel = ::javax::swing::JPanel;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $ServiceDialog = ::sun::print::ServiceDialog;
 using $ServiceDialog$MarginsPanel = ::sun::print::ServiceDialog$MarginsPanel;

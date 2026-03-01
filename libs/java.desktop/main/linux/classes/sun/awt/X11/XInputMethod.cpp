@@ -14,7 +14,6 @@
 #include <sun/awt/X11/XWindow.h>
 #include <sun/awt/X11InputMethod.h>
 #include <sun/awt/X11InputMethodBase.h>
-#include <sun/awt/im/InputMethodAdapter.h>
 #include <sun/util/logging/PlatformLogger$Level.h>
 #include <sun/util/logging/PlatformLogger.h>
 #include <jcpp.h>
@@ -36,8 +35,6 @@ using $XComponentPeer = ::sun::awt::X11::XComponentPeer;
 using $XToolkit = ::sun::awt::X11::XToolkit;
 using $XWindow = ::sun::awt::X11::XWindow;
 using $X11InputMethod = ::sun::awt::X11InputMethod;
-using $X11InputMethodBase = ::sun::awt::X11InputMethodBase;
-using $InputMethodAdapter = ::sun::awt::im::InputMethodAdapter;
 using $PlatformLogger = ::sun::util::logging::PlatformLogger;
 using $PlatformLogger$Level = ::sun::util::logging::PlatformLogger$Level;
 

@@ -12,8 +12,6 @@
 #include <java/awt/Shape.h>
 #include <java/awt/Stroke.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/lang/Math.h>
 #include <javax/swing/border/AbstractBorder.h>
 #include <jcpp.h>
@@ -30,9 +28,7 @@ using $Paint = ::java::awt::Paint;
 using $RenderingHints = ::java::awt::RenderingHints;
 using $Shape = ::java::awt::Shape;
 using $Stroke = ::java::awt::Stroke;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $Attribute = ::java::lang::Attribute;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;

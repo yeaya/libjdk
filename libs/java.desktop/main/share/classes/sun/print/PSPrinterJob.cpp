@@ -26,8 +26,6 @@
 #include <java/io/File.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/FileOutputStream.h>
-#include <java/io/FilterInputStream.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
@@ -80,10 +78,8 @@
 #include <sun/print/PSPrinterJob$PrinterOpener.h>
 #include <sun/print/PSPrinterJob$PrinterSpooler.h>
 #include <sun/print/PSStreamPrintService.h>
-#include <sun/print/PathGraphics.h>
 #include <sun/print/PeekGraphics.h>
 #include <sun/print/PeekMetrics.h>
-#include <sun/print/ProxyGraphics2D.h>
 #include <sun/print/RasterPrinterJob.h>
 #include <jcpp.h>
 
@@ -169,8 +165,6 @@ using $BufferedOutputStream = ::java::io::BufferedOutputStream;
 using $File = ::java::io::File;
 using $FileInputStream = ::java::io::FileInputStream;
 using $FileOutputStream = ::java::io::FileOutputStream;
-using $FilterInputStream = ::java::io::FilterInputStream;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
@@ -231,10 +225,8 @@ using $PSPrinterJob$GState = ::sun::print::PSPrinterJob$GState;
 using $PSPrinterJob$PrinterOpener = ::sun::print::PSPrinterJob$PrinterOpener;
 using $PSPrinterJob$PrinterSpooler = ::sun::print::PSPrinterJob$PrinterSpooler;
 using $PSStreamPrintService = ::sun::print::PSStreamPrintService;
-using $PathGraphics = ::sun::print::PathGraphics;
 using $PeekGraphics = ::sun::print::PeekGraphics;
 using $PeekMetrics = ::sun::print::PeekMetrics;
-using $ProxyGraphics2D = ::sun::print::ProxyGraphics2D;
 using $RasterPrinterJob = ::sun::print::RasterPrinterJob;
 
 namespace sun {

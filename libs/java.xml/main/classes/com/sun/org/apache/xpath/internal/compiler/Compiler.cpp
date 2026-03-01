@@ -10,7 +10,6 @@
 #include <com/sun/org/apache/xml/internal/utils/SAXSourceLocator.h>
 #include <com/sun/org/apache/xpath/internal/Expression.h>
 #include <com/sun/org/apache/xpath/internal/axes/LocPathIterator.h>
-#include <com/sun/org/apache/xpath/internal/axes/PredicatedNodeTest.h>
 #include <com/sun/org/apache/xpath/internal/axes/UnionPathIterator.h>
 #include <com/sun/org/apache/xpath/internal/axes/WalkerFactory.h>
 #include <com/sun/org/apache/xpath/internal/compiler/FunctionTable.h>
@@ -21,7 +20,6 @@
 #include <com/sun/org/apache/xpath/internal/functions/Function.h>
 #include <com/sun/org/apache/xpath/internal/functions/WrongNumberArgsException.h>
 #include <com/sun/org/apache/xpath/internal/objects/XNumber.h>
-#include <com/sun/org/apache/xpath/internal/objects/XObject.h>
 #include <com/sun/org/apache/xpath/internal/objects/XString.h>
 #include <com/sun/org/apache/xpath/internal/operations/And.h>
 #include <com/sun/org/apache/xpath/internal/operations/Bool.h>
@@ -139,7 +137,6 @@ using $PrefixResolver = ::com::sun::org::apache::xml::internal::utils::PrefixRes
 using $QName = ::com::sun::org::apache::xml::internal::utils::QName;
 using $SAXSourceLocator = ::com::sun::org::apache::xml::internal::utils::SAXSourceLocator;
 using $Expression = ::com::sun::org::apache::xpath::internal::Expression;
-using $PredicatedNodeTest = ::com::sun::org::apache::xpath::internal::axes::PredicatedNodeTest;
 using $UnionPathIterator = ::com::sun::org::apache::xpath::internal::axes::UnionPathIterator;
 using $WalkerFactory = ::com::sun::org::apache::xpath::internal::axes::WalkerFactory;
 using $FunctionTable = ::com::sun::org::apache::xpath::internal::compiler::FunctionTable;
@@ -150,7 +147,6 @@ using $FuncExtFunctionAvailable = ::com::sun::org::apache::xpath::internal::func
 using $Function = ::com::sun::org::apache::xpath::internal::functions::Function;
 using $WrongNumberArgsException = ::com::sun::org::apache::xpath::internal::functions::WrongNumberArgsException;
 using $XNumber = ::com::sun::org::apache::xpath::internal::objects::XNumber;
-using $XObject = ::com::sun::org::apache::xpath::internal::objects::XObject;
 using $XString = ::com::sun::org::apache::xpath::internal::objects::XString;
 using $And = ::com::sun::org::apache::xpath::internal::operations::And;
 using $Bool = ::com::sun::org::apache::xpath::internal::operations::Bool;

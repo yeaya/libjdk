@@ -1,6 +1,5 @@
 #include <java/awt/Label.h>
 
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/Label$AccessibleAWTLabel.h>
@@ -17,7 +16,6 @@
 #undef RIGHT
 
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $Label$AccessibleAWTLabel = ::java::awt::Label$AccessibleAWTLabel;
 using $Toolkit = ::java::awt::Toolkit;

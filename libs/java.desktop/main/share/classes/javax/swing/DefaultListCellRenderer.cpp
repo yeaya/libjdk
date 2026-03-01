@@ -12,7 +12,6 @@
 #include <javax/swing/JLabel.h>
 #include <javax/swing/JList$DropLocation.h>
 #include <javax/swing/JList.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/EmptyBorder.h>
 #include <javax/swing/plaf/ComponentUI.h>
@@ -26,7 +25,6 @@
 
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Rectangle = ::java::awt::Rectangle;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
@@ -37,7 +35,6 @@ using $JComponent = ::javax::swing::JComponent;
 using $JLabel = ::javax::swing::JLabel;
 using $JList = ::javax::swing::JList;
 using $JList$DropLocation = ::javax::swing::JList$DropLocation;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 using $BasicHTML = ::javax::swing::plaf::basic::BasicHTML;

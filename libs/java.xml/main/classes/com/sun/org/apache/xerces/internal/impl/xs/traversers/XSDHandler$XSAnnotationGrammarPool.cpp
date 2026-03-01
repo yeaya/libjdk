@@ -8,7 +8,6 @@
 #include <com/sun/org/apache/xerces/internal/xni/grammars/Grammar.h>
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLGrammarDescription.h>
 #include <com/sun/org/apache/xerces/internal/xni/grammars/XMLSchemaDescription.h>
-#include <com/sun/org/apache/xerces/internal/xni/grammars/XSGrammar.h>
 #include <jcpp.h>
 
 #undef INSTANCE
@@ -24,7 +23,6 @@ using $XSGrammarBucket = ::com::sun::org::apache::xerces::internal::impl::xs::XS
 using $Grammar = ::com::sun::org::apache::xerces::internal::xni::grammars::Grammar;
 using $XMLGrammarDescription = ::com::sun::org::apache::xerces::internal::xni::grammars::XMLGrammarDescription;
 using $XMLSchemaDescription = ::com::sun::org::apache::xerces::internal::xni::grammars::XMLSchemaDescription;
-using $XSGrammar = ::com::sun::org::apache::xerces::internal::xni::grammars::XSGrammar;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;

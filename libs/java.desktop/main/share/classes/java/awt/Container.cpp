@@ -46,7 +46,6 @@
 #include <java/awt/event/ContainerListener.h>
 #include <java/awt/event/FocusEvent$Cause.h>
 #include <java/awt/event/HierarchyEvent.h>
-#include <java/awt/event/InvocationEvent.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/peer/ComponentPeer.h>
 #include <java/awt/peer/ContainerPeer.h>
@@ -73,8 +72,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/ArrayList.h>
 #include <java/util/EventListener.h>
 #include <java/util/HashSet.h>
@@ -172,7 +169,6 @@ using $ContainerEvent = ::java::awt::event::ContainerEvent;
 using $ContainerListener = ::java::awt::event::ContainerListener;
 using $FocusEvent$Cause = ::java::awt::event::FocusEvent$Cause;
 using $HierarchyEvent = ::java::awt::event::HierarchyEvent;
-using $InvocationEvent = ::java::awt::event::InvocationEvent;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $ComponentPeer = ::java::awt::peer::ComponentPeer;
 using $ContainerPeer = ::java::awt::peer::ContainerPeer;
@@ -204,8 +200,6 @@ using $Runnable = ::java::lang::Runnable;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractSet = ::java::util::AbstractSet;
 using $ArrayList = ::java::util::ArrayList;
 using $EventListener = ::java::util::EventListener;
 using $HashSet = ::java::util::HashSet;

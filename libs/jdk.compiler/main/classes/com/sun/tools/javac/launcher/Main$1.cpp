@@ -1,7 +1,6 @@
 #include <com/sun/tools/javac/launcher/Main$1.h>
 
 #include <com/sun/tools/javac/launcher/Main.h>
-#include <java/lang/AbstractStringBuilder.h>
 #include <java/lang/CharSequence.h>
 #include <java/net/URI.h>
 #include <java/nio/file/Path.h>
@@ -13,7 +12,6 @@
 #undef SOURCE
 
 using $Main = ::com::sun::tools::javac::launcher::Main;
-using $AbstractStringBuilder = ::java::lang::AbstractStringBuilder;
 using $CharSequence = ::java::lang::CharSequence;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;

@@ -7,16 +7,11 @@
 #include <com/sun/java/swing/plaf/windows/XPStyle$Skin.h>
 #include <com/sun/java/swing/plaf/windows/XPStyle.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
-#include <java/awt/event/KeyAdapter.h>
 #include <java/awt/event/KeyListener.h>
 #include <javax/swing/JComboBox.h>
-#include <javax/swing/JComponent.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/EmptyBorder.h>
-#include <javax/swing/plaf/basic/BasicComboPopup$InvocationKeyHandler.h>
 #include <javax/swing/plaf/basic/BasicComboPopup.h>
 #include <jcpp.h>
 
@@ -30,21 +25,16 @@ using $WindowsComboBoxUI$WinComboPopUp$InvocationKeyHandler = ::com::sun::java::
 using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $XPStyle$Skin = ::com::sun::java::swing::plaf::windows::XPStyle$Skin;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
-using $KeyAdapter = ::java::awt::event::KeyAdapter;
 using $KeyListener = ::java::awt::event::KeyListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComboBox = ::javax::swing::JComboBox;
-using $JComponent = ::javax::swing::JComponent;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 using $BasicComboPopup = ::javax::swing::plaf::basic::BasicComboPopup;
-using $BasicComboPopup$InvocationKeyHandler = ::javax::swing::plaf::basic::BasicComboPopup$InvocationKeyHandler;
 
 namespace com {
 	namespace sun {

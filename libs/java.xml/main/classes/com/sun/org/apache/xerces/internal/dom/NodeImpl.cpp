@@ -6,7 +6,6 @@
 #include <com/sun/org/apache/xerces/internal/dom/DOMMessageFormatter.h>
 #include <com/sun/org/apache/xerces/internal/dom/ElementImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/NamedNodeMapImpl.h>
-#include <com/sun/org/apache/xerces/internal/dom/ParentNode.h>
 #include <java/io/ObjectOutputStream.h>
 #include <java/lang/CloneNotSupportedException.h>
 #include <java/util/Map.h>
@@ -68,7 +67,6 @@ using $CoreDocumentImpl = ::com::sun::org::apache::xerces::internal::dom::CoreDo
 using $DOMMessageFormatter = ::com::sun::org::apache::xerces::internal::dom::DOMMessageFormatter;
 using $ElementImpl = ::com::sun::org::apache::xerces::internal::dom::ElementImpl;
 using $NamedNodeMapImpl = ::com::sun::org::apache::xerces::internal::dom::NamedNodeMapImpl;
-using $ParentNode = ::com::sun::org::apache::xerces::internal::dom::ParentNode;
 using $ObjectOutputStream = ::java::io::ObjectOutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CloneNotSupportedException = ::java::lang::CloneNotSupportedException;

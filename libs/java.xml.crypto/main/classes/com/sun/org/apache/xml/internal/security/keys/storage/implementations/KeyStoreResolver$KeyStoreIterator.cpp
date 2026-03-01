@@ -6,7 +6,6 @@
 #include <java/security/KeyStore.h>
 #include <java/security/KeyStoreException.h>
 #include <java/security/cert/Certificate.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collections.h>
 #include <java/util/Enumeration.h>
@@ -26,7 +25,6 @@ using $UnsupportedOperationException = ::java::lang::UnsupportedOperationExcepti
 using $KeyStore = ::java::security::KeyStore;
 using $KeyStoreException = ::java::security::KeyStoreException;
 using $Certificate = ::java::security::cert::Certificate;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collections = ::java::util::Collections;
 using $Enumeration = ::java::util::Enumeration;

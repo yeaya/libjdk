@@ -6,12 +6,9 @@
 #include <java/awt/FocusTraversalPolicy.h>
 #include <java/awt/KeyboardFocusManager.h>
 #include <javax/swing/FocusManager.h>
-#include <javax/swing/InternalFrameFocusTraversalPolicy.h>
 #include <javax/swing/LayoutComparator.h>
-#include <javax/swing/LayoutFocusTraversalPolicy.h>
 #include <javax/swing/LegacyGlueFocusTraversalPolicy.h>
 #include <javax/swing/LegacyLayoutFocusTraversalPolicy.h>
-#include <javax/swing/SortingFocusTraversalPolicy.h>
 #include <jcpp.h>
 
 using $Component = ::java::awt::Component;
@@ -21,12 +18,9 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $FocusManager = ::javax::swing::FocusManager;
-using $InternalFrameFocusTraversalPolicy = ::javax::swing::InternalFrameFocusTraversalPolicy;
 using $LayoutComparator = ::javax::swing::LayoutComparator;
-using $LayoutFocusTraversalPolicy = ::javax::swing::LayoutFocusTraversalPolicy;
 using $LegacyGlueFocusTraversalPolicy = ::javax::swing::LegacyGlueFocusTraversalPolicy;
 using $LegacyLayoutFocusTraversalPolicy = ::javax::swing::LegacyLayoutFocusTraversalPolicy;
-using $SortingFocusTraversalPolicy = ::javax::swing::SortingFocusTraversalPolicy;
 
 namespace javax {
 	namespace swing {

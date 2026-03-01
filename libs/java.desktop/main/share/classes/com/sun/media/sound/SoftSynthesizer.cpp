@@ -14,7 +14,6 @@
 #include <com/sun/media/sound/ModelPatch.h>
 #include <com/sun/media/sound/ModelPerformer.h>
 #include <com/sun/media/sound/SF2Soundbank.h>
-#include <com/sun/media/sound/SoftAbstractResampler.h>
 #include <com/sun/media/sound/SoftAudioPusher.h>
 #include <com/sun/media/sound/SoftChannel.h>
 #include <com/sun/media/sound/SoftChannelProxy.h>
@@ -42,7 +41,6 @@
 #include <java/io/File.h>
 #include <java/io/FileNotFoundException.h>
 #include <java/io/FileOutputStream.h>
-#include <java/io/FilterInputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
@@ -60,7 +58,6 @@
 #include <java/security/PrivilegedAction.h>
 #include <java/util/AbstractCollection.h>
 #include <java/util/AbstractList.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/Collection.h>
@@ -77,7 +74,6 @@
 #include <javax/sound/midi/Instrument.h>
 #include <javax/sound/midi/MidiChannel.h>
 #include <javax/sound/midi/MidiDevice$Info.h>
-#include <javax/sound/midi/MidiDeviceReceiver.h>
 #include <javax/sound/midi/MidiSystem.h>
 #include <javax/sound/midi/MidiUnavailableException.h>
 #include <javax/sound/midi/Patch.h>
@@ -123,7 +119,6 @@ using $ModelOscillator = ::com::sun::media::sound::ModelOscillator;
 using $ModelPatch = ::com::sun::media::sound::ModelPatch;
 using $ModelPerformer = ::com::sun::media::sound::ModelPerformer;
 using $SF2Soundbank = ::com::sun::media::sound::SF2Soundbank;
-using $SoftAbstractResampler = ::com::sun::media::sound::SoftAbstractResampler;
 using $SoftAudioPusher = ::com::sun::media::sound::SoftAudioPusher;
 using $SoftChannel = ::com::sun::media::sound::SoftChannel;
 using $SoftChannelProxy = ::com::sun::media::sound::SoftChannelProxy;
@@ -150,7 +145,6 @@ using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $File = ::java::io::File;
 using $FileNotFoundException = ::java::io::FileNotFoundException;
 using $FileOutputStream = ::java::io::FileOutputStream;
-using $FilterInputStream = ::java::io::FilterInputStream;
 using $IOException = ::java::io::IOException;
 using $InputStream = ::java::io::InputStream;
 using $OutputStream = ::java::io::OutputStream;
@@ -178,7 +172,6 @@ using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $AbstractCollection = ::java::util::AbstractCollection;
 using $AbstractList = ::java::util::AbstractList;
-using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $Collection = ::java::util::Collection;
@@ -194,7 +187,6 @@ using $Preferences = ::java::util::prefs::Preferences;
 using $Instrument = ::javax::sound::midi::Instrument;
 using $MidiChannel = ::javax::sound::midi::MidiChannel;
 using $MidiDevice$Info = ::javax::sound::midi::MidiDevice$Info;
-using $MidiDeviceReceiver = ::javax::sound::midi::MidiDeviceReceiver;
 using $MidiSystem = ::javax::sound::midi::MidiSystem;
 using $MidiUnavailableException = ::javax::sound::midi::MidiUnavailableException;
 using $Patch = ::javax::sound::midi::Patch;

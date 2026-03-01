@@ -9,10 +9,7 @@
 #include <java/awt/LayoutManager.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/peer/ComponentPeer.h>
-#include <java/awt/peer/ContainerPeer.h>
-#include <java/awt/peer/DialogPeer.h>
 #include <java/awt/peer/FileDialogPeer.h>
-#include <java/awt/peer/WindowPeer.h>
 #include <java/io/File.h>
 #include <java/io/FilenameFilter.h>
 #include <java/io/ObjectInputStream.h>
@@ -33,10 +30,7 @@ using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $LayoutManager = ::java::awt::LayoutManager;
 using $Toolkit = ::java::awt::Toolkit;
 using $ComponentPeer = ::java::awt::peer::ComponentPeer;
-using $ContainerPeer = ::java::awt::peer::ContainerPeer;
-using $DialogPeer = ::java::awt::peer::DialogPeer;
 using $FileDialogPeer = ::java::awt::peer::FileDialogPeer;
-using $WindowPeer = ::java::awt::peer::WindowPeer;
 using $FilenameFilter = ::java::io::FilenameFilter;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;

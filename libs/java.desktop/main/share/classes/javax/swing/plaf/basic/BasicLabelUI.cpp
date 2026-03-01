@@ -3,7 +3,6 @@
 #include <java/awt/Color.h>
 #include <java/awt/Component$BaselineResizeBehavior.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
@@ -11,15 +10,12 @@
 #include <java/awt/Insets.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/Shape.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/lang/Math.h>
 #include <java/lang/SecurityManager.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
-#include <javax/swing/ComponentInputMap.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/InputMap.h>
 #include <javax/swing/JComponent.h>
@@ -37,7 +33,6 @@
 #include <javax/swing/text/View.h>
 #include <sun/awt/AppContext.h>
 #include <sun/swing/SwingUtilities2.h>
-#include <sun/swing/UIAction.h>
 #include <jcpp.h>
 
 #undef BASIC_LABEL_UI_KEY
@@ -59,7 +54,6 @@
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
 using $Component$BaselineResizeBehavior = ::java::awt::Component$BaselineResizeBehavior;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
@@ -67,8 +61,6 @@ using $Graphics = ::java::awt::Graphics;
 using $Insets = ::java::awt::Insets;
 using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
 using $Boolean = ::java::lang::Boolean;
@@ -80,7 +72,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Short = ::java::lang::Short;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
-using $ComponentInputMap = ::javax::swing::ComponentInputMap;
 using $Icon = ::javax::swing::Icon;
 using $InputMap = ::javax::swing::InputMap;
 using $JComponent = ::javax::swing::JComponent;
@@ -98,7 +89,6 @@ using $LazyActionMap = ::javax::swing::plaf::basic::LazyActionMap;
 using $View = ::javax::swing::text::View;
 using $AppContext = ::sun::awt::AppContext;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
-using $UIAction = ::sun::swing::UIAction;
 
 namespace javax {
 	namespace swing {

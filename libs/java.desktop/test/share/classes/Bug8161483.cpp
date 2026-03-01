@@ -14,9 +14,7 @@
 #include <javax/accessibility/AccessibleAction.h>
 #include <javax/accessibility/AccessibleContext.h>
 #include <javax/accessibility/AccessibleSelection.h>
-#include <javax/swing/AbstractListModel.h>
 #include <javax/swing/DefaultListModel.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JList.h>
 #include <javax/swing/ListModel.h>
@@ -24,7 +22,6 @@
 #include <jcpp.h>
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $PrintStream = ::java::io::PrintStream;
 using $Serializable = ::java::io::Serializable;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -38,9 +35,7 @@ using $Accessible = ::javax::accessibility::Accessible;
 using $AccessibleAction = ::javax::accessibility::AccessibleAction;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
 using $AccessibleSelection = ::javax::accessibility::AccessibleSelection;
-using $AbstractListModel = ::javax::swing::AbstractListModel;
 using $DefaultListModel = ::javax::swing::DefaultListModel;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JList = ::javax::swing::JList;
 using $ListModel = ::javax::swing::ListModel;

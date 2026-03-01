@@ -5,7 +5,6 @@
 #include <java/lang/InterruptedException.h>
 #include <java/lang/NoClassDefFoundError.h>
 #include <java/lang/OutOfMemoryError.h>
-#include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/Runnable.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/reflect/InvocationTargetException.h>
@@ -38,7 +37,6 @@ using $InterruptedException = ::java::lang::InterruptedException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoClassDefFoundError = ::java::lang::NoClassDefFoundError;
 using $OutOfMemoryError = ::java::lang::OutOfMemoryError;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $Runnable = ::java::lang::Runnable;
 using $SecurityException = ::java::lang::SecurityException;
 using $InvocationTargetException = ::java::lang::reflect::InvocationTargetException;

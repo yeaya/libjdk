@@ -39,7 +39,6 @@
 #include <java/util/Map.h>
 #include <java/util/Set.h>
 #include <javax/tools/DiagnosticListener.h>
-#include <javax/tools/ForwardingJavaFileManager.h>
 #include <javax/tools/JavaCompiler.h>
 #include <javax/tools/JavaFileManager$Location.h>
 #include <javax/tools/JavaFileManager.h>
@@ -92,7 +91,6 @@ using $List = ::java::util::List;
 using $Locale = ::java::util::Locale;
 using $Set = ::java::util::Set;
 using $DiagnosticListener = ::javax::tools::DiagnosticListener;
-using $ForwardingJavaFileManager = ::javax::tools::ForwardingJavaFileManager;
 using $JavaFileManager = ::javax::tools::JavaFileManager;
 using $JavaFileManager$Location = ::javax::tools::JavaFileManager$Location;
 using $JavaFileObject = ::javax::tools::JavaFileObject;

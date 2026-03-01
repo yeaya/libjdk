@@ -22,7 +22,6 @@
 #include <java/nio/file/StandardCopyOption.h>
 #include <java/util/Locale.h>
 #include <java/util/Vector.h>
-#include <javax/print/CancelablePrintJob.h>
 #include <javax/print/Doc.h>
 #include <javax/print/DocFlavor$BYTE_ARRAY.h>
 #include <javax/print/DocFlavor$INPUT_STREAM.h>
@@ -64,7 +63,6 @@
 #include <sun/print/ImagePrinter.h>
 #include <sun/print/PrintJobAttributeException.h>
 #include <sun/print/PrintJobFlavorException.h>
-#include <sun/print/RasterPrinterJob.h>
 #include <sun/print/Win32PrintService.h>
 #include <jcpp.h>
 
@@ -105,7 +103,6 @@ using $Double = ::java::lang::Double;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityException = ::java::lang::SecurityException;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $URI = ::java::net::URI;
@@ -116,7 +113,6 @@ using $Path = ::java::nio::file::Path;
 using $StandardCopyOption = ::java::nio::file::StandardCopyOption;
 using $Locale = ::java::util::Locale;
 using $Vector = ::java::util::Vector;
-using $CancelablePrintJob = ::javax::print::CancelablePrintJob;
 using $Doc = ::javax::print::Doc;
 using $DocFlavor = ::javax::print::DocFlavor;
 using $DocFlavor$BYTE_ARRAY = ::javax::print::DocFlavor$BYTE_ARRAY;
@@ -157,7 +153,6 @@ using $WPrinterJob = ::sun::awt::windows::WPrinterJob;
 using $ImagePrinter = ::sun::print::ImagePrinter;
 using $PrintJobAttributeException = ::sun::print::PrintJobAttributeException;
 using $PrintJobFlavorException = ::sun::print::PrintJobFlavorException;
-using $RasterPrinterJob = ::sun::print::RasterPrinterJob;
 using $Win32PrintService = ::sun::print::Win32PrintService;
 
 namespace sun {

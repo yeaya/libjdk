@@ -2,7 +2,6 @@
 
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Font.h>
 #include <java/awt/Frame.h>
 #include <java/awt/Toolkit.h>
@@ -31,7 +30,6 @@ using $FrameArray = $Array<::java::awt::Frame>;
 using $WindowArray = $Array<::java::awt::Window>;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Font = ::java::awt::Font;
 using $Frame = ::java::awt::Frame;
 using $Toolkit = ::java::awt::Toolkit;

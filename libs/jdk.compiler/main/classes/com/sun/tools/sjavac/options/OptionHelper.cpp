@@ -11,7 +11,6 @@
 #include <java/nio/file/Path.h>
 #include <java/nio/file/Paths.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/List.h>
 #include <jcpp.h>
 
@@ -32,7 +31,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $List = ::java::util::List;
 
 namespace com {

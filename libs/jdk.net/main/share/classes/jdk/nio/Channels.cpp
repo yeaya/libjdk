@@ -4,7 +4,6 @@
 #include <java/lang/SecurityManager.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/nio/channels/SelectableChannel.h>
-#include <java/nio/channels/spi/AbstractSelectableChannel.h>
 #include <java/nio/channels/spi/SelectorProvider.h>
 #include <java/util/Objects.h>
 #include <jdk/nio/Channels$ReadWriteChannelImpl.h>
@@ -20,7 +19,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $SecurityManager = ::java::lang::SecurityManager;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $SelectableChannel = ::java::nio::channels::SelectableChannel;
-using $AbstractSelectableChannel = ::java::nio::channels::spi::AbstractSelectableChannel;
 using $SelectorProvider = ::java::nio::channels::spi::SelectorProvider;
 using $Objects = ::java::util::Objects;
 using $Channels$ReadWriteChannelImpl = ::jdk::nio::Channels$ReadWriteChannelImpl;

@@ -77,7 +77,6 @@
 #include <java/net/URL.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Locale.h>
 #include <java/util/Map.h>
@@ -90,13 +89,10 @@
 #include <sun/awt/AWTAccessor.h>
 #include <sun/awt/AppContext.h>
 #include <sun/awt/CGraphicsDevice.h>
-#include <sun/awt/EmbeddedFrame.h>
 #include <sun/awt/LightweightFrame.h>
-#include <sun/awt/PlatformFont.h>
 #include <sun/awt/PlatformGraphicsInfo.h>
 #include <sun/awt/SunToolkit.h>
 #include <sun/awt/datatransfer/DataTransferer.h>
-#include <sun/awt/datatransfer/SunClipboard.h>
 #include <sun/awt/dnd/SunDragSourceContextPeer.h>
 #include <sun/awt/util/ThreadGroupUtils.h>
 #include <sun/java2d/metal/MTLRenderQueue.h>
@@ -272,7 +268,6 @@ using $MalformedURLException = ::java::net::MalformedURLException;
 using $URL = ::java::net::URL;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Locale = ::java::util::Locale;
 using $Map = ::java::util::Map;
@@ -285,13 +280,10 @@ using $AWTAccessor$SystemColorAccessor = ::sun::awt::AWTAccessor$SystemColorAcce
 using $AWTAccessor$ToolkitAccessor = ::sun::awt::AWTAccessor$ToolkitAccessor;
 using $AppContext = ::sun::awt::AppContext;
 using $CGraphicsDevice = ::sun::awt::CGraphicsDevice;
-using $EmbeddedFrame = ::sun::awt::EmbeddedFrame;
 using $LightweightFrame = ::sun::awt::LightweightFrame;
-using $PlatformFont = ::sun::awt::PlatformFont;
 using $PlatformGraphicsInfo = ::sun::awt::PlatformGraphicsInfo;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $DataTransferer = ::sun::awt::datatransfer::DataTransferer;
-using $SunClipboard = ::sun::awt::datatransfer::SunClipboard;
 using $SunDragSourceContextPeer = ::sun::awt::dnd::SunDragSourceContextPeer;
 using $ThreadGroupUtils = ::sun::awt::util::ThreadGroupUtils;
 using $MTLRenderQueue = ::sun::java2d::metal::MTLRenderQueue;

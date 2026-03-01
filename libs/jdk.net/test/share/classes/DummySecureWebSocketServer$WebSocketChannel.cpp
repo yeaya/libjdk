@@ -5,7 +5,6 @@
 #include <DummySecureWebSocketServer$WebSocketChannel$Reader.h>
 #include <DummySecureWebSocketServer$WebSocketChannel$Writer.h>
 #include <DummySecureWebSocketServer.h>
-#include <java/io/Closeable.h>
 #include <java/io/InputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
@@ -25,7 +24,6 @@ using $DummySecureWebSocketServer$WebSocketChannel$Closer = ::DummySecureWebSock
 using $DummySecureWebSocketServer$WebSocketChannel$Config = ::DummySecureWebSocketServer$WebSocketChannel$Config;
 using $DummySecureWebSocketServer$WebSocketChannel$Reader = ::DummySecureWebSocketServer$WebSocketChannel$Reader;
 using $DummySecureWebSocketServer$WebSocketChannel$Writer = ::DummySecureWebSocketServer$WebSocketChannel$Writer;
-using $Closeable = ::java::io::Closeable;
 using $Serializable = ::java::io::Serializable;
 using $AutoCloseable = ::java::lang::AutoCloseable;
 using $ClassInfo = ::java::lang::ClassInfo;
@@ -285,7 +283,7 @@ DummySecureWebSocketServer$WebSocketChannel* DummySecureWebSocketServer$WebSocke
 	$var($DummySecureWebSocketServer$WebSocketChannel$Reader, var$1, reader);
 	$var($DummySecureWebSocketServer$WebSocketChannel$Writer, var$2, writer);
 	$var($DummySecureWebSocketServer$WebSocketChannel$Config, var$3, static_cast<$DummySecureWebSocketServer$WebSocketChannel$Config*>($new(DummySecureWebSocketServer$WebSocketChannel$$Lambda$setOption$2, static_cast<$Socket*>($nc(s)))));
-	return $new(DummySecureWebSocketServer$WebSocketChannel, var$0, var$1, var$2, var$3, static_cast<$DummySecureWebSocketServer$WebSocketChannel$Closer*>($$new(DummySecureWebSocketServer$WebSocketChannel$$Lambda$close$3, static_cast<$Socket*>(s))));
+	return $new(DummySecureWebSocketServer$WebSocketChannel, var$0, var$1, var$2, var$3, static_cast<$DummySecureWebSocketServer$WebSocketChannel$Closer*>($$new(DummySecureWebSocketServer$WebSocketChannel$$Lambda$close$3, static_cast<$Socket*>($nc(s)))));
 }
 
 void DummySecureWebSocketServer$WebSocketChannel::lambda$of$1($Socket* s, $ByteBuffer* bb) {

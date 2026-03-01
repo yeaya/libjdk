@@ -6,7 +6,6 @@
 #include <java/awt/event/WindowAdapter.h>
 #include <java/awt/event/WindowEvent.h>
 #include <java/beans/PropertyChangeListener.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JToolBar.h>
 #include <javax/swing/RootPaneContainer.h>
 #include <javax/swing/UIManager.h>
@@ -25,7 +24,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JToolBar = ::javax::swing::JToolBar;
 using $RootPaneContainer = ::javax::swing::RootPaneContainer;
 using $UIManager = ::javax::swing::UIManager;

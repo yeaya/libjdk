@@ -2,14 +2,11 @@
 
 #include <com/sun/org/apache/xerces/internal/dom/AttrImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/AttrNSImpl.h>
-#include <com/sun/org/apache/xerces/internal/dom/ChildNode.h>
 #include <com/sun/org/apache/xerces/internal/dom/CoreDocumentImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/DOMMessageFormatter.h>
 #include <com/sun/org/apache/xerces/internal/dom/ElementImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/NamedNodeMapImpl.h>
 #include <com/sun/org/apache/xerces/internal/dom/NodeImpl.h>
-#include <com/sun/org/apache/xerces/internal/dom/ParentNode.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <org/w3c/dom/DOMException.h>
@@ -28,17 +25,14 @@
 
 using $AttrImpl = ::com::sun::org::apache::xerces::internal::dom::AttrImpl;
 using $AttrNSImpl = ::com::sun::org::apache::xerces::internal::dom::AttrNSImpl;
-using $ChildNode = ::com::sun::org::apache::xerces::internal::dom::ChildNode;
 using $CoreDocumentImpl = ::com::sun::org::apache::xerces::internal::dom::CoreDocumentImpl;
 using $DOMMessageFormatter = ::com::sun::org::apache::xerces::internal::dom::DOMMessageFormatter;
 using $ElementImpl = ::com::sun::org::apache::xerces::internal::dom::ElementImpl;
 using $NamedNodeMapImpl = ::com::sun::org::apache::xerces::internal::dom::NamedNodeMapImpl;
 using $NodeImpl = ::com::sun::org::apache::xerces::internal::dom::NodeImpl;
-using $ParentNode = ::com::sun::org::apache::xerces::internal::dom::ParentNode;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $DOMException = ::org::w3c::dom::DOMException;

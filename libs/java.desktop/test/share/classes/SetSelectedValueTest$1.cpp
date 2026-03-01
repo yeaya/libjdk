@@ -3,7 +3,6 @@
 #include <SetSelectedValueTest.h>
 #include <java/util/Collections.h>
 #include <java/util/List.h>
-#include <javax/swing/AbstractListModel.h>
 #include <javax/swing/DefaultListModel.h>
 #include <javax/swing/JList.h>
 #include <javax/swing/ListModel.h>
@@ -19,7 +18,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Collections = ::java::util::Collections;
 using $List = ::java::util::List;
-using $AbstractListModel = ::javax::swing::AbstractListModel;
 using $DefaultListModel = ::javax::swing::DefaultListModel;
 using $JList = ::javax::swing::JList;
 using $ListModel = ::javax::swing::ListModel;

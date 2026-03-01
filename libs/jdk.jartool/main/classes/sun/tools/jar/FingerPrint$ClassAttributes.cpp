@@ -1,7 +1,6 @@
 #include <sun/tools/jar/FingerPrint$ClassAttributes.h>
 
 #include <java/lang/CharSequence.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/HashSet.h>
 #include <java/util/Set.h>
 #include <jdk/internal/org/objectweb/asm/ClassVisitor.h>
@@ -22,7 +21,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractSet = ::java::util::AbstractSet;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
 using $ClassVisitor = ::jdk::internal::org::objectweb::asm$::ClassVisitor;

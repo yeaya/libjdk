@@ -2,7 +2,6 @@
 
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
 #include <java/awt/FontMetrics.h>
@@ -18,7 +17,6 @@
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JSlider.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/SliderUI.h>
 #include <javax/swing/plaf/basic/BasicSliderUI$TrackListener.h>
 #include <javax/swing/plaf/basic/BasicSliderUI.h>
 #include <javax/swing/plaf/synth/ColorType.h>
@@ -47,7 +45,6 @@
 #undef VERTICAL
 
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
@@ -71,7 +68,6 @@ using $Enumeration = ::java::util::Enumeration;
 using $JComponent = ::javax::swing::JComponent;
 using $JSlider = ::javax::swing::JSlider;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $SliderUI = ::javax::swing::plaf::SliderUI;
 using $BasicSliderUI = ::javax::swing::plaf::basic::BasicSliderUI;
 using $BasicSliderUI$TrackListener = ::javax::swing::plaf::basic::BasicSliderUI$TrackListener;
 using $ColorType = ::javax::swing::plaf::synth::ColorType;

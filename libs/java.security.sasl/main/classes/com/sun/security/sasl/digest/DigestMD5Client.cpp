@@ -10,9 +10,7 @@
 #include <java/lang/Math.h>
 #include <java/nio/charset/Charset.h>
 #include <java/nio/charset/StandardCharsets.h>
-#include <java/security/GeneralSecurityException.h>
 #include <java/security/NoSuchAlgorithmException.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Arrays.h>
 #include <java/util/List.h>
@@ -22,10 +20,8 @@
 #include <java/util/logging/Logger.h>
 #include <javax/security/auth/callback/Callback.h>
 #include <javax/security/auth/callback/CallbackHandler.h>
-#include <javax/security/auth/callback/ChoiceCallback.h>
 #include <javax/security/auth/callback/NameCallback.h>
 #include <javax/security/auth/callback/PasswordCallback.h>
-#include <javax/security/auth/callback/TextInputCallback.h>
 #include <javax/security/auth/callback/UnsupportedCallbackException.h>
 #include <javax/security/sasl/RealmCallback.h>
 #include <javax/security/sasl/RealmChoiceCallback.h>
@@ -75,9 +71,7 @@ using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StandardCharsets = ::java::nio::charset::StandardCharsets;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Arrays = ::java::util::Arrays;
 using $List = ::java::util::List;
@@ -87,10 +81,8 @@ using $Level = ::java::util::logging::Level;
 using $Logger = ::java::util::logging::Logger;
 using $Callback = ::javax::security::auth::callback::Callback;
 using $CallbackHandler = ::javax::security::auth::callback::CallbackHandler;
-using $ChoiceCallback = ::javax::security::auth::callback::ChoiceCallback;
 using $NameCallback = ::javax::security::auth::callback::NameCallback;
 using $PasswordCallback = ::javax::security::auth::callback::PasswordCallback;
-using $TextInputCallback = ::javax::security::auth::callback::TextInputCallback;
 using $UnsupportedCallbackException = ::javax::security::auth::callback::UnsupportedCallbackException;
 using $RealmCallback = ::javax::security::sasl::RealmCallback;
 using $RealmChoiceCallback = ::javax::security::sasl::RealmChoiceCallback;

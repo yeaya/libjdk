@@ -2,14 +2,12 @@
 
 #include <java/awt/print/PrinterJob.h>
 #include <sun/awt/windows/WPrinterJob.h>
-#include <sun/print/RasterPrinterJob.h>
 #include <jcpp.h>
 
 using $PrinterJob = ::java::awt::print::PrinterJob;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $WPrinterJob = ::sun::awt::windows::WPrinterJob;
-using $RasterPrinterJob = ::sun::print::RasterPrinterJob;
 
 namespace sun {
 	namespace print {

@@ -49,7 +49,6 @@
 #include <java/awt/image/FilteredImageSource.h>
 #include <java/awt/image/ImageFilter.h>
 #include <java/awt/image/ImageProducer.h>
-#include <java/awt/image/RGBImageFilter.h>
 #include <java/io/Serializable.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/invoke/CallSite.h>
@@ -59,13 +58,10 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/util/Hashtable.h>
 #include <java/util/Map.h>
-#include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/BorderFactory.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/ImageIcon.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JRootPane.h>
 #include <javax/swing/JTextField.h>
@@ -77,7 +73,6 @@
 #include <javax/swing/UIDefaults$LazyValue.h>
 #include <javax/swing/UIDefaults.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/EmptyBorder.h>
 #include <javax/swing/event/ChangeListener.h>
@@ -94,7 +89,6 @@
 #include <sun/awt/OSInfo.h>
 #include <sun/awt/SunToolkit.h>
 #include <sun/security/action/GetPropertyAction.h>
-#include <sun/swing/DefaultLayoutStyle.h>
 #include <sun/swing/ImageIconUIResource.h>
 #include <sun/swing/StringUIClientPropertyKey.h>
 #include <sun/swing/SwingAccessor$UIDefaultsAccessor.h>
@@ -172,7 +166,6 @@ using $WindowsTreeUI$ExpandedIcon = ::com::sun::java::swing::plaf::windows::Wind
 using $XPStyle = ::com::sun::java::swing::plaf::windows::XPStyle;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $FontMetrics = ::java::awt::FontMetrics;
@@ -185,7 +178,6 @@ using $BufferedImage = ::java::awt::image::BufferedImage;
 using $FilteredImageSource = ::java::awt::image::FilteredImageSource;
 using $ImageFilter = ::java::awt::image::ImageFilter;
 using $ImageProducer = ::java::awt::image::ImageProducer;
-using $RGBImageFilter = ::java::awt::image::RGBImageFilter;
 using $Serializable = ::java::io::Serializable;
 using $AssertionError = ::java::lang::AssertionError;
 using $Boolean = ::java::lang::Boolean;
@@ -198,13 +190,10 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $Hashtable = ::java::util::Hashtable;
 using $Map = ::java::util::Map;
-using $AbstractAction = ::javax::swing::AbstractAction;
 using $Action = ::javax::swing::Action;
 using $BorderFactory = ::javax::swing::BorderFactory;
 using $Icon = ::javax::swing::Icon;
-using $ImageIcon = ::javax::swing::ImageIcon;
 using $JComponent = ::javax::swing::JComponent;
 using $JRootPane = ::javax::swing::JRootPane;
 using $JTextField = ::javax::swing::JTextField;
@@ -215,7 +204,6 @@ using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIDefaults$LazyInputMap = ::javax::swing::UIDefaults$LazyInputMap;
 using $UIDefaults$LazyValue = ::javax::swing::UIDefaults$LazyValue;
 using $UIManager = ::javax::swing::UIManager;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;
 using $ChangeListener = ::javax::swing::event::ChangeListener;
@@ -232,7 +220,6 @@ using $OSInfo$OSType = ::sun::awt::OSInfo$OSType;
 using $OSInfo$WindowsVersion = ::sun::awt::OSInfo$WindowsVersion;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $GetPropertyAction = ::sun::security::action::GetPropertyAction;
-using $DefaultLayoutStyle = ::sun::swing::DefaultLayoutStyle;
 using $ImageIconUIResource = ::sun::swing::ImageIconUIResource;
 using $StringUIClientPropertyKey = ::sun::swing::StringUIClientPropertyKey;
 using $SwingAccessor = ::sun::swing::SwingAccessor;

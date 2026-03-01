@@ -11,7 +11,6 @@
 #include <com/apple/laf/AquaUtilControlSize.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Rectangle.h>
@@ -38,7 +37,6 @@ using $AquaPainter = ::com::apple::laf::AquaPainter;
 using $AquaSpinnerUI = ::com::apple::laf::AquaSpinnerUI;
 using $AquaUtilControlSize = ::com::apple::laf::AquaUtilControlSize;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Graphics = ::java::awt::Graphics;
 using $Rectangle = ::java::awt::Rectangle;

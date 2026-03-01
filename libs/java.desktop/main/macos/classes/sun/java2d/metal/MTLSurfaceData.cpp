@@ -13,7 +13,6 @@
 #include <java/lang/InternalError.h>
 #include <java/lang/OutOfMemoryError.h>
 #include <java/lang/Runnable.h>
-#include <sun/awt/CGraphicsConfig.h>
 #include <sun/awt/CGraphicsDevice.h>
 #include <sun/awt/SunHints.h>
 #include <sun/awt/image/PixelConverter$ArgbPre.h>
@@ -41,16 +40,11 @@
 #include <sun/java2d/metal/MTLSurfaceDataProxy.h>
 #include <sun/java2d/metal/MTLTextRenderer.h>
 #include <sun/java2d/pipe/BufferedContext.h>
-#include <sun/java2d/pipe/BufferedRenderPipe.h>
-#include <sun/java2d/pipe/BufferedTextPipe.h>
-#include <sun/java2d/pipe/DrawImage.h>
 #include <sun/java2d/pipe/DrawImagePipe.h>
-#include <sun/java2d/pipe/GlyphListPipe.h>
 #include <sun/java2d/pipe/ParallelogramPipe.h>
 #include <sun/java2d/pipe/PixelDrawPipe.h>
 #include <sun/java2d/pipe/PixelFillPipe.h>
 #include <sun/java2d/pipe/PixelToParallelogramConverter.h>
-#include <sun/java2d/pipe/PixelToShapeConverter.h>
 #include <sun/java2d/pipe/RenderBuffer.h>
 #include <sun/java2d/pipe/RenderQueue.h>
 #include <sun/java2d/pipe/ShapeDrawPipe.h>
@@ -105,7 +99,6 @@ using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $OutOfMemoryError = ::java::lang::OutOfMemoryError;
 using $Runnable = ::java::lang::Runnable;
-using $CGraphicsConfig = ::sun::awt::CGraphicsConfig;
 using $CGraphicsDevice = ::sun::awt::CGraphicsDevice;
 using $SunHints = ::sun::awt::SunHints;
 using $PixelConverter$ArgbPre = ::sun::awt::image::PixelConverter$ArgbPre;
@@ -132,16 +125,11 @@ using $MTLSurfaceData$MTLOffScreenSurfaceData = ::sun::java2d::metal::MTLSurface
 using $MTLSurfaceDataProxy = ::sun::java2d::metal::MTLSurfaceDataProxy;
 using $MTLTextRenderer = ::sun::java2d::metal::MTLTextRenderer;
 using $BufferedContext = ::sun::java2d::pipe::BufferedContext;
-using $BufferedRenderPipe = ::sun::java2d::pipe::BufferedRenderPipe;
-using $BufferedTextPipe = ::sun::java2d::pipe::BufferedTextPipe;
-using $DrawImage = ::sun::java2d::pipe::DrawImage;
 using $DrawImagePipe = ::sun::java2d::pipe::DrawImagePipe;
-using $GlyphListPipe = ::sun::java2d::pipe::GlyphListPipe;
 using $ParallelogramPipe = ::sun::java2d::pipe::ParallelogramPipe;
 using $PixelDrawPipe = ::sun::java2d::pipe::PixelDrawPipe;
 using $PixelFillPipe = ::sun::java2d::pipe::PixelFillPipe;
 using $PixelToParallelogramConverter = ::sun::java2d::pipe::PixelToParallelogramConverter;
-using $PixelToShapeConverter = ::sun::java2d::pipe::PixelToShapeConverter;
 using $RenderBuffer = ::sun::java2d::pipe::RenderBuffer;
 using $RenderQueue = ::sun::java2d::pipe::RenderQueue;
 using $ShapeDrawPipe = ::sun::java2d::pipe::ShapeDrawPipe;

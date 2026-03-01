@@ -18,20 +18,17 @@
 #include <com/sun/tools/sjavac/comp/SmartFileManager.h>
 #include <com/sun/tools/sjavac/options/Options.h>
 #include <com/sun/tools/sjavac/pubapi/PubApi.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/OutputStream.h>
 #include <java/io/PrintWriter.h>
 #include <java/io/Writer.h>
 #include <java/lang/Iterable.h>
 #include <java/nio/charset/Charset.h>
 #include <java/util/Arrays.h>
-#include <java/util/Collection.h>
 #include <java/util/List.h>
 #include <java/util/Locale.h>
 #include <javax/lang/model/element/Element.h>
 #include <javax/lang/model/util/AbstractElementVisitor6.h>
 #include <javax/tools/DiagnosticListener.h>
-#include <javax/tools/ForwardingJavaFileManager.h>
 #include <javax/tools/JavaCompiler$CompilationTask.h>
 #include <javax/tools/JavaFileManager.h>
 #include <javax/tools/StandardJavaFileManager.h>
@@ -52,7 +49,6 @@ using $PubapiVisitor = ::com::sun::tools::sjavac::comp::PubapiVisitor;
 using $SmartFileManager = ::com::sun::tools::sjavac::comp::SmartFileManager;
 using $Options = ::com::sun::tools::sjavac::options::Options;
 using $PubApi = ::com::sun::tools::sjavac::pubapi::PubApi;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $OutputStream = ::java::io::OutputStream;
 using $PrintWriter = ::java::io::PrintWriter;
 using $Writer = ::java::io::Writer;
@@ -62,11 +58,9 @@ using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
 using $Arrays = ::java::util::Arrays;
-using $Collection = ::java::util::Collection;
 using $Locale = ::java::util::Locale;
 using $Element = ::javax::lang::model::element::Element;
 using $DiagnosticListener = ::javax::tools::DiagnosticListener;
-using $ForwardingJavaFileManager = ::javax::tools::ForwardingJavaFileManager;
 using $JavaCompiler$CompilationTask = ::javax::tools::JavaCompiler$CompilationTask;
 using $JavaFileManager = ::javax::tools::JavaFileManager;
 

@@ -3,7 +3,6 @@
 #include <com/sun/org/apache/xml/internal/security/utils/ElementProxy.h>
 #include <java/util/Collection.h>
 #include <java/util/Iterator.h>
-#include <java/util/NavigableSet.h>
 #include <java/util/Set.h>
 #include <java/util/SortedSet.h>
 #include <java/util/TreeSet.h>
@@ -20,7 +19,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
-using $NavigableSet = ::java::util::NavigableSet;
 using $Set = ::java::util::Set;
 using $SortedSet = ::java::util::SortedSet;
 using $TreeSet = ::java::util::TreeSet;

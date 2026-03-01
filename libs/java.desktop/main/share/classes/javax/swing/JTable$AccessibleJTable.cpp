@@ -6,7 +6,6 @@
 #include <java/beans/PropertyChangeListener.h>
 #include <javax/accessibility/Accessible.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/accessibility/AccessibleExtendedTable.h>
 #include <javax/accessibility/AccessibleRole.h>
 #include <javax/accessibility/AccessibleSelection.h>
 #include <javax/accessibility/AccessibleTable.h>
@@ -59,7 +58,6 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Accessible = ::javax::accessibility::Accessible;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $AccessibleExtendedTable = ::javax::accessibility::AccessibleExtendedTable;
 using $AccessibleRole = ::javax::accessibility::AccessibleRole;
 using $AccessibleSelection = ::javax::accessibility::AccessibleSelection;
 using $AccessibleTable = ::javax::accessibility::AccessibleTable;

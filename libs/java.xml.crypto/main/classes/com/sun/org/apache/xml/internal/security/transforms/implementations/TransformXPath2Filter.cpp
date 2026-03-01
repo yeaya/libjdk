@@ -13,7 +13,6 @@
 #include <com/sun/org/apache/xml/internal/security/utils/XPathFactory.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <java/util/Set.h>
@@ -45,7 +44,6 @@ using $OutputStream = ::java::io::OutputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $TransformerException = ::javax::xml::transform::TransformerException;

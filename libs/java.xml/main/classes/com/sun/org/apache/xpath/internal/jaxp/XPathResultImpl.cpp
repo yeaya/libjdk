@@ -30,7 +30,6 @@ using $XObject = ::com::sun::org::apache::xpath::internal::objects::XObject;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Double = ::java::lang::Double;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $Long = ::java::lang::Long;

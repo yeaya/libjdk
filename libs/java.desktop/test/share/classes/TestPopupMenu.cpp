@@ -25,9 +25,7 @@
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JDesktopPane.h>
 #include <javax/swing/JFrame.h>
-#include <javax/swing/JInternalFrame.h>
 #include <javax/swing/JLabel.h>
-#include <javax/swing/JLayeredPane.h>
 #include <javax/swing/JPopupMenu.h>
 #include <javax/swing/JRootPane.h>
 #include <javax/swing/JScrollPane.h>
@@ -65,9 +63,7 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $JComponent = ::javax::swing::JComponent;
 using $JDesktopPane = ::javax::swing::JDesktopPane;
 using $JFrame = ::javax::swing::JFrame;
-using $JInternalFrame = ::javax::swing::JInternalFrame;
 using $JLabel = ::javax::swing::JLabel;
-using $JLayeredPane = ::javax::swing::JLayeredPane;
 using $JPopupMenu = ::javax::swing::JPopupMenu;
 using $JRootPane = ::javax::swing::JRootPane;
 using $JScrollPane = ::javax::swing::JScrollPane;

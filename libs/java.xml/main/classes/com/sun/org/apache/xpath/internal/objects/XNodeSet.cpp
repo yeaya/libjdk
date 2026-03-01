@@ -5,7 +5,6 @@
 #include <com/sun/org/apache/xml/internal/dtm/DTMManager.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMNodeIterator.h>
 #include <com/sun/org/apache/xml/internal/dtm/ref/DTMNodeList.h>
-#include <com/sun/org/apache/xml/internal/dtm/ref/DTMNodeListBase.h>
 #include <com/sun/org/apache/xml/internal/utils/FastStringBuffer.h>
 #include <com/sun/org/apache/xml/internal/utils/NodeVector.h>
 #include <com/sun/org/apache/xml/internal/utils/WrappedRuntimeException.h>
@@ -23,7 +22,6 @@
 #include <com/sun/org/apache/xpath/internal/objects/XObject.h>
 #include <com/sun/org/apache/xpath/internal/objects/XString.h>
 #include <java/lang/CloneNotSupportedException.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
 #include <javax/xml/transform/TransformerException.h>
@@ -51,7 +49,6 @@ using $DTMIterator = ::com::sun::org::apache::xml::internal::dtm::DTMIterator;
 using $DTMManager = ::com::sun::org::apache::xml::internal::dtm::DTMManager;
 using $DTMNodeIterator = ::com::sun::org::apache::xml::internal::dtm::ref::DTMNodeIterator;
 using $DTMNodeList = ::com::sun::org::apache::xml::internal::dtm::ref::DTMNodeList;
-using $DTMNodeListBase = ::com::sun::org::apache::xml::internal::dtm::ref::DTMNodeListBase;
 using $FastStringBuffer = ::com::sun::org::apache::xml::internal::utils::FastStringBuffer;
 using $WrappedRuntimeException = ::com::sun::org::apache::xml::internal::utils::WrappedRuntimeException;
 using $XMLString = ::com::sun::org::apache::xml::internal::utils::XMLString;
@@ -73,7 +70,6 @@ using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
 using $TransformerException = ::javax::xml::transform::TransformerException;

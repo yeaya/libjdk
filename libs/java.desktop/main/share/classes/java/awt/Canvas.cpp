@@ -2,7 +2,6 @@
 
 #include <java/awt/BufferCapabilities.h>
 #include <java/awt/Canvas$AccessibleAWTCanvas.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/GraphicsConfiguration.h>
@@ -16,7 +15,6 @@
 using $BufferCapabilities = ::java::awt::BufferCapabilities;
 using $Canvas$AccessibleAWTCanvas = ::java::awt::Canvas$AccessibleAWTCanvas;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $Graphics = ::java::awt::Graphics;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $BufferStrategy = ::java::awt::image::BufferStrategy;

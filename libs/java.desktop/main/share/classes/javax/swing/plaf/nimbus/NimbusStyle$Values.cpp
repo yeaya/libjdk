@@ -1,7 +1,6 @@
 #include <javax/swing/plaf/nimbus/NimbusStyle$Values.h>
 
 #include <java/awt/Insets.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <javax/swing/UIDefaults.h>
@@ -15,7 +14,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Float = ::java::lang::Float;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $UIDefaults = ::javax::swing::UIDefaults;

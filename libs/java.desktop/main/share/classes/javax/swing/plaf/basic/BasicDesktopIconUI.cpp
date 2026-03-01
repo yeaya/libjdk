@@ -6,7 +6,6 @@
 #include <java/awt/Dimension.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/awt/event/MouseMotionListener.h>
 #include <java/beans/PropertyVetoException.h>
@@ -19,7 +18,6 @@
 #include <javax/swing/JLayeredPane.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/border/Border.h>
-#include <javax/swing/event/MouseInputAdapter.h>
 #include <javax/swing/event/MouseInputListener.h>
 #include <javax/swing/plaf/ComponentUI.h>
 #include <javax/swing/plaf/DesktopIconUI.h>
@@ -37,7 +35,6 @@ using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Insets = ::java::awt::Insets;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
 using $PropertyVetoException = ::java::beans::PropertyVetoException;
@@ -56,7 +53,6 @@ using $JInternalFrame$JDesktopIcon = ::javax::swing::JInternalFrame$JDesktopIcon
 using $JLayeredPane = ::javax::swing::JLayeredPane;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $Border = ::javax::swing::border::Border;
-using $MouseInputAdapter = ::javax::swing::event::MouseInputAdapter;
 using $MouseInputListener = ::javax::swing::event::MouseInputListener;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $DesktopIconUI = ::javax::swing::plaf::DesktopIconUI;

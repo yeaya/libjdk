@@ -9,15 +9,11 @@
 #include <java/awt/event/FocusListener.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/TextUI.h>
 #include <javax/swing/plaf/basic/BasicEditorPaneUI.h>
 #include <javax/swing/plaf/basic/BasicTextUI.h>
 #include <javax/swing/text/Caret.h>
-#include <javax/swing/text/DefaultCaret.h>
-#include <javax/swing/text/DefaultHighlighter.h>
 #include <javax/swing/text/Highlighter.h>
 #include <javax/swing/text/JTextComponent.h>
-#include <javax/swing/text/LayeredHighlighter.h>
 #include <jcpp.h>
 
 using $AquaCaret = ::com::apple::laf::AquaCaret;
@@ -31,15 +27,10 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $TextUI = ::javax::swing::plaf::TextUI;
 using $BasicEditorPaneUI = ::javax::swing::plaf::basic::BasicEditorPaneUI;
-using $BasicTextUI = ::javax::swing::plaf::basic::BasicTextUI;
 using $Caret = ::javax::swing::text::Caret;
-using $DefaultCaret = ::javax::swing::text::DefaultCaret;
-using $DefaultHighlighter = ::javax::swing::text::DefaultHighlighter;
 using $Highlighter = ::javax::swing::text::Highlighter;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
-using $LayeredHighlighter = ::javax::swing::text::LayeredHighlighter;
 
 namespace com {
 	namespace apple {

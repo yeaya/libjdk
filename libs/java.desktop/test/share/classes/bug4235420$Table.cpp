@@ -3,7 +3,6 @@
 #include <bug4235420.h>
 #include <java/lang/Error.h>
 #include <java/lang/Number.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Date.h>
 #include <java/util/HashMap.h>
 #include <java/util/Hashtable.h>
@@ -20,7 +19,6 @@ using $Error = ::java::lang::Error;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Number = ::java::lang::Number;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Date = ::java::util::Date;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;

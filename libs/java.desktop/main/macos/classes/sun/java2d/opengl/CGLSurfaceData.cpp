@@ -5,7 +5,6 @@
 #include <java/awt/Image.h>
 #include <java/awt/Rectangle.h>
 #include <java/awt/image/ColorModel.h>
-#include <sun/awt/CGraphicsConfig.h>
 #include <sun/awt/CGraphicsDevice.h>
 #include <sun/java2d/opengl/CGLGraphicsConfig.h>
 #include <sun/java2d/opengl/CGLLayer.h>
@@ -26,7 +25,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $CGraphicsConfig = ::sun::awt::CGraphicsConfig;
 using $CGraphicsDevice = ::sun::awt::CGraphicsDevice;
 using $CGLGraphicsConfig = ::sun::java2d::opengl::CGLGraphicsConfig;
 using $CGLLayer = ::sun::java2d::opengl::CGLLayer;

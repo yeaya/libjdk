@@ -6,14 +6,12 @@
 #include <java/lang/IllegalStateException.h>
 #include <java/net/InetAddress.h>
 #include <java/net/UnknownHostException.h>
-#include <java/security/GeneralSecurityException.h>
 #include <java/util/Map.h>
 #include <java/util/Random.h>
 #include <javax/security/auth/callback/Callback.h>
 #include <javax/security/auth/callback/CallbackHandler.h>
 #include <javax/security/auth/callback/NameCallback.h>
 #include <javax/security/auth/callback/PasswordCallback.h>
-#include <javax/security/auth/callback/TextInputCallback.h>
 #include <javax/security/auth/callback/UnsupportedCallbackException.h>
 #include <javax/security/sasl/RealmCallback.h>
 #include <javax/security/sasl/Sasl.h>
@@ -31,20 +29,17 @@ using $Client = ::com::sun::security::ntlm::Client;
 using $NTLMException = ::com::sun::security::ntlm::NTLMException;
 using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalStateException = ::java::lang::IllegalStateException;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $InetAddress = ::java::net::InetAddress;
 using $UnknownHostException = ::java::net::UnknownHostException;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $Map = ::java::util::Map;
 using $Random = ::java::util::Random;
 using $Callback = ::javax::security::auth::callback::Callback;
 using $CallbackHandler = ::javax::security::auth::callback::CallbackHandler;
 using $NameCallback = ::javax::security::auth::callback::NameCallback;
 using $PasswordCallback = ::javax::security::auth::callback::PasswordCallback;
-using $TextInputCallback = ::javax::security::auth::callback::TextInputCallback;
 using $UnsupportedCallbackException = ::javax::security::auth::callback::UnsupportedCallbackException;
 using $RealmCallback = ::javax::security::sasl::RealmCallback;
 using $Sasl = ::javax::security::sasl::Sasl;

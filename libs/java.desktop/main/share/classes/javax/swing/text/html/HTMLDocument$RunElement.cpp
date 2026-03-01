@@ -4,7 +4,6 @@
 #include <javax/swing/text/AbstractDocument$LeafElement.h>
 #include <javax/swing/text/AbstractDocument.h>
 #include <javax/swing/text/AttributeSet.h>
-#include <javax/swing/text/DefaultStyledDocument.h>
 #include <javax/swing/text/Element.h>
 #include <javax/swing/text/StyleConstants.h>
 #include <javax/swing/text/html/HTMLDocument.h>
@@ -17,7 +16,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $AbstractDocument = ::javax::swing::text::AbstractDocument;
 using $AbstractDocument$LeafElement = ::javax::swing::text::AbstractDocument$LeafElement;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
-using $DefaultStyledDocument = ::javax::swing::text::DefaultStyledDocument;
 using $Element = ::javax::swing::text::Element;
 using $StyleConstants = ::javax::swing::text::StyleConstants;
 using $HTMLDocument = ::javax::swing::text::html::HTMLDocument;

@@ -2,12 +2,9 @@
 
 #include <bug6694823.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
-#include <java/awt/Frame.h>
 #include <java/awt/Insets.h>
 #include <java/awt/Point.h>
-#include <java/awt/Window.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JPopupMenu.h>
@@ -15,10 +12,7 @@
 
 using $bug6694823 = ::bug6694823;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
-using $Frame = ::java::awt::Frame;
 using $Point = ::java::awt::Point;
-using $Window = ::java::awt::Window;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $EnclosingMethodInfo = ::java::lang::EnclosingMethodInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

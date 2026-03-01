@@ -1,8 +1,6 @@
 #include <com/sun/tools/javac/processing/JavacRoundEnvironment$AnnotationSetMultiScanner.h>
 
 #include <com/sun/tools/javac/processing/JavacRoundEnvironment.h>
-#include <java/util/AbstractSet.h>
-#include <java/util/HashSet.h>
 #include <java/util/Iterator.h>
 #include <java/util/LinkedHashSet.h>
 #include <java/util/List.h>
@@ -12,12 +10,7 @@
 #include <javax/lang/model/element/ElementVisitor.h>
 #include <javax/lang/model/element/ModuleElement.h>
 #include <javax/lang/model/element/PackageElement.h>
-#include <javax/lang/model/util/AbstractElementVisitor6.h>
 #include <javax/lang/model/util/ElementScanner14.h>
-#include <javax/lang/model/util/ElementScanner6.h>
-#include <javax/lang/model/util/ElementScanner7.h>
-#include <javax/lang/model/util/ElementScanner8.h>
-#include <javax/lang/model/util/ElementScanner9.h>
 #include <javax/lang/model/util/Elements.h>
 #include <jcpp.h>
 
@@ -26,8 +19,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractSet = ::java::util::AbstractSet;
-using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;
 using $LinkedHashSet = ::java::util::LinkedHashSet;
 using $List = ::java::util::List;
@@ -37,12 +28,7 @@ using $Element = ::javax::lang::model::element::Element;
 using $ElementVisitor = ::javax::lang::model::element::ElementVisitor;
 using $ModuleElement = ::javax::lang::model::element::ModuleElement;
 using $PackageElement = ::javax::lang::model::element::PackageElement;
-using $AbstractElementVisitor6 = ::javax::lang::model::util::AbstractElementVisitor6;
 using $ElementScanner14 = ::javax::lang::model::util::ElementScanner14;
-using $ElementScanner6 = ::javax::lang::model::util::ElementScanner6;
-using $ElementScanner7 = ::javax::lang::model::util::ElementScanner7;
-using $ElementScanner8 = ::javax::lang::model::util::ElementScanner8;
-using $ElementScanner9 = ::javax::lang::model::util::ElementScanner9;
 using $Elements = ::javax::lang::model::util::Elements;
 
 namespace com {

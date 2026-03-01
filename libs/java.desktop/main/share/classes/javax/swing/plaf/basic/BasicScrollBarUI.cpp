@@ -11,13 +11,11 @@
 #include <java/awt/Rectangle.h>
 #include <java/awt/event/ActionListener.h>
 #include <java/awt/event/FocusListener.h>
-#include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/awt/event/MouseMotionListener.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/lang/AssertionError.h>
 #include <java/lang/Math.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/BoundedRangeModel.h>
@@ -44,7 +42,6 @@
 #include <javax/swing/plaf/basic/LazyActionMap.h>
 #include <sun/swing/DefaultLookup.h>
 #include <sun/swing/SwingUtilities2.h>
-#include <sun/swing/UIAction.h>
 #include <jcpp.h>
 
 #undef DECREASE_HIGHLIGHT
@@ -80,7 +77,6 @@ using $LayoutManager = ::java::awt::LayoutManager;
 using $Rectangle = ::java::awt::Rectangle;
 using $ActionListener = ::java::awt::event::ActionListener;
 using $FocusListener = ::java::awt::event::FocusListener;
-using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
@@ -94,7 +90,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $BoundedRangeModel = ::javax::swing::BoundedRangeModel;
@@ -121,7 +116,6 @@ using $BasicScrollBarUI$TrackListener = ::javax::swing::plaf::basic::BasicScroll
 using $LazyActionMap = ::javax::swing::plaf::basic::LazyActionMap;
 using $DefaultLookup = ::sun::swing::DefaultLookup;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
-using $UIAction = ::sun::swing::UIAction;
 
 namespace javax {
 	namespace swing {

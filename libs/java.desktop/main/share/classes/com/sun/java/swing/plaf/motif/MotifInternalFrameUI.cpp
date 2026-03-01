@@ -1,6 +1,5 @@
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameUI.h>
 
-#include <com/sun/java/swing/plaf/motif/MotifBorders$FrameBorder.h>
 #include <com/sun/java/swing/plaf/motif/MotifBorders$InternalFrameBorder.h>
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameTitlePane.h>
 #include <com/sun/java/swing/plaf/motif/MotifInternalFrameUI$1.h>
@@ -11,7 +10,6 @@
 #include <java/awt/LayoutManager.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/event/KeyEvent.h>
-#include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/ComponentInputMap.h>
@@ -23,20 +21,16 @@
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/plaf/ActionMapUIResource.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/InternalFrameUI.h>
 #include <javax/swing/plaf/UIResource.h>
-#include <javax/swing/plaf/basic/BasicInternalFrameTitlePane.h>
 #include <javax/swing/plaf/basic/BasicInternalFrameUI.h>
 #include <jcpp.h>
 
 #undef VK_ESCAPE
 #undef WHEN_IN_FOCUSED_WINDOW
 
-using $MotifBorders$FrameBorder = ::com::sun::java::swing::plaf::motif::MotifBorders$FrameBorder;
 using $MotifBorders$InternalFrameBorder = ::com::sun::java::swing::plaf::motif::MotifBorders$InternalFrameBorder;
 using $MotifInternalFrameTitlePane = ::com::sun::java::swing::plaf::motif::MotifInternalFrameTitlePane;
 using $MotifInternalFrameUI$1 = ::com::sun::java::swing::plaf::motif::MotifInternalFrameUI$1;
@@ -52,7 +46,6 @@ using $CompoundAttribute = ::java::lang::CompoundAttribute;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractAction = ::javax::swing::AbstractAction;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $InputMap = ::javax::swing::InputMap;
@@ -63,13 +56,10 @@ using $KeyStroke = ::javax::swing::KeyStroke;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIManager = ::javax::swing::UIManager;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $ActionMapUIResource = ::javax::swing::plaf::ActionMapUIResource;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $InternalFrameUI = ::javax::swing::plaf::InternalFrameUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
-using $BasicInternalFrameTitlePane = ::javax::swing::plaf::basic::BasicInternalFrameTitlePane;
 using $BasicInternalFrameUI = ::javax::swing::plaf::basic::BasicInternalFrameUI;
 
 namespace com {

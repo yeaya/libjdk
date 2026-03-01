@@ -22,21 +22,16 @@
 #include <java/awt/Dimension.h>
 #include <java/awt/Insets.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/event/ActionListener.h>
-#include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/beans/PropertyChangeEvent.h>
 #include <java/beans/PropertyChangeListener.h>
 #include <java/io/File.h>
 #include <java/util/Locale.h>
-#include <javax/swing/AbstractButton.h>
-#include <javax/swing/AbstractListModel.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/Box.h>
 #include <javax/swing/BoxLayout.h>
 #include <javax/swing/ComboBoxModel.h>
-#include <javax/swing/DefaultListCellRenderer.h>
 #include <javax/swing/JButton.h>
 #include <javax/swing/JComboBox.h>
 #include <javax/swing/JComponent.h>
@@ -55,10 +50,8 @@
 #include <javax/swing/UIManager.h>
 #include <javax/swing/event/ListSelectionListener.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/FileChooserUI.h>
 #include <javax/swing/plaf/basic/BasicDirectoryModel.h>
 #include <javax/swing/plaf/basic/BasicFileChooserUI.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <sun/swing/SwingUtilities2.h>
 #include <jcpp.h>
 
@@ -105,9 +98,7 @@ using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Insets = ::java::awt::Insets;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $PropertyChangeEvent = ::java::beans::PropertyChangeEvent;
 using $PropertyChangeListener = ::java::beans::PropertyChangeListener;
@@ -119,12 +110,9 @@ using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Short = ::java::lang::Short;
 using $Locale = ::java::util::Locale;
-using $AbstractButton = ::javax::swing::AbstractButton;
-using $AbstractListModel = ::javax::swing::AbstractListModel;
 using $Box = ::javax::swing::Box;
 using $BoxLayout = ::javax::swing::BoxLayout;
 using $ComboBoxModel = ::javax::swing::ComboBoxModel;
-using $DefaultListCellRenderer = ::javax::swing::DefaultListCellRenderer;
 using $JButton = ::javax::swing::JButton;
 using $JComboBox = ::javax::swing::JComboBox;
 using $JComponent = ::javax::swing::JComponent;
@@ -142,10 +130,8 @@ using $ListModel = ::javax::swing::ListModel;
 using $ListSelectionModel = ::javax::swing::ListSelectionModel;
 using $UIManager = ::javax::swing::UIManager;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $FileChooserUI = ::javax::swing::plaf::FileChooserUI;
 using $BasicDirectoryModel = ::javax::swing::plaf::basic::BasicDirectoryModel;
 using $BasicFileChooserUI = ::javax::swing::plaf::basic::BasicFileChooserUI;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 using $SwingUtilities2 = ::sun::swing::SwingUtilities2;
 
 namespace com {

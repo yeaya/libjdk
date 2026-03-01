@@ -3,7 +3,6 @@
 #include <java/nio/charset/Charset.h>
 #include <java/util/Collections.h>
 #include <java/util/Comparator.h>
-#include <java/util/NavigableSet.h>
 #include <java/util/SortedSet.h>
 #include <java/util/TreeSet.h>
 #include <sun/datatransfer/DataFlavorUtil.h>
@@ -16,7 +15,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Charset = ::java::nio::charset::Charset;
 using $Collections = ::java::util::Collections;
 using $Comparator = ::java::util::Comparator;
-using $NavigableSet = ::java::util::NavigableSet;
 using $SortedSet = ::java::util::SortedSet;
 using $TreeSet = ::java::util::TreeSet;
 using $DataFlavorUtil = ::sun::datatransfer::DataFlavorUtil;

@@ -2,28 +2,20 @@
 
 #include <java/awt/Graphics.h>
 #include <javax/swing/JComponent.h>
-#include <javax/swing/plaf/ButtonUI.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/basic/BasicButtonUI.h>
-#include <javax/swing/plaf/synth/SynthButtonUI.h>
 #include <javax/swing/plaf/synth/SynthContext.h>
 #include <javax/swing/plaf/synth/SynthPainter.h>
 #include <javax/swing/plaf/synth/SynthRadioButtonUI.h>
-#include <javax/swing/plaf/synth/SynthToggleButtonUI.h>
 #include <jcpp.h>
 
 using $Graphics = ::java::awt::Graphics;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
-using $ButtonUI = ::javax::swing::plaf::ButtonUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $BasicButtonUI = ::javax::swing::plaf::basic::BasicButtonUI;
-using $SynthButtonUI = ::javax::swing::plaf::synth::SynthButtonUI;
 using $SynthContext = ::javax::swing::plaf::synth::SynthContext;
 using $SynthPainter = ::javax::swing::plaf::synth::SynthPainter;
 using $SynthRadioButtonUI = ::javax::swing::plaf::synth::SynthRadioButtonUI;
-using $SynthToggleButtonUI = ::javax::swing::plaf::synth::SynthToggleButtonUI;
 
 namespace javax {
 	namespace swing {

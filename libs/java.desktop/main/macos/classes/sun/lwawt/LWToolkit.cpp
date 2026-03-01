@@ -7,7 +7,6 @@
 #include <java/awt/Checkbox.h>
 #include <java/awt/Choice.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dialog.h>
 #include <java/awt/FileDialog.h>
 #include <java/awt/Frame.h>
@@ -58,7 +57,6 @@
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
 #include <java/security/AccessController.h>
-#include <java/security/BasicPermission.h>
 #include <java/security/Permission.h>
 #include <java/security/PrivilegedAction.h>
 #include <java/util/Properties.h>
@@ -67,7 +65,6 @@
 #include <sun/awt/AWTAutoShutdown.h>
 #include <sun/awt/AWTPermissions.h>
 #include <sun/awt/AppContext.h>
-#include <sun/awt/KeyboardFocusManagerPeerImpl.h>
 #include <sun/awt/LightweightFrame.h>
 #include <sun/awt/SunToolkit.h>
 #include <sun/awt/util/ThreadGroupUtils.h>
@@ -115,7 +112,6 @@ using $Canvas = ::java::awt::Canvas;
 using $Checkbox = ::java::awt::Checkbox;
 using $Choice = ::java::awt::Choice;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dialog = ::java::awt::Dialog;
 using $FileDialog = ::java::awt::FileDialog;
 using $Frame = ::java::awt::Frame;
@@ -168,7 +164,6 @@ using $ThreadDeath = ::java::lang::ThreadDeath;
 using $Void = ::java::lang::Void;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
-using $BasicPermission = ::java::security::BasicPermission;
 using $Permission = ::java::security::Permission;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
 using $Properties = ::java::util::Properties;
@@ -177,7 +172,6 @@ using $AWTAccessor$ComponentAccessor = ::sun::awt::AWTAccessor$ComponentAccessor
 using $AWTAutoShutdown = ::sun::awt::AWTAutoShutdown;
 using $AWTPermissions = ::sun::awt::AWTPermissions;
 using $AppContext = ::sun::awt::AppContext;
-using $KeyboardFocusManagerPeerImpl = ::sun::awt::KeyboardFocusManagerPeerImpl;
 using $LightweightFrame = ::sun::awt::LightweightFrame;
 using $SunToolkit = ::sun::awt::SunToolkit;
 using $ThreadGroupUtils = ::sun::awt::util::ThreadGroupUtils;

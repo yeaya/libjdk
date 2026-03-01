@@ -23,7 +23,6 @@
 #include <java/awt/image/ColorModel.h>
 #include <java/util/Locale.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JSeparator.h>
 #include <jcpp.h>
 
@@ -59,7 +58,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $Locale = ::java::util::Locale;
-using $JComponent = ::javax::swing::JComponent;
 using $JSeparator = ::javax::swing::JSeparator;
 
 $MethodInfo _HeadlessJSeparator_MethodInfo_[] = {

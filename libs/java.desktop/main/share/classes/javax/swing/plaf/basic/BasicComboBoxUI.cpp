@@ -22,7 +22,6 @@
 #include <java/lang/StringBuffer.h>
 #include <javax/accessibility/Accessible.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/CellRendererPane.h>
@@ -48,9 +47,7 @@
 #include <javax/swing/plaf/UIResource.h>
 #include <javax/swing/plaf/basic/BasicArrowButton.h>
 #include <javax/swing/plaf/basic/BasicComboBoxEditor$UIResource.h>
-#include <javax/swing/plaf/basic/BasicComboBoxEditor.h>
 #include <javax/swing/plaf/basic/BasicComboBoxRenderer$UIResource.h>
-#include <javax/swing/plaf/basic/BasicComboBoxRenderer.h>
 #include <javax/swing/plaf/basic/BasicComboBoxUI$Actions.h>
 #include <javax/swing/plaf/basic/BasicComboBoxUI$DefaultKeySelectionManager.h>
 #include <javax/swing/plaf/basic/BasicComboBoxUI$Handler.h>
@@ -60,7 +57,6 @@
 #include <javax/swing/plaf/basic/LazyActionMap.h>
 #include <sun/awt/AppContext.h>
 #include <sun/swing/DefaultLookup.h>
-#include <sun/swing/UIAction.h>
 #include <jcpp.h>
 
 #undef COMBO_UI_LIST_CELL_RENDERER_KEY
@@ -115,7 +111,6 @@ using $Short = ::java::lang::Short;
 using $StringBuffer = ::java::lang::StringBuffer;
 using $Accessible = ::javax::accessibility::Accessible;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $AbstractButton = ::javax::swing::AbstractButton;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $CellRendererPane = ::javax::swing::CellRendererPane;
@@ -140,9 +135,7 @@ using $ComboBoxUI = ::javax::swing::plaf::ComboBoxUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
 using $UIResource = ::javax::swing::plaf::UIResource;
 using $BasicArrowButton = ::javax::swing::plaf::basic::BasicArrowButton;
-using $BasicComboBoxEditor = ::javax::swing::plaf::basic::BasicComboBoxEditor;
 using $BasicComboBoxEditor$UIResource = ::javax::swing::plaf::basic::BasicComboBoxEditor$UIResource;
-using $BasicComboBoxRenderer = ::javax::swing::plaf::basic::BasicComboBoxRenderer;
 using $BasicComboBoxRenderer$UIResource = ::javax::swing::plaf::basic::BasicComboBoxRenderer$UIResource;
 using $BasicComboBoxUI$Actions = ::javax::swing::plaf::basic::BasicComboBoxUI$Actions;
 using $BasicComboBoxUI$DefaultKeySelectionManager = ::javax::swing::plaf::basic::BasicComboBoxUI$DefaultKeySelectionManager;
@@ -153,7 +146,6 @@ using $ComboPopup = ::javax::swing::plaf::basic::ComboPopup;
 using $LazyActionMap = ::javax::swing::plaf::basic::LazyActionMap;
 using $AppContext = ::sun::awt::AppContext;
 using $DefaultLookup = ::sun::swing::DefaultLookup;
-using $UIAction = ::sun::swing::UIAction;
 
 namespace javax {
 	namespace swing {

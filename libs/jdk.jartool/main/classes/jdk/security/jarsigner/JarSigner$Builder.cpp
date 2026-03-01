@@ -3,7 +3,6 @@
 #include <java/lang/ArrayStoreException.h>
 #include <java/lang/UnsupportedOperationException.h>
 #include <java/net/URI.h>
-#include <java/security/GeneralSecurityException.h>
 #include <java/security/KeyStore$PrivateKeyEntry.h>
 #include <java/security/MessageDigest.h>
 #include <java/security/NoSuchAlgorithmException.h>
@@ -30,14 +29,12 @@ using $CertificateArray = $Array<::java::security::cert::Certificate>;
 using $X509CertificateArray = $Array<::java::security::cert::X509Certificate>;
 using $ArrayStoreException = ::java::lang::ArrayStoreException;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $UnsupportedOperationException = ::java::lang::UnsupportedOperationException;
 using $URI = ::java::net::URI;
-using $GeneralSecurityException = ::java::security::GeneralSecurityException;
 using $KeyStore$PrivateKeyEntry = ::java::security::KeyStore$PrivateKeyEntry;
 using $MessageDigest = ::java::security::MessageDigest;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;

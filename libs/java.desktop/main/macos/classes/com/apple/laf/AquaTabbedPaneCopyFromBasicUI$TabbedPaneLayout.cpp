@@ -12,7 +12,6 @@
 #include <java/awt/Rectangle.h>
 #include <java/lang/Math.h>
 #include <javax/swing/JComponent.h>
-#include <javax/swing/JPanel.h>
 #include <javax/swing/JTabbedPane.h>
 #include <javax/swing/SwingUtilities.h>
 #include <jcpp.h>
@@ -33,8 +32,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
-using $JPanel = ::javax::swing::JPanel;
 using $JTabbedPane = ::javax::swing::JTabbedPane;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 

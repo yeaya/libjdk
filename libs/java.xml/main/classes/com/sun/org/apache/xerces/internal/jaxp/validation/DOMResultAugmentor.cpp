@@ -25,7 +25,6 @@
 #include <javax/xml/transform/dom/DOMResult.h>
 #include <org/w3c/dom/Attr.h>
 #include <org/w3c/dom/CDATASection.h>
-#include <org/w3c/dom/CharacterData.h>
 #include <org/w3c/dom/Comment.h>
 #include <org/w3c/dom/Document.h>
 #include <org/w3c/dom/DocumentType.h>
@@ -67,7 +66,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $DOMResult = ::javax::xml::transform::dom::DOMResult;
 using $Attr = ::org::w3c::dom::Attr;
 using $CDATASection = ::org::w3c::dom::CDATASection;
-using $CharacterData = ::org::w3c::dom::CharacterData;
 using $Comment = ::org::w3c::dom::Comment;
 using $Document = ::org::w3c::dom::Document;
 using $DocumentType = ::org::w3c::dom::DocumentType;

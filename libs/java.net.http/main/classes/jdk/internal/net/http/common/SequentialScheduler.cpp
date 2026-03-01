@@ -5,7 +5,6 @@
 #include <java/util/Objects.h>
 #include <java/util/concurrent/Executor.h>
 #include <java/util/concurrent/atomic/AtomicInteger.h>
-#include <jdk/internal/net/http/common/SequentialScheduler$CompleteRestartableTask.h>
 #include <jdk/internal/net/http/common/SequentialScheduler$DeferredCompleter.h>
 #include <jdk/internal/net/http/common/SequentialScheduler$LockingRestartableTask.h>
 #include <jdk/internal/net/http/common/SequentialScheduler$RestartableTask.h>
@@ -29,7 +28,6 @@ using $Runnable = ::java::lang::Runnable;
 using $Objects = ::java::util::Objects;
 using $Executor = ::java::util::concurrent::Executor;
 using $AtomicInteger = ::java::util::concurrent::atomic::AtomicInteger;
-using $SequentialScheduler$CompleteRestartableTask = ::jdk::internal::net::http::common::SequentialScheduler$CompleteRestartableTask;
 using $SequentialScheduler$DeferredCompleter = ::jdk::internal::net::http::common::SequentialScheduler$DeferredCompleter;
 using $SequentialScheduler$LockingRestartableTask = ::jdk::internal::net::http::common::SequentialScheduler$LockingRestartableTask;
 using $SequentialScheduler$RestartableTask = ::jdk::internal::net::http::common::SequentialScheduler$RestartableTask;

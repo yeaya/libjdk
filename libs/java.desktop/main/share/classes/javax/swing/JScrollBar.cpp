@@ -1,9 +1,7 @@
 #include <javax/swing/JScrollBar.h>
 
 #include <java/awt/Adjustable.h>
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/event/AdjustmentEvent.h>
@@ -14,7 +12,6 @@
 #include <javax/accessibility/AccessibleState.h>
 #include <javax/swing/BoundedRangeModel.h>
 #include <javax/swing/DefaultBoundedRangeModel.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JScrollBar$AccessibleJScrollBar.h>
 #include <javax/swing/JScrollBar$ModelListener.h>
@@ -36,8 +33,6 @@ using $ComponentArray = $Array<::java::awt::Component>;
 using $AdjustmentListenerArray = $Array<::java::awt::event::AdjustmentListener>;
 using $Adjustable = ::java::awt::Adjustable;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Dimension = ::java::awt::Dimension;
 using $AdjustmentEvent = ::java::awt::event::AdjustmentEvent;
 using $AdjustmentListener = ::java::awt::event::AdjustmentListener;
@@ -58,7 +53,6 @@ using $AccessibleState = ::javax::accessibility::AccessibleState;
 using $BoundedRangeModel = ::javax::swing::BoundedRangeModel;
 using $DefaultBoundedRangeModel = ::javax::swing::DefaultBoundedRangeModel;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JScrollBar$AccessibleJScrollBar = ::javax::swing::JScrollBar$AccessibleJScrollBar;
 using $JScrollBar$ModelListener = ::javax::swing::JScrollBar$ModelListener;
 using $UIManager = ::javax::swing::UIManager;

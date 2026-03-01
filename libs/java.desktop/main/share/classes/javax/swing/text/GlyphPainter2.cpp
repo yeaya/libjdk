@@ -7,7 +7,6 @@
 #include <java/awt/font/TextLayout.h>
 #include <java/awt/geom/Rectangle2D$Float.h>
 #include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <javax/swing/text/AbstractDocument.h>
 #include <javax/swing/text/BadLocationException.h>
 #include <javax/swing/text/Document.h>
@@ -33,7 +32,6 @@ using $TextHitInfo = ::java::awt::font::TextHitInfo;
 using $TextLayout = ::java::awt::font::TextLayout;
 using $Rectangle2D = ::java::awt::geom::Rectangle2D;
 using $Rectangle2D$Float = ::java::awt::geom::Rectangle2D$Float;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
 using $Character = ::java::lang::Character;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

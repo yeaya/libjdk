@@ -14,7 +14,6 @@
 #include <java/net/URL.h>
 #include <java/util/Locale.h>
 #include <java/util/Vector.h>
-#include <javax/print/CancelablePrintJob.h>
 #include <javax/print/Doc.h>
 #include <javax/print/DocFlavor$BYTE_ARRAY.h>
 #include <javax/print/DocFlavor$INPUT_STREAM.h>
@@ -23,7 +22,6 @@
 #include <javax/print/DocPrintJob.h>
 #include <javax/print/PrintException.h>
 #include <javax/print/PrintService.h>
-#include <javax/print/StreamPrintService.h>
 #include <javax/print/attribute/Attribute.h>
 #include <javax/print/attribute/AttributeSet.h>
 #include <javax/print/attribute/AttributeSetUtilities.h>
@@ -53,7 +51,6 @@
 #include <sun/print/PSStreamPrintService.h>
 #include <sun/print/PrintJobAttributeException.h>
 #include <sun/print/PrintJobFlavorException.h>
-#include <sun/print/RasterPrinterJob.h>
 #include <jcpp.h>
 
 #undef DATA_TRANSFER_COMPLETE
@@ -87,12 +84,10 @@ using $Double = ::java::lang::Double;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityException = ::java::lang::SecurityException;
 using $URL = ::java::net::URL;
 using $Locale = ::java::util::Locale;
 using $Vector = ::java::util::Vector;
-using $CancelablePrintJob = ::javax::print::CancelablePrintJob;
 using $Doc = ::javax::print::Doc;
 using $DocFlavor = ::javax::print::DocFlavor;
 using $DocFlavor$BYTE_ARRAY = ::javax::print::DocFlavor$BYTE_ARRAY;
@@ -101,7 +96,6 @@ using $DocFlavor$URL = ::javax::print::DocFlavor$URL;
 using $DocPrintJob = ::javax::print::DocPrintJob;
 using $PrintException = ::javax::print::PrintException;
 using $PrintService = ::javax::print::PrintService;
-using $StreamPrintService = ::javax::print::StreamPrintService;
 using $Attribute = ::javax::print::attribute::Attribute;
 using $AttributeSet = ::javax::print::attribute::AttributeSet;
 using $AttributeSetUtilities = ::javax::print::attribute::AttributeSetUtilities;
@@ -131,7 +125,6 @@ using $PSPrinterJob = ::sun::print::PSPrinterJob;
 using $PSStreamPrintService = ::sun::print::PSStreamPrintService;
 using $PrintJobAttributeException = ::sun::print::PrintJobAttributeException;
 using $PrintJobFlavorException = ::sun::print::PrintJobFlavorException;
-using $RasterPrinterJob = ::sun::print::RasterPrinterJob;
 
 namespace sun {
 	namespace print {

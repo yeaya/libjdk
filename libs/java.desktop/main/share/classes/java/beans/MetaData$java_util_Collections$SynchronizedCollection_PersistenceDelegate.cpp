@@ -3,7 +3,6 @@
 #include <java/beans/Encoder.h>
 #include <java/beans/Expression.h>
 #include <java/beans/MetaData$java_util_Collections.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collection.h>
 #include <java/util/Collections.h>
@@ -16,7 +15,6 @@ using $MetaData$java_util_Collections = ::java::beans::MetaData$java_util_Collec
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $Collection = ::java::util::Collection;
 using $Collections = ::java::util::Collections;

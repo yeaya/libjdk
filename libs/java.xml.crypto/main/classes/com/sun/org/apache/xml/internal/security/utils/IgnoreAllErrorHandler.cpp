@@ -10,7 +10,6 @@
 #include <java/lang/invoke/MethodType.h>
 #include <java/security/AccessController.h>
 #include <java/security/PrivilegedAction.h>
-#include <org/xml/sax/SAXException.h>
 #include <org/xml/sax/SAXParseException.h>
 #include <jcpp.h>
 
@@ -21,13 +20,11 @@ using $LoggerFactory = ::com::sun::org::slf4j::internal::LoggerFactory;
 using $Serializable = ::java::io::Serializable;
 using $Boolean = ::java::lang::Boolean;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $AccessController = ::java::security::AccessController;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $SAXException = ::org::xml::sax::SAXException;
 using $SAXParseException = ::org::xml::sax::SAXParseException;
 
 namespace com {

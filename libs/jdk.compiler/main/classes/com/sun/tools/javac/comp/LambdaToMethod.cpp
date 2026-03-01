@@ -50,7 +50,6 @@
 #include <com/sun/tools/javac/tree/JCTree$JCBlock.h>
 #include <com/sun/tools/javac/tree/JCTree$JCBreak.h>
 #include <com/sun/tools/javac/tree/JCTree$JCCase.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCClassDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpressionStatement.h>
@@ -66,8 +65,6 @@
 #include <com/sun/tools/javac/tree/JCTree$JCMethodInvocation.h>
 #include <com/sun/tools/javac/tree/JCTree$JCModifiers.h>
 #include <com/sun/tools/javac/tree/JCTree$JCNewClass.h>
-#include <com/sun/tools/javac/tree/JCTree$JCOperatorExpression.h>
-#include <com/sun/tools/javac/tree/JCTree$JCPolyExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCReturn.h>
 #include <com/sun/tools/javac/tree/JCTree$JCStatement.h>
 #include <com/sun/tools/javac/tree/JCTree$JCSwitch.h>
@@ -101,7 +98,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
 #include <java/util/Map$Entry.h>
@@ -178,7 +174,6 @@ using $JCTree$JCBinary = ::com::sun::tools::javac::tree::JCTree$JCBinary;
 using $JCTree$JCBlock = ::com::sun::tools::javac::tree::JCTree$JCBlock;
 using $JCTree$JCBreak = ::com::sun::tools::javac::tree::JCTree$JCBreak;
 using $JCTree$JCCase = ::com::sun::tools::javac::tree::JCTree$JCCase;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCFieldAccess = ::com::sun::tools::javac::tree::JCTree$JCFieldAccess;
@@ -192,8 +187,6 @@ using $JCTree$JCMethodDecl = ::com::sun::tools::javac::tree::JCTree$JCMethodDecl
 using $JCTree$JCMethodInvocation = ::com::sun::tools::javac::tree::JCTree$JCMethodInvocation;
 using $JCTree$JCModifiers = ::com::sun::tools::javac::tree::JCTree$JCModifiers;
 using $JCTree$JCNewClass = ::com::sun::tools::javac::tree::JCTree$JCNewClass;
-using $JCTree$JCOperatorExpression = ::com::sun::tools::javac::tree::JCTree$JCOperatorExpression;
-using $JCTree$JCPolyExpression = ::com::sun::tools::javac::tree::JCTree$JCPolyExpression;
 using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
 using $JCTree$JCSwitch = ::com::sun::tools::javac::tree::JCTree$JCSwitch;
 using $JCTree$JCTypeCast = ::com::sun::tools::javac::tree::JCTree$JCTypeCast;
@@ -222,7 +215,6 @@ using $Integer = ::java::lang::Integer;
 using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;
 using $Map = ::java::util::Map;
@@ -817,14 +809,14 @@ void LambdaToMethod::visitLambda($JCTree$JCLambda* tree) {
 		$var($Symbol, owner, localContext->owner);
 		$var($JCTree$JCLambda, var$0, tree);
 		$var($Supplier, var$1, static_cast<$Supplier*>($new(LambdaToMethod$$Lambda$getRawTypeAttributes, static_cast<$Symbol*>($nc(owner)))));
-		$var($Consumer, var$2, static_cast<$Consumer*>($new(LambdaToMethod$$Lambda$setTypeAttributes$1, static_cast<$Symbol*>(owner))));
+		$var($Consumer, var$2, static_cast<$Consumer*>($new(LambdaToMethod$$Lambda$setTypeAttributes$1, static_cast<$Symbol*>($nc(owner)))));
 		apportionTypeAnnotations(var$0, var$1, var$2, static_cast<$Consumer*>($$new(LambdaToMethod$$Lambda$setTypeAttributes$1, static_cast<$Symbol$MethodSymbol*>(sym))));
 		bool init = false;
 		if ((init = ($nc(owner)->name == $nc(this->names)->init)) || $nc(owner)->name == $nc(this->names)->clinit) {
 			$assign(owner, owner->owner);
 			$var($JCTree$JCLambda, var$3, tree);
-			$var($Supplier, var$4, init ? static_cast<$Supplier*>($new(LambdaToMethod$$Lambda$getInitTypeAttributes$2, static_cast<$Symbol*>($nc(owner)))) : static_cast<$Supplier*>($new(LambdaToMethod$$Lambda$getClassInitTypeAttributes$3, static_cast<$Symbol*>(owner))));
-			$var($Consumer, var$5, init ? static_cast<$Consumer*>($new(LambdaToMethod$$Lambda$setInitTypeAttributes$4, static_cast<$Symbol*>(owner))) : static_cast<$Consumer*>($new(LambdaToMethod$$Lambda$setClassInitTypeAttributes$5, static_cast<$Symbol*>(owner))));
+			$var($Supplier, var$4, init ? static_cast<$Supplier*>($new(LambdaToMethod$$Lambda$getInitTypeAttributes$2, static_cast<$Symbol*>($nc(owner)))) : static_cast<$Supplier*>($new(LambdaToMethod$$Lambda$getClassInitTypeAttributes$3, static_cast<$Symbol*>($nc(owner)))));
+			$var($Consumer, var$5, init ? static_cast<$Consumer*>($new(LambdaToMethod$$Lambda$setInitTypeAttributes$4, static_cast<$Symbol*>($nc(owner)))) : static_cast<$Consumer*>($new(LambdaToMethod$$Lambda$setClassInitTypeAttributes$5, static_cast<$Symbol*>($nc(owner)))));
 			apportionTypeAnnotations(var$3, var$4, var$5, static_cast<$Consumer*>($$new(LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6, static_cast<$Symbol$MethodSymbol*>(sym))));
 		}
 		$init($ElementKind);
@@ -832,7 +824,7 @@ void LambdaToMethod::visitLambda($JCTree$JCLambda* tree) {
 			$assign(owner, localContext->self);
 			$var($JCTree$JCLambda, var$6, tree);
 			$var($Supplier, var$7, static_cast<$Supplier*>($new(LambdaToMethod$$Lambda$getRawTypeAttributes, static_cast<$Symbol*>($nc(owner)))));
-			$var($Consumer, var$8, static_cast<$Consumer*>($new(LambdaToMethod$$Lambda$setTypeAttributes$1, static_cast<$Symbol*>(owner))));
+			$var($Consumer, var$8, static_cast<$Consumer*>($new(LambdaToMethod$$Lambda$setTypeAttributes$1, static_cast<$Symbol*>($nc(owner)))));
 			apportionTypeAnnotations(var$6, var$7, var$8, static_cast<$Consumer*>($$new(LambdaToMethod$$Lambda$appendUniqueTypeAttributes$6, static_cast<$Symbol$MethodSymbol*>(sym))));
 		}
 	}

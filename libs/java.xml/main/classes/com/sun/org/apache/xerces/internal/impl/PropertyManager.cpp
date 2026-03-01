@@ -5,7 +5,6 @@
 #include <com/sun/org/apache/xerces/internal/utils/XMLSecurityPropertyManager$State.h>
 #include <com/sun/org/apache/xerces/internal/utils/XMLSecurityPropertyManager.h>
 #include <com/sun/xml/internal/stream/StaxEntityResolverWrapper.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
 #include <javax/xml/XMLConstants.h>
@@ -72,7 +71,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractMap = ::java::util::AbstractMap;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;
 using $XMLConstants = ::javax::xml::XMLConstants;

@@ -5,16 +5,10 @@
 #include <java/awt/geom/Arc2D$Float.h>
 #include <java/awt/geom/Arc2D.h>
 #include <java/awt/geom/Ellipse2D$Float.h>
-#include <java/awt/geom/Ellipse2D.h>
 #include <java/awt/geom/GeneralPath.h>
 #include <java/awt/geom/Line2D$Float.h>
-#include <java/awt/geom/Line2D.h>
-#include <java/awt/geom/Path2D$Float.h>
 #include <java/awt/geom/Path2D.h>
-#include <java/awt/geom/Rectangle2D.h>
-#include <java/awt/geom/RectangularShape.h>
 #include <java/awt/geom/RoundRectangle2D$Float.h>
-#include <java/awt/geom/RoundRectangle2D.h>
 #include <sun/java2d/SunGraphics2D.h>
 #include <sun/java2d/pipe/PixelDrawPipe.h>
 #include <sun/java2d/pipe/ShapeDrawPipe.h>
@@ -28,16 +22,9 @@ using $Rectangle = ::java::awt::Rectangle;
 using $Shape = ::java::awt::Shape;
 using $Arc2D = ::java::awt::geom::Arc2D;
 using $Arc2D$Float = ::java::awt::geom::Arc2D$Float;
-using $Ellipse2D = ::java::awt::geom::Ellipse2D;
 using $Ellipse2D$Float = ::java::awt::geom::Ellipse2D$Float;
 using $GeneralPath = ::java::awt::geom::GeneralPath;
-using $Line2D = ::java::awt::geom::Line2D;
 using $Line2D$Float = ::java::awt::geom::Line2D$Float;
-using $Path2D = ::java::awt::geom::Path2D;
-using $Path2D$Float = ::java::awt::geom::Path2D$Float;
-using $Rectangle2D = ::java::awt::geom::Rectangle2D;
-using $RectangularShape = ::java::awt::geom::RectangularShape;
-using $RoundRectangle2D = ::java::awt::geom::RoundRectangle2D;
 using $RoundRectangle2D$Float = ::java::awt::geom::RoundRectangle2D$Float;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -3,12 +3,9 @@
 #include <com/sun/org/apache/bcel/internal/generic/ANEWARRAY.h>
 #include <com/sun/org/apache/bcel/internal/generic/BasicType.h>
 #include <com/sun/org/apache/bcel/internal/generic/CHECKCAST.h>
-#include <com/sun/org/apache/bcel/internal/generic/CPInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/CompoundInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
 #include <com/sun/org/apache/bcel/internal/generic/DUP_X1.h>
-#include <com/sun/org/apache/bcel/internal/generic/FieldInstruction.h>
-#include <com/sun/org/apache/bcel/internal/generic/FieldOrMethod.h>
 #include <com/sun/org/apache/bcel/internal/generic/GETFIELD.h>
 #include <com/sun/org/apache/bcel/internal/generic/ICONST.h>
 #include <com/sun/org/apache/bcel/internal/generic/INVOKEINTERFACE.h>
@@ -17,7 +14,6 @@
 #include <com/sun/org/apache/bcel/internal/generic/Instruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionHandle.h>
 #include <com/sun/org/apache/bcel/internal/generic/InstructionList.h>
-#include <com/sun/org/apache/bcel/internal/generic/InvokeInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/LocalVariableInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/NEW.h>
 #include <com/sun/org/apache/bcel/internal/generic/NEWARRAY.h>
@@ -29,14 +25,11 @@
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/CallTemplate.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Choose.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Constants.h>
-#include <com/sun/org/apache/xalan/internal/xsltc/compiler/Expression.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/If.h>
-#include <com/sun/org/apache/xalan/internal/xsltc/compiler/LocationPathPattern.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Number.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Otherwise.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Param.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Parser.h>
-#include <com/sun/org/apache/xalan/internal/xsltc/compiler/Pattern.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/QName.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/RelativePathPattern.h>
 #include <com/sun/org/apache/xalan/internal/xsltc/compiler/Stylesheet.h>
@@ -59,8 +52,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
 #include <java/util/HashMap.h>
 #include <java/util/Iterator.h>
@@ -110,12 +101,9 @@
 using $ANEWARRAY = ::com::sun::org::apache::bcel::internal::generic::ANEWARRAY;
 using $BasicType = ::com::sun::org::apache::bcel::internal::generic::BasicType;
 using $CHECKCAST = ::com::sun::org::apache::bcel::internal::generic::CHECKCAST;
-using $CPInstruction = ::com::sun::org::apache::bcel::internal::generic::CPInstruction;
 using $CompoundInstruction = ::com::sun::org::apache::bcel::internal::generic::CompoundInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;
 using $DUP_X1 = ::com::sun::org::apache::bcel::internal::generic::DUP_X1;
-using $FieldInstruction = ::com::sun::org::apache::bcel::internal::generic::FieldInstruction;
-using $FieldOrMethod = ::com::sun::org::apache::bcel::internal::generic::FieldOrMethod;
 using $GETFIELD = ::com::sun::org::apache::bcel::internal::generic::GETFIELD;
 using $ICONST = ::com::sun::org::apache::bcel::internal::generic::ICONST;
 using $INVOKEINTERFACE = ::com::sun::org::apache::bcel::internal::generic::INVOKEINTERFACE;
@@ -123,25 +111,20 @@ using $INVOKESPECIAL = ::com::sun::org::apache::bcel::internal::generic::INVOKES
 using $INVOKEVIRTUAL = ::com::sun::org::apache::bcel::internal::generic::INVOKEVIRTUAL;
 using $Instruction = ::com::sun::org::apache::bcel::internal::generic::Instruction;
 using $InstructionList = ::com::sun::org::apache::bcel::internal::generic::InstructionList;
-using $InvokeInstruction = ::com::sun::org::apache::bcel::internal::generic::InvokeInstruction;
 using $NEW = ::com::sun::org::apache::bcel::internal::generic::NEW;
 using $NEWARRAY = ::com::sun::org::apache::bcel::internal::generic::NEWARRAY;
 using $PUSH = ::com::sun::org::apache::bcel::internal::generic::PUSH;
-using $StackInstruction = ::com::sun::org::apache::bcel::internal::generic::StackInstruction;
 using $DOM = ::com::sun::org::apache::xalan::internal::xsltc::DOM;
 using $AbsolutePathPattern = ::com::sun::org::apache::xalan::internal::xsltc::compiler::AbsolutePathPattern;
 using $ApplyTemplates = ::com::sun::org::apache::xalan::internal::xsltc::compiler::ApplyTemplates;
 using $CallTemplate = ::com::sun::org::apache::xalan::internal::xsltc::compiler::CallTemplate;
 using $Choose = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Choose;
 using $Constants = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Constants;
-using $Expression = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Expression;
 using $If = ::com::sun::org::apache::xalan::internal::xsltc::compiler::If;
-using $LocationPathPattern = ::com::sun::org::apache::xalan::internal::xsltc::compiler::LocationPathPattern;
 using $Number = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Number;
 using $Otherwise = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Otherwise;
 using $Param = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Param;
 using $Parser = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Parser;
-using $Pattern = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Pattern;
 using $QName = ::com::sun::org::apache::xalan::internal::xsltc::compiler::QName;
 using $RelativePathPattern = ::com::sun::org::apache::xalan::internal::xsltc::compiler::RelativePathPattern;
 using $Stylesheet = ::com::sun::org::apache::xalan::internal::xsltc::compiler::Stylesheet;
@@ -165,8 +148,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $HashMap = ::java::util::HashMap;
 using $Iterator = ::java::util::Iterator;

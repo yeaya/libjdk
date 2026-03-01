@@ -18,7 +18,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $WFramePeer = ::sun::awt::windows::WFramePeer;
-using $WMenuItemPeer = ::sun::awt::windows::WMenuItemPeer;
 using $WMenuPeer = ::sun::awt::windows::WMenuPeer;
 using $WObjectPeer = ::sun::awt::windows::WObjectPeer;
 using $WToolkit = ::sun::awt::windows::WToolkit;

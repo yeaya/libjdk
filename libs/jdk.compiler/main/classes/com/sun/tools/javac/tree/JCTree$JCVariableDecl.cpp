@@ -6,7 +6,6 @@
 #include <com/sun/source/tree/TreeVisitor.h>
 #include <com/sun/source/tree/VariableTree.h>
 #include <com/sun/tools/javac/code/Symbol$VarSymbol.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCFieldAccess.h>
 #include <com/sun/tools/javac/tree/JCTree$JCIdent.h>
@@ -32,7 +31,6 @@ using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
 using $VariableTree = ::com::sun::source::tree::VariableTree;
 using $Symbol$VarSymbol = ::com::sun::tools::javac::code::Symbol$VarSymbol;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $JCTree$JCFieldAccess = ::com::sun::tools::javac::tree::JCTree$JCFieldAccess;
 using $JCTree$JCIdent = ::com::sun::tools::javac::tree::JCTree$JCIdent;

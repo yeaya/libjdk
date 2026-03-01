@@ -4,7 +4,6 @@
 #include <com/sun/org/apache/xerces/internal/impl/XML11DTDScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XML11EntityScanner.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDTDScannerImpl.h>
-#include <com/sun/org/apache/xerces/internal/impl/XMLDocumentFragmentScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLDocumentScannerImpl.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLEntityHandler.h>
 #include <com/sun/org/apache/xerces/internal/impl/XMLEntityManager.h>
@@ -29,7 +28,6 @@
 #include <com/sun/xml/internal/stream/dtd/nonvalidating/DTDGrammar.h>
 #include <java/io/CharConversionException.h>
 #include <java/io/EOFException.h>
-#include <java/io/IOException.h>
 #include <javax/xml/stream/events/XMLEvent.h>
 #include <jdk/xml/internal/SecuritySupport.h>
 #include <jcpp.h>
@@ -41,7 +39,6 @@
 using $XML11DTDScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XML11DTDScannerImpl;
 using $XML11EntityScanner = ::com::sun::org::apache::xerces::internal::impl::XML11EntityScanner;
 using $XMLDTDScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLDTDScannerImpl;
-using $XMLDocumentFragmentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentFragmentScannerImpl;
 using $XMLDocumentScannerImpl = ::com::sun::org::apache::xerces::internal::impl::XMLDocumentScannerImpl;
 using $XMLEntityHandler = ::com::sun::org::apache::xerces::internal::impl::XMLEntityHandler;
 using $XMLEntityManager = ::com::sun::org::apache::xerces::internal::impl::XMLEntityManager;
@@ -62,7 +59,6 @@ using $XMLEntityStorage = ::com::sun::xml::internal::stream::XMLEntityStorage;
 using $DTDGrammarUtil = ::com::sun::xml::internal::stream::dtd::DTDGrammarUtil;
 using $CharConversionException = ::java::io::CharConversionException;
 using $EOFException = ::java::io::EOFException;
-using $IOException = ::java::io::IOException;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;

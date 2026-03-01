@@ -6,9 +6,6 @@
 #include <java/lang/ref/SoftReference.h>
 #include <java/lang/reflect/Method.h>
 #include <java/lang/reflect/Modifier.h>
-#include <java/util/AbstractList.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSequentialList.h>
 #include <java/util/Collections.h>
 #include <java/util/Iterator.h>
 #include <java/util/LinkedList.h>
@@ -35,9 +32,6 @@ using $Void = ::java::lang::Void;
 using $SoftReference = ::java::lang::ref::SoftReference;
 using $Method = ::java::lang::reflect::Method;
 using $Modifier = ::java::lang::reflect::Modifier;
-using $AbstractList = ::java::util::AbstractList;
-using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSequentialList = ::java::util::AbstractSequentialList;
 using $Collections = ::java::util::Collections;
 using $Iterator = ::java::util::Iterator;
 using $LinkedList = ::java::util::LinkedList;

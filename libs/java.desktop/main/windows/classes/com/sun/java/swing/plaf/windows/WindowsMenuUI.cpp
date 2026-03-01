@@ -23,11 +23,7 @@
 #include <javax/swing/UIDefaults.h>
 #include <javax/swing/UIManager.h>
 #include <javax/swing/event/MouseInputListener.h>
-#include <javax/swing/plaf/ButtonUI.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/MenuItemUI.h>
-#include <javax/swing/plaf/basic/BasicMenuItemUI.h>
-#include <javax/swing/plaf/basic/BasicMenuUI$MouseInputHandler.h>
 #include <javax/swing/plaf/basic/BasicMenuUI.h>
 #include <jcpp.h>
 
@@ -59,12 +55,8 @@ using $JMenuItem = ::javax::swing::JMenuItem;
 using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIManager = ::javax::swing::UIManager;
 using $MouseInputListener = ::javax::swing::event::MouseInputListener;
-using $ButtonUI = ::javax::swing::plaf::ButtonUI;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $MenuItemUI = ::javax::swing::plaf::MenuItemUI;
-using $BasicMenuItemUI = ::javax::swing::plaf::basic::BasicMenuItemUI;
 using $BasicMenuUI = ::javax::swing::plaf::basic::BasicMenuUI;
-using $BasicMenuUI$MouseInputHandler = ::javax::swing::plaf::basic::BasicMenuUI$MouseInputHandler;
 
 namespace com {
 	namespace sun {

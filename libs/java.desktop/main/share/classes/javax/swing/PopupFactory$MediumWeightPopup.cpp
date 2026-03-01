@@ -8,10 +8,8 @@
 #include <java/awt/Point.h>
 #include <java/awt/Window.h>
 #include <java/lang/StringBuffer.h>
-#include <java/util/AbstractList.h>
 #include <java/util/ArrayList.h>
 #include <java/util/List.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JLayeredPane.h>
 #include <javax/swing/JRootPane.h>
 #include <javax/swing/Popup.h>
@@ -37,10 +35,8 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $StringBuffer = ::java::lang::StringBuffer;
-using $AbstractList = ::java::util::AbstractList;
 using $ArrayList = ::java::util::ArrayList;
 using $List = ::java::util::List;
-using $JComponent = ::javax::swing::JComponent;
 using $JLayeredPane = ::javax::swing::JLayeredPane;
 using $JRootPane = ::javax::swing::JRootPane;
 using $Popup = ::javax::swing::Popup;

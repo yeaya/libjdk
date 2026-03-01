@@ -6,7 +6,6 @@
 #include <java/util/Iterator.h>
 #include <java/util/NoSuchElementException.h>
 #include <java/util/Set.h>
-#include <javax/tools/ForwardingJavaFileObject.h>
 #include <javax/tools/JavaFileObject$Kind.h>
 #include <javax/tools/JavaFileObject.h>
 #include <jcpp.h>
@@ -24,7 +23,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $Iterator = ::java::util::Iterator;
 using $NoSuchElementException = ::java::util::NoSuchElementException;
 using $Set = ::java::util::Set;
-using $ForwardingJavaFileObject = ::javax::tools::ForwardingJavaFileObject;
 using $JavaFileObject = ::javax::tools::JavaFileObject;
 using $JavaFileObject$Kind = ::javax::tools::JavaFileObject$Kind;
 

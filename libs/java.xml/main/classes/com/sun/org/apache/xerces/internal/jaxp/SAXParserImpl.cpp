@@ -12,7 +12,6 @@
 #include <com/sun/org/apache/xerces/internal/jaxp/validation/XSGrammarPoolContainer.h>
 #include <com/sun/org/apache/xerces/internal/parsers/AbstractSAXParser.h>
 #include <com/sun/org/apache/xerces/internal/parsers/AbstractXMLDocumentParser.h>
-#include <com/sun/org/apache/xerces/internal/parsers/SAXParser.h>
 #include <com/sun/org/apache/xerces/internal/utils/XMLSecurityManager.h>
 #include <com/sun/org/apache/xerces/internal/utils/XMLSecurityPropertyManager$Property.h>
 #include <com/sun/org/apache/xerces/internal/utils/XMLSecurityPropertyManager$State.h>
@@ -21,7 +20,6 @@
 #include <com/sun/org/apache/xerces/internal/xni/XMLDocumentHandler.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLComponent.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLComponentManager.h>
-#include <com/sun/org/apache/xerces/internal/xni/parser/XMLDTDFilter.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDTDSource.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLDocumentSource.h>
 #include <com/sun/org/apache/xerces/internal/xni/parser/XMLParserConfiguration.h>
@@ -80,9 +78,6 @@ using $SAXParserImpl$JAXPSAXParser = ::com::sun::org::apache::xerces::internal::
 using $SchemaValidatorConfiguration = ::com::sun::org::apache::xerces::internal::jaxp::SchemaValidatorConfiguration;
 using $UnparsedEntityHandler = ::com::sun::org::apache::xerces::internal::jaxp::UnparsedEntityHandler;
 using $XSGrammarPoolContainer = ::com::sun::org::apache::xerces::internal::jaxp::validation::XSGrammarPoolContainer;
-using $AbstractSAXParser = ::com::sun::org::apache::xerces::internal::parsers::AbstractSAXParser;
-using $AbstractXMLDocumentParser = ::com::sun::org::apache::xerces::internal::parsers::AbstractXMLDocumentParser;
-using $1SAXParser = ::com::sun::org::apache::xerces::internal::parsers::SAXParser;
 using $XMLSecurityManager = ::com::sun::org::apache::xerces::internal::utils::XMLSecurityManager;
 using $XMLSecurityPropertyManager = ::com::sun::org::apache::xerces::internal::utils::XMLSecurityPropertyManager;
 using $XMLSecurityPropertyManager$Property = ::com::sun::org::apache::xerces::internal::utils::XMLSecurityPropertyManager$Property;
@@ -91,7 +86,6 @@ using $XMLDTDHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDTDHan
 using $XMLDocumentHandler = ::com::sun::org::apache::xerces::internal::xni::XMLDocumentHandler;
 using $XMLComponent = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponent;
 using $XMLComponentManager = ::com::sun::org::apache::xerces::internal::xni::parser::XMLComponentManager;
-using $XMLDTDFilter = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDTDFilter;
 using $XMLDTDSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDTDSource;
 using $XMLDocumentSource = ::com::sun::org::apache::xerces::internal::xni::parser::XMLDocumentSource;
 using $XMLParserConfiguration = ::com::sun::org::apache::xerces::internal::xni::parser::XMLParserConfiguration;

@@ -14,11 +14,9 @@
 #include <java/util/Collection.h>
 #include <java/util/Map.h>
 #include <java/util/Set.h>
-#include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/JFormattedTextField$AbstractFormatter.h>
 #include <javax/swing/JFormattedTextField.h>
-#include <javax/swing/JTextField.h>
 #include <javax/swing/text/AttributeSet.h>
 #include <javax/swing/text/BadLocationException.h>
 #include <javax/swing/text/DefaultFormatter$ReplaceHolder.h>
@@ -53,10 +51,8 @@ using $ArrayList = ::java::util::ArrayList;
 using $BitSet = ::java::util::BitSet;
 using $Collection = ::java::util::Collection;
 using $Map = ::java::util::Map;
-using $AbstractAction = ::javax::swing::AbstractAction;
 using $Action = ::javax::swing::Action;
 using $JFormattedTextField = ::javax::swing::JFormattedTextField;
-using $JTextField = ::javax::swing::JTextField;
 using $AttributeSet = ::javax::swing::text::AttributeSet;
 using $BadLocationException = ::javax::swing::text::BadLocationException;
 using $DefaultFormatter = ::javax::swing::text::DefaultFormatter;

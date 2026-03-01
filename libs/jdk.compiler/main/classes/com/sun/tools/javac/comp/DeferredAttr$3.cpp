@@ -6,7 +6,6 @@
 #include <com/sun/tools/javac/comp/DeferredAttr$DeferredType.h>
 #include <com/sun/tools/javac/comp/DeferredAttr.h>
 #include <com/sun/tools/javac/comp/Env.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
 #include <com/sun/tools/javac/tree/TreeCopier.h>
@@ -20,7 +19,6 @@ using $Types$TypeMapping = ::com::sun::tools::javac::code::Types$TypeMapping;
 using $DeferredAttr = ::com::sun::tools::javac::comp::DeferredAttr;
 using $DeferredAttr$DeferredType = ::com::sun::tools::javac::comp::DeferredAttr$DeferredType;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
 using $TreeCopier = ::com::sun::tools::javac::tree::TreeCopier;
 using $ClassInfo = ::java::lang::ClassInfo;

@@ -1,19 +1,15 @@
 #include <java/awt/TextArea.h>
 
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/GraphicsEnvironment.h>
 #include <java/awt/KeyboardFocusManager.h>
 #include <java/awt/TextArea$AccessibleAWTTextArea.h>
-#include <java/awt/TextComponent$AccessibleAWTTextComponent.h>
 #include <java/awt/TextComponent.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/peer/ComponentPeer.h>
 #include <java/awt/peer/TextAreaPeer.h>
-#include <java/awt/peer/TextComponentPeer.h>
 #include <java/io/ObjectInputStream.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/HashSet.h>
 #include <java/util/Set.h>
 #include <javax/accessibility/AccessibleContext.h>
@@ -27,17 +23,14 @@
 #undef SCROLLBARS_NONE
 #undef SCROLLBARS_VERTICAL_ONLY
 
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $Dimension = ::java::awt::Dimension;
 using $GraphicsEnvironment = ::java::awt::GraphicsEnvironment;
 using $KeyboardFocusManager = ::java::awt::KeyboardFocusManager;
 using $TextArea$AccessibleAWTTextArea = ::java::awt::TextArea$AccessibleAWTTextArea;
 using $TextComponent = ::java::awt::TextComponent;
-using $TextComponent$AccessibleAWTTextComponent = ::java::awt::TextComponent$AccessibleAWTTextComponent;
 using $Toolkit = ::java::awt::Toolkit;
 using $ComponentPeer = ::java::awt::peer::ComponentPeer;
 using $TextAreaPeer = ::java::awt::peer::TextAreaPeer;
-using $TextComponentPeer = ::java::awt::peer::TextComponentPeer;
 using $ObjectInputStream = ::java::io::ObjectInputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $CompoundAttribute = ::java::lang::CompoundAttribute;
@@ -45,7 +38,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractSet = ::java::util::AbstractSet;
 using $HashSet = ::java::util::HashSet;
 using $Set = ::java::util::Set;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;

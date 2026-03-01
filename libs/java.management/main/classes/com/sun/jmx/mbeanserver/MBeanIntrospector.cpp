@@ -9,7 +9,6 @@
 #include <com/sun/jmx/mbeanserver/PerInterface.h>
 #include <java/lang/Error.h>
 #include <java/lang/IllegalAccessException.h>
-#include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/ref/WeakReference.h>
 #include <java/lang/reflect/Array.h>
 #include <java/lang/reflect/Constructor.h>
@@ -55,7 +54,6 @@ using $IllegalAccessException = ::java::lang::IllegalAccessException;
 using $IllegalArgumentException = ::java::lang::IllegalArgumentException;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
 using $RuntimeException = ::java::lang::RuntimeException;
 using $WeakReference = ::java::lang::ref::WeakReference;
 using $1Array = ::java::lang::reflect::Array;

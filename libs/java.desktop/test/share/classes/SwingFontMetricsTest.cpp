@@ -17,7 +17,6 @@
 #include <java/util/Map.h>
 #include <java/util/concurrent/CountDownLatch.h>
 #include <java/util/concurrent/TimeUnit.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JLabel.h>
 #include <javax/swing/SwingUtilities.h>
@@ -33,7 +32,6 @@
 
 using $SwingFontMetricsTest$1 = ::SwingFontMetricsTest$1;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $RenderingHints = ::java::awt::RenderingHints;
 using $Toolkit = ::java::awt::Toolkit;
 using $Serializable = ::java::io::Serializable;
@@ -47,7 +45,6 @@ using $MethodHandle = ::java::lang::invoke::MethodHandle;
 using $Map = ::java::util::Map;
 using $CountDownLatch = ::java::util::concurrent::CountDownLatch;
 using $TimeUnit = ::java::util::concurrent::TimeUnit;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JLabel = ::javax::swing::JLabel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;

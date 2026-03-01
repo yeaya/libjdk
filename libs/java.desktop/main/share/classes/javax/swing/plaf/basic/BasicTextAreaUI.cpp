@@ -10,18 +10,14 @@
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JTextArea.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/TextUI.h>
 #include <javax/swing/plaf/basic/BasicHTML.h>
 #include <javax/swing/plaf/basic/BasicTextAreaUI$PlainParagraph.h>
 #include <javax/swing/plaf/basic/BasicTextUI.h>
 #include <javax/swing/text/AbstractDocument.h>
 #include <javax/swing/text/BoxView.h>
-#include <javax/swing/text/CompositeView.h>
 #include <javax/swing/text/Document.h>
 #include <javax/swing/text/Element.h>
-#include <javax/swing/text/FlowView.h>
 #include <javax/swing/text/JTextComponent.h>
-#include <javax/swing/text/ParagraphView.h>
 #include <javax/swing/text/PlainView.h>
 #include <javax/swing/text/View.h>
 #include <javax/swing/text/WrappedPlainView.h>
@@ -43,18 +39,14 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
 using $JTextArea = ::javax::swing::JTextArea;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $TextUI = ::javax::swing::plaf::TextUI;
 using $BasicHTML = ::javax::swing::plaf::basic::BasicHTML;
 using $BasicTextAreaUI$PlainParagraph = ::javax::swing::plaf::basic::BasicTextAreaUI$PlainParagraph;
 using $BasicTextUI = ::javax::swing::plaf::basic::BasicTextUI;
 using $AbstractDocument = ::javax::swing::text::AbstractDocument;
 using $BoxView = ::javax::swing::text::BoxView;
-using $CompositeView = ::javax::swing::text::CompositeView;
 using $Document = ::javax::swing::text::Document;
 using $Element = ::javax::swing::text::Element;
-using $FlowView = ::javax::swing::text::FlowView;
 using $JTextComponent = ::javax::swing::text::JTextComponent;
-using $ParagraphView = ::javax::swing::text::ParagraphView;
 using $PlainView = ::javax::swing::text::PlainView;
 using $View = ::javax::swing::text::View;
 using $WrappedPlainView = ::javax::swing::text::WrappedPlainView;

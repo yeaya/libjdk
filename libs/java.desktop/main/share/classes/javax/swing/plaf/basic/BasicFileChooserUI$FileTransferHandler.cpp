@@ -7,7 +7,6 @@
 #include <javax/swing/TransferHandler.h>
 #include <javax/swing/plaf/basic/BasicFileChooserUI$FileTransferHandler$FileTransferable.h>
 #include <javax/swing/plaf/basic/BasicFileChooserUI.h>
-#include <javax/swing/plaf/basic/BasicTransferable.h>
 #include <jcpp.h>
 
 #undef COPY
@@ -21,7 +20,6 @@ using $JList = ::javax::swing::JList;
 using $JTable = ::javax::swing::JTable;
 using $TransferHandler = ::javax::swing::TransferHandler;
 using $BasicFileChooserUI$FileTransferHandler$FileTransferable = ::javax::swing::plaf::basic::BasicFileChooserUI$FileTransferHandler$FileTransferable;
-using $BasicTransferable = ::javax::swing::plaf::basic::BasicTransferable;
 
 namespace javax {
 	namespace swing {

@@ -1,24 +1,20 @@
 #include <com/sun/java/swing/plaf/windows/WindowsDesktopPaneUI.h>
 
 #include <com/sun/java/swing/plaf/windows/WindowsDesktopManager.h>
-#include <javax/swing/DefaultDesktopManager.h>
 #include <javax/swing/DesktopManager.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JDesktopPane.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/DesktopPaneUI.h>
 #include <javax/swing/plaf/basic/BasicDesktopPaneUI.h>
 #include <jcpp.h>
 
 using $WindowsDesktopManager = ::com::sun::java::swing::plaf::windows::WindowsDesktopManager;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $DefaultDesktopManager = ::javax::swing::DefaultDesktopManager;
 using $DesktopManager = ::javax::swing::DesktopManager;
 using $JComponent = ::javax::swing::JComponent;
 using $JDesktopPane = ::javax::swing::JDesktopPane;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $DesktopPaneUI = ::javax::swing::plaf::DesktopPaneUI;
 using $BasicDesktopPaneUI = ::javax::swing::plaf::basic::BasicDesktopPaneUI;
 
 namespace com {

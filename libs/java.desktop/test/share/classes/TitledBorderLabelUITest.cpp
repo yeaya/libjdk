@@ -2,7 +2,6 @@
 
 #include <TitledBorderLabelUITest$TestLookAndFeel.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Graphics.h>
 #include <java/awt/Graphics2D.h>
 #include <java/awt/image/BufferedImage.h>
@@ -19,14 +18,10 @@
 #include <javax/swing/SwingUtilities.h>
 #include <javax/swing/UIDefaults.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/TitledBorder.h>
-#include <javax/swing/plaf/basic/BasicLookAndFeel.h>
 #include <javax/swing/plaf/metal/MetalLabelUI.h>
-#include <javax/swing/plaf/metal/MetalLookAndFeel.h>
 #include <javax/swing/plaf/nimbus/NimbusLookAndFeel.h>
-#include <javax/swing/plaf/synth/SynthLookAndFeel.h>
 #include <jcpp.h>
 
 #undef SIZE
@@ -34,7 +29,6 @@
 
 using $TitledBorderLabelUITest$TestLookAndFeel = ::TitledBorderLabelUITest$TestLookAndFeel;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Graphics = ::java::awt::Graphics;
 using $Graphics2D = ::java::awt::Graphics2D;
 using $BufferedImage = ::java::awt::image::BufferedImage;
@@ -53,14 +47,10 @@ using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $UIDefaults = ::javax::swing::UIDefaults;
 using $UIManager = ::javax::swing::UIManager;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $TitledBorder = ::javax::swing::border::TitledBorder;
-using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
 using $MetalLabelUI = ::javax::swing::plaf::metal::MetalLabelUI;
-using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
 using $NimbusLookAndFeel = ::javax::swing::plaf::nimbus::NimbusLookAndFeel;
-using $SynthLookAndFeel = ::javax::swing::plaf::synth::SynthLookAndFeel;
 
 class TitledBorderLabelUITest$$Lambda$createAndShowGUI : public $Runnable {
 	$class(TitledBorderLabelUITest$$Lambda$createAndShowGUI, $NO_CLASS_INIT, $Runnable)

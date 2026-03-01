@@ -7,7 +7,6 @@
 #include <java/awt/image/ColorModel.h>
 #include <java/awt/image/RenderedImage.h>
 #include <java/awt/image/WritableRaster.h>
-#include <java/awt/image/WritableRenderedImage.h>
 #include <java/io/BufferedReader.h>
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/IOException.h>
@@ -51,7 +50,6 @@ using $BufferedImage = ::java::awt::image::BufferedImage;
 using $ColorModel = ::java::awt::image::ColorModel;
 using $RenderedImage = ::java::awt::image::RenderedImage;
 using $WritableRaster = ::java::awt::image::WritableRaster;
-using $WritableRenderedImage = ::java::awt::image::WritableRenderedImage;
 using $BufferedReader = ::java::io::BufferedReader;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $IOException = ::java::io::IOException;

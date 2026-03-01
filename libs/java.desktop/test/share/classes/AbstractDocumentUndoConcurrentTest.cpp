@@ -5,7 +5,6 @@
 #include <AbstractDocumentUndoConcurrentTest$3.h>
 #include <java/text/DecimalFormat.h>
 #include <java/text/Format.h>
-#include <java/text/NumberFormat.h>
 #include <java/util/concurrent/CyclicBarrier.h>
 #include <javax/swing/event/UndoableEditListener.h>
 #include <javax/swing/text/AbstractDocument$Content.h>
@@ -25,7 +24,6 @@ using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $DecimalFormat = ::java::text::DecimalFormat;
 using $Format = ::java::text::Format;
-using $NumberFormat = ::java::text::NumberFormat;
 using $CyclicBarrier = ::java::util::concurrent::CyclicBarrier;
 using $UndoableEditListener = ::javax::swing::event::UndoableEditListener;
 using $AbstractDocument$Content = ::javax::swing::text::AbstractDocument$Content;

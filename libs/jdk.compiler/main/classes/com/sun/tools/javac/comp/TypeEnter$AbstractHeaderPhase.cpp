@@ -8,7 +8,6 @@
 #include <com/sun/tools/javac/code/Symbol.h>
 #include <com/sun/tools/javac/code/Symtab.h>
 #include <com/sun/tools/javac/code/Type$ClassType.h>
-#include <com/sun/tools/javac/code/Type$ErrorType.h>
 #include <com/sun/tools/javac/code/Type$JCNoType.h>
 #include <com/sun/tools/javac/code/Type.h>
 #include <com/sun/tools/javac/code/TypeTag.h>
@@ -19,11 +18,9 @@
 #include <com/sun/tools/javac/comp/TypeEnter$Phase.h>
 #include <com/sun/tools/javac/comp/TypeEnter.h>
 #include <com/sun/tools/javac/resources/CompilerProperties$Errors.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCClassDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCModifiers.h>
-#include <com/sun/tools/javac/tree/JCTree$JCStatement.h>
 #include <com/sun/tools/javac/tree/JCTree$JCTypeApply.h>
 #include <com/sun/tools/javac/tree/JCTree$JCTypeParameter.h>
 #include <com/sun/tools/javac/tree/JCTree.h>
@@ -51,10 +48,8 @@ using $Scope$LookupKind = ::com::sun::tools::javac::code::Scope$LookupKind;
 using $Scope$WriteableScope = ::com::sun::tools::javac::code::Scope$WriteableScope;
 using $Symbol = ::com::sun::tools::javac::code::Symbol;
 using $Symbol$ClassSymbol = ::com::sun::tools::javac::code::Symbol$ClassSymbol;
-using $Symbol$TypeSymbol = ::com::sun::tools::javac::code::Symbol$TypeSymbol;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
-using $Type$ErrorType = ::com::sun::tools::javac::code::Type$ErrorType;
 using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Attr = ::com::sun::tools::javac::comp::Attr;
 using $AttrContext = ::com::sun::tools::javac::comp::AttrContext;
@@ -64,10 +59,8 @@ using $TypeEnter$AbstractHeaderPhase$1 = ::com::sun::tools::javac::comp::TypeEnt
 using $TypeEnter$Phase = ::com::sun::tools::javac::comp::TypeEnter$Phase;
 using $CompilerProperties$Errors = ::com::sun::tools::javac::resources::CompilerProperties$Errors;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCClassDecl = ::com::sun::tools::javac::tree::JCTree$JCClassDecl;
 using $JCTree$JCExpression = ::com::sun::tools::javac::tree::JCTree$JCExpression;
-using $JCTree$JCStatement = ::com::sun::tools::javac::tree::JCTree$JCStatement;
 using $JCTree$JCTypeParameter = ::com::sun::tools::javac::tree::JCTree$JCTypeParameter;
 using $TreeMaker = ::com::sun::tools::javac::tree::TreeMaker;
 using $Dependencies$CompletionCause = ::com::sun::tools::javac::util::Dependencies$CompletionCause;

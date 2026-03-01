@@ -2,7 +2,6 @@
 
 #include <com/sun/org/apache/bcel/internal/Const.h>
 #include <com/sun/org/apache/bcel/internal/generic/BIPUSH.h>
-#include <com/sun/org/apache/bcel/internal/generic/CPInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ClassGenException.h>
 #include <com/sun/org/apache/bcel/internal/generic/CompoundInstruction.h>
 #include <com/sun/org/apache/bcel/internal/generic/ConstantPoolGen.h>
@@ -29,7 +28,6 @@
 
 using $Const = ::com::sun::org::apache::bcel::internal::Const;
 using $BIPUSH = ::com::sun::org::apache::bcel::internal::generic::BIPUSH;
-using $CPInstruction = ::com::sun::org::apache::bcel::internal::generic::CPInstruction;
 using $ClassGenException = ::com::sun::org::apache::bcel::internal::generic::ClassGenException;
 using $CompoundInstruction = ::com::sun::org::apache::bcel::internal::generic::CompoundInstruction;
 using $ConstantPoolGen = ::com::sun::org::apache::bcel::internal::generic::ConstantPoolGen;

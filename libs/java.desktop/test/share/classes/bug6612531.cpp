@@ -3,7 +3,6 @@
 #include <java/awt/Component.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/JViewport.h>
 #include <javax/swing/ScrollPaneLayout.h>
@@ -14,7 +13,6 @@ using $Container = ::java::awt::Container;
 using $PrintStream = ::java::io::PrintStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JViewport = ::javax::swing::JViewport;
 using $ScrollPaneLayout = ::javax::swing::ScrollPaneLayout;

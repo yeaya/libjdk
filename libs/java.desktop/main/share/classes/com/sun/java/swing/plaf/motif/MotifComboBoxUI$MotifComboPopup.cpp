@@ -3,7 +3,6 @@
 #include <com/sun/java/swing/plaf/motif/MotifComboBoxUI$MotifComboPopup$1.h>
 #include <com/sun/java/swing/plaf/motif/MotifComboBoxUI.h>
 #include <java/awt/event/KeyListener.h>
-#include <java/awt/event/MouseMotionAdapter.h>
 #include <java/awt/event/MouseMotionListener.h>
 #include <javax/swing/JComboBox.h>
 #include <javax/swing/plaf/basic/BasicComboPopup.h>
@@ -12,7 +11,6 @@
 using $MotifComboBoxUI = ::com::sun::java::swing::plaf::motif::MotifComboBoxUI;
 using $MotifComboBoxUI$MotifComboPopup$1 = ::com::sun::java::swing::plaf::motif::MotifComboBoxUI$MotifComboPopup$1;
 using $KeyListener = ::java::awt::event::KeyListener;
-using $MouseMotionAdapter = ::java::awt::event::MouseMotionAdapter;
 using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

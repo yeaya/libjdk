@@ -2,7 +2,6 @@
 
 #include <bug7036148$1.h>
 #include <java/awt/Window.h>
-#include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/Icon.h>
 #include <javax/swing/JFrame.h>
@@ -15,7 +14,6 @@ using $bug7036148$1 = ::bug7036148$1;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractAction = ::javax::swing::AbstractAction;
 using $Action = ::javax::swing::Action;
 using $Icon = ::javax::swing::Icon;
 using $JFrame = ::javax::swing::JFrame;

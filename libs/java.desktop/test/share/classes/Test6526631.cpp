@@ -8,13 +8,11 @@
 #include <java/awt/Point.h>
 #include <java/awt/Window.h>
 #include <java/lang/Error.h>
-#include <javax/swing/JComponent.h>
 #include <javax/swing/JFrame.h>
 #include <javax/swing/JScrollBar.h>
 #include <javax/swing/JScrollPane.h>
 #include <javax/swing/JTextArea.h>
 #include <javax/swing/JViewport.h>
-#include <javax/swing/text/JTextComponent.h>
 #include <jcpp.h>
 
 #undef COLS
@@ -25,19 +23,16 @@
 using $SwingTest = ::SwingTest;
 using $Component = ::java::awt::Component;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $Error = ::java::lang::Error;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $JComponent = ::javax::swing::JComponent;
 using $JFrame = ::javax::swing::JFrame;
 using $JScrollBar = ::javax::swing::JScrollBar;
 using $JScrollPane = ::javax::swing::JScrollPane;
 using $JTextArea = ::javax::swing::JTextArea;
 using $JViewport = ::javax::swing::JViewport;
-using $JTextComponent = ::javax::swing::text::JTextComponent;
 
 $FieldInfo _Test6526631_FieldInfo_[] = {
 	{"COLS", "I", nullptr, $PRIVATE | $STATIC | $FINAL, $constField(Test6526631, COLS)},

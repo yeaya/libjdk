@@ -3,7 +3,6 @@
 #include <java/io/BufferedInputStream.h>
 #include <java/io/FileInputStream.h>
 #include <java/io/FileNotFoundException.h>
-#include <java/io/FilterInputStream.h>
 #include <java/io/InputStream.h>
 #include <java/lang/SecurityManager.h>
 #include <sun/awt/image/ImageDecoder.h>
@@ -13,7 +12,6 @@
 using $BufferedInputStream = ::java::io::BufferedInputStream;
 using $FileInputStream = ::java::io::FileInputStream;
 using $FileNotFoundException = ::java::io::FileNotFoundException;
-using $FilterInputStream = ::java::io::FilterInputStream;
 using $InputStream = ::java::io::InputStream;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

@@ -13,7 +13,6 @@
 #include <com/sun/tools/javac/comp/Resolve$ReferenceLookupHelper.h>
 #include <com/sun/tools/javac/comp/Resolve$UnboundMethodReferenceLookupHelper.h>
 #include <com/sun/tools/javac/comp/Resolve.h>
-#include <com/sun/tools/javac/tree/JCTree$JCCaseLabel.h>
 #include <com/sun/tools/javac/tree/JCTree$JCExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCMemberReference$ReferenceKind.h>
 #include <com/sun/tools/javac/tree/JCTree$JCMemberReference.h>
@@ -41,7 +40,6 @@ using $Resolve$MethodResolutionPhase = ::com::sun::tools::javac::comp::Resolve$M
 using $Resolve$ReferenceLookupHelper = ::com::sun::tools::javac::comp::Resolve$ReferenceLookupHelper;
 using $Resolve$UnboundMethodReferenceLookupHelper = ::com::sun::tools::javac::comp::Resolve$UnboundMethodReferenceLookupHelper;
 using $JCTree = ::com::sun::tools::javac::tree::JCTree;
-using $JCTree$JCCaseLabel = ::com::sun::tools::javac::tree::JCTree$JCCaseLabel;
 using $JCTree$JCMemberReference = ::com::sun::tools::javac::tree::JCTree$JCMemberReference;
 using $JCTree$JCMemberReference$ReferenceKind = ::com::sun::tools::javac::tree::JCTree$JCMemberReference$ReferenceKind;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;

@@ -2,7 +2,6 @@
 
 #include <java/io/ByteArrayOutputStream.h>
 #include <java/io/DataOutputStream.h>
-#include <java/io/FilterOutputStream.h>
 #include <java/io/IOException.h>
 #include <java/io/OutputStream.h>
 #include <java/io/Serializable.h>
@@ -14,7 +13,6 @@
 #include <java/lang/InstantiationException.h>
 #include <java/lang/Math.h>
 #include <java/lang/NoSuchMethodException.h>
-#include <java/lang/ReflectiveOperationException.h>
 #include <java/lang/SecurityException.h>
 #include <java/lang/invoke/CallSite.h>
 #include <java/lang/invoke/LambdaMetafactory.h>
@@ -29,7 +27,6 @@
 #include <java/rmi/RemoteException.h>
 #include <java/rmi/StubNotFoundException.h>
 #include <java/rmi/server/LogStream.h>
-#include <java/rmi/server/RemoteObject.h>
 #include <java/rmi/server/RemoteObjectInvocationHandler.h>
 #include <java/rmi/server/RemoteRef.h>
 #include <java/rmi/server/RemoteStub.h>
@@ -40,7 +37,6 @@
 #include <java/security/MessageDigest.h>
 #include <java/security/NoSuchAlgorithmException.h>
 #include <java/security/PrivilegedAction.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/ArrayList.h>
 #include <java/util/Collections.h>
 #include <java/util/Map.h>
@@ -56,7 +52,6 @@
 using $MethodArray = $Array<::java::lang::reflect::Method>;
 using $ByteArrayOutputStream = ::java::io::ByteArrayOutputStream;
 using $DataOutputStream = ::java::io::DataOutputStream;
-using $FilterOutputStream = ::java::io::FilterOutputStream;
 using $IOException = ::java::io::IOException;
 using $OutputStream = ::java::io::OutputStream;
 using $Serializable = ::java::io::Serializable;
@@ -81,8 +76,6 @@ using $Long = ::java::lang::Long;
 using $Math = ::java::lang::Math;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $NoSuchMethodException = ::java::lang::NoSuchMethodException;
-using $ReflectiveOperationException = ::java::lang::ReflectiveOperationException;
-using $RuntimeException = ::java::lang::RuntimeException;
 using $SecurityException = ::java::lang::SecurityException;
 using $Short = ::java::lang::Short;
 using $Void = ::java::lang::Void;
@@ -95,7 +88,6 @@ using $Remote = ::java::rmi::Remote;
 using $RemoteException = ::java::rmi::RemoteException;
 using $StubNotFoundException = ::java::rmi::StubNotFoundException;
 using $LogStream = ::java::rmi::server::LogStream;
-using $RemoteObject = ::java::rmi::server::RemoteObject;
 using $RemoteObjectInvocationHandler = ::java::rmi::server::RemoteObjectInvocationHandler;
 using $RemoteRef = ::java::rmi::server::RemoteRef;
 using $RemoteStub = ::java::rmi::server::RemoteStub;
@@ -106,7 +98,6 @@ using $DigestOutputStream = ::java::security::DigestOutputStream;
 using $MessageDigest = ::java::security::MessageDigest;
 using $NoSuchAlgorithmException = ::java::security::NoSuchAlgorithmException;
 using $PrivilegedAction = ::java::security::PrivilegedAction;
-using $AbstractMap = ::java::util::AbstractMap;
 using $ArrayList = ::java::util::ArrayList;
 using $Collections = ::java::util::Collections;
 using $Map = ::java::util::Map;

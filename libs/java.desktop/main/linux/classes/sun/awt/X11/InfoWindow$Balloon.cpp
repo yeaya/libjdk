@@ -2,10 +2,8 @@
 
 #include <java/awt/BorderLayout.h>
 #include <java/awt/Button.h>
-#include <java/awt/Canvas.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/Font.h>
 #include <java/awt/Frame.h>
@@ -13,12 +11,10 @@
 #include <java/awt/Image.h>
 #include <java/awt/Label.h>
 #include <java/awt/LayoutManager.h>
-#include <java/awt/LayoutManager2.h>
 #include <java/awt/Panel.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionListener.h>
-#include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseListener.h>
 #include <java/lang/Runnable.h>
 #include <java/text/BreakIterator.h>
@@ -55,10 +51,8 @@
 using $LabelArray = $Array<::java::awt::Label>;
 using $BorderLayout = ::java::awt::BorderLayout;
 using $Button = ::java::awt::Button;
-using $Canvas = ::java::awt::Canvas;
 using $Color = ::java::awt::Color;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Dimension = ::java::awt::Dimension;
 using $Font = ::java::awt::Font;
 using $Frame = ::java::awt::Frame;
@@ -66,12 +60,10 @@ using $GridLayout = ::java::awt::GridLayout;
 using $Image = ::java::awt::Image;
 using $Label = ::java::awt::Label;
 using $LayoutManager = ::java::awt::LayoutManager;
-using $LayoutManager2 = ::java::awt::LayoutManager2;
 using $Panel = ::java::awt::Panel;
 using $Toolkit = ::java::awt::Toolkit;
 using $Window = ::java::awt::Window;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseListener = ::java::awt::event::MouseListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

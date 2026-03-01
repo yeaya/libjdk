@@ -3,7 +3,6 @@
 #include <java/awt/BufferCapabilities.h>
 #include <java/awt/Component.h>
 #include <java/awt/Graphics.h>
-#include <java/awt/Graphics2D.h>
 #include <java/awt/GraphicsConfiguration.h>
 #include <java/awt/Image.h>
 #include <java/awt/Insets.h>
@@ -21,7 +20,6 @@ using $VolatileImageArray = $Array<::java::awt::image::VolatileImage>;
 using $BufferCapabilities = ::java::awt::BufferCapabilities;
 using $Component = ::java::awt::Component;
 using $Graphics = ::java::awt::Graphics;
-using $Graphics2D = ::java::awt::Graphics2D;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $Image = ::java::awt::Image;
 using $Insets = ::java::awt::Insets;

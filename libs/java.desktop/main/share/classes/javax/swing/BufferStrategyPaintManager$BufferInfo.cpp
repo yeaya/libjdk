@@ -48,7 +48,6 @@ using $WindowEvent = ::java::awt::event::WindowEvent;
 using $WindowListener = ::java::awt::event::WindowListener;
 using $BufferStrategy = ::java::awt::image::BufferStrategy;
 using $ClassInfo = ::java::lang::ClassInfo;
-using $Exception = ::java::lang::Exception;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $InterruptedException = ::java::lang::InterruptedException;

@@ -14,16 +14,13 @@
 #include <java/awt/Toolkit.h>
 #include <java/awt/Window.h>
 #include <java/awt/event/ActionListener.h>
-#include <java/awt/event/FocusAdapter.h>
 #include <java/awt/event/FocusListener.h>
 #include <java/awt/event/InputEvent.h>
-#include <java/awt/event/KeyAdapter.h>
 #include <java/awt/event/KeyEvent.h>
 #include <java/awt/event/KeyListener.h>
 #include <java/awt/event/MouseAdapter.h>
 #include <java/awt/event/MouseEvent.h>
 #include <java/awt/event/MouseListener.h>
-#include <java/awt/event/MouseMotionAdapter.h>
 #include <java/awt/event/MouseMotionListener.h>
 #include <java/lang/Math.h>
 #include <java/util/EventObject.h>
@@ -73,16 +70,13 @@ using $Rectangle = ::java::awt::Rectangle;
 using $Toolkit = ::java::awt::Toolkit;
 using $Window = ::java::awt::Window;
 using $ActionListener = ::java::awt::event::ActionListener;
-using $FocusAdapter = ::java::awt::event::FocusAdapter;
 using $FocusListener = ::java::awt::event::FocusListener;
 using $InputEvent = ::java::awt::event::InputEvent;
-using $KeyAdapter = ::java::awt::event::KeyAdapter;
 using $KeyEvent = ::java::awt::event::KeyEvent;
 using $KeyListener = ::java::awt::event::KeyListener;
 using $MouseAdapter = ::java::awt::event::MouseAdapter;
 using $MouseEvent = ::java::awt::event::MouseEvent;
 using $MouseListener = ::java::awt::event::MouseListener;
-using $MouseMotionAdapter = ::java::awt::event::MouseMotionAdapter;
 using $MouseMotionListener = ::java::awt::event::MouseMotionListener;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;

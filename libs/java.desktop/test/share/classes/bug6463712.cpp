@@ -1,6 +1,5 @@
 #include <bug6463712.h>
 
-#include <javax/swing/AbstractSpinnerModel.h>
 #include <javax/swing/JSpinner.h>
 #include <javax/swing/SpinnerDateModel.h>
 #include <javax/swing/SpinnerModel.h>
@@ -13,7 +12,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $RuntimeException = ::java::lang::RuntimeException;
-using $AbstractSpinnerModel = ::javax::swing::AbstractSpinnerModel;
 using $JSpinner = ::javax::swing::JSpinner;
 using $SpinnerDateModel = ::javax::swing::SpinnerDateModel;
 using $SpinnerModel = ::javax::swing::SpinnerModel;

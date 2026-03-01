@@ -5,7 +5,6 @@
 #include <com/sun/source/tree/MemberReferenceTree$ReferenceMode.h>
 #include <com/sun/source/tree/ModifiersTree.h>
 #include <com/sun/source/tree/TreeVisitor.h>
-#include <com/sun/source/util/SimpleTreeVisitor.h>
 #include <com/sun/tools/javac/code/Attribute$Compound.h>
 #include <com/sun/tools/javac/code/BoundKind.h>
 #include <com/sun/tools/javac/code/DeferredLintHandler.h>
@@ -35,14 +34,12 @@
 #include <com/sun/tools/javac/code/Symtab.h>
 #include <com/sun/tools/javac/code/Type$ArrayType.h>
 #include <com/sun/tools/javac/code/Type$ClassType.h>
-#include <com/sun/tools/javac/code/Type$DelegatedType.h>
 #include <com/sun/tools/javac/code/Type$ForAll.h>
 #include <com/sun/tools/javac/code/Type$IntersectionClassType.h>
 #include <com/sun/tools/javac/code/Type$JCNoType.h>
 #include <com/sun/tools/javac/code/Type$JCPrimitiveType.h>
 #include <com/sun/tools/javac/code/Type$JCVoidType.h>
 #include <com/sun/tools/javac/code/Type$MethodType.h>
-#include <com/sun/tools/javac/code/Type$StructuralTypeMapping.h>
 #include <com/sun/tools/javac/code/Type$TypeVar.h>
 #include <com/sun/tools/javac/code/Type$UndetVar.h>
 #include <com/sun/tools/javac/code/Type$UnionClassType.h>
@@ -89,14 +86,12 @@
 #include <com/sun/tools/javac/comp/AttrContext.h>
 #include <com/sun/tools/javac/comp/AttrRecover.h>
 #include <com/sun/tools/javac/comp/Check$CheckContext.h>
-#include <com/sun/tools/javac/comp/Check$NestedCheckContext.h>
 #include <com/sun/tools/javac/comp/Check.h>
 #include <com/sun/tools/javac/comp/ConstFold.h>
 #include <com/sun/tools/javac/comp/DeferredAttr$AttrMode.h>
 #include <com/sun/tools/javac/comp/DeferredAttr$AttributionMode.h>
 #include <com/sun/tools/javac/comp/DeferredAttr$DeferredAttrContext.h>
 #include <com/sun/tools/javac/comp/DeferredAttr$DeferredTypeMap.h>
-#include <com/sun/tools/javac/comp/DeferredAttr$RecoveryDeferredTypeMap.h>
 #include <com/sun/tools/javac/comp/DeferredAttr.h>
 #include <com/sun/tools/javac/comp/Enter.h>
 #include <com/sun/tools/javac/comp/Env.h>
@@ -109,11 +104,9 @@
 #include <com/sun/tools/javac/comp/MatchBindingsComputer.h>
 #include <com/sun/tools/javac/comp/MemberEnter.h>
 #include <com/sun/tools/javac/comp/Operators.h>
-#include <com/sun/tools/javac/comp/Resolve$AbstractMethodCheck.h>
 #include <com/sun/tools/javac/comp/Resolve$AccessError.h>
 #include <com/sun/tools/javac/comp/Resolve$InapplicableMethodException.h>
 #include <com/sun/tools/javac/comp/Resolve$InapplicableSymbolError.h>
-#include <com/sun/tools/javac/comp/Resolve$InvalidSymbolError.h>
 #include <com/sun/tools/javac/comp/Resolve$LogResolveHelper.h>
 #include <com/sun/tools/javac/comp/Resolve$MethodCheck.h>
 #include <com/sun/tools/javac/comp/Resolve$MethodReferenceCheck.h>
@@ -176,7 +169,6 @@
 #include <com/sun/tools/javac/tree/JCTree$JCModuleDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCNewArray.h>
 #include <com/sun/tools/javac/tree/JCTree$JCNewClass.h>
-#include <com/sun/tools/javac/tree/JCTree$JCOperatorExpression.h>
 #include <com/sun/tools/javac/tree/JCTree$JCPackageDecl.h>
 #include <com/sun/tools/javac/tree/JCTree$JCParens.h>
 #include <com/sun/tools/javac/tree/JCTree$JCParenthesizedPattern.h>
@@ -209,7 +201,6 @@
 #include <com/sun/tools/javac/tree/TreeInfo$PatternPrimaryType.h>
 #include <com/sun/tools/javac/tree/TreeInfo.h>
 #include <com/sun/tools/javac/tree/TreeMaker.h>
-#include <com/sun/tools/javac/tree/TreeScanner.h>
 #include <com/sun/tools/javac/tree/TreeTranslator.h>
 #include <com/sun/tools/javac/util/Assert.h>
 #include <com/sun/tools/javac/util/Context$Key.h>
@@ -244,8 +235,6 @@
 #include <java/lang/invoke/MethodHandle.h>
 #include <java/lang/invoke/MethodHandles$Lookup.h>
 #include <java/lang/invoke/MethodType.h>
-#include <java/util/AbstractMap.h>
-#include <java/util/AbstractSet.h>
 #include <java/util/EnumSet.h>
 #include <java/util/HashMap.h>
 #include <java/util/HashSet.h>
@@ -372,7 +361,6 @@ using $CaseTree$CaseKind = ::com::sun::source::tree::CaseTree$CaseKind;
 using $LambdaExpressionTree$BodyKind = ::com::sun::source::tree::LambdaExpressionTree$BodyKind;
 using $MemberReferenceTree$ReferenceMode = ::com::sun::source::tree::MemberReferenceTree$ReferenceMode;
 using $TreeVisitor = ::com::sun::source::tree::TreeVisitor;
-using $SimpleTreeVisitor = ::com::sun::source::util::SimpleTreeVisitor;
 using $Attribute$Compound = ::com::sun::tools::javac::code::Attribute$Compound;
 using $BoundKind = ::com::sun::tools::javac::code::BoundKind;
 using $DeferredLintHandler = ::com::sun::tools::javac::code::DeferredLintHandler;
@@ -403,11 +391,9 @@ using $Symtab = ::com::sun::tools::javac::code::Symtab;
 using $Type = ::com::sun::tools::javac::code::Type;
 using $Type$ArrayType = ::com::sun::tools::javac::code::Type$ArrayType;
 using $Type$ClassType = ::com::sun::tools::javac::code::Type$ClassType;
-using $Type$DelegatedType = ::com::sun::tools::javac::code::Type$DelegatedType;
 using $Type$ForAll = ::com::sun::tools::javac::code::Type$ForAll;
 using $Type$IntersectionClassType = ::com::sun::tools::javac::code::Type$IntersectionClassType;
 using $Type$MethodType = ::com::sun::tools::javac::code::Type$MethodType;
-using $Type$StructuralTypeMapping = ::com::sun::tools::javac::code::Type$StructuralTypeMapping;
 using $Type$TypeVar = ::com::sun::tools::javac::code::Type$TypeVar;
 using $Type$UndetVar = ::com::sun::tools::javac::code::Type$UndetVar;
 using $Type$UnionClassType = ::com::sun::tools::javac::code::Type$UnionClassType;
@@ -418,7 +404,6 @@ using $TypeTag = ::com::sun::tools::javac::code::TypeTag;
 using $Types = ::com::sun::tools::javac::code::Types;
 using $Types$FunctionDescriptorLookupError = ::com::sun::tools::javac::code::Types$FunctionDescriptorLookupError;
 using $Types$MapVisitor = ::com::sun::tools::javac::code::Types$MapVisitor;
-using $Types$TypeMapping = ::com::sun::tools::javac::code::Types$TypeMapping;
 using $Analyzer = ::com::sun::tools::javac::comp::Analyzer;
 using $Annotate = ::com::sun::tools::javac::comp::Annotate;
 using $Annotate$AnnotationTypeMetadata = ::com::sun::tools::javac::comp::Annotate$AnnotationTypeMetadata;
@@ -453,13 +438,11 @@ using $AttrContext = ::com::sun::tools::javac::comp::AttrContext;
 using $AttrRecover = ::com::sun::tools::javac::comp::AttrRecover;
 using $Check = ::com::sun::tools::javac::comp::Check;
 using $Check$CheckContext = ::com::sun::tools::javac::comp::Check$CheckContext;
-using $Check$NestedCheckContext = ::com::sun::tools::javac::comp::Check$NestedCheckContext;
 using $ConstFold = ::com::sun::tools::javac::comp::ConstFold;
 using $DeferredAttr = ::com::sun::tools::javac::comp::DeferredAttr;
 using $DeferredAttr$AttrMode = ::com::sun::tools::javac::comp::DeferredAttr$AttrMode;
 using $DeferredAttr$AttributionMode = ::com::sun::tools::javac::comp::DeferredAttr$AttributionMode;
 using $DeferredAttr$DeferredTypeMap = ::com::sun::tools::javac::comp::DeferredAttr$DeferredTypeMap;
-using $DeferredAttr$RecoveryDeferredTypeMap = ::com::sun::tools::javac::comp::DeferredAttr$RecoveryDeferredTypeMap;
 using $Enter = ::com::sun::tools::javac::comp::Enter;
 using $Env = ::com::sun::tools::javac::comp::Env;
 using $Flow = ::com::sun::tools::javac::comp::Flow;
@@ -472,11 +455,9 @@ using $MatchBindingsComputer$MatchBindings = ::com::sun::tools::javac::comp::Mat
 using $MemberEnter = ::com::sun::tools::javac::comp::MemberEnter;
 using $Operators = ::com::sun::tools::javac::comp::Operators;
 using $Resolve = ::com::sun::tools::javac::comp::Resolve;
-using $Resolve$AbstractMethodCheck = ::com::sun::tools::javac::comp::Resolve$AbstractMethodCheck;
 using $Resolve$AccessError = ::com::sun::tools::javac::comp::Resolve$AccessError;
 using $Resolve$InapplicableMethodException = ::com::sun::tools::javac::comp::Resolve$InapplicableMethodException;
 using $Resolve$InapplicableSymbolError = ::com::sun::tools::javac::comp::Resolve$InapplicableSymbolError;
-using $Resolve$InvalidSymbolError = ::com::sun::tools::javac::comp::Resolve$InvalidSymbolError;
 using $Resolve$LogResolveHelper = ::com::sun::tools::javac::comp::Resolve$LogResolveHelper;
 using $Resolve$MethodCheck = ::com::sun::tools::javac::comp::Resolve$MethodCheck;
 using $Resolve$MethodReferenceCheck = ::com::sun::tools::javac::comp::Resolve$MethodReferenceCheck;
@@ -537,7 +518,6 @@ using $JCTree$JCModifiers = ::com::sun::tools::javac::tree::JCTree$JCModifiers;
 using $JCTree$JCModuleDecl = ::com::sun::tools::javac::tree::JCTree$JCModuleDecl;
 using $JCTree$JCNewArray = ::com::sun::tools::javac::tree::JCTree$JCNewArray;
 using $JCTree$JCNewClass = ::com::sun::tools::javac::tree::JCTree$JCNewClass;
-using $JCTree$JCOperatorExpression = ::com::sun::tools::javac::tree::JCTree$JCOperatorExpression;
 using $JCTree$JCPackageDecl = ::com::sun::tools::javac::tree::JCTree$JCPackageDecl;
 using $JCTree$JCParens = ::com::sun::tools::javac::tree::JCTree$JCParens;
 using $JCTree$JCParenthesizedPattern = ::com::sun::tools::javac::tree::JCTree$JCParenthesizedPattern;
@@ -568,7 +548,6 @@ using $JCTree$Visitor = ::com::sun::tools::javac::tree::JCTree$Visitor;
 using $TreeInfo = ::com::sun::tools::javac::tree::TreeInfo;
 using $TreeInfo$PatternPrimaryType = ::com::sun::tools::javac::tree::TreeInfo$PatternPrimaryType;
 using $TreeMaker = ::com::sun::tools::javac::tree::TreeMaker;
-using $TreeScanner = ::com::sun::tools::javac::tree::TreeScanner;
 using $TreeTranslator = ::com::sun::tools::javac::tree::TreeTranslator;
 using $Assert = ::com::sun::tools::javac::util::Assert;
 using $Context = ::com::sun::tools::javac::util::Context;
@@ -604,8 +583,6 @@ using $Integer = ::java::lang::Integer;
 using $Iterable = ::java::lang::Iterable;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $MethodHandle = ::java::lang::invoke::MethodHandle;
-using $AbstractMap = ::java::util::AbstractMap;
-using $AbstractSet = ::java::util::AbstractSet;
 using $HashMap = ::java::util::HashMap;
 using $HashSet = ::java::util::HashSet;
 using $Iterator = ::java::util::Iterator;

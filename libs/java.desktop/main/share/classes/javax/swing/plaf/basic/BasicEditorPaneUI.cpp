@@ -4,7 +4,6 @@
 #include <java/awt/Component.h>
 #include <java/awt/Font.h>
 #include <java/beans/PropertyChangeEvent.h>
-#include <javax/swing/AbstractAction.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ActionMap.h>
 #include <javax/swing/JComponent.h>
@@ -13,7 +12,6 @@
 #include <javax/swing/TransferHandler.h>
 #include <javax/swing/plaf/ActionMapUIResource.h>
 #include <javax/swing/plaf/ComponentUI.h>
-#include <javax/swing/plaf/TextUI.h>
 #include <javax/swing/plaf/basic/BasicEditorPaneUI$StyleSheetUIResource.h>
 #include <javax/swing/plaf/basic/BasicTextPaneUI.h>
 #include <javax/swing/plaf/basic/BasicTextUI$FocusAction.h>
@@ -49,7 +47,6 @@ using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
 using $MethodInfo = ::java::lang::MethodInfo;
-using $AbstractAction = ::javax::swing::AbstractAction;
 using $Action = ::javax::swing::Action;
 using $ActionMap = ::javax::swing::ActionMap;
 using $JComponent = ::javax::swing::JComponent;
@@ -58,7 +55,6 @@ using $SwingUtilities = ::javax::swing::SwingUtilities;
 using $TransferHandler = ::javax::swing::TransferHandler;
 using $ActionMapUIResource = ::javax::swing::plaf::ActionMapUIResource;
 using $ComponentUI = ::javax::swing::plaf::ComponentUI;
-using $TextUI = ::javax::swing::plaf::TextUI;
 using $BasicEditorPaneUI$StyleSheetUIResource = ::javax::swing::plaf::basic::BasicEditorPaneUI$StyleSheetUIResource;
 using $BasicTextPaneUI = ::javax::swing::plaf::basic::BasicTextPaneUI;
 using $BasicTextUI = ::javax::swing::plaf::basic::BasicTextUI;

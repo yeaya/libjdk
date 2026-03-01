@@ -4,7 +4,6 @@
 #include <java/awt/print/PageFormat.h>
 #include <java/awt/print/Printable.h>
 #include <java/util/Collection.h>
-#include <java/util/Deque.h>
 #include <java/util/LinkedList.h>
 #include <java/util/List.h>
 #include <java/util/Queue.h>
@@ -21,7 +20,6 @@ using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Collection = ::java::util::Collection;
-using $Deque = ::java::util::Deque;
 using $LinkedList = ::java::util::LinkedList;
 using $List = ::java::util::List;
 using $Queue = ::java::util::Queue;

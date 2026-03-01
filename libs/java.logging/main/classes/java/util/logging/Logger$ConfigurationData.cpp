@@ -3,7 +3,6 @@
 #include <java/lang/InternalError.h>
 #include <java/util/Collection.h>
 #include <java/util/Iterator.h>
-#include <java/util/List.h>
 #include <java/util/concurrent/CopyOnWriteArrayList.h>
 #include <java/util/logging/Filter.h>
 #include <java/util/logging/Handler.h>
@@ -20,7 +19,6 @@ using $InternalError = ::java::lang::InternalError;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $Collection = ::java::util::Collection;
 using $Iterator = ::java::util::Iterator;
-using $List = ::java::util::List;
 using $CopyOnWriteArrayList = ::java::util::concurrent::CopyOnWriteArrayList;
 using $Filter = ::java::util::logging::Filter;
 using $Handler = ::java::util::logging::Handler;

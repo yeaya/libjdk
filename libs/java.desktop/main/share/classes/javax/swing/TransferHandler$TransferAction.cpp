@@ -2,7 +2,6 @@
 
 #include <java/awt/AWTEvent.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Toolkit.h>
 #include <java/awt/datatransfer/Clipboard.h>
 #include <java/awt/datatransfer/Transferable.h>
@@ -33,7 +32,6 @@
 
 using $AWTEvent = ::java::awt::AWTEvent;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Toolkit = ::java::awt::Toolkit;
 using $Clipboard = ::java::awt::datatransfer::Clipboard;
 using $Transferable = ::java::awt::datatransfer::Transferable;

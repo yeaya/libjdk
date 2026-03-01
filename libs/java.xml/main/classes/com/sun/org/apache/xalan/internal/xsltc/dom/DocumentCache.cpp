@@ -15,7 +15,6 @@
 #include <java/net/URLConnection.h>
 #include <java/nio/file/Path.h>
 #include <java/nio/file/Paths.h>
-#include <java/util/AbstractMap.h>
 #include <java/util/Date.h>
 #include <java/util/HashMap.h>
 #include <java/util/Map.h>
@@ -50,7 +49,6 @@ using $URL = ::java::net::URL;
 using $URLConnection = ::java::net::URLConnection;
 using $Path = ::java::nio::file::Path;
 using $Paths = ::java::nio::file::Paths;
-using $AbstractMap = ::java::util::AbstractMap;
 using $Date = ::java::util::Date;
 using $HashMap = ::java::util::HashMap;
 using $Map = ::java::util::Map;

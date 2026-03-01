@@ -12,11 +12,9 @@
 #include <java/awt/image/FilteredImageSource.h>
 #include <java/awt/image/ImageFilter.h>
 #include <java/awt/image/ImageProducer.h>
-#include <java/awt/image/RGBImageFilter.h>
 #include <java/lang/NumberFormatException.h>
 #include <java/util/List.h>
 #include <javax/swing/Icon.h>
-#include <javax/swing/ImageIcon.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JToolBar.h>
 #include <javax/swing/UIManager.h>
@@ -41,7 +39,6 @@ using $Toolkit = ::java::awt::Toolkit;
 using $FilteredImageSource = ::java::awt::image::FilteredImageSource;
 using $ImageFilter = ::java::awt::image::ImageFilter;
 using $ImageProducer = ::java::awt::image::ImageProducer;
-using $RGBImageFilter = ::java::awt::image::RGBImageFilter;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $Integer = ::java::lang::Integer;
@@ -49,7 +46,6 @@ using $MethodInfo = ::java::lang::MethodInfo;
 using $NumberFormatException = ::java::lang::NumberFormatException;
 using $List = ::java::util::List;
 using $Icon = ::javax::swing::Icon;
-using $ImageIcon = ::javax::swing::ImageIcon;
 using $JComponent = ::javax::swing::JComponent;
 using $JToolBar = ::javax::swing::JToolBar;
 using $UIManager = ::javax::swing::UIManager;

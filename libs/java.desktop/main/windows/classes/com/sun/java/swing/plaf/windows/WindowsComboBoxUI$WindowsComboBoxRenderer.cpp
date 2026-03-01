@@ -5,15 +5,11 @@
 #include <com/sun/java/swing/plaf/windows/WindowsComboBoxUI.h>
 #include <java/awt/Color.h>
 #include <java/awt/Component.h>
-#include <java/awt/Container.h>
 #include <java/awt/Insets.h>
 #include <javax/swing/JComponent.h>
-#include <javax/swing/JLabel.h>
 #include <javax/swing/JList.h>
-#include <javax/swing/border/AbstractBorder.h>
 #include <javax/swing/border/Border.h>
 #include <javax/swing/border/EmptyBorder.h>
-#include <javax/swing/border/LineBorder.h>
 #include <javax/swing/plaf/basic/BasicComboBoxRenderer$UIResource.h>
 #include <javax/swing/plaf/basic/BasicComboBoxRenderer.h>
 #include <sun/swing/StringUIClientPropertyKey.h>
@@ -25,20 +21,15 @@
 using $WindowsBorders$DashedBorder = ::com::sun::java::swing::plaf::windows::WindowsBorders$DashedBorder;
 using $WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder = ::com::sun::java::swing::plaf::windows::WindowsComboBoxUI$WindowsComboBoxRenderer$WindowsComboBoxDashedBorder;
 using $Component = ::java::awt::Component;
-using $Container = ::java::awt::Container;
 using $Insets = ::java::awt::Insets;
 using $ClassInfo = ::java::lang::ClassInfo;
 using $FieldInfo = ::java::lang::FieldInfo;
 using $InnerClassInfo = ::java::lang::InnerClassInfo;
 using $MethodInfo = ::java::lang::MethodInfo;
 using $JComponent = ::javax::swing::JComponent;
-using $JLabel = ::javax::swing::JLabel;
 using $JList = ::javax::swing::JList;
-using $AbstractBorder = ::javax::swing::border::AbstractBorder;
 using $Border = ::javax::swing::border::Border;
 using $EmptyBorder = ::javax::swing::border::EmptyBorder;
-using $LineBorder = ::javax::swing::border::LineBorder;
-using $BasicComboBoxRenderer = ::javax::swing::plaf::basic::BasicComboBoxRenderer;
 using $BasicComboBoxRenderer$UIResource = ::javax::swing::plaf::basic::BasicComboBoxRenderer$UIResource;
 using $StringUIClientPropertyKey = ::sun::swing::StringUIClientPropertyKey;
 

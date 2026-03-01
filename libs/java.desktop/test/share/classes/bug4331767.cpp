@@ -5,8 +5,6 @@
 #include <javax/swing/JButton.h>
 #include <javax/swing/LookAndFeel.h>
 #include <javax/swing/UIManager.h>
-#include <javax/swing/plaf/basic/BasicLookAndFeel.h>
-#include <javax/swing/plaf/metal/MetalLookAndFeel.h>
 #include <jcpp.h>
 
 using $bug4331767$BrokenLookAndFeel = ::bug4331767$BrokenLookAndFeel;
@@ -20,8 +18,6 @@ using $RuntimeException = ::java::lang::RuntimeException;
 using $JButton = ::javax::swing::JButton;
 using $LookAndFeel = ::javax::swing::LookAndFeel;
 using $UIManager = ::javax::swing::UIManager;
-using $BasicLookAndFeel = ::javax::swing::plaf::basic::BasicLookAndFeel;
-using $MetalLookAndFeel = ::javax::swing::plaf::metal::MetalLookAndFeel;
 
 $FieldInfo _bug4331767_FieldInfo_[] = {
 	{"passed", "Z", nullptr, $PRIVATE | $STATIC, $staticField(bug4331767, passed)},

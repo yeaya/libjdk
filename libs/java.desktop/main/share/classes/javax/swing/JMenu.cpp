@@ -1,9 +1,7 @@
 #include <javax/swing/JMenu.h>
 
-#include <java/awt/Component$AccessibleAWTComponent.h>
 #include <java/awt/Component.h>
 #include <java/awt/ComponentOrientation.h>
-#include <java/awt/Container$AccessibleAWTContainer.h>
 #include <java/awt/Container.h>
 #include <java/awt/Dimension.h>
 #include <java/awt/GraphicsConfiguration.h>
@@ -21,23 +19,18 @@
 #include <java/util/EventListener.h>
 #include <java/util/Vector.h>
 #include <javax/accessibility/AccessibleContext.h>
-#include <javax/swing/AbstractButton$AccessibleAbstractButton.h>
-#include <javax/swing/AbstractButton.h>
 #include <javax/swing/Action.h>
 #include <javax/swing/ButtonModel.h>
 #include <javax/swing/JButton.h>
-#include <javax/swing/JComponent$AccessibleJComponent.h>
 #include <javax/swing/JComponent.h>
 #include <javax/swing/JMenu$1.h>
 #include <javax/swing/JMenu$AccessibleJMenu.h>
 #include <javax/swing/JMenu$MenuChangeListener.h>
 #include <javax/swing/JMenu$WinListener.h>
 #include <javax/swing/JMenuBar.h>
-#include <javax/swing/JMenuItem$AccessibleJMenuItem.h>
 #include <javax/swing/JMenuItem.h>
 #include <javax/swing/JPopupMenu$Separator.h>
 #include <javax/swing/JPopupMenu.h>
-#include <javax/swing/JSeparator.h>
 #include <javax/swing/KeyStroke.h>
 #include <javax/swing/MenuElement.h>
 #include <javax/swing/MenuSelectionManager.h>
@@ -64,10 +57,8 @@ using $GraphicsDeviceArray = $Array<::java::awt::GraphicsDevice>;
 using $MenuElementArray = $Array<::javax::swing::MenuElement>;
 using $MenuListenerArray = $Array<::javax::swing::event::MenuListener>;
 using $Component = ::java::awt::Component;
-using $Component$AccessibleAWTComponent = ::java::awt::Component$AccessibleAWTComponent;
 using $ComponentOrientation = ::java::awt::ComponentOrientation;
 using $Container = ::java::awt::Container;
-using $Container$AccessibleAWTContainer = ::java::awt::Container$AccessibleAWTContainer;
 using $Dimension = ::java::awt::Dimension;
 using $GraphicsConfiguration = ::java::awt::GraphicsConfiguration;
 using $GraphicsDevice = ::java::awt::GraphicsDevice;
@@ -91,23 +82,18 @@ using $NamedAttribute = ::java::lang::NamedAttribute;
 using $EventListener = ::java::util::EventListener;
 using $Vector = ::java::util::Vector;
 using $AccessibleContext = ::javax::accessibility::AccessibleContext;
-using $AbstractButton = ::javax::swing::AbstractButton;
-using $AbstractButton$AccessibleAbstractButton = ::javax::swing::AbstractButton$AccessibleAbstractButton;
 using $Action = ::javax::swing::Action;
 using $ButtonModel = ::javax::swing::ButtonModel;
 using $JButton = ::javax::swing::JButton;
 using $JComponent = ::javax::swing::JComponent;
-using $JComponent$AccessibleJComponent = ::javax::swing::JComponent$AccessibleJComponent;
 using $JMenu$1 = ::javax::swing::JMenu$1;
 using $JMenu$AccessibleJMenu = ::javax::swing::JMenu$AccessibleJMenu;
 using $JMenu$MenuChangeListener = ::javax::swing::JMenu$MenuChangeListener;
 using $JMenu$WinListener = ::javax::swing::JMenu$WinListener;
 using $JMenuBar = ::javax::swing::JMenuBar;
 using $JMenuItem = ::javax::swing::JMenuItem;
-using $JMenuItem$AccessibleJMenuItem = ::javax::swing::JMenuItem$AccessibleJMenuItem;
 using $JPopupMenu = ::javax::swing::JPopupMenu;
 using $JPopupMenu$Separator = ::javax::swing::JPopupMenu$Separator;
-using $JSeparator = ::javax::swing::JSeparator;
 using $KeyStroke = ::javax::swing::KeyStroke;
 using $MenuElement = ::javax::swing::MenuElement;
 using $MenuSelectionManager = ::javax::swing::MenuSelectionManager;
